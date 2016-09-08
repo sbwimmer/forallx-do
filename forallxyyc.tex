@@ -1,0 +1,33 @@
+\documentclass[oneside, 10pt, a4paper]{memoir}
+\usepackage{forallxyyc}
+\begin{document}
+\midsloppy
+
+\pagestyle{forallxpage}
+
+\frontmatter
+\include{forallx-yyc-frontmatter}
+
+\newpage
+\tableofcontents*
+
+\mainmatter
+\include{forallx-yyc-what}
+\include{forallx-yyc-tfl}
+\include{forallx-yyc-truthtables}
+\include{forallx-yyc-fol}
+\include{forallx-yyc-interpretations}
+\include{forallx-yyc-prooftfl}
+\include{forallx-yyc-prooffol}
+
+\makeatletter 
+\setcounter{chapter}{0}
+\renewcommand*{\thechapter}{\Alph{chapter}} %TB: appendix sections have letters
+\renewcommand*{\thesection}{\Alph{chapter}.\arabic{section}} %TB: appendix sections have letters
+\makeatother 
+\include{forallx-yyc-notation}
+\include{forallx-yyc-alternatives}
+\include{forallx-yyc-quickreference}
+\include{forallx-yyc-backmatter}
+
+\end{document}

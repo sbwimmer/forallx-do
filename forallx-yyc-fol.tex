@@ -126,8 +126,41 @@ In FOL, the domain must always include at least one thing. Moreover, in English 
 		A domain must have \emph{at least} one member. A name must pick out \emph{exactly} one member of the domain. But a member of the domain may be picked out by one name, many names, or none at all.
 	}
 
+Even allowing for a domain with just one member can produce some strange results. Suppose we have this as a symbolization key:
+\begin{ekey}
+\item[UD:] the Eiffel Tower
+\item[Px:] $x$ is in Paris.
+\end{ekey}
+The sentence $\forall x Px$ might be paraphrased in English as `Everything is in Paris.' Yet that would be misleading. It means that everything \emph{in the UD} is in Paris. This domain contains only the Eiffel Tower, so with this symbolization key $\forall x Px$ just means that the Eiffel Tower is in Paris.
 
-\chapter{Sentences with one quantifier}\label{s:MoreMonadic}
+\subsection{Non-referring terms}
+
+In QL, each constant must pick out exactly one member of the domain. A constant cannot refer to more than one thing--- it is a \emph{singular} term. Each constant must still pick out \emph{something}. This is connected to a classic philosophical problem: the so-called problem of non-referring terms.
+
+Medieval philosophers typically used sentences about the \emph{chimera} to exemplify this problem. Chimera is a mythological creature; it does not really exist. Consider these two sentences:
+\begin{earg}
+\item[\ex{chimera1}] Chimera is angry.
+\item[\ex{chimera2}] Chimera is not angry.
+\end{earg}
+It is tempting just to define a constant to mean `chimera.' The symbolization key would look like this:
+\begin{ekey}
+\item[domain:] creatures on Earth
+\item[Ax:] $x$ is angry.
+\item[c:] chimera
+\end{ekey}
+We could then translate sentence \ref{chimera1} as $Ac$ and sentence \ref{chimera2} as $\enot Ac$.
+
+Problems will arise when we ask whether these sentences are true or false.
+
+One option is to say that sentence \ref{chimera1} is not true, because there is no chimera. If sentence \ref{chimera1} is false because it talks about a non-existent thing, then sentence \ref{chimera2} is false for the same reason. Yet this would mean that $Ac$ and $\enot Ac$ would both be false. Given the truth conditions for negation, this cannot be the case.
+
+Since we cannot say that they are both false, what should we do? Another option is to say that sentence \ref{chimera1} is \emph{meaningless} because it talks about a non-existent thing. So $Ac$ would be a meaningful expression in QL for some interpretations but not for others. Yet this would make our formal language hostage to particular interpretations. Since we are interested in logical form, we want to consider the logical force of a sentence like $Ac$ apart from any particular interpretation. If $Ac$ were sometimes meaningful and sometimes meaningless, we could not do that.
+
+This is the \emph{problem of non-referring terms}, and we will return to it later (see p.~\pageref{subsec.defdesc}.) The important point for now is that each constant of QL \emph{must} refer to something in the domain, although the domain can be any set of things that we like. If we want to symbolize arguments about mythological creatures, then we must define a domain that includes them. This option is important if we want to consider the logic of stories. We can translate a sentence like `Sherlock Holmes lived at 221B Baker Street' by including fictional characters like Sherlock Holmes in our domain.
+
+\chapter{Sentences with one quantifier}
+\label{s:MoreMonadic}
+
 We now have all of the pieces of FOL. Symbolising more complicated sentences will only be a matter of knowing the right way to combine predicates, names, quantifiers, and connectives. There is a knack to this, and there is no substitute for practice.
 
 \section{Dealing with syncategorematic adjectives}
@@ -313,6 +346,62 @@ In the sentence `$\enot(Bk \eif Bb)$', the scope of `$\enot$' is the entire sent
 
 The moral of the story is simple. When you are using conditionals, be very careful to make sure that you have sorted out the scope correctly. 
 
+\subsection{Ambiguous predicates}
+
+Suppose we just want to translate this sentence:
+\begin{earg}
+\item[\ex{surgeon1}] Adina is a skilled surgeon.
+\end{earg}
+Let the domain be people, let $Kx$ mean `$x$ is a skilled surgeon', and let $a$ mean Adina. Sentence \ref{surgeon1} is simply $Ka$.
+
+
+Suppose instead that we want to translate this argument:
+\begin{quote}
+The hospital will only hire a skilled surgeon. All surgeons are greedy. Billy is a surgeon, but is not skilled. Therefore, Billy is greedy, but the hospital will not hire him.
+\end{quote}
+We need to distinguish being a \emph{skilled surgeon} from merely being a \emph{surgeon}. So we define this symbolization key:
+\begin{ekey}
+\item[domain:] people
+\item[Gx:] $x$ is greedy.
+\item[Hx:] The hospital will hire $x$.
+\item[Rx:] $x$ is a surgeon.
+\item[Kx:] $x$ is skilled.
+\item[b:] Billy
+\end{ekey}
+
+Now the argument can be translated in this way:
+\begin{earg}
+\label{surgeon2}
+\item[] $\forall x\bigl[\enot (Rx \eand Kx) \eif \enot Hx\bigr]$
+\item[] $\forall x(Rx \eif Gx)$
+\item[] $Rb \eand \enot Kb$
+\item[\therefore] $Gb \eand \enot Hb$
+\end{earg}
+
+Next suppose that we want to translate this argument:
+\begin{quote}
+\label{surgeon3}
+Carol is a skilled surgeon and a tennis player. Therefore, Carol is a skilled tennis player.
+\end{quote}
+If we start with the symbolization key we used for the previous argument, we could add a predicate (let $Tx$ mean `$x$ is a tennis player') and a constant (let $c$ mean Carol). Then the argument becomes:
+\begin{earg}
+\item[] $(Rc \eand Kc) \eand Tc$
+\item[\therefore] $Tc \eand Kc$
+\end{earg}
+This translation is a disaster! It takes what in English is a terrible argument and translates it as a valid argument in QL. The problem is that there is a difference between being \emph{skilled as a surgeon} and \emph{skilled as a tennis player}. Translating this argument correctly requires two separate predicates, one for each type of skill. If we let $K_1x$ mean `$x$ is skilled as a surgeon' and $K_2x$ mean `$x$ is skilled as a tennis player,' then we can symbolize the argument in this way:
+\begin{earg}
+\label{surgeon3correct}
+\item[] $(Rc \eand K_1c) \eand Tc$
+\item[\therefore] $Tc \eand K_2c$
+\end{earg}
+Like the English language argument it translates, this is invalid. %\nix{Notice that there is no logical connection between $K_1c$ and $Rc$. As symbols of QL, they might be any one-place predicates. In English there is a connection between being a \emph{surgeon} and being a \emph{skilled surgeon}: Every skilled surgeon is a surgeon. In order to capture this connection, we symbolize `Carol is a skilled surgeon' as $Rc \eand K_1c$. This means: `Carol is a surgeon and is skilled as a surgeon.'}
+
+The moral of these examples is that you need to be careful of symbolizing predicates in an ambiguous way. Similar problems can arise with predicates like \emph{good}, \emph{bad}, \emph{big}, and \emph{small}. Just as skilled surgeons and skilled tennis players have different skills, big dogs, big mice, and big problems are big in different ways.
+
+Is it enough to have a predicate that means `$x$ is a skilled surgeon', rather than two predicates `$x$ is skilled' and `$x$ is a surgeon'? Sometimes. As sentence \ref{surgeon1} shows, sometimes we do not need to distinguish between skilled surgeons and other surgeons.
+
+Must we always distinguish between different ways of being skilled, good, bad, or big? No. As the argument about Billy shows, sometimes we only need to talk about one kind of skill. If you are translating an argument that is just about dogs, it is fine to define a predicate that means `$x$ is big.' If the domain includes dogs and mice, however, it is probably best to make the predicate mean `$x$ is big for a dog.'
+
 \practiceproblems
 \problempart
 \label{pr.BarbaraEtc}
@@ -389,7 +478,6 @@ symbolise each of the following sentences in FOL:
 %\item There is a monkey that loves Bouncer, but sadly Bouncer does not reciprocate this love.
 \end{earg}
 
-
 \problempart
 \label{pr.FOLarguments}
 For each argument, write a symbolisation key and symbolise the argument in FOL.
@@ -402,6 +490,17 @@ For each argument, write a symbolisation key and symbolise the argument in FOL.
 \item All babies are illogical. Nobody who is illogical can manage a crocodile. Berthold is a baby. Therefore, Berthold is unable to manage a crocodile.
 \end{earg}
 
+\problempart
+\label{pr.QLarguments}
+For each argument, write a symbolization key and translate the argument into QL.
+\begin{earg}
+\item Nothing on my desk escapes my attention. There is a computer on my desk. As such, there is a computer that does not escape my attention.
+\item All my dreams are black and white. Old TV shows are in black and white. Therefore, some of my dreams are old TV shows.
+\item Neither Holmes nor Watson has been to Australia. A person could see a kangaroo only if they had been to Australia or to a zoo. Although Watson has not seen a kangaroo, Holmes has. Therefore, Holmes has been to a zoo.
+\item No one expects the Spanish Inquisition. No one knows the troubles I've seen. Therefore, anyone who expects the Spanish Inquisition knows the troubles I've seen.
+\item An antelope is bigger than a bread box. I am thinking of something that is no bigger than a bread box, and it is either an antelope or a cantaloupe. As such, I am thinking of a cantaloupe.
+\item All babies are illogical. Nobody who is illogical can manage a crocodile. Berthold is a baby. Therefore, Berthold is unable to manage a crocodile.
+\end{earg}
 
 
 \chapter{Multiple generality}\label{s:MultipleGenerality}
@@ -620,6 +719,30 @@ symbolise the following sentences in FOL:
 \item Every dog is larger than some dog.
 \item There is an animal that is smaller than every dog.
 \item If there is an animal that is larger than any dog, then that animal does not like samurai movies.
+\end{earg}
+
+\problempart
+\label{pr.QLcandies}
+Using the symbolization key given, translate each English-language sentence into QL.
+\begin{ekey}
+\item[UD:] candies
+\item[Cx:] $x$ has chocolate in it.
+\item[Mx:] $x$ has marzipan in it.
+\item[Sx:] $x$ has sugar in it.
+\item[Tx:] Boris has tried $x$.
+\item[Bxy:] $x$ is better than $y$.
+\end{ekey}
+\begin{earg}
+\item Boris has never tried any candy.
+\item Marzipan is always made with sugar.
+\item Some candy is sugar-free.
+\item The very best candy is chocolate.
+\item No candy is better than itself.
+\item Boris has never tried sugar-free chocolate.
+\item Boris has tried marzipan and chocolate, but never together.
+%\item Boris has tried nothing that is better than sugar-free marzipan.
+\item Any candy with chocolate is better than any candy without it.
+\item Any candy with chocolate and marzipan is better than any candy that lacks both.
 \end{earg}
 
 \problempart

@@ -329,6 +329,15 @@ Write a symbolisation key for the following argument, symbolise it, and prove it
 There is someone who likes everyone who likes everyone that she likes. Therefore, there is someone who likes herself.
 \end{quote}
 
+
+\problempart
+Show that each pair of sentences is provably equivalent.
+\begin{earg}
+\item $\forall x (Ax\eif \enot Bx)$, $\enot\exists x(Ax \eand Bx)$
+\item $\forall x (\enot Ax\eif Bd)$, $\forall x Ax \eor Bd$
+\item $\exists x Px \eif Qc$, $\forall x (Px \eif Qc)$
+\end{earg}
+
 \solutions
 \problempart
 \label{pr.FOLequivornot}
@@ -354,6 +363,15 @@ For each of the following arguments: If it is valid in FOL, give a proof. If it 
 \item $\forall x\forall y(Rxy \eor Ryx) \therefore Rjj$
 \item $\exists x\exists y(Rxy \eor Ryx) \therefore Rjj$
 \item $\forall x Px \eif \forall x Qx, \exists x \enot Px \therefore \exists x \enot Qx$
+\end{earg}
+
+\problempart
+Show that each of the following is provably inconsistent.
+\begin{earg}
+\item \{$Sa\eif Tm$, $Tm \eif Sa$, $Tm \eand \enot Sa$\}
+\item \{$\enot\exists x Rxa$, $\forall x \forall y Ryx$\}
+\item \{$\enot\exists x \exists y Lxy$, $Laa$\}
+\item \{$\forall x(Px \eif Qx)$, $\forall z(Pz \eif Rz)$, $\forall y Py$, $\enot Qa \eand \enot Rb$\}
 \end{earg}
 
 

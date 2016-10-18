@@ -274,26 +274,26 @@ A complete truth table for a sentence that contains four different atomic senten
 In order to fill in the columns of a complete truth table, begin with the right-most atomic sentence and alternate between `T' and `F'. In the next column to the left, write two `T's, write two `F's, and repeat. For the third atomic sentence, write four `T's followed by four `F's. This yields an eight line truth table like the one above. For a 16 line truth table, the next column of atomic sentences should have eight `T's followed by eight `F's. For a 32 line table, the next column would have 16 `T's followed by 16 `F's. And so on.
 
 
-\section{More bracketing conventions}\label{s:MoreBracketingConventions}
+\section{More about brackets}\label{s:MoreBracketingConventions}
 Consider these two sentences:
 	\begin{align*}
 		((A \eand B) \eand C)\\
 		(A \eand (B \eand C))
 	\end{align*}
-These have the same truth table. Consequently, it will never make any difference from the perspective of truth value -- which is all that TFL cares about (see \S\ref{s:TruthFunctionality}) -- which of the two sentences we assert (or deny). And since the order of the brackets does not matter, I shall allow us to drop them.  In short, we can save some ink and some eyestrain by writing:
+These are tautologically equivalent. Consequently, it will never make any difference from the perspective of truth value -- which is all that TFL cares about (see \S\ref{s:TruthFunctionality}) -- which of the two sentences we assert (or deny). Even though the order of the brackets does not matter as to their truth, we should not just drop them. The expression
 	\begin{align*}
 		A \eand B \eand C
 	\end{align*}
-The general point is that, if we just have a long list of conjunctions, we can drop the inner brackets. (I already allowed us to drop outermost brackets in \S\ref{s:TFLSentences}.) The same observation holds for disjunctions. Since the following sentences have exactly the same truth table:
+is ambiguous between the two sentences above.  The same observation holds for disjunctions. The following sentences are tautologically equivalent:
 	\begin{align*}
 		((A \eor B) \eor C)\\
 		(A \eor (B \eor C))
 	\end{align*}
-we can simply write:
+But we should not simply write:
 	\begin{align*}
 		A \eor B \eor C
 	\end{align*}
-And generally, if we just have a long list of disjunctions, we can drop the inner brackets. \emph{But be careful}. These two sentences have \emph{different} truth tables:
+In fact, it is a specifc fact about the characteristic truth table of $\eor$ and $\eand$ that guarantees that any two conjunctions (or disjunctions) of the same sentences are tautologically equivalent, however you place the brackets. \emph{But be careful}. These two sentences have \emph{different} truth tables:
 	\begin{align*}
 		((A \eif B) \eif C)\\
 		(A \eif (B \eif C))
@@ -311,7 +311,7 @@ So if we were to write:
 	\begin{align*}
 		A \eor B \eand C
 	\end{align*}
-it would be dangerously ambiguous. \emph{Never write this.} The moral is: you can drop brackets when dealing with a long list of conjunctions, or when dealing with a long list of disjunctions. But that's it.
+it would be dangerously ambiguous. \emph{Never write this.} The moral is: never drop brackets.
 
 \practiceproblems\label{pr.TT.TTorC}
 \problempart

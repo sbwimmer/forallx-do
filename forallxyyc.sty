@@ -6,6 +6,7 @@
 \usepackage{mdframed}
 \usepackage{glossaries}
 \usepackage{tabu}
+\usepackage{fouriernc}
 
 % The original forallx.sty was written in 2005
 % Comments marked "TB" are additions by Tim Button in September 2012
@@ -178,6 +179,7 @@
 %    *         TABLE OF CONTENTS, ETC.      *
 %    ****************************************
 \renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thepart}{\Roman{part}}
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 \renewcommand{\chaptermark}[1]{\markboth%
 {\forallx}%
@@ -685,14 +687,12 @@
 %    ****************************************
 % TB: I moved from book to memoir and then radically changed the structuring. From the point of view of LaTeX, the book consists of 9 parts, containing roughly 5 chapters each. From the point of view of the user, the book consists of 9 chapters, containing roughly 5 sections each. This means a fair bit of internal redefinition of LaTeX code.
 
-\makeatletter
-	\renewcommand{\@chapapp}{ } % TB: to prevent "chapter" appearing all over the place
-\makeatother
 \renewcommand\cftchapterfont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
 \renewcommand\cftchapterpagefont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
 \renewcommand\cftbeforechapterskip{0pt} %TB: to leave no gap between sections (which LaTeX regards as chapters) in the TOC
-\renewcommand{\partname}{Chapter} %TB: to make the chapters (which LaTeX regards as parts) labelled "chapter"
 \setlength{\headwidth}{\textwidth} 
+
+\renewcommand{\printpartname}{}
 
 \makepagestyle{forallxpage} %TB: design new page style
 \makeheadrule {forallxpage}{\textwidth}{\normalrulethickness} %TB: put rule beneath page header
@@ -706,9 +706,9 @@
 \makeatother
 
 \setcounter{tocdepth}{0} %TB: only chapters and sections to appear
-\renewcommand{\thepart}{\arabic{part}}  % TB: chapters (which LaTeX regards as parts) to be numbered
-\renewcommand{\thechapter}{\arabic{chapter}} %TB: sections (which LaTeX regards as chapters) to be numbered
-\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}} %TB: subsections (which LaTeX regards as sections) to be n.m
+\renewcommand{\thepart}{}  % RZ: Let's just not number parts
+%\renewcommand{\thechapter}{\arabic{chapter}} %TB: sections (which LaTeX regards as chapters) to be numbered
+%\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}} %TB: subsections (which LaTeX regards as sections) to be n.m
 
 \makechapterstyle{forallx}{% TB defines a nice style for section headings (which LaTeX regards as chapter headings)
 	\renewcommand{\chapnamefont}{\normalfont\Huge\bfseries} 
@@ -730,10 +730,10 @@
 \newcommand\myanswer[1]{\textcolor{blue}{#1}} % TB: puts model answers in blue
 
 % TB: information originally in the main body; but it is style information, so I have included it here.
-\hypersetup{pdfinfo={Title={forall x: Cambridge Version, Solutions Booklet}, Author={P.D. Magnus, Tim Button}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, fitch}}, %
+\hypersetup{pdfinfo={Title={forall x: Calgary Version}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Aaron Thomas-Bolduc, Richard Zach}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, fitch}}, %
 	bookmarks={true}, %
 	colorlinks={true}, %
-	linkcolor={darkred},
+	allcolors={darkred},
 	pdfdisplaydoctitle={true}}
 \urlstyle{same}
 

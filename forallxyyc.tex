@@ -1,4 +1,4 @@
-\documentclass[oneside, 10pt, a4paper]{memoir}
+\documentclass[oneside,10pt]{memoir}
 \usepackage{forallxyyc}
 \begin{document}
 \midsloppy
@@ -12,6 +12,7 @@
 \tableofcontents*
 
 \mainmatter
+
 \include{forallx-yyc-what}
 \include{forallx-yyc-tfl}
 \include{forallx-yyc-truthtables}
@@ -19,15 +20,22 @@
 \include{forallx-yyc-fol}
 \include{forallx-yyc-interpretations}
 \include{forallx-yyc-prooffol}
+%include{forallx-yyc-metatheory}
 
-\makeatletter 
-\setcounter{chapter}{0}
-\renewcommand*{\thechapter}{\Alph{chapter}} %TB: appendix sections have letters
-\renewcommand*{\thesection}{\Alph{chapter}.\arabic{section}} %TB: appendix sections have letters
-\makeatother 
-\include{forallx-yyc-notation}
+\appendix
+\part{Appendices}
+%addcontentsline{toc}{part}{Appendices}
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+
+%\setcounter{chapter}{0}
+%\renewcommand*{\thechapter}{\Alph{chapter}} %TB: appendix sections have letters
+%\renewcommand*{\thesection}{\Alph{chapter}.\arabic{section}} %TB: appendix sections have letters
+
+\input{forallx-yyc-notation} % RZ for some reason, with an \include here the TOC gets messed up
 \include{forallx-yyc-alternatives}
 \include{forallx-yyc-quickreference}
+
+\backmatter
 \include{forallx-yyc-backmatter}
 
 \end{document}

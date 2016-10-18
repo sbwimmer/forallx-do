@@ -1,4 +1,4 @@
-%!TEX root = forallxyyc.tex
+2%!TEX root = forallxyyc.tex
 \part{Natural deduction for FOL}
 \label{ch.NDFOL}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
@@ -614,7 +614,7 @@ For this reason, you can pick and choose when to think in terms of proofs and wh
 
 It is intuitive that provability and semantic entailment should agree. But---let me repeat this---do not be fooled by the similarity of the symbols `$\entails$' and `$\proves$'. These two symbols have very different meanings. And the fact that provability and semantic entailment agree is not an easy result to come by. 
 
-In fact, demonstrating that provability and semantic entailment agree is, very decisively, the point at which introductory logic becomes intermediary logic. Agreement, in the case of TFL, is covered in the sequel to this book, \texttt{Metatheory}, which is the textbook for (part of) the second-year Logic paper. Agreement, in the case of FOL, is one of the first big results from the third-year Mathematical Logic paper.
+In fact, demonstrating that provability and semantic entailment agree is, very decisively, the point at which introductory logic becomes intermediary logic.
 
 \begin{sidewaystable}
 \begin{center}
@@ -647,3 +647,65 @@ Is $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ \textbf{vali
 \end{center}
 \end{sidewaystable}
 
+\problempart
+Show that each pair of sentences is provably equivalent.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item $\forall x (Ax\eif \enot Bx)$ and $\enot\exists x(Ax \eand Bx)$
+\item $\forall x (\enot Ax\eif Bd)$ and $\forall x Ax \eor Bd$
+\item $\exists x Px \eif Qc$ and $\forall x (Px \eif Qc)$
+\item $Rca \eiff \forall x Rxa$, $\forall x(Rca \eiff Rxa)$
+\end{enumerate}
+
+
+
+\problempart
+Show that each of the following is provably inconsistent.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item \{$Sa\eif Tm$, $Tm \eif Sa$, $Tm \eand \enot Sa$\}
+\item \{$\enot\exists x \exists y Lxy$, $Laa$\}
+\item \{$\forall x(Px \eif Qx)$, $\forall z(Pz \eif Rz)$, $\forall y Py$, $\enot Qa \eand \enot Rb$\}
+\end{enumerate}
+
+
+
+
+\problempart
+\label{pr.likes}
+Write a symbolization key for the following argument, translate it, and prove it:
+\begin{quote}
+There is someone who likes everyone who likes everyone that he likes. Therefore, there is someone who likes himself.
+\end{quote}
+
+
+
+%\problempart
+%Look back at Part \ref{pr.QLarguments} on p.~\pageref{pr.QLarguments}. For each argument: If it is valid in QL, give a proof. If it is invalid, construct a model to show that it is invalid.
+
+
+\problempart
+\label{pr.QLequivornot}
+For each of the following pairs of sentences: If they are logically equivalent in QL, give proofs to show this. If they are not, construct a model to show this.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item $\forall x Px \eif Qc$ and $\forall x (Px \eif Qc)$
+\item $\forall x Px \eand Qc$ and $\forall x (Px \eand Qc)$
+\item $Qc \eor \exists x Qx$ and $\exists x (Qc \eor Qx)$
+\item $\forall x\forall y \forall z Bxyz$ and $\forall x Bxxx$
+\item $\forall x\forall y Dxy$ and $\forall y\forall x Dxy$
+\item $\exists x\forall y Dxy$ and $\forall y\exists x Dxy$
+\end{enumerate}
+
+\problempart
+\label{pr.QLvalidornot}
+For each of the following arguments: If it is valid in QL, give a proof. If it is invalid, construct a model to show that it is invalid.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item $\forall x\exists y Rxy \proves  \exists y\forall x Rxy$
+\item $\exists y\forall x Rxy \proves  \forall x\exists y Rxy$
+\item $\exists x(Px \eand \enot Qx) \proves  \forall x(Px \eif \enot Qx)$
+\item $\{\forall x(Sx \eif Ta)$, $Sd\} \proves Ta$
+\item $\{\forall x(Ax\eif Bx)$, $\forall x(Bx \eif Cx)\} \proves  \forall x(Ax \eif Cx)$
+\item $\{\exists x(Dx \eor Ex)$, $\forall x(Dx \eif Fx)\} \proves  \exists x(Dx \eand Fx)$
+\item $\forall x\forall y(Rxy \eor Ryx)\proves  Rjj$
+\item $\exists x\exists y(Rxy \eor Ryx)\proves Rjj$
+\item $\{\forall x Px \eif \forall x Qx$, $\exists x \enot Px\}\proves \exists x \enot Qx$
+\item $\{\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx\}\proves  \forall x \enot Mx$
+\end{enumerate}

@@ -384,6 +384,29 @@ Again, though, there is a little complication. `Unless' can be symbolised as a c
 \item Harrison and Ava are both firefighters if and only if neither of them is an electrician.
 \end{earg}
 
+\problempart
+Using the symbolization key given, translate each English-language sentence into TFL.
+\label{pr.jazzinstruments}
+\begin{ekey}
+\item[J_1] John Coltrane played tenor sax.
+\item[J_2] John Coltrane played soprano sax.
+\item[J_3] John Coltrane played tuba
+\item[M_1] Miles Davis played trumpet
+\item[M_2] Miles Davis played tuba
+\end{ekey}
+
+\begin{earg}
+\item John Coltrane played tenor and soprano sax. %{\color{red} $J_1 \eand J_2$} \vspace{1ex}
+\item Neither Miles Davis nor John Coltrane played tuba. %{\color{red} $\enot(M_2 \eor J_3)$ or $\enot M_2 \eand \enot J_3$} \vspace{1ex}
+\item John Coltrane did not play both tenor sax and tuba.  %{\color{red} $\enot(J_1 \eand J_3)$ or $\enot J_1 \eor \enotJ_3$} \vspace{1ex}
+\item John Coltrane did not play tenor sax unless he also played soprano sax. %{\color{red} $\enot J_1 \eor J_2$} \vspace{1ex}
+\item John Coltrane did not play tuba, but Miles Davis did. %{\color{red} $\enotJ_3 \eand M_2$} \vspace{1ex}
+\item Miles Davis played trumpet only if he also played tuba. %{\color{red} $M_1 \eiff M_2$} \vspace{1ex}
+\item If Miles Davis played trumpet, then John Coltrane played at least one of these three instruments: tenor sax, soprano sax, or tuba. %{\color{red} $M_1 \eif (J_1 \eor (J_2 \eor J_3))&} \vspace{1ex}
+\item If John Coltrane played tuba then Miles Davis played neither trumpet nor tuba. %{\color{red} $J_3 \eif \enot(M_1 \eor M_2)$ or $J_3 \eif (\enot M_1 \eand \enot M_2)$  } \vspace{1ex}
+\item Miles Davis and John Coltrane both played tuba if and only if Coltrane did not play tenor sax and Miles Davis did not play trumpet. %{\color{red} $(J_3 \eand M_2) \eiff \enotJ_1 & \enot M_1)$ or $(J_3 \eand M_2) \eiff \enot (J_1 \eor M_1)$} \vspace{1ex}
+\end{earg}
+
 \solutions
 \problempart
 \label{pr.spies}
@@ -414,6 +437,56 @@ For each argument, write a symbolisation key and symbolise all of the sentences 
 \item It will either rain or snow on Tuesday. If it rains, Neville will be sad. If it snows, Neville will be cold. Therefore, Neville will either be sad or cold on Tuesday.
 \item If Zoog remembered to do his chores, then things are clean but not neat. If he forgot, then things are neat but not clean. Therefore, things are either neat or clean; but not both.
 \end{earg}
+
+\problempart
+For each argument, write a symbolization key and translate the argument as well as possible into SL. The part of the passage in italics is there to provide context for the argument, and doesn't need to be symbolized.
+\begin{earg}
+\item It is going to rain soon. I know because my leg is hurting, and my leg hurts if it’s going to rain. 
+
+%{\color{red}
+%\begin{ekey}
+%\item[A:]  
+%\item[B:]  
+%\item[C:]  %\end{ekey}
+
+%begin{\earg}
+%\item[1.]  
+%\item[2.]  
+%\item[$\therefore$]  
+%}
+
+\item  \emph{Spider-man tries to figure out the bad guy’s plan.} If Doctor Octopus gets the uranium, he will blackmail the city. I am certain of this because if Doctor Octopus gets the uranium, he can make a dirty bomb, and if he can make a dirty bomb, he will blackmail the city.
+
+%{\color{red}
+%\begin{ekey}
+%\item[A:]  
+%\item[B:]  
+%\item[C:]  %\end{ekey}
+
+%begin{\earg}
+%\item[1.]  
+%\item[2.]  
+%\item[$\therefore$]  
+%}
+
+\item \emph{A westerner tries to predict the policies of the Chinese government.} If the Chinese government cannot solve the water shortages in Beijing, they will have to move the capital. They don’t want to move the capital. Therefore they must solve the water shortage. But the only way to solve the water shortage is to divert almost all the water from the Yangzi river northward. Therefore the Chinese government will go with the project to divert water from the south to the north.       
+
+
+
+%{\color{red}
+%\begin{ekey}
+%\item[A:]  
+%\item[B:]  
+%\item[C:]  %\end{ekey}
+
+%begin{\earg}
+%\item[1.]  
+%\item[2.]  
+%\item[$\therefore$]  
+%}
+
+\end{earg}
+
 
 \problempart
 We symbolised an \emph{exclusive or} using `$\eor$', `$\eand$', and `$\enot$'. How could you symbolise an \emph{exclusive or} using only two connectives? Is there any way to symbolise an \emph{exclusive or} using only one connective?

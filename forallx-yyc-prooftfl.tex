@@ -1063,3 +1063,167 @@ Provide proof schemes that justify the addition of the third and fourth De Morga
 
 \problempart
 The proofs you offered in response to the practice exercises of \S\S\ref{s:Further}--\ref{s:ProofTheoreticConcepts} used derived rules. Replace the use of derived rules, in such proofs, with only basic rules. You will find some `repetition' in the resulting proofs; in such cases, offer a streamlined proof using only basic rules.  (This will give you a sense, both of the power of derived rules, and of how all the rules interact.)
+
+\chapter{Soundness and completeness}
+\label{sec:soundness_and_completeness}
+
+In section~\ref{???}, we saw that we could use derivations to test for the same concepts we used truth tables to test for. Not only could we use derivations to prove that an argument is valid, we could also use them to test if a statement is a tautology or a pair of statements are equivalent. We also started using the single turnstile the same way we used the double turnstile. If we could prove that \script{A} was a tautology with a truth table, we wrote $\entails \script{A}$, and if we could prove it using a derivation, we wrote $\proves \script{A}.$ 
+
+You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \script{A} is a tautology using truth tables, can you also always show that it is true using a derivation? Is the reverse true? Are these things also true for tautologies and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately and then proving them equivalent. That is, we imagine that we actually have two notions of validity, $valid_{\models}$ and  $valid_{\vdash}$ and then show that the two concepts always work the same way. 
+
+\newglossaryentry{syntactic contradiction in SL}
+{
+name=syntactic contradiction in SL,
+description={A statement in SL whose negation can be derived without any premises.}
+}
+
+
+   
+\newglossaryentry{syntactically contingent in SL}
+{
+name=syntactically contingent in SL,
+description={A property held by a statement in SL if and only if it is not a syntactic tautology or a syntactic contradiction.}
+}
+
+
+
+
+To begin with, we need to define all of our logical concepts separately for truth tables and derivations. A lot of this work has already been done. We handled all of the truth table definitions in Chapter \ref{chap:truth_tables}. We have also already given syntactic definitions for a tautologies and pairs of logically equivalent sentences. The other definitions follow naturally. For most logical properties we can devise a test using derivations, and those that we cannot test for directly can be defined in terms of the concepts that we can define.
+
+For instance, we defined a syntactic tautology as a statement that can be derived without any premises (p. \pageref{def:syntactic_tautology_in_sl}). Since the negation of a contradiction is a tautology, we can define a \textsc{\gls{syntactic contradiction in SL}} \label{def:syntactic_contradiction_in_sl} as a sentence whose negation can be derived without any premises. The syntactic definition of a contingent sentence is a little different. We don't have any practical, finite method for proving that a sentence is contingent using derivations, the way we did using truth tables. So we have to content ourselves with defining ``contingent sentence'' negatively. A sentence is \textsc{\gls{syntactically contingent in SL}} \label{def:syntactically_contingent_in_sl} if it is not a syntactic tautology or contradiction. 
+ 
+\newglossaryentry{syntactically inconsistent in SL}
+{
+name=syntactically inconsistent in SL,
+description={A property held by sets of sentences in SL if and only if one can derive a contradiction from them.}
+}
+
+\newglossaryentry{syntactically consistent in SL}
+{
+name=syntactically consistent in SL,
+description={A property held by sets of sentences in SL if and only if they are not syntactically inconsistent.}
+}
+
+A set of sentences is \textsc{\gls{syntactically inconsistent in SL}} \label{def:syntactically_inconsistent_ in_sl} if and only if one can derive a contradiction from them. Consistency, on the other hand, is like contingency, in that we do not have a practical finite method to test for it directly. So again, we have to define a term negatively. A set of set of sentences is \textsc{\gls{syntactically consistent in SL}} \label{def:syntactically consistent in SL} if and only if they are not syntactically inconsistent.
+    
+\newglossaryentry{syntactically valid in SL}
+{
+name=syntactically valid in SL,
+description={A property held by arguments in SL if and only if there is a derivation that goes from the premises to the conclusion.}
+}
+
+Finally, an argument is \textsc{\gls{syntactically valid in SL}} \label{def:syntactically_valid_in_SL} if and only if there is a derivation of it. All of these definitions are given in Table \ref{table:truth_tables_or_derivations}.
+
+
+\begin{sidewaystable}
+\begin{mdframed}[style=mytablebox]
+\tabulinesep=1ex
+\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+\textbf{Concept} 		&	\textbf{Truth table (semantic) definition} 	&	\textbf{Derivation (syntactic) definition} \\ \hline \hline
+
+Tautology  &	A statement whose truth table only has Ts under the main connective & A statement that can be derived without any premises.	 \\ \hline
+ 
+Contradiction		&	A statement whose truth table only has Fs under the main connective  &	A statement whose negation can be derived without any premises\\ \hline
+
+Contingent sentence	&	A statement whose truth table contains both Ts and Fs under the main connective & A statement that is not a syntactic tautology or contradiction \\ \hline
+
+Equivalent sentences &	The columns under the main connectives are identical.& The statements can be derived from each other	\\ \hline
+
+Inconsistent sentences	&	Sentences which do not have a single line in their truth table where they are all true.	& Sentences which one can derive a contradiction from \\ \hline
+
+Consistent sentences	&	Sentences which have at least one line in their truth table where they are all true. & Sentences which are no inconsistent	\\ \hline
+
+Valid argument		&	An argument whose truth table has no lines where there are all Ts under main connectives for the premises and an F under the main connective for the conclusion.  & An argument where can derive the conclusion from the premises	\\ 
+\end{tabu}
+\end{mdframed}
+\caption{Two ways to define logical concepts.}
+\label{table:truth_tables_or_derivations}
+\end{sidewaystable}
+
+All of our concepts have now been defined both semantically and syntactically. How can we prove that these definitions always work the same way? A full proof here goes well beyond the scope of this book. However, we can sketch what it would be like. We will focus on showing the two notions of validity to be equivalent.  From that the other concepts will follow quickly. The proof will have to go in two directions. First we will have to show that things which are syntactically valid will also be semantically valid. In other words, everything that we can prove using derivations could also be proven using truth tables. Put symbolically, we want to show that $valid_{\vdash}$ implies $valid_{\models}$. Afterwards, we will need to show things in the other directions,  $valid_{\models}$ implies $valid_{\vdash}$
+
+\newglossaryentry{soundness}
+{
+name=soundness,
+description={A property held by logical systems if and only if $\proves $ implies $\entails $}
+}
+
+This argument from $\proves $ to $\entails $ is the problem of \textsc{\gls{soundness}}. \label{def:soundness} A proof system is \define{sound} if there are no derivations of arguments that can be shown invalid by truth tables. \label{def_Soundness} Demonstrating that the proof system is sound would require showing that \emph{any} possible proof is the proof of a valid argument. It would not be enough simply to succeed when trying to prove many valid arguments and to fail when trying to prove invalid ones.
+
+The proof that we will sketch depends on the fact that we initially defined a sentence of SL using a recursive definition (see p. \pageref{def:recursive_definition}). We could have also used recursive definitions to define a proper proof in SL and a proper truth table. \nix{Later this will be a truth assignment}(Although we didn't.) If we had these definitions, we could then use a \emph{recursive proof} to show the soundness of SL. A recursive proof works the same way a recursive definition does.With the recursive definition, we identified a group of base elements that were stipulated to be examples of the thing we were trying to define. In the case of a well formed formula, the base class was the set of sentence letters A, B, C \ldots{}. We just announced that these were sentences. The second step of a recursive definition is to say that anything that is built up from your base class using certain rules also counts as an example of the thing you are defining. In the case of a definition of a sentence, the rules corresponded to the five sentential connectives (see p. \pageref{def:sentence_of_SL}). Once you have established a recursive definition, you can use that definition to show that all the members of the class you have defined have a certain property. You simply prove that the property is true of the members of the base class, and then you prove that the rules for extending the base class don't change the property. This is what it means to give a recursive proof.
+
+Even though we don't have a recursive definition of a proof in SL, we can sketch how a recursive proof of the soundness of SL would go. Imagine a base class of one-line proofs, one for each of our eleven rules of inference. The members of this class would look like this $\{\script{A}, \script{B}\} \proves  \script{A} \eand \script{B}$; $\script{A} \eand \script{B} \proves \script{A}$; $\{\script{A} \eor \script{B}, \enot\script{A}\} \proves  \script{B}$ \ldots{} etc. Since some rules have a couple different forms, we would have to have add some members to this base class, for instance $\script{A} \eand \script{B} \proves  \script{B}$ Notice that these are all statements in the metalanguage. The proof that SL is sound is not a part of SL, because SL does not have the power to talk about itself. 
+
+You can use truth tables to prove to yourself that each of these one-line proofs in this base class is $valid_{\models}$. For instance the proof $\{\script{A}, \script{B}\} \proves  \script{A} \eand \script{B}$ corresponds to a truth table that shows $\{\script{A}, \script{B}\} \entails  \script{A} \eand \script{B}$ This establishes the first part of our recursive proof. 
+
+The next step is to show that adding lines to any proof will never change a $valid_{\models}$ proof into an $invalid_{\models}$ one. We would need to this for each of our eleven basic rules of inference. So, for instance, for \eand{I} we need to show that for any proof $\script{A}_{1} \ldots{} \script{A}_{n} \proves  \script {B}$ adding a line where we use \eand{I} to infer $\script{C} \eand \script{D}$, where $\script{C} \eand \script{D}$ can be legitimately inferred from $\{\script{A}_{1} \ldots{} \script{A}_{n}, \script {B}\}$, would not change a valid proof into an invalid proof. But wait, if we can legitimately derive $\script{C} \eand \script{D}$ from these premises, then $\script{C} and \script{D}$ must be already available in the proof. They are either members of  $\{\script{A}_{1} \ldots{} \script{A}_{n}, \script {B}\}$ or can be legitimately derived from them. As such, any truth table line in which the premises are true must be a truth table line in which \script{C} and \script{D} are true. According to the characteristic truth table for \eand, this means that \script{C}\eand\script{D} is also true on that line. Therefore, \script{C}\eand\script{D} validly follows from the premises. This means that using the {\eand}E rule to extend a valid proof produces another valid proof.
+
+In order to show that the proof system is sound, we would need to show this for the other inference rules. Since the derived rules are consequences of the basic rules, it would suffice to provide similar arguments for the 11 other basic rules. This tedious exercise falls beyond the scope of this book.
+
+So we have shown that $\script{A} \proves  \script{B}$ implies $\script{A} \entails \script{B}.$ What about the other direction, that is why think that \emph{every} argument that can be shown valid using truth tables can also be proven using a derivation. 
+
+\newglossaryentry{completeness}
+{
+name=completeness,
+description={A property held by logical systems if and only if $\entails $ implies $\proves $}
+}
+
+This is the problem of completeness. A proof system has the property of  \textsc{\gls{completeness}} \label{def:completeness} if and only if there is a derivation of every semantically valid argument. Proving that a system is complete is generally harder than proving that it is sound. Proving that a system is sound amounts to showing that all of the rules of your proof system work the way they are supposed to. Showing that a system is complete means showing that you have included \emph{all} the rules you need, that you haven't left any out. Showing this is beyond the scope of this book. The important point is that, happily, the proof system for SL is both sound and complete. This is not the case for all proof systems and all formal languages. Because it is true of SL, we can choose to give proofs or give truth tables---whichever is easier for the task at hand.
+
+Now that we know that the truth table method is interchangeable with the method of derivation, you can chose which method you want to use for any given problem. Students often prefer to use truth tables, because a person can produce them purely mechanically, and that seems `easier'. However, we have already seen that truth tables become impossibly large after just a few sentence letters. On the other hand, there are a couple situations where using derivations simply isn't possible. We syntactically defined a contingent sentence as a sentence that couldn't be proven to be a tautology or a contradiction. There is no practical way to prove this kind of negative statement. We will never know if there isn't some proof out there that a statement is a contradiction and we just haven't found it yet. We have nothing to do in this situation but resort to truth tables. Similarly, we can use derivations to prove two sentences equivalent, but what if we want to prove that they are \emph{not} equivalent? We have no way of proving that we will never find the relevant proof. So we have to fall back on truth tables again.
+
+Table \ref{table.ProofOrModel} summarizes when it is best to give proofs and when it is best to give truth tables. 
+
+\begin{table}
+\tabulinesep=1ex
+\begin{mdframed}[style=mytablebox]
+\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+\textbf{Logical property} 	&	\textbf{To prove it present} 	&	\textbf{To prove it absent} \\ \hline \hline
+Being a tautology 		& Derive the statement  						& Find the false line in the truth table for the sentence \\ \hline
+Being a contradiction 	&  Derive the negation of the statement  		 & Find the true line in the truth table for the sentence\\ \hline
+Contingency 			& Find a false line and a true line in the truth table for the statement & Prove the statement or its negation\\ \hline
+Equivalence 			& Derive each statement from the other 		 & Find a line in the truth tables for the statements where they have different values\\ \hline
+Consistency 		& Find a line in truth table for the sentence where they all are true & Derive a contradiction from the sentences\\ \hline
+Validity 				& Derive the conclusion form the premises & Find a line in the truth table where the premises are true and the conclusion false. \\ 
+\end{tabu}
+\end{mdframed}
+\caption{When to provide a truth table and when to provide a proof.}
+\label{table.ProofOrModel}
+\end{table}
+
+
+
+\practiceproblems
+\noindent\problempart Use either a derivation or a truth table for each of the following. 
+\begin{enumerate}%[label=(\arabic*)]
+\item Show that $A \eif [((B \eand C) \eor D) \eif A]$ is a tautology.
+\item Show that $A \eif (A \eif B)$ is not a tautology
+\item Show that the sentence $A \eif \enot{A}$ is not a contradiction.
+\item Show that the sentence $A \eiff \enot A$ is a contradiction. 
+\item Show that the sentence $ \enot (W \eif (J \eor J)) $ is contingent
+\item Show that the sentence $ \enot(X \eor (Y \eor Z)) \eor (X \eor (Y \eor Z))$ is not contingent
+ \item Show that the sentence $B \eif \enot S$ is equivalent to the sentence $\enot \enot B \eif \enot S$
+\item Show that the sentence $ \enot (X \eor O) $ is not equivalent to the sentence $X \eand O$
+\item Show that the set $\{\enot(A \eor B), C, C \eif A\}$ is inconsistent.
+\item Show that the set \{\enot(A \eor B), \enot{B}, B \eif A\} is consistent
+\item Show that $\enot(A \eor (B \eor C)) $ \therefore $ \enot{C}$ is valid.
+\item Show that $\enot(A \eand (B \eor C))$ \therefore $ \enot{C}$ is invalid. 
+\end{enumerate}
+
+
+\noindent\problempart Use either a derivation or a truth table for each of the following. 
+\begin{enumerate}%[label=(\arabic*)]
+\item Show that $A \eif (B \eif A)$ is a tautology
+\item Show that $\enot (((N \eiff Q) \eor Q) \eor N)$ is not a tautology
+\item Show that $ Z \eor (\enot Z \eiff Z) $ is contingent
+\item show that $ (L \eiff ((N \eif N) \eif L)) \eor H $ is not contingent
+\item Show that $ (A \eiff A) \eand (B \eand \enot B)$ is a contradiction
+\item Show that $ (B \eiff (C \eor B)) $ is not a contradiction.
+\item Show that $ ((\enot X \eiff X) \eor X) $ is equivalent to $X$
+\item Show that $F \eand (K \eand R) $ is not equivalent to $ (F \eiff (K \eiff R)) $
+\item Show that the set \{$ \enot (W \eif W)$, $(W \eiff W) \eand W$, $E \eor (W \eif \enot (E \eand W))$\} is inconsistent.
+\item Show that the set  \{$\enot R \eor C $, $(C \eand R) \eif \not R$, $(\enot (R \eor R) \eif R) $\} is consistent.
+\item Show that $\enot \enot (C \eiff \enot C), ((G \eor C) \eor G) \therefore ((G \eif C) \eand G) $ is valid.
+\item Show that $ \enot \enot L,  (C \eif \enot L) \eif C) \therefore \enot C$ is invalid. 
+\end{enumerate}
+

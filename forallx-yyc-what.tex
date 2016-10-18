@@ -45,7 +45,37 @@ And these expressions often indicate that we are dealing with a premise, rather 
 	\end{center}
 But in analysing an argument, there is no substitute for a good nose.
 
+\newglossaryentry{premise indicator word}
+{
+name=premise indicator,
+description={a word or phrase such as ``because'' used to indicate that what follows is the premise of an argument.}
+}
+
+\newglossaryentry{conclusion indicator word}
+{
+name=conclusion indicator,
+description={a word or phrase such as ``therefore'' used to indicate that what follows is the conclusion of an argument.}
+}
+
 To be perfectly general, we can define an \define{argument} as a series of sentences. The sentences at the beginning of the series are premises. The final sentence in the series is the conclusion. If the premises are true and the argument is a good one, then you have a reason to accept the conclusion.
+
+\newglossaryentry{argument}
+{
+name=argument,
+description={a connected series of sentences, divided into \gls{premise}s and \gls{conclusion}.}
+}
+
+\newglossaryentry{premise}
+{
+name=premise,
+description={a sentence in an \gls{argument} other than the \gls{conclusion}}
+}
+
+\newglossaryentry{conclusion}
+{
+name=conclusion,
+description={the last sentence in an \gls{argument}}
+}
 
 
 \section{Sentences}
@@ -120,6 +150,20 @@ As logicians, we want to be able to determine when the conclusion of an argument
 	\factoidbox{
 		An argument is \define{valid} if and only if it is impossible for all of the premises to be true and the conclusion false.
 	}
+\newglossaryentry{valid}
+{
+name=valid,
+description={A property of arguments where it is impossible for the premises to be true and the conclusion false.}
+}
+
+\newglossaryentry{invalid}
+{
+name=invalid,
+description={A property of arguments that holds when it is possible for the premises to be true without the conclusion being true; the opposite of \gls{valid}.}
+}
+ 
+
+        
 The crucial thing about a valid argument is that it is impossible for the premises to be true whilst the conclusion is false. Consider this example:
 	\begin{earg}
 		\item[] Oranges are either fruits or musical instruments.
@@ -137,6 +181,12 @@ This highlights that valid arguments do not need to have true premises or true c
 The premises and conclusion of this argument are, as a matter of fact, all true. But the argument is invalid. If Paris were to declare independence from the rest of France, then the conclusion would be false, even though both of the premises would remain true. Thus, it is \emph{possible} for the premises of this argument to be true and the conclusion false. The argument is therefore invalid.
 
 The important thing to remember is that validity is not about the actual truth or falsity of the sentences in the argument. It is about whether it is \emph{possible} for all the premises to be true and the conclusion false. Nonetheless, we shall say that an argument is \define{sound} if and only if it is both valid and all of its premises are true.
+\newglossaryentry{sound}
+{
+name=sound,
+description={A property of arguments that holds if the argument is valid and has all true premises.}
+}
+
 
 
 
@@ -237,6 +287,13 @@ Logic alone cannot tell us which, if either, of these sentences is true. Yet we 
 	}
 Conversely, B1 and B2 are \emph{jointly inconsistent}.
 
+\newglossaryentry{consistency}
+{
+name=consistency,
+text={jointly consistent},
+description={A property possessed by some sentences when they can all be true at the same time}
+}
+
 We can ask about the consistency of any number of sentences. For example, consider the following four sentences:
 	\begin{ebullet}	
 		\item[G1.] \label{MartianGiraffes} There are at least four giraffes at the wild animal park.
@@ -258,9 +315,27 @@ In order to know if sentence \ref{Acontingent} is true, you would need to look o
 
 Sentence \ref{Atautology} is different. You do not need to look outside to know that it is true. Regardless of what the weather is like, it is either raining or it is not. That is a \define{necessary truth}. 
 
+\newglossaryentry{necessary truth}
+{
+name=necessary truth,
+description={A sentence that must be true}
+}
+
 Equally, you do not need to check the weather to determine whether or not sentence \ref{Acontradiction} is true. It must be false, simply as a matter of logic. It might be raining here and not raining across town; it might be raining now but stop raining even as you finish this sentence; but it is impossible for it to be both raining and not raining in the same place and at the same time. So, whatever the world is like, it is not both raining here and not raining here. It is a \define{necessary falsehood}.
 
+\newglossaryentry{necessary falsehood}
+{
+name=necessary falsehood,
+description={A sentence that must be false, as a matter of logic.}
+}
+
 Something which is capable of being true or false, but which is neither necessarily true nor necessarily false, is \define{contingent}.
+
+\newglossaryentry{contingent sentence}
+{
+name=contingent sentence,
+description={A sentence that is neither a \gls{necessary truth} nor a \gls{necessary falsehood}; a sentence that in some situations is true and in others false.}
+}
 
 %Something might \emph{always} be true and still be contingent. For instance, if there never were a time when the universe contained fewer than seven things, then the sentence `At least seven things exist' would always be true. Yet the sentence is contingent: the world could have been much, much smaller than it is, and then the sentence would have been false. 
 
@@ -271,6 +346,13 @@ We can also ask about the logical relations \emph{between} two sentences. For ex
 \item[] John washed the dishes before he went to the store.
 \end{earg}
 These two sentences are both contingent, since John might not have gone to the store or washed dishes at all. Yet they must have the same truth-value. If either of the sentences is true, then they both are; if either of the sentences is false, then they both are. When two sentences necessarily have the same truth value, we say that they are \define{logically equivalent}.
+
+\newglossaryentry{logical equivalence}
+{
+name={logical equivalence},
+text={logically equivalent},
+description={A property held by a pair of sentences that must always have the same truth value.}
+}
 
 \section*{Summary of logical notions}
 \begin{itemize}

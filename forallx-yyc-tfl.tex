@@ -93,11 +93,26 @@ In doing this, we are not fixing this symbolisation \emph{once and for all}. We 
 		\item[C] Dipan is an avid reader of Tolstoy
 	\end{ekey}
 But it is important to understand that whatever structure an English sentence might have is lost when it is symbolised by an atomic sentence of TFL. From the point of view of TFL, an atomic sentence is just a letter. It can be used to build more complex sentences, but it cannot be taken apart.
+\newglossaryentry{atomic sentence}
+{
+name=atomic sentence,
+description={A sentence used to represent a basic sentence; a single letter in TFL, or a predicate symbol followed by constants in FOL.}
+}
+\newglossaryentry{symbolization key}
+{
+name=symbolization key,
+description={A list that shows which English sentences are represented by which atomic sentences in TFL.}
+}
+
 
 
 \chapter{Connectives}\label{s:TFLConnectives}
 In the previous section, we considered symbolising fairly basic English sentences with atomic sentences of TFL. This leaves us wanting to deal with the English expressions `and', `or', `not', and so forth. These are \emph{connectives}---they can be used to form new sentences out of old ones. And in TFL, we shall make use of logical connectives to build complex sentences from atomic components. There are five logical connectives in TFL. This table summarises them, and they are explained throughout this section.
-
+\newglossaryentry{connective}
+{
+name=connective,
+description={A logical operator in TFL used to combine atomic sentences into larger sentences.}
+}
 	\begin{table}[h]
 	\center
 	\begin{tabular}{l l l}
@@ -150,6 +165,11 @@ But some care is needed when handling negations. Consider:
 		\item[\ex{not7}] Jane is unhappy.
 	\end{earg}
 If we let the TFL-sentence `$H$' symbolise  `Jane is happy', then we can symbolise sentence \ref{not6} as `$H$'. However, it would be a mistake to symbolise sentence \ref{not7} with `$\enot{H}$'. If Jane is unhappy, then she is not happy; but sentence \ref{not7} does not mean the same thing as `It is not the case that Jane is happy'. Jane might be neither happy nor unhappy; she might be in a state of blank indifference. In order to symbolise sentence \ref{not7}, then, we would need a new atomic sentence of TFL.
+\newglossaryentry{negation}
+{
+name=negation,
+description={The symbol \enot, used to represent words and phrases that function like the English word ``not''.}
+}
 
 \section{Conjunction}\label{s:ConnectiveConjunction}
 Consider these sentences:
@@ -164,6 +184,18 @@ We will need separate atomic sentences of TFL to symbolise sentences \ref{and1} 
 		\item[B] Barbara is athletic.
 	\end{ekey}
 Sentence \ref{and1} can now be symbolised as `$A$', and sentence \ref{and2} can be symbolised as `$B$'. Sentence \ref{and3} roughly says `A and B'. We need another symbol, to deal with `and'. We will use `\eand'. Thus we will symbolise it as `$(A\eand B)$'. This connective is called \define{conjunction}. We also say that `$A$' and `$B$' are the two \define{conjuncts} of the conjunction `$(A \eand B)$'.
+\newglossaryentry{conjunction}
+{
+name=conjunction,
+description={The symbol \eand, used to represent words and phrases that function like the English word ``and''; or a sentence formed using that symbol.}
+}
+
+\newglossaryentry{conjunct}
+{
+name=conjunct,
+description={A sentence joined to another by a conjunction.}
+}
+
 
 Notice that we make no attempt to symbolise the word `also' in sentence \ref{and3}. Words like `both' and `also' function to draw our attention to the fact that two things are being conjoined. Maybe they affect the emphasis of a sentence. But we will not (and cannot) symbolise such things in TFL.
 
@@ -214,6 +246,18 @@ For these sentences we can use this symbolisation key:
 	\end{ekey}
 However, we shall again need to introduce a new symbol. Sentence \ref{or1} is symbolised by `$(D \eor M)$'. The connective is called \define{disjunction}. We also say that `$D$' and `$M$' are the \define{disjuncts} of the disjunction `$(D \eor M)$'.
 
+\newglossaryentry{disjunction}
+{
+name=disjunction,
+description={The connective \eor, used to represent words and phrases that function like the English word ``or'' in its inclusive sense; or a sentence formed by using this connective.}
+}
+
+\newglossaryentry{disjunct}
+{
+name=disjunct,
+description={A sentence joined to another by a disjunction.}
+}
+
 Sentence \ref{or2} is only slightly more complicated. There are two subjects, but the English sentence only gives the verb once. However, we can paraphrase sentence \ref{or2} as `Either Denison will play golf with me, or Ellery will play golf with me'. Now we can obviously symbolise it by `$(D \eor E)$' again.
 	\factoidbox{
 		A sentence can be symbolised as $(\script{A}\eor\script{B})$ if it can be paraphrased in English as `Either\ldots, or\ldots.' Each of the disjuncts must be a sentence.
@@ -249,6 +293,24 @@ Let's use the following symbolisation key:
 		\item[F] Jean is in France
 	\end{ekey}
 Sentence \ref{if1} is roughly of this form: `if P, then F'. We will use the symbol `\eif' to symbolise this `if\ldots, then\ldots' structure. So we symbolise sentence \ref{if1} by `$(P\eif F)$'. The connective is called \define{the conditional}. Here, `$P$' is called the \define{antecedent} of the conditional `$(P \eif F)$', and `$F$' is called the \define{consequent}.
+\newglossaryentry{conditional}
+{
+name=conditional,
+description={The symbol \eif, used to represent words and phrases that function like the English phrase ``if \ldots then''; a sentence formed by using this symbol.}
+}
+
+\newglossaryentry{antecedent}
+{
+name=antecedent,
+description={The sentence on the left side of a conditional.}
+}
+
+
+\newglossaryentry{consequent}
+{
+name=consequent,
+description={The sentence on the right side of a conditional.}
+}
 
 Sentence \ref{if2} is also a conditional. Since the word `if' appears in the second half of the sentence, it might be tempting to symbolise this in the same way as sentence \ref{if1}. That would be a mistake. My knowledge of geography tells me that sentence \ref{if1} is unproblematically true: there is no way for Jean to be in Paris that doesn't involve Jean being in France. But sentence \ref{if2} is not so straightforward: were  Jean in Dieppe, Lyons, or Toulouse, Jean would be in France without being in Paris, thereby rendering sentence \ref{if2} false. Since geography alone dictates the truth of sentence \ref{if1}, whereas travel plans (say) are needed to know the truth of sentence \ref{if2}, they must mean different things.
 
@@ -284,6 +346,12 @@ Sentence \ref{iff1}, for reasons discussed above, can be symbolised by `$H \eif 
 Sentence \ref{iff2} is importantly different. It can be paraphrased as, `If Shergar is a mammal then Shergar is a horse'. So it can be symbolised by `$M\eif H$'.
 
 Sentence \ref{iff3} says something stronger than either \ref{iff1} or \ref{iff2}. It can be paraphrased as `Shergar is a horse if he is a mammal, and Shergar is a horse only if Shergar is a mammal'. This is just the conjunction of sentences \ref{iff1} and \ref{iff2}. So we can symbolise it as `$(H \eif M) \eand (M \eif H)$'. We call this a \define{biconditional}, because it entails the conditional in both directions. 
+
+\newglossaryentry{biconditional}
+{
+name=biconditional,
+description={The symbol \eiff, used to represent words and phrases that function like the English phrase ``if and only if''; or a sentence formed using this connective.}
+}
 
 We could treat every biconditional this way. So, just as we do not need a new TFL symbol to deal with \emph{exclusive or}, we do not really need a new TFL symbol to deal with biconditionals. However, we will use `\eiff' to symbolise the biconditional. So we can symbolise sentence \ref{iff3} with the TFL sentence `$H \eiff M$'. 
 
@@ -521,7 +589,7 @@ Obviously, individual atomic sentences like `$A$' and `$G_{13}$' should count as
 Instead, we will describe the process by which sentences can be \emph{constructed}. Consider negation: Given any sentence \script{A} of TFL, $\enot\script{A}$ is a sentence of TFL. (Why the funny fonts? I return to this in \S\ref{s:UseMention}.)
 
 We can say similar things for each of the other connectives. For instance, if \script{A} and \script{B} are sentences of TFL, then $(\script{A}\eand\script{B})$ is a sentence of TFL. Providing clauses like this for all of the connectives, we arrive at the following formal definition for a \define{sentence of TFL}:
-	\factoidbox{
+	\factoidbox{\label{TFLsentences}
 	\begin{enumerate}
 		\item Every atomic sentence is a sentence.
 		\item If \script{A} is a sentence, then $\enot\script{A}$ is a sentence.
@@ -532,6 +600,13 @@ We can say similar things for each of the other connectives. For instance, if \s
 		\item Nothing else is a sentence.
 	\end{enumerate}
 	}
+\newglossaryentry{sentence of TFL}
+{
+name=sentence of TFL,
+description={A string of symbols in TFL that can be built up according to the recursive rules given on p.~\pageref{TFLsentences}.}
+}
+
+        
 Definitions like this are called \emph{recursive}. Recursive definitions begin with some specifiable base elements, and then present ways to generate indefinitely many more elements by compounding together previously established ones. To give you a better idea of what a recursive definition is, we can give a recursive definition of the idea of \emph{an ancestor of mine}. We specify a base clause.
 	\begin{ebullet}
 		\item My parents are ancestors of mine.
@@ -551,12 +626,24 @@ Next, consider the example `$\enot (P \eand \enot (\enot Q \eor R))$'. Looking a
 
 Ultimately, every sentence is constructed nicely out of atomic sentences. When we are dealing with a \emph{sentence} other than an atomic sentence, we can see that there must be some sentential connective that was introduced \emph{last}, when constructing the sentence. We call that the \define{main logical operator} of the sentence. In the case of `$\enot\enot\enot D$', the main logical operator is the very first `$\enot$' sign. In the case of `$(P \eand \enot (\enot Q \eor R))$', the main logical operator is `$\eand$'. In the case of `$((\enot E \eor F) \eif \enot\enot G)$', the main logical operator is `$\eif$'.
 
+\newglossaryentry{main logical operator}
+{
+name=main connective,
+description={The last connective that you add when you assemble a sentence using the recursive definition.}
+}
+
 The recursive structure of sentences in TFL will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence `$\enot \enot \enot D$' is true if and only if the sentence `$\enot \enot D$' is false, and so on through the structure of the sentence, until we arrive at the atomic components. We will return to this point in chapter \ref{ch.TruthTables}.
 
 The recursive structure of sentences in TFL also allows us to give a formal definition of the \emph{scope} of a negation (mentioned in \S\ref{s:ConnectiveConjunction}). The scope of a `$\enot$' is the subsentence for which `$\enot$' is the main logical operator. So in a sentence like:
 $$(P \eand (\enot (R \eand B) \eiff Q))$$
 this was constructed by conjoining `$P$' with `$ (\enot (R \eand B) \eiff Q)$'. This last sentence was constructed by placing a biconditional between `$\enot (R \eand B)$' and `$Q$'. And the former of these sentences---a subsentence of our original sentence---is a sentence for which `$\enot$' is the main logical operator. So the scope of the negation is just `$\enot(R \eand B)$'. More generally:
 	\factoidbox{The \define{scope} of a connective (in a sentence) is the subsentence for which that connective is the main logical operator.}
+\newglossaryentry{scope}
+{
+name=scope,
+description={The sentences that are joined by a connective. These are the sentences the connective was applied to when the sentence was assembled using a recursive definition.}
+}
+
 
 
 \section{Bracketing conventions}
@@ -635,6 +722,18 @@ These general quotation conventions are of particular importance for us. After a
 
 When we talk about a language, the language that we are talking about is called the \define{object language}. The language that we use to talk about the object language is called the \define{metalanguage}.
 \label{def.metalanguage}
+\newglossaryentry{object language}
+{
+name=object language,
+description={A language that is constructed and studied by logicians. In this te
+xtbook, the object languages are TFL and FOL.}
+}
+
+\newglossaryentry{metalanguage}
+{
+name=metalanguage,
+description={The language logicians use to talk about the object language. In this textbook, the metalanguage is English, supplemented by certain symbols like metavariables and technical terms like ``valid.''}
+}
 
 For the most part, the object language in this chapter has been the formal language that we have been developing: TFL. The metalanguage is English. Not conversational English exactly, but English supplemented with some additional vocabulary which helps us to get along.
 
@@ -672,7 +771,13 @@ This talks about \emph{arbitrary} sentences. If we had instead offered:
 	\end{ebullet}
 this would not have allowed us to determine whether `$\enot B$' is a sentence. To emphasise, then:
 	\factoidbox{
-		`$\script{A}$' is a symbol in augmented English, which we use to talk about any TFL expression. 	`$A$' is a particular atomic sentence of TFL.}
+	  `$\script{A}$' is a symbol (called a \define{metavariable}) in augmented English, which we use to talk about any TFL expression. 	`$A$' is a particular atomic sentence of TFL.}
+
+        \newglossaryentry{metavariables}
+{
+name=metavariables,
+description={A variable in the metalanguage that can represent any sentence in the object language.}
+}
 But this last example raises a further complications for our quotation conventions. I have not included any quotation marks in the third clause of our recursive definition. Should I have done so?
 
 The problem is that the expression on the right-hand-side of this rule is not a sentence of English, since it contains `$\enot$'. So we might try to write:

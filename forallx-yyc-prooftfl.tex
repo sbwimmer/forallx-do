@@ -829,7 +829,13 @@ Armed with our `$\proves$' symbol, we can introduce a new terminology.
 	\factoidbox{
 		$\meta{A}$ is a \define{theorem} iff $\proves \meta{A}$
 	}
-To illustrate this, suppose I want to prove that `$\enot (A \eand \enot A)$' is a theorem. So I must start my proof without \emph{any} assumptions. However, since I want to prove a sentence whose main logical operator is a negation, I shall want to  immediately begin a subproof, with the additional assumption `$A \eand \enot A$', and show that this leads to contradiction. All told, then, the proof looks like this:
+\newglossaryentry{theorem}
+{
+name=theorem,
+description={A sentence that can be proved without any premises.}
+}
+
+        To illustrate this, suppose I want to prove that `$\enot (A \eand \enot A)$' is a theorem. So I must start my proof without \emph{any} assumptions. However, since I want to prove a sentence whose main logical operator is a negation, I shall want to  immediately begin a subproof, with the additional assumption `$A \eand \enot A$', and show that this leads to contradiction. All told, then, the proof looks like this:
 	\begin{proof}
 		\open
 			\hypo{con}{A \eand \enot A}
@@ -846,14 +852,30 @@ To show that something is a theorem, you just have to find a suitable proof. It 
 Here is another new bit of terminology:
 	\factoidbox{
 		Two sentences \meta{A} and \meta{B} are \define{provably equivalent} iff each can be proved from the other; i.e., both $\meta{A}\proves\meta{B}$ and $\meta{B}\proves\meta{A}$.
-		}
+	}
+        
+\newglossaryentry{provably equivalent}
+{
+  name=provable equivalence,
+  text = provably equivalent,
+description={A property held by pairs of statements if and only if there is a derivation which takes you from each one to the other one.}
+}
+
+
 As in the case of showing that a sentence is a theorem, it is relatively easy to show that two sentences are provably equivalent: it just requires a pair of proofs. Showing that sentences are \emph{not} provably equivalent would be much harder: it is just as hard as showing that a sentence is not a theorem. 
 
 Here is a third, related, bit of terminology:
 	\factoidbox{
-		The sentences $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n$ are \define{jointly contrary} iff a contradiction can be proved from them, i.e.\ $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n \proves \ered$.
+		The sentences $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n$ are \define{provably inconsistent} iff a contradiction can be proved from them, i.e.\ $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n \proves \ered$.
 	}
-It is easy to show that some sentences are jointly contrary: you just need to prove a contradiction from assuming all the sentences. Showing that some sentences are not jointly contrary is much harder. It would require more than just providing a proof or two; it would require showing that no proof of a certain kind is \emph{possible}.
+        
+\newglossaryentry{provably inconsistent}
+{    name={provable inconsistency}, 
+  description={Sentences are provably inconsistent iff a contradiction can be derived from them.},
+    text={provably inconsistent}
+}
+
+        It is easy to show that some sentences are provably inconsistent: you just need to prove a contradiction from assuming all the sentences. Showing that some sentences are not jointly contrary is much harder. It would require more than just providing a proof or two; it would require showing that no proof of a certain kind is \emph{possible}.
 
 \
 \\
@@ -1071,48 +1093,19 @@ In section~\ref{???}, we saw that we could use derivations to test for the same 
 
 You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \script{A} is a tautology using truth tables, can you also always show that it is true using a derivation? Is the reverse true? Are these things also true for tautologies and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately and then proving them equivalent. That is, we imagine that we actually have two notions of validity, $valid_{\models}$ and  $valid_{\vdash}$ and then show that the two concepts always work the same way. 
 
-\newglossaryentry{syntactic contradiction in SL}
-{
-name=syntactic contradiction in SL,
-description={A statement in SL whose negation can be derived without any premises.}
-}
-
-
-   
-\newglossaryentry{syntactically contingent in SL}
-{
-name=syntactically contingent in SL,
-description={A property held by a statement in SL if and only if it is not a syntactic tautology or a syntactic contradiction.}
-}
 
 
 
 
 To begin with, we need to define all of our logical concepts separately for truth tables and derivations. A lot of this work has already been done. We handled all of the truth table definitions in Chapter \ref{chap:truth_tables}. We have also already given syntactic definitions for a tautologies and pairs of logically equivalent sentences. The other definitions follow naturally. For most logical properties we can devise a test using derivations, and those that we cannot test for directly can be defined in terms of the concepts that we can define.
 
-For instance, we defined a syntactic tautology as a statement that can be derived without any premises (p. \pageref{def:syntactic_tautology_in_sl}). Since the negation of a contradiction is a tautology, we can define a \textsc{\gls{syntactic contradiction in SL}} \label{def:syntactic_contradiction_in_sl} as a sentence whose negation can be derived without any premises. The syntactic definition of a contingent sentence is a little different. We don't have any practical, finite method for proving that a sentence is contingent using derivations, the way we did using truth tables. So we have to content ourselves with defining ``contingent sentence'' negatively. A sentence is \textsc{\gls{syntactically contingent in SL}} \label{def:syntactically_contingent_in_sl} if it is not a syntactic tautology or contradiction. 
+For instance, we defined a syntactic tautology as a statement that can be derived without any premises (p. \pageref{def:syntactic_tautology_in_sl}). Since the negation of a contradiction is a tautology, we can define a \textsc{{syntactic contradiction in SL}} \label{def:syntactic_contradiction_in_sl} as a sentence whose negation can be derived without any premises. The syntactic definition of a contingent sentence is a little different. We don't have any practical, finite method for proving that a sentence is contingent using derivations, the way we did using truth tables. So we have to content ourselves with defining ``contingent sentence'' negatively. A sentence is \textsc{{syntactically contingent in SL}} \label{def:syntactically_contingent_in_sl} if it is not a syntactic tautology or contradiction. 
  
-\newglossaryentry{syntactically inconsistent in SL}
-{
-name=syntactically inconsistent in SL,
-description={A property held by sets of sentences in SL if and only if one can derive a contradiction from them.}
-}
 
-\newglossaryentry{syntactically consistent in SL}
-{
-name=syntactically consistent in SL,
-description={A property held by sets of sentences in SL if and only if they are not syntactically inconsistent.}
-}
-
-A set of sentences is \textsc{\gls{syntactically inconsistent in SL}} \label{def:syntactically_inconsistent_ in_sl} if and only if one can derive a contradiction from them. Consistency, on the other hand, is like contingency, in that we do not have a practical finite method to test for it directly. So again, we have to define a term negatively. A set of set of sentences is \textsc{\gls{syntactically consistent in SL}} \label{def:syntactically consistent in SL} if and only if they are not syntactically inconsistent.
+A set of sentences is \textsc{{syntactically inconsistent in SL}} \label{def:syntactically_inconsistent_ in_sl} if and only if one can derive a contradiction from them. Consistency, on the other hand, is like contingency, in that we do not have a practical finite method to test for it directly. So again, we have to define a term negatively. A set of set of sentences is \textsc{{syntactically consistent in SL}} \label{def:syntactically consistent in SL} if and only if they are not syntactically inconsistent.
     
-\newglossaryentry{syntactically valid in SL}
-{
-name=syntactically valid in SL,
-description={A property held by arguments in SL if and only if there is a derivation that goes from the premises to the conclusion.}
-}
 
-Finally, an argument is \textsc{\gls{syntactically valid in SL}} \label{def:syntactically_valid_in_SL} if and only if there is a derivation of it. All of these definitions are given in Table \ref{table:truth_tables_or_derivations}.
+Finally, an argument is \textsc{{syntactically valid in SL}} \label{def:syntactically_valid_in_SL} if and only if there is a derivation of it. All of these definitions are given in Table \ref{table:truth_tables_or_derivations}.
 
 
 \begin{sidewaystable}

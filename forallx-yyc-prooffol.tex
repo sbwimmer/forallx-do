@@ -170,7 +170,7 @@ We might try to capture this reasoning pattern in a proof as follows:
 	\close
 	\have{et2}{\exists x Gx}\Ee{es,s-et1}
 \end{proof}\noindent
-Breaking this down: we started by writing down our assumptions. At line 3, we made an additional assumption: `$Fo$'. This was just a substitution instance of `$\exists x Fx$'. On this assumption, we established `$\exists x Gx$'. But note that we had made no \emph{special} assumptions about the object named by `$o$'; we had \emph{only} assumed that it satisfies `$Fx$'. So nothing depends upon which object it is. And line 1 told us that \emph{something} satisfies `$Fx$'. So our reasoning pattern was perfectly general. We can discharge the specific assumption `$Fo$', and simply infer `$\exists x Gx$' on its own.
+Breaking this down: we started by writing down our assumptions. At line 3, we made an additional assumption: `$Fo$'. This was just a substitution instance of `$\exists x Fx$'. On this assumption, we established `$\exists x Gx$'. Note that we had made no \emph{special} assumptions about the object named by `$o$'; we had \emph{only} assumed that it satisfies `$Fx$'. So nothing depends upon which object it is. And line 1 told us that \emph{something} satisfies `$Fx$', so our reasoning pattern was perfectly general. We can discharge the specific assumption `$Fo$', and simply infer `$\exists x Gx$' on its own.
 
 Putting this together, we obtain the existential elimination rule ($\exists$E):
 \factoidbox{
@@ -201,7 +201,7 @@ Now, suppose we tried to offer a proof that vindicates this argument:
 	\close
 	\have{econ1}{Lb \eand \enot Lb}\by{naughtily attempting to invoke $\exists$E }{nf, na-con}
 \end{proof}
-The last line of the proof is not allowed. The name that we used in our substitution instance for `$\exists x \enot Lx$' on line 3, namely `$b$', occurs in line 4. And the following proof would be no better:
+The last line of the proof is not allowed. The name that we used in our substitution instance for `$\exists x \enot Lx$' on line 3, namely `$b$', occurs in line 4. The following proof would be no better:
 \begin{proof}
 	\hypo{f}{Lb}
 	\hypo{nf}{\exists x \enot Lx}	
@@ -423,7 +423,7 @@ Show that each pair of sentences is provably equivalent:
 \end{earg}
 
 \problempart
-In \S\ref{s:MoreMonadic}, I considered what happens when we move quantifiers `across' various logical operators. Show that each pair of sentences is provably equivalent:
+In \S\ref{s:MoreMonadic}, we considered what happens when we move quantifiers `across' various logical operators. Show that each pair of sentences is provably equivalent:
 \begin{earg}
 \item $\forall x (Fx \eand Ga), \forall x Fx \eand Ga$
 \item $\exists x (Fx \eor Ga), \exists x Fx \eor Ga$
@@ -438,7 +438,7 @@ When all the quantifiers occur at the beginning of a sentence, that sentence is 
 
 
 \chapter{Rules for identity}
-In \S\ref{s:Interpretations}, I mentioned the philosophically contentious thesis of the \emph{identity of indiscernibles}. This is the claim that objects which are indiscernible in every way are, in fact, identical to each other. I also mentioned that we will not subscribe to this thesis. It follows that, no matter how much you tell me about two objects, I cannot prove that they are identical. Unless, of course, you tell me that the two objects are, in fact, identical. But then the proof will hardly be very illuminating.
+In \S\ref{s:Interpretations}, we mentioned the philosophically contentious thesis of the \emph{identity of indiscernibles}. This is the claim that objects which are indiscernible in every way are, in fact, identical to each other. It was also mentioned that we will not subscribe to this thesis. It follows that, no matter how much you learn about two objects, we cannot prove that they are identical. That is unless, of course, you learn that the two objects are, in fact, identical, but then the proof will hardly be very illuminating.
 
 The consequence of this, for our proof system, is that there are no sentences that do not already contain the identity predicate that could justify the conclusion `$a=b$'. This means that the identity introduction rule will not justify `$a=b$', or any other identity claim containing two different names.
 
@@ -519,7 +519,7 @@ And hence that both have a decent claim to symbolise the English sentence `Nick 
 \
 
 \problempart
-In \S\ref{sec.identity}, I claimed that the following are logically equivalent symbolisations of the English sentence `there is exactly one F':
+In \S\ref{sec.identity}, we claimed that the following are logically equivalent symbolisations of the English sentence `there is exactly one F':
 \begin{ebullet}
 \item $\exists x Fx \eand \forall x \forall y \bigl[(Fx \eand Fy) \eif x = y\bigr]$
 \item $\exists x \bigl[Fx \eand \forall y (Fy \eif x = y)\bigr]$
@@ -543,7 +543,7 @@ And offer a proof of it.
 
 
 \chapter{Derived rules}\label{s:DerivedFOL}
-As in the case of TFL, I first introduced some rules for FOL as basic (in \S\ref{s:BasicFOL}), and then added some further rules for conversion of quantifiers (in \S\ref{s:CQ}). In fact, the CQ rules should be regarded as \emph{derived} rules, for they can be derived from the  \emph{basic} rules of \S\ref{s:BasicFOL}. (The point here is as in \S\ref{s:Derived}.) Here is a justification for the first CQ rule:
+As in the case of TFL, we first introduced some rules for FOL as basic (in \S\ref{s:BasicFOL}), and then added some further rules for conversion of quantifiers (in \S\ref{s:CQ}). In fact, the CQ rules should be regarded as \emph{derived} rules, for they can be derived from the  \emph{basic} rules of \S\ref{s:BasicFOL}. (The point here is as in \S\ref{s:Derived}.) Here is a justification for the first CQ rule:
 \begin{proof}
 	\hypo{An}{\forall x \enot A x}
 	\open
@@ -590,15 +590,15 @@ By contrast, this:
 $$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \entails \meta{C}$$
 means that there is no valuation (or interpretation) which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true and makes $\meta{C}$ false. This concerns assignments of truth and falsity to sentences. It is a \emph{semantic notion}.
 
-I cannot emphasise enough that these are different notions. But I can emphasise it a bit more: \emph{They are different notions.}
+It cannot be emphasised enough that these are different notions. But we can emphasise it a bit more: \emph{They are different notions.}
 
 Once you have internalised this point, continue reading. 
 
-Although our semantic and proof-theoretic notions are different, there is a deep connection between them. To explain this connection, I shall start by considering the relationship between logical truths and theorems.
+Although our semantic and proof-theoretic notions are different, there is a deep connection between them. To explain this connection,we will start by considering the relationship between logical truths and theorems.
 
-To show that a sentence is a theorem, you need only perform a proof. Granted, it may be hard to produce a twenty line proof, but it is not so hard to check each line of the proof and confirm that it is legitimate; and if each line of the proof individually is legitimate, then the whole proof is legitimate. Showing that a sentence is a logical truth, though, requires reasoning about all possible interpretations. Given a choice between showing that a sentence is a theorem and showing that it is a logical truth, it would be easier to show that it is a theorem.
+To show that a sentence is a theorem, you need only produce a proof. Granted, it may be hard to produce a twenty line proof, but it is not so hard to check each line of the proof and confirm that it is legitimate; and if each line of the proof individually is legitimate, then the whole proof is legitimate. Showing that a sentence is a logical truth, though, requires reasoning about all possible interpretations. Given a choice between showing that a sentence is a theorem and showing that it is a logical truth, it would be easier to show that it is a theorem.
 
-Contrawise, to show that a sentence is \emph{not} a theorem is hard. We would need to reason about all (possible) proofs. That is very difficult. But to show that a sentence is not a logical truth, you need only construct an interpretation in which the sentence is false. Granted, it may be hard to come up with the interpretation; but once you have done so, it is relatively straightforward to check what truth value it assigns to a sentence. Given a choice between showing that a sentence is not a theorem and showing that it is not a logical truth, it would be easier to show that it is not a logical truth.
+Contrawise, to show that a sentence is \emph{not} a theorem is hard. We would need to reason about all (possible) proofs. That is very difficult. However, to show that a sentence is not a logical truth, you need only construct an interpretation in which the sentence is false. Granted, it may be hard to come up with the interpretation; but once you have done so, it is relatively straightforward to check what truth value it assigns to a sentence. Given a choice between showing that a sentence is not a theorem and showing that it is not a logical truth, it would be easier to show that it is not a logical truth.
 
 Fortunately, \emph{a sentence is a theorem if and only if it is a logical truth}. As a result, if we provide a proof of $\meta{A}$ on no assumptions, and thus show that $\meta{A}$ is a theorem, we can legitimately infer that $\meta{A}$ is a logical truth; i.e., $\entails\meta{A}$. Similarly, if we construct a model in which \meta{A} is false and thus show that it is not a logical truth, it follows that \meta{A} is not a theorem.
 
@@ -612,7 +612,7 @@ This shows that, whilst provability and entailment are \emph{different} notions,
 	\end{ebullet}
 For this reason, you can pick and choose when to think in terms of proofs and when to think in terms of valuations/interpretations, doing whichever is easier for a given task. The table on the next page summarises which is (usually) easier.
 
-It is intuitive that provability and semantic entailment should agree. But---let me repeat this---do not be fooled by the similarity of the symbols `$\entails$' and `$\proves$'. These two symbols have very different meanings. And the fact that provability and semantic entailment agree is not an easy result to come by. 
+It is intuitive that provability and semantic entailment should agree. But---let us repeat this---do not be fooled by the similarity of the symbols `$\entails$' and `$\proves$'. These two symbols have very different meanings. The fact that provability and semantic entailment agree is not an easy result to come by. 
 
 In fact, demonstrating that provability and semantic entailment agree is, very decisively, the point at which introductory logic becomes intermediary logic.
 
@@ -647,6 +647,8 @@ Is $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ \textbf{vali
 \end{center}
 \end{sidewaystable}
 
+
+
 \problempart
 Show that each pair of sentences is provably equivalent.
 \begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
@@ -661,9 +663,9 @@ Show that each pair of sentences is provably equivalent.
 \problempart
 Show that each of the following is provably inconsistent.
 \begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
-\item \{$Sa\eif Tm$, $Tm \eif Sa$, $Tm \eand \enot Sa$\}
-\item \{$\enot\exists x \exists y Lxy$, $Laa$\}
-\item \{$\forall x(Px \eif Qx)$, $\forall z(Pz \eif Rz)$, $\forall y Py$, $\enot Qa \eand \enot Rb$\}
+\item $Sa\eif Tm$, $Tm \eif Sa$, $Tm \eand \enot Sa$
+\item $\enot\exists x \exists y Lxy$, $Laa$
+\item $\forall x(Px \eif Qx)$, $\forall z(Pz \eif Rz)$, $\forall y Py$, $\enot Qa \eand \enot Rb$
 \end{enumerate}
 
 
@@ -684,7 +686,7 @@ There is someone who likes everyone who likes everyone that he likes. Therefore,
 
 \problempart
 \label{pr.QLequivornot}
-For each of the following pairs of sentences: If they are logically equivalent in QL, give proofs to show this. If they are not, construct a model to show this.
+For each of the following pairs of sentences: If they are logically equivalent in FOL, give proofs to show this. If they are not, provide an interpretation to show this.
 \begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
 \item $\forall x Px \eif Qc$ and $\forall x (Px \eif Qc)$
 \item $\forall x Px \eand Qc$ and $\forall x (Px \eand Qc)$
@@ -696,16 +698,16 @@ For each of the following pairs of sentences: If they are logically equivalent i
 
 \problempart
 \label{pr.QLvalidornot}
-For each of the following arguments: If it is valid in QL, give a proof. If it is invalid, construct a model to show that it is invalid.
+For each of the following arguments: If it is valid in FOL, give a proof. If it is invalid, provide an interpretation to show that it is invalid.
 \begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
-\item $\forall x\exists y Rxy \proves  \exists y\forall x Rxy$
-\item $\exists y\forall x Rxy \proves  \forall x\exists y Rxy$
-\item $\exists x(Px \eand \enot Qx) \proves  \forall x(Px \eif \enot Qx)$
-\item $\{\forall x(Sx \eif Ta)$, $Sd\} \proves Ta$
-\item $\{\forall x(Ax\eif Bx)$, $\forall x(Bx \eif Cx)\} \proves  \forall x(Ax \eif Cx)$
-\item $\{\exists x(Dx \eor Ex)$, $\forall x(Dx \eif Fx)\} \proves  \exists x(Dx \eand Fx)$
-\item $\forall x\forall y(Rxy \eor Ryx)\proves  Rjj$
-\item $\exists x\exists y(Rxy \eor Ryx)\proves Rjj$
-\item $\{\forall x Px \eif \forall x Qx$, $\exists x \enot Px\}\proves \exists x \enot Qx$
-\item $\{\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx\}\proves  \forall x \enot Mx$
+\item $\forall x\exists y Rxy \therefore  \exists y\forall x Rxy$
+\item $\exists y\forall x Rxy \therefore  \forall x\exists y Rxy$
+\item $\exists x(Px \eand \enot Qx) \therefore  \forall x(Px \eif \enot Qx)$
+\item $\forall x(Sx \eif Ta)$, $Sd \therefore Ta$
+\item $\forall x(Ax\eif Bx)$, $\forall x(Bx \eif Cx) \therefore  \forall x(Ax \eif Cx)$
+\item $\exists x(Dx \eor Ex)$, $\forall x(Dx \eif Fx) \therefore  \exists x(Dx \eand Fx)$
+\item $\forall x\forall y(Rxy \eor Ryx)\therefore  Rjj$
+\item $\exists x\exists y(Rxy \eor Ryx)\therefore Rjj$
+\item $\forall x Px \eif \forall x Qx$, $\exists x \enot Px\therefore \exists x \enot Qx$
+\item $\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx\therefore  \forall x \enot Mx$
 \end{enumerate}

@@ -6,7 +6,7 @@
 \chapter{Characteristic truth tables}\label{s:CharacteristicTruthTables}
 Any non-atomic sentence of TFL is composed of atomic sentences with sentential connectives. The truth value of the compound sentence depends only on the truth value of the atomic sentences that comprise it. In order to know the truth value of `$(D \eand E)$', for instance, you only need to know the truth value of `$D$' and the truth value of `$E$'. 
 
-We introduced five connectives in chapter \ref{ch.TFL}, so we simply need to explain how they map between truth values. For convenience, we shall abbreviate `True' with `T' and `False' with `F'. (But just to be clear, the two truth values are True and False; the truth values are not \emph{letters}!)
+We introduced five connectives in chapter \ref{ch.TFL}, so we simply need to explain how they map between truth values. For convenience, we will abbreviate `True' with `T' and `False' with `F'. (But just to be clear, the two truth values are True and False; the truth values are not \emph{letters}!)
 
 \newglossaryentry{truth value}
                  {
@@ -79,7 +79,7 @@ Unsurprisingly, the biconditional is symmetrical.
 \chapter{Truth-functional connectives}\label{s:TruthFunctionality}
 
 \section{The idea of truth-functionality}
-I want to introduce an important idea. 
+Let's introduce an important idea. 
 	\factoidbox{
 		A connective is \define{truth-functional} iff the truth value of a sentence with that connective as its main logical operator is uniquely determined by the truth value(s) of the constituent sentence(s).
 	}
@@ -106,22 +106,22 @@ All of the connectives of TFL are truth-functional, but more than that: they rea
 
 When we symbolise a sentence or an argument in TFL, we ignore everything \emph{besides} the contribution that the truth values of a component might make to the truth value of the whole. There are subtleties to our ordinary claims that far outstrip their mere truth values. Sarcasm; poetry; snide implicature; emphasis; these are important parts of everyday discourse, but none of this is retained in TFL. As remarked in \S\ref{s:TFLConnectives}, TFL cannot capture the subtle differences between the following English sentences:
 	\begin{earg}
-		\item Jon is fat and Jon is quick
-		\item Although Jon is fat, Jon is quick
-		\item Despite being fat, Jon is quick
-		\item Jon is quick, albeit fat
-		\item Jon's fatness notwithstanding, he is quick
+		\item Dana is a logician and Dana is a nice person
+		\item Although Dana is a logician, Dana is a nice person
+		\item Despite being a logician, Jon is a nice person
+		\item Dana is a nice person, albeit being a logician
+		\item Dana's being a logician notwithstanding, he is a nice person
 	\end{earg}
 All of the above sentences will be symbolised with the same TFL sentence, perhaps `$F \eand Q$'.
 
-We keep saying that we use TFL sentences to \emph{symbolise} English sentences. Many other textbooks talk about \emph{translating} English sentences into TFL. However, a good translation should preserve certain facets of meaning, and---as I have just pointed out---TFL just cannot do that. This is why I shall speak of \emph{symbolising} English sentences, rather than of \emph{translating} them.
+We keep saying that we use TFL sentences to \emph{symbolise} English sentences. Many other textbooks talk about \emph{translating} English sentences into TFL. However, a good translation should preserve certain facets of meaning, and---as we have just pointed out---TFL just cannot do that. This is why we will speak of \emph{symbolising} English sentences, rather than of \emph{translating} them.
 
 This affects how we should understand our symbolisation keys. Consider a key like:
 	\begin{ekey}
-		\item[F] Jon is fat.
-		\item[Q] Jon is quick.
+		\item[L] Dana is a logician.
+		\item[N] Jon is a nice person.
 	\end{ekey}
-Other textbooks will understand this as a stipulation that the TFL sentence `$F$' should \emph{mean} that Jon is fat, and that the TFL sentence `$Q$' should \emph{mean} that Jon is quick, but TFL just is totally unequipped to deal with \emph{meaning}. The preceding symbolisation key is doing no more, and no less than stipulating that the TFL sentence `$F$' should take the same truth value as the English sentence `Jon is fat' (whatever that might be), and that the TFL sentence `$Q$' should take the same truth value as the English sentence `Jon is quick' (whatever that might be). 
+Other textbooks will understand this as a stipulation that the TFL sentence `$L$' should \emph{mean} that Dana is a logician, and that the TFL sentence `$N$' should \emph{mean} that Dana is a nice person, but TFL just is totally unequipped to deal with \emph{meaning}. The preceding symbolisation key is doing no more and no less than stipulating that the TFL sentence `$L$' should take the same truth value as the English sentence `Dana is a logician' (whatever that might be), and that the TFL sentence `$N$' should take the same truth value as the English sentence `Dana is a nice person' (whatever that might be). 
 	\factoidbox{
 		When we treat a TFL sentence as \emph{symbolising} an English sentence, we are stipulating that the TFL sentence is to take the same truth value as that English sentence.
 	}
@@ -169,7 +169,7 @@ What this argument shows is that `$\eif$' is the \emph{best} candidate for a tru
 		\item[\ex{brownwins1}] If Mitt Romney had won the 2012 election, then he would have been the 45th President of the USA.
 		\item[\ex{brownwins2}] If Mitt Romney had won the 2012 election, then he would have turned into a helium-filled balloon and floated away into the night sky.
 	\end{earg}
-Sentence \ref{brownwins1} is true; sentence \ref{brownwins2} is false, but both have false antecedents and false consequents. So the truth value of the whole sentence is not uniquely determined by the truth value of the parts. Do not just blithely assume that you can adequately symbolise an English `if\ldots, then\ldots' with TFL's `$\eif$'. 
+Sentence \ref{brownwins1} is true; sentence \ref{brownwins2} is false, but both have false antecedents and false consequents. So the truth value of the whole sentence is not uniquely determined by the truth value of the parts. Do not just blithely assume that you can adequately symbolise an English `if \dots, then \dots' with TFL's `$\eif$'. 
 
 The crucial point is that sentences \ref{brownwins1} and \ref{brownwins2} employ \emph{subjunctive} conditionals, rather than \emph{indicative} conditionals. They ask us to imagine something contrary to fact---Mitt Romney lost the 2012 election---and then ask us to evaluate what \emph{would} have happened in that case. Such considerations just cannot be tackled using `$\eif$'.
 
@@ -541,11 +541,11 @@ If you want additional practice, you can construct truth tables for any of the s
 
 
 \chapter{Semantic concepts}
-In the previous section, we introduced the idea of a valuation and showed how to determine the truth value of any TFL sentence, on any valuation, using a truth table. In this section, we shall introduce some related ideas, and show how to use truth tables to test whether or not they apply.
+In the previous section, we introduced the idea of a valuation and showed how to determine the truth value of any TFL sentence, on any valuation, using a truth table. In this section, we will introduce some related ideas, and show how to use truth tables to test whether or not they apply.
 
 
 \section{Tautologies and contradictions}
-In \S\ref{s:BasicNotions}, I explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have surrogates in TFL. We shall start with a surrogate for necessary truth.
+In \S\ref{s:BasicNotions}, we explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have surrogates in TFL. We will start with a surrogate for necessary truth.
 	\factoidbox{
 		$\meta{A}$ is a \define{tautology} iff it is true on every valuation.
 	}
@@ -600,7 +600,7 @@ Look at the columns for the main logical operators; negation for the first sente
 
 
 \section{Consistency}
-In \S\ref{s:BasicNotions}, I said that sentences are jointly consistent iff it is possible for all of them to be true at once. We can offer a surrogate for this notion too:
+In \S\ref{s:BasicNotions}, we said that sentences are jointly consistent iff it is possible for all of them to be true at once. We can offer a surrogate for this notion too:
 	\factoidbox{
 		$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ are \define{jointly logically consistent} iff there is some valuation which makes them all true.
 	}
@@ -650,7 +650,7 @@ In short, we have a way to test for the validity of English arguments. First, we
 
 
 \section{The limits of these tests}\label{s:ParadoxesOfMaterialConditional}
-We have reached an important milestone: a test for the validity of arguments! However, we should not get carried away just yet. It is important to understand the \emph{limits} of our achievement. I shall illustrate these limits with three examples.
+We have reached an important milestone: a test for the validity of arguments! However, we should not get carried away just yet. It is important to understand the \emph{limits} of our achievement. We will illustrate these limits with three examples.
 
 First, consider the argument: 
 	\begin{earg}
@@ -673,10 +673,10 @@ Third, consider the following sentence:
 	\end{earg}
 Symbolising this in TFL, we would offer something like `$\enot (G \eif M)$'. Now, `$\enot (G \eif M)$' entails `$G$' (again, check this with a truth table). So if we symbolise sentence \ref{n:GodParadox} in TFL, it seems to entail that God exists. But that's strange: surely even the atheist can accept sentence \ref{n:GodParadox}, without contradicting herself!
 
-In different ways, these three examples highlight some of the limits of working with a language (like TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of material implication}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using TFL, before we can adequately discuss its limits, and consider alternatives. 
+In different ways, these three examples highlight some of the limits of working with a language (like TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of the material conditional}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using TFL, before we can adequately discuss its limits, and consider alternatives. 
 
 \section{The double-turnstile}
-We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\meta{A}_1, \meta{A}_2, \ldots$ and $\meta{A}_n$ together entail $\meta{C}$, we shall abbreviate this by:
+We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\meta{A}_1, \meta{A}_2, \ldots$ and $\meta{A}_n$ together entail $\meta{C}$, we will abbreviate this by:
 	$$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \entails \meta{C}$$
 The symbol `$\entails$' is known as \emph{the double-turnstile}, since it looks like a turnstile with two horizontal beams.
 
@@ -695,7 +695,7 @@ This says that there is no valuation which makes all the sentences mentioned on 
 says that $\meta{A}$ is a contradiction.
 
 \section{`$\entails$' versus `$\eif$'}
-I now want to compare and contrast `$\entails$' and `$\eif$'. 
+We now want to compare and contrast `$\entails$' and `$\eif$'. 
 
 Observe: $\meta{A} \entails \meta{C}$ iff there is no valuation of the atomic sentences that makes $\meta{A}$ true and $\meta{C}$ false. 
 
@@ -906,7 +906,7 @@ Is this principle correct? Explain your answer.
 
 
 \chapter{Truth table shortcuts}
-With practice, you will quickly become adept at filling out truth tables. In this section, I want to give you some permissible shortcuts to help you along the way. 
+With practice, you will quickly become adept at filling out truth tables. In this section, we want to give you some permissible shortcuts to help you along the way. 
 
 \section{Working through truth tables}
 You will quickly find that you do not need to copy the truth value of each atomic sentence, but can simply refer back to them. So you can speed things up by writing:
@@ -1055,7 +1055,7 @@ F & F & F & F & & && & && & && & & & T& & \TTbf{T} & \\
 \end{center}
 If we had used no shortcuts, we would have had to write 256 `T's or `F's on this table. Using shortcuts, we only had to write 37. We have saved ourselves a \emph{lot} of work.
 
-I have been discussing shortcuts in testing for logically validity, but exactly the same shortcuts can be used in testing for entailment. By employing a similar notion of \emph{bad} lines, you can save yourself a huge amount of work.
+We have been discussing shortcuts in testing for logically validity, but exactly the same shortcuts can be used in testing for entailment. By employing a similar notion of \emph{bad} lines, you can save yourself a huge amount of work.
 
 \practiceproblems
 \problempart

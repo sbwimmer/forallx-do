@@ -34,7 +34,7 @@ This argument is also valid---as you can probably tell---but to test it requires
 When we get to first-order logic (FOL) (beginning in chapter \ref{s:FOLBuildingBlocks}), though, the problem gets dramatically worse. There is nothing like the truth table test for FOL. To assess whether or not an argument is valid, we have to reason about \emph{all} interpretations, but, as we will see, there are infinitely many possible interpretations. We cannot even in principle set a machine to grind through infinitely many possible interpretations and report back when it is finished: it will \emph{never} finish. We either need to come up with some more efficient way of reasoning about all interpretations, or we need to look for something different. 
 
 There are, indeed, systems that codify ways to reason about all possible interpretations. They were developed in the 1950s by Evert Beth and Jaakko Hintikka, but we will not follow this path. We will, instead, look to natural deduction. 
-%And that is where we shall look. 
+%And that is where we will look. 
 %
 %There is something philosophically desirable about Consider an argument like:
 %	\begin{earg}
@@ -49,8 +49,8 @@ There are, indeed, systems that codify ways to reason about all possible interpr
 %\section{A roadmap}
 %So here is our plan. 
 
-Rather than reasoning directly about all valuations (in the case of TFL), we shall try to select a few basic rules of inference. Some of these will govern the behaviour of the sentential connectives. Others will govern the behaviour of the quantifiers and identity that are the hallmarks of FOL. The resulting system of rules will give us a new way to think about the validity of arguments. 
-The modern development of natural deduction dates from simultaneous and unrelated papers by Gerhard Gentzen and Stanis\l{}aw Ja\'{s}kowski (1934). However, the natural deduction system that we shall consider is based largely around work by Frederic Fitch (first published in 1952). 
+Rather than reasoning directly about all valuations (in the case of TFL), we will try to select a few basic rules of inference. Some of these will govern the behaviour of the sentential connectives. Others will govern the behaviour of the quantifiers and identity that are the hallmarks of FOL. The resulting system of rules will give us a new way to think about the validity of arguments. 
+The modern development of natural deduction dates from simultaneous and unrelated papers by Gerhard Gentzen and Stanis\l{}aw Ja\'{s}kowski (1934). However, the natural deduction system that we will consider is based largely around work by Frederic Fitch (first published in 1952). 
 
 
 
@@ -62,7 +62,7 @@ A \emph{formal proof} is a sequence of sentences, some of which are marked as be
 
 As an illustration, consider:
 	$$\enot (A \eor B) \therefore \enot A \eand \enot B$$
-We shall start a proof by writing the premise:
+We will start a proof by writing the premise:
 \begin{proof}
 	\hypo{a1}{\enot (A \eor B)}
 \end{proof}
@@ -109,20 +109,20 @@ All that remains to do is to explain each of the rules that we can use along the
 %Two things need emphasising. First `$\meta{A}$' is not a sentence of TFL. Rather, it a symbol in the metalanguage, which we use when we want to talk about any sentence of TFL (see \S\ref{s:UseMention}). Second, and similarly, `$m$' is not a numeral that will appear on a proof. Rather, it is a symbol in the metalanguage, which we use when we want to talk about any line number of a proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth. But when we define the rule, we use variables to underscore the point that the rule may be applied at any point.
 
 \section{Conjunction}
-Suppose I want to show that Ludwig is both reactionary and libertarian. One obvious way to do this would be as follows: first I show that Ludwig is reactionary; then I show that Ludwig is libertarian; then I put these two demonstrations together, to obtain the conjunction.
+Suppose we want to show that Ludwig is both reactionary and libertarian. One obvious way to do this would be as follows: first we show that Ludwig is reactionary; then we show that Ludwig is libertarian; then we put these two demonstrations together, to obtain the conjunction.
 
-Our natural deduction system will capture this thought straightforwardly. In the example given, I might adopt the following symbolisation key:
+Our natural deduction system will capture this thought straightforwardly. In the example given, we might adopt the following symbolisation key:
 	\begin{ekey}
 		\item[R] Ludwig is reactionary
 		\item[L] Ludwig is libertarian
 	\end{ekey}
-Perhaps I am working through a proof, and I have obtained `$R$' on line 8 and `$L$' on line 15. Then on any subsequent line I can obtain `$R \eand L$' thus:
+Perhaps we are working through a proof, and we have obtained `$R$' on line 8 and `$L$' on line 15. Then on any subsequent line we can obtain `$R \eand L$' thus:
 \begin{proof}
 	\have[8]{a}{R}
 	\have[15]{b}{L}
 	\have[\ ]{c}{R \eand L} \ai{a, b}
 \end{proof}
-Note that every line of our proof must either be an assumption, or must be justified by some rule. We cite `$\eand$I 8, 15' here to indicate that the line is obtained by the rule of conjunction introduction ($\eand$I) applied to lines 8 and 15. I could equally well obtain:
+Note that every line of our proof must either be an assumption, or must be justified by some rule. We cite `$\eand$I 8, 15' here to indicate that the line is obtained by the rule of conjunction introduction ($\eand$I) applied to lines 8 and 15. We could equally well obtain:
 \begin{proof}
 	\have[8]{a}{R}
 	\have[15]{b}{L}
@@ -200,7 +200,7 @@ But now we can merrily reintroduce conjunctions in the order we wanted them, so 
 	\have{ab}{A \eand B}\ai{a, b}
 	\have{con}{(A \eand B) \eand C}\ai{ab, c}
 \end{proof}
-Recall that our official definition of sentences in TFL only allowed conjunctions with two conjuncts. The proof just given suggests that we could drop inner brackets in all of our proofs. However, this is not standard, and we shall not do this. Instead, we swill maintain our more austere bracketing conventions. (Though we will still allow ourselves to drop outermost brackets, for legibility.)
+Recall that our official definition of sentences in TFL only allowed conjunctions with two conjuncts. The proof just given suggests that we could drop inner brackets in all of our proofs. However, this is not standard, and we will not do this. Instead, we swill maintain our more austere bracketing conventions. (Though we will still allow ourselves to drop outermost brackets, for legibility.)
 
 Let me offer one final illustration. When using the $\eand$I rule, there is no need to apply it to different sentences. So we can formally prove `$A$' from `$A$' as follows:
 \begin{proof}
@@ -325,7 +325,7 @@ But suppose we now tried to continue the proof as follows:
 	\have{con}{B \eif B}\ci{b1-b2}
 	\have{b}{B}\by{naughty attempt to invoke $\eif$E}{con, b2}
 \end{proof}
-If we were allowed to do this, it would be a disaster. It would allow us to prove any atomic sentence letter from any other atomic sentence letter. However, if you tell me that Anne is fast (symbolised by `$A$'), I shouldn't be able to conclude that Queen Boudica stood twenty-feet tall (symbolised by `$B$')! We must be prohibited from doing this, but how are we to implement the prohibition?
+If we were allowed to do this, it would be a disaster. It would allow us to prove any atomic sentence letter from any other atomic sentence letter. However, if you tell me that Anne is fast (symbolised by `$A$'), we shouldn't be able to conclude that Queen Boudica stood twenty-feet tall (symbolised by `$B$')! We must be prohibited from doing this, but how are we to implement the prohibition?
 
 We can describe the process of making an additional assumption as one of performing a \emph{subproof}: a subsidiary proof within the main proof. When we start a subproof, we draw another vertical line to indicate that we are no longer in the main proof. Then we write in the assumption upon which the subproof will be based. A subproof can be thought of as essentially posing this question: \emph{what could we show, if we also make this additional assumption?}
 
@@ -366,7 +366,7 @@ Again, though, we need to keep careful track of what we are assuming at any give
 \have{bcab}{B \eif(C \eif (A \eand B))}\ci{b-cab}
 \have{bcab}{C \eif (A \eand B)}\by{naughty attempt to invoke $\eif$I}{c-ab}
 \end{proof}
-This would be awful. If I tell you that Anne is smart, you should not be able to infer that, if Cath is smart (symbolised by `$C$') then \emph{both} Anne is smart and Queen Boudica stood 20-feet tall! But this is just what such a proof would suggest, if it were permissible.
+This would be awful. If we tell you that Anne is smart, you should not be able to infer that, if Cath is smart (symbolised by `$C$') then \emph{both} Anne is smart and Queen Boudica stood 20-feet tall! But this is just what such a proof would suggest, if it were permissible.
 
 The essential problem is that the subproof that began with the assumption `$C$' depended crucially on the fact that we had assumed `$B$' on line 2. By line 6, we have \emph{discharged} the assumption `$B$': we have stopped asking ourselves what we could show, if we also assumed `$B$'. So it is simply cheating, to try to help ourselves (on line 7) to the subproof that began with the assumption `$C$'. Thus we stipulate, much as before:
 \factoidbox{Any rule whose citation requires mentioning an entire subproof can mention any earlier subproof, \emph{except} for those subproofs which occur within some \emph{other} closed subproof.}
@@ -415,7 +415,7 @@ Suppose Ludwig is reactionary. Then Ludwig is either reactionary or libertarian.
 
 Let me emphasise this point. Suppose Ludwig is reactionary. It follows that Ludwig is \emph{either} reactionary \emph{or} a kumquat. Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that kumquats are the only fruit.  Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that God is dead. Many of these are strange inferences to draw, but there is nothing \emph{logically} wrong with them (even if they maybe violate all sorts of implicit conversational norms).
 
-Armed with all this, I present the disjunction introduction rule(s):
+Armed with all this, we present the disjunction introduction rule(s):
 \factoidbox{\begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[\ ]{ab}{\meta{A}\eor\meta{B}}\oi{a}
@@ -488,7 +488,7 @@ Don't be alarmed if you think that you wouldn't have been able to come up with t
 
 
 \section{Contradiction}
-We have only one connective left to deal with: negation, but we shall not tackle negation directly. Instead, we shall first think about \emph{contradiction}. 
+We have only one connective left to deal with: negation, but we will not tackle negation directly. Instead, we will first think about \emph{contradiction}. 
 
 An effective form of argument is to argue your opponent into contradicting themselves. At that point, you have them on the ropes. They have to give up at least one of their assumptions. We are going to make use of this idea in our proof system, by adding a new symbol, `$\ered$', to our proofs. This should be read as something like `contradiction!'\ or `reductio!'\ or `but that's absurd!'  The rule for introducing this symbol is that we can use it whenever we explicitly contradict ourselves, i.e.\ whenever we find both a sentence and its negation appearing in our proof:
 \factoidbox{
@@ -499,14 +499,14 @@ An effective form of argument is to argue your opponent into contradicting thems
 \end{proof}}
 It does not matter what order the sentence and its negation appear in, and they do not need to appear on adjacent lines. However, we always cite the sentence first, followed by its negation. 
 
-Our elimination rule for `$\ered$' is known as \emph{ex falso quod libet}. This means `anything follows from a contradiction', and the idea is precisely that: if we obtained a contradiction, symbolised by `$\ered$', then we can infer whatever we like. How can this be motivated, as a rule of argumentation? Well, consider the English rhetorical device `\ldots and if \emph{that's} true, I'll eat my hat'. Since contradictions simply cannot be true, if one \emph{i}s true then not only will I eat my hat, I'll have it too.\footnote{Thanks to Adam Caulton for this.} Here is the formal rule:
+Our elimination rule for `$\ered$' is known as \emph{ex falso quod libet}. This means `anything follows from a contradiction', and the idea is precisely that: if we obtained a contradiction, symbolised by `$\ered$', then we can infer whatever we like. How can this be motivated, as a rule of argumentation? Well, consider the English rhetorical device `\ldots and if \emph{that's} true, I'll eat my hat'. Since contradictions simply cannot be true, if one \emph{i}s true then not only will we eat my hat, I'll have it too.\footnote{Thanks to Adam Caulton for this.} Here is the formal rule:
 \factoidbox{\begin{proof}
 \have[m]{bot}{\ered}
 \have[ ]{}{\meta{A}}\re{bot}
 \end{proof}}
 Note that \meta{A} can be \emph{any} sentence whatsoever. 
 
-A final remark. I have said that `$\ered$' should be read as something like `contradiction!' but this does not tell us much about the symbol. There are, roughly, three ways to approach the symbol. 
+A final remark. We have said that `$\ered$' should be read as something like `contradiction!' but this does not tell us much about the symbol. There are, roughly, three ways to approach the symbol. 
 	\begin{ebullet}
 		\item We might regard `$\ered$' as a new atomic sentence of TFL, but one which can only ever have the truth value False. 
 		\item We might regard `$\ered$' as an abbreviation for some canonical contradiction, such as `$A \eand \enot A$'. This will have the same effect as the above---obviously, `$A \eand \enot A$' only ever has the truth value False---but it means that, officially, we do not need to add a new symbol to TFL.
@@ -535,7 +535,7 @@ There can be as many lines between $i$ and $j$ as you like. To see this in pract
 		\close
 		\have{con}{\enot\enot D}\ni{nd-ndr}
 	\end{proof}
-We shall also add another rule for negation. It is much like the rule used in disjunction elimination, and it requires a little motivation. 
+We will also add another rule for negation. It is much like the rule used in disjunction elimination, and it requires a little motivation. 
 
 Suppose that we can show that if it's sunny outside, then Bill will have brought an umbrella (for fear of burning). Suppose we can also show that, if it's not sunny outside, then Bill will have brought an umbrella (for fear of rain). Well, there is no third way for the weather to be. So, \emph{whatever the weather}, Bill will have brought an umbrella. 
 
@@ -662,7 +662,7 @@ Give a proof for each of the following arguments:
 
 
 \chapter{Additional rules for TFL}\label{s:Further}
-In \S\ref{s:BasicTFL}, we introduced the basic rules of our proof system for TFL. In this section, we shall add some additional rules to our system. These will make our system much easier to work with. (However, in \S\ref{s:Derived} we will see that they are not strictly speaking \emph{necessary}.)
+In \S\ref{s:BasicTFL}, we introduced the basic rules of our proof system for TFL. In this section, we will add some additional rules to our system. These will make our system much easier to work with. (However, in \S\ref{s:Derived} we will see that they are not strictly speaking \emph{necessary}.)
 
 \section{Reiteration}
 The first additional rule is \emph{reiteration} (R). This just allows us to repeat ourselves:
@@ -820,11 +820,11 @@ Give a proof for each of these arguments:
 
 In this chapter we will introduce some new vocabulary. The following expression:
 $$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \proves \meta{C}$$
-means that there is some proof which starts with assumptions among $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ and ends with $\meta{C}$ (and contains no undischarged assumptions other than those we started with). Derivatively, we shall write:
+means that there is some proof which starts with assumptions among $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ and ends with $\meta{C}$ (and contains no undischarged assumptions other than those we started with). Derivatively, we will write:
 $$\proves \meta{A}$$
 to mean that there is a proof of $\meta{A}$ with no assumptions. 
 
-The symbol `$\proves$' is called the \emph{single turnstile}. I want to emphasise that this is not the {double turnstile} symbol (`$\entails$') that we use to symbolise entailment in chapters \ref{ch.TruthTables} and \ref{ch.semantics}. The single turnstile, `$\proves$', concerns the existence of proofs; the double turnstile, `$\entails$', concerns the existence of valuations (or interpretations, when used for FOL). \emph{They are very different notions.}
+The symbol `$\proves$' is called the \emph{single turnstile}. We want to emphasise that this is not the {double turnstile} symbol (`$\entails$') that we use to symbolise entailment in chapters \ref{ch.TruthTables} and \ref{ch.semantics}. The single turnstile, `$\proves$', concerns the existence of proofs; the double turnstile, `$\entails$', concerns the existence of valuations (or interpretations, when used for FOL). \emph{They are very different notions.}
 
 Armed with our `$\proves$' symbol, we can introduce a new terminology.
 	\factoidbox{
@@ -836,7 +836,7 @@ name=theorem,
 description={A sentence that can be proved without any premises.}
 }
 
-        To illustrate this, suppose I want to prove that `$\enot (A \eand \enot A)$' is a theorem. So I must start my proof without \emph{any} assumptions. However, since I want to prove a sentence whose main logical operator is a negation, I shall want to  immediately begin a subproof, with the additional assumption `$A \eand \enot A$', and show that this leads to contradiction. All told, then, the proof looks like this:
+        To illustrate this, suppose we want to prove that `$\enot (A \eand \enot A)$' is a theorem. So we must start our proof without \emph{any} assumptions. However, since we want to prove a sentence whose main logical operator is a negation, we will want to  immediately begin a subproof, with the additional assumption `$A \eand \enot A$', and show that this leads to contradiction. All told, then, the proof looks like this:
 	\begin{proof}
 		\open
 			\hypo{con}{A \eand \enot A}
@@ -931,7 +931,7 @@ If you know that $\meta{A}\proves\meta{B}$, what can you say about $(\meta{A}\ea
 
 \
 
-\problempart In this section, I claimed that it is just as hard to show that two sentences are not provably equivalent, as it is to show that a sentence is not a theorem. Why did I claim this? (\emph{Hint}: think of a sentence that would be a theorem iff \meta{A} and \meta{B} were provably equivalent.)
+\problempart In this section, we claimed that it is just as hard to show that two sentences are not provably equivalent, as it is to show that a sentence is not a theorem. Why did we claim this? (\emph{Hint}: think of a sentence that would be a theorem iff \meta{A} and \meta{B} were provably equivalent.)
 
 
 
@@ -958,7 +958,7 @@ Try different things. If one approach fails, then try something else.
 
 
 \chapter{Derived rules}\label{s:Derived}
-In this section, we shall see why I introduced the rules of our proof system in two separate batches. In particular, I want to show that the additional rules of \S\ref{s:Further} are not strictly speaking necessary, but can be derived from the basic rules of \S\ref{s:BasicTFL}.
+In this section, we will see why we introduced the rules of our proof system in two separate batches. In particular, we want to show that the additional rules of \S\ref{s:Further} are not strictly speaking necessary, but can be derived from the basic rules of \S\ref{s:BasicTFL}.
 
 \section{Derivation of Reiteration}
 Suppose you have some sentence on some line of your deduction:

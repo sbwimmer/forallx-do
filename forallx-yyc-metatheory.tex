@@ -18,18 +18,18 @@ So, here are are some sentences in disjunctive normal form:
 		$(A \eand B) \eor (A \eand  B \eand C \eand \enot D \eand \enot E)$\\
 		$A \eor (C \eand \enot P_{234} \eand P_{233} \eand Q) \eor \enot B$
 	\end{center}
-Note that I have here broken one of the maxims of this book (see \S\ref{s:InductionOnLength}) and \emph{temporarily} allowed myself to employ the relaxed bracketing-conventions that allow conjunctions and disjunctions to be of arbitrary length. These conventions make it easier to see when a sentence is in disjunctive normal form. I shall continue to help myself to these relaxed conventions, without further comment.
+Note that I have here broken one of the maxims of this book (see \S\ref{s:InductionOnLength}) and \emph{temporarily} allowed myself to employ the relaxed bracketing-conventions that allow conjunctions and disjunctions to be of arbitrary length. These conventions make it easier to see when a sentence is in disjunctive normal form. I will continue to help myself to these relaxed conventions, without further comment.
 
-To further illustrate the idea of disjunctive normal form, I shall introduce some more notation. I write `$\pm\meta{A}$' to indicate that $\meta{A}$ is an atomic sentence which may or may not be prefaced with an occurrence of negation. Then a sentence in disjunctive normal form has the following shape:
+To further illustrate the idea of disjunctive normal form, I will introduce some more notation. I write `$\pm\meta{A}$' to indicate that $\meta{A}$ is an atomic sentence which may or may not be prefaced with an occurrence of negation. Then a sentence in disjunctive normal form has the following shape:
 	$$(\pm \meta{A}_1 \land \ldots \land \pm \meta{A}_i) \lor (\pm \meta{A}_{i+1} \land \ldots \land \pm\meta{A}_j) \lor \ldots \lor (\pm\meta{A}_{m+1} \land \ldots \land \pm \meta{A}_n)$$
 We now know what it is for a sentence to be in disjunctive normal form. The result that we are aiming at is:
 	\factoidbox{\label{thm:dnf}\textbf{Disjunctive Normal Form Theorem.} For any sentence, there is a tautologically equivalent sentence in disjunctive normal form.
 	}
-Henceforth, I shall abbreviate `Disjunctive Normal Form' by `DNF'. 
+Henceforth, I will abbreviate `Disjunctive Normal Form' by `DNF'. 
 
 
 \section{Proof of DNF Theorem via truth tables}\label{s:DNFTruthTable}
-My first proof of the DNF Theorem employs truth tables. I shall first illustrate the technique for finding an equivalent sentence in DNF, and then turn this illustration into a rigorous proof. 
+My first proof of the DNF Theorem employs truth tables. I will first illustrate the technique for finding an equivalent sentence in DNF, and then turn this illustration into a rigorous proof. 
 
 Let's suppose we have some sentence, $\meta{S}$, which contains three atomic sentences, `$A$', `$B$' and `$C$'. The very first thing to do is fill out a complete truth table for $\meta{S}$. Maybe we end up with this:
 \begin{center}
@@ -56,7 +56,7 @@ $A$ & $B$ & $C$ & $\meta{S}$\\
 %	$$(A \eand \enot B \eand C) \eor (\enot A \eand \enot B \eand C)$$
 %then it will be true on exactly \emph{two} lines of the truth table which describes all possible valuations of `$A$', `$B$' and `$C$'. 
 %
-As it happens, $\meta{S}$ is true on four lines of its truth table, namely lines 1, 3, 7 and 8. Corresponding to each of those lines, I shall write down four sentences, whose only connectives are negations and conjunctions, where every negation has minimal scope:
+As it happens, $\meta{S}$ is true on four lines of its truth table, namely lines 1, 3, 7 and 8. Corresponding to each of those lines, I will write down four sentences, whose only connectives are negations and conjunctions, where every negation has minimal scope:
 	\begin{earg}
 		\item[\textbullet]  `$A \eand B \eand C$'\hfill which is true on line 1 (and only then)
 		\item[\textbullet] `$A \eand \enot B \eand C$' \hfill which is true on line 3 (and only then)
@@ -190,7 +190,7 @@ In short, there is never any \emph{need} to add new connectives to TFL. Indeed, 
 \section{Individually expressively adequate connectives}
 In fact, some two-place connectives are \emph{individually} expressively adequate. These connectives are not standardly included in TFL, since they are rather cumbersome to use. But their existence shows that, if we had wanted to, we could have defined a truth-functional language that was expressively adequate, which contained only a single primitive connective.
 
-The first such connective we shall consider is `$\uparrow$', which has the following characteristic truth table. 
+The first such connective we will consider is `$\uparrow$', which has the following characteristic truth table. 
 \begin{center}
 \begin{tabular}{c c | c}
 $\meta{A}$ & $\meta{B}$ & $\meta{A} \mathrel{\uparrow} \meta{B}$\\
@@ -238,7 +238,7 @@ This is sometimes called the `Peirce arrow' (Peirce himself called it `ampheck')
 \section{Failures of expressive adequacy}
  In fact, the \emph{only} two-place connectives which are individually expressively adequate are `$\uparrow$' and `$\downarrow$'. But how would we show this? More generally, how can we show that some connectives are \emph{not} jointly expressively adequate? 
  
-The obvious thing to do is to try to find some truth table which we \emph{cannot} express, using just the given connectives. But there is a bit of an art to this. Moreover, in the end, we shall have to rely upon induction; for we shall need to show that \emph{no} scheme -- no matter how \emph{long} -- is capable of expressing the target truth table. 
+The obvious thing to do is to try to find some truth table which we \emph{cannot} express, using just the given connectives. But there is a bit of an art to this. Moreover, in the end, we will have to rely upon induction; for we will need to show that \emph{no} scheme -- no matter how \emph{long} -- is capable of expressing the target truth table. 
  
  To make this concrete, let's consider the question of whether `$\eor$' is expressively adequate all by itself. After a little reflection, it should be clear that it is not. In particular, it should be clear that any scheme which only contains disjunctions cannot have the same truth table as negation, i.e.:
 				\begin{center}

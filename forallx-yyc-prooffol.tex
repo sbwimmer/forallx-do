@@ -1,11 +1,11 @@
-2%!TEX root = forallxyyc.tex
+%!TEX root = forallxyyc.tex
 \part{Natural deduction for FOL}
 \label{ch.NDFOL}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
 \chapter{Basic rules for FOL}\label{s:BasicFOL}
 
-FOL makes use of all of the connectives of TFL. So proofs in FOL will use all of the basic and derived rules from chapter \ref{ch.NDTFL}. We shall also use the proof-theoretic notions (particularly, the symbol `$\proves$') introduced in that chapter. However, we will also need some new basic rules to govern the quantifiers, and to govern the identity sign.
+FOL makes use of all of the connectives of TFL. So proofs in FOL will use all of the basic and derived rules from chapter \ref{ch.NDTFL}. We will also use the proof-theoretic notions (particularly, the symbol `$\proves$') introduced in that chapter. However, we will also need some new basic rules to govern the quantifiers, and to govern the identity sign.
 
 
 \section{Universal elimination}
@@ -53,9 +53,9 @@ Here we have replaced both instances of the name `$a$' with a variable, and then
 	\hypo{a}{Raad}
 	\have{d}{\exists x Rxad} \Ei{a}
 \end{proof}
-Here we have replaced \emph{one} instance of the name `$a$' with a variable, and then existentially generalised. These observations motivate our introduction rule, although to explain it, we shall need to introduce some new notation.
+Here we have replaced \emph{one} instance of the name `$a$' with a variable, and then existentially generalised. These observations motivate our introduction rule, although to explain it, we will need to introduce some new notation.
 
-Where $\meta{A}$ is a sentence containing the name $\meta{c}$, we can emphasise this by writing `$\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$'. We shall write `$\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)$' to indicate any formula obtained by replacing \emph{some or all} of the instances of the name \meta{c} with the variable \meta{x}. Armed with this, our introduction rule is:
+Where $\meta{A}$ is a sentence containing the name $\meta{c}$, we can emphasise this by writing `$\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$'. We will write `$\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)$' to indicate any formula obtained by replacing \emph{some or all} of the instances of the name \meta{c} with the variable \meta{x}. Armed with this, our introduction rule is:
 \factoidbox{
 \begin{proof}
 	\have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
@@ -97,7 +97,7 @@ If we refuse to cheat, though, then we pay a high cost. Here are three things th
 	\end{ebullet}
 If we get what we want on all three counts, then we have to countenance that $\forall xFx \proves \exists x Fx$. So, if we get what we want on all three counts, the proof system alone tells us that there is something rather than nothing. And if we refuse to accept that, then we have to surrender one of the three things that we want to hold on to!
 
-Before we start thinking about which to surrender, we might want to ask how \emph{much} of a cheat this is. Granted, it may make it harder to engage in theological debates about why there is something rather than nothing. But the rest of the time, we will get along just fine. So maybe we should just regard our proof system (and FOL, more generally) as having a very slightly limited purview. If we ever want to allow for the possibility of \emph{nothing}, then we shall have to cast around for a more complicated proof system. But for as long as we are content to ignore that possibility, our proof system is perfectly in order. (As, similarly, is the stipulation that every domain must contain at least one object.)
+Before we start thinking about which to surrender, we might want to ask how \emph{much} of a cheat this is. Granted, it may make it harder to engage in theological debates about why there is something rather than nothing. But the rest of the time, we will get along just fine. So maybe we should just regard our proof system (and FOL, more generally) as having a very slightly limited purview. If we ever want to allow for the possibility of \emph{nothing}, then we will have to cast around for a more complicated proof system. But for as long as we are content to ignore that possibility, our proof system is perfectly in order. (As, similarly, is the stipulation that every domain must contain at least one object.)
 
 
 \section{Universal introduction}
@@ -126,7 +126,7 @@ The crucial thought here is that `$a$' was just some \emph{arbitrary} name. Ther
 \end{proof}
 	\meta{c} must not occur in any undischarged assumption\\ 
 	\meta{x} must not occur in $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$}
-A crucial aspect of this rule, though, is bound up in the first constraint. This constraint ensures that we are always reasoning at a sufficiently general level.\footnote{Recall from \S\ref{s:BasicTFL} that we are treating `$\ered$' as a canonical contradiction. But if it were the canonical contradiction as involving some \emph{constant}, it might interfere with the constraint mentioned here. To avoid such problems, we shall treat `$\ered$' as a canonical contradiction \emph{that involves no particular names}.} To see the constraint in action, consider this terrible argument:
+A crucial aspect of this rule, though, is bound up in the first constraint. This constraint ensures that we are always reasoning at a sufficiently general level.\footnote{Recall from \S\ref{s:BasicTFL} that we are treating `$\ered$' as a canonical contradiction. But if it were the canonical contradiction as involving some \emph{constant}, it might interfere with the constraint mentioned here. To avoid such problems, we will treat `$\ered$' as a canonical contradiction \emph{that involves no particular names}.} To see the constraint in action, consider this terrible argument:
 	\begin{quote}
 		Everyone loves Kylie Minogue; therefore everyone loves themselves.
 	\end{quote}
@@ -377,9 +377,9 @@ Show that each of the following is provably inconsistent.
 
 \chapter{Conversion of quantifiers}\label{s:CQ}
 
-In this section, we shall add some additional rules to the basic rules of the previous section. These govern the interaction of quantifiers and negation.
+In this section, we will add some additional rules to the basic rules of the previous section. These govern the interaction of quantifiers and negation.
  
-In \S\ref{s:FOLBuildingBlocks}, we noted that $\enot\exists x\meta{A}$ is logically equivalent to $\forall x \enot\meta{A}$. We shall add some rules to our proof system that govern this. In particular, we add:
+In \S\ref{s:FOLBuildingBlocks}, we noted that $\enot\exists x\meta{A}$ is logically equivalent to $\forall x \enot\meta{A}$. We will add some rules to our proof system that govern this. In particular, we add:
 	\factoidbox{
 	\begin{proof}
 		\have[m]{a}{\forall \meta{x} \enot\meta{A}}
@@ -405,7 +405,6 @@ and
 	\end{proof}}
 
 \practiceproblems
-
 \problempart
 Show that the following are jointly contrary:
 \begin{earg}
@@ -463,7 +462,7 @@ The notation here is as for $\exists$I. So $\meta{A}(\ldots \meta{a} \ldots \met
 \end{proof}}
 This rule is sometimes called \emph{Leibniz's Law}, after Gottfried Leibniz. 
 
-To see the rules in action, we shall prove some quick results. First, we shall prove that identity is \emph{symmetric}:
+To see the rules in action, we will prove some quick results. First, we will prove that identity is \emph{symmetric}:
 \begin{proof}
 	\open
 		\hypo{ab}{a = b}
@@ -476,7 +475,7 @@ To see the rules in action, we shall prove some quick results. First, we shall p
 \end{proof}
 We obtain line 3 by replacing one instance of `$a$' in line 2 with an instance of `$b$'; this is justified given `$a= b$'. 
 
-Second, we shall prove that identity is \emph{transitive}:
+Second, we will prove that identity is \emph{transitive}:
 \begin{proof}
 	\open
 		\hypo{abc}{a = b \eand b = c}

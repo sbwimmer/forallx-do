@@ -44,7 +44,7 @@ In FOL, our \define{names} are lower-case letters `$a$' through to `$r$'. We can
 	$$a,b,c,\ldots, r, a_1, f_{32}, j_{390}, m_{12}$$
 These should be thought of along the lines of proper names in English, but with one difference. `Tim Button' is a proper name, but there are several people with this name. (Equally, there are  at least two people with the name `P.D.\ Magnus'.) We live with this kind of ambiguity in English, allowing context to individuate the fact that `Tim Button' refers to an author of this book, and not some other Tim. In FOL, we do not tolerate any such ambiguity. Each name must pick out \emph{exactly} one thing. (However, two different names may pick out the same thing.)
 
-As with TFL, we can provide symbolisation keys. These indicate, temporarily, what a name shall pick out. So we might offer:
+As with TFL, we can provide symbolisation keys. These indicate, temporarily, what a name will pick out. So we might offer:
 	\begin{ekey}
 		\item[e] Elsa
 		\item[g] Gregor
@@ -73,7 +73,7 @@ FOL predicates are capital letters $A$ through $Z$, with or without subscripts. 
 %		\item[T_2xy] \gap{x} is as tough or tougher than \gap{y}
 %		\item[Bxyz] \gap{y} is between \gap{x} and \gap{z}
 	\end{ekey}
-(Why the subscripts on the gaps? We shall return to this in \S\ref{s:MultipleGenerality}.)
+(Why the subscripts on the gaps? We will return to this in \S\ref{s:MultipleGenerality}.)
 
 If we combine our two symbolisation keys, we can start to symbolise some English sentences that use these names and predicates in combination. For example, consider the English sentences:
 	\begin{earg}
@@ -108,7 +108,7 @@ Some more examples will help. Consider these further sentences:
 		\item[\ex{q.en}] There is someone who is not happy.
 		\item[\ex{q.na}] Not everyone is happy.
 	\end{earg}
-Sentence \ref{q.ne} can be paraphrased as, `It is not the case that someone is angry'. We can then symbolise it using negation and an existential quantifier: `$\enot \exists x Ax$'. Yet sentence \ref{q.ne} could also be paraphrased as, `Everyone is not angry'. With this in mind, it can be symbolised using negation and a universal quantifier: `$\forall x \enot Ax$'. Both of these are acceptable symbolisations.  Indeed, it will transpire that, in general, $\forall x \enot\meta{A}$ is logically equivalent to $\enot\exists x\meta{A}$. (Notice that I have here returned to the practice of using `$\meta{A}$' as a metavariable, from \S\ref{s:UseMention}.) Symbolising a sentence one way, rather than the other, might seem more `natural' in some contexts, but it is not much more than a matter of taste.
+Sentence \ref{q.ne} can be paraphrased as, `It is not the case that someone is angry'. We can then symbolise it using negation and an existential quantifier: `$\enot \exists x Ax$'. Yet sentence \ref{q.ne} could also be paraphrased as, `Everyone is not angry'. With this in mind, it can be symbolised using negation and a universal quantifier: `$\forall x \enot Ax$'. Both of these are acceptable symbolisations.  Indeed, it will transpire that, in general, $\forall x \enot\meta{A}$ is logically equivalent to $\enot\exists x\meta{A}$. (Notice that we have here returned to the practice of using `$\meta{A}$' as a metavariable, from \S\ref{s:UseMention}.) Symbolising a sentence one way, rather than the other, might seem more `natural' in some contexts, but it is not much more than a matter of taste.
 
 Sentence \ref{q.en} is most naturally paraphrased as, `There is some x, such that x is not happy'. This then becomes `$\exists x \enot Hx$'. Of course, we could equally have written `$\enot\forall x Hx$', which we would naturally read as `it is not the case that everyone is happy'. That too would be a perfectly adequate symbolisation of sentence \ref{q.na}.
 
@@ -122,7 +122,7 @@ In order to eliminate this ambiguity, we will need to specify a \define{domain}.
 	\end{ekey}
 The quantifiers \emph{range over} the domain. Given this domain, `$\forall x$' is to be read roughly as `Every person in Chicago is such that\ldots' and `$\exists x$' is to be read roughly as `Some person in Chicago is such that\ldots'. 
 
-In FOL, the domain must always include at least one thing. Moreover, in English we can infer `something is angry' from `Gregor is angry'. In FOL, then, we shall want to be able to infer `$\exists x Ax$' from `$Ag$'. So we shall insist that each name must pick out exactly one thing in the domain. If we want to name people in places beside Chicago, then we need to include those people in the domain. 
+In FOL, the domain must always include at least one thing. Moreover, in English we can infer `something is angry' from `Gregor is angry'. In FOL, then, we will want to be able to infer `$\exists x Ax$' from `$Ag$'. So we will insist that each name must pick out exactly one thing in the domain. If we want to name people in places beside Chicago, then we need to include those people in the domain. 
 	\factoidbox{
 		A domain must have \emph{at least} one member. A name must pick out \emph{exactly} one member of the domain, but a member of the domain may be picked out by one name, many names, or none at all.
 	}
@@ -326,12 +326,12 @@ The moral is that the English words `any' and `anyone' should typically be symbo
 
 
 \section{Quantifiers and scope}
-Continuing the example, suppose I want to symbolise these sentences:
+Continuing the example, suppose we want to symbolise these sentences:
 	\begin{earg}
 		\item[\ex{qscope1}] If everyone is a bassist, then Lars is a bassist
 		\item[\ex{qscope2}] Everyone is such that, if they are a bassist, then Lars is a bassist.
 	\end{earg}
-To symbolise these sentences, I shall have to add a new name to the symbolisation key, namely:
+To symbolise these sentences, we will have to add a new name to the symbolisation key, namely:
 	\begin{ekey}
 		\item[l] Lars
 	\end{ekey}
@@ -538,7 +538,7 @@ Now there is a little foible with the above. We have used the same symbol, `\bla
 	\end{quote}
 The point is that we need to keep track of the gaps in predicates, so that we can keep track of how we are filling them in. 
 
-To keep track of the gaps, I shall label them. The labelling conventions I shall adopt are best explained by example. Suppose I want to symbolise the following sentences:
+To keep track of the gaps, we will label them. The labelling conventions we will adopt are best explained by example. Suppose we want to symbolise the following sentences:
 	\begin{earg}
 %		\item[\ex{terms3}] Imre is at least as tall Karl.
 %		\item[\ex{terms4}] Imre is shorter than Karl.
@@ -547,7 +547,7 @@ To keep track of the gaps, I shall label them. The labelling conventions I shall
 		\item[\ex{terms5}] Karl loves Imre, but not vice versa.
 		\item[\ex{terms6}] Karl is loved by Imre.
 	\end{earg}
-I will start with the following representation key:
+We will start with the following representation key:
 	\begin{ekey}
 		\item[\text{domain}] people
 		\item[i] Imre
@@ -829,7 +829,7 @@ but we do not know how to deal with the italicised words yet. The solution is to
 
 \section{Adding identity}
 
-The symbol `$=$' is a two-place predicate. Since it is to have a special meaning, we shall write it a bit differently: we put it between two terms, rather than out front. And it \emph{does} have a very particular meaning. We \emph{always} adopt the following symbolisation key:
+The symbol `$=$' is a two-place predicate. Since it is to have a special meaning, we will write it a bit differently: we put it between two terms, rather than out front. And it \emph{does} have a very particular meaning. We \emph{always} adopt the following symbolisation key:
 	\begin{ekey}
 		\item[x=y] \gap{x} is identical to \gap{y}
 	\end{ekey}
@@ -866,7 +866,7 @@ We can also use identity to say how many things there are of a particular kind. 
 \item[\ex{atleast2}] There are at least two apples
 \item[\ex{atleast3}] There are at least three apples
 \end{earg}
-We shall use the symbolisation key:
+We will use the symbolisation key:
 	\begin{ekey}
 		\item[Ax] \gap{x} is an apple
 	\end{ekey}
@@ -991,7 +991,7 @@ Bertrand Russell offered an analysis of definite descriptions. Very briefly put,
 \end{align*}
 Note a very important feature of this analysis: \emph{`the' does not appear on the right-side of the equivalence.} Russell is aiming to provide an understanding of definite descriptions in terms that do not presuppose them. 
 
-Now, one might worry that I can say `the table is brown' without implying that there is one and only one table in the universe. But this is not (yet) a fantastic counterexample to Russell's analysis. The domain of discourse is likely to be restricted by context (e.g.\ to objects in my line of sight).
+Now, one might worry that we can say `the table is brown' without implying that there is one and only one table in the universe. But this is not (yet) a fantastic counterexample to Russell's analysis. The domain of discourse is likely to be restricted by context (e.g.\ to objects in my line of sight).
 
 If we accept Russell's analysis of definite descriptions, then we can symbolise sentences of the form `the F is G' using our strategy for numerical quantification in FOL. After all, we can deal with the three conjuncts on the right-hand side of Russell's analysis as follows:
 	$$\exists x Fx \eand \forall x \forall y ((Fx \eand Fy) \eif x = y) \eand \forall x (Fx \eif Gx)$$
@@ -1014,24 +1014,24 @@ France has no king at present. Now, if we were to introduce a name, `$k$', to na
 
 Russell's analysis neatly avoids this problem. Russell tells us to treat definite descriptions using predicates and quantifiers, instead of names. Since predicates can be empty (see \S\ref{s:MoreMonadic}), this means that no difficulty now arises when the definite description is empty. 
 
-Indeed, Russell's analysis helpfully highlights two ways to go wrong in a claim involving a definite description. To adapt an example from Stephen Neale (1990),\footnote{Neale, \emph{Descriptions}, 1990, Cambridge: MIT Press.}  suppose someone, call them Bernardo, were to claim:
+Indeed, Russell's analysis helpfully highlights two ways to go wrong in a claim involving a definite description. To adapt an example from Stephen Neale (1990),\footnote{Neale, \emph{Descriptions}, 1990, Cambridge: MIT Press.}  suppose Alex claims:
 	\begin{earg}
 		\item[\ex{kingdate}] I am dating the present king of France.
 	\end{earg}
 Using the following symbolisation key:
 	\begin{ekey}
-		\item[b] Bernardo
+		\item[a] Alex
 		\item[Kx] \gap{x} is a present king of France
 		\item[Dxy] \gap{x} is dating \gap{y}
 	\end{ekey}
-Sentence \ref{kingdate} would be symbolised by `$\exists x (\forall y(Ky \eiff  x = y) \eand Dbx)$'. Now, this can be false in (at least) two ways, corresponding to these two different sentences:
+Sentence \ref{kingdate} would be symbolised by `$\exists x (\forall y(Ky \eiff  x = y) \eand Dax)$'. Now, this can be false in (at least) two ways, corresponding to these two different sentences:
 	\begin{earg}
-		\item[\ex{outernegation}] There is no one who is both the present King of France and  such that he and Bernardo are dating.
-		\item[\ex{innernegation}] There is a unique present King of France, but Bernardo is not dating him.
+		\item[\ex{outernegation}] There is no one who is both the present King of France and  such that he and Alex are dating.
+		\item[\ex{innernegation}] There is a unique present King of France, but Alex is not dating him.
 	\end{earg}
-Sentence \ref{outernegation} might be paraphrased by `It is not the case that: the present King of France and Bernardo are dating'. It will then be symbolised by `$\enot \exists x\bigl[Kx \eand \forall y(Ky \eif  x = y) \eand Dbx \bigr]$'. We might call this \emph{outer} negation, since the negation governs the entire sentence. Note that it will be true if there is no present King of France.
+Sentence \ref{outernegation} might be paraphrased by `It is not the case that: the present King of France and Alex are dating'. It will then be symbolised by `$\enot \exists x\bigl[Kx \eand \forall y(Ky \eif  x = y) \eand Dax \bigr]$'. We might call this \emph{outer} negation, since the negation governs the entire sentence. Note that it will be true if there is no present King of France.
 
-Sentence \ref{innernegation} can be symbolised by `$\exists x (Kx \eand \forall y(Ky \eif x = y) \eand \enot Dbx)$. We might call this \emph{inner} negation, since the negation occurs within the scope of the definite description. Note that its truth requires that there is a present King of France, albeit one who is not dating Bernardo.
+Sentence \ref{innernegation} can be symbolised by `$\exists x (Kx \eand \forall y(Ky \eif x = y) \eand \enot Dax)$. We might call this \emph{inner} negation, since the negation occurs within the scope of the definite description. Note that its truth requires that there is a present King of France, albeit one who is not dating Alex.
 
 
 \section{The adequacy of Russell's analysis}
@@ -1039,7 +1039,7 @@ How good is Russell's analysis of definite descriptions? This question has gener
 
 One worry focusses on Russell's treatment of empty definite descriptions. If there are no Fs, then on Russell's analysis, both `the F is G' is and  `the F is non-G' are false. P.F.\ Strawson suggested that such sentences should not be regarded as false, exactly.\footnote{P.F.\ Strawson, `On Referring', 1950, \emph{Mind 59}, pp.\ 320--34.} Rather, they involve presupposition failure, and need to be regarded as \emph{neither} true \emph{nor} false. 
 
-If we agree with Strawson here, we shall need to revise our logic. For, in our logic, there are only two truth values (True and False), and every sentence is assigned exactly one of these truth values. 
+If we agree with Strawson here, we will need to revise our logic. For, in our logic, there are only two truth values (True and False), and every sentence is assigned exactly one of these truth values. 
 
 But there is room to disagree with Strawson. Strawson is appealing to some linguistic intuitions, but it is not clear that they are very robust. For example: isn't it just \emph{false}, not `gappy', that Tim is dating the present King of France?\footnote{This is Neale's (1990) line.}
 
@@ -1055,7 +1055,7 @@ Now suppose that the very tall man is actually drinking \emph{water} from a mart
 
 Again, one might wonder how clear our intuitions are on this case. We can all agree that Malika intended to pick out a particular man, and say something true of him (that he was tall). On Russell's analysis, she actually picked out a different man (the short one), and consequently said something false of him. But  maybe advocates of Russell's analysis only need to explain \emph{why} Malika's intentions were frustrated, and so why she said something false. This is easy enough to do:  Malika said something false because she had false beliefs about the men's drinks; if Malika's beliefs about the drinks had been true,  then she would have said something true.\footnote{Interested parties should read Saul Kripke, `Speaker Reference and Semantic Reference', 1977, in French et al (eds.), \emph{Contemporary Perspectives in the Philosophy of Language}, Minneapolis: University of Minnesota Press, pp.\ 6-27.}
 
-To say much more here would lead us into deep philosophical waters. That would be no bad thing, but for now it would distract us from the immediate purpose of learning formal logic. So, for now, we shall stick with Russell's analysis of definite descriptions, when it comes to putting things into FOL. It is certainly the best that we can offer, without significantly revising our logic, and it is quite defensible as an analysis. 
+To say much more here would lead us into deep philosophical waters. That would be no bad thing, but for now it would distract us from the immediate purpose of learning formal logic. So, for now, we will stick with Russell's analysis of definite descriptions, when it comes to putting things into FOL. It is certainly the best that we can offer, without significantly revising our logic, and it is quite defensible as an analysis. 
 
 \practiceproblems
 
@@ -1135,7 +1135,7 @@ symbolise the following sentences in FOL:
 \end{earg}
 
 \problempart
-In this section, I symbolised `Nick is the traitor' by `$\exists x (Tx \eand \forall y(Ty \eif x = y) \eand x = n)$'. Two equally good symbolisations would be:
+In this section, we symbolised `Nick is the traitor' by `$\exists x (Tx \eand \forall y(Ty \eif x = y) \eand x = n)$'. Two equally good symbolisations would be:
 	\begin{ebullet}
 		\item $Tn \eand \forall y(Ty \eif n = y)$
 		\item $\forall y(Ty \eiff y = n)$
@@ -1170,7 +1170,7 @@ Quantifiers & $\forall, \exists$\\
 We define an \define{expression of FOL} as any string of symbols of FOL. Take any of the symbols of FOL and write them down, in any order, and you have an expression.
 
 \section{Terms and formulas}
-In \S\ref{s:TFLSentences}, we went straight from the statement of the vocabulary of TFL to the definition of a sentence of TFL. In FOL, we shall have to go via an intermediary stage: via the notion of a  \emph{formula}. The intuitive idea is that a formula is any sentence, or anything which can be turned into a sentence by adding quantifiers out front. But this will take some unpacking.
+In \S\ref{s:TFLSentences}, we went straight from the statement of the vocabulary of TFL to the definition of a sentence of TFL. In FOL, we will have to go via an intermediary stage: via the notion of a  \emph{formula}. The intuitive idea is that a formula is any sentence, or anything which can be turned into a sentence by adding quantifiers out front. But this will take some unpacking.
 
 We start by defining the notion of a term.
 	\factoidbox{

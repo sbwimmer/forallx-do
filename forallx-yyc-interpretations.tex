@@ -36,7 +36,7 @@ This is an indirect stipulation. Alternatively, we can stipulate predicate exten
 
 The point is that FOL does not give us any resources for dealing with nuances of meaning. When we interpret FOL, all we are considering is what the predicates are true of. This is normally summed up by saying that FOL is an \define{extensional language}. 
 
-For this reason, I say only that FOL sentences \emph{symbolise} English sentences. It is doubtful that we are \emph{translating} English into FOL, as translations should preserve meanings.
+For this reason, we say only that FOL sentences \emph{symbolise} English sentences. It is doubtful that we are \emph{translating} English into FOL, as translations should preserve meanings.
 
 \section{A word on extensions}
 We can stipulate directly what predicates are to be true of, so it is worth noting that our stipulations can be as arbitrary as we like. For example, we could stipulate that `$Hx$' should be true of, and only of, the following objects:
@@ -45,7 +45,7 @@ We can stipulate directly what predicates are to be true of, so it is worth noti
 		the number $\pi$\\
 		every top-F key on every piano ever made
 	\end{center}
-Now, the objects that we have listed have nothing particularly in common. But this doesn't matter. Logic doesn't care about what strikes us mere humans as `natural' or `similar'. Armed with this interpretation of `$Hx$', suppose I now add to my symbolisation key:
+Now, the objects that we have listed have nothing particularly in common. But this doesn't matter. Logic doesn't care about what strikes us mere humans as `natural' or `similar'. Armed with this interpretation of `$Hx$', suppose we now add to our symbolisation key:
 	\begin{ekey}
 		\item[d] Theresa May
 		\item[n] Jeremy Corbyn
@@ -61,7 +61,7 @@ All of this is quite easy to understand when it comes to one-place predicates, b
 	\begin{ekey}
 		\item[Lxy] \gap{x} loves \gap{y}
 	\end{ekey}
-Given what I said above, this symbolisation key should be read as saying:
+Given what we said above, this symbolisation key should be read as saying:
 	\begin{earg}
 		\item[\textbullet] `$Lxy$' and `\gap{x} loves \gap{y}' are to be true of exactly the same things
 	\end{earg}
@@ -79,14 +79,14 @@ To do this, we can specify that two-place predicates are true of \emph{pairs} of
 		\ntuple{Heidegger, Sartre}\\
 		\ntuple{Sartre, Heidegger}
 	\end{center}
-Here the angle-brackets keep us informed concerning order. Suppose I now add the following stipulations:
+Here the angle-brackets keep us informed concerning order. Suppose we now add the following stipulations:
 	\begin{ekey}
 		\item[l] Lenin
 		\item[m] Marx
 		\item[h] Heidegger
 		\item[s] Sartre
 	\end{ekey}
-Then `$Blm$' will be true, since \ntuple{Lenin, Marx} was in my explicit list, but `$Bml$' will be false, since \ntuple{Marx, Lenin} was not in my list. However, both `$Bhs$' and `$Bsh$' will be true, since both \ntuple{Heidegger, Sartre} and \ntuple{Sartre, Heidegger} are in my explicit list.
+Then `$Blm$' will be true, since \ntuple{Lenin, Marx} was in our explicit list, but `$Bml$' will be false, since \ntuple{Marx, Lenin} was not in our list. However, both `$Bhs$' and `$Bsh$' will be true, since both \ntuple{Heidegger, Sartre} and \ntuple{Sartre, Heidegger} are in our explicit list.
 
 To make these ideas more precise, we would need to develop some \emph{set theory}. That would give us some precise tools for dealing with extensions and with ordered pairs (and ordered triples, etc.). However, set theory is not covered in this book, so we will leave these ideas at an imprecise level. Nevertheless, the general idea should be clear.
 
@@ -121,7 +121,7 @@ We defined a \emph{valuation} in TFL as any assignment of truth and falsity to a
 		\item for each name that we care to consider, an assignment of exactly one object within the domain 
 		\item for each predicate that we care to consider---other than `$=$'---a specification of what things (in what order) the predicate is to be true of
 	\end{ebullet}
-The symbolisation keys that I considered in chapter \ref{ch.FOL} consequently give us one very convenient way to present an interpretation. We will continue to use them throughout this chapter. However, it is sometimes also convenient to present an interpretation \emph{diagrammatically}. 
+The symbolisation keys that we considered in chapter \ref{ch.FOL} consequently give us one very convenient way to present an interpretation. We will continue to use them throughout this chapter. However, it is sometimes also convenient to present an interpretation \emph{diagrammatically}. 
 
 Suppose we want to consider just a single two-place predicate, `$Rxy$'. Then we can represent it just by drawing an arrow between two objects, and stipulate that `$Rxy$' is to hold of x and y just in case there is an arrow running from x to y in our diagram. As an example, we might offer:
 \begin{center}
@@ -247,21 +247,21 @@ Unfortunately, this na\"{i}ve first thought is not general enough. For example, 
 
 So here is a na\"{i}ve second thought. We might try to say that `$\forall x \exists y Lxy$' is to be true in an interpretation iff $\exists y L\meta{a}y$ is true for \emph{every} name \meta{a} that we have included in our interpretation. Similarly, we might try to say that $\exists y L\meta{a}y$ is true just in case $L\meta{a}\meta{b}$ is true for \emph{some} name \meta{b} that we have included in our interpretation.
 
-Unfortunately, this is not right either. To see this, observe that in our go-to interpretation, we have only given interpretations for \emph{two} names, `$a$' and `$b$', but the domain---all people born before the year 2000\textsc{ce}---contains many more than two people. I have no intention of trying to name \emph{all} of them!
+Unfortunately, this is not right either. To see this, observe that in our go-to interpretation, we have only given interpretations for \emph{two} names, `$a$' and `$b$', but the domain---all people born before the year 2000\textsc{ce}---contains many more than two people. We have no intention of trying to name \emph{all} of them!
 
-So here is a third thought. (And this thought is not na\"{i}ve, but correct.) Although it is not the case that we have named \emph{everyone}, each person \emph{could} have been given a name. So we should focus on this possibility of extending an interpretation, by adding a new name. I shall offer a few examples of how this might work, centring on our go-to interpretation, and I shall then present the formal definition. 
+So here is a third thought. (And this thought is not na\"{i}ve, but correct.) Although it is not the case that we have named \emph{everyone}, each person \emph{could} have been given a name. So we should focus on this possibility of extending an interpretation, by adding a new name. We will offer a few examples of how this might work, centring on our go-to interpretation, and we will then present the formal definition. 
 
 In our go-to interpretation, `$\exists x Rbx$' should be true. After all, in the domain, there is certainly someone who was born after Bush. Lady Gaga is one of those people. Indeed, if we were to extend our go-to interpretation---temporarily, mind---by adding the name `$c$' to refer to Lady Gaga, then `$Rbc$' would be true on this extended interpretation. This, surely, should suffice to make `$\exists x Rbx$' true on the original go-to interpretation. 
 
 In our go-to interpretation, `$\exists x (Px \eand Rxa)$' should also be true. After all, in the domain, there is certainly someone who was both a philosopher and born before Aristotle. Socrates is one such person. Indeed, if we were to extend our go-to interpretation by letting a new name, `$c$', denote Socrates, then `$Wc \eand Rca$' would be true on this extended interpretation. Again, this should surely suffice to make `$\exists x (Px \eand Rxa)$' true on the original go-to interpretation. 
 
-In our go-to interpretation, `$\forall x \exists y Rxy$' should be false. After all, consider the last person born in the year 1999. I don't know who that was, but if we were to extend our go-to interpretation by letting a new name, `$d$', denote that person, then we would not be able to find anyone else in the domain to denote with some further new name, perhaps `$e$', in such a way that `$Rde$' would be true. Indeed, no matter \emph{whom} we named with `$e$', `$Rde$' would be false. This observation is surely sufficient to make `$\exists y Rdy$' \emph{false} in our extended interpretation, which in turn is surely sufficient to make `$\forall x \exists y Rxy$' false on the original go-to interpretation.
+In our go-to interpretation, `$\forall x \exists y Rxy$' should be false. After all, consider the last person born in the year 1999. We don't know who that was, but if we were to extend our go-to interpretation by letting a new name, `$d$', denote that person, then we would not be able to find anyone else in the domain to denote with some further new name, perhaps `$e$', in such a way that `$Rde$' would be true. Indeed, no matter \emph{whom} we named with `$e$', `$Rde$' would be false. This observation is surely sufficient to make `$\exists y Rdy$' \emph{false} in our extended interpretation, which in turn is surely sufficient to make `$\forall x \exists y Rxy$' false on the original go-to interpretation.
 
 If you have understood these three examples, good. That's what matters. Strictly speaking, though, we still need to give a precise definition of the truth conditions for quantified sentences. The result, sadly, is a bit ugly, and requires a few new definitions. Brace yourself!
 
 Suppose that \meta{A} is a formula containing at least one instance of the variable \meta{x}, and that $\meta{x}$ is free in $\meta{A}$. We will write this thus:
 $$\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$$
-Suppose also that \meta{c} is a name. Then we shall write:
+Suppose also that \meta{c} is a name. Then we will write:
 $$\meta{A}(\ldots \meta{c} \ldots \meta{c} \ldots)$$
 for the formula obtained by replacing every occurrence of $\meta{x}$ in \meta{A} with $\meta{c}$. The resulting formula is called a \define{substitution instance} of $\forall \meta{x}\meta{A}$ and $\exists\meta{x}\meta{A}$.  $\meta{c}$ is called the \define{instantiating name}. So:
 	$$\exists x (Rex \eiff Fx)$$
@@ -405,7 +405,7 @@ means that \meta{A} is true in every interpretation.
 \section{Logical truths and contradictions}
 Suppose we want to show that `$\exists xAxx \eif Bd$' is \emph{not} a logical truth. This requires showing that the sentence is not true in every interpretation; i.e.,\ that it is false in some interpretation. If we can provide just one interpretation in which the sentence is false, then we will have shown that the sentence is not a logical truth.
 
-In order for `$\exists xAxx \eif Bd$' to be false, the antecedent (`$\exists x Axx$') must be true, and the consequent (`$Bd$') must be false. To construct such an interpretation, we start by specifying a domain. Keeping the domain small makes it easier to specify what the predicates will be true of, so we shall start with a domain that has just one member. For concreteness, let's say it is the city of Paris. 
+In order for `$\exists xAxx \eif Bd$' to be false, the antecedent (`$\exists x Axx$') must be true, and the consequent (`$Bd$') must be false. To construct such an interpretation, we start by specifying a domain. Keeping the domain small makes it easier to specify what the predicates will be true of, so we will start with a domain that has just one member. For concreteness, let's say it is the city of Paris. 
 	\begin{ekey}
 		\item[\text{domain}] Paris
 	\end{ekey}
@@ -433,11 +433,11 @@ We can just as easily show that `$\exists xAxx \eif Bd$' is not a contradiction.
 This shows that there is an interpretation where `$\exists xAxx \eif Bd$' is true. So `$\exists x Axx \eif Bd$' is not a contradiction.
 
 \section{Logical equivalence}
-Suppose we want to show that `$\forall x Sx$' and `$\exists x Sx$' are not logically equivalent. We need to construct an interpretation in which the two sentences have different truth values; we want one of them to be true and the other to be false. We start by specifying a domain. Again, we make the domain small so that we can specify extensions easily. In this case, we shall need at least two objects. (If we chose a domain with only one member, the two sentences would end up with the same truth value. In order to see why, try constructing some partial interpretations with one-member domains.) For concreteness, let's take:
+Suppose we want to show that `$\forall x Sx$' and `$\exists x Sx$' are not logically equivalent. We need to construct an interpretation in which the two sentences have different truth values; we want one of them to be true and the other to be false. We start by specifying a domain. Again, we make the domain small so that we can specify extensions easily. In this case, we will need at least two objects. (If we chose a domain with only one member, the two sentences would end up with the same truth value. In order to see why, try constructing some partial interpretations with one-member domains.) For concreteness, let's take:
 	\begin{ekey}
 		\item[\text{domain}] Ornette Coleman, Miles Davis
 	\end{ekey}
-We can make `$\exists x Sx$' true by including something in the extension of `$S$', and we can make `$\forall x Sx$' false by leaving something out of the extension of `$S$'. For concreteness we shall offer:
+We can make `$\exists x Sx$' true by including something in the extension of `$S$', and we can make `$\forall x Sx$' false by leaving something out of the extension of `$S$'. For concreteness we will offer:
 	\begin{ekey}
 		\item[Sx] \gap{x} plays saxophone
 	\end{ekey}
@@ -469,7 +469,7 @@ In passing, note that we have also shown that `$\exists x(Gx \eif Ga)$' does \em
 
 Let's consider a second example. Consider:
 	$$\forall x \exists y Lxy \therefore \exists y \forall x Lxy$$
-Again, I want to show that this is invalid. To do this, we must make the premises true and the conclusion false. Here is a suggestion:
+Again, we want to show that this is invalid. To do this, we must make the premises true and the conclusion false. Here is a suggestion:
 	\begin{ekey}
 		\item[\text{domain}] UK citizens currently in a civil partnership with another UK citizen
 		\item[Lxy] \gap{x} is in a civil partnership with \gap{y}
@@ -595,7 +595,7 @@ Note another feature of the argument. Since the sentence in question contained n
 
 Here is another bit of reasoning. Consider the sentence `$\forall x(Rxx\eiff Rxx)$'. Again, it should obviously be a logical truth, but to say precisely why is quite a challenge. We cannot say that `$Rxx \eiff Rxx$' is true in every interpretation, since `$Rxx \eiff Rxx$' is not even a \emph{sentence} of FOL (remember that `$x$' is a variable, not a name). So we have to be a bit cleverer. 
 	\begin{quote}
-		Consider some arbitrary interpretation. Consider some arbitrary member of the domain, which, for convenience, we shall call \emph{obbie}, and suppose we extend our original interpretation by adding a new name, `$c$', to name \emph{obbie}. Then either `$Rcc$' will be true or it will be false. If `$Rcc$' is true, then `$Rcc \eiff Rcc$' is true. If `$Rcc$' is false, then `$Rcc \eiff Rcc$' will be true. So either way, `$Rcc \eiff Rcc$' is true. Since there was nothing special about \emph{obbie}---we might have chosen any object---we see that no matter how we extend our original interpretation by allowing `$c$' to name some new object, `$Rcc \eiff Rcc$' will be true in the new interpretation. So `$\forall x (Rxx \eiff Rxx)$' was true in the original interpretation. But we chose our interpretation arbitrarily, so `$\forall x (Rxx \eiff Rxx)$' is true in every interpretation. It is therefore a logical truth.
+		Consider some arbitrary interpretation. Consider some arbitrary member of the domain, which, for convenience, we will call \emph{obbie}, and suppose we extend our original interpretation by adding a new name, `$c$', to name \emph{obbie}. Then either `$Rcc$' will be true or it will be false. If `$Rcc$' is true, then `$Rcc \eiff Rcc$' is true. If `$Rcc$' is false, then `$Rcc \eiff Rcc$' will be true. So either way, `$Rcc \eiff Rcc$' is true. Since there was nothing special about \emph{obbie}---we might have chosen any object---we see that no matter how we extend our original interpretation by allowing `$c$' to name some new object, `$Rcc \eiff Rcc$' will be true in the new interpretation. So `$\forall x (Rxx \eiff Rxx)$' was true in the original interpretation. But we chose our interpretation arbitrarily, so `$\forall x (Rxx \eiff Rxx)$' is true in every interpretation. It is therefore a logical truth.
 	\end{quote}
 This is quite longwinded, but, as things stand, there is no alternative. In order to show that a sentence is a logical truth, we must reason about \emph{all} interpretations. 
 

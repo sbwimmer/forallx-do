@@ -1,0 +1,43 @@
+\documentclass[openany,11pt]{memoir}
+
+\usepackage{forallxyyc}
+
+% set stock & paper size with narrow margins
+
+\setstocksize{24.589cm}{18.91cm}
+
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\settrims{0pt}{0pt}
+
+% let's calculate the line length for 65 characters in \normalfont
+
+\setlxvchars
+
+% set the size of the type block to golden ratio calculated width
+
+\settypeblocksize{*}{1.05\lxvchars}{1.62}
+
+% set spine and and edge margin
+
+\setlrmargins{*}{*}{1.3}
+\setulmargins{80pt}{*}{*}
+\setheaderspaces{*}{*}{1}
+
+\checkandfixthelayout
+
+\colorlet{leadbeater}{black}
+\colorlet{dkleadbeater}{black}
+\colorlet{ltleadbeater}{black!50}
+
+\hypersetup{hidelinks}
+
+\begin{document}
+
+% discard page after cover
+%\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
+\midsloppy
+
+\input{forallx-yyc-content}
+
+\end{document}

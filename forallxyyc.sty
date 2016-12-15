@@ -1,13 +1,70 @@
 %!TEX root = forallxyyc.tex
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{forallx}[2011/10/29 support for a logic textbook]
-\RequirePackage{amssymb,amsmath,hyperref,multicol,ifthen,graphicx,pifont,rotating,color}
+\ProvidesPackage{forallxyyc}[2011/10/29 support for a logic textbook]
+\RequirePackage{amssymb,amsmath,hyperref,multicol,ifthen,graphicx,pifont,rotating,xcolor}
 \usepackage[numbered]{bookmark} %TB: added for speedy navigation
 \usepackage{mdframed}
 \usepackage[nonumberlist,toc,style=index]{glossaries}
 \makeglossaries
 \usepackage{tabu}
-\usepackage{fouriernc}
+
+%RZ: typefaces 
+
+\usepackage[sfdefault]{universalis}
+\usepackage[osf]{Baskervaldx} % oldstyle figures
+\usepackage[bigdelims,baskervaldx]{newtxmath} 
+\usepackage[cal=boondoxo]{mathalfa}
+
+%RZ: Make sure we have a copyright symbol
+
+\def\copyright{\textcircled{C}}
+
+% RZ: TOC widths
+
+\setlength{\cftpartnumwidth}{2.5em}
+\setlength{\cftchapternumwidth}{2.2em}
+\setlength{\cftsectionnumwidth}{2.8em}
+\setlength{\cftbeforechapterskip}{0pt} %TB: to leave no gap between sections (which LaTeX regards as chapters) in the TOC
+
+% Chapter style
+
+\newlength{\barlength}
+\makechapterstyle{leadbeater}{%
+  \setlength{\afterchapskip}{40pt}
+  \setlength{\beforechapskip}{50pt}
+    \setlength{\midchapskip}{10pt}
+  \renewcommand*{\afterchapternum}{\par\nobreak\vskip 0pt}
+  \renewcommand*{\chapnamefont}{\fontsize{14pt}{0pt}\selectfont\bfseries\sffamily}
+  \renewcommand*{\chapnumfont}{\fontsize{14pt}{0pt}\selectfont\bfseries\sffamily}
+  \renewcommand*{\chaptitlefont}{\normalfont\fontsize{48pt}{48pt}\selectfont\bfseries\itshape\color{leadbeater}}
+  \renewcommand*{\printchaptername}{%
+    \chapnamefont\MakeUppercase{\@chapapp}}
+  \renewcommand*{\printchaptertitle}[1]{%
+    \chaptitlefont ##1\\[-\baselineskip]%
+    \hspace*{-20pt}%
+    \smash{\color{leadbeater}\rule{7pt}{300pt}}}
+}
+
+\renewcommand*{\partnamefont}{\fontsize{24pt}{0pt}\selectfont\bfseries\sffamily}
+\renewcommand*{\partnumfont}{\fontsize{24pt}{0pt}\selectfont\bfseries\sffamily}
+\renewcommand*{\parttitlefont}{\normalfont\fontsize{54pt}{54pt}\selectfont\bfseries\itshape\color{leadbeater}}
+\renewcommand*{\printpartname}{%
+  \partnamefont PART}
+
+\chapterstyle{leadbeater}
+
+\copypagestyle{leadbeater}{headings}
+
+\makeoddhead{leadbeater}{\small\sffamily\color{leadbeater}\rightmark}{}
+            {\color{leadbeater}\sffamily\bfseries\thepage}
+
+\makeevenhead{leadbeater}{\small\sffamily\color{leadbeater}\leftmark}{}
+            {\color{leadbeater}\sffamily\bfseries\thepage}
+
+\usepackage{atbegshi}  % to kill the blank page after the titling page
+
+\usepackage[font={small,it}]{caption}
+
 
 % The original forallx.sty was written in 2005
 % Comments marked "TB" are additions by Tim Button in September 2012
@@ -49,7 +106,7 @@
 %    ****************************************
 % the title of the book
 \newcommand*{\forallx}{\texttt{forall}\script{x}}
-\newcommand*{\forallxyyc}{\texttt{forall}\script{x}\texttt{:Cambridge 2014-15}}
+\newcommand*{\forallxyyc}{\texttt{forall}\script{x}\texttt{:Calgary}}
 % The version number of the book is a 5 digit integer:
 % the last digit of the year, the month, the day of the month
 \newcounter{dummy}
@@ -69,12 +126,9 @@
 %    ****************************************
 % equivalent to commenting something out, but usable on multiple lines
 \providecommand{\nix}[1]{}
-% script letters are rendered in Zaph Chancery, which has both upper and lower case.
-\DeclareFontFamily{OT1}{pzc}{}
-\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.200] pzcmi7t}{}
-\DeclareMathAlphabet{\mathscr}{OT1}{pzc}{m}{it}
-\newcommand*{\script}[1]{\ensuremath{\mathscr{#1}}}
-\renewcommand*{\meta}[1]{\ensuremath{\mathscr{#1}}} % TB: used for all metavariables
+
+\newcommand*{\script}[1]{\ensuremath{\mathcal{#1}}}
+\renewcommand*{\meta}[1]{\ensuremath{\mathcal{#1}}} % TB: used for all metavariables
 % create a blank
 \newcommand*{\blank}{\underline{\hspace*{2.5em}}}
 \newcommand*{\gap}[1]{\blank$_{#1}$} % TB: used for keys, to avoid use/mention confusion
@@ -86,9 +140,9 @@
   % I personally dislike the default LaTeX angle brackets. I think that
   % they are too narrow. If you want to use them, though, you can
   % replace < and > in the commands below with \langle and \rangle
-\newcommand*{\openntuple}{<}
-\newcommand*{\closentuple}{>}
-\newcommand*{\ntuple}[1]{\mbox{\ensuremath{\mathopen{\openntuple}}#1\ensuremath{\mathclose{\closentuple}}}} 
+\newcommand*{\openntuple}{\langle}
+\newcommand*{\closentuple}{\rangle}
+\newcommand*{\ntuple}[1]{\ensuremath{\mathopen{\openntuple}}#1\ensuremath{\mathclose{\closentuple}}} 
 % definitions
 \newcommand*{\define}[1]{\textsc{\lowercase{#1}}}
 
@@ -182,12 +236,6 @@
 \renewcommand{\thechapter}{\arabic{chapter}}
 \renewcommand{\thepart}{\Roman{part}}
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
-\renewcommand{\chaptermark}[1]{\markboth%
-{\forallx}%
-{\textrm{ch.~\thechapter\ \lowercase{#1}}}%
-}
-\renewcommand{\sectionmark}[1]{}
-
 
 
 %    ****************************************
@@ -683,47 +731,8 @@
 \newcommand*{\existsE}{\Ee}
 
 
-%    ****************************************
-%    *            STYLE OF THE BOOK           *
-%    ****************************************
-% TB: I moved from book to memoir and then radically changed the structuring. From the point of view of LaTeX, the book consists of 9 parts, containing roughly 5 chapters each. From the point of view of the user, the book consists of 9 chapters, containing roughly 5 sections each. This means a fair bit of internal redefinition of LaTeX code.
-
-\renewcommand\cftchapterfont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
-\renewcommand\cftchapterpagefont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
-\renewcommand\cftbeforechapterskip{0pt} %TB: to leave no gap between sections (which LaTeX regards as chapters) in the TOC
-\setlength{\headwidth}{\textwidth} 
-
-\renewcommand{\printpartname}{}
-
-\makepagestyle{forallxpage} %TB: design new page style
-\makeheadrule {forallxpage}{\textwidth}{\normalrulethickness} %TB: put rule beneath page header
-\makeevenhead {forallxpage}{\small \thepage}{}{\small\leftmark}  %TB: page header consists of section name and page
-\makeoddhead {forallxpage}{\small\rightmark}{}{\small \thepage} 
-\makeatletter
-\makepsmarks{forallxpage}{
-	\nouppercaseheads
-	\createmark {chapter} {both} {shownumber}{}{.\ }
-}
-\makeatother
 
 \setcounter{tocdepth}{0} %TB: only chapters and sections to appear
-\renewcommand{\thepart}{}  % RZ: Let's just not number parts
-%\renewcommand{\thechapter}{\arabic{chapter}} %TB: sections (which LaTeX regards as chapters) to be numbered
-%\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}} %TB: subsections (which LaTeX regards as sections) to be n.m
-
-\makechapterstyle{forallx}{% TB defines a nice style for section headings (which LaTeX regards as chapter headings)
-	\renewcommand{\chapnamefont}{\normalfont\Huge\bfseries} 
-	\renewcommand{\chapnumfont}{\normalfont\Huge\bfseries}
-	\renewcommand{\chaptitlefont}{\normalfont\Huge\bfseries} 
-	\renewcommand{\afterchapternum}{}
-	\renewcommand{\printchaptername}{} 
-	\setlength{\midchapskip}{0mm} 
-	\renewcommand{\chapternamenum}{} 
-	\renewcommand{\printchapternum}{%
-		\noindent\marginpar{\chapnumfont\thechapter}}
-	\renewcommand{\printchaptertitle}[1]{\chaptitlefont ##1}
-	}
-\chapterstyle{forallx}
 
 \setlength{\columnsep}{2em} % Sets 2em space between columns when calling multicol 
 
@@ -734,7 +743,7 @@
 \hypersetup{pdfinfo={Title={forall x: Calgary Version}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Aaron Thomas-Bolduc, Richard Zach}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, fitch}}, %
 	bookmarks={true}, %
 	colorlinks={true}, %
-	allcolors={darkred},
+	allcolors={dkleadbeater},
 	pdfdisplaydoctitle={true}}
 \urlstyle{same}
 

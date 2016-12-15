@@ -1,47 +1,70 @@
-\documentclass[oneside,10pt]{memoir}
+\documentclass[openany,oneside,11pt]{memoir}
 
 \usepackage{forallxyyc}
 
+% set stock & paper size with narrow margins
+
+\setstocksize{22cm}{17cm}
+
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\settrims{0pt}{0pt}
+
+% let's calculate the line length for 65 characters in \normalfont
+
+\setlxvchars
+
+% set the size of the type block to golden ratio calculated width
+
+\settypeblocksize{*}{1.05\lxvchars}{1.62}
+
+% set spine and and edge margin
+
+\setlrmargins{*}{*}{1}
+\setulmargins{60pt}{*}{*}
+\setheaderspaces{*}{*}{1}
+
+\checkandfixthelayout
+
+\colorlet{leadbeater}{darkred}
+\colorlet{dkleadbeater}{darkred!80!black}
+\colorlet{ltleadbeater}{darkred!50}
+
 \begin{document}
+
+% discard page after cover
+%\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
 \midsloppy
 
+% Cover Page
 
-\pagestyle{forallxpage}
+\thispagestyle{empty}
+\pagecolor{darkred}\color{white}
 
-\frontmatter
-\include{forallx-yyc-frontmatter}
+\noindent {\fontsize{46pt}{0pt}\selectfont forall $x$}
 
-\newpage
-\tableofcontents*
+\
 
-\mainmatter
+\noindent{\Huge{Calgary Remix}}
 
-\include{forallx-yyc-what}
-\include{forallx-yyc-tfl}
-\include{forallx-yyc-truthtables}
-\include{forallx-yyc-prooftfl}
-\include{forallx-yyc-fol}
-\include{forallx-yyc-interpretations}
-\include{forallx-yyc-prooffol}
-%include{forallx-yyc-metatheory}
+\bigskip\bigskip
+\noindent{\huge \emph{An Introduction to Formal Logic}}
 
-\appendix
-\part{Appendices}
-%addcontentsline{toc}{part}{Appendices}
-\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+\vfill
+\noindent{\Huge \textit{Remixed by}\\[1.5ex]
+Aaron Thomas-Bolduc\\[1.5ex]
+Richard Zach}
+\vfill
 
-%\setcounter{chapter}{0}
-%\renewcommand*{\thechapter}{\Alph{chapter}} %TB: appendix sections have letters
-%\renewcommand*{\thesection}{\Alph{chapter}.\arabic{section}} %TB: appendix sections have letters
+\noindent
+\includegraphics[width=1cm]{assets/cc.pdf}
+\includegraphics[width=1cm]{assets/by}
+\includegraphics[width=1cm]{assets/sa}
+\includegraphics[width=1cm]{assets/remix}
+\hfill \vbox to 1cm{\vfill\hbox{\LARGE Winter 2017}\vfill}
 
-\input{forallx-yyc-notation} % RZ for some reason, with an \include here the TOC gets messed up
-\include{forallx-yyc-alternatives}
-\include{forallx-yyc-quickreference}
+\newpage\nopagecolor\color{black}
 
-%\backmatter
-\glsaddall
-\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
-\printglossaries
-\include{forallx-yyc-backmatter}
+\input{forallx-yyc-content}
 
 \end{document}

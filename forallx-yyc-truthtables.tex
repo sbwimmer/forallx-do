@@ -3,7 +3,9 @@
 \label{ch.TruthTables}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
-\chapter{Characteristic truth tables}\label{s:CharacteristicTruthTables}
+\chapter{Characteristic truth tables}
+\label{s:CharacteristicTruthTables}
+
 Any non-atomic sentence of TFL is composed of atomic sentences with sentential connectives. The truth value of the compound sentence depends only on the truth value of the atomic sentences that comprise it. In order to know the truth value of `$(D \eand E)$', for instance, you only need to know the truth value of `$D$' and the truth value of `$E$'. 
 
 We introduced five connectives in chapter \ref{ch.TFL}, so we simply need to explain how they map between truth values. For convenience, we will abbreviate `True' with `T' and `False' with `F'. (But just to be clear, the two truth values are True and False; the truth values are not \emph{letters}!)
@@ -76,7 +78,8 @@ F & F & T
 \end{center}
 Unsurprisingly, the biconditional is symmetrical. 
 
-\chapter{Truth-functional connectives}\label{s:TruthFunctionality}
+\chapter{Truth-functional connectives}
+\label{s:TruthFunctionality}
 
 \section{The idea of truth-functionality}
 Let's introduce an important idea. 
@@ -108,8 +111,8 @@ When we symbolise a sentence or an argument in TFL, we ignore everything \emph{b
 	\begin{earg}
 		\item Dana is a logician and Dana is a nice person
 		\item Although Dana is a logician, Dana is a nice person
-		\item Despite being a logician, Jon is a nice person
-		\item Dana is a nice person, albeit being a logician
+		\item Dana is a logician despite being a nice person
+		\item Dana is a nice person, but also a logician
 		\item Dana's being a logician notwithstanding, he is a nice person
 	\end{earg}
 All of the above sentences will be symbolised with the same TFL sentence, perhaps `$F \eand Q$'.
@@ -176,7 +179,9 @@ The crucial point is that sentences \ref{brownwins1} and \ref{brownwins2} employ
 We will say more about the difficulties with conditionals in \S\ref{s:ParadoxesOfMaterialConditional}. For now, we will content ourselves with the observation that `$\eif$' is the only candidate for a truth-functional conditional for TFL, but that many English conditionals cannot be represented adequately using `$\eif$'. TFL is an intrinsically limited language. 
 
 
-\chapter{Complete truth tables}\label{s:CompleteTruthTables}
+\chapter{Complete truth tables}
+\label{s:CompleteTruthTables}
+
 So far, we have considered assigning truth values to TFL sentences indirectly. We have said, for example, that a TFL sentence such as `$B$' is to take the same truth value as the English sentence `Big Ben is in London' (whatever that truth value may be), but we can also assign truth values \emph{directly}. We can simply stipulate that `$B$' is to be true, or stipulate that it is to be false.
 	\factoidbox{
 		A \define{valuation} is any assignment of truth values to particular atomic sentences of TFL.
@@ -541,6 +546,8 @@ If you want additional practice, you can construct truth tables for any of the s
 
 
 \chapter{Semantic concepts}
+\label{s:SemanticConcepts}
+
 In the previous section, we introduced the idea of a valuation and showed how to determine the truth value of any TFL sentence, on any valuation, using a truth table. In this section, we will introduce some related ideas, and show how to use truth tables to test whether or not they apply.
 
 
@@ -772,7 +779,7 @@ Determine whether each the following sentences are logically equivalent using co
 
 
 \problempart
-\label{pr.TT.equiv}
+\label{pr.TT.equiv2}
 Determine whether each the following sentences are logically equivalent using complete truth tables. If the two sentences really are equivalent, write ``equivalent.'' Otherwise write, ``not equivalent.''
 \begin{earg}
 \item $A\eif A$ and $A \eiff A$
@@ -784,7 +791,7 @@ Determine whether each the following sentences are logically equivalent using co
 
 
 \problempart
-\label{pr.TT.consistent}
+\label{pr.TT.consistent2}
 Determine whether each collection of sentences is consistent or inconsistent using a complete truth table. 
 \begin{earg}
 \item $A \eand \enot B$, $\enot(A \eif B)$, $B \eif A$\vspace{.5ex} %Consistent
@@ -837,7 +844,7 @@ Determine whether each collection of sentences is consistent or inconsistent usi
 \end{earg}
 
 \noindent\problempart
-\label{pr.TT.consistent}
+\label{pr.TT.consistent3}
 Determine whether each collection of sentences is consistent or inconsistent, using a complete truth table. 
 \begin{earg}
 \item $\enot B$, $A \eif B$, $A$ \vspace{.5ex}%inconsistent.
@@ -851,7 +858,7 @@ Determine whether each collection of sentences is consistent or inconsistent, us
 
 
 \noindent\problempart
-\label{pr.TT.valid}
+\label{pr.TT.valid2}
 Determine whether each argument is valid or invalid, using a complete truth table. 
 \begin{earg}
 \item $A\eif A \therefore  A$ \vspace{.5ex}%invalid
@@ -867,7 +874,7 @@ Determine whether each argument is valid or invalid, using a complete truth tabl
 \end{earg}
 
 \noindent\problempart
-\label{pr.TT.valid}
+\label{pr.TT.valid3}
 Determine whether each argument is valid or invalid, using a complete truth table. 
 \begin{earg}
 \item $A\eor\bigl[A\eif(A\eiff A)\bigr] \therefore  A $\vspace{.5ex}%invalid
@@ -1059,7 +1066,7 @@ We have been discussing shortcuts in testing for logically validity, but exactly
 
 \practiceproblems
 \problempart
-\label{pr.TT.TTorC}
+\label{pr.TT.TTorC2}
 Using shortcuts, determine whether each sentence is a tautology, a contradiction, or neither. 
 \begin{earg}
 \item $\enot B \eand B$ %contra
@@ -1181,7 +1188,7 @@ entailment? & complete truth table & one-line partial truth table\\
 
 \solutions
 \problempart
-\label{pr.TT.equiv}
+\label{pr.TT.equiv3}
 Use complete or partial truth tables (as appropriate) to determine whether these pairs of sentences are logically equivalent:
 \begin{earg}
 \item $A$, $\enot A$ %No
@@ -1196,7 +1203,7 @@ Use complete or partial truth tables (as appropriate) to determine whether these
 
 \solutions
 \problempart
-\label{pr.TT.consistent}
+\label{pr.TT.consistent4}
 Use complete or partial truth tables (as appropriate) to determine whether these sentences are jointly consistent, or jointly inconsistent:
 \begin{earg}
 \item $A \eand B$, $C\eif \enot B$, $C$ %inconsistent
@@ -1207,7 +1214,7 @@ Use complete or partial truth tables (as appropriate) to determine whether these
 
 \solutions
 \problempart
-\label{pr.TT.valid}
+\label{pr.TT.valid4}
 Use complete or partial truth tables (as appropriate) to determine whether each argument is valid or invalid:
 \begin{earg}
 \item $A\eor\bigl[A\eif(A\eiff A)\bigr] \therefore A$ %invalid
@@ -1218,7 +1225,7 @@ Use complete or partial truth tables (as appropriate) to determine whether each 
 \end{earg}
 
 \problempart
-\label{pr.TT.TTorC}
+\label{pr.TT.TTorC3}
 Determine whether each sentence is a tautology, a contradiction, or a contingent sentence. Justify your answer with a complete or partial truth table where appropriate.
 
 % truth tables in LaTeX generated by http://www.curtisbright.com/logic/. Be sure to give him a shout out.
@@ -1411,7 +1418,7 @@ Determine whether each sentence is a tautology, a contradiction, or a contingent
 \end{earg}
 
 \noindent\problempart
-\label{pr.TT.TTorC}
+\label{pr.TT.TTorC4}
 Determine whether each sentence is a tautology, a contradiction, or a contingent sentence. Justify your answer with a complete or partial truth table where appropriate.
 \begin{earg}
 \item  $\enot (A \eor A)$\vspace{.5ex}							%	Contradiction		1 letter, 2 connectives
@@ -1444,7 +1451,7 @@ Determine whether each the following pairs of sentences are logically equivalent
 
 
 \noindent\problempart
-\label{pr.TT.consistent}
+\label{pr.TT.consistent5}
 Determine whether each collection of sentences is consistent or inconsistent. Justify your answer with a complete or partial truth table where appropriate.
 \begin{earg}
 \item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ \vspace{.5ex}%consistent
@@ -1461,7 +1468,7 @@ Determine whether each collection of sentences is consistent or inconsistent. Ju
 \end{earg}
 
 \noindent\problempart
-\label{pr.TT.consistent}
+\label{pr.TT.consistent6}
 Determine whether each collection of sentences is consistent or inconsistent. Justify your answer with a complete or partial truth table where appropriate.
 \begin{earg}
 \item $A \eand B$, $C\eif \enot B$, $C$ \vspace{.5ex}%inconsistent
@@ -1488,7 +1495,7 @@ Determine whether each collection of sentences is consistent or inconsistent. Ju
 
 
 \noindent\problempart Determine whether each argument is valid or invalid. Justify your answer with a complete or partial truth table where appropriate.
-\label{pr.TT.valid} 
+\label{pr.TT.valid5} 
 \begin{enumerate}
 \item $A\eif(A\eand\enot A)\therefore \enot A$% valid
 \item $A \eor B$, $A \eif B$, $B \eif A \therefore  A \eiff B$  % Valid
@@ -1504,7 +1511,7 @@ Determine whether each collection of sentences is consistent or inconsistent. Ju
 \end{enumerate}
 
 \noindent\problempart Determine whether each argument is valid or invalid. Justify your answer with a complete or partial truth table where appropriate.
-\label{pr.TT.valid} 
+\label{pr.TT.valid6} 
 \begin{enumerate}
 \item $A\eiff\enot(B\eiff A)\therefore A$ % invalid
 \item $A\eor B$, $B\eor C$, $\enot A\therefore B \eand C$ % invalid
@@ -1514,7 +1521,7 @@ Determine whether each collection of sentences is consistent or inconsistent. Ju
 \end{enumerate}
 
 \noindent\problempart
-\label{pr.TT.concepts}
+\label{pr.TT.concepts2}
 Answer each of the questions below and justify your answer.
 \begin{enumerate}
 \item Suppose that \script{A} and \script{B} are logically equivalent. What can you say about $\script{A}\eiff\script{B}$?

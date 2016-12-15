@@ -78,6 +78,7 @@ The argument is invalid, since it is possible to be green all over and shiny all
 The important moral can be stated as follows. \emph{At best, TFL will help us to understand arguments that are valid due to their form.}
 
 \section{Atomic sentences}
+
 We started isolating the form of an argument, in \S\ref{s:ValidityInVirtueOfForm}, by replacing  \emph{subsentences} of sentences with individual letters. Thus in the first example of this section, `it is raining outside' is a subsentence of `If it is raining outside, then Jenny is miserable', and we replaced this subsentence with `A'. 
 
 Our artificial language, TFL, pursues this idea absolutely ruthlessly. We start with some \emph{atomic sentences}. These will be the basic building blocks out of which more complex sentences are built. We will use uppercase Roman letters for atomic sentences of TFL. There are only twenty-six letters of the alphabet, but there is no limit to the number of atomic sentences that we might want to consider. By adding subscripts to letters, we obtain new atomic sentences. So, here are five different atomic sentences of TFL:
@@ -93,21 +94,24 @@ In doing this, we are not fixing this symbolisation \emph{once and for all}. We 
 		\item[C] Dipan is an avid reader of Tolstoy
 	\end{ekey}
 It is important to understand that whatever structure an English sentence might have is lost when it is symbolised by an atomic sentence of TFL. From the point of view of TFL, an atomic sentence is just a letter. It can be used to build more complex sentences, but it cannot be taken apart.
+
 \newglossaryentry{atomic sentence}
 {
 name=atomic sentence,
 description={A sentence used to represent a basic sentence; a single letter in TFL, or a predicate symbol followed by constants in FOL.}
 }
+
 \newglossaryentry{symbolization key}
 {
 name=symbolization key,
 description={A list that shows which English sentences are represented by which atomic sentences in TFL.}
 }
 
+\chapter{Connectives}
+\label{s:TFLConnectives}
 
-
-\chapter{Connectives}\label{s:TFLConnectives}
 In the previous section, we considered symbolising fairly basic English sentences with atomic sentences of TFL. This leaves us wanting to deal with the English expressions `and', `or', `not', and so forth. These are \emph{connectives}---they can be used to form new sentences out of old ones. In TFL, we will make use of logical connectives to build complex sentences from atomic components. There are five logical connectives in TFL. This table summarises them, and they are explained throughout this section.
+
 \newglossaryentry{connective}
 {
 name=connective,
@@ -132,6 +136,7 @@ These are not the only connectives of English of interest. Others are, e.g., `un
 
         
 \section{Negation}
+
 Consider how we might symbolise these sentences:
 	\begin{earg}
 	\item[\ex{not1}] Mary is in Barcelona.
@@ -160,7 +165,7 @@ Let us use the following representation key:
 	\end{ekey}
 Sentence \ref{not4} can now be symbolised by `$R$'. Moving on to sentence \ref{not5}: saying the widget is irreplaceable means that it is not the case that the widget is replaceable. So even though sentence \ref{not5} does not contain the word `not', we will symbolise it as follows: `$\enot R$'.
 
-Sentence \ref{not5b} can be paraphrased as `It is not the case that the widget is irreplaceable.' Which can again be paraphrased as `It is not the case that it is not the case that the widget is replaceable'. So we might symbolise this English sentence with the TFL sentence `$\enot\enot R$'. %(In English, double-negation tends to cancel out: sentence \ref{not5b} says something very similar to `the widget is replaceable'.)
+Sentence \ref{not5b} can be paraphrased as `It is not the case that the widget is irreplaceable.' Which can again be paraphrased as `It is not the case that it is not the case that the widget is replaceable'. So we might symbolise this English sentence with the TFL sentence `$\enot\enot R$'.
 
 But some care is needed when handling negations. Consider:
 	\begin{earg}
@@ -174,7 +179,9 @@ name=negation,
 description={The symbol \enot, used to represent words and phrases that function like the English word ``not''.}
 }
 
-\section{Conjunction}\label{s:ConnectiveConjunction}
+\section{Conjunction}
+\label{s:ConnectiveConjunction}
+
 Consider these sentences:
 	\begin{earg}
 		\item[\ex{and1}]Adam is athletic.
@@ -236,6 +243,7 @@ Sentence \ref{negcon2} is a conjunction: you \emph{will not} get soup, and you \
 These English sentences are very different, and their symbolisations differ accordingly. In one of them, the entire conjunction is negated. In the other, just one conjunct is negated. Brackets help us to keep track of things like the \emph{scope} of the negation. 
 
 \section{Disjunction}
+
 Consider these sentences:
 	\begin{earg}
 		\item[\ex{or1}]Either Fatima will play videogames, or she will watch movies.
@@ -283,7 +291,6 @@ Sentence \ref{or.xor} is an \emph{exclusive or}. We can break the sentence into 
 
 This last example shows something important. Although the TFL symbol `\eor' always symbolises \emph{inclusive or}, we can symbolise an \emph{exclusive or} in {TFL}. We just have to use a few of our other symbols as well.
 
-
 \section{Conditional}
 Consider these sentences:
 	\begin{earg}
@@ -296,6 +303,7 @@ Let's use the following symbolisation key:
 		\item[F] Jean is in France
 	\end{ekey}
 Sentence \ref{if1} is roughly of this form: `if P, then F'. We will use the symbol `\eif' to symbolise this `if\ldots, then\ldots' structure. So we symbolise sentence \ref{if1} by `$(P\eif F)$'. The connective is called \define{the conditional}. Here, `$P$' is called the \define{antecedent} of the conditional `$(P \eif F)$', and `$F$' is called the \define{consequent}.
+
 \newglossaryentry{conditional}
 {
 name=conditional,
@@ -364,7 +372,6 @@ The expression `if and only if' occurs a lot especially in philosophy, mathemati
 	}
 A word of caution. Ordinary speakers of English often use `if \ldots, then\ldots' when they really mean to use something more like `\ldots if and only if \ldots'. Perhaps your parents told you, when you were a child: `if you don't eat your greens, you won't get any dessert'. Suppose you ate your greens, but that your parents refused to give you any dessert, on the grounds that they were only committed to the \emph{conditional} (roughly `if you get dessert, then you will have eaten your greens'), rather than the biconditional (roughly, `you get dessert iff you eat your greens'). Well, a tantrum would rightly ensue. So, be aware of this when interpreting people; but in your own writing, make sure you use the biconditional iff you mean to.
 
-
 \section{Unless}
 We have now introduced all of the connectives of TFL. We can use them together to symbolise many kinds of sentences. An especially difficult case is when we use the English-language connective `unless':
 
@@ -388,7 +395,6 @@ All three are correct symbolisations. Indeed, in chapter \ref{ch.TruthTables} we
 		If a sentence can be paraphrased as `Unless A, B,' then it can be symbolised as `$\script{A}\eor\script{B}$'.
 	}
 Again, though, there is a little complication. `Unless' can be symbolised as a conditional; but as we said above, people often use the conditional (on its own) when they mean to use the biconditional. Equally, `unless' can be symbolised as a disjunction; but there are two kinds of disjunction (exclusive and inclusive). So it will not surprise you to discover that ordinary speakers of English often use `unless' to mean something more like the biconditional, or like exclusive disjunction. Suppose someone says: `I will go running unless it rains'. They probably mean something like `I will go running iff it does not rain' (i.e.\ the biconditional), or  `either I will go running or it will rain, but not both' (i.e.\ exclusive disjunction). Again: be aware of this when interpreting what other people have said, but be precise in your writing.
-
 
 \practiceproblems
 \solutions
@@ -610,7 +616,6 @@ name=sentence of TFL,
 description={A string of symbols in TFL that can be built up according to the recursive rules given on p.~\pageref{TFLsentences}.}
 }
 
-        
 Definitions like this are called \emph{recursive}. Recursive definitions begin with some specifiable base elements, and then present ways to generate indefinitely many more elements by compounding together previously established ones. To give you a better idea of what a recursive definition is, we can give a recursive definition of the idea of \emph{an ancestor of mine}. We specify a base clause.
 	\begin{ebullet}
 		\item My parents are ancestors of mine.

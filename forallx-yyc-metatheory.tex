@@ -1,7 +1,8 @@
 \part{Advanced Topics}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
-\chapter{Normal forms and expressive completeness}}\label{ch:normalform}
+\chapter{Normal forms and expressive completeness}
+\label{ch:normalform}
 
 \section{Disjunctive Normal Form}\label{s:DNFDefined}
 
@@ -18,18 +19,20 @@ So, here are are some sentences in disjunctive normal form:
 		$(A \eand B) \eor (A \eand  B \eand C \eand \enot D \eand \enot E)$\\
 		$A \eor (C \eand \enot P_{234} \eand P_{233} \eand Q) \eor \enot B$
 	\end{center}
-Note that I have here broken one of the maxims of this book (see \S\ref{s:InductionOnLength}) and \emph{temporarily} allowed myself to employ the relaxed bracketing-conventions that allow conjunctions and disjunctions to be of arbitrary length. These conventions make it easier to see when a sentence is in disjunctive normal form. I will continue to help myself to these relaxed conventions, without further comment.
+Note that we have here broken one of the maxims of this book and \emph{temporarily} allowed ourselves to employ the relaxed bracketing-conventions that allow conjunctions and disjunctions to be of arbitrary length. These conventions make it easier to see when a sentence is in disjunctive normal form. We will continue to help ourselves to these relaxed conventions, without further comment.
 
-To further illustrate the idea of disjunctive normal form, I will introduce some more notation. I write `$\pm\meta{A}$' to indicate that $\meta{A}$ is an atomic sentence which may or may not be prefaced with an occurrence of negation. Then a sentence in disjunctive normal form has the following shape:
+To further illustrate the idea of disjunctive normal form, we will introduce some more notation. We write `$\pm\meta{A}$' to indicate that $\meta{A}$ is an atomic sentence which may or may not be prefaced with an occurrence of negation. Then a sentence in disjunctive normal form has the following shape:
 	$$(\pm \meta{A}_1 \land \ldots \land \pm \meta{A}_i) \lor (\pm \meta{A}_{i+1} \land \ldots \land \pm\meta{A}_j) \lor \ldots \lor (\pm\meta{A}_{m+1} \land \ldots \land \pm \meta{A}_n)$$
 We now know what it is for a sentence to be in disjunctive normal form. The result that we are aiming at is:
 	\factoidbox{\label{thm:dnf}\textbf{Disjunctive Normal Form Theorem.} For any sentence, there is a tautologically equivalent sentence in disjunctive normal form.
 	}
-Henceforth, I will abbreviate `Disjunctive Normal Form' by `DNF'. 
+Henceforth, we will abbreviate `Disjunctive Normal Form' by `DNF'. 
 
 
-\section{Proof of DNF Theorem via truth tables}\label{s:DNFTruthTable}
-My first proof of the DNF Theorem employs truth tables. I will first illustrate the technique for finding an equivalent sentence in DNF, and then turn this illustration into a rigorous proof. 
+\section{Proof of DNF Theorem via truth tables}
+\label{s:DNFTruthTable}
+
+Our first proof of the DNF Theorem employs truth tables. We will first illustrate the technique for finding an equivalent sentence in DNF, and then turn this illustration into a rigorous proof. 
 
 Let's suppose we have some sentence, $\meta{S}$, which contains three atomic sentences, `$A$', `$B$' and `$C$'. The very first thing to do is fill out a complete truth table for $\meta{S}$. Maybe we end up with this:
 \begin{center}
@@ -56,18 +59,18 @@ $A$ & $B$ & $C$ & $\meta{S}$\\
 %	$$(A \eand \enot B \eand C) \eor (\enot A \eand \enot B \eand C)$$
 %then it will be true on exactly \emph{two} lines of the truth table which describes all possible valuations of `$A$', `$B$' and `$C$'. 
 %
-As it happens, $\meta{S}$ is true on four lines of its truth table, namely lines 1, 3, 7 and 8. Corresponding to each of those lines, I will write down four sentences, whose only connectives are negations and conjunctions, where every negation has minimal scope:
+As it happens, $\meta{S}$ is true on four lines of its truth table, namely lines 1, 3, 7 and 8. Corresponding to each of those lines, we will write down four sentences, whose only connectives are negations and conjunctions, where every negation has minimal scope:
 	\begin{earg}
 		\item[\textbullet]  `$A \eand B \eand C$'\hfill which is true on line 1 (and only then)
 		\item[\textbullet] `$A \eand \enot B \eand C$' \hfill which is true on line 3 (and only then)
 		\item[\textbullet] `$\enot A \eand \enot B \eand C$' \hfill which is true on line 7 (and only then)
 		\item[\textbullet] `$\enot A \eand \enot B \eand \enot C$' \hfill which is true on line 8 (and only then)
 	\end{earg}
-But if I now disjoin all of these conjunctions, like so:
+We now combine all of these conjunctions using~$\eor$, like so:
 $$(A \eand B \eand C) \eor (A \eand \enot B \eand C) \eor (\enot A \eand \enot B \eand C) \eor (\enot A \eand \enot B \eand \enot C)$$
-I have a sentence in DNF which is true on exactly those lines where one of the disjuncts is true, i.e.\ it is true on (and only on) lines 1, 3, 7, and 8. So this sentence has exactly the same truth table as $\meta{S}$. So I have a sentence in DNF that is tautologically equivalent to $\meta{S}$. Which is exactly what I required!
+This gives us a sentence in DNF which is true on exactly those lines where one of the disjuncts is true, i.e.\ it is true on (and only on) lines 1, 3, 7, and 8. So this sentence has exactly the same truth table as $\meta{S}$. So we have a sentence in DNF that is tautologically equivalent to $\meta{S}$, which is exactly what we wanted!
 
-Now, the strategy that I just adopted did not depend on the specifics of $\meta{S}$; it is perfectly general. Consequently, we can use it to obtain a simple proof of the DNF Theorem.
+Now, the strategy that we just adopted did not depend on the specifics of $\meta{S}$; it is perfectly general. Consequently, we can use it to obtain a simple proof of the DNF Theorem.
 
 Pick any arbitrary sentence, $\meta{S}$, and let $\meta{A}_1, \ldots, \meta{A}_n$ be the atomic sentences that occur in $\meta{S}$. To obtain a sentence in DNF that is tautologically equivalent $\meta{S}$, we consider $\meta{S}$'s truth table. There are two cases to consider:
 	\begin{enumerate}
@@ -81,21 +84,23 @@ Pick any arbitrary sentence, $\meta{S}$, and let $\meta{A}_1, \ldots, \meta{A}_n
 				\meta{A}_m\text{ is a conjunct of }\meta{B}_i&\emph{ iff }\meta{A}_m\text{ is true on line }i\\
 				\enot\meta{A}_m\text{ is a conjunct of }\meta{B}_i&\emph{ iff }\meta{A}_m\text{ is false on line }i
 			\end{align*}
-		Given these rules, a trivial proof by induction shows that $\meta{B_i}$ is true on (and only on) line $i$ of the truth table which considers all possible valuations of $\meta{A}_1, \ldots, \meta{A}_n$ (i.e.\ $\meta{S}$'s truth table). 
+		Given these rules, $\meta{B_i}$ is true on (and only on) line $i$ of the truth table which considers all possible valuations of $\meta{A}_1, \ldots, \meta{A}_n$ (i.e.\ $\meta{S}$'s truth table). 
 		
-		Next, let $i_1, i_2, \ldots, i_m$ be the numbers of the lines of the truth table where $\meta{S}$ is \emph{true}. Now let $\meta{D}$ be the sentence:
+		Next, let $i_1$, $i_2$, \dots, $i_m$ be the numbers of the lines of the truth table where $\meta{S}$ is \emph{true}. Now let $\meta{D}$ be the sentence:
 		$$\meta{B}_{i_1} \eor \meta{B}_{i_2} \eor \ldots \eor \meta{B}_{i_m}$$
 		Since $\meta{S}$ is true on at least one line of its truth table, $\meta{D}$ is indeed well-defined; and in the limiting case where $\meta{S}$ is true on exactly one line of its truth table, $\meta{D}$ is just $\meta{B}_{i_1}$, for some $i_1$.
 		
-		By construction, $\meta{D}$ is in DNF. Moreover, by construction, for each line $i$ of the truth table: $\meta{S}$ is true on line $i$ of the truth table \emph{iff} one of $\meta{D}$'s disjuncts (namely, $\meta{B_i}$) is true on, and only on, line $i$. (Again, this is shown by a trivial proof by induction.) Hence $\meta{S}$ and $\meta{D}$ have the same truth table, and so are tautologically equivalent.
+		By construction, $\meta{D}$ is in DNF. Moreover, by construction, for each line~$i$ of the truth table: $\meta{S}$ is true on line $i$ of the truth table \emph{iff} one of $\meta{D}$'s disjuncts (namely, $\meta{B_i}$) is true on, and only on, line $i$. Hence $\meta{S}$ and $\meta{D}$ have the same truth table, and so are tautologically equivalent.
 	\end{enumerate}
 	These two cases are exhaustive and, either way, we have a sentence in DNF that is tautologically equivalent to $\meta{S}$.
 
-So we have proved the DNF Theorem. Before I say any more, though, I should immediately flag that I am hereby returning to the austere definition of a (TFL) sentence, according to which we can assume that any conjunction has exactly two conjuncts, and any disjunction has exactly two disjuncts.
+So we have proved the DNF Theorem. Before we say any more, though, we should immediately flag that we are hereby returning to the austere definition of a (TFL) sentence, according to which we can assume that any conjunction has exactly two conjuncts, and any disjunction has exactly two disjuncts.
 
 
-\section{Conjunctive Normal Form}\label{s:CNF}
-So far in this chapter, I have discussed \emph{disjunctive} normal form. Given the duality of disjunction and conjunction (see \S\ref{s:Duality}), it may not come as a surprise to hear that there is also such a thing as \emph{conjunctive normal form} (CNF).
+\section{Conjunctive Normal Form}
+\label{s:CNF}
+
+So far in this chapter, we have discussed \emph{disjunctive} normal form. It may not come as a surprise to hear that there is also such a thing as \emph{conjunctive normal form} (CNF).
 
 The definition of CNF is exactly analogous to the definition of DNF. So, a sentence is in CNF \emph{iff} it meets all of the following conditions:
 	\begin{earg}
@@ -107,7 +112,7 @@ Generally, then, a sentence in CNF looks like this
 	$$(\pm \meta{A}_1 \lor \ldots \lor \pm \meta{A}_i) \land (\pm \meta{A}_{i+1} \lor \ldots \lor \pm\meta{A}_j) \land \ldots \land (\pm\meta{A}_{m+1} \lor\ldots \lor \pm \meta{A}_n)$$
 where each $\meta{A}_k$ is an atomic sentence.
 
-Since `$\enot$' is its own dual, and `$\eor$' and `$\eand$' are the duals of each other, it is immediate clear that if a sentence is in DNF, then its dual is in CNF; and \emph{vice versa}. Armed with this insight, we can immediately prove another normal form theorem:
+We can now prove another normal form theorem:
 	\factoidbox{\label{thm:cnf}\textbf{Conjunctive Normal Form Theorem.} For any sentence, there is a tautologically equivalent sentence in conjunctive normal form.}
 
         
@@ -132,10 +137,11 @@ Consider the following sentences:
         For each sentence, find a tautologically equivalnet sentence in DNF and one in CNF.
         
 \section{The expressive adequacy of TFL}
-In discussing duality (\S\ref{s:Duality}), I introduced the general idea of an $n$-place connective. We might, for example, define a three-place connective, `$\heartsuit$', into existence, by stipulating that it is to have the following characteristic truth table:
+
+Of our connectives, $\enot$ attaches to a single sentences, and the others all combine exactly two sentences. We may also introduce the idea of an $n$-place connective. For example, we could consider a three-place connective, `$\heartsuit$', and stipulate that it is to have the following characteristic truth table:
 \begin{center}
 \begin{tabular}{c c c | c}
-$\meta{A}$ & $\meta{B}$ & $\meta{C}$ & $\heartsuit(\meta{A},\meta{B},\meta{C})$\\
+$A$ & $B$ & $C$ & $\heartsuit(A,B,C)$\\
 \hline
  T & T & T & F \\
  T & T & F & T \\
@@ -147,47 +153,46 @@ $\meta{A}$ & $\meta{B}$ & $\meta{C}$ & $\heartsuit(\meta{A},\meta{B},\meta{C})$\
  F & F & F & F
 \end{tabular}
 \end{center}
-Probably this new connective would not correspond with any natural English expression (in the way that `$\eand$' corresponds with `and'). But a question arises: if we wanted to employ a connective with this characteristic truth table, must we add a \emph{new} connective to TFL? Or can we get by with the connectives we \emph{already have}?
+Probably this new connective would not correspond with any natural English expression (at least not in the way that `$\eand$' corresponds with `and'). But a question arises: if we wanted to employ a connective with this characteristic truth table, must we add a \emph{new} connective to TFL? Or can we get by with the connectives we \emph{already have}?
 
-Let us make this question more precise. Say that some connectives are \define{jointly expressively adequate} \emph{iff}, for any possible truth function, there is a scheme containing only those connectives which expresses that truth function. Since we can represent truth functions using characteristic truth tables, we could equivalently say the following: some connectives are jointly expressively adequate \emph{iff}, for any possible truth table, there is a scheme containing only those connectives with that truth table.
+Let us make this question more precise. Say that some connectives are \define{jointly expressively adequate} \emph{iff}, for any possible truth table, there is a sentence containing only those connectives with that truth table.
 
-I say `scheme' rather than `sentence', because we are not concerned with something as specific as a sentence. To see why, consider the characteristic truth table for conjunction; this schematically encodes the information that a conjunction $(\meta{A} \eand \meta{B})$ is true iff both $\meta{A}$ and $\meta{B}$ are true (whatever $\meta{A}$ and $\meta{B}$ might be). When we discuss expressive adequacy, we are considering something at the same level of generality. 
-
-The general point is, when we are armed with some jointly expressively adequate connectives, no truth function lies beyond our grasp. And in fact, we are in luck.
+The general point is, when we are armed with some jointly expressively adequate connectives, no characteristic truth table lies beyond our grasp. And in fact, we are in luck.
 	\factoidbox{\label{thm:ExpressiveAdequacy}\textbf{Expressive Adequacy Theorem.}
-		The connectives of TFL are jointly expressively adequate. Indeed, the following pairs of connectives are jointly expressively adequate:
-			\begin{earg}
-				\item\label{expressive:eor} `$\enot$' and `$\eor$'
-				\item\label{expressive:eand} `$\enot$' and `$\eand$'
-				\item\label{expressive:eif} `$\enot$' and `$\eif$'
-			\end{earg}}
+The connectives of TFL are jointly expressively adequate. Indeed, the following pairs of connectives are jointly expressively adequate:
+\begin{earg}
+\item\label{expressive:eor} `$\enot$' and `$\eor$'
+\item\label{expressive:eand} `$\enot$' and `$\eand$'
+\item\label{expressive:eif} `$\enot$' and `$\eif$'
+\end{earg}}
 
-	 Given any truth table, we can use the method of proving the DNF Theorem (or the CNF Theorem) via truth tables, to write down a scheme which has the same truth table. For example, employing the truth table method for proving the DNF Theorem, I can tell you that the following scheme has the same characteristic truth table as $\heartsuit(\meta{A},\meta{B},\meta{C})$, above:
-		$$(\meta{A} \eand \meta{B} \eand \enot \meta{C}) \eor (\meta{A} \eand \enot\meta{B} \eand \meta{C}) \eor (\enot \meta{A} \eand \meta{B} \eand \enot \meta{C})$$			
-			It follows that the connectives of TFL are jointly expressively adequate. I now prove each of the subsidiary results.
+Given any truth table, we can use the method of proving the DNF Theorem (or the CNF Theorem) via truth tables, to write down a scheme which has the same truth table. For example, employing the truth table method for proving the DNF Theorem, we find that the following scheme has the same characteristic truth table as $\heartsuit(A,B,C)$, above:
+		$$(A \eand B \eand \enot C) \eor (A \eand \enot B \eand C) \eor (\enot A \eand B \eand \enot C)$$			
+It follows that the connectives of TFL are jointly expressively adequate. We now prove each of the subsidiary results.
 	
-				\emph{Subsidiary Result \ref{expressive:eor}: expressive adequacy of `$\enot$' and `$\eor$'.} Observe that the scheme that we generate, using the truth table method of proving the DNF Theorem, will only contain the connectives `$\enot$', `$\eand$' and `$\eor$'. So it suffices to show that there is an equivalent scheme which contains only `$\enot$' and `$\eor$'. To show do this, we simply consider that
+\emph{Subsidiary Result \ref{expressive:eor}: expressive adequacy of `$\enot$' and `$\eor$'.} Observe that the scheme that we generate, using the truth table method of proving the DNF Theorem, will only contain the connectives `$\enot$', `$\eand$' and `$\eor$'. So it suffices to show that there is an equivalent scheme which contains only `$\enot$' and `$\eor$'. To show do this, we simply consider that
 		\begin{align*}
 		(\meta{A} \eand \meta{B}) & \text{\quad and \quad} \enot(\enot \meta{A} \eor\enot \meta{B})
 		\end{align*}
 		are tautologically equivalent.
 
-		\emph{Subsidiary Result \ref{expressive:eand}: expressive adequacy of `$\enot$' and `$\eand$'.} Exactly as in Subsidiary Result \ref{expressive:eor}, making use of the fact that
+\emph{Subsidiary Result \ref{expressive:eand}: expressive adequacy of `$\enot$' and `$\eand$'.} Exactly as in Subsidiary Result~\ref{expressive:eor}, making use of the fact that
 		\begin{align*}
 		(\meta{A} \eor \meta{B}) & \text{\quad and \quad}\enot(\enot \meta{A} \eand\enot \meta{B})
 		\end{align*}
-                are tautologically equivalent.
+are tautologically equivalent.
 
-			\emph{Subsidiary Result \ref{expressive:eif}: expressive adequacy of `$\enot$' and `$\eif$'.} 		Exactly as in Subsidiary Result \ref{expressive:eor}, making use of these equivalences instead:
+\emph{Subsidiary Result \ref{expressive:eif}: expressive adequacy of `$\enot$' and `$\eif$'.} Exactly as in Subsidiary Result~\ref{expressive:eor}, making use of these equivalences instead:
 		\begin{align*}
-		(\meta{A} \eor \meta{B}) &\text{\quad and \quad} (\enot \meta{A} \eif\meta{B})\\
+		(\meta{A} \eor \meta{B}) &\text{\quad and \quad} (\enot \meta{A} \eif \meta{B})\\
 		(\meta{A} \eand \meta{B}) &\text{\quad and \quad} \enot(\meta{A} \eif \enot\meta{B})
 		\end{align*}
-		Alternatively, we could simply rely upon one of the other two subsidiary results, and (repeatedly) invoke only one of these two equivalences.
+Alternatively, we could simply rely upon one of the other two subsidiary results, and (repeatedly) invoke only one of these two equivalences.
 
 In short, there is never any \emph{need} to add new connectives to TFL. Indeed, there is already some redundancy among the connectives we have: we could have made do with just two connectives, if we had been feeling really austere.
 
 \section{Individually expressively adequate connectives}
+
 In fact, some two-place connectives are \emph{individually} expressively adequate. These connectives are not standardly included in TFL, since they are rather cumbersome to use. But their existence shows that, if we had wanted to, we could have defined a truth-functional language that was expressively adequate, which contained only a single primitive connective.
 
 The first such connective we will consider is `$\uparrow$', which has the following characteristic truth table. 
@@ -204,12 +209,12 @@ $\meta{A}$ & $\meta{B}$ & $\meta{A} \mathrel{\uparrow} \meta{B}$\\
  This is often called `the Sheffer stroke', after Henry Sheffer, who used it to show how to reduce the number of logical connectives in Russell and Whitehead's \emph{Principia Mathematica}.\footnote{Sheffer, `A Set of Five Independent Postulates for Boolean Algebras, with application to logical constants,' (1913, \emph{Transactions of the American Mathematical Society} 14.4)} (In fact, Charles Sanders Peirce had anticipated Sheffer by about 30 years, but never published his results.)\footnote{See Peirce, `A Boolian Algebra with One Constant', which dates to c.1880; and Peirce's \emph{Collected Papers}, 4.264--5.} It is quite common, as well, to call it `nand', since its characteristic truth table is the negation of the truth table for `$\eand$'.
 \factoidbox{\label{prop:upexpressive}`$\uparrow$' is expressively adequate all by itself.}
 
-		Theorem \ref{thm:ExpressiveAdequacy} tells us that `$\enot$' and `$\eor$' are jointly expressively adequate. So it suffices to show that, given any scheme which contains only those two connectives, we can rewrite it as a tautologically equivalent scheme which contains only `$\uparrow$'. As in the proof of the subsidiary cases of Theorem \ref{thm:ExpressiveAdequacy}, then, we simply apply the following equivalences:
+The Expressive Adequacy Theorem tells us that `$\enot$' and `$\eor$' are jointly expressively adequate. So it suffices to show that, given any scheme which contains only those two connectives, we can rewrite it as a tautologically equivalent scheme which contains only `$\uparrow$'. As in the proof of the subsidiary cases of the Expressive Adequacy Theorem, then, we simply apply the following equivalences:
 		\begin{align*}
 			\enot \meta{A} &\text{\quad and \quad} (\meta{A} \uparrow \meta{A})\\
 			(\meta{A} \eor \meta{B}) & \text{\quad and \quad} ((\meta{A} \uparrow \meta{A}) \uparrow (\meta{B} \uparrow \meta{B}))
 		\end{align*}
-		 to Subsidiary Result \ref{expressive:eor} of Theorem \ref{thm:ExpressiveAdequacy}.
+to the Subsidiary Result~\ref{expressive:eor}.
 
 Similarly, we can consider the connective `$\downarrow$':
 \begin{center}
@@ -222,50 +227,42 @@ $\meta{A}$ & $\meta{B}$ & $\meta{A} \mathrel{\downarrow} \meta{B}$\\
  F & F & T
 \end{tabular}
 \end{center}
-This is sometimes called the `Peirce arrow' (Peirce himself called it `ampheck'). More often, though, it is called `nor', since its characteristic truth table is the negation of `$\eor$'.
+This is sometimes called the `Peirce arrow' (Peirce himself called it `ampheck'). More often, though, it is called `nor', since its characteristic truth table is the negation of `$\eor$', that is, of `neither \dots{} nor \dots'.
 	\factoidbox{
 	`$\downarrow$' is expressively adequate all by itself. }
 
-
-	As in Proposition \ref{prop:upexpressive}, although invoking the dual equivalences:
+As in the previous result for $\uparrow$, although invoking the equivalences:
 		\begin{align*}
 			\enot \meta{A} &\text{\quad and \quad} (\meta{A} \downarrow \meta{A})\\
 			(\meta{A} \eand \meta{B}) & \text{\quad and \quad} ((\meta{A} \downarrow \meta{A}) \downarrow (\meta{B} \downarrow \meta{B}))
 		\end{align*}
-		and Subsidiary Result \ref{expressive:eand} of Theorem \ref{thm:ExpressiveAdequacy}.
+and Subsidiary Result~\ref{expressive:eand}.
 
 
 \section{Failures of expressive adequacy}
- In fact, the \emph{only} two-place connectives which are individually expressively adequate are `$\uparrow$' and `$\downarrow$'. But how would we show this? More generally, how can we show that some connectives are \emph{not} jointly expressively adequate? 
+
+In fact, the \emph{only} two-place connectives which are individually expressively adequate are `$\uparrow$' and `$\downarrow$'. But how would we show this? More generally, how can we show that some connectives are \emph{not} jointly expressively adequate? 
  
-The obvious thing to do is to try to find some truth table which we \emph{cannot} express, using just the given connectives. But there is a bit of an art to this. Moreover, in the end, we will have to rely upon induction; for we will need to show that \emph{no} scheme -- no matter how \emph{long} -- is capable of expressing the target truth table. 
- 
- To make this concrete, let's consider the question of whether `$\eor$' is expressively adequate all by itself. After a little reflection, it should be clear that it is not. In particular, it should be clear that any scheme which only contains disjunctions cannot have the same truth table as negation, i.e.:
+The obvious thing to do is to try to find some truth table which we \emph{cannot} express, using just the given connectives. But there is a bit of an art to this.
+
+To make this concrete, let's consider the question of whether `$\eor$' is expressively adequate all by itself. After a little reflection, it should be clear that it is not. In particular, it should be clear that any scheme which only contains disjunctions cannot have the same truth table as negation, i.e.:
 				\begin{center}
 				\begin{tabular}{c | c}
 				$\meta{A}$ & $\enot \meta{A}$\\
 				\hline
-				 T &  F \\
+				 T & F \\
 				 F & T
 				\end{tabular}
 				\end{center}
-The intuitive reason, why this should be so, is simple: the top line of the desired truth table needs to have the value False; but the top line of any truth table for a scheme which \emph{only} contains disjunctions will always be True.
+The intuitive reason, why this should be so, is simple: the top line of the desired truth table needs to have the value False; but the top line of any truth table for a scheme which \emph{only} contains $\eor$ will always be True. The same is true for $\eand$, $\eif$, and $\eiff$.
  	\factoidbox{
-		`$\eor$' is not expressively adequate by itself.}
+		`$\eor$', `$\eand$', `$\eif$', and `$\eiff$' are not expressively adequate by itself.}
 
-        In fact, we can generalise this to:
+In fact, the following is true:
         
-	\factoidbox{The \emph{only} two-place connectives that are expressively adequate by themselves are `$\uparrow$' and `$\downarrow$'. }
+\factoidbox{The \emph{only} two-place connectives that are expressively adequate by themselves are `$\uparrow$' and `$\downarrow$'. }
 
-\factoidbox{\label{prop:Eiff4}
-  Exactly four 2-place truth functions can be expressed using schemes whose only connectives are biconditionals:
-			\begin{align*}
-				\meta{A} \eiff \meta{A}\\
-				\meta{A}\\
-				\meta{B}\\
-				\meta{A} \eiff \meta{B}
-			\end{align*}
-			It is clear that we can express all four, and that they are distinct.}
+This is of course harder to prove than for the primitive connectives. For instance, the ``exclusive or'' connective does not have a T in the first line of its characteristic truth table, and so the method used above no longer suffices to show that it cannot express all truth tables.  It is also harder to show that, e.g., `$\eiff$' and `$\enot$' \emph{together} are not expressively adequate.
 		
 
 

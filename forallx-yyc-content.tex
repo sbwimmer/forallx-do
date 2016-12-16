@@ -3,6 +3,7 @@
 \include{forallx-yyc-frontmatter}
 
 \pagestyle{leadbeater}
+\currentpdfbookmark{Table of Contents}{name}
 \tableofcontents*
 
 \mainmatter
@@ -14,10 +15,10 @@
 \include{forallx-yyc-fol}
 \include{forallx-yyc-interpretations}
 \include{forallx-yyc-prooffol}
-%include{forallx-yyc-metatheory}
+\include{forallx-yyc-metatheory}
 
 \appendix
-%\part{Appendices}
+\part*{Appendices}
 \addcontentsline{toc}{part}{Appendices}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
@@ -26,6 +27,7 @@
 \include{forallx-yyc-quickreference}
 
 \backmatter
+
 \glsaddall
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 \printglossaries

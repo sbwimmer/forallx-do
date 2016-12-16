@@ -44,6 +44,11 @@ In FOL, our \define{names} are lower-case letters `$a$' through to `$r$'. We can
 	$$a,b,c,\ldots, r, a_1, f_{32}, j_{390}, m_{12}$$
 These should be thought of along the lines of proper names in English, but with one difference. `Tim Button' is a proper name, but there are several people with this name. (Equally, there are  at least two people with the name `P.D.\ Magnus'.) We live with this kind of ambiguity in English, allowing context to individuate the fact that `Tim Button' refers to an author of this book, and not some other Tim. In FOL, we do not tolerate any such ambiguity. Each name must pick out \emph{exactly} one thing. (However, two different names may pick out the same thing.)
 
+\newglossaryentry{name}{
+  name = name,
+  description = {a symbol of FOL used to pick out an object of the \gls{domain}}
+  }
+
 As with TFL, we can provide symbolisation keys. These indicate, temporarily, what a name will pick out. So we might offer:
 	\begin{ekey}
 		\item[e] Elsa
@@ -65,7 +70,7 @@ In general, you can think about predicates as things which combine with singular
 		Vinnie borrowed \blank\ from Nunzio\\
 		Vinnie borrowed the family car from \blank
 	\end{quote}
-FOL predicates are capital letters $A$ through $Z$, with or without subscripts. We might write a symbolisation key for predicates thus:
+In FOL, \define{predicates} are capital letters $A$ through $Z$, with or without subscripts. We might write a symbolisation key for predicates thus:
 	\begin{ekey}
 		\item[Ax] \gap{x} is angry
 		\item[Hx] \gap{x} is happy
@@ -73,7 +78,12 @@ FOL predicates are capital letters $A$ through $Z$, with or without subscripts. 
 %		\item[T_2xy] \gap{x} is as tough or tougher than \gap{y}
 %		\item[Bxyz] \gap{y} is between \gap{x} and \gap{z}
 	\end{ekey}
-(Why the subscripts on the gaps? We will return to this in \S\ref{s:MultipleGenerality}.)
+        (Why the subscripts on the gaps? We will return to this in \S\ref{s:MultipleGenerality}.)
+
+\newglossaryentry{predicate}{
+  name = predicate,
+  description = {a symbol of FOL used to symbolize a property or relation}
+}
 
 If we combine our two symbolisation keys, we can start to symbolise some English sentences that use these names and predicates in combination. For example, consider the English sentences:
 	\begin{earg}
@@ -96,11 +106,27 @@ We are now ready to introduce quantifiers. Consider these sentences:
 	\end{earg}
 It might be tempting to symbolise sentence \ref{q.a} as `$He \eand Hg \eand Hm$'. Yet this would only say that Elsa, Gregor, and Marybeth are happy. We want to say that \emph{everyone} is happy, even those with no names. In order to do this, we introduce the `$\forall$' symbol. This is called the \define{universal quantifier}.
 
-A quantifier must always be followed by a variable. In FOL, variables are italic lowercase letters `$s$' through `$z$', with or without subscripts. So we might symbolise sentence \ref{q.a} as `$\forall x Hx$'.  The variable `$x$' is serving as a kind of placeholder. The expression `$\forall x$' intuitively means that you can pick anyone and put them in as `$x$'. The subsequent `$Hx$' indicates, of that thing you picked out, that it is happy. 
+\newglossaryentry{universal quantifier}{
+  name = universal quantifier,
+  description = {the symbol $\forall$ of FOL used to symbolize generality; $\forall x\, Fx$ is true iff every member of the domain is~$F$}
+}
+
+A quantifier must always be followed by a \define{variable}. In FOL, variables are italic lowercase letters `$s$' through `$z$', with or without subscripts. So we might symbolise sentence \ref{q.a} as `$\forall x Hx$'.  The variable `$x$' is serving as a kind of placeholder. The expression `$\forall x$' intuitively means that you can pick anyone and put them in as `$x$'. The subsequent `$Hx$' indicates, of that thing you picked out, that it is happy. 
+
+\newglossaryentry{variable}{
+  name = variable,
+  description = {a symbol of FOL used following quantifiers and as placeholders in atomic formulas; lowercase letters between $s$ and $z$}
+}
+
 
 It should be pointed out that there is no special reason to use `$x$' rather than some other variable. The sentences `$\forall x Hx$', `$\forall y Hy$', `$\forall z Hz$', and `$\forall x_5 Hx_5$' use different variables, but they will all be logically equivalent.
 
 To symbolise sentence \ref{q.e}, we introduce another new symbol: the \define{existential quantifier}, `$\exists$'. Like the universal quantifier, the existential quantifier requires a variable. Sentence \ref{q.e} can be symbolised by `$\exists x Ax$'. Whereas `$\forall x Ax$' is read naturally as `for all x, x is angry', `$\exists x Ax$' is read naturally as `there is something, x, such that x is angry'. Once again, the variable is a kind of placeholder; we could just as easily have symbolised sentence \ref{q.e} with `$\exists z Az$', `$\exists w_{256} Aw_{256}$', or whatever.
+
+\newglossaryentry{existential quantifier}{
+  name = existential quantifier,
+  description = {the symbol $\exists$ of FOL used to symbolize existence; $\exists x\, Fx$ is true iff at least one member of the domain is~$F$}
+}
 
 Some more examples will help. Consider these further sentences:
 	\begin{earg}
@@ -121,6 +147,11 @@ In order to eliminate this ambiguity, we will need to specify a \define{domain}.
 		\item[\text{domain}] people in Chicago
 	\end{ekey}
 The quantifiers \emph{range over} the domain. Given this domain, `$\forall x$' is to be read roughly as `Every person in Chicago is such that\ldots' and `$\exists x$' is to be read roughly as `Some person in Chicago is such that\ldots'. 
+
+\newglossaryentry{domain}{
+  name = domain,
+  description = {the collection of objects assumed for a symbolization in FOL, or that gives the range of the quantifiers in an \gls{interpretation}}
+}
 
 In FOL, the domain must always include at least one thing. Moreover, in English we can infer `something is angry' from `Gregor is angry'. In FOL, then, we will want to be able to infer `$\exists x Ax$' from `$Ag$'. So we will insist that each name must pick out exactly one thing in the domain. If we want to name people in places beside Chicago, then we need to include those people in the domain. 
 	\factoidbox{
@@ -227,7 +258,13 @@ Sentence \ref{quan4} can be paraphrased as, `It is not the case that there is so
 
 
 \section{Empty predicates}
-In \S\ref{s:FOLBuildingBlocks}, we emphasised that a name must pick out exactly one object in the domain. However, a predicate need not apply to anything in the domain. A predicate that applies to nothing in the domain is called an \define{empty} predicate. This is worth exploring.
+
+In \S\ref{s:FOLBuildingBlocks}, we emphasised that a name must pick out exactly one object in the domain. However, a predicate need not apply to anything in the domain. A predicate that applies to nothing in the domain is called an \define{empty predicate}. This is worth exploring.
+
+\newglossaryentry{empty predicate}{
+  name = {empty predicate},
+  description = {a \gls{predicate} that applies to no object in the \gls{domain}}
+}
 
 Suppose we want to symbolise these two sentences:
 	\begin{earg}
@@ -1170,7 +1207,9 @@ Quantifiers & $\forall, \exists$\\
 We define an \define{expression of FOL} as any string of symbols of FOL. Take any of the symbols of FOL and write them down, in any order, and you have an expression.
 
 \section{Terms and formulas}
-In \S\ref{s:TFLSentences}, we went straight from the statement of the vocabulary of TFL to the definition of a sentence of TFL. In FOL, we will have to go via an intermediary stage: via the notion of a  \emph{formula}. The intuitive idea is that a formula is any sentence, or anything which can be turned into a sentence by adding quantifiers out front. But this will take some unpacking.
+\label{s:TermsFormulas}
+
+In \S\ref{s:TFLSentences}, we went straight from the statement of the vocabulary of TFL to the definition of a sentence of TFL. In FOL, we will have to go via an intermediary stage: via the notion of a \define{formula}. The intuitive idea is that a formula is any sentence, or anything which can be turned into a sentence by adding quantifiers out front. But this will take some unpacking.
 
 We start by defining the notion of a term.
 	\factoidbox{
@@ -1185,6 +1224,18 @@ Next we need to define atomic formulas.
 		\item Nothing else is an atomic formula.
 		\end{enumerate}
 	}
+
+\newglossaryentry{term}{
+  name = term,
+  description = {either a \gls{name} or a \gls{variable}}
+}
+
+\newglossaryentry{formula}{
+  name = formula,
+  description = {an expression of FOL built according to the recursive rules in \S\ref{s:TermsFormulas}}
+}
+        
+        
 The use of swashfonts here follows the conventions laid down in \S\ref{s:UseMention}. So, `$\meta{R}$' is not itself a predicate of FOL. Rather, it is a symbol of our metalanguage (augmented English) that we use to talk about any predicate of FOL. Similarly, `$\meta{t}_1$' is not a term of FOL, but a symbol of the metalanguage that we can use to talk about any term of FOL. So, where `$F$' is a one-place predicate, `$G$' is a three-place predicate, and `$S$' is a six-place predicate, here are some atomic formulas:
 	\begin{center}
 		$x = a$\\
@@ -1230,12 +1281,23 @@ These constraints have the effect of ensuring that variables only serve one mast
 	\factoidbox{
 		The \define{main logical operator} in a formula is the operator that was introduced last, when that formula was constructed using the recursion rules.
 		
-		\
+\bigskip
 
 		The \define{scope} of a logical operator in a formula is the subformula for which that operator is the main logical operator.
 	}
 So we can graphically illustrate the scope of the quantifiers in the preceding example thus:
-	$$\overbrace{\forall x \overbrace{\exists y (Fx \eiff \overbrace{\forall z (Gayz \eif Syzyayx)}^{\text{scope of `}\forall z\text{'}}}^{\text{scope of `}\exists y\text{'}})}^{\text{scope of `}\forall x\text{'}}$$
+	$$\overbrace{\forall x \overbrace{\exists y (Fx \eiff \overbrace{\forall z (Gayz \eif Syzyayx)}^{\text{scope of `}\forall z\text{'}}}^{\text{scope of `}\exists y\text{'}})}^{\text{scope of `$\forall x$'}}$$
+
+\newglossaryentry{main logical operator}{
+  name = main logical operator,
+  description = {the operator used last in the construction of a \gls{formula}}
+}
+
+\newglossaryentry{scope}{
+  name = scope,
+  description = {the subformula of a \gls{formula} of FOL for which the \gls{main logical operator} is the operator}
+}
+
 
 \section{Sentences}
 Recall that we are largely concerned in logic with assertoric sentences: sentences that can be either true or false. Many formulas are not sentences. Consider the following symbolisation key:
@@ -1252,10 +1314,22 @@ Let's make this idea precise.
 	\factoidbox{
 		A \define{bound variable} is an occurrence of a variable \meta{x} that is within the scope of either $\forall\meta{x}$ or $\exists\meta{x}$. 
 		
-		\
+		\bigskip
 		
 		A \define{free variable} is any variable that is not bound.
 	}
+
+\newglossaryentry{bound variable}{
+  name = bound variable,
+  description = {an occurrence of a variable in a \gls{formula} which is in the scope of a quantifier followed by the same variable}
+}
+
+\newglossaryentry{free variable}{
+  name = free variable,
+  description = {an occurrence of a variable in a \gls{formula} which is not a \gls{bound variable}}
+}
+
+        
 For example, consider the formula
 	$$\forall x(Ex \eor Dy) \eif \exists z(Ex \eif Lzx)$$
 The scope of the universal quantifier `$\forall x$' is `$\forall x (Ex \eor Dy)$', so the first `$x$' is bound by the universal quantifier. However, the second and third occurrence of `$x$' are free. Equally, the `$y$' is free. The scope of the existential quantifier `$\exists z$' is `$(Ex \eif Lzx)$', so `$z$' is bound. 
@@ -1264,6 +1338,11 @@ Finally we can say the following.
 	\factoidbox{	
 		A \define{sentence} of FOL is any formula of FOL that contains no free variables.
 	}
+
+\newglossaryentry{sentence of FOL}{
+  name = sentence of FOL,
+  description = {a \gls{formula} of FOL which has no \glspl{bound variable}}
+}
 
 
 

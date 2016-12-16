@@ -98,13 +98,13 @@ It is important to understand that whatever structure an English sentence might 
 \newglossaryentry{atomic sentence}
 {
 name=atomic sentence,
-description={A sentence used to represent a basic sentence; a single letter in TFL, or a predicate symbol followed by constants in FOL.}
+description={A sentence used to represent a basic sentence; a single letter in TFL, or a predicate symbol followed by constants in FOL}
 }
 
 \newglossaryentry{symbolization key}
 {
 name=symbolization key,
-description={A list that shows which English sentences are represented by which atomic sentences in TFL.}
+description={A list that shows which English sentences are represented by which \glspl{atomic sentence} in TFL}
 }
 
 \chapter{Connectives}
@@ -115,7 +115,7 @@ In the previous section, we considered symbolising fairly basic English sentence
 \newglossaryentry{connective}
 {
 name=connective,
-description={A logical operator in TFL used to combine atomic sentences into larger sentences.}
+description={A logical operator in TFL used to combine \glspl{atomic sentence} into larger sentences}
 }
 	\begin{table}[h]
 	\center
@@ -176,7 +176,7 @@ If we let the TFL-sentence `$H$' symbolise  `Jane is happy', then we can symboli
 \newglossaryentry{negation}
 {
 name=negation,
-description={The symbol \enot, used to represent words and phrases that function like the English word ``not''.}
+description={The symbol \enot, used to represent words and phrases that function like the English word ``not''}
 }
 
 \section{Conjunction}
@@ -197,13 +197,13 @@ Sentence \ref{and1} can now be symbolised as `$A$', and sentence \ref{and2} can 
 \newglossaryentry{conjunction}
 {
 name=conjunction,
-description={The symbol \eand, used to represent words and phrases that function like the English word ``and''; or a sentence formed using that symbol.}
+description={The symbol \eand, used to represent words and phrases that function like the English word ``and''; or a sentence formed using that symbol}
 }
 
 \newglossaryentry{conjunct}
 {
 name=conjunct,
-description={A sentence joined to another by a conjunction.}
+description={A sentence joined to another by a \gls{conjunction}}
 }
 
 
@@ -260,13 +260,13 @@ However, we will again need to introduce a new symbol. Sentence \ref{or1} is sym
 \newglossaryentry{disjunction}
 {
 name=disjunction,
-description={The connective \eor, used to represent words and phrases that function like the English word ``or'' in its inclusive sense; or a sentence formed by using this connective.}
+description={The connective \eor, used to represent words and phrases that function like the English word ``or'' in its inclusive sense; or a sentence formed by using this connective}
 }
 
 \newglossaryentry{disjunct}
 {
 name=disjunct,
-description={A sentence joined to another by a disjunction.}
+description={A sentence joined to another by a \gls{disjunction}}
 }
 
 Sentence \ref{or2} is only slightly more complicated. There are two subjects, but the English sentence only gives the verb once. However, we can paraphrase sentence \ref{or2} as `Either Fatima will play videogames, or Omar will play videogames'. Now we can obviously symbolise it by `$(F \eor O)$' again.
@@ -307,20 +307,20 @@ Sentence \ref{if1} is roughly of this form: `if P, then F'. We will use the symb
 \newglossaryentry{conditional}
 {
 name=conditional,
-description={The symbol \eif, used to represent words and phrases that function like the English phrase ``if \ldots then''; a sentence formed by using this symbol.}
+description={The symbol \eif, used to represent words and phrases that function like the English phrase ``if \dots{} then \dots''; a sentence formed by using this symbol}
 }
 
 \newglossaryentry{antecedent}
 {
 name=antecedent,
-description={The sentence on the left side of a conditional.}
+description={The sentence on the left side of a \gls{conditional}}
 }
 
 
 \newglossaryentry{consequent}
 {
 name=consequent,
-description={The sentence on the right side of a conditional.}
+description={The sentence on the right side of a \gls{conditional}}
 }
 
 Sentence \ref{if2} is also a conditional. Since the word `if' appears in the second half of the sentence, it might be tempting to symbolise this in the same way as sentence \ref{if1}. That would be a mistake. Your knowledge of geography tells you that sentence \ref{if1} is unproblematically true: there is no way for Jean to be in Paris that doesn't involve Jean being in France. But sentence \ref{if2} is not so straightforward: were  Jean in Dieppe, Lyons, or Toulouse, Jean would be in France without being in Paris, thereby rendering sentence \ref{if2} false. Since geography alone dictates the truth of sentence \ref{if1}, whereas travel plans (say) are needed to know the truth of sentence \ref{if2}, they must mean different things.

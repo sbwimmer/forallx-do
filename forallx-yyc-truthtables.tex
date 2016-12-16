@@ -13,7 +13,7 @@ We introduced five connectives in chapter \ref{ch.TFL}, so we simply need to exp
 \newglossaryentry{truth value}
                  {
                    name = truth value,
-                   description = {One of the two logical values sentences can have; true and false.}
+                   description = {One of the two logical values sentences can have: True and False}
                    }
 
 \paragraph{Negation.} For any sentence \meta{A}: If \meta{A} is true, then \enot\meta{A} is false. If \enot\meta{A} is true, then \meta{A} is false. We can summarize this in the \emph{characteristic truth table} for negation:
@@ -89,7 +89,7 @@ Let's introduce an important idea.
 \newglossaryentry{truth-functional connective}
 {
 name=truth-functional connective,
-description={an operator that builds larger sentences out of smaller ones and fixes the truth value of the resulting sentence based only on the truth value of the component sentences.}
+description={an operator that builds larger sentences out of smaller ones and fixes the \gls{truth value} of the resulting sentence based only on the truth value of the component sentences}
 }
         
 Every connective in TFL is truth-functional. The truth value of a negation is uniquely determined by the truth value of the unnegated sentence. The truth value of a conjunction is uniquely determined by the truth value of both conjuncts. The truth value of a disjunction is uniquely determined by the truth value of both disjuncts, and so on. To determine the truth value of some TFL sentence, we only need to know the truth value of its components. 
@@ -190,7 +190,7 @@ So far, we have considered assigning truth values to TFL sentences indirectly. W
         \newglossaryentry{valuation}
 {
 name=valuation,
-description={An assignment of truth values to particular atomic sentences of TFL.}
+description={An assignment of \glspl{truth value} to particular atomic \glspl{sentence of TFL}}
 }
 
 The power of truth tables lies in the following. Each row of a truth table represents a possible valuation. The entire truth table represents all possible valuations; thus the truth table provides us with a means to calculate the truth values of complex sentences, on each possible valuation. This is easiest to explain by example.
@@ -263,7 +263,7 @@ A \define{complete truth table} has a line for every possible assignment of True
 \newglossaryentry{complete truth table}
 {
 name=complete truth table,
-description={A table that gives all the possible truth values for a sentence or sentences in TFL, with a line for eveyr possible valuation of all atomic sentences.}
+description={A table that gives all the possible \glspl{truth value} for a \gls{sentence of TFL} or sentences in TFL, with a line for every possible \gls{valuation} of all atomic sentences}
 }
 
 The size of the complete truth table depends on the number of different atomic sentences in the table. A sentence that contains only one atomic sentence requires only two rows, as in the characteristic truth table for negation. This is true even if the same letter is repeated many times, as in the sentence
@@ -560,7 +560,7 @@ In \S\ref{s:BasicNotions}, we explained \emph{necessary truth} and \emph{necessa
 \newglossaryentry{tautology}
 {
 name=tautology,
-description={A sentence that has only Ts in the column under the main logical operator of its complete truth table; a sentence that is true on every valuation..}
+description={A sentence that has only Ts in the column under the main logical operator of its \gls{complete truth table}; a sentence that is true on every \gls{valuation}}
 }
 
 We can determine whether a sentence is a tautology just by using truth tables. If the sentence is true on every line of a complete truth table, then it is true on every valuation, so it is a tautology. In the example of \S\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a tautology. 
@@ -571,10 +571,11 @@ We have a similar surrogate for necessary falsity:
 	\factoidbox{
 		$\meta{A}$ is a \define{contradiction} iff it is false on every valuation.
 	}
-\newglossaryentry{contradiction}
+\newglossaryentry{contradiction of TFL}
 {
-name=contradiction,
-description={A sentence that has only Fs in the column under the main logical operator of its complete truth table; a sentence that is false on every valuation.}
+  name=contradiction (of TFL),
+  text = contradiction,
+description={A sentence that has only Fs in the column under the main logical operator of its \gls{complete truth table}; a sentence that is false on every \gls{valuation}}
 }
 
 We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every line of a complete truth table, then it is false on every valuation, so it is a contradiction. In the example of \S\ref{s:CompleteTruthTables}, `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$' is a contradiction.
@@ -583,13 +584,13 @@ We can determine whether a sentence is a contradiction just by using truth table
 \section{Logical equivalence}
 Here is a similar, useful notion:
 	\factoidbox{
-		$\meta{A}$ and $\meta{B}$ are \define{logically equivalent} iff they have the same truth value on every valuation.
+		$\meta{A}$ and $\meta{B}$ are \define{logically equivalent} iff, for every valuation, their truth values agree, i.e.\ if there is no valuation in which they have opposite truth values.
 	}
-\newglossaryentry{logical equivalence}
+\newglossaryentry{logically equivalent}
 {
-  name=logical equivalence,
+  name=logical equivalence (in TFL),
   text = logically equivalent,
-description={A property held by pairs of sentences if and only if the complete truth table for those sentences has identical columns under the two main logical operators, i.e., if the sentences have the same truth value on every valuation.}
+description={A property held by pairs of sentences if and only if the \gls{complete truth table} for those sentences has identical columns under the two main logical operators, i.e., if the sentences have the same truth value on every valuation}
 }
 
 We have already made use of this notion, in effect, in \S\ref{s:MoreBracketingConventions}; the point was that `$(A \eand B) \eand C$' and  `$A \eand (B \eand C)$' are logically equivalent. Again, it is easy to test for logical equivalence using truth tables. Consider the sentences `$\enot(P \eor Q)$' and `$\enot P \eand \enot Q$'. Are they logically equivalent? To find out, we construct a truth table.
@@ -612,11 +613,11 @@ In \S\ref{s:BasicNotions}, we said that sentences are jointly consistent iff it 
 		$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ are \define{jointly logically consistent} iff there is some valuation which makes them all true.
 	}
 
-        \newglossaryentry{logical consistency}
+        \newglossaryentry{logical consistency in TFL}
 {
-  name=logical consistency,
+  name=logical consistency (in TFL),
   text=jointly logically consistent,
-description={A property held by sentences if and only if the complete truth table for those sentences contains one line on which all the sentences are true, i.e., if some valuation makes all the sentences true.}
+description={A property held by sentences if and only if the \gls{complete truth table} for those sentences contains one line on which all the sentences are true, i.e., if some \gls{valuation} makes all the sentences true}
 }
 
 Derivatively, sentences are jointly logically inconsistent if there is no valuation that makes them all true. Again, it is easy to test for joint logical consistency using truth tables. 
@@ -626,11 +627,11 @@ The following idea is closely related to that of joint consistency:
 	\factoidbox{
 		The sentences $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ \define{entail} the sentence $\meta{C}$ if there is no valuation of the atomic sentences which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true and $\meta{C}$ false.
 	}
-       \newglossaryentry{logically valid}
+       \newglossaryentry{logically valid in TFL}
 {
-  name=logical validity,
+  name=logical validity (in TFL),
   text = logically valid,
-description={A property held by arguments if and only if the complete truth table for the argument contains no rows where the premises are all true and the conclusion false, i.e., if no valuation makes all premises true and the conclusion false.}
+description={A property held by arguments if and only if the \gls{complete truth table} for the argument contains no rows where the \glspl{premise} are all true and the \gls{conclusion} false, i.e., if no \gls{valuation} makes all premises true and the conclusion false}
 }
  
 Again, it is easy to test this with a truth table. Let us check whether `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$', we simply need to check whether there is any valuation which makes both `$\enot L \eif (J \eor L)$' and `$\enot L$' true whilst making `$J$' false. So we use a truth table: 

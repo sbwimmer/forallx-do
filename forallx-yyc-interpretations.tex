@@ -115,13 +115,18 @@ To bring this out, consider the following interpretation:
 Suppose `$A$' is a one-place predicate; then `$Aa$' is false and `$Ab$' is false, so `$Aa \eiff Ab$' is true. Similarly, if `$R$' is a two-place predicate, then `$Raa$' is false and `$Rab$' is false, so that `$Raa \eiff Rab$' is true. And so it goes: every atomic sentence not involving `$=$' is false, so every biconditional linking such sentences is true. For all that, Tim Button and P.D.\ Magnus are two distinct people, not one and the same!
 
 \section{Interpretation}
-We defined a \emph{valuation} in TFL as any assignment of truth and falsity to atomic sentences. In FOL, we are going to define an \define{interpretation} as consisting of three things:
+We defined a \define{valuation} in TFL as any assignment of truth and falsity to atomic sentences. In FOL, we are going to define an \define{interpretation} as consisting of three things:
 	\begin{ebullet}	
 		\item the specification of a domain
 		\item for each name that we care to consider, an assignment of exactly one object within the domain 
 		\item for each predicate that we care to consider---other than `$=$'---a specification of what things (in what order) the predicate is to be true of
 	\end{ebullet}
 The symbolisation keys that we considered in chapter \ref{ch.FOL} consequently give us one very convenient way to present an interpretation. We will continue to use them throughout this chapter. However, it is sometimes also convenient to present an interpretation \emph{diagrammatically}. 
+
+\newglossaryentry{interpretation}{
+  name = {interpretation},
+  description = {a specification of a \gls{domain} together with the objects the \glspl{name} pick out and which objects the \glspl{predicate} are true of}
+}
 
 Suppose we want to consider just a single two-place predicate, `$Rxy$'. Then we can represent it just by drawing an arrow between two objects, and stipulate that `$Rxy$' is to hold of x and y just in case there is an arrow running from x to y in our diagram. As an example, we might offer:
 \begin{center}
@@ -269,6 +274,11 @@ is a substitution instance of
 	$$\forall y \exists x (Ryx \eiff Fx)$$
 with the instantiating name `$e$'.
 
+\newglossaryentry{substitution instance}{
+  name = substitution instance,
+  description = {the result of replacing every occurrence of a \gls{free variable} in a \gls{formula} with a \gls{name}}
+}
+
 Armed with this notation, the rough idea is as follows. The sentence $\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$ will be true iff $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$ is true no matter what object (in the domain) we name with $\meta{c}$. Similarly, the sentence $\exists \meta{x}\meta{A}$ will be true iff there is \emph{some} way to assign the name $\meta{c}$ to an object that makes $\meta{A}(\ldots \meta{c} \ldots \meta{c} \ldots)$ true. More precisely, we stipulate:
 	\factoidbox{
 		$\forall \meta{x}\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$ is true in an interpretation \textbf{iff}\\ 
@@ -374,30 +384,58 @@ Determine whether each of the following sentences is true or false in that inter
 
 
 \chapter{Semantic concepts}
+
 Offering a precise definition of truth in FOL was more than a little fiddly, but now that we are done, we can define various central logical notions. These will look very similar to the definitions we offered for TFL. However, remember that they concern \emph{interpretations}, rather than valuations. 
 
-\
-\\We will use the symbol `$\entails$' for FOL much as we did for TFL. So:
+We will use the symbol `$\entails$' for FOL much as we did for TFL. So:
 	$$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \entails\meta{C}$$
 means that there is no interpretation in which all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ are true and in which \meta{C} is false. Derivatively,
 	$$\entails\meta{A}$$
 means that \meta{A} is true in every interpretation.
 
-\
-\\An FOL sentence $\meta{A}$ is a \define{logical truth} iff $\meta{A}$ is true in every interpretation; i.e.,  $\entails\meta{A}$.
+The other logical notions also have corresponding definitions in FOL:
 
-\
-\\$\meta{A}$ is a \define{contradiction} iff $\meta{A}$ is false in every interpretation; i.e., $\entails\enot\meta{A}$.
+\begin{itemize}
+\item An FOL sentence $\meta{A}$ is a \define{logical truth} iff $\meta{A}$ is true in every interpretation; i.e.,  $\entails\meta{A}$.
+\newglossaryentry{logical truth}
+{
+name=logical truth,
+description={A \gls{sentence of FOL} that is true in every \gls{interpretation}}
+}
 
-\
-\\$\meta{A}_1, \meta{A}_2, \ldots \meta{A}_n \therefore \meta{C}$ is \define{valid in FOL} iff there is no interpretation in which all of the premises are true and the conclusion is false; i.e., $\meta{A}_1,\meta{A}_2,\ldots \meta{A}_n \entails\meta{C}$. It is \define{invalid in FOL} otherwise.
+\item $\meta{A}$ is a \define{contradiction} iff $\meta{A}$ is false in every interpretation; i.e., $\entails\enot\meta{A}$.
+\newglossaryentry{contradiction of FOL}
+{
+  name=contradiction (of FOL),
+  text=contradiction,
+description={A \gls{sentence of FOL} that is false in every \gls{interpretation}}
+}
+  
+\item $\meta{A}_1, \meta{A}_2, \ldots \meta{A}_n \therefore \meta{C}$ is \define{valid in FOL} iff there is no interpretation in which all of the premises are true and the conclusion is false; i.e., $\meta{A}_1,\meta{A}_2,\ldots \meta{A}_n \entails\meta{C}$. It is \define{invalid in FOL} otherwise.
+\newglossaryentry{logically valid in FOL}
+{
+  name=logical validity (in FOL),
+  text = logically valid,
+description={A property held by arguments if and only if no \gls{interpretation} makes all premises true and the conclusion false}
+}
 
-\
-\\Two FOL sentences \meta{A} and \meta{B} are \define{logically equivalent} iff they are true in exactly the same interpretations as each other; i.e., both $\meta{A}\entails\meta{B}$ and $\meta{B}\entails\meta{A}$.
+\item Two FOL sentences \meta{A} and \meta{B} are \define{logically equivalent} iff they are true in exactly the same interpretations as each other; i.e., both $\meta{A}\entails\meta{B}$ and $\meta{B}\entails\meta{A}$.
 
-\
-\\The FOL sentences $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n$ are \define{jointly consistent} iff there is some interpretation in which all of the sentences are true. They are \define{jointly inconsistent} iff there is no such interpretation.
+\newglossaryentry{logically equivalent in FOL}
+{
+  name=logical equivalence (in FOL),
+  text = logically equivalent,
+description={A property held by pairs of \glspl{sentence of FOL} if and only if the sentences have the same truth value in every \gls{interpretation}.}
+}
 
+\item The FOL sentences $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n$ are \define{jointly consistent} iff there is some interpretation in which all of the sentences are true. They are \define{jointly inconsistent} iff there is no such interpretation.
+\newglossaryentry{logically consistent in FOL}
+{
+  name=logical consistency (in FOL),
+  text=jointly consistent,
+description={A property held by \glspl{sentence of FOL} if and only if some \gls{interpretation} makes all the sentences true}
+}
+\end{itemize}
 
 \chapter{Using interpretations}
 \label{sec.UsingModels}

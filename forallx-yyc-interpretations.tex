@@ -41,17 +41,17 @@ For this reason, we say only that FOL sentences \emph{symbolise} English sentenc
 \section{A word on extensions}
 We can stipulate directly what predicates are to be true of, so it is worth noting that our stipulations can be as arbitrary as we like. For example, we could stipulate that `$Hx$' should be true of, and only of, the following objects:
 	\begin{center}
-		Theresa May\\
+		Justin Trudeau\\
 		the number $\pi$\\
 		every top-F key on every piano ever made
 	\end{center}
 Now, the objects that we have listed have nothing particularly in common. But this doesn't matter. Logic doesn't care about what strikes us mere humans as `natural' or `similar'. Armed with this interpretation of `$Hx$', suppose we now add to our symbolisation key:
 	\begin{ekey}
-		\item[d] Theresa May
-		\item[n] Jeremy Corbyn
+		\item[j] Justin Trudeau
+		\item[r] Rachel Notley
 		\item[p] the number $\pi$
 	\end{ekey}
-Then `$Hd$' and `$Hp$' will both be true, on this interpretation, but `$Hn$' will be false, since Jeremy Corbyn was not among the stipulated objects. 
+Then `$Hj$' and `$Hp$' will both be true, on this interpretation, but `$Hr$' will be false, since Rachel Notley was not among the stipulated objects. 
 
 (This process of explicit stipulation is sometimes described as stipulating the \emph{extension} of a predicate.)
 
@@ -190,7 +190,7 @@ We will provide a completely general explanation in this section. However, to tr
 	\begin{ekey}
 		\item[\text{domain}] all people born before 2000\textsc{ce}
 		\item[a] Aristotle
-		\item[b] Bush
+		\item[b] Beyonc\'e
 		\item[Px] \gap{x} is a philosopher
 		\item[Rxy] \gap{x} was born before \gap{y}
 	\end{ekey}
@@ -199,7 +199,7 @@ This will be our \emph{go-to example} in what follows.
 \section{Atomic sentences}
 The truth of atomic sentences should be fairly straightforward. The sentence `$Pa$' should be true just in case `$Px$' is true of `$a$'. Given our go-to interpretation, this is true iff Aristotle is a philosopher. Aristotle is a philosopher. So the sentence is true. Equally, `$Pb$' is false on our go-to interpretation.
 
-Likewise, on this interpretation, `$Rab$' is true iff the object named by `$a$' was born before the object named by `$b$'. Well, Aristotle was born before Bush. So `$Rab$' is true. Equally, `$Raa$' is false: Aristotle was not born before Aristotle. 
+Likewise, on this interpretation, `$Rab$' is true iff the object named by `$a$' was born before the object named by `$b$'. Well, Aristotle was born before Beyonc\'e. So `$Rab$' is true. Equally, `$Raa$' is false: Aristotle was not born before Aristotle. 
 
 Dealing with atomic sentences, then, is very intuitive. When \meta{R} is an $n$-place predicate and $\meta{a}_1, \meta{a}_{2}, \ldots, \meta{a}_{n}$ are names, 
 
@@ -212,7 +212,7 @@ Recall, though, that there is a second kind of atomic sentence: two names connec
 		$\meta{a} = \meta{b}$ is true in an interpretation \textbf{iff}\\
 		 \meta{a} and \meta{b} name the very same object in that interpretation
 	}
-So in our go-to interpretation, `$a = b$' is false, since Aristotle is distinct from Bush.
+So in our go-to interpretation, `$a = b$' is false, since Aristotle is distinct from Beyonc\'e.
 
 
 \section{Sentential connectives}
@@ -256,7 +256,7 @@ Unfortunately, this is not right either. To see this, observe that in our go-to 
 
 So here is a third thought. (And this thought is not na\"{i}ve, but correct.) Although it is not the case that we have named \emph{everyone}, each person \emph{could} have been given a name. So we should focus on this possibility of extending an interpretation, by adding a new name. We will offer a few examples of how this might work, centring on our go-to interpretation, and we will then present the formal definition. 
 
-In our go-to interpretation, `$\exists x Rbx$' should be true. After all, in the domain, there is certainly someone who was born after Bush. Lady Gaga is one of those people. Indeed, if we were to extend our go-to interpretation---temporarily, mind---by adding the name `$c$' to refer to Lady Gaga, then `$Rbc$' would be true on this extended interpretation. This, surely, should suffice to make `$\exists x Rbx$' true on the original go-to interpretation. 
+In our go-to interpretation, `$\exists x Rbx$' should be true. After all, in the domain, there is certainly someone who was born after Beyonc\'e. Lady Gaga is one of those people. Indeed, if we were to extend our go-to interpretation---temporarily, mind---by adding the name `$c$' to refer to Lady Gaga, then `$Rbc$' would be true on this extended interpretation. This, surely, should suffice to make `$\exists x Rbx$' true on the original go-to interpretation. 
 
 In our go-to interpretation, `$\exists x (Px \eand Rxa)$' should also be true. After all, in the domain, there is certainly someone who was both a philosopher and born before Aristotle. Socrates is one such person. Indeed, if we were to extend our go-to interpretation by letting a new name, `$c$', denote Socrates, then `$Wc \eand Rca$' would be true on this extended interpretation. Again, this should surely suffice to make `$\exists x (Px \eand Rxa)$' true on the original go-to interpretation. 
 

@@ -1186,24 +1186,17 @@ We know how to represent English sentences in FOL. The time has finally come to 
 \section{Expressions}
 There are six kinds of symbols in FOL:
 
-\begin{center}
-\begin{tabular}{l l}
-Predicates & $A,B,C,\ldots,Z$\\
-with subscripts, as needed & $A_1, B_1,Z_1,A_2,A_{25},J_{375},\ldots$\\
-\\
-Constants & $a,b,c,\ldots, r$\\
-with subscripts, as needed & $a_1, b_{224}, h_7, m_{32},\ldots$\\
-\\
-Variables & $s, t, u, v, w, x,y,z$\\
-with subscripts, as needed & $x_1, y_1, z_1, x_2,\ldots$\\
-\\
-Connectives & $\enot,\eand,\eor,\eif,\eiff$\\
-\\
-Brackets &( , )\\
-\\
-Quantifiers & $\forall, \exists$\\
-\end{tabular}
-\end{center}
+\begin{description}
+\item[Predicates] $A,B,C,\ldots,Z$, or 
+with subscripts, as needed: $A_1, B_1,Z_1,A_2,A_{25},J_{375},\ldots$
+\item[Constants] $a,b,c,\ldots, r$, or
+with subscripts, as needed $a_1, b_{224}, h_7, m_{32},\ldots$
+\item[Variables] $s, t, u, v, w, x,y,z$, or
+with subscripts, as needed $x_1, y_1, z_1, x_2,\ldots$
+\item[Connectives]  $\enot,\eand,\eor,\eif,\eiff$
+\item[Brackets] ( , )
+\item[Quantifiers]  $\forall, \exists$
+\end{description}
 We define an \define{expression of FOL} as any string of symbols of FOL. Take any of the symbols of FOL and write them down, in any order, and you have an expression.
 
 \section{Terms and formulas}
@@ -1236,7 +1229,7 @@ Next we need to define atomic formulas.
 }
         
         
-The use of swashfonts here follows the conventions laid down in \S\ref{s:UseMention}. So, `$\meta{R}$' is not itself a predicate of FOL. Rather, it is a symbol of our metalanguage (augmented English) that we use to talk about any predicate of FOL. Similarly, `$\meta{t}_1$' is not a term of FOL, but a symbol of the metalanguage that we can use to talk about any term of FOL. So, where `$F$' is a one-place predicate, `$G$' is a three-place predicate, and `$S$' is a six-place predicate, here are some atomic formulas:
+The use of script letterss here follows the conventions laid down in \S\ref{s:UseMention}. So, `$\meta{R}$' is not itself a predicate of FOL. Rather, it is a symbol of our metalanguage (augmented English) that we use to talk about any predicate of FOL. Similarly, `$\meta{t}_1$' is not a term of FOL, but a symbol of the metalanguage that we can use to talk about any term of FOL. So, where `$F$' is a one-place predicate, `$G$' is a three-place predicate, and `$S$' is a six-place predicate, here are some atomic formulas:
 	\begin{center}
 		$x = a$\\
 		$a = b$\\

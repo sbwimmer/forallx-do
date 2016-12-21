@@ -115,14 +115,14 @@ When we symbolise a sentence or an argument in TFL, we ignore everything \emph{b
 		\item Dana is a nice person, but also a logician
 		\item Dana's being a logician notwithstanding, he is a nice person
 	\end{earg}
-All of the above sentences will be symbolised with the same TFL sentence, perhaps `$F \eand Q$'.
+All of the above sentences will be symbolised with the same TFL sentence, perhaps `$L \eand N$'.
 
 We keep saying that we use TFL sentences to \emph{symbolise} English sentences. Many other textbooks talk about \emph{translating} English sentences into TFL. However, a good translation should preserve certain facets of meaning, and---as we have just pointed out---TFL just cannot do that. This is why we will speak of \emph{symbolising} English sentences, rather than of \emph{translating} them.
 
 This affects how we should understand our symbolisation keys. Consider a key like:
 	\begin{ekey}
 		\item[L] Dana is a logician.
-		\item[N] Jon is a nice person.
+		\item[N] Dana is a nice person.
 	\end{ekey}
 Other textbooks will understand this as a stipulation that the TFL sentence `$L$' should \emph{mean} that Dana is a logician, and that the TFL sentence `$N$' should \emph{mean} that Dana is a nice person, but TFL just is totally unequipped to deal with \emph{meaning}. The preceding symbolisation key is doing no more and no less than stipulating that the TFL sentence `$L$' should take the same truth value as the English sentence `Dana is a logician' (whatever that might be), and that the TFL sentence `$N$' should take the same truth value as the English sentence `Dana is a nice person' (whatever that might be). 
 	\factoidbox{
@@ -163,7 +163,7 @@ However, if Lara had drawn a fourth shape, thus:
 \end{center}
 then our claim would have be false. So it must be that this claim is false:
 	\begin{ebullet}
-		\item If B is grey, then it is a circular \hfill (true antecedent, false consequent)
+		\item If B is grey, then it is circular \hfill (true antecedent, false consequent)
 	\end{ebullet}
 Now, recall that every connective of TFL has to be truth-functional. This means that merely the truth values of the antecedent and consequent must uniquely determine the truth value of the conditional as a whole. Thus, from the truth values of our four claims---which provide us with all possible combinations of truth and falsity in antecedent and consequent---we can read off the truth table for the material conditional.
 
@@ -608,7 +608,7 @@ Look at the columns for the main logical operators; negation for the first sente
 
 
 \section{Consistency}
-In \S\ref{s:BasicNotions}, we said that sentences are jointly consistent iff it is possible for all of them to be true at once. We can offer a surrogate for this notion too:
+In \S\ref{s:BasicNotions}, we said that sentences are jointly possible iff it is possible for all of them to be true at once. We can offer a surrogate for this notion too:
 	\factoidbox{
 		$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ are \define{jointly logically consistent} iff there is some valuation which makes them all true.
 	}
@@ -679,9 +679,16 @@ Third, consider the following sentence:
 		\item\label{n:GodParadox}	It's not the case that, if God exists, She answers malevolent prayers.
 %	Aaliyah wants to kill Zebedee. She knows that, if she puts chemical A into Zebedee's water bottle, Zebedee will drink the contaminated water and die. Equally, Bathsehba wants to kill Zebedee. She knows that, if she puts chemical B into Zebedee's water bottle, then Zebedee will drink the contaminated water and die. But chemicals A and B neutralise each other; so that if both are added to the water bottle, then Zebedee will not die.
 	\end{earg}
-Symbolising this in TFL, we would offer something like `$\enot (G \eif M)$'. Now, `$\enot (G \eif M)$' entails `$G$' (again, check this with a truth table). So if we symbolise sentence \ref{n:GodParadox} in TFL, it seems to entail that God exists. But that's strange: surely even the atheist can accept sentence \ref{n:GodParadox}, without contradicting herself!
+        Symbolising this in TFL, we would offer something like `$\enot (G \eif M)$'. Now, `$\enot (G \eif M)$' entails `$G$' (again, check this with a truth table). So if we symbolise sentence \ref{n:GodParadox} in TFL, it seems to entail that God exists. But that's strange: surely even an atheist can accept sentence \ref{n:GodParadox}, without contradicting herself!
 
-In different ways, these three examples highlight some of the limits of working with a language (like TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of the material conditional}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using TFL, before we can adequately discuss its limits, and consider alternatives. 
+        One lesson of this is that the symbolization of \ref{n:GodParadox} as `$\enot(G \eif M)$' shows that \ref{n:GodParadox} does not express what we intend. Perhaps we should rephrase it as
+        	\begin{earg}
+                  \setcounter{eargnum}{2}	
+                \item\label{n:GodParadox2} If God exists, She does not answer malevolent prayers.
+  \end{earg}
+and symbolize \ref{n:GodParadox2} as `$G \eif \enot M$'.  Now, if atheists are right, and there is no God, then `$G$' is false and so `$G \eif \enot M$' is true, and the puzzle disappears. However, if `$G$' is false, `$G \eif M$', i.e.\ `If God exists, She answers malevolent prayers', is \emph{also} true!
+                
+In different ways, these four examples highlight some of the limits of working with a language (like TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of the material conditional}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using TFL, before we can adequately discuss its limits, and consider alternatives. 
 
 \section{The double-turnstile}
 We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\meta{A}_1, \meta{A}_2, \ldots$ and $\meta{A}_n$ together entail $\meta{C}$, we will abbreviate this by:

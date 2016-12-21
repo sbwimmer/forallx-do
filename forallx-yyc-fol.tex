@@ -160,8 +160,8 @@ In FOL, the domain must always include at least one thing. Moreover, in English 
 
 Even allowing for a domain with just one member can produce some strange results. Suppose we have this as a symbolization key:
 \begin{ekey}
-\item[domain:] the Eiffel Tower
-\item[Px:] $x$ is in Paris.
+\item[domain] the Eiffel Tower
+\item[Px] $x$ is in Paris.
 \end{ekey}
 The sentence $\forall x Px$ might be paraphrased in English as `Everything is in Paris.' Yet that would be misleading. It means that everything \emph{in the domain} is in Paris. This domain contains only the Eiffel Tower, so with this symbolization key $\forall x Px$ just means that the Eiffel Tower is in Paris.
 
@@ -176,9 +176,9 @@ Medieval philosophers typically used sentences about the \emph{chimera} to exemp
 \end{earg}
 It is tempting just to define a constant to mean `chimera.' The symbolization key would look like this:
 \begin{ekey}
-\item[domain:] creatures on Earth
-\item[Ax:] $x$ is angry.
-\item[c:] chimera
+\item[domain] creatures on Earth
+\item[Ax] $x$ is angry.
+\item[c] chimera
 \end{ekey}
 We could then translate sentence \ref{chimera1} as $Ac$ and sentence \ref{chimera2} as $\enot Ac$.
 
@@ -399,12 +399,12 @@ The hospital will only hire a skilled surgeon. All surgeons are greedy. Billy is
 \end{quote}
 We need to distinguish being a \emph{skilled surgeon} from merely being a \emph{surgeon}. So we define this symbolization key:
 \begin{ekey}
-\item[domain:] people
-\item[Gx:] $x$ is greedy.
-\item[Hx:] The hospital will hire $x$.
-\item[Rx:] $x$ is a surgeon.
-\item[Kx:] $x$ is skilled.
-\item[b:] Billy
+\item[domain] people
+\item[Gx] $x$ is greedy.
+\item[Hx] The hospital will hire $x$.
+\item[Rx] $x$ is a surgeon.
+\item[Kx] $x$ is skilled.
+\item[b] Billy
 \end{ekey}
 
 Now the argument can be translated in this way:
@@ -623,12 +623,12 @@ Sentence \ref{loveconverge} is symbolised by `$\exists y \forall x Lxy$'. Senten
 The point of the example is to illustrate that the order of the quantifiers matters a great deal. Indeed, to switch them around is called a \emph{quantifier shift fallacy}. Here is an example, which comes up in various forms throughout the philosophical literature:
 	\begin{earg}
 		\item[] For every person, there is some truth they cannot know. \hfill ($\forall \exists$)
-		\item[So:] There is some truth, that no person can know. \hfill ($\exists \forall$)
+		\item[\therefore] There is some truth, that no person can know. \hfill ($\exists \forall$)
 	\end{earg}
 This argument form is obviously invalid. It's just as bad as:\footnote{Thanks to Rob Trueman for the example.}
 	\begin{earg}
 		\item[] Every dog has its day. \hfill ($\forall \exists$)
-		\item[So:] There is a day for all the dogs. \hfill ($\exists \forall$)
+		\item[\therefore] There is a day for all the dogs. \hfill ($\exists \forall$)
 	\end{earg}
 The moral is: take great care with the order of quantification.
 
@@ -1078,15 +1078,15 @@ One worry focusses on Russell's treatment of empty definite descriptions. If the
 
 If we agree with Strawson here, we will need to revise our logic. For, in our logic, there are only two truth values (True and False), and every sentence is assigned exactly one of these truth values. 
 
-But there is room to disagree with Strawson. Strawson is appealing to some linguistic intuitions, but it is not clear that they are very robust. For example: isn't it just \emph{false}, not `gappy', that Tim is dating the present King of France?\footnote{This is Neale's (1990) line.}
+But there is room to disagree with Strawson. Strawson is appealing to some linguistic intuitions, but it is not clear that they are very robust. For example: isn't it just \emph{false}, not `gappy', that Alex is dating the present King of France?
 
-Keith Donnellan raised a second sort of worry, which (very roughly) can be brought out by thinking about a case of mistaken identity.\footnote{Keith Donnellan, `Reference and Definite Descriptions', 1966, \emph{Philosophical Review 77}, pp.\ 281--304.} Two men stand in the corner: a very tall man drinking what looks like a gin martini; and a very short man drinking what looks like a pint of water. Seeing them, Malika says:
+Keith Donnellan raised a second sort of worry, which (very roughly can be brought out by thinking about a case of mistaken identity.\footnote{Keith Donnellan, `Reference and Definite Descriptions', 1966, \emph{Philosophical Review 77}, pp.\ 281--304.} Two men stand in the corner: a very tall man drinking what looks like a gin martini; and a very short man drinking what looks like a pint of water. Seeing them, Malika says:
 	\begin{earg}
 		\item[\ex{gindrinker}] The gin-drinker is very tall!
 	\end{earg}
 Russell's analysis will have us render Malika's sentence as:
 	\begin{earg}
-		\item[\ref{gindrinker}$'$.] There is exactly one gin-drinker [in the corner], and whomever is a gin-drinker [in the corner] is very tall.
+		\item[\ref{gindrinker}$'$.] There is exactly one gin-drinker [in the corner], and whoever is a gin-drinker [in the corner] is very tall.
 	\end{earg}
 Now suppose that the very tall man is actually drinking \emph{water} from a martini glass; whereas the very short man is drinking a pint of (neat) gin. By Russell's analysis, Malika has said something false, but don't we want to say that Malika has said something \emph{true}? 
 

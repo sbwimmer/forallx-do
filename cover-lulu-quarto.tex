@@ -19,9 +19,9 @@
 \colorlet{leadbeater}{darkred}
 
 % lulu.com's instructions:
-% Spine width: 44.108 Postscript points wide (1.556 cm) (184 px)
+% Spine width: 50.27 Postscript points wide (1.773 cm) (209 px)
 % Spine begins 545 Postscript points (19.224 cm) (2271 px) from the left.
-% Total cover width: 1127.622 X 715 Postscript points (39.775 cm X 25.220 cm) (4698px X 2979px)
+% Total cover width: 1140.27 X 715 Postscript points (40.221 cm X 25.220 cm) (4751px X 2979px)
 
 \newlength{\coverheight}
 \newlength{\coverwidth}
@@ -30,8 +30,8 @@
 \newlength{\coverpos} % front cover starts here, width = \spinepos
 
 \setlength{\coverheight}{715bp}
-\setlength{\coverwidth}{1134.108bp}
-\setlength{\spinewidth}{44.108bp}
+\setlength{\coverwidth}{1140.27bp}
+\setlength{\spinewidth}{50.27bp}
 \setlength{\spinepos}{545bp}
 
 % \coverpos = \spinepso + \spinewidth
@@ -72,21 +72,21 @@
 \noindent\hfil\rotatebox{-90}{% make spine text readable when book is lying cover up
       \hbox to \coverheight{\hfil
           \huge\sffamily\bfseries\color{white}
-            forall \textit{x}: An Introduction to Formal Logic\hfil W17\hspace{1cm}}}\hfil
+            forall \textit{x}: An Introduction to Formal Logic\hfil W17\hspace{2cm}}}\hfil
 \end{textblock*}
 \newbox\adjust
 % make front cover
 \begin{textblock*}{\spinepos}(\coverpos,0pt)
   \noindent\hfil
   \begin{minipage}[b][\coverheight][s]{.8\spinepos}\color{white}
-\vspace*{2cm}
+\vspace*{3cm}
     \noindent {\fontsize{46pt}{0pt}\selectfont forall $x$}
 
 \
 
 \noindent{\Huge{Calgary Remix}}
 
-\bigskip\bigskip
+\vspace*{1cm}
 \noindent{\huge \emph{An Introduction to Formal Logic}}
 
 \vfill
@@ -94,13 +94,13 @@
   \textbf{Tim Button}\\
   \textit{with additions by}\\
   \textbf{J.~Robert Loftis}\\ \textit{remixed and revised by}\\
-  \textbf{Aaron-Thomas Bolduc}\\ \textbf{Richard Zach}\par}
+  \textbf{Aaron Thomas-Bolduc}\\ \textbf{Richard Zach}\par}
 \vfill
 \noindent
 \includegraphics[width=1cm]{assets/cc.pdf}
-\includegraphics[width=1cm]{assets/by}
-\includegraphics[width=1cm]{assets/sa}
-\includegraphics[width=1cm]{assets/remix}
+\includegraphics[width=1cm]{assets/by.pdf}
+\includegraphics[width=1cm]{assets/sa.pdf}
+\includegraphics[width=1cm]{assets/remix.pdf}
 \hfill \vbox to 1cm{\vfill\hbox{\LARGE Winter 2017}\vfill}
 \vspace{2cm}
   \end{minipage}
@@ -109,25 +109,27 @@
 
 % make back cover
 \begin{textblock*}{\spinepos}(0pt,0pt)
-  \noindent\hfil
-  \begin{minipage}[b][\coverheight][b]{.8\spinepos}
-\begin{minipage}[b]{1.9cm}
-\includegraphics[width=.9cm]{assets/cc}
-\includegraphics[width=.9cm]{assets/by}
-\includegraphics[width=.9cm]{assets/sa}
-\includegraphics[width=.9cm]{assets/remix}
+  \noindent\hspace{1.5cm}
+  \begin{minipage}[b][\coverheight][b]{.85\spinepos}
+\begin{minipage}[b]{2.5cm}
+\includegraphics[width=1.2cm]{assets/cc.pdf}
+\includegraphics[width=1.2cm]{assets/by.pdf}
+\includegraphics[width=1.2cm]{assets/sa.pdf}
+\includegraphics[width=1.2cm]{assets/remix.pdf}
 \end{minipage}
 \hspace{.3cm}
-\begin{minipage}[b]{5cm}
-  \fontsize{11pt}{1em}\selectfont\color{white}\textit{forall x:
+\begin{minipage}[b]{4.7cm}
+  \fontsize{11pt}{1.2em}\selectfont\color{white}\textit{forall x:
     Calgary Remix} by P.~D. Magnus et al.\ is licensed under a
-  Creative Commons Attribution-ShareAlike 4.0 International License.
+  Creative Commons Attribution-Share\-Alike 4.0 International License.
+
 \end{minipage}
 \hfill\color{black}
-%\includegraphics[width=2.7cm]{\olpath/assets/logos/openlogic-logo-bw}
-\vspace*{1cm}
+\colorbox{white}{\includegraphics{isbn_barcode.pdf}}
+
+\vspace*{2cm}
   \end{minipage}
-  \hfil
-  \end{textblock*}
+  \hfill
+\end{textblock*}
 
 \end{document}

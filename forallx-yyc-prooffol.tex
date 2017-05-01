@@ -126,7 +126,9 @@ The crucial thought here is that `$a$' was just some \emph{arbitrary} name. Ther
 \end{proof}
 	\meta{c} must not occur in any undischarged assumption\\ 
 	\meta{x} must not occur in $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$}
-A crucial aspect of this rule, though, is bound up in the first constraint. This constraint ensures that we are always reasoning at a sufficiently general level.\footnote{Recall from \S\ref{s:BasicTFL} that we are treating `$\ered$' as a canonical contradiction. But if it were the canonical contradiction as involving some \emph{constant}, it might interfere with the constraint mentioned here. To avoid such problems, we will treat `$\ered$' as a canonical contradiction \emph{that involves no particular names}.} To see the constraint in action, consider this terrible argument:
+A crucial aspect of this rule, though, is bound up in the first constraint. This constraint ensures that we are always reasoning at a sufficiently general level.
+%\footnote{Recall from \S\ref{s:BasicTFL} that we are treating `$\ered$' as a canonical contradiction. But if it were the canonical contradiction as involving some \emph{constant}, it might interfere with the constraint mentioned here. To avoid such problems, we will treat `$\ered$' as a canonical contradiction \emph{that involves no particular names}.} 
+To see the constraint in action, consider this terrible argument:
 	\begin{quote}
 		Everyone loves Kylie Minogue; therefore everyone loves themselves.
 	\end{quote}
@@ -406,7 +408,7 @@ and
 
 \practiceproblems
 \problempart
-Show that the following are jointly provably inconsistent:
+Show that the following are provably inconsistent:
 \begin{earg}
 \item $Sa\eif Tm, Tm \eif Sa, Tm \eand \enot Sa$
 \item $\enot\exists x Rxa, \forall x \forall y Ryx$
@@ -599,7 +601,7 @@ To show that a sentence is a theorem, you need only produce a proof. Granted, it
 
 Contrawise, to show that a sentence is \emph{not} a theorem is hard. We would need to reason about all (possible) proofs. That is very difficult. However, to show that a sentence is not a logical truth, you need only construct an interpretation in which the sentence is false. Granted, it may be hard to come up with the interpretation; but once you have done so, it is relatively straightforward to check what truth value it assigns to a sentence. Given a choice between showing that a sentence is not a theorem and showing that it is not a logical truth, it would be easier to show that it is not a logical truth.
 
-Fortunately, \emph{a sentence is a theorem if and only if it is a logical truth}. As a result, if we provide a proof of $\meta{A}$ on no assumptions, and thus show that $\meta{A}$ is a theorem, we can legitimately infer that $\meta{A}$ is a logical truth; i.e., $\entails\meta{A}$. Similarly, if we construct a model in which \meta{A} is false and thus show that it is not a logical truth, it follows that \meta{A} is not a theorem.
+Fortunately, \emph{a sentence is a theorem if and only if it is a logical truth}. As a result, if we provide a proof of $\meta{A}$ on no assumptions, and thus show that $\meta{A}$ is a theorem, we can legitimately infer that $\meta{A}$ is a logical truth; i.e., $\entails\meta{A}$. Similarly, if we construct an interpretation in which \meta{A} is false and thus show that it is not a logical truth, it follows that \meta{A} is not a theorem.
 
 More generally, we have the following powerful result:
 $$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \proves\meta{B} \textbf{ iff }\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \entails\meta{B}$$
@@ -607,7 +609,7 @@ This shows that, whilst provability and entailment are \emph{different} notions,
 	\begin{ebullet}
 		\item An argument is \emph{valid} iff \emph{the conclusion can be proved from the premises}.
 		\item Two sentences are \emph{logically equivalent} iff they are \emph{provably equivalent}.
-		\item Sentences are \emph{jointly consistent} iff they are \emph{not jointly provably inconsistent}.
+		\item Sentences are \emph{provably consistent} iff they are \emph{not provably inconsistent}.
 	\end{ebullet}
 For this reason, you can pick and choose when to think in terms of proofs and when to think in terms of valuations/interpretations, doing whichever is easier for a given task. The table on the next page summarises which is (usually) easier.
 

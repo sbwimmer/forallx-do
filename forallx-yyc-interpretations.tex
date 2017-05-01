@@ -236,7 +236,7 @@ We saw in \S\ref{s:FOLSentences} that FOL sentences can be built up from simpler
 This presents the very same information as the characteristic truth tables for the connectives; it just does so in a slightly different way. Some examples will probably help to illustrate the idea. On our go-to interpretation:
 	\begin{earg}
 		\item[\textbullet] `$a = a \eand Pa$' is true
-		\item[\textbullet] `$Rab \eand Pb$' is false because, although `$Rab$' is true, `$Wb$' is false
+		\item[\textbullet] `$Rab \eand Pb$' is false because, although `$Rab$' is true, `$Pb$' is false
 		\item[\textbullet] `$a = b \eor Pa$' is true
 		\item[\textbullet] `$\enot a = b$' is true
 		\item[\textbullet] `$Pa \eand \enot( a= b \eand Rab)$' is true, because `$Pa$' is true and `$a = b$' is false
@@ -447,7 +447,7 @@ In order for `$\exists xAxx \eif Bd$' to be false, the antecedent (`$\exists x A
 	\begin{ekey}
 		\item[\text{domain}] Paris
 	\end{ekey}
-The name `$d$' must name something in the domain, so we have no option but:
+The name `$d$' must refer to something in the domain, so we have no option but:
 	\begin{ekey}
 		\item[d] Paris
 	\end{ekey}
@@ -531,14 +531,14 @@ Using the conventions employed in \S\ref{s:Interpretations}, the domain of this 
 		\item `$\forall x \exists y Ryx$' 
 		\item `$\exists x \forall y Rxy$' \hfill witness 1
 		\item `$\exists x \forall y (Ryx \eiff x = y)$' \hfill witness 1
-		\item `$\exists x \exists y \exists z (\enot y = z \eand Rxy \eand Rzx)$' \hfill witness 2
+		\item `$\exists x \exists y \exists z ((\enot y = z \eand Rxy) \eand Rzx)$' \hfill witness 2
 		\item `$\exists x \forall y \enot Rxy$' \hfill witness 3
 		\item `$\exists x (\exists y Ryx \eand \enot \exists y Rxy)$' \hfill witness 3
 	\end{ebullet}
 This immediately shows that all of the preceding six sentences are jointly consistent. We can use this observation to generate \emph{invalid} arguments, e.g.:
 	\begin{align*}
 		\forall x \exists y Ryx, \exists x \forall y Rxy  &\therefore  \forall x \exists y Rxy\\
-		\exists x \forall y Rxy, \exists x \forall y \enot Rxy & \therefore \enot \exists x \exists y \exists z (\enot y = z \eand Rxy \eand Rzx)
+		\exists x \forall y Rxy, \exists x \forall y \enot Rxy & \therefore \enot \exists x \exists y \exists z (\enot y = z \eand (Rxy \eand Rzx))
 	\end{align*}
 and many more besides.
 
@@ -598,8 +598,8 @@ Show that the following sentences are jointly consistent:
 \item $\exists z(Nz \eand Ozz), \forall x\forall y(Oxy \eif Oyx)$
 \item $\enot \exists x \forall y Rxy, \forall x \exists y Rxy$
 \item $\enot Raa$, $\forall x (x=a \eor Rxa)$
-\item $\forall x\forall y\forall z(x=y \eor y=z \eor x=z)$, $\exists x\exists y\ \enot x= y$
-\item $\exists x\exists y(Zx \eand Zy \eand x=y)$, $\enot Zd$, $d=e$
+\item $\forall x\forall y\forall z[(x=y \eor y=z )\eor x=z]$, $\exists x\exists y\ \enot x= y$
+\item $\exists x\exists y((Zx \eand Zy )\eand x=y)$, $\enot Zd$, $d=e$
 \end{earg}
 
 \problempart

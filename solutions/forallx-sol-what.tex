@@ -86,37 +86,61 @@ For each of the following: Is it necessarily true, necessarily false, or conting
 \hfill \myanswer{Contingent}
 \end{earg}
 
+\setcounter{ProbPart}{4} % (next problem is E = 5)
 \problempart
 \label{pr.MartianGiraffes}
-Look back at the sentences G1--G4 in this section (about giraffes, gorillas and martians in the wild animal park), and consider each of the following:
+Consider the following sentences: 
+\begin{enumerate}%[label=(\alph*)]
+\item[G1] \label{itm:at_least_four}There are at least four giraffes at the wild animal park.
+\item[G2] \label{itm:exactly_seven} There are exactly seven gorillas at the wild animal park.
+\item[G3] \label{itm:not_more_than_two} There are not more than two Martians at the wild animal park.
+\item[G4] \label{itm:martians} Every giraffe at the wild animal park is a Martian.
+\end{enumerate}
+
+Now consider each of the following collections of sentences. Which are jointly possible? Which are jointly impossible?
 \begin{earg}
-\item G2, G3, and G4
+\item Sentences G2, G3, and G4
 \hfill \myanswer{Jointly consistent}
-\item G1, G3, and G4
+\item Sentences G1, G3, and G4
 \hfill \myanswer{Jointly inconsistent}
-\item G1, G2, and G4
+\item Sentences G1, G2, and G4
 \hfill \myanswer{Jointly consistent}
-\item G1, G2, and G3
+\item Sentences G1, G2, and G3
 \hfill \myanswer{Jointly consistent}
 \end{earg}
-Which are jointly consistent? Which are jointly inconsistent?
 
-\
-
+\setcounter{ProbPart}{6} % (next problem is G = 7)
 \problempart
-\label{pr.EnglishCombinations}
-Could there be:
+\label{pr.EnglishCombinations2}
+Which of the following is possible? If it is possible, give an example. If it is not possible, explain why.
 \begin{earg}
-\item A valid argument, the conclusion of which is necessarily false?
+\item A valid argument that has one false premise and one true premise
+\item[] \myanswer{Yes: `All whales are mammals (\emph{true}).  All mammals
+  are plants (\emph{false}). So all whales are plants.' }
+\item A valid argument that has a false conclusion
+\item[] \myanswer{Yes. (See example from previous exercise.)}
+\item A valid argument, the conclusion of which is a necessary falsehood
 \item[] \myanswer{Yes: `$1+1=3$. So $1+2=4$.'}
-\item An invalid argument, the conclusion of which is necessarily true?
+\item An invalid argument, the conclusion of which is a necessary truth
 \item[] \myanswer{No. If the conclusion is necessarily true, then there is no way to make it false, and hence no way to make it false whilst making all the premises true.} 
-\item Jointly consistent sentences, one of which is necessarily false?
+\item A necessary truth that is contingent
+\item[] \myanswer{No. If a sentence is a necessary truth, it cannot
+  possibly be false, but a contingent sentence can be false.} 
+\item Two necessarily equivalent sentences, both of which are necessary truths
+\item[] \myanswer{Yes: `4 is even', `4 is divisible by 2'.} 
+\item Two necessarily equivalent sentences, one of which is a necessary truth and one of which is contingent
+\item[] \myanswer{No.  A necessary truth cannot possibly be false,
+  while a contingent sentence can be false.  So in any situation in
+  which the contingent sentence is false, it will have a different
+  truth value from the necessary truth. Thus they will not necessarily
+  have the same truth value, and so will not be equivalent.}
+\item Two necessarily equivalent sentences that together are jointly impossible
+\item[] \myanswer{Yes: `$1+1=4$' and `$1+1=3$'.} 
+\item A jointly possible collection of sentences that contains a necessary falsehood
 \item[] \myanswer{No. If a sentence is necessarily false, there is no way to make it true, let alone it along with all the other sentences.}
-\item Jointly inconsistent sentences, one of which is necessarily true?
-\item[] \myanswer{Yes. `$1+1=4$' and `$1+1=2$'.}
+\item A jointly impossible set of sentences that contains a necessary truth
+\item[] \myanswer{Yes: `$1+1=4$' and `$1+1=2$'.}
 \end{earg}
-In each case: if so, give an example; if not, explain why not.
 
 \setcounter{chapter}{4}
 \chapter{Connectives}\setcounter{ProbPart}{0}

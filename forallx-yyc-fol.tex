@@ -82,7 +82,7 @@ In FOL, \define{predicates} are capital letters $A$ through $Z$, with or without
 
 \newglossaryentry{predicate}{
   name = predicate,
-  description = {a symbol of FOL used to symbolize a property or relation}
+  description = {a symbol of FOL used to symbolise a property or relation}
 }
 
 If we combine our two symbolisation keys, we can start to symbolise some English sentences that use these names and predicates in combination. For example, consider the English sentences:
@@ -108,7 +108,7 @@ It might be tempting to symbolise sentence \ref{q.a} as `$He \eand Hg \eand Hm$'
 
 \newglossaryentry{universal quantifier}{
   name = universal quantifier,
-  description = {the symbol $\forall$ of FOL used to symbolize generality; $\forall x\, Fx$ is true iff every member of the domain is~$F$}
+  description = {the symbol $\forall$ of FOL used to symbolise generality; $\forall x\, Fx$ is true iff every member of the domain is~$F$}
 }
 
 A quantifier must always be followed by a \define{variable}. In FOL, variables are italic lowercase letters `$s$' through `$z$', with or without subscripts. So we might symbolise sentence \ref{q.a} as `$\forall x Hx$'.  The variable `$x$' is serving as a kind of placeholder. The expression `$\forall x$' intuitively means that you can pick anyone and put them in as `$x$'. The subsequent `$Hx$' indicates, of that thing you picked out, that it is happy. 
@@ -125,7 +125,7 @@ To symbolise sentence \ref{q.e}, we introduce another new symbol: the \define{ex
 
 \newglossaryentry{existential quantifier}{
   name = existential quantifier,
-  description = {the symbol $\exists$ of FOL used to symbolize existence; $\exists x\, Fx$ is true iff at least one member of the domain is~$F$}
+  description = {the symbol $\exists$ of FOL used to symbolise existence; $\exists x\, Fx$ is true iff at least one member of the domain is~$F$}
 }
 
 Some more examples will help. Consider these further sentences:
@@ -150,7 +150,7 @@ The quantifiers \emph{range over} the domain. Given this domain, `$\forall x$' i
 
 \newglossaryentry{domain}{
   name = domain,
-  description = {the collection of objects assumed for a symbolization in FOL, or that gives the range of the quantifiers in an \gls{interpretation}}
+  description = {the collection of objects assumed for a symbolisation in FOL, or that gives the range of the quantifiers in an \gls{interpretation}}
 }
 
 In FOL, the domain must always include at least one thing. Moreover, in English we can infer `something is angry' from `Gregor is angry'. In FOL, then, we will want to be able to infer `$\exists x Ax$' from `$Ag$'. So we will insist that each name must pick out exactly one thing in the domain. If we want to name people in places beside Chicago, then we need to include those people in the domain. 
@@ -158,12 +158,12 @@ In FOL, the domain must always include at least one thing. Moreover, in English 
 		A domain must have \emph{at least} one member. A name must pick out \emph{exactly} one member of the domain, but a member of the domain may be picked out by one name, many names, or none at all.
 	}
 
-Even allowing for a domain with just one member can produce some strange results. Suppose we have this as a symbolization key:
+Even allowing for a domain with just one member can produce some strange results. Suppose we have this as a symbolisation key:
 \begin{ekey}
 \item[domain] the Eiffel Tower
 \item[Px] $x$ is in Paris.
 \end{ekey}
-The sentence $\forall x Px$ might be paraphrased in English as `Everything is in Paris.' Yet that would be misleading. It means that everything \emph{in the domain} is in Paris. This domain contains only the Eiffel Tower, so with this symbolization key $\forall x Px$ just means that the Eiffel Tower is in Paris.
+The sentence $\forall x Px$ might be paraphrased in English as `Everything is in Paris.' Yet that would be misleading. It means that everything \emph{in the domain} is in Paris. This domain contains only the Eiffel Tower, so with this symbolisation key $\forall x Px$ just means that the Eiffel Tower is in Paris.
 
 \subsection{Non-referring terms}
 
@@ -174,7 +174,7 @@ Medieval philosophers typically used sentences about the \emph{chimera} to exemp
 \item[\ex{chimera1}] Chimera is angry.
 \item[\ex{chimera2}] Chimera is not angry.
 \end{earg}
-It is tempting just to define a constant to mean `chimera.' The symbolization key would look like this:
+It is tempting just to define a constant to mean `chimera.' The symbolisation key would look like this:
 \begin{ekey}
 \item[domain] creatures on Earth
 \item[Ax] $x$ is angry.
@@ -188,7 +188,7 @@ One option is to say that sentence \ref{chimera1} is not true, because there is 
 
 Since we cannot say that they are both false, what should we do? Another option is to say that sentence \ref{chimera1} is \emph{meaningless} because it talks about a non-existent thing. So $Ac$ would be a meaningful expression in QL for some interpretations but not for others. Yet this would make our formal language hostage to particular interpretations. Since we are interested in logical form, we want to consider the logical force of a sentence like $Ac$ apart from any particular interpretation. If $Ac$ were sometimes meaningful and sometimes meaningless, we could not do that.
 
-This is the \emph{problem of non-referring terms}, and we will return to it later (see p.~\pageref{subsec.defdesc}.) The important point for now is that each constant of QL \emph{must} refer to something in the domain, although the domain can be any set of things that we like. If we want to symbolize arguments about mythological creatures, then we must define a domain that includes them. This option is important if we want to consider the logic of stories. We can translate a sentence like `Sherlock Holmes lived at 221B Baker Street' by including fictional characters like Sherlock Holmes in our domain.
+This is the \emph{problem of non-referring terms}, and we will return to it later (see p.~\pageref{subsec.defdesc}.) The important point for now is that each constant of QL \emph{must} refer to something in the domain, although the domain can be any set of things that we like. If we want to symbolise arguments about mythological creatures, then we must define a domain that includes them. This option is important if we want to consider the logic of stories. We can translate a sentence like `Sherlock Holmes lived at 221B Baker Street' by including fictional characters like Sherlock Holmes in our domain.
 
 \chapter{Sentences with one quantifier}
 \label{s:MoreMonadic}
@@ -397,7 +397,7 @@ Suppose instead that we want to translate this argument:
 \begin{quote}
 The hospital will only hire a skilled surgeon. All surgeons are greedy. Billy is a surgeon, but is not skilled. Therefore, Billy is greedy, but the hospital will not hire him.
 \end{quote}
-We need to distinguish being a \emph{skilled surgeon} from merely being a \emph{surgeon}. So we define this symbolization key:
+We need to distinguish being a \emph{skilled surgeon} from merely being a \emph{surgeon}. So we define this symbolisation key:
 \begin{ekey}
 \item[domain] people
 \item[Gx] $x$ is greedy.
@@ -421,20 +421,20 @@ Next suppose that we want to translate this argument:
 \label{surgeon3}
 Carol is a skilled surgeon and a tennis player. Therefore, Carol is a skilled tennis player.
 \end{quote}
-If we start with the symbolization key we used for the previous argument, we could add a predicate (let $Tx$ mean `$x$ is a tennis player') and a constant (let $c$ mean Carol). Then the argument becomes:
+If we start with the symbolisation key we used for the previous argument, we could add a predicate (let $Tx$ mean `$x$ is a tennis player') and a constant (let $c$ mean Carol). Then the argument becomes:
 \begin{earg}
 \item[] $(Rc \eand Kc) \eand Tc$
 \item[\therefore] $Tc \eand Kc$
 \end{earg}
-This translation is a disaster! It takes what in English is a terrible argument and translates it as a valid argument in QL. The problem is that there is a difference between being \emph{skilled as a surgeon} and \emph{skilled as a tennis player}. Translating this argument correctly requires two separate predicates, one for each type of skill. If we let $K_1x$ mean `$x$ is skilled as a surgeon' and $K_2x$ mean `$x$ is skilled as a tennis player,' then we can symbolize the argument in this way:
+This translation is a disaster! It takes what in English is a terrible argument and translates it as a valid argument in QL. The problem is that there is a difference between being \emph{skilled as a surgeon} and \emph{skilled as a tennis player}. Translating this argument correctly requires two separate predicates, one for each type of skill. If we let $K_1x$ mean `$x$ is skilled as a surgeon' and $K_2x$ mean `$x$ is skilled as a tennis player,' then we can symbolise the argument in this way:
 \begin{earg}
 \label{surgeon3correct}
 \item[] $(Rc \eand K_1c) \eand Tc$
 \item[\therefore] $Tc \eand K_2c$
 \end{earg}
-Like the English language argument it translates, this is invalid. %\nix{Notice that there is no logical connection between $K_1c$ and $Rc$. As symbols of QL, they might be any one-place predicates. In English there is a connection between being a \emph{surgeon} and being a \emph{skilled surgeon}: Every skilled surgeon is a surgeon. In order to capture this connection, we symbolize `Carol is a skilled surgeon' as $Rc \eand K_1c$. This means: `Carol is a surgeon and is skilled as a surgeon.'}
+Like the English language argument it translates, this is invalid. %\nix{Notice that there is no logical connection between $K_1c$ and $Rc$. As symbols of QL, they might be any one-place predicates. In English there is a connection between being a \emph{surgeon} and being a \emph{skilled surgeon}: Every skilled surgeon is a surgeon. In order to capture this connection, we symbolise `Carol is a skilled surgeon' as $Rc \eand K_1c$. This means: `Carol is a surgeon and is skilled as a surgeon.'}
 
-The moral of these examples is that you need to be careful of symbolizing predicates in an ambiguous way. Similar problems can arise with predicates like \emph{good}, \emph{bad}, \emph{big}, and \emph{small}. Just as skilled surgeons and skilled tennis players have different skills, big dogs, big mice, and big problems are big in different ways.
+The moral of these examples is that you need to be careful of symbolising predicates in an ambiguous way. Similar problems can arise with predicates like \emph{good}, \emph{bad}, \emph{big}, and \emph{small}. Just as skilled surgeons and skilled tennis players have different skills, big dogs, big mice, and big problems are big in different ways.
 
 Is it enough to have a predicate that means `$x$ is a skilled surgeon', rather than two predicates `$x$ is skilled' and `$x$ is a surgeon'? Sometimes. As sentence \ref{surgeon1} shows, sometimes we do not need to distinguish between skilled surgeons and other surgeons.
 
@@ -530,7 +530,7 @@ For each argument, write a symbolisation key and symbolise the argument in FOL.
 
 %\problempart
 %label{pr.QLarguments}
-%For each argument, write a symbolization key and translate the argument into QL.
+%For each argument, write a symbolisation key and translate the argument into QL.
 %\begin{earg}
 %\item Nothing on my desk escapes my attention. There is a computer on my desk. As such, there is a computer that does not escape my attention.
 %\item All my dreams are black and white. Old TV shows are in black and white. Therefore, some of my dreams are old TV shows.
@@ -761,7 +761,7 @@ symbolise the following sentences in FOL:
 
 \problempart
 \label{pr.QLcandies}
-Using the symbolization key given, translate each English-language sentence into FOL.
+Using the symbolisation key given, translate each English-language sentence into FOL.
 \begin{ekey}
 \item[\text{domain}] candies
 \item[Cx] \gap{x} has chocolate in it.

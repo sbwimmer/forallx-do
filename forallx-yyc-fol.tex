@@ -180,7 +180,7 @@ It is tempting just to define a constant to mean `chimera.' The symbolisation ke
 \item[Ax] $x$ is angry.
 \item[c] chimera
 \end{ekey}
-We could then translate sentence \ref{chimera1} as $Ac$ and sentence \ref{chimera2} as $\enot Ac$.
+We could then symbolise sentence \ref{chimera1} as $Ac$ and sentence \ref{chimera2} as $\enot Ac$.
 
 Problems will arise when we ask whether these sentences are true or false.
 
@@ -188,7 +188,7 @@ One option is to say that sentence \ref{chimera1} is not true, because there is 
 
 Since we cannot say that they are both false, what should we do? Another option is to say that sentence \ref{chimera1} is \emph{meaningless} because it talks about a non-existent thing. So $Ac$ would be a meaningful expression in QL for some interpretations but not for others. Yet this would make our formal language hostage to particular interpretations. Since we are interested in logical form, we want to consider the logical force of a sentence like $Ac$ apart from any particular interpretation. If $Ac$ were sometimes meaningful and sometimes meaningless, we could not do that.
 
-This is the \emph{problem of non-referring terms}, and we will return to it later (see p.~\pageref{subsec.defdesc}.) The important point for now is that each constant of QL \emph{must} refer to something in the domain, although the domain can be any set of things that we like. If we want to symbolise arguments about mythological creatures, then we must define a domain that includes them. This option is important if we want to consider the logic of stories. We can translate a sentence like `Sherlock Holmes lived at 221B Baker Street' by including fictional characters like Sherlock Holmes in our domain.
+This is the \emph{problem of non-referring terms}, and we will return to it later (see p.~\pageref{subsec.defdesc}.) The important point for now is that each constant of QL \emph{must} refer to something in the domain, although the domain can be any set of things that we like. If we want to symbolise arguments about mythological creatures, then we must define a domain that includes them. This option is important if we want to consider the logic of stories. We can symbolise a sentence like `Sherlock Holmes lived at 221B Baker Street' by including fictional characters like Sherlock Holmes in our domain.
 
 \chapter{Sentences with one quantifier}
 \label{s:MoreMonadic}
@@ -242,7 +242,7 @@ In providing a symbolisation key, we need to specify a domain. Since we are talk
 	\end{ekey}
 Sentence \ref{quan1} is most naturally symbolised using a universal quantifier. The universal quantifier says something about everything in the domain, not just about the coins in my pocket. Sentence \ref{quan1} can be paraphrased as `for any coin, \emph{if} that coin is in my pocket \emph{then} it is a quarter'. So we can symbolise it as `$\forall x(Px \eif Qx)$'.
 
-Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} that are quarters, it might be tempting to translate it using a conjunction. However, the sentence `$\forall x(Px \eand Qx)$' would symbolise the sentence `every coin is both a quarter and in my pocket'. This obviously means something very different than sentence \ref{quan1}. And so we see:
+Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} that are quarters, it might be tempting to symbolise it using a conjunction. However, the sentence `$\forall x(Px \eand Qx)$' would symbolise the sentence `every coin is both a quarter and in my pocket'. This obviously means something very different than sentence \ref{quan1}. And so we see:
 	\factoidbox{
 		A sentence can be symbolised as $\forall x (\script{F}x \eif \script{G}x)$ if it can be paraphrased in English as `every F is G'.
 	}
@@ -386,14 +386,14 @@ The moral of the story is simple. When you are using conditionals, be very caref
 
 \subsection{Ambiguous predicates}
 
-Suppose we just want to translate this sentence:
+Suppose we just want to symbolise this sentence:
 \begin{earg}
 \item[\ex{surgeon1}] Adina is a skilled surgeon.
 \end{earg}
 Let the domain be people, let $Kx$ mean `$x$ is a skilled surgeon', and let $a$ mean Adina. Sentence \ref{surgeon1} is simply $Ka$.
 
 
-Suppose instead that we want to translate this argument:
+Suppose instead that we want to symbolise this argument:
 \begin{quote}
 The hospital will only hire a skilled surgeon. All surgeons are greedy. Billy is a surgeon, but is not skilled. Therefore, Billy is greedy, but the hospital will not hire him.
 \end{quote}
@@ -407,7 +407,7 @@ We need to distinguish being a \emph{skilled surgeon} from merely being a \emph{
 \item[b] Billy
 \end{ekey}
 
-Now the argument can be translated in this way:
+Now the argument can be symbolised in this way:
 \begin{earg}
 \label{surgeon2}
 \item[] $\forall x\bigl[\enot (Rx \eand Kx) \eif \enot Hx\bigr]$
@@ -416,7 +416,7 @@ Now the argument can be translated in this way:
 \item[\therefore] $Gb \eand \enot Hb$
 \end{earg}
 
-Next suppose that we want to translate this argument:
+Next suppose that we want to symbolise this argument:
 \begin{quote}
 \label{surgeon3}
 Carol is a skilled surgeon and a tennis player. Therefore, Carol is a skilled tennis player.
@@ -426,19 +426,19 @@ If we start with the symbolisation key we used for the previous argument, we cou
 \item[] $(Rc \eand Kc) \eand Tc$
 \item[\therefore] $Tc \eand Kc$
 \end{earg}
-This translation is a disaster! It takes what in English is a terrible argument and translates it as a valid argument in QL. The problem is that there is a difference between being \emph{skilled as a surgeon} and \emph{skilled as a tennis player}. Translating this argument correctly requires two separate predicates, one for each type of skill. If we let $K_1x$ mean `$x$ is skilled as a surgeon' and $K_2x$ mean `$x$ is skilled as a tennis player,' then we can symbolise the argument in this way:
+This symbolisation is a disaster! It takes what in English is a terrible argument and symbolises it as a valid argument in QL. The problem is that there is a difference between being \emph{skilled as a surgeon} and \emph{skilled as a tennis player}. Symbolising this argument correctly requires two separate predicates, one for each type of skill. If we let $K_1x$ mean `$x$ is skilled as a surgeon' and $K_2x$ mean `$x$ is skilled as a tennis player,' then we can symbolise the argument in this way:
 \begin{earg}
 \label{surgeon3correct}
 \item[] $(Rc \eand K_1c) \eand Tc$
 \item[\therefore] $Tc \eand K_2c$
 \end{earg}
-Like the English language argument it translates, this is invalid. %\nix{Notice that there is no logical connection between $K_1c$ and $Rc$. As symbols of QL, they might be any one-place predicates. In English there is a connection between being a \emph{surgeon} and being a \emph{skilled surgeon}: Every skilled surgeon is a surgeon. In order to capture this connection, we symbolise `Carol is a skilled surgeon' as $Rc \eand K_1c$. This means: `Carol is a surgeon and is skilled as a surgeon.'}
+Like the English language argument it symbolises, this is invalid. %\nix{Notice that there is no logical connection between $K_1c$ and $Rc$. As symbols of QL, they might be any one-place predicates. In English there is a connection between being a \emph{surgeon} and being a \emph{skilled surgeon}: Every skilled surgeon is a surgeon. In order to capture this connection, we symbolise `Carol is a skilled surgeon' as $Rc \eand K_1c$. This means: `Carol is a surgeon and is skilled as a surgeon.'}
 
 The moral of these examples is that you need to be careful of symbolising predicates in an ambiguous way. Similar problems can arise with predicates like \emph{good}, \emph{bad}, \emph{big}, and \emph{small}. Just as skilled surgeons and skilled tennis players have different skills, big dogs, big mice, and big problems are big in different ways.
 
 Is it enough to have a predicate that means `$x$ is a skilled surgeon', rather than two predicates `$x$ is skilled' and `$x$ is a surgeon'? Sometimes. As sentence \ref{surgeon1} shows, sometimes we do not need to distinguish between skilled surgeons and other surgeons.
 
-Must we always distinguish between different ways of being skilled, good, bad, or big? No. As the argument about Billy shows, sometimes we only need to talk about one kind of skill. If you are translating an argument that is just about dogs, it is fine to define a predicate that means `$x$ is big.' If the domain includes dogs and mice, however, it is probably best to make the predicate mean `$x$ is big for a dog.'
+Must we always distinguish between different ways of being skilled, good, bad, or big? No. As the argument about Billy shows, sometimes we only need to talk about one kind of skill. If you are symbolising an argument that is just about dogs, it is fine to define a predicate that means `$x$ is big.' If the domain includes dogs and mice, however, it is probably best to make the predicate mean `$x$ is big for a dog.'
 
 \practiceproblems
 \problempart
@@ -530,7 +530,7 @@ For each argument, write a symbolisation key and symbolise the argument in FOL.
 
 %\problempart
 %label{pr.QLarguments}
-%For each argument, write a symbolisation key and translate the argument into QL.
+%For each argument, write a symbolisation key and symbolise the argument into QL.
 %\begin{earg}
 %\item Nothing on my desk escapes my attention. There is a computer on my desk. As such, there is a computer that does not escape my attention.
 %\item All my dreams are black and white. Old TV shows are in black and white. Therefore, some of my dreams are old TV shows.
@@ -849,7 +849,7 @@ Consider this sentence:
 \begin{earg}
 \item[\ex{else1}] Pavel owes money to everyone
 \end{earg}
-Let the domain be people; this will allow us to translate `everyone' as a universal quantifier. Offering the symbolisation key:
+Let the domain be people; this will allow us to symbolise `everyone' as a universal quantifier. Offering the symbolisation key:
 	\begin{ekey}
 		\item[Oxy] \gap{x} owes money to \gap{y}
 		\item[p] Pavel
@@ -909,7 +909,7 @@ We will use the symbolisation key:
 	\end{ekey}
 Sentence \ref{atleast1} does not require identity. It can be adequately symbolised by `$\exists x Ax$': There is an apple; perhaps many, but at least one.
 
-It might be tempting to also translate sentence \ref{atleast2} without identity. Yet consider the sentence `$\exists x \exists y(Ax \eand Ay)$'. Roughly, this says that there is some apple x in the domain and some apple y in the domain. Since nothing precludes these from being one and the same apple, this would be true even if there were only one apple. In order to make sure that we are dealing with \emph{different} apples, we need an identity predicate. Sentence \ref{atleast2} needs to say that the two apples that exist are not identical, so it can be symbolised by `$\exists x \exists y(Ax \eand Ay \eand \enot x = y)$'.
+It might be tempting to also symbolise sentence \ref{atleast2} without identity. Yet consider the sentence `$\exists x \exists y(Ax \eand Ay)$'. Roughly, this says that there is some apple x in the domain and some apple y in the domain. Since nothing precludes these from being one and the same apple, this would be true even if there were only one apple. In order to make sure that we are dealing with \emph{different} apples, we need an identity predicate. Sentence \ref{atleast2} needs to say that the two apples that exist are not identical, so it can be symbolised by `$\exists x \exists y(Ax \eand Ay \eand \enot x = y)$'.
 
 Sentence \ref{atleast3} requires talking about three different apples. Now we need three existential quantifiers, and we need to make sure that each will pick out something different: `$\exists x \exists y\exists z(Ax \eand Ay \eand Az \eand \enot x = y \eand \enot y = z \eand \enot x = z)$'.
 

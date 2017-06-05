@@ -672,7 +672,7 @@ Sentence \ref{dog5} can be paraphrased as `For any x that is a dog owner, there 
 $$\forall x\bigl[\mbox{$x$ is a dog owner}\eif\exists y(\mbox{$y$ is a dog owner}\eand Fyx)\bigr]$$
 Completing the symbolisation, we end up with
 $$\forall x\bigl[\exists z(Dz \eand Oxz)\eif\exists y\bigl(\exists z(Dz \eand Oyz)\eand Fyx\bigr)\bigr]$$
-Note that we have used the same letter, `$z$', in both the antecedent and the consequent of the conditional, but that these are governed by two different quantifiers. This is ok: there is no clash here, because is clear which quantifier that variable falls under. We might graphically represent the scope of the quantifiers thus:
+Note that we have used the same letter, `$z$', in both the antecedent and the consequent of the conditional, but that these are governed by two different quantifiers. This is ok: there is no clash here, because it is clear which quantifier that variable falls under. We might graphically represent the scope of the quantifiers thus:
 $$\overbrace{\forall x\bigl[\overbrace{\exists z(Dz \eand Oxz)}^{\text{scope of 1st `}\exists z\text{'}}\eif \overbrace{\exists y(\overbrace{\exists z(Dz \eand Oyz)}^{\text{scope of 2nd `}\exists z\text{'}}\eand Fyx)\bigr]}^{\text{scope of `}\exists y\text{'}}}^{\text{scope of `}\forall x\text{'}}$$
 This shows that no variable is being forced to serve two masters simultaneously.
 
@@ -1068,7 +1068,7 @@ Sentence \ref{kingdate} would be symbolised by `$\exists x (\forall y(Ky \eiff  
 	\end{earg}
 Sentence \ref{outernegation} might be paraphrased by `It is not the case that: the present King of France and Alex are dating'. It will then be symbolised by `$\enot \exists x\bigl[Kx \eand \forall y(Ky \eif  x = y) \eand Dax \bigr]$'. We might call this \emph{outer} negation, since the negation governs the entire sentence. Note that it will be true if there is no present King of France.
 
-Sentence \ref{innernegation} can be symbolised by `$\exists x (Kx \eand \forall y(Ky \eif x = y) \eand \enot Dax)$. We might call this \emph{inner} negation, since the negation occurs within the scope of the definite description. Note that its truth requires that there is a present King of France, albeit one who is not dating Alex.
+Sentence \ref{innernegation} can be symbolised by `$\exists x (Kx \eand \forall y(Ky \eif x = y) \eand \enot Dax)$'. We might call this \emph{inner} negation, since the negation occurs within the scope of the definite description. Note that its truth requires that there is a present King of France, albeit one who is not dating Alex.
 
 
 \section{The adequacy of Russell's analysis}
@@ -1229,7 +1229,7 @@ Next we need to define atomic formulas.
 }
         
         
-The use of script letterss here follows the conventions laid down in \S\ref{s:UseMention}. So, `$\meta{R}$' is not itself a predicate of FOL. Rather, it is a symbol of our metalanguage (augmented English) that we use to talk about any predicate of FOL. Similarly, `$\meta{t}_1$' is not a term of FOL, but a symbol of the metalanguage that we can use to talk about any term of FOL. So, where `$F$' is a one-place predicate, `$G$' is a three-place predicate, and `$S$' is a six-place predicate, here are some atomic formulas:
+The use of script letters here follows the conventions laid down in \S\ref{s:UseMention}. So, `$\meta{R}$' is not itself a predicate of FOL. Rather, it is a symbol of our metalanguage (augmented English) that we use to talk about any predicate of FOL. Similarly, `$\meta{t}_1$' is not a term of FOL, but a symbol of the metalanguage that we can use to talk about any term of FOL. So, where `$F$' is a one-place predicate, `$G$' is a three-place predicate, and `$S$' is a six-place predicate, here are some atomic formulas:
 	\begin{center}
 		$x = a$\\
 		$a = b$\\

@@ -188,7 +188,7 @@ One option is to say that sentence \ref{chimera1} is not true, because there is 
 
 Since we cannot say that they are both false, what should we do? Another option is to say that sentence \ref{chimera1} is \emph{meaningless} because it talks about a non-existent thing. So $Ac$ would be a meaningful expression in FOL for some interpretations but not for others. Yet this would make our formal language hostage to particular interpretations. Since we are interested in logical form, we want to consider the logical force of a sentence like $Ac$ apart from any particular interpretation. If $Ac$ were sometimes meaningful and sometimes meaningless, we could not do that.
 
-This is the \emph{problem of non-referring terms}, and we will return to it later (see p.~\pageref{subsec.defdesc}.) The important point for now is that each constant of FOL \emph{must} refer to something in the domain, although the domain can be any set of things that we like. If we want to symbolise arguments about mythological creatures, then we must define a domain that includes them. This option is important if we want to consider the logic of stories. We can symbolise a sentence like `Sherlock Holmes lived at 221B Baker Street' by including fictional characters like Sherlock Holmes in our domain.
+This is the \emph{problem of non-referring terms}, and we will return to it later (see p.~\pageref{subsec.defdesc}.) The important point for now is that each constant of FOL \emph{must} refer to something in the domain, although the domain can contain any things we like. If we want to symbolise arguments about mythological creatures, then we must define a domain that includes them. This option is important if we want to consider the logic of stories. We can symbolise a sentence like `Sherlock Holmes lived at 221B Baker Street' by including fictional characters like Sherlock Holmes in our domain.
 
 \chapter{Sentences with one quantifier}
 \label{s:MoreMonadic}
@@ -244,13 +244,13 @@ Sentence \ref{quan1} is most naturally symbolised using a universal quantifier. 
 
 Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} that are quarters, it might be tempting to symbolise it using a conjunction. However, the sentence `$\forall x(Px \eand Qx)$' would symbolise the sentence `every coin is both a quarter and in my pocket'. This obviously means something very different than sentence \ref{quan1}. And so we see:
 	\factoidbox{
-		A sentence can be symbolised as $\forall x (\script{F}x \eif \script{G}x)$ if it can be paraphrased in English as `every F is G'.
+		A sentence can be symbolised as $\forall x (\meta{F}x \eif \meta{G}x)$ if it can be paraphrased in English as `every F is G'.
 	}
 Sentence \ref{quan2} is most naturally symbolised using an existential quantifier. It can be paraphrased as `there is some coin which is both on the table and which is a dime'. So we can symbolise it as `$\exists x(Tx \eand Dx)$'.
 
 Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. Suppose we had instead written `$\exists x(Tx \eif Dx)$'. That would mean that there is some object in the domain of which `$(Tx \eif Dx)$' is true. Recall that, in TFL, $\meta{A} \eif \meta{B}$ is tautologically equivalent to $\enot\meta{A} \eor \meta{B}$. This equivalence will also hold in FOL. So `$\exists x(Tx \eif Dx)$' is true if there is some object in the domain, such that `$(\enot Tx \eor Dx)$' is true of that object. That is, `$\exists x (Tx \eif Dx)$' is true if some coin is \emph{either} not on the table \emph{or} is a dime. Of course there is a coin that is not on the table: there are coins lots of other places. So it is \emph{very easy} for `$\exists x(Tx \eif Dx)$' to be true. A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier tends to say something very weak indeed. As a general rule of thumb, do not put conditionals in the scope of existential quantifiers unless you are sure that you need one.
 	\factoidbox{
-		A sentence can be symbolised as $\exists x (\script{F}x \eand \script{G}x)$ if it can be paraphrased in English as `some F is G'.
+		A sentence can be symbolised as $\exists x (\meta{F}x \eand \meta{G}x)$ if it can be paraphrased in English as `some F is G'.
 	}		
 Sentence \ref{quan3} can be paraphrased as, `It is not the case that every coin on the table is a dime'. So we can symbolise it by `$\enot \forall x(Tx \eif Dx)$'. You might look at sentence \ref{quan3} and paraphrase it instead as, `Some coin on the table is not a dime'. You would then symbolise it by `$\exists x(Tx \eand \enot Dx)$'. Although it is probably not immediately obvious yet, these two sentences are logically equivalent. (This is due to the logical equivalence between $\enot\forall x\meta{A}$ and $\exists x\enot\meta{A}$, mentioned in \S\ref{s:FOLBuildingBlocks}, along with the equivalence between $\enot(\meta{A}\eif\meta{B})$ and $\meta{A}\eand\enot\meta{B}$.)
 
@@ -400,10 +400,10 @@ The hospital will only hire a skilled surgeon. All surgeons are greedy. Billy is
 We need to distinguish being a \emph{skilled surgeon} from merely being a \emph{surgeon}. So we define this symbolisation key:
 \begin{ekey}
 \item[\text{domain}] people
-\item[Gx] $x$ is greedy.
-\item[Hx] The hospital will hire $x$.
-\item[Rx] $x$ is a surgeon.
-\item[Kx] $x$ is skilled.
+\item[Gx] \gap{x} is greedy.
+\item[Hx] The hospital will hire \gap{x}.
+\item[Rx] \gap{x} is a surgeon.
+\item[Kx] \gap{x} is skilled.
 \item[b] Billy
 \end{ekey}
 
@@ -623,7 +623,7 @@ Sentence \ref{loveconverge} is symbolised by `$\exists y \forall x Lxy$'. Senten
 The point of the example is to illustrate that the order of the quantifiers matters a great deal. Indeed, to switch them around is called a \emph{quantifier shift fallacy}. Here is an example, which comes up in various forms throughout the philosophical literature:
 	\begin{earg}
 		\item[] For every person, there is some truth they cannot know. \hfill ($\forall \exists$)
-		\item[\therefore] There is some truth, that no person can know. \hfill ($\exists \forall$)
+		\item[\therefore] There is some truth that no person can know. \hfill ($\exists \forall$)
 	\end{earg}
 This argument form is obviously invalid. It's just as bad as:\footnote{Thanks to Rob Trueman for the example.}
 	\begin{earg}
@@ -768,7 +768,7 @@ Using the symbolisation key given, symbolise each English-language sentence into
 \item[Mx] \gap{x} has marzipan in it.
 \item[Sx] \gap{x} has sugar in it.
 \item[Tx] Boris has tried \gap{x}.
-\item[Bxy] $x$ is better than \gap{x}.
+\item[Bxy] \gap{x} is better than \gap{y}.
 \end{ekey}
 \begin{earg}
 \item Boris has never tried any candy.
@@ -909,9 +909,9 @@ We will use the symbolisation key:
 	\end{ekey}
 Sentence \ref{atleast1} does not require identity. It can be adequately symbolised by `$\exists x Ax$': There is an apple; perhaps many, but at least one.
 
-It might be tempting to also symbolise sentence \ref{atleast2} without identity. Yet consider the sentence `$\exists x \exists y(Ax \eand Ay)$'. Roughly, this says that there is some apple x in the domain and some apple y in the domain. Since nothing precludes these from being one and the same apple, this would be true even if there were only one apple. In order to make sure that we are dealing with \emph{different} apples, we need an identity predicate. Sentence \ref{atleast2} needs to say that the two apples that exist are not identical, so it can be symbolised by `$\exists x \exists y(Ax \eand Ay \eand \enot x = y)$'.
+It might be tempting to also symbolise sentence \ref{atleast2} without identity. Yet consider the sentence `$\exists x \exists y(Ax \eand Ay)$'. Roughly, this says that there is some apple $x$ in the domain and some apple $y$ in the domain. Since nothing precludes these from being one and the same apple, this would be true even if there were only one apple. In order to make sure that we are dealing with \emph{different} apples, we need an identity predicate. Sentence \ref{atleast2} needs to say that the two apples that exist are not identical, so it can be symbolised by `$\exists x \exists y((Ax \eand Ay) \eand \enot x = y)$'.
 
-Sentence \ref{atleast3} requires talking about three different apples. Now we need three existential quantifiers, and we need to make sure that each will pick out something different: `$\exists x \exists y\exists z(Ax \eand Ay \eand Az \eand \enot x = y \eand \enot y = z \eand \enot x = z)$'.
+Sentence \ref{atleast3} requires talking about three different apples. Now we need three existential quantifiers, and we need to make sure that each will pick out something different: `$\exists x \exists y\exists z[((Ax \eand Ay) \eand Az) \eand ((\enot x = y \eand \enot y = z) \eand \enot x = z)]$'.
 
 \section{There are at most\ldots}
 Now consider these sentences:
@@ -920,7 +920,7 @@ Now consider these sentences:
 	\item[\ex{atmost2}] There are at most two apples
 \end{earg}
 Sentence \ref{atmost1} can be paraphrased as, `It is not the case that there are at least \emph{two} apples'. This is just the negation of sentence \ref{atleast2}: 
-$$\enot \exists x \exists y(Ax \eand Ay \eand \enot x = y)$$
+$$\enot \exists x \exists y[(Ax \eand Ay) \eand \enot x = y]$$
 But sentence \ref{atmost1} can also be approached in another way. It means that if you pick out an object and it's an apple, and then you pick out an object and it's also an apple, you must have picked out the same object both times. With this in mind, it can be symbolised by
 $$\forall x\forall y\bigl[(Ax \eand Ay) \eif x=y\bigr]$$
 The two sentences will turn out to be logically equivalent.
@@ -943,9 +943,12 @@ $$\exists x Ax \eand \forall x\forall y\bigl[(Ax \eand Ay) \eif x=y\bigr]$$
 But it is perhaps more straightforward to paraphrase sentence \ref{exactly1} as, `There is a thing x which is an apple, and everything which is an apple is just x itself'. Thought of in this way, we offer: 
 $$\exists x\bigl[Ax \eand \forall y(Ay \eif x= y)\bigr]$$
 Similarly, sentence \ref{exactly2} may be paraphrased as, `There are \emph{at least} two apples, and there are \emph{at most} two apples'. Thus we could offer 
-$$\exists x \exists y(Ax \eand Ay \eand \enot x = y) \eand \forall x\forall y\forall z\bigl[(Ax \eand Ay \eand Az) \eif (x=y \eor x=z \eor y=z)\bigr]$$
+\begin{multline*}
+  \exists x \exists y((Ax \eand Ay) \eand \enot x = y) \eand {}\\
+  \forall x\forall y\forall z\bigl[((Ax \eand Ay) \eand Az) \eif ((x=y \eor x=z) \eor y=z)\bigr]
+\end{multline*}
 More efficiently, though, we can paraphrase it as `There are at least two different apples, and every apple is one of those two apples'. Then we offer:
-$$\exists x\exists y\bigl[Ax \eand Ay \eand \enot x = y \eand \forall z(Az \eif ( x= z \eor y = z)\bigr]$$
+$$\exists x\exists y\bigl[((Ax \eand Ay) \eand \enot x = y) \eand \forall z(Az \eif ( x= z \eor y = z)\bigr]$$
 Finally, consider these sentence:
 \begin{earg}
 \item[\ex{exactly2things}] There are exactly two things
@@ -953,7 +956,8 @@ Finally, consider these sentence:
 \end{earg}
 It might be tempting to add a predicate to our symbolisation key, to symbolise the English predicate `\blank\ is a thing' or `\blank\ is an object', but this is unnecessary. Words like `thing' and `object' do not sort wheat from chaff: they apply trivially to everything, which is to say, they apply trivially to every thing. So we can symbolise either sentence with either of the following:
 	\begin{center}
-		$\exists x \exists y \enot x = y \eand \enot \exists x \exists y \exists z (\enot x = y \eand \enot y = z \eand \enot x = z)$\\
+		$\exists x \exists y \enot x = y \eand \enot \exists x \exists y \exists z ((\enot x = y \eand \enot y = z) \eand \enot x = z)$\\
+		
 		$\exists x \exists y \bigl[\enot x = y \eand \forall z(x=z \eor y = z)\bigr]$
 	\end{center}
 
@@ -1033,7 +1037,7 @@ Now, one might worry that we can say `the table is brown' without implying that 
 If we accept Russell's analysis of definite descriptions, then we can symbolise sentences of the form `the F is G' using our strategy for numerical quantification in FOL. After all, we can deal with the three conjuncts on the right-hand side of Russell's analysis as follows:
 	$$\exists x Fx \eand \forall x \forall y ((Fx \eand Fy) \eif x = y) \eand \forall x (Fx \eif Gx)$$
 In fact, we could express the same point rather more crisply, by recognising that the first two conjuncts just amount to the claim that there is \emph{exactly} one F, and that the last conjunct tells us that that object is F. So, equivalently, we could offer:
-	$$\exists x \bigl[Fx \eand \forall y (Fy \eif x = y) \eand Gx\bigr]$$
+	$$\exists x \bigl[(Fx \eand \forall y (Fy \eif x = y)) \eand Gx\bigr]$$
 Using these sorts of techniques, we can now symbolise sentences \ref{traitor1}--\ref{traitor3} without using any new-fangled fancy operator, such as `$\maththe$'. 
 
 Sentence \ref{traitor1} is exactly like the examples we have just considered. So we would symbolise it by `$\exists x (Tx \eand \forall y(Ty \eif x = y) \eand x = n)$'. 
@@ -1066,10 +1070,9 @@ Sentence \ref{kingdate} would be symbolised by `$\exists x (\forall y(Ky \eiff  
 		\item[\ex{outernegation}] There is no one who is both the present King of France and  such that he and Alex are dating.
 		\item[\ex{innernegation}] There is a unique present King of France, but Alex is not dating him.
 	\end{earg}
-Sentence \ref{outernegation} might be paraphrased by `It is not the case that: the present King of France and Alex are dating'. It will then be symbolised by `$\enot \exists x\bigl[Kx \eand \forall y(Ky \eif  x = y) \eand Dax \bigr]$'. We might call this \emph{outer} negation, since the negation governs the entire sentence. Note that it will be true if there is no present King of France.
+Sentence \ref{outernegation} might be paraphrased by `It is not the case that: the present King of France and Alex are dating'. It will then be symbolised by `$\enot \exists x\bigl[(Kx \eand \forall y(Ky \eif  x = y)) \eand Dax \bigr]$'. We might call this \emph{outer} negation, since the negation governs the entire sentence. Note that it will be true if there is no present King of France.
 
-Sentence \ref{innernegation} can be symbolised by `$\exists x (Kx \eand \forall y(Ky \eif x = y) \eand \enot Dax)$'. We might call this \emph{inner} negation, since the negation occurs within the scope of the definite description. Note that its truth requires that there is a present King of France, albeit one who is not dating Alex.
-
+Sentence \ref{innernegation} can be symbolised by `$\exists x ((Kx \eand \forall y(Ky \eif x = y)) \eand \enot Dax)$'. We might call this \emph{inner} negation, since the negation occurs within the scope of the definite description. Note that its truth requires that there is a present King of France, albeit one who is not dating Alex.
 
 \section{The adequacy of Russell's analysis}
 How good is Russell's analysis of definite descriptions? This question has generated a substantial philosophical literature, but we will restrict ourselves to two observations.
@@ -1078,9 +1081,9 @@ One worry focusses on Russell's treatment of empty definite descriptions. If the
 
 If we agree with Strawson here, we will need to revise our logic. For, in our logic, there are only two truth values (True and False), and every sentence is assigned exactly one of these truth values. 
 
-But there is room to disagree with Strawson. Strawson is appealing to some linguistic intuitions, but it is not clear that they are very robust. For example: isn't it just \emph{false}, not `gappy', that Alex is dating the present King of France?
+But there is room to disagree with Strawson. Strawson is appealing to some linguistic intuitions, but it is not clear that they are very robust. For example: isn't it just \emph{false}, not `gappy', that Tim is dating the present King of France?
 
-Keith Donnellan raised a second sort of worry, which (very roughly can be brought out by thinking about a case of mistaken identity.\footnote{Keith Donnellan, `Reference and Definite Descriptions', 1966, \emph{Philosophical Review 77}, pp.\ 281--304.} Two men stand in the corner: a very tall man drinking what looks like a gin martini; and a very short man drinking what looks like a pint of water. Seeing them, Malika says:
+Keith Donnellan raised a second sort of worry, which (very roughly) can be brought out by thinking about a case of mistaken identity.\footnote{Keith Donnellan, `Reference and Definite Descriptions', 1966, \emph{Philosophical Review 77}, pp.\ 281--304.} Two men stand in the corner: a very tall man drinking what looks like a gin martini; and a very short man drinking what looks like a pint of water. Seeing them, Malika says:
 	\begin{earg}
 		\item[\ex{gindrinker}] The gin-drinker is very tall!
 	\end{earg}
@@ -1189,7 +1192,7 @@ There are six kinds of symbols in FOL:
 \begin{description}
 \item[Predicates] $A,B,C,\ldots,Z$, or 
 with subscripts, as needed: $A_1, B_1,Z_1,A_2,A_{25},J_{375},\ldots$
-\item[Constants] $a,b,c,\ldots, r$, or
+\item[Names] $a,b,c,\ldots, r$, or
 with subscripts, as needed $a_1, b_{224}, h_7, m_{32},\ldots$
 \item[Variables] $s, t, u, v, w, x,y,z$, or
 with subscripts, as needed $x_1, y_1, z_1, x_2,\ldots$

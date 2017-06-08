@@ -1462,22 +1462,21 @@ Determine whether each the following pairs of sentences are logically equivalent
 \label{pr.TT.consistent5}
 Determine whether each collection of sentences is jointly consistent or jointly inconsistent. Justify your answer with a complete or partial truth table where appropriate.
 \begin{earg}
-\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ \vspace{.5ex}%consistent
-\item $A \eif \enot A$, $\enot A \eif A$\vspace{.5ex}%inconsistent. 
-\item $A\eor B$, $A\eif C$, $B\eif C$\vspace{.5ex} %consistent
-\item $A \eor B$, $A \eif C$, $B \eif C$, $\enot C$\vspace{.5ex} %	Inconsistent
-\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$\vspace{.5ex}  %inconsistent
-\item $(A \eiff B) \eif B$,  $B \eif \enot (A \eiff B)$, $A \eor B$ \vspace{.5ex} %	Consistent
-\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$\vspace{.5ex} %consistent
-\item  $A \eiff B$,  $\enot B \eor \enot A$,  $A \eif  B$ \vspace{.5ex}% Consistent
-\item $A \eiff B$, $A \eif C$, $B \eif D$, $\enot(C \eor D)$\vspace{.5ex} %consitent
-\item $\enot (A \eand \enot B)$,  $B \eif \enot A$, $\enot B$  \vspace{.5ex} %Consistent
-
+\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ %consistent
+\item $A \eif \enot A$, $\enot A \eif A$%inconsistent. 
+\item $A\eor B$, $A\eif C$, $B\eif C$ %consistent
+\item $A \eor B$, $A \eif C$, $B \eif C$, $\enot C$ %	Inconsistent
+\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$  %inconsistent
+\item $(A \eiff B) \eif B$,  $B \eif \enot (A \eiff B)$, $A \eor B$  %	Consistent
+\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$ %consistent
+\item  $A \eiff B$,  $\enot B \eor \enot A$,  $A \eif  B$ % Consistent
+\item $A \eiff B$, $A \eif C$, $B \eif D$, $\enot(C \eor D)$ %consitent
+\item $\enot (A \eand \enot B)$,  $B \eif \enot A$, $\enot B$   %Consistent
 \end{earg}
 
 \noindent\problempart Determine whether each argument is valid or invalid. Justify your answer with a complete or partial truth table where appropriate.
 \label{pr.TT.valid5} 
-\begin{enumerate}
+\begin{earg}
 \item $A\eif(A\eand\enot A)\therefore \enot A$% valid
 \item $A \eor B$, $A \eif B$, $B \eif A \therefore  A \eiff B$  % Valid
 \item $A\eor(B\eif A)\therefore \enot A \eif \enot B$ %valid
@@ -1489,15 +1488,15 @@ Determine whether each collection of sentences is jointly consistent or jointly 
 \item $A \eif B\therefore (A \eand B) \eor (\enot A \eand \enot B)$ % invalid
 \item $\enot A \eif B$,$ \enot B \eif C $,$ \enot C \eif A \therefore  \enot A \eif (\enot B \eor \enot C) $% Invalid
 
-\end{enumerate}
+\end{earg}
 
 \noindent\problempart Determine whether each argument is valid or invalid. Justify your answer with a complete or partial truth table where appropriate.
 \label{pr.TT.valid6} 
-\begin{enumerate}
+\begin{earg}
 \item $A\eiff\enot(B\eiff A)\therefore A$ % invalid
 \item $A\eor B$, $B\eor C$, $\enot A\therefore B \eand C$ % invalid
 \item $A \eif C$, $E \eif (D \eor B)$, $B \eif \enot D\therefore (A \eor C) \eor (B \eif (E \eand D))$ % invalid
 \item $A \eor B$, $C \eif A$, $C \eif B\therefore A \eif (B \eif C)$ % invalid
 \item $A \eif B$, $\enot B \eor A\therefore A \eiff B$ % valid
-\end{enumerate}
+\end{earg}
 

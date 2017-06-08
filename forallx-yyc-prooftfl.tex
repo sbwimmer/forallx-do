@@ -966,7 +966,7 @@ Suppose you have some sentence on some line of your deduction:
 You now want to repeat yourself, on some line $k$. You could just invoke the rule R, introduced in \S\ref{s:Further}. But equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
 \begin{proof}
 	\have[m]{a}{\meta{A}}
-	\have[k]{aa}{\meta{A} \eand \meta{A}}\ai{a}
+	\have[k]{aa}{\meta{A} \eand \meta{A}}\ai{a, a}
 	\have{a2}{\meta{A}}\ae{aa}
 \end{proof}
 To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, `$\meta{A}$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\meta{A}$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 

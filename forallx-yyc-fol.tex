@@ -167,14 +167,14 @@ The sentence $\forall x Px$ might be paraphrased in English as `Everything is in
 
 \subsection{Non-referring terms}
 
-In FOL, each constant must pick out exactly one member of the domain. A constant cannot refer to more than one thing--- it is a \emph{singular} term. Each constant must still pick out \emph{something}. This is connected to a classic philosophical problem: the so-called problem of non-referring terms.
+In FOL, each name must pick out exactly one member of the domain. A name cannot refer to more than one thing---it is a \emph{singular} term. Each name must still pick out \emph{something}. This is connected to a classic philosophical problem: the so-called problem of non-referring terms.
 
 Medieval philosophers typically used sentences about the \emph{chimera} to exemplify this problem. Chimera is a mythological creature; it does not really exist. Consider these two sentences:
 \begin{earg}
 \item[\ex{chimera1}] Chimera is angry.
 \item[\ex{chimera2}] Chimera is not angry.
 \end{earg}
-It is tempting just to define a constant to mean `chimera.' The symbolisation key would look like this:
+It is tempting just to define a name to mean `chimera.' The symbolisation key would look like this:
 \begin{ekey}
 \item[\text{domain}] creatures on Earth
 \item[Ax] \gap{x} is angry.
@@ -188,7 +188,7 @@ One option is to say that sentence \ref{chimera1} is not true, because there is 
 
 Since we cannot say that they are both false, what should we do? Another option is to say that sentence \ref{chimera1} is \emph{meaningless} because it talks about a non-existent thing. So $Ac$ would be a meaningful expression in FOL for some interpretations but not for others. Yet this would make our formal language hostage to particular interpretations. Since we are interested in logical form, we want to consider the logical force of a sentence like $Ac$ apart from any particular interpretation. If $Ac$ were sometimes meaningful and sometimes meaningless, we could not do that.
 
-This is the \emph{problem of non-referring terms}, and we will return to it later (see p.~\pageref{subsec.defdesc}.) The important point for now is that each constant of FOL \emph{must} refer to something in the domain, although the domain can contain any things we like. If we want to symbolise arguments about mythological creatures, then we must define a domain that includes them. This option is important if we want to consider the logic of stories. We can symbolise a sentence like `Sherlock Holmes lived at 221B Baker Street' by including fictional characters like Sherlock Holmes in our domain.
+This is the \emph{problem of non-referring terms}, and we will return to it later (see p.~\pageref{subsec.defdesc}.) The important point for now is that each name of FOL \emph{must} refer to something in the domain, although the domain can contain any things we like. If we want to symbolise arguments about mythological creatures, then we must define a domain that includes them. This option is important if we want to consider the logic of stories. We can symbolise a sentence like `Sherlock Holmes lived at 221B Baker Street' by including fictional characters like Sherlock Holmes in our domain.
 
 \chapter{Sentences with one quantifier}
 \label{s:MoreMonadic}
@@ -421,7 +421,7 @@ Next suppose that we want to symbolise this argument:
 \label{surgeon3}
 Carol is a skilled surgeon and a tennis player. Therefore, Carol is a skilled tennis player.
 \end{quote}
-If we start with the symbolisation key we used for the previous argument, we could add a predicate (let $Tx$ mean `$x$ is a tennis player') and a constant (let $c$ mean Carol). Then the argument becomes:
+If we start with the symbolisation key we used for the previous argument, we could add a predicate (let $Tx$ mean `$x$ is a tennis player') and a name (let $c$ mean Carol). Then the argument becomes:
 \begin{earg}
 \item[] $(Rc \eand Kc) \eand Tc$
 \item[\therefore] $Tc \eand Kc$

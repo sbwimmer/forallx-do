@@ -630,9 +630,21 @@ This argument form is obviously invalid. It's just as bad as:\footnote{Thanks to
 		\item[] Every dog has its day. \hfill ($\forall \exists$)
 		\item[\therefore] There is a day for all the dogs. \hfill ($\exists \forall$)
 	\end{earg}
-The moral is: take great care with the order of quantification.
 
-%The fallacies, though, arise only when we swap around universal with existential quantifiers.  does not much matter within a single block of quantifiers. Using the same scheme, compare `$\exists x \exists y Lxy$' and `$\exists y \exists x Lxy$'. These would naturally symbolise the English sentences `there is someone who loves someone' and `there is someone whom is loved by someone', respectively. But, though these differ in nuance, they are true in exactly the same situations. (Similar comments apply to the universal quantifier.)
+   
+The order of quantifiers is also important in definitions in mathematics.  For instance, there is a big difference between pointwise and uniform continuity of functions:
+\begin{itemize}
+\item A function $f$ \emph{pointwise continuous} if
+\[
+\forall \epsilon\forall x\forall y\exists \delta(\left|x - y\right| < \delta \to \left|f(x) - f(y)\right| < \epsilon)
+\]
+\item A function $f$ \emph{uniformly continuous} if
+\[
+\forall \epsilon\exists \delta\forall x\forall y(\left|x - y\right| < \delta \to \left|f(x) - f(y)\right| < \epsilon)
+\]
+\end{itemize}
+
+The moral is: take great care with the order of quantification.
 
 
 \section{Stepping-stones to symbolisation}
@@ -693,6 +705,83 @@ Sentence \ref{dog6} is the trickiest yet. First we paraphrase it as `For any x t
 \\And a bit more: 
 $$\forall x\bigl[\exists y(Fxy \eand \exists z(Dz \eand Oyz)) \eif \exists y(Dy \eand Oxy \eand \exists z(Fzx \eand Ozy))\bigr]$$
 And we are done!
+
+\section{Supressed quantifiers}
+
+Logic can often help to get clear on the meanings of English claims,
+especiially where the quantifiers are left implicit or their order is
+ambiguous or unclear. The clarity of expression and thinking afforded
+by FOL can give you a significant advantage in argument, as can be
+seen in the following takedown by British political philosopher Mary
+Astell (1666--1731) of her contemporary, the theologian William
+Nicholls. In Discourse IV: The Duty of Wives to their Husbands of his
+\textit{The Duty of Inferiors towards their Superiors, in Five
+  Practical Discourses} (London 1701), Nicholls argued that women are
+naturally inferior to men. In the preface to the 3rd edition of her
+treatise \emph{Some Reflections upon Marriage, Occasion'd by the Duke
+  and Duchess of Mazarine's Case; which is also considered,} Astell
+responded as follows:
+\begin{quotation}
+'Tis true, thro' Want of Learning, and of that Superior Genius which
+Men as Men lay claim to, she [Astell] was ignorant of the
+\textit{Natural Inferiority} of our Sex, which our Masters lay down as
+a Self-Evident and Fundamental Truth. She saw nothing in the Reason of
+Things, to make this either a Principle or a Conclusion, but much to
+the contrary; it being Sedition at least, if not Treason to assert it
+in this Reign. 
+
+For if by the Natural Superiority of their Sex, they mean that
+\textit{every} Man is by Nature superior to \textit{every} Woman,
+which is the obvious meaning, and that which must be stuck to if they
+would speak Sense, it wou'd be a Sin in \textit{any} Woman to have
+Dominion over \textit{any} Man, and the greatest Queen ought not to
+command but to obey her Footman, because no Municipal Laws can
+supersede or change the Law of Nature; so that if the Dominion of the
+Men be such, the \textit{Salique Law,}\footnote{The Salique law was
+  the common law of France which prohibited the crown be passed on to
+  female heirs.} as unjust as \textit{English Men} have ever thought
+it, ought to take place over all the Earth, and the most glorious
+Reigns in the \textit{English, Danish, Castilian}, and other Annals,
+were wicked Violations of the Law of Nature!
+
+If they mean that \textit{some} Men are superior to \textit{some}
+Women this is no great Discovery; had they turn'd the Tables they
+might have seen that \textit{some} Women are Superior to \textit{some}
+Men. Or had they been pleased to remember their Oaths of Allegiance
+and Supremacy, they might have known that \textit{One} Women is
+superior to \textit{All} the Men in these Nations, or else they have
+sworn to very little purpose.\footnote{In 1706, England was ruled by
+  Queen Anne.} And it must not be suppos'd, that their Reason and
+Religion wou'd suffer them to take Oaths, contrary to the Laws of
+Nature and Reason of things.\footnote{Mary Astell, \textit{Reflections
+    upon Marriage}, 1706 Preface, iii--iv, and Mary Astell,
+  \textit{Political Writings}, ed. Patricia Springborg, Cambridge
+  University Press, 1996, 9--10.}
+\end{quotation}
+We can symbolise the different interpretations Astell offers of
+Nicholls' claim that men are superior to women:
+He either meant that every man is superior to every woman, i.e.,
+\[
+\forall x(Mx \eif \forall y(Wy \eif Sxy))
+\]
+or that some men are superior to some women,
+\[
+\exists x(Mx \eand \exists y(Wy \eand Sxy)).
+\]
+The latter is true, but so is
+\[
+\exists y(Wy \eand \exists x(Mx \eand Syx)).
+\]
+(some women are superior to some men), so that would be ``no great
+discovery.''  In fact, since the Queen is superior to all her
+subjects, it's even true that some woman is superior to every man,
+i.e.,
+\[
+\exists y(Wy \land \forall x(Mx \eif Syx)).
+\]
+But this is incompatible with the ``obvious meaning'' of Nicholls'
+claim, i.e., the first reading. So what Nicholls claims amounts to
+treason against the Queen!
 
 \practiceproblems
 \solutions

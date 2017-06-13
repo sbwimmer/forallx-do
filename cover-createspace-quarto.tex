@@ -1,6 +1,6 @@
-% cover-lulu-quarto.tex
+% cover-createspace-quarto.tex
 
-% make a cover PDF for lulu.com's Crown Quarto booksize.
+% make a cover PDF for CreateSpace Crown Quarto booksize.
 
 % note: Lulu will flatten this PDF and get the colors wrong. Convert
 % this PDF to PNG first (eg, using GIMP: just import at 300dpi then
@@ -14,9 +14,14 @@
 
 \usepackage[absolute,overlay]{textpos}
 \usepackage{rotating}
+\usepackage[cmyk]{xcolor}
 \usepackage{forallxyyc}
 
-\colorlet{leadbeater}{darkred}
+% make color the CMYK equivalent of RGB DarkRed (used
+% http://www.easyrgb.com/en/convert.php)
+\definecolor{rgbdarkred}{cmyk}{0,1,1,.455}
+
+\colorlet{leadbeater}{rgbdarkred}
 
 
 
@@ -25,11 +30,19 @@
 \newlength{\spinewidth}
 \newlength{\spinepos} % spine starts here, width = \spinewidth
 \newlength{\coverpos} % front cover starts here, width = \spinepos
+\newlength{\sheetwidth}
+\setlength{\sheetwidth}{0.002252in}
 
-\setlength{\coverheight}{9.94in}
-\setlength{\coverwidth}{15.823616in}
-\setlength{\spinewidth}{0.693616in}
-\setlength{\spinepos}{7.565in}
+\setlength{\coverheight}{9.69in}  % trim height
+\setlength{\spinepos}{7.44in} % trim width
+\setlength{\spinewidth}{312\sheetwidth}
+
+% compute actual widths
+\addtolength{\coverheight}{.25in} % add bleed
+\addtolength{\spinepos}{.125in} % add bleed
+\setlength{\coverwidth}{\spinepos}
+\addtolength{\coverwidth}{\coverwidth}
+\addtolength{\coverwidth}{\spinewidth}
 
 % \coverpos = \spinepso + \spinewidth
 \setlength{\coverpos}{\spinepos}

@@ -32,7 +32,7 @@ Note that we have here broken one of the maxims of this book and \emph{temporari
 To further illustrate the idea of disjunctive normal form, we will introduce some more notation. We write `$\pm\meta{A}$' to indicate that $\meta{A}$ is an atomic sentence which may or may not be prefaced with an occurrence of negation. Then a sentence in disjunctive normal form has the following shape:
 	$$(\pm \meta{A}_1 \land \ldots \land \pm \meta{A}_i) \lor (\pm \meta{A}_{i+1} \land \ldots \land \pm\meta{A}_j) \lor \ldots \lor (\pm\meta{A}_{m+1} \land \ldots \land \pm \meta{A}_n)$$
 We now know what it is for a sentence to be in disjunctive normal form. The result that we are aiming at is:
-	\factoidbox{\label{thm:dnf}\textbf{Disjunctive Normal Form Theorem.} For any sentence, there is a tautologically equivalent sentence in disjunctive normal form.
+	\factoidbox{\label{thm:dnf}\textbf{Disjunctive Normal Form Theorem.} For any sentence, there is a logically equivalent sentence in disjunctive normal form.
 	}
 Henceforth, we will abbreviate `Disjunctive Normal Form' by `DNF'. 
 
@@ -76,13 +76,13 @@ As it happens, $\meta{S}$ is true on four lines of its truth table, namely lines
 	\end{earg}
 We now combine all of these conjunctions using~$\eor$, like so:
 $$(A \eand B \eand C) \eor (A \eand \enot B \eand C) \eor (\enot A \eand \enot B \eand C) \eor (\enot A \eand \enot B \eand \enot C)$$
-This gives us a sentence in DNF which is true on exactly those lines where one of the disjuncts is true, i.e.\ it is true on (and only on) lines 1, 3, 7, and 8. So this sentence has exactly the same truth table as $\meta{S}$. So we have a sentence in DNF that is tautologically equivalent to $\meta{S}$, which is exactly what we wanted!
+This gives us a sentence in DNF which is true on exactly those lines where one of the disjuncts is true, i.e.\ it is true on (and only on) lines 1, 3, 7, and 8. So this sentence has exactly the same truth table as $\meta{S}$. So we have a sentence in DNF that is logically equivalent to $\meta{S}$, which is exactly what we wanted!
 
 Now, the strategy that we just adopted did not depend on the specifics of $\meta{S}$; it is perfectly general. Consequently, we can use it to obtain a simple proof of the DNF Theorem.
 
-Pick any arbitrary sentence, $\meta{S}$, and let $\meta{A}_1, \ldots, \meta{A}_n$ be the atomic sentences that occur in $\meta{S}$. To obtain a sentence in DNF that is tautologically equivalent $\meta{S}$, we consider $\meta{S}$'s truth table. There are two cases to consider:
+Pick any arbitrary sentence, $\meta{S}$, and let $\meta{A}_1, \ldots, \meta{A}_n$ be the atomic sentences that occur in $\meta{S}$. To obtain a sentence in DNF that is logically equivalent $\meta{S}$, we consider $\meta{S}$'s truth table. There are two cases to consider:
 	\begin{enumerate}
-		\item \emph{$\meta{S}$ is false on every line of its truth table.} Then, $\meta{S}$ is a contradiction. In that case, the contradiction $(\meta{A}_1 \eand \enot \meta{A}_1)$ is in DNF and tautologically equivalent to~$\meta{S}$. 
+		\item \emph{$\meta{S}$ is false on every line of its truth table.} Then, $\meta{S}$ is a contradiction. In that case, the contradiction $(\meta{A}_1 \eand \enot \meta{A}_1)$ is in DNF and logically equivalent to~$\meta{S}$. 
 	
 		\item \emph{$\meta{S}$ is true on at least one line of its truth table.}
 		For each line $i$ of the truth table, let $\meta{B}_i$ be a conjunction of the form 
@@ -98,9 +98,9 @@ Pick any arbitrary sentence, $\meta{S}$, and let $\meta{A}_1, \ldots, \meta{A}_n
 		$$\meta{B}_{i_1} \eor \meta{B}_{i_2} \eor \ldots \eor \meta{B}_{i_m}$$
 		Since $\meta{S}$ is true on at least one line of its truth table, $\meta{D}$ is indeed well-defined; and in the limiting case where $\meta{S}$ is true on exactly one line of its truth table, $\meta{D}$ is just $\meta{B}_{i_1}$, for some $i_1$.
 		
-		By construction, $\meta{D}$ is in DNF. Moreover, by construction, for each line~$i$ of the truth table: $\meta{S}$ is true on line $i$ of the truth table \emph{iff} one of $\meta{D}$'s disjuncts (namely, $\meta{B_i}$) is true on, and only on, line $i$. Hence $\meta{S}$ and $\meta{D}$ have the same truth table, and so are tautologically equivalent.
+		By construction, $\meta{D}$ is in DNF. Moreover, by construction, for each line~$i$ of the truth table: $\meta{S}$ is true on line $i$ of the truth table \emph{iff} one of $\meta{D}$'s disjuncts (namely, $\meta{B_i}$) is true on, and only on, line $i$. Hence $\meta{S}$ and $\meta{D}$ have the same truth table, and so are logically equivalent.
 	\end{enumerate}
-	These two cases are exhaustive and, either way, we have a sentence in DNF that is tautologically equivalent to $\meta{S}$.
+	These two cases are exhaustive and, either way, we have a sentence in DNF that is logically equivalent to $\meta{S}$.
 
 So we have proved the DNF Theorem. Before we say any more, though, we should immediately flag that we are hereby returning to the austere definition of a (TFL) sentence, according to which we can assume that any conjunction has exactly two conjuncts, and any disjunction has exactly two disjuncts.
 
@@ -126,14 +126,14 @@ Generally, then, a sentence in CNF looks like this
 where each $\meta{A}_k$ is an atomic sentence.
 
 We can now prove another normal form theorem:
-	\factoidbox{\label{thm:cnf}\textbf{Conjunctive Normal Form Theorem.} For any sentence, there is a tautologically equivalent sentence in conjunctive normal form.}
+	\factoidbox{\label{thm:cnf}\textbf{Conjunctive Normal Form Theorem.} For any sentence, there is a logically equivalent sentence in conjunctive normal form.}
 
         
 	Given a TFL sentence, $\meta{S}$, we begin by writing down the complete truth table for $\meta{S}$.
 	
-	If $\meta{S}$ is \emph{true} on every line of the truth table, then $\meta{S}$ and $(\meta{A}_1 \eor \enot \meta{A}_1)$ are tautologically equivalent.
+	If $\meta{S}$ is \emph{true} on every line of the truth table, then $\meta{S}$ and $(\meta{A}_1 \eor \enot \meta{A}_1)$ are logically equivalent.
 	
-	If $\meta{S}$ is \emph{false} on at least one line of the truth table then, for every line on the truth table where $\meta{S}$ is false, write down a disjunction $(\pm\meta{A}_1 \eor \ldots \eor \pm\meta{A}_n)$ which is \emph{false} on (and only on) that line. Let $\meta{C}$ be the conjunction of all of these disjuncts; by construction, $\meta{C}$ is in CNF and $\meta{S}$ and $\meta{C}$ are tautologically equivalent.
+	If $\meta{S}$ is \emph{false} on at least one line of the truth table then, for every line on the truth table where $\meta{S}$ is false, write down a disjunction $(\pm\meta{A}_1 \eor \ldots \eor \pm\meta{A}_n)$ which is \emph{false} on (and only on) that line. Let $\meta{C}$ be the conjunction of all of these disjuncts; by construction, $\meta{C}$ is in CNF and $\meta{S}$ and $\meta{C}$ are logically equivalent.
 
 \practiceproblems
 \problempart
@@ -147,7 +147,7 @@ Consider the following sentences:
 		\item $(\enot (A \eor B) \eiff ((\enot C \eand \enot A) \eif \enot B))$
 		\item $((\enot (A \eand \enot B) \eif C) \eand \enot (A \eand D))$
 	\end{earg}
-        For each sentence, find a tautologically equivalent sentence in DNF and one in CNF.
+        For each sentence, find a logically equivalent sentence in DNF and one in CNF.
         
 \section{The expressive adequacy of TFL}
 
@@ -192,13 +192,13 @@ It follows that the connectives of TFL are jointly expressively adequate. We now
 		\begin{align*}
 		(\meta{A} \eand \meta{B}) & \text{\quad and \quad} \enot(\enot \meta{A} \eor\enot \meta{B})
 		\end{align*}
-		are tautologically equivalent.
+		are logically equivalent.
 
 \emph{Subsidiary Result \ref{expressive:eand}: expressive adequacy of `$\enot$' and `$\eand$'.} Exactly as in Subsidiary Result~\ref{expressive:eor}, making use of the fact that
 		\begin{align*}
 		(\meta{A} \eor \meta{B}) & \text{\quad and \quad}\enot(\enot \meta{A} \eand\enot \meta{B})
 		\end{align*}
-are tautologically equivalent.
+are logically equivalent.
 
 \emph{Subsidiary Result \ref{expressive:eif}: expressive adequacy of `$\enot$' and `$\eif$'.} Exactly as in Subsidiary Result~\ref{expressive:eor}, making use of these equivalences instead:
 		\begin{align*}
@@ -227,7 +227,7 @@ $\meta{A}$ & $\meta{B}$ & $\meta{A} \mathrel{\uparrow} \meta{B}$\\
  This is often called `the Sheffer stroke', after Henry Sheffer, who used it to show how to reduce the number of logical connectives in Russell and Whitehead's \emph{Principia Mathematica}.\footnote{Sheffer, `A Set of Five Independent Postulates for Boolean Algebras, with application to logical constants,' (1913, \emph{Transactions of the American Mathematical Society} 14.4)} (In fact, Charles Sanders Peirce had anticipated Sheffer by about 30 years, but never published his results.)\footnote{See Peirce, `A Boolian Algebra with One Constant', which dates to c.1880; and Peirce's \emph{Collected Papers}, 4.264--5.} It is quite common, as well, to call it `nand', since its characteristic truth table is the negation of the truth table for `$\eand$'.
 \factoidbox{\label{prop:upexpressive}`$\uparrow$' is expressively adequate all by itself.}
 
-The Expressive Adequacy Theorem tells us that `$\enot$' and `$\eor$' are jointly expressively adequate. So it suffices to show that, given any scheme which contains only those two connectives, we can rewrite it as a tautologically equivalent scheme which contains only `$\uparrow$'. As in the proof of the subsidiary cases of the Expressive Adequacy Theorem, then, we simply apply the following equivalences:
+The Expressive Adequacy Theorem tells us that `$\enot$' and `$\eor$' are jointly expressively adequate. So it suffices to show that, given any scheme which contains only those two connectives, we can rewrite it as a logically equivalent scheme which contains only `$\uparrow$'. As in the proof of the subsidiary cases of the Expressive Adequacy Theorem, then, we simply apply the following equivalences:
 		\begin{align*}
 			\enot \meta{A} &\text{\quad and \quad} (\meta{A} \uparrow \meta{A})\\
 			(\meta{A} \eor \meta{B}) & \text{\quad and \quad} ((\meta{A} \uparrow \meta{A}) \uparrow (\meta{B} \uparrow \meta{B}))

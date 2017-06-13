@@ -150,7 +150,7 @@
 \newcommand*{\closentuple}{\rangle}
 \newcommand*{\ntuple}[1]{\ensuremath{\mathopen{\openntuple}}#1\ensuremath{\mathclose{\closentuple}}} 
 % definitions
-\newcommand*{\define}[1]{\textsc{\lowercase{#1}}}
+\newcommand*{\define}[1]{\textsc{\lowercase{\color{leadbeater}#1}}}
 
 %    ****************************************
 %    *          LIST  ENVIRONMENTS          *
@@ -187,7 +187,14 @@
 % \factoidbox{...} produces an inset paragraph of text with a line around it
 % Neither for lists nor an environment, but it really didn't
 % belong anywhere else.
-\newcommand{\factoidbox}[1]{\begin{quote}\framebox{\parbox{\linewidth}{#1}}\end{quote}}
+\usepackage{tcolorbox}
+\newcommand{\factoidbox}[1]{
+  \begin{tcolorbox}[%width=.9\textwidth,
+%      leftright skip=.05\textwidth,
+      beforeafter skip=.7em,
+      colframe={leadbeater},colback={vltleadbeater}]   
+#1
+\end{tcolorbox}}
 
 % \tablefbox{...} is used in certain tables to put a box around the contents of specific table cells without having lines that run the whole length of the table
 \newcommand{\tablefbox}[1]{\multicolumn{1}{|p{10em}|}{#1}}

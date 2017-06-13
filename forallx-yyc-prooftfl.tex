@@ -55,7 +55,7 @@ The modern development of natural deduction dates from simultaneous and unrelate
 
 
 \chapter{Basic rules for TFL}\label{s:BasicTFL}
-We will develop a \define{natural deduction} system. For each connective, there will be \define{introduction} rules, that allow us to prove a sentence that has that connective as the main logical operator, and \define{elimination} rules, that allow us to prove something given a sentence that has that connective as the main logical operator
+We will develop a \define{natural deduction} system. For each connective, there will be \define{introduction} rules, that allow us to prove a sentence that has that connective as the main logical operator, and \define{elimination} rules, that allow us to prove something given a sentence that has that connective as the main logical operator.
 
 \section{The idea of a formal proof}
 A \emph{formal proof} is a sequence of sentences, some of which are marked as being initial assumptions (or premises). The last line of the formal proof is the conclusion. (Henceforth, we will simply call these `proofs', but you should be aware that there are \emph{informal proofs} too.)
@@ -200,7 +200,7 @@ But now we can merrily reintroduce conjunctions in the order we wanted them, so 
 	\have{ab}{A \eand B}\ai{a, b}
 	\have{con}{(A \eand B) \eand C}\ai{ab, c}
 \end{proof}
-Recall that our official definition of sentences in TFL only allowed conjunctions with two conjuncts. The proof just given suggests that we could drop inner brackets in all of our proofs. However, this is not standard, and we will not do this. Instead, we swill maintain our more austere bracketing conventions. (Though we will still allow ourselves to drop outermost brackets, for legibility.)
+Recall that our official definition of sentences in TFL only allowed conjunctions with two conjuncts. The proof just given suggests that we could drop inner brackets in all of our proofs. However, this is not standard, and we will not do this. Instead, we will maintain our more austere bracketing conventions. (Though we will still allow ourselves to drop outermost brackets, for legibility.)
 
 Let me offer one final illustration. When using the $\eand$I rule, there is no need to apply it to different sentences. So we can formally prove `$A$' from `$A$' as follows:
 \begin{proof}
@@ -576,7 +576,6 @@ Here is a proof corresponding with the argument:
 
 \problempart
 The following two `proofs' are \emph{incorrect}. Explain the mistakes they make.
-\begin{multicols}{2}
 \begin{proof}
 \hypo{abc}{\enot L \eif (A \eand L)}
 \open
@@ -598,7 +597,6 @@ The following two `proofs' are \emph{incorrect}. Explain the mistakes they make.
 \have{bc}{B \eor C}\oi{b}
 \have{d}{D}\ce{bc, bcd}
 \end{proof}
-\end{multicols}
 
 \problempart
 The following three proofs are missing their citations (rule and line numbers). Add them, to turn them into \emph{bona fide} proofs. Additionally, write down the argument that corresponds to each proof.
@@ -688,7 +686,7 @@ This is a fairly typical use of the R rule.
 \section{Disjunctive syllogism}
 Here is a very natural argument form.
 	\begin{quote}
-		Elizebeth is either in Massachusetts or in DC. She is not in DC. So, he is in Massachusetts.
+		Elizebeth is either in Massachusetts or in DC. She is not in DC. So, she is in Massachusetts.
 	\end{quote}
 This inference pattern is called \emph{disjunctive syllogism}. We add it to our proof system as follows:
 \factoidbox{\begin{proof}
@@ -824,9 +822,9 @@ means that there is some proof which starts with assumptions among $\meta{A}_1, 
 $$\proves \meta{A}$$
 to mean that there is a proof of $\meta{A}$ with no assumptions. 
 
-The symbol `$\proves$' is called the \emph{single turnstile}. We want to emphasise that this is not the {double turnstile} symbol (`$\entails$') that we use to symbolise entailment in chapters \ref{ch.TruthTables} and \ref{ch.semantics}. The single turnstile, `$\proves$', concerns the existence of proofs; the double turnstile, `$\entails$', concerns the existence of valuations (or interpretations, when used for FOL). \emph{They are very different notions.}
+The symbol `$\proves$' is called the \emph{single turnstile}. We want to emphasise that this is not the {double turnstile} symbol (`$\entails$') that we introduced in chapter~\ref{s:SemanticConcepts} to symbolise entailment. The single turnstile, `$\proves$', concerns the existence of proofs; the double turnstile, `$\entails$', concerns the existence of valuations (or interpretations, when used for FOL). \emph{They are very different notions.}
 
-Armed with our `$\proves$' symbol, we can introduce a new terminology.
+Armed with our `$\proves$' symbol, we can introduce some new terminology.
 	\factoidbox{\label{def:syntactic_tautology_in_sl}
 		$\meta{A}$ is a \define{theorem} iff $\proves \meta{A}$
 	}
@@ -867,7 +865,7 @@ As in the case of showing that a sentence is a theorem, it is relatively easy to
 
 Here is a third, related, bit of terminology:
 	\factoidbox{
-		The sentences $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n$ are \define{provably inconsistent} iff a contradiction can be proved from them, i.e.\ $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n \proves \ered$. It they are not \define{inconsistent}, we call them \define{provably consistent}.
+		The sentences $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n$ are \define{provably inconsistent} iff a contradiction can be proved from them, i.e.\ $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n \proves \ered$. If they are not \define{inconsistent}, we call them \define{provably consistent}.
 	}
         
 \newglossaryentry{provably inconsistent}
@@ -968,7 +966,7 @@ Suppose you have some sentence on some line of your deduction:
 You now want to repeat yourself, on some line $k$. You could just invoke the rule R, introduced in \S\ref{s:Further}. But equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
 \begin{proof}
 	\have[m]{a}{\meta{A}}
-	\have[k]{aa}{\meta{A} \eand \meta{A}}\ai{a}
+	\have[k]{aa}{\meta{A} \eand \meta{A}}\ai{a, a}
 	\have{a2}{\meta{A}}\ae{aa}
 \end{proof}
 To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, `$\meta{A}$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\meta{A}$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 

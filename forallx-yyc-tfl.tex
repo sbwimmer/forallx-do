@@ -98,19 +98,19 @@ It is important to understand that whatever structure an English sentence might 
 \newglossaryentry{atomic sentence}
 {
 name=atomic sentence,
-description={A sentence used to represent a basic sentence; a single letter in TFL, or a predicate symbol followed by constants in FOL}
+description={A sentence used to represent a basic sentence; a single letter in TFL, or a predicate symbol followed by names in FOL}
 }
 
-\newglossaryentry{symbolization key}
+\newglossaryentry{symbolisation key}
 {
-name=symbolization key,
+name=symbolisation key,
 description={A list that shows which English sentences are represented by which \glspl{atomic sentence} in TFL}
 }
 
 \chapter{Connectives}
 \label{s:TFLConnectives}
 
-In the previous section, we considered symbolising fairly basic English sentences with atomic sentences of TFL. This leaves us wanting to deal with the English expressions `and', `or', `not', and so forth. These are \emph{connectives}---they can be used to form new sentences out of old ones. In TFL, we will make use of logical connectives to build complex sentences from atomic components. There are five logical connectives in TFL. This table summarises them, and they are explained throughout this section.
+In the previous chapter, we considered symbolising fairly basic English sentences with atomic sentences of TFL. This leaves us wanting to deal with the English expressions `and', `or', `not', and so forth. These are \emph{connectives}---they can be used to form new sentences out of old ones. In TFL, we will make use of logical connectives to build complex sentences from atomic components. There are five logical connectives in TFL. This table summarises them, and they are explained throughout this section.
 
 \newglossaryentry{connective}
 {
@@ -247,7 +247,7 @@ These English sentences are very different, and their symbolisations differ acco
 Consider these sentences:
 	\begin{earg}
 		\item[\ex{or1}]Either Fatima will play videogames, or she will watch movies.
-		\item[\ex{or2}]Either Fatima or Ali will play videogames with me. 
+		\item[\ex{or2}]Either Fatima or Omar will play videogames. 
 	\end{earg}
 For these sentences we can use this symbolisation key:
 	\begin{ekey}
@@ -463,7 +463,7 @@ Again, though, there is a little complication. `Unless' can be symbolised as a c
 \end{earg}
 
 \problempart
-Using the symbolization key given, translate each English-language sentence into TFL.
+Using the symbolisation key given, symbolise each English-language sentence in TFL.
 \label{pr.jazzinstruments}
 \begin{ekey}
 \item[J_1] John Coltrane played tenor sax.
@@ -517,7 +517,7 @@ For each argument, write a symbolisation key and symbolise all of the sentences 
 \end{earg}
 
 \problempart
-For each argument, write a symbolization key and translate the argument as well as possible into TFL. The part of the passage in italics is there to provide context for the argument, and doesn't need to be symbolized.
+For each argument, write a symbolisation key and symbolise the argument as well as possible in TFL. The part of the passage in italics is there to provide context for the argument, and doesn't need to be symbolised.
 \begin{earg}
 \item It is going to rain soon. I know because my leg is hurting, and my leg hurts if it's going to rain. 
 
@@ -772,7 +772,7 @@ However, we do not just want to talk about \emph{specific} expressions of TFL. W
 	$$\meta{A}, \meta{B}, \meta{C}, \meta{D}, \ldots$$
 These symbols do not belong to TFL. Rather, they are part of our (augmented) metalanguage that we use to talk about \emph{any} expression of TFL. To repeat the second clause of the recursive definition of a sentence of TFL, we said:
 	\begin{earg}
-		\item[3.] If $\meta{A}$ is a sentence, then $\enot \meta{A}$ is a sentence.
+		\item[2.] If $\meta{A}$ is a sentence, then $\enot \meta{A}$ is a sentence.
 	\end{earg}
 This talks about \emph{arbitrary} sentences. If we had instead offered:
 	\begin{ebullet}
@@ -791,17 +791,17 @@ But this last example raises a further complications for our quotation conventio
 
 The problem is that the expression on the right-hand-side of this rule is not a sentence of English, since it contains `$\enot$'. So we might try to write:
 	\begin{enumerate}
-		\item[3$'$.] If \meta{A} is a sentence, then `$\enot \meta{A}$' is a sentence.
+		\item[2$'$.] If \meta{A} is a sentence, then `$\enot \meta{A}$' is a sentence.
 	\end{enumerate}
 But this is no good: `$\enot \meta{A}$' is not a TFL sentence, since `$\meta{A}$' is a symbol of (augmented) English rather than a symbol of TFL.
 
 What we really want to say is something like this:
 	\begin{enumerate}
-		\item[3$''$.] If \meta{A} and \meta{B} are sentences, then the result of concatenating the symbol `$\enot$' with the sentence \meta{A} is a sentence.
+		\item[2$''$.] If \meta{A} is a sentence, then the result of concatenating the symbol `$\enot$' with the sentence \meta{A} is a sentence.
 	\end{enumerate}
-This is impeccable, but rather long-winded. %Quine introduced a convention that speeds things up here. In place of (3$''$), he suggested:
+This is impeccable, but rather long-winded. %Quine introduced a convention that speeds things up here. In place of (2$''$), he suggested:
 %	\begin{enumerate}
-%		\item[3$'''$.] If \meta{A} and \meta{B} are sentences, then $\ulcorner (\meta{A}\eand\meta{B})\urcorner$ is a sentence
+%		\item[2$'''$.] If \meta{A} and \meta{B} are sentences, then $\ulcorner (\meta{A}\eand\meta{B})\urcorner$ is a sentence
 %	\end{enumerate}
 %The rectangular quote-marks are sometimes called `Quine quotes', after Quine. The general interpretation of an expression like `$\ulcorner (\meta{A}\eand\meta{B})\urcorner$' is in terms of rules for concatenation. 
 But we can avoid long-windedness by creating our own conventions. We can perfectly well stipulate that an expression like `$\enot \meta{A}$' should simply be read \emph{directly} in terms of rules for concatenation. So, \emph{officially}, the metalanguage expression `$\enot \meta{A}$'

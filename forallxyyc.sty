@@ -51,8 +51,8 @@
     \smash{\color{leadbeater}\rule{7pt}{300pt}}}
 }
 
-\renewcommand*{\partnamefont}{\fontsize{24pt}{0pt}\selectfont\bfseries\sffamily}
-\renewcommand*{\partnumfont}{\fontsize{24pt}{0pt}\selectfont\bfseries\sffamily}
+\renewcommand*{\partnamefont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
+\renewcommand*{\partnumfont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
 \renewcommand*{\parttitlefont}{\normalfont\fontsize{54pt}{54pt}\selectfont\bfseries\itshape\color{leadbeater}}
 \renewcommand*{\printpartname}{%
   \partnamefont PART}
@@ -190,7 +190,8 @@
 \usepackage{tcolorbox}
 \newcommand{\factoidbox}[1]{
   \begin{tcolorbox}[%width=.9\textwidth,
-%      leftright skip=.05\textwidth,
+      %      leftright skip=.05\textwidth,
+      sharp corners=downhill,
       beforeafter skip=.7em,
       colframe={leadbeater},colback={vltleadbeater}]   
 #1

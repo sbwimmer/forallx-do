@@ -60,7 +60,6 @@ Could there be:
 		\item A valid argument that has one false premise and one true premise? \hfill \myanswer{Yes. \\Example: the first argument, above.}
 		\item A valid argument that has only false premises? \hfill \myanswer{Yes.\\Example: Socrates is a frog, all frogs are excellent pianists, therefore Socrates is an excellent pianist.}
 		\item A valid argument with only false premises and a false conclusion? \hfill \myanswer{Yes. \\The same example will suffice.}
-		\item A sound argument with a false conclusion? \hfill\myanswer{No.\\ By definition, a sound argument has true premises. And a valid argument is one where it is impossible for the premises to be true and the conclusion false. So the conclusion of a sound argument is certainly true.}
 		\item An invalid argument that can be made valid by the addition of a new premise? \hfill\myanswer{Yes.\\ Plenty of examples, but let me offer a more general observation. We can \emph{always} make an invalid argument valid, by adding a contradiction into the premises. For an argument is valid if and only if it is impossible for all the premises to be true and the conclusion false. If the premises are contradictory, then it is impossible for them all to be true (and the conclusion false).}
 		\item A valid argument that can be made invalid by the addition of a new premise? \hfill \myanswer{No.\\ An argument is valid if and only if it is impossible for all the premises to be true and the conclusion false. Adding another premise will only make it harder for the premises all to be true together.}
 	\end{earg}
@@ -86,6 +85,7 @@ For each of the following: Is it necessarily true, necessarily false, or conting
 \hfill \myanswer{Contingent}
 \end{earg}
 
+\setcounter{ProbPart}{4} % (next problem is E = 5)
 \problempart
 For each of the following: Is it a necessary truth, a necessary falsehood, or contingent?
 \begin{earg}
@@ -126,7 +126,10 @@ For each of the following: Is it a necessary truth, a necessary falsehood, or co
 John Coltrane viewed music as an expression of spirituality. 
 \end{earg}
 
-\noindent \problempart Consider the following sentences: 
+\noindent
+\problempart 
+\label{pr.MartianGiraffes}
+Consider the following sentences: 
 \begin{enumerate}%[label=(\alph*)]
 \item[G1] \label{itm:at_least_four}There are at least four giraffes at the wild animal park.
 \item[G2] \label{itm:exactly_seven} There are exactly seven gorillas at the wild animal park.
@@ -136,13 +139,13 @@ John Coltrane viewed music as an expression of spirituality.
 
 Now consider each of the following collections of sentences. Which are jointly possible? Which are jointly impossible?
 \begin{earg}
-\item G2, G3, and G4
+\item Sentences G2, G3, and G4
 \hfill \myanswer{Jointly possible}
-\item G1, G3, and G4
+\item Sentences G1, G3, and G4
 \hfill \myanswer{Jointly impossible}
-\item G1, G2, and G4
+\item Sentences G1, G2, and G4
 \hfill \myanswer{Jointly possible}
-\item G1, G2, and G3
+\item Sentences G1, G2, and G3
 \hfill \myanswer{Jointly possible}
 \end{earg}
 
@@ -162,60 +165,38 @@ Which combinations of sentences are jointly possible? Mark each ``possible'' or 
 \item Sentences M1, M2, M3, and M4
 \end{earg}
 
+\setcounter{ProbPart}{6} % (next problem is G = 7)
 \problempart
 \label{pr.EnglishCombinations2}
 Which of the following is possible? If it is possible, give an example. If it is not possible, explain why.
 \begin{earg}
 \item A valid argument that has one false premise and one true premise
-
+\item[] \myanswer{Yes: `All whales are mammals (\emph{true}).  All mammals
+  are plants (\emph{false}). So all whales are plants.' }
 \item A valid argument that has a false conclusion
-
+\item[] \myanswer{Yes. (See example from previous exercise.)}
 \item A valid argument, the conclusion of which is a necessary falsehood
-
+\item[] \myanswer{Yes: `$1+1=3$. So $1+2=4$.'}
 \item An invalid argument, the conclusion of which is a necessary truth
-
+\item[] \myanswer{No. If the conclusion is necessarily true, then there is no way to make it false, and hence no way to make it false whilst making all the premises true.} 
 \item A necessary truth that is contingent
-
+\item[] \myanswer{No. If a sentence is a necessary truth, it cannot
+  possibly be false, but a contingent sentence can be false.} 
 \item Two necessarily equivalent sentences, both of which are necessary truths
-
+\item[] \myanswer{Yes: `4 is even', `4 is divisible by 2'.} 
 \item Two necessarily equivalent sentences, one of which is a necessary truth and one of which is contingent
-
+\item[] \myanswer{No.  A necessary truth cannot possibly be false,
+  while a contingent sentence can be false.  So in any situation in
+  which the contingent sentence is false, it will have a different
+  truth value from the necessary truth. Thus they will not necessarily
+  have the same truth value, and so will not be equivalent.}
 \item Two necessarily equivalent sentences that together are jointly impossible
-
+\item[] \myanswer{Yes: `$1+1=4$' and `$1+1=3$'.} 
 \item A jointly possible collection of sentences that contains a necessary falsehood
-
+\item[] \myanswer{No. If a sentence is necessarily false, there is no way to make it true, let alone it along with all the other sentences.}
 \item A jointly impossible set of sentences that contains a necessary truth
+\item[] \myanswer{Yes: `$1+1=4$' and `$1+1=2$'.}
 \end{earg}
-
-\problempart
-Which of the following is possible? If it is possible, give an example. If it is not possible, explain why.
-
-\begin{earg}
-\item A valid argument, whose premises are all necessary truths, and whose conclusion is contingent
-\item A valid argument with true premises and a false conclusion
-\item A jointly possible collection of sentences that contains two sentences that are not necessarily equivalent
-\item A jointly possible collection of sentences, all of which are contingent
-\item A false necessary truth
-\item A valid argument with false premises
-\item A necessarily equivalent pair of sentences that are not jointly possible
-\item A necessary truth that is also a necessary falsehood
-\item A jointly possible collection of sentences that are all necessary falsehoods
-\end{earg}
-
-%\problempart
-%\label{pr.EnglishCombinations}
-%Could there be:
-%\begin{earg}
-%\item A valid argument, the conclusion of which is necessarily false?
-%\item[] \myanswer{Yes: `$1+1=3$. So $1+2=4$.'}
-%\item An invalid argument, the conclusion of which is necessarily true?
-%\item[] \myanswer{No. If the conclusion is necessarily true, then there is no way to make it false, and hence no way to make it false whilst making all the premises true.} 
-%\item Jointly consistent sentences, one of which is necessarily false?
-%\item[] \myanswer{No. If a sentence is necessarily false, there is no way to make it true, let alone it along with all the other sentences.}
-%\item Jointly inconsistent sentences, one of which is necessarily true?
-%\item[] \myanswer{Yes. `$1+1=4$' and `$1+1=2$'.}
-%\end{earg}
-%In each case: if so, give an example; if not, explain why not.
 
 \setcounter{chapter}{4}
 \chapter{Connectives}\setcounter{ProbPart}{0}
@@ -347,6 +328,7 @@ Using the symbolization key given, translate each English-language sentence into
 \end{earg}
 
 \solutions
+\stepcounter{ProbPart} % no solutions for Chapter 5, Exercise D
 \problempart
 \label{pr.spies}
 Give a symbolisation key and symbolise the following English sentences in TFL.
@@ -420,6 +402,7 @@ For each argument, write a symbolisation key and symbolise all of the sentences 
 \item[] \myanswer{$(Z \eif (C \eand \enot N))$, $(\enot Z \eif (N \eand \enot C))$, $((N \eor C) \eand \enot (N \eand C))$.}
 \end{earg}
 
+\setcounter{ProbPart}{8} % next problem is I (= 9)
 \problempart
 For each argument, write a symbolization key and translate the argument as well as possible into TFL. The part of the passage in italics is there to provide context for the argument, and doesn't need to be symbolized.
 \begin{earg}

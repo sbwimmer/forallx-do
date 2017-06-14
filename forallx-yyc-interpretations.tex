@@ -32,11 +32,11 @@ So, in particular:
 	\begin{ebullet}
 		\item `$Cx$' is to be true of all and only those things which teach Logic III in Calgary (whatever those things might be).
 	\end{ebullet}
-This is an indirect stipulation. Alternatively, we can stipulate predicate extensions directly. We can stipulate that `$Cx$' is to be true of Richard Zach, and Richard Zach alone. As it happens, this direct stipulation would have the same effect as the indirect stipulation. Note however, that the English predicates `\blank\ is Richard Zach' and `\blank\ teaches Logic III in Calgary' have very different meanings!
+This is an indirect stipulation. Alternatively, we can directly stipulate which objects a predicate should be true of. For example, we can stipulate that `$Cx$' is to be true of Richard Zach, and Richard Zach alone. As it happens, this direct stipulation would have the same effect as the indirect stipulation. Note, however, that the English predicates `\blank\ is Richard Zach' and `\blank\ teaches Logic III in Calgary' have very different meanings!
 
-The point is that FOL does not give us any resources for dealing with nuances of meaning. When we interpret FOL, all we are considering is what the predicates are true of. This is normally summed up by saying that FOL is an \define{extensional language}. 
+The point is that FOL does not give us any resources for dealing with nuances of meaning. When we interpret FOL, all we are considering is what the predicates are true of, regardless of whether we specify these things directly or indirectly. The things a predicate is true of are known as the \define{extension} of that predicate. We say that FOL is an \define{extensional language} because FOL does not represent differences of meaning between predicates that have the same extension.    
 
-For this reason, we say only that FOL sentences \emph{symbolise} English sentences. It is doubtful that we are \emph{translating} English into FOL, as translations should preserve meanings.
+For this reason, we say only that FOL sentences \emph{symbolise} English sentences. It is doubtful that we are \emph{translating} English into FOL, as translations should preserve meanings, and not just extensions.
 
 \section{A word on extensions}
 We can stipulate directly what predicates are to be true of, so it is worth noting that our stipulations can be as arbitrary as we like. For example, we could stipulate that `$Hx$' should be true of, and only of, the following objects:
@@ -53,7 +53,6 @@ Now, the objects that we have listed have nothing particularly in common. But th
 	\end{ekey}
 Then `$Hj$' and `$Hp$' will both be true, on this interpretation, but `$Hr$' will be false, since Rachel Notley was not among the stipulated objects. 
 
-(This process of explicit stipulation is sometimes described as stipulating the \emph{extension} of a predicate.)
 
 
 \section{Many-place predicates}
@@ -84,9 +83,9 @@ Here the angle-brackets keep us informed concerning order. Suppose we now add th
 		\item[l] Lenin
 		\item[m] Marx
 		\item[h] Heidegger
-		\item[s] Sartre
+		\item[r] Sartre
 	\end{ekey}
-Then `$Blm$' will be true, since \ntuple{Lenin, Marx} was in our explicit list, but `$Bml$' will be false, since \ntuple{Marx, Lenin} was not in our list. However, both `$Bhs$' and `$Bsh$' will be true, since both \ntuple{Heidegger, Sartre} and \ntuple{Sartre, Heidegger} are in our explicit list.
+Then `$Blm$' will be true, since \ntuple{Lenin, Marx} was in our explicit list, but `$Bml$' will be false, since \ntuple{Marx, Lenin} was not in our list. However, both `$Bhr$' and `$Brh$' will be true, since both \ntuple{Heidegger, Sartre} and \ntuple{Sartre, Heidegger} are in our explicit list.
 
 To make these ideas more precise, we would need to develop some \emph{set theory}. That would give us some precise tools for dealing with extensions and with ordered pairs (and ordered triples, etc.). However, set theory is not covered in this book, so we will leave these ideas at an imprecise level. Nevertheless, the general idea should be clear.
 
@@ -248,9 +247,9 @@ The exciting innovation in FOL, though, is the use of \emph{quantifiers}, but ex
 
 Here is a na\"{i}ve first thought. We want to say that `$\forall x Fx$' is true iff `$Fx$' is true of everything in the domain. This should not be too problematic: our interpretation will specify directly what `$Fx$' is true of. 
 
-Unfortunately, this na\"{i}ve first thought is not general enough. For example, we want to be able to say that `$\forall x \exists y Lxy$' is true just in case `$\exists y Lxy$' is true of everything in the domain. This is problematic, since our interpretation does not directly specify what `$\exists y Lxy$' is to be true of. Instead, whether or not this is true of something should follow just from the interpretation of `$Lxy$', the domain, and the meanings of the quantifiers. 
+Unfortunately, this na\"{i}ve thought is not general enough. For example, we want to be able to say that `$\forall x \exists y Lxy$' is true just in case `$\exists y Lxy$' is true of everything in the domain. This is problematic, since our interpretation does not directly specify what `$\exists y Lxy$' is to be true of. Instead, whether or not this is true of something should follow just from the interpretation of `$Lxy$', the domain, and the meanings of the quantifiers. 
 
-So here is a na\"{i}ve second thought. We might try to say that `$\forall x \exists y Lxy$' is to be true in an interpretation iff $\exists y L\meta{a}y$ is true for \emph{every} name \meta{a} that we have included in our interpretation. Similarly, we might try to say that $\exists y L\meta{a}y$ is true just in case $L\meta{a}\meta{b}$ is true for \emph{some} name \meta{b} that we have included in our interpretation.
+So here is a second na\"{i}ve thought. We might try to say that `$\forall x \exists y Lxy$' is to be true in an interpretation iff $\exists y L\meta{a}y$ is true for \emph{every} name \meta{a} that we have included in our interpretation. Similarly, we might try to say that $\exists y L\meta{a}y$ is true just in case $L\meta{a}\meta{b}$ is true for \emph{some} name \meta{b} that we have included in our interpretation.
 
 Unfortunately, this is not right either. To see this, observe that in our go-to interpretation, we have only given interpretations for \emph{two} names, `$a$' and `$b$', but the domain---all people born before the year 2000\textsc{ce}---contains many more than two people. We have no intention of trying to name \emph{all} of them!
 
@@ -666,7 +665,7 @@ The following table summarises whether a single (counter-)interpretation suffice
 logical truth? & all interpretations & one counter-interpretation\\
 contradiction? &  all interpretations  & one counter-interpretation\\
 equivalent? & all interpretations & one counter-interpretation\\
-consistent? & one interpretation & consider all interpretations\\
+consistent? & one interpretation & all interpretations\\
 valid? & all interpretations & one counter-interpretation\\
 entailment? & all interpretations & one counter-interpretation\\
 \end{tabular}

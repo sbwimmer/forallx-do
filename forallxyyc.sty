@@ -2,8 +2,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{forallxyyc}[2011/10/29 support for a logic textbook]
 \RequirePackage{amssymb,amsmath,hyperref,multicol,ifthen,graphicx,pifont,rotating,xcolor}
-\usepackage[numbered]{bookmark} %TB: added for speedy navigation
-\usepackage{mdframed}
+%\usepackage[numbered]{bookmark} %TB: added for speedy navigation
+%\usepackage{mdframed}
 \usepackage[nonumberlist,toc,style=index]{glossaries}
 \makeglossaries
 \usepackage{tabu}
@@ -48,7 +48,7 @@
   \renewcommand*{\printchaptertitle}[1]{%
     \chaptitlefont ##1\\[-\baselineskip]%
     \hspace*{-20pt}%
-    \smash{\color{leadbeater}\rule{7pt}{300pt}}}
+    \smash{\color{leadbeater}\rule{7pt}{400pt}}}
 }
 
 \renewcommand*{\partnamefont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
@@ -207,6 +207,7 @@
 %    ****************************************
 \newcounter{ProbPart}
 \renewcommand{\theProbPart}{\Alph{ProbPart}}
+\renewcommand{\theHProbPart}{\thechapter.\theProbPart}
 % This inserts a heading and resets the counter:
 \newcommand*{\practiceproblems}{
 	\setcounter{ProbPart}{0}\section*{Practice exercises}%
@@ -751,11 +752,12 @@
 \setlength{\columnsep}{2em} % Sets 2em space between columns when calling multicol 
 
 \definecolor{darkred}{rgb}{0.5,0,0} % TB: used to color links in red
-\newcommand\myanswer[1]{\textcolor{blue}{#1}} % TB: puts model answers in blue
+\newcommand\myanswer[1]{\textcolor{leadbeater}{#1}} % TB: puts model answers in blue
 
 % TB: information originally in the main body; but it is style information, so I have included it here.
 \hypersetup{pdfinfo={Title={forall x: Calgary Version}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Aaron Thomas-Bolduc, Richard Zach}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, fitch}}, %
-	bookmarks={true}, %
+  bookmarks={true}, %
+  bookmarksopen = true,
 	colorlinks={true}, %
 	allcolors={dkleadbeater},
 	pdfdisplaydoctitle={true}}

@@ -547,11 +547,11 @@ Explain why these would be equally good symbolizations.
 \problempart
 \label{pr.freeFOL}
 Identify which variables are bound and which are free.
-\myanswer{I shall underline the bound variables, and put free variables in blue.}
+\myanswer{We underline the bound variables, and overline the free variables.}
 \begin{earg}
-\item $\exists x L\underline{x}\myanswer{y} \eand \forall y L\underline{y}\myanswer{x}$
-\item $\forall x A\underline{x} \eand B\myanswer{x}$
-\item $\forall x (A\underline{x} \eand B\underline{x}) \eand \forall y(C\myanswer{x} \eand D\underline{y})$
-\item $\forall x\exists y[R\underline{xy} \eif (J\myanswer{z} \eand K\underline{x})] \eor R\myanswer{yx}$
-\item $\forall x_1(M\myanswer{x_2} \eiff L\myanswer{x_2}\underline{x_1}) \eand \exists x_2 L\myanswer{x_3}\underline{x_2}$
+\item $\exists x L\underline{x}\overline{y} \eand \forall y L\underline{y}\overline{x}$
+\item $\forall x A\underline{x} \eand B\overline{x}$
+\item $\forall x (A\underline{x} \eand B\underline{x}) \eand \forall y(C\overline{x} \eand D\underline{y})$
+\item $\forall x\exists y[R\underline{xy} \eif (J\overline{z} \eand K\underline{x})] \eor R\overline{yx}$
+\item $\forall x_1(M\overline{x_2} \eiff L\overline{x_2}\underline{x_1}) \eand \exists x_2 L\overline{x_3}\underline{x_2}$
 \end{earg}

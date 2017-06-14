@@ -599,7 +599,7 @@ Show that each of the following is provably inconsistent.
 
 \chapter{Conversion of quantifiers}\setcounter{ProbPart}{0}
 \problempart
-Show that the following are jointly contrary:
+Show that the following are provably inconsistent:
 \begin{earg}
 \item $Sa\eif Tm, Tm \eif Sa, Tm \eand \enot Sa$
 \myanswer{\begin{proof}
@@ -631,7 +631,7 @@ Show that the following are jointly contrary:
 \have{n}{\enot Laa}\Ae{Anl}
 \have{red}{\ered}\ri{l,n}
 \end{proof}}
-\newpage \item $\forall x(Px \eif Qx), \forall z(Pz \eif Rz), \forall y Py, \enot Qa \eand \enot Rb$
+\item $\forall x(Px \eif Qx), \forall z(Pz \eif Rz), \forall y Py, \enot Qa \eand \enot Rb$
 \myanswer{\begin{proof}
 \hypo{Apq}{\forall x(Px \eif Qx)}
 \hypo{Apr}{\forall z(Pz \eif Rz)}
@@ -722,7 +722,7 @@ Show that each pair of sentences is provably equivalent: %TB: Again, have to do 
 
 
 \problempart
-In \S\ref{s:MoreMonadic}, I considered what happens when we move quantifiers `across' various logical operators. Show that each pair of sentences is provably equivalent: %TB: Again, manual line numbering to give multicols enough space.
+In \S\ref{s:MoreMonadic}, we considered what happens when we move quantifiers `across' various logical operators. Show that each pair of sentences is provably equivalent: %TB: Again, manual line numbering to give multicols enough space.
 
 \
 
@@ -808,7 +808,7 @@ In \S\ref{s:MoreMonadic}, I considered what happens when we move quantifiers `ac
 \have{Agf}{\forall x (Ga \eif Fx)}\Ai{gf}
 \end{proof}
 \end{multicols}}
-\pagebreak
+
 4. $\forall x(Fx \eif Ga), \exists x Fx \eif Ga$
 \myanswer{\begin{multicols}{2}
 \begin{proof}
@@ -880,7 +880,7 @@ In \S\ref{s:MoreMonadic}, I considered what happens when we move quantifiers `ac
 \end{proof}
 \end{multicols}}
 
-\newpage 6. $\exists x(Fx \eif Ga), \forall x Fx \eif Ga$
+6. $\exists x(Fx \eif Ga), \forall x Fx \eif Ga$
 \myanswer{\begin{multicols}{2}
 \begin{proof}
 \hypo{Efg}{\exists x (Fx \eif Ga)}
@@ -969,7 +969,7 @@ Provide a proof of each claim.
 \have{raa}{Raa}\ie{aim, rma}
 \have{Erxx}{\exists x Rxx}\Ei{raa}
 \end{proof}}
-\newpage \item $\forall x\forall y(Rxy \eif x=y)\proves Rab \eif Rba$
+\item $\forall x\forall y(Rxy \eif x=y)\proves Rab \eif Rba$
 \myanswer{\begin{proof}
 \hypo{AArxiy}{\forall x \forall y(Rxy \eif x = y)}
 \open
@@ -1021,7 +1021,7 @@ Provide a proof of each claim.
 \have{EEnxiy2}{\exists x \exists y \enot x = y}\Ee{Ej, j-EEnxiy1}
 \end{proof}}
 
-\newpage \item $\forall x(x=n \eiff Mx), \forall x(Ox \eor \enot Mx)\proves On$
+\item $\forall x(x=n \eiff Mx), \forall x(Ox \eor \enot Mx)\proves On$
 \myanswer{\begin{proof}
 \hypo{Axinm}{\forall x(x = n \eiff Mx)}
 \hypo{Aonm}{\forall x(Ox \eor \enot Mx)}
@@ -1068,7 +1068,7 @@ Provide a proof of each claim.
 \have{con}{Bd}\Ee{EkAkb, kAkb-bd}
 \end{proof}}
 
-\newpage \item $\proves Pa \eif \forall x(Px \eor \enot x = a)$
+\item $\proves Pa \eif \forall x(Px \eor \enot x = a)$
 \myanswer{\begin{proof}
 \open
 	\hypo{pa}{Pa}
@@ -1120,7 +1120,7 @@ And hence that both have a decent claim to symbolise the English sentence `Nick 
 \
 
 \problempart
-In \S\ref{sec.identity}, I claimed that the following are logically equivalent symbolisations of the English sentence `there is exactly one F':
+In \S\ref{sec.identity}, we claimed that the following are logically equivalent symbolisations of the English sentence `there is exactly one F':
 \begin{ebullet}
 \item $\exists x Fx \eand \forall x \forall y \bigl[(Fx \eand Fy) \eif x = y\bigr]$
 \item $\exists x \bigl[Fx \eand \forall y (Fy \eif x = y)\bigr]$
@@ -1173,7 +1173,7 @@ Show that they are all provably equivalent. (\emph{Hint}: to show that three cla
 \have{con}{\exists x \forall y (Fy \eiff x = y)}\Ee{prem, prema-con1}
 \end{proof}}
 
-\newpage\noindent\myanswer{And finally, the third proof:
+\noindent\myanswer{And finally, the third proof:
 \begin{proof}
 \hypo{prem}{\exists x \forall y (Fy \eiff x = y)}
 \open
@@ -1208,13 +1208,15 @@ Symbolise the following argument
 		There is exactly one F. There is exactly one G. Nothing is both F and G. So: there are exactly two things that are either F or G.
 	\end{quote}
 And offer a proof of it.\\
-\myanswer{Here's the symbolisation, the proof will come over the page:\\
-$\exists x \bigl[Fx \eand \forall y (Fy \eif x = y)\bigr]$, \\
-$\exists x \bigl[Gx \eand \forall y ( Gy \eif x = y)\bigr]$, \\
-$\forall x (\enot Fx \eor \enot Gx) \therefore \phantom{.}$\\
-$ \exists x \exists y \bigl[\enot x = y \eand \forall z ((Fz \eor Gz) \eif (x = z \eor y = z))\bigr]$}
-\newpage\noindent\myanswer{
-\begin{proof}
+\myanswer{
+\begin{earg}
+\item $\exists x \bigl[Fx \eand \forall y (Fy \eif x = y)\bigr]$ 
+\item $\exists x \bigl[Gx \eand \forall y ( Gy \eif x = y)\bigr]$
+\item $\forall x (\enot Fx \eor \enot Gx) \therefore \phantom{.}$
+\item[\therefore] $\exists x \exists y \bigl[\enot x = y \eand \forall z ((Fz \eor Gz) \eif (x = z \eor y = z))\bigr]$
+\end{earg}}
+
+\myanswer{\begin{proof}
 \hypo{p1}{\exists x \bigl[Fx \eand \forall y (Fy \eif x = y)\bigr]}
 \hypo{p2}{\exists x \bigl[Gx \eand \forall y ( Gy \eif x = y)\bigr]}
 \hypo{p3}{\forall x (\enot Fx \eor \enot Gx)}

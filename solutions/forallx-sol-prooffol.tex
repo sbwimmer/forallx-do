@@ -459,6 +459,14 @@ $\exists x \forall y(\forall z(Lxz \eif Lyz) \eif Lxy) \therefore \exists x  Lxx
 \have{n}{\exists x Lxx} \Ee{1, a--El}
 \end{proof}}
 
+\problempart
+Show that each pair of sentences is provably equivalent.
+\begin{earg}
+\item $\forall x (Ax\eif \enot Bx)$, $\enot\exists x(Ax \eand Bx)$
+\item $\forall x (\enot Ax\eif Bd)$, $\forall x Ax \eor Bd$
+\item $\exists x Px \eif Qc$, $\forall x (Px \eif Qc)$
+\end{earg}
+
 
 \solutions
 \problempart
@@ -577,6 +585,15 @@ Counter-interpretation: consider the following diagram, allowing `$j$' to name $
 \end{center}}
 \item $\forall x Px \eif \forall x Qx, \exists x \enot Px \therefore \exists x \enot Qx$ \hfill \myanswer{Invalid\\
 Counter-interpretation: let the domain be the number $1$. Let `$Px$' be true of nothing. Let `$Qx$' be true of everything.}
+\end{earg}
+
+\problempart
+Show that each of the following is provably inconsistent.
+\begin{earg}
+\item \{$Sa\eif Tm$, $Tm \eif Sa$, $Tm \eand \enot Sa$\}
+\item \{$\enot\exists x Rxa$, $\forall x \forall y Ryx$\}
+\item \{$\enot\exists x \exists y Lxy$, $Laa$\}
+\item \{$\forall x(Px \eif Qx)$, $\forall z(Pz \eif Rz)$, $\forall y Py$, $\enot Qa \eand \enot Rb$\}
 \end{earg}
 
 
@@ -1275,3 +1292,56 @@ Offer proofs which justify the addition of the third and fourth CQ rules as deri
 	\close
 	\have{nEa}{\enot \exists x Ax}\ni{Ea-con1}
 \end{proof}}
+
+\chapter{Proof-theoretic and Semantic Concepts}\setcounter{ProbPart}{0}
+
+
+\problempart
+Show that each pair of sentences is provably equivalent.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item $\forall x (Ax\eif \enot Bx)$ and $\enot\exists x(Ax \eand Bx)$
+\item $\forall x (\enot Ax\eif Bd)$ and $\forall x Ax \eor Bd$
+\item $\exists x Px \eif Qc$ and $\forall x (Px \eif Qc)$
+\item $Rca \eiff \forall x Rxa$, $\forall x(Rca \eiff Rxa)$
+\end{enumerate}
+
+
+\problempart
+Show that each of the following is provably inconsistent.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item $Sa\eif Tm$, $Tm \eif Sa$, $Tm \eand \enot Sa$
+\item $\enot\exists x \exists y Lxy$, $Laa$
+\item $\forall x(Px \eif Qx)$, $\forall z(Pz \eif Rz)$, $\forall y Py$, $\enot Qa \eand \enot Rb$
+\end{enumerate}
+
+
+%\problempart
+%Look back at Part \ref{pr.QLarguments} on p.~\pageref{pr.QLarguments}. For each argument: If it is valid in QL, give a proof. If it is invalid, construct a model to show that it is invalid.
+
+\problempart
+\label{pr.QLequivornot}
+For each of the following pairs of sentences: If they are logically equivalent in FOL, give proofs to show this. If they are not, provide an interpretation to show this.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item $\forall x Px \eif Qc$ and $\forall x (Px \eif Qc)$
+\item $\forall x Px \eand Qc$ and $\forall x (Px \eand Qc)$
+\item $Qc \eor \exists x Qx$ and $\exists x (Qc \eor Qx)$
+\item $\forall x\forall y \forall z Bxyz$ and $\forall x Bxxx$
+\item $\forall x\forall y Dxy$ and $\forall y\forall x Dxy$
+\item $\exists x\forall y Dxy$ and $\forall y\exists x Dxy$
+\end{enumerate}
+
+\problempart
+\label{pr.QLvalidornot}
+For each of the following arguments: If it is valid in FOL, give a proof. If it is invalid, provide an interpretation to show that it is invalid.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item $\forall x\exists y Rxy \therefore  \exists y\forall x Rxy$
+\item $\exists y\forall x Rxy \therefore  \forall x\exists y Rxy$
+\item $\exists x(Px \eand \enot Qx) \therefore  \forall x(Px \eif \enot Qx)$
+\item $\forall x(Sx \eif Ta)$, $Sd \therefore Ta$
+\item $\forall x(Ax\eif Bx)$, $\forall x(Bx \eif Cx) \therefore  \forall x(Ax \eif Cx)$
+\item $\exists x(Dx \eor Ex)$, $\forall x(Dx \eif Fx) \therefore  \exists x(Dx \eand Fx)$
+\item $\forall x\forall y(Rxy \eor Ryx)\therefore  Rjj$
+\item $\exists x\exists y(Rxy \eor Ryx)\therefore Rjj$
+\item $\forall x Px \eif \forall x Qx$, $\exists x \enot Px\therefore \exists x \enot Qx$
+\item $\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx\therefore  \forall x \enot Mx$
+\end{enumerate}

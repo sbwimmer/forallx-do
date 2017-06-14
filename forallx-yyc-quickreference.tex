@@ -25,9 +25,9 @@ F & F & F & F & T & T
 
 \vfill
 
-\section{Symbolisation}
+\section{Symbolization}
 \begin{center}
-\label{app.symbolisation}
+\label{app.symbolization}
 \begin{tabular*}{\textwidth}{rl}
 \multicolumn{2}{c}{\textsc{Sentential Connectives}}\\ \\
 It is not the case that P & $\enot P$\\
@@ -39,7 +39,7 @@ P only if Q & $(P \eif Q)$\\
 P if and only if Q & $(P \eiff Q)$\\
 P unless Q & $(P \eor Q)$\\
 \\
-\multicolumn{2}{c}{\label{SymbolisingPredicates}\textsc{Predicates}}\\ \\
+\multicolumn{2}{c}{\label{SymbolizingPredicates}\textsc{Predicates}}\\ \\
 All Fs are Gs & $\forall x(Fx \eif Gx)$\\
 Some Fs are Gs & $\exists x(Fx \eand Gx)$\\
 Not all Fs are Gs & $\enot\forall x(Fx \eif Gx)$\ or\ $\exists x(Fx \eand \enot Gx)$\\
@@ -60,10 +60,10 @@ The F is non-G & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand \enot Gx)$
 
 
 
-% BEGIN: symbolising cardinality
+% BEGIN: symbolizing cardinality
 
 \newpage
-\section{Using identity to symbolise quantities}
+\section{Using identity to symbolize quantities}
 
 \subsection*{There are at least \blank\ Fs.}
 \label{summary.atleast}
@@ -80,7 +80,7 @@ The F is non-G & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand \enot Gx)$
 \subsection*{There are at most \blank\ Fs.}
 \label{summary.atmost}
 
-One way to say `there are at most $n$ Fs' is to put a negation sign in front of the symbolisation for `there are at least $n+1$ Fs'. Equivalently, we can offer:
+One way to say `there are at most $n$ Fs' is to put a negation sign in front of the symbolization for `there are at least $n+1$ Fs'. Equivalently, we can offer:
 \begin{ekey}
 \item[\text{one}] $\forall x_1\forall x_2\bigl[(Fx_1 \eand Fx_2) \eif x_1=x_2\bigr]$
 \item[\text{two}] $\forall x_1\forall x_2\forall x_3\bigl[(Fx_1 \eand Fx_2 \eand Fx_3) \eif (x_1=x_2 \eor x_1=x_3 \eor x_2=x_3)\bigr]$
@@ -93,7 +93,7 @@ One way to say `there are at most $n$ Fs' is to put a negation sign in front of 
 \subsection*{There are exactly \blank\ Fs.}
 \label{summary.exactly}
 
-One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolisations above and say `there are at least $n$ Fs and there are at most $n$ Fs.' The following equivalent formulae are shorter:
+One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolizations above and say `there are at least $n$ Fs and there are at most $n$ Fs.' The following equivalent formulae are shorter:
 \begin{ekey}
 \item[\text{zero}] $\forall x\enot Fx$
 \item[\text{one}] $\exists x\bigl[Fx \eand \forall y(Fy \eif x= y)\bigr]$

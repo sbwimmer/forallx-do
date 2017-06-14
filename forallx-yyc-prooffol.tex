@@ -30,7 +30,7 @@ This motivates the universal elimination rule ($\forall$E):
 \end{proof}}
 The notation here was introduced in \S\ref{s:TruthFOL}. The point is that you can obtain any \emph{substitution instance} of a universally quantified formula: replace every instance of the quantified variable with any name you like. 
 
-I should emphasise that (as with every elimination rule) you can only apply the $\forall$E rule when the universal quantifier is the main logical operator. Thus the following is outright banned:
+I should emphasize that (as with every elimination rule) you can only apply the $\forall$E rule when the universal quantifier is the main logical operator. Thus the following is outright banned:
 \begin{proof}
 	\hypo{a}{\forall x Bx \eif Bk}
 	\have{c}{Bb \eif Bk}\by{naughtily attempting to invoke $\forall$E}{a}
@@ -55,7 +55,7 @@ Here we have replaced both instances of the name `$a$' with a variable, and then
 \end{proof}
 Here we have replaced \emph{one} instance of the name `$a$' with a variable, and then existentially generalised. These observations motivate our introduction rule, although to explain it, we will need to introduce some new notation.
 
-Where $\meta{A}$ is a sentence containing the name $\meta{c}$, we can emphasise this by writing `$\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$'. We will write `$\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)$' to indicate any formula obtained by replacing \emph{some or all} of the instances of the name \meta{c} with the variable \meta{x}. Armed with this, our introduction rule is:
+Where $\meta{A}$ is a sentence containing the name $\meta{c}$, we can emphasize this by writing `$\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$'. We will write `$\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)$' to indicate any formula obtained by replacing \emph{some or all} of the instances of the name \meta{c} with the variable \meta{x}. Armed with this, our introduction rule is:
 \factoidbox{
 \begin{proof}
 	\have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
@@ -132,7 +132,7 @@ To see the constraint in action, consider this terrible argument:
 	\begin{quote}
 		Everyone loves Kylie Minogue; therefore everyone loves themselves.
 	\end{quote}
-We might symbolise this obviously invalid inference pattern as:
+We might symbolize this obviously invalid inference pattern as:
 $$\forall x Lxk \therefore \forall x Lxx$$
 Now, suppose we tried to offer a proof that vindicates this argument:
 \begin{proof}
@@ -191,7 +191,7 @@ As with universal introduction, the constraints are extremely important. To see 
 	\begin{quote}
 		Tim Button is a lecturer. There is someone who is not a lecturer. So Tim Button is both a lecturer and not a lecturer.
 	\end{quote}
-We might symbolise this obviously invalid inference pattern as follows:
+We might symbolize this obviously invalid inference pattern as follows:
 $$Lb, \exists x \enot Lx \therefore Lb \eand \enot Lb$$
 Now, suppose we tried to offer a proof that vindicates this argument:
 \begin{proof}
@@ -288,13 +288,13 @@ The following three proofs are missing their citations (rule and line numbers). 
 
 \problempart
 \label{pr.BarbaraEtc.proof1}
-In \S\ref{s:MoreMonadic} problem part A, we considered fifteen syllogistic figures of Aristotelian logic. Provide proofs for each of the argument forms. NB: You will find it \emph{much} easier if you symbolise (for example) `No F is G' as `$\forall x (Fx \eif \enot Gx)$'.
+In \S\ref{s:MoreMonadic} problem part A, we considered fifteen syllogistic figures of Aristotelian logic. Provide proofs for each of the argument forms. NB: You will find it \emph{much} easier if you symbolize (for example) `No F is G' as `$\forall x (Fx \eif \enot Gx)$'.
 
 \
 
 \problempart
 \label{pr.BarbaraEtc.proof2}
-Aristotle and his successors identified other syllogistic forms which depended upon `existential import'. Symbolise each of the following argument forms in FOL and offer proofs.
+Aristotle and his successors identified other syllogistic forms which depended upon `existential import'. Symbolize each of the following argument forms in FOL and offer proofs.
 \begin{ebullet}
 	\item \textbf{Barbari.} Something is H. All G are F. All H are G. So: Some H is F
 	\item \textbf{Celaront.} Something is H. No G are F. All H are G. So: Some H is not F
@@ -326,7 +326,7 @@ Provide a proof of each claim.
 \solutions
 \problempart
 \label{pr.likes}
-Write a symbolisation key for the following argument, symbolise it, and prove it:
+Write a symbolization key for the following argument, symbolize it, and prove it:
 \begin{quote}
 There is someone who likes everyone who likes everyone that she likes. Therefore, there is someone who likes herself.
 \end{quote}
@@ -515,12 +515,12 @@ Show that the following are provably equivalent:
 \item $\exists x \bigl([Fx \eand \forall y (Fy \eif x = y)] \eand x = n\bigr)$
 \item $Fn \eand \forall y (Fy \eif n= y)$
 \end{ebullet}
-And hence that both have a decent claim to symbolise the English sentence `Nick is the F'.
+And hence that both have a decent claim to symbolize the English sentence `Nick is the F'.
 
 \
 
 \problempart
-In \S\ref{sec.identity}, we claimed that the following are logically equivalent symbolisations of the English sentence `there is exactly one F':
+In \S\ref{sec.identity}, we claimed that the following are logically equivalent symbolizations of the English sentence `there is exactly one F':
 \begin{ebullet}
 \item $\exists x Fx \eand \forall x \forall y \bigl[(Fx \eand Fy) \eif x = y\bigr]$
 \item $\exists x \bigl[Fx \eand \forall y (Fy \eif x = y)\bigr]$
@@ -531,7 +531,7 @@ Show that they are all provably equivalent. (\emph{Hint}: to show that three cla
 
 \
 \problempart
-Symbolise the following argument
+Symbolize the following argument
 	\begin{quote}
 		There is exactly one F. There is exactly one G. Nothing is both F and G. So: there are exactly two things that are either F or G.
 	\end{quote}
@@ -591,7 +591,7 @@ By contrast, this:
 $$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \entails \meta{C}$$
 means that there is no valuation (or interpretation) which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true and makes $\meta{C}$ false. This concerns assignments of truth and falsity to sentences. It is a \emph{semantic notion}.
 
-It cannot be emphasised enough that these are different notions. But we can emphasise it a bit more: \emph{They are different notions.}
+It cannot be emphasized enough that these are different notions. But we can emphasize it a bit more: \emph{They are different notions.}
 
 Once you have internalised this point, continue reading. 
 

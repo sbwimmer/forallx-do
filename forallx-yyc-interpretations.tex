@@ -6,7 +6,7 @@
 
 \chapter{Extensionality}\label{s:Interpretations}
 
-Recall that TFL is a truth-functional language. Its connectives are all truth-functional, and \emph{all} that we can do with TFL is key sentences to particular truth values. We can do this \emph{directly}. For example, we might stipulate that the TFL sentence `$P$' is to be true. Alternatively, we can do this \emph{indirectly}, offering a symbolisation key, e.g.:
+Recall that TFL is a truth-functional language. Its connectives are all truth-functional, and \emph{all} that we can do with TFL is key sentences to particular truth values. We can do this \emph{directly}. For example, we might stipulate that the TFL sentence `$P$' is to be true. Alternatively, we can do this \emph{indirectly}, offering a symbolization key, e.g.:
 	\begin{ekey}
 		\item[P] Big Ben is in London
 	\end{ekey}
@@ -14,13 +14,13 @@ Now recall from \S\ref{s:TruthFunctionality} that this should be taken to mean:
 	\begin{ebullet}
 		\item The TFL sentence `$P$' is to take the same truth value as the English sentence `Big Ben is in London' (whatever that truth value may be)
 	\end{ebullet}
-The point that we emphasised is that TFL cannot handle differences in meaning that go beyond mere differences in truth value.
+The point that we emphasized is that TFL cannot handle differences in meaning that go beyond mere differences in truth value.
 
 
-\section{Symbolising versus translating}
+\section{Symbolizing versus translating}
 FOL has some similar limitations, but it goes beyond mere truth values, since it enables us to split up sentences into terms, predicates and quantifier expressions. This enables us to consider what is \emph{true of} some particular object, or of some or all objects. But we can do no more than that. 
 
-When we provide a symbolisation key for some FOL predicates, such as:
+When we provide a symbolization key for some FOL predicates, such as:
 	\begin{ekey}
 		\item[Cx] \gap{x} teaches Logic III in Calgary
 	\end{ekey} 
@@ -36,7 +36,7 @@ This is an indirect stipulation. Alternatively, we can directly stipulate which 
 
 The point is that FOL does not give us any resources for dealing with nuances of meaning. When we interpret FOL, all we are considering is what the predicates are true of, regardless of whether we specify these things directly or indirectly. The things a predicate is true of are known as the \define{extension} of that predicate. We say that FOL is an \define{extensional language} because FOL does not represent differences of meaning between predicates that have the same extension.    
 
-For this reason, we say only that FOL sentences \emph{symbolise} English sentences. It is doubtful that we are \emph{translating} English into FOL, as translations should preserve meanings, and not just extensions.
+For this reason, we say only that FOL sentences \emph{symbolize} English sentences. It is doubtful that we are \emph{translating} English into FOL, as translations should preserve meanings, and not just extensions.
 
 \section{A word on extensions}
 We can stipulate directly what predicates are to be true of, so it is worth noting that our stipulations can be as arbitrary as we like. For example, we could stipulate that `$Hx$' should be true of, and only of, the following objects:
@@ -45,7 +45,7 @@ We can stipulate directly what predicates are to be true of, so it is worth noti
 		the number $\pi$\\
 		every top-F key on every piano ever made
 	\end{center}
-Now, the objects that we have listed have nothing particularly in common. But this doesn't matter. Logic doesn't care about what strikes us mere humans as `natural' or `similar'. Armed with this interpretation of `$Hx$', suppose we now add to our symbolisation key:
+Now, the objects that we have listed have nothing particularly in common. But this doesn't matter. Logic doesn't care about what strikes us mere humans as `natural' or `similar'. Armed with this interpretation of `$Hx$', suppose we now add to our symbolization key:
 	\begin{ekey}
 		\item[j] Justin Trudeau
 		\item[r] Rachel Notley
@@ -56,11 +56,11 @@ Then `$Hj$' and `$Hp$' will both be true, on this interpretation, but `$Hr$' wil
 
 
 \section{Many-place predicates}
-All of this is quite easy to understand when it comes to one-place predicates, but it gets messier when we consider two-place predicates. Consider a symbolisation key like:
+All of this is quite easy to understand when it comes to one-place predicates, but it gets messier when we consider two-place predicates. Consider a symbolization key like:
 	\begin{ekey}
 		\item[Lxy] \gap{x} loves \gap{y}
 	\end{ekey}
-Given what we said above, this symbolisation key should be read as saying:
+Given what we said above, this symbolization key should be read as saying:
 	\begin{earg}
 		\item[\textbullet] `$Lxy$' and `\gap{x} loves \gap{y}' are to be true of exactly the same things
 	\end{earg}
@@ -120,7 +120,7 @@ We defined a \define{valuation} in TFL as any assignment of truth and falsity to
 		\item for each name that we care to consider, an assignment of exactly one object within the domain 
 		\item for each predicate that we care to consider---other than `$=$'---a specification of what things (in what order) the predicate is to be true of
 	\end{ebullet}
-The symbolisation keys that we considered in chapter \ref{ch.FOL} consequently give us one very convenient way to present an interpretation. We will continue to use them throughout this chapter. However, it is sometimes also convenient to present an interpretation \emph{diagrammatically}. 
+The symbolization keys that we considered in chapter \ref{ch.FOL} consequently give us one very convenient way to present an interpretation. We will continue to use them throughout this chapter. However, it is sometimes also convenient to present an interpretation \emph{diagrammatically}. 
 
 \newglossaryentry{interpretation}{
   name = {interpretation},
@@ -141,7 +141,7 @@ Suppose we want to consider just a single two-place predicate, `$Rxy$'. Then we 
 \draw[->, thick] (atom1) -- (atom3);
 \end{tikzpicture}
 \end{center}
-This would be suitable to characterise an interpretation whose domain is the first four positive whole numbers, and which interprets `$Rxy$' as being true of and only of:
+This would be suitable to characterize an interpretation whose domain is the first four positive whole numbers, and which interprets `$Rxy$' as being true of and only of:
 	\begin{center}
 		\ntuple{1, 2}, 
 		\ntuple{2, 3}, 
@@ -171,7 +171,7 @@ for an interpretation with the same domain, which interprets `$Rxy$' as being tr
 		\ntuple{1, 1},
 		\ntuple{3, 3}
 	\end{center}
-If we wanted, we could make our diagrams more complex. For example, we could add names as labels for particular objects. Equally, to symbolise the extension of a one-place predicate, we might simply draw a ring around some particular objects and stipulate that the thus encircled objects (and only them) are to fall under the predicate `$Hx$', say. 
+If we wanted, we could make our diagrams more complex. For example, we could add names as labels for particular objects. Equally, to symbolize the extension of a one-place predicate, we might simply draw a ring around some particular objects and stipulate that the thus encircled objects (and only them) are to fall under the predicate `$Hx$', say. 
 
 
 \chapter{Truth in FOL}\label{s:TruthFOL}
@@ -288,7 +288,7 @@ Armed with this notation, the rough idea is as follows. The sentence $\forall \m
 		$\exists \meta{x}\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$ is true in an interpretation \textbf{iff}\\ 
 		$\meta{A}(\ldots \meta{c}\ldots\meta{c}\ldots)$ is true in \emph{some} interpretation that extends the original interpretation by assigning an object to some name $\meta{c}$ (without changing the interpretation in any other way).
 	}
-To be clear: all this is doing is formalising (very pedantically) the intuitive idea expressed on the previous page. The result is a bit ugly, and the final definition might look a bit opaque. Hopefully, though, the \emph{spirit} of the idea is clear. 
+To be clear: all this is doing is formalizing (very pedantically) the intuitive idea expressed on the previous page. The result is a bit ugly, and the final definition might look a bit opaque. Hopefully, though, the \emph{spirit} of the idea is clear. 
 
 
 \practiceproblems

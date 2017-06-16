@@ -97,7 +97,7 @@ The following three proofs are missing their citations (rule and line numbers). 
 
 \problempart
 \label{pr.BarbaraEtc.proof1}
-In \S\ref{s:MoreMonadic} problem part A, we considered fifteen syllogistic figures of Aristotelian logic. Provide proofs for each of the argument forms. NB: You will find it \emph{much} easier if you symbolise (for example) `No F is G' as `$\forall x (Fx \eif \enot Gx)$'.
+In \S\ref{s:MoreMonadic} problem part A, we considered fifteen syllogistic figures of Aristotelian logic. Provide proofs for each of the argument forms. NB: You will find it \emph{much} easier if you symbolize (for example) `No F is G' as `$\forall x (Fx \eif \enot Gx)$'.
 \\\myanswer{I shall prove the four Figure I syllogisms; the rest are \emph{extremely} similar.
 \begin{multicols}{2}
 \noindent \textbf{Barbara}
@@ -138,7 +138,7 @@ In \S\ref{s:MoreMonadic} problem part A, we considered fifteen syllogistic figur
 
 \problempart
 \label{pr.BarbaraEtc.proof2}
-Aristotle and his successors identified other syllogistic forms which depended upon `existential import'. Symbolise each of the following argument forms in FOL and offer proofs.
+Aristotle and his successors identified other syllogistic forms which depended upon `existential import'. Symbolize each of the following argument forms in FOL and offer proofs.
 \begin{ebullet}
 \newpage	\item \textbf{Barbari.} Something is H. All G are F. All H are G. So: Some H is F
 	\\\myanswer{$\exists x Hx, \forall x(Gx \eif Fx), \forall x (Hx \eif Gx) \therefore \exists x (Hx \eand Fx)$
@@ -432,11 +432,11 @@ Provide a proof of each claim.
 \solutions
 \problempart
 \label{pr.likes}
-Write a symbolisation key for the following argument, symbolise it, and prove it:
+Write a symbolization key for the following argument, symbolize it, and prove it:
 \begin{quote}
 There is someone who likes everyone who likes everyone that she likes. Therefore, there is someone who likes herself.
 \end{quote}
-\myanswer{Symbolisation key:
+\myanswer{Symbolization key:
 \begin{ekey}
 \item[\text{domain}] all people
 \item[Lxy] \gap{x} likes \gap{y}
@@ -458,6 +458,14 @@ $\exists x \forall y(\forall z(Lxz \eif Lyz) \eif Lxy) \therefore \exists x  Lxx
 \close
 \have{n}{\exists x Lxx} \Ee{1, a--El}
 \end{proof}}
+
+\problempart
+Show that each pair of sentences is provably equivalent.
+\begin{earg}
+\item $\forall x (Ax\eif \enot Bx)$, $\enot\exists x(Ax \eand Bx)$
+\item $\forall x (\enot Ax\eif Bd)$, $\forall x Ax \eor Bd$
+\item $\exists x Px \eif Qc$, $\forall x (Px \eif Qc)$
+\end{earg}
 
 
 \solutions
@@ -580,10 +588,19 @@ Counter-interpretation: consider the following diagram, allowing `$j$' to name $
 Counter-interpretation: let the domain be the number $1$. Let `$Px$' be true of nothing. Let `$Qx$' be true of everything.}
 \end{earg}
 
+\problempart
+Show that each of the following is provably inconsistent.
+\begin{earg}
+\item \{$Sa\eif Tm$, $Tm \eif Sa$, $Tm \eand \enot Sa$\}
+\item \{$\enot\exists x Rxa$, $\forall x \forall y Ryx$\}
+\item \{$\enot\exists x \exists y Lxy$, $Laa$\}
+\item \{$\forall x(Px \eif Qx)$, $\forall z(Pz \eif Rz)$, $\forall y Py$, $\enot Qa \eand \enot Rb$\}
+\end{earg}
+
 
 \chapter{Conversion of quantifiers}\setcounter{ProbPart}{0}
 \problempart
-Show that the following are jointly contrary:
+Show that the following are provably inconsistent:
 \begin{earg}
 \item $Sa\eif Tm, Tm \eif Sa, Tm \eand \enot Sa$
 \myanswer{\begin{proof}
@@ -615,7 +632,7 @@ Show that the following are jointly contrary:
 \have{n}{\enot Laa}\Ae{Anl}
 \have{red}{\ered}\ri{l,n}
 \end{proof}}
-\newpage \item $\forall x(Px \eif Qx), \forall z(Pz \eif Rz), \forall y Py, \enot Qa \eand \enot Rb$
+\item $\forall x(Px \eif Qx), \forall z(Pz \eif Rz), \forall y Py, \enot Qa \eand \enot Rb$
 \myanswer{\begin{proof}
 \hypo{Apq}{\forall x(Px \eif Qx)}
 \hypo{Apr}{\forall z(Pz \eif Rz)}
@@ -706,7 +723,7 @@ Show that each pair of sentences is provably equivalent: %TB: Again, have to do 
 
 
 \problempart
-In \S\ref{s:MoreMonadic}, I considered what happens when we move quantifiers `across' various logical operators. Show that each pair of sentences is provably equivalent: %TB: Again, manual line numbering to give multicols enough space.
+In \S\ref{s:MoreMonadic}, we considered what happens when we move quantifiers `across' various logical operators. Show that each pair of sentences is provably equivalent: %TB: Again, manual line numbering to give multicols enough space.
 
 \
 
@@ -792,7 +809,7 @@ In \S\ref{s:MoreMonadic}, I considered what happens when we move quantifiers `ac
 \have{Agf}{\forall x (Ga \eif Fx)}\Ai{gf}
 \end{proof}
 \end{multicols}}
-\pagebreak
+
 4. $\forall x(Fx \eif Ga), \exists x Fx \eif Ga$
 \myanswer{\begin{multicols}{2}
 \begin{proof}
@@ -864,7 +881,7 @@ In \S\ref{s:MoreMonadic}, I considered what happens when we move quantifiers `ac
 \end{proof}
 \end{multicols}}
 
-\newpage 6. $\exists x(Fx \eif Ga), \forall x Fx \eif Ga$
+6. $\exists x(Fx \eif Ga), \forall x Fx \eif Ga$
 \myanswer{\begin{multicols}{2}
 \begin{proof}
 \hypo{Efg}{\exists x (Fx \eif Ga)}
@@ -953,7 +970,7 @@ Provide a proof of each claim.
 \have{raa}{Raa}\ie{aim, rma}
 \have{Erxx}{\exists x Rxx}\Ei{raa}
 \end{proof}}
-\newpage \item $\forall x\forall y(Rxy \eif x=y)\proves Rab \eif Rba$
+\item $\forall x\forall y(Rxy \eif x=y)\proves Rab \eif Rba$
 \myanswer{\begin{proof}
 \hypo{AArxiy}{\forall x \forall y(Rxy \eif x = y)}
 \open
@@ -1005,7 +1022,7 @@ Provide a proof of each claim.
 \have{EEnxiy2}{\exists x \exists y \enot x = y}\Ee{Ej, j-EEnxiy1}
 \end{proof}}
 
-\newpage \item $\forall x(x=n \eiff Mx), \forall x(Ox \eor \enot Mx)\proves On$
+\item $\forall x(x=n \eiff Mx), \forall x(Ox \eor \enot Mx)\proves On$
 \myanswer{\begin{proof}
 \hypo{Axinm}{\forall x(x = n \eiff Mx)}
 \hypo{Aonm}{\forall x(Ox \eor \enot Mx)}
@@ -1052,7 +1069,7 @@ Provide a proof of each claim.
 \have{con}{Bd}\Ee{EkAkb, kAkb-bd}
 \end{proof}}
 
-\newpage \item $\proves Pa \eif \forall x(Px \eor \enot x = a)$
+\item $\proves Pa \eif \forall x(Px \eor \enot x = a)$
 \myanswer{\begin{proof}
 \open
 	\hypo{pa}{Pa}
@@ -1078,7 +1095,7 @@ Show that the following are provably equivalent:
 \item $\exists x \bigl([Fx \eand \forall y (Fy \eif x = y)] \eand x = n\bigr)$
 \item $Fn \eand \forall y (Fy \eif n= y)$
 \end{ebullet}
-And hence that both have a decent claim to symbolise the English sentence `Nick is the F'.
+And hence that both have a decent claim to symbolize the English sentence `Nick is the F'.
 \\\myanswer{In one direction:
 \begin{proof}
 \hypo{prem}{\exists x \bigl([Fx \eand \forall y (Fy \eif x = y)] \eand x = n\bigr)}
@@ -1104,7 +1121,7 @@ And hence that both have a decent claim to symbolise the English sentence `Nick 
 \
 
 \problempart
-In \S\ref{sec.identity}, I claimed that the following are logically equivalent symbolisations of the English sentence `there is exactly one F':
+In \S\ref{sec.identity}, we claimed that the following are logically equivalent symbolizations of the English sentence `there is exactly one F':
 \begin{ebullet}
 \item $\exists x Fx \eand \forall x \forall y \bigl[(Fx \eand Fy) \eif x = y\bigr]$
 \item $\exists x \bigl[Fx \eand \forall y (Fy \eif x = y)\bigr]$
@@ -1157,7 +1174,7 @@ Show that they are all provably equivalent. (\emph{Hint}: to show that three cla
 \have{con}{\exists x \forall y (Fy \eiff x = y)}\Ee{prem, prema-con1}
 \end{proof}}
 
-\newpage\noindent\myanswer{And finally, the third proof:
+\noindent\myanswer{And finally, the third proof:
 \begin{proof}
 \hypo{prem}{\exists x \forall y (Fy \eiff x = y)}
 \open
@@ -1187,18 +1204,20 @@ Show that they are all provably equivalent. (\emph{Hint}: to show that three cla
 
 \
 \problempart
-Symbolise the following argument
+Symbolize the following argument
 	\begin{quote}
 		There is exactly one F. There is exactly one G. Nothing is both F and G. So: there are exactly two things that are either F or G.
 	\end{quote}
 And offer a proof of it.\\
-\myanswer{Here's the symbolisation, the proof will come over the page:\\
-$\exists x \bigl[Fx \eand \forall y (Fy \eif x = y)\bigr]$, \\
-$\exists x \bigl[Gx \eand \forall y ( Gy \eif x = y)\bigr]$, \\
-$\forall x (\enot Fx \eor \enot Gx) \therefore \phantom{.}$\\
-$ \exists x \exists y \bigl[\enot x = y \eand \forall z ((Fz \eor Gz) \eif (x = z \eor y = z))\bigr]$}
-\newpage\noindent\myanswer{
-\begin{proof}
+\myanswer{
+\begin{earg}
+\item $\exists x \bigl[Fx \eand \forall y (Fy \eif x = y)\bigr]$ 
+\item $\exists x \bigl[Gx \eand \forall y ( Gy \eif x = y)\bigr]$
+\item $\forall x (\enot Fx \eor \enot Gx) \therefore \phantom{.}$
+\item[\therefore] $\exists x \exists y \bigl[\enot x = y \eand \forall z ((Fz \eor Gz) \eif (x = z \eor y = z))\bigr]$
+\end{earg}}
+
+\myanswer{\begin{proof}
 \hypo{p1}{\exists x \bigl[Fx \eand \forall y (Fy \eif x = y)\bigr]}
 \hypo{p2}{\exists x \bigl[Gx \eand \forall y ( Gy \eif x = y)\bigr]}
 \hypo{p3}{\forall x (\enot Fx \eor \enot Gx)}
@@ -1276,3 +1295,56 @@ Offer proofs which justify the addition of the third and fourth CQ rules as deri
 	\close
 	\have{nEa}{\enot \exists x Ax}\ni{Ea-con1}
 \end{proof}}
+
+\chapter{Proof-theoretic and Semantic Concepts}\setcounter{ProbPart}{0}
+
+
+\problempart
+Show that each pair of sentences is provably equivalent.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item $\forall x (Ax\eif \enot Bx)$ and $\enot\exists x(Ax \eand Bx)$
+\item $\forall x (\enot Ax\eif Bd)$ and $\forall x Ax \eor Bd$
+\item $\exists x Px \eif Qc$ and $\forall x (Px \eif Qc)$
+\item $Rca \eiff \forall x Rxa$, $\forall x(Rca \eiff Rxa)$
+\end{enumerate}
+
+
+\problempart
+Show that each of the following is provably inconsistent.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item $Sa\eif Tm$, $Tm \eif Sa$, $Tm \eand \enot Sa$
+\item $\enot\exists x \exists y Lxy$, $Laa$
+\item $\forall x(Px \eif Qx)$, $\forall z(Pz \eif Rz)$, $\forall y Py$, $\enot Qa \eand \enot Rb$
+\end{enumerate}
+
+
+%\problempart
+%Look back at Part \ref{pr.QLarguments} on p.~\pageref{pr.QLarguments}. For each argument: If it is valid in QL, give a proof. If it is invalid, construct a model to show that it is invalid.
+
+\problempart
+\label{pr.QLequivornot}
+For each of the following pairs of sentences: If they are logically equivalent in FOL, give proofs to show this. If they are not, provide an interpretation to show this.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item $\forall x Px \eif Qc$ and $\forall x (Px \eif Qc)$
+\item $\forall x Px \eand Qc$ and $\forall x (Px \eand Qc)$
+\item $Qc \eor \exists x Qx$ and $\exists x (Qc \eor Qx)$
+\item $\forall x\forall y \forall z Bxyz$ and $\forall x Bxxx$
+\item $\forall x\forall y Dxy$ and $\forall y\forall x Dxy$
+\item $\exists x\forall y Dxy$ and $\forall y\exists x Dxy$
+\end{enumerate}
+
+\problempart
+\label{pr.QLvalidornot}
+For each of the following arguments: If it is valid in FOL, give a proof. If it is invalid, provide an interpretation to show that it is invalid.
+\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
+\item $\forall x\exists y Rxy \therefore  \exists y\forall x Rxy$
+\item $\exists y\forall x Rxy \therefore  \forall x\exists y Rxy$
+\item $\exists x(Px \eand \enot Qx) \therefore  \forall x(Px \eif \enot Qx)$
+\item $\forall x(Sx \eif Ta)$, $Sd \therefore Ta$
+\item $\forall x(Ax\eif Bx)$, $\forall x(Bx \eif Cx) \therefore  \forall x(Ax \eif Cx)$
+\item $\exists x(Dx \eor Ex)$, $\forall x(Dx \eif Fx) \therefore  \exists x(Dx \eand Fx)$
+\item $\forall x\forall y(Rxy \eor Ryx)\therefore  Rjj$
+\item $\exists x\exists y(Rxy \eor Ryx)\therefore Rjj$
+\item $\forall x Px \eif \forall x Qx$, $\exists x \enot Px\therefore \exists x \enot Qx$
+\item $\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx\therefore  \forall x \enot Mx$
+\end{enumerate}

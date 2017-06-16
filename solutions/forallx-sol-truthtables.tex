@@ -17,7 +17,9 @@ $A$ & $A$&$\eif$&$A$\\
  T & T&\TTbf{T}&T\\
 F & F&\TTbf{T}&F
 \end{tabular}
-\end{center}}
+\end{center}
+}
+
 \item $C \eif\enot C$ %contingent
 \myanswer{\begin{center}
 \begin{tabular}{c | d e e f}
@@ -28,6 +30,7 @@ F & F & \TTbf{T}& T& F\\
 \end{tabular}
 \end{center}}
 \item $(A \eiff B) \eiff \enot(A\eiff \enot B)$ %tautology
+
 \myanswer{\begin{center}
 \begin{tabular}{c c | d e e e e e e e f}
 $A$ & $B$&$(A$&$\eiff$&$B)$&$\eiff$&$\enot$&$(A$&$\eiff$&$\enot$&$B)$ \\
@@ -39,6 +42,7 @@ F & F & F & T & F & \TTbf{T} & T & F & F & T & F
  \end{tabular}
 \end{center}}
 \item $(A \eif B) \eor (B \eif A)$ % taut
+
 \myanswer{
 \begin{center}
 \begin{tabular}{c c | d e e e e e f}
@@ -51,6 +55,7 @@ F & F & F & T & F & \TTbf{T} & F & T & F
  \end{tabular}
 \end{center}}
 \item $(A \eand B) \eif (B \eor A)$  %taut
+
 \myanswer{
 \begin{center}
 \begin{tabular}{c c | d e e e e e f}
@@ -63,6 +68,7 @@ F & F & F & F & F & \TTbf{T} & F & F & F
  \end{tabular}
 \end{center}}
 \item $\enot(A \eor B) \eiff (\enot A \eand \enot B)$ %taut
+
 \myanswer{\begin{center}
 \begin{tabular}{c c | d e e e e e e e e f}
 $A$ & $B$&$\enot$&$(A$&$\eor$&$B)$&$\eiff$&$(\enot$&$A$&$\eand$&$\enot$&$B)$\\
@@ -74,6 +80,7 @@ F & F & T & F & F & F & \TTbf{T} & T & F & T & T & F
  \end{tabular}
 \end{center}}
 \item $\bigl[(A\eand B) \eand\enot(A\eand B)\bigr] \eand C$ %contradiction
+
 \myanswer{\begin{center}
 \begin{tabular}{c c c | d e e e e e e e e f}
 $A$ & $B$&$C$&$\bigl[(A$&$\eand$&$B)$&$ \eand$&$\enot$&$(A$&$\eand$&$B)\bigr]$&$\eand$&$C$\\
@@ -89,6 +96,7 @@ F & F & F & F & F & F & F & T & F & F & F & \TTbf{F} & F
 \end{tabular}
 \end{center}}
 \item $[(A \eand B) \eand C] \eif B$ %taut
+
 \myanswer{\begin{center}
 \begin{tabular}{c c c | d e e e e e f}
 $A$ & $B$&$C$&$[(A$&$\eand$&$B)$&$\eand$&$C]$&$\eif$&$B$\\
@@ -104,6 +112,7 @@ F & F & F & F & F & F & F & F & \TTbf{T} & F\\
 \end{tabular}
 \end{center}}
 \item $\enot\bigl[(C\eor A) \eor B\bigr]$ %contingent
+
 \myanswer{\begin{center}
 \begin{tabular}{c c c | d e e e e f}
 $A$ & $B$&$C$&$\enot\bigl[($&$C$&$\eor$&$A)$&$\eor$&$B\bigr]$\\
@@ -120,9 +129,11 @@ F & F & F & \TTbf{T} & F & F & F & F & F
 \end{center}}
 \end{earg}
 
+
 \problempart
 Check all the claims made in introducing the new notational conventions in \S10.3, i.e.\ show that:
 \begin{earg}
+
 	\item `$((A \eand B) \eand C)$' and `$(A \eand (B \eand C))$' have the same truth table
 \myanswer{\begin{center}
 \begin{tabular}{c c c | d e e e f | d e e e f }
@@ -138,6 +149,7 @@ F & F & T & F & F & F & \TTbf{F} & T & F& \TTbf{F} & F& F & T\\
 F & F & F & F & F & F & \TTbf{F} & F & F& \TTbf{F} &  F& F & F\\
 \end{tabular}
 \end{center}}
+
 	\item `$((A \eor B) \eor C)$' and `$(A \eor (B \eor C))$' have the same truth table
 \myanswer{\begin{center}
 \begin{tabular}{c c c | d e e e f | d e e e f }
@@ -153,6 +165,7 @@ F & F & T & F & F & F & \TTbf{T} & T & F& \TTbf{T} & F& T & T\\
 F & F & F & F & F & F & \TTbf{F} & F & F& \TTbf{F} &  F& F & F\\
 \end{tabular}
 \end{center}}
+
 	\item `$((A \eor B) \eand C)$' and `$(A \eor (B \eand C))$' do not have the same truth table
 \myanswer{\begin{center}
 \begin{tabular}{c c c | d e e e f | d e e e f }
@@ -168,6 +181,7 @@ F & F & T & F & F & F & \TTbf{F} & T & F& \TTbf{F} & F& F & T\\
 F & F & F & F & F & F & \TTbf{F} & F & F& \TTbf{F} &  F& F & F\\
 \end{tabular}
 \end{center}}
+
 	\item `$((A \eif B) \eif C)$' and `$(A \eif (B \eif C))$' do not have the same truth table
 \myanswer{\begin{center}
 \begin{tabular}{c c c | d e e e f | d e e e f }
@@ -186,6 +200,7 @@ F & F & F & F & T & F & \TTbf{F} & F & F& \TTbf{T} &  F& T & F\\
 \end{earg}
 Also, check whether:
 \begin{earg}
+
 	\item[5.] `$((A \eiff B) \eiff C)$' and `$(A \eiff (B \eiff C))$' have the same truth table
 		\\\myanswer{Indeed they do:
 \begin{center}
@@ -203,6 +218,224 @@ F & F & F & F & T & F & \TTbf{F} & F & F& \TTbf{F} &  F& T & F\\
 \end{tabular}
 \end{center}}
 \end{earg}
+
+\problempart
+Write complete truth tables for the following sentences and mark the column that represents the possible truth values for the whole sentence.
+
+\begin{earg}
+
+\item $\enot (S \eiff (P \eif S))$
+\myanswer{
+\begin{center}
+\begin{tabular}{c|c|ccccc}
+\cline{2-2}
+~	&	\enot 	&	(S 	&	\eiff	&	(P 	&	\eif	&	S))	\\ 
+\cline{2-7}
+	& 	F 		&	T	&	T	&	T	&	T	&	T	\\
+	& 	F 		&	T	&	T	&	F	&	T	&	T	\\
+	& 	F 		&	F	&	T	&	T	&	F	&	F	\\
+	& 	T 		&	F	&	F	&	F	&	T	&	F	\\
+\cline{2-2}
+\end{tabular}
+\end{center}
+}
+
+
+ \item $\enot [(X \eand Y) \eor (X \eor Y)]$
+
+\myanswer{
+\begin{center}
+\begin{tabular}{c|c|ccccccc}
+\cline{2-2}
+~	&	\enot	&	 [(X 	&	\eand& 	Y) 	&	\eor 	&	(X 	&	\eor 	&	Y)] \\
+\cline{2-9}
+	&	F	&	T	&	T	&	T	&	T	&	T	&	T	&	T	\\
+	&	F	&	T	&	F	&	F	&	T	&	T	&	T	&	F	\\
+	&	F	&	F	&	F	&	T	&	T	&	F	&	T	&	T	\\
+	&	T	&	F	&	F	&	F	&	F	&	F	&	F	&	F	\\
+\cline{2-2}
+\end{tabular}
+\end{center}
+}
+
+
+\item $(A \eif B) \eiff (\enot B\eiff \enot A)$
+
+\myanswer{
+\begin{center}
+\begin{tabular}{cccc|c|ccccc}
+\cline{5-5}
+~	&	(A 	&	\eif	&	B)	&	 \eiff 	&	(\enot&	B 	&	\eiff 	&	 \enot 	& 	 A) \\
+\cline{2-10}
+	&	T	&	T	&	T	&	T		&	F	 &	T	&	T	&	F		&	T	\\	
+	&	T	&	F	&	F	&	T		&	T	 &	F	&	F	&	F		&	T	\\
+	&	F	&	T	&	T	&	F		&	F	 &	T	&	F	&	T		&	F	\\
+	&	F	&	T	&	F	&	T		&	T	 &	F	&	T	&	T		&	F	\\
+\cline{5-5}
+\end{tabular}
+\end{center}
+}
+
+\item $[C \eiff (D \eor E)] \eand \enot C$
+
+\myanswer{
+\begin{center}
+\begin{tabular}{cccccc|c|cc}
+\cline{7-7}
+~	&	[C 	&	\eiff 	&	(D 	&	\eor 	&	E)] 	&	\eand 	&	 \enot 	&	 C \\
+\cline{2-9}
+	&	T	&	T	&	T	&	T	&	T	&	F		&	F		&	T	\\
+	&	T	&	T	&	T	&	T	&	F	&	F		&	F		&	T	\\
+	&	T	&	T	&	F	&	T	&	T	&	F		&	F		&	T	\\
+	&	T	&	F	&	F	&	F	&	F	&	F		&	F		&	T	\\
+	&	F	&	F	&	T	&	T	&	T	&	F		&	T		&	F	\\
+	&	F	&	F	&	T	&	T	&	F	&	F		&	T		&	F	\\
+	&	F	&	F	&	F	&	T	&	T	&	F		&	T		&	F	\\
+	&	F	&	T	&	F	&	F	&	F	&	T		&	T		&	F	\\
+\cline{7-7}
+\end{tabular}
+\end{center}
+}
+
+\item $\enot(G \eand (B \eand H)) \eiff (G \eor (B \eor H))$
+
+\myanswer{
+\begin{center}
+\begin{tabular}{ccccccc|c|ccccc}
+\cline{8-8}
+~	&\enot&	(G 	&\eand &	(B 	&	 \eand 	&	 H))	&	\eiff 	&	(G 	& \eor 	& (B 	& \eor	& H))	\\
+\cline{2-13}
+	&F	   &	T	&	  T &	T	&	T		&	T	&	F	&	T	&	T	&	T	&	T	&	T	\\
+	&T	   &	T	&	  F &	T	&	F		&	F	&	T	&	T	&	T	&	T	&	T	&	F	\\	
+	&T	   &	T	&	 F  &	F	&	F		&	T	&	T	&	T	&	T	&	F	&	T	&	T	\\
+	&T	   &	T	&	 F  &	F	&	F		&	F	&	T	&	T	&	T	&	F	&	F	&	F	\\
+	&T	   &	F	&	F   &	T	&	T		&	T	&	T	&	F	&	T	&	T	&	T	&	T	\\
+	&T	   &	F	&	F   &	T	&	F		&	F	&	T	&	F	&	T	&	T	&	T	&	F	\\
+	&T	   &	F	&	F   &	F	&	F		&	T	&	T	&	F	&	T	&	F	&	T	&	T	\\
+	&T	   &	F	&	F   &	F	&	F		&	F	&	F	&	F	&	F	&	F	&	F	&	F	\\
+\cline{8-8}
+\end{tabular}
+\end{center}
+}
+
+\vspace{1em}
+
+\end{earg}
+
+\problempart
+Write complete truth tables for the following sentences and mark the column that represents the possible truth values for the whole sentence.
+
+\begin{earg}
+
+\item	$(D \eand \enot D) \eif G $
+
+\vspace{1em}
+\myanswer{
+\begin{center}
+\begin{tabular}{ccccc|c|c}
+\cline{6-6}
+	&	(D 	&	 \eand 	& 	 \enot	&	 D) 	&	 \eif 	&	 G \\
+ \hline
+	&	T	&	F		&	F		&	T	&	T	&	T	\\
+	&	T	&	F		&	F		&	T	&	T	&	F	\\
+	&	F	&	F		&	T		&	F	&	T	&	T	\\
+	&	F	&	F		&	T		&	F	&	T	&	F	\\
+\cline{6-6}
+\end{tabular}
+\end{center}
+}
+\vspace{1em}
+
+
+\item	$(\enot P \eor \enot M) \eiff M $
+
+\myanswer{
+\begin{center}
+\begin{tabular}{cccccc|c|c}
+\cline{7-7}
+	&	(\enot 	&	P 	&	\eor 	&	\enot 	& 	 M) 	& 	\eiff 	&	 M \\
+ \hline
+	&	F		&	T	&	F	&	F		&	T	&	T	&	T	\\
+	&	F		&	T	&	T	&	T		&	F	&	F	&	F	\\
+	&	T		&	F	&	T	&	F		&	T	&	T	&	T	\\
+	&	T		&	F	&	T	&	T		&	F	&	T	&	F	\\
+\cline{7-7}
+\end{tabular}
+\end{center}
+}
+\vspace{1em}
+
+
+
+\item	$\enot \enot (\enot A \eand \enot B)  $
+
+\myanswer{
+\begin{center}
+\begin{tabular}{c|c|cccccc}
+\cline{2-2}
+	&	\enot		&	 \enot 	&	(\enot 	& 	 A 	& \eand 	& 	\enot 	&	 B)  \\
+ \hline
+	&	F		&	T		&	F		&	T	&	F	&	F		&	T	\\
+	&	F		&	T		&	F		&	T	&	F	&	T		&	F	\\
+	&	F		&	T		&	T		&	F	&	F	&	F		&	T	\\
+	&	T		&	F		&	T		&	F	&	T	&	T		&	F	\\
+\cline{2-2}
+\end{tabular}
+\end{center}
+}
+\vspace{1em}
+
+
+
+\item 	$[(D \eand R) \eif I] \eif \enot(D \eor R) $
+
+\myanswer{
+\begin{center}
+\begin{tabular}{cccccc|c|cccc}
+\cline{7-7}
+	&	[(D 	& 	 \eand 	& 	 R)	& 	\eif 	&	I] 	&	\eif 	&	 \enot 	&	(D 	&	 \eor 	& R) \\
+	 \hline
+	&	T	&	T		&	T	&	T	&	T	&	F	&	F		&	T	&	T		&T	\\
+	&	T	&	T		&	T	&	F	&	F	&	T	&	F		&	T	&	T		&T	\\
+	&	T	&	F		&	F	&	T	&	T	&	F	&	F		&	T	&	T		&F	\\
+	&	T	&	F		&	F	&	T	&	F	&	F	&	F		&	T	&	T		&F	\\
+	&	F	&	F		&	T	&	T	&	T	&	F	&	F		&	F	&	T		&T	\\
+	&	F	&	F		&	T	&	T	&	F	&	F	&	F		&	F	&	T		&T	\\
+	&	F	&	F		&	F	&	T	&	T	&	T	&	T		&	F	&	F		&F	\\
+	&	F	&	F		&	F	&	T	&	F	&	T	&	T		&	F	&	F		&F	\\
+\cline{7-7}
+\end{tabular}
+\end{center}
+}
+	
+\vspace{1em}
+
+
+\item	$\enot [(D \eiff O) \eiff A] \eif (\enot D \eand O) $
+
+\myanswer{
+\begin{center}
+\begin{tabular}{ccccccc|c|cccc}
+\cline{8-8}
+	&	\enot 	&	[(D 	&	\eiff 	&	O) 	&	\eiff 	&	 A]	& 	\eif 	 &	(\enot 	& 	D 	 & 	 \eand &O) \\ 
+	\hline
+	&	F		&	T	&	T	&	T	&	T	&	T	&	T	&	F		&	T	&	F	&T	\\
+	&	T		&	T	&	T	&	T	&	F	&	F	&	F	&	F		&	T	&	F	&T	\\
+	&	T		&	T	&	F	&	F	&	F	&	T	&	F	&	F		&	T	&	F	&F	\\
+	&	F		&	T	&	F	&	F	&	T	&	F	&	T	&	F		&	T	&	F	&F	\\
+	&	T		&	F	&	F	&	T	&	F	&	T	&	T	&	T		&	F	&	T	&T	\\
+	&	F		&	F	&	F	&	T	&	T	&	F	&	T	&	T		&	F	&	T	&T	\\
+	&	F		&	F	&	T	&	F	&	T	&	T	&	T	&	T		&	F	&	F	&F	\\
+	&	T		&	F	&	T	&	F	&	F	&	F	&	T	&	T		&	F	&	F	&F	\\
+\cline{8-8}
+\end{tabular}
+\end{center}
+}
+\vspace{1em}
+\end{earg}
+
+
+If you want additional practice, you can construct truth tables for any of the sentences and arguments in the exercises for the previous chapter.
 
 
 
@@ -283,7 +516,6 @@ F & F & F & F & \TTbf{T} & F & F & F & F & \TTbf{T} & T & F & F & \TTbf{T} & T &
 \end{center}}
 \end{earg}
 
-
 \solutions
 \problempart
 \label{pr.TT.valid}
@@ -350,8 +582,153 @@ F & F & F & F & F & F & \TTbf{T} & F & F & F & F & \TTbf{T} & F & F & F & F & \T
 \end{center}}
 \end{earg}
 
+\problempart Determine whether each sentence is a tautology, a contradiction, or a contingent sentence, using a complete truth table.
+\begin{earg}
+\item $\enot B \eand B$ \vspace{.5ex} \hfill \myanswer{Contradiction}
+
+
+\item $\enot D \eor D$ \vspace{.5ex} \hfill \myanswer{Tautology}
+
+
+\item $(A\eand B) \eor (B\eand A)$\vspace{.5ex} \hfill \myanswer{Contingent}
+
+
+\item $\enot[A \eif (B \eif A)]$\vspace{.5ex} \hfill \myanswer{Contradiction}
+
+
+\item $A \eiff [A \eif (B \eand \enot B)]$ \vspace{.5ex} \hfill \myanswer{Contradiction}
+
+
+\item $[(A \eand B) \eiff B] \eif (A \eif B)$ \vspace{.5ex} \hfill \myanswer{Contingent}
+
+
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.equiv}
+Determine whether each the following sentences are logically equivalent using complete truth tables. If the two sentences really are logically equivalent, write ``equivalent.'' Otherwise write, ``Not equivalent.'' 
+\begin{earg}
+\item $A$ and $\enot A$
+\item $A \eand \enot A$ and $\enot B \eiff B$
+\item $[(A \eor B) \eor C]$ and $[A \eor (B \eor C)]$
+\item $A \eor (B \eand C)$ and $(A \eor B) \eand (A \eor C)$
+\item $[A \eand (A \eor B)] \eif B$ and $A \eif B$\end{earg}
+
+
+\problempart
+\label{pr.TT.equiv2}
+Determine whether each the following sentences are logically equivalent using complete truth tables. If the two sentences really are equivalent, write ``equivalent.'' Otherwise write, ``not equivalent.''
+\begin{earg}
+\item $A\eif A$ and $A \eiff A$
+\item $\enot(A \eif B)$ and $\enot A \eif \enot B$
+\item $A \eor B$ and $\enot A \eif B$
+\item$(A \eif B) \eif C$ and $A \eif (B \eif C)$
+\item $A \eiff (B \eiff C)$ and $A \eand (B \eand C)$
+\end{earg}
+
+\problempart
+\label{pr.TT.consistent2}
+Determine whether each collection of sentences is jointly consistent or jointly inconsistent using a complete truth table. 
+
+\begin{earg}
+
+\item $A \eand \enot B$, $\enot(A \eif B)$, $B \eif A$ %Consistent
+
+\myanswer{
+\begin{center}
+\begin{tabular}{ccccccccccccccc} 
+~ 	&	A 	& \eand	&  \enot & B &  & \enot &  (A &  \eif & B)	 & 	 & 	 B	 & 	\eif  & A  & Consistent \\ 
+\cline{2-5} \cline{7-10}\cline{12-14} 
+	& 	T   & F     &   F	 & T &  &  F	& 	T &   T	  & T 	 & 	 & 	 T	 & 	 T	  & T  &	  \\ 
+\cline{2-14}
+	& \multicolumn{1}{|r}{T}& 	\textbf{T}	 & T	 & F & & \textbf{T}	 & 	 T	 & 	 F	 	 & 	 F	 	 & 	 & 	 F	 	 & 	 \textbf{T}	 	 & 	 \multicolumn{1}{r|}{T}	 	 & 	  \\ 
+\cline{2-14}
+	& 	 F	 				 & 	 F	 & 	 F	 & T & 	& 	 F	 & 	 F	 & 	 T	 	 & 	 T	 	 & 	  & 	 T	 	 & 	 F	 	 & 	 F	 	 & 	  \\ 
+	& 	 F	  				& 	 F	 & 	 T	 & 	F&  & 	 F	 & 	 F	 & 	 T	 	 & 	 F	 	 & 	  & 	 F	 	 & 	 T	 	 & 	 F	 	 & 	  \\ 
+\end{tabular}
+\end{center}
+}
+
+\item $A \eor B$, $A \eif \enot A$, $B \eif \enot B$ %inconsistent. 
+
+\myanswer{
+\begin{center}
+\begin{tabular}{ccccccccccccccc} 
+  & A	 & \eor 	 & B 	 & 	 	 & A 	 & \eif 	 & 	\enot & A 	 & 	 	 & B 	 & \eif 	 & \enot	 & 	B 	 & 	Inconsistent \\ 
+\cline{2-4}\cline{6- 9} \cline{11-14}
+   &	 T	 & 	 T	 &T  	 & 	 	 & T	 & 	 F	 & 	F 	 & T 	 & 	 	 & 	T 	 & 	F 	 & 	 F	 & 	T 	 & 	 \\ 
+   &	 T	& 	 T	 & F 	 & 	 	 & 	T 	 & 	 F	 & 	 F	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	 F	 & 	 \\ 
+   &	 F	& 	 T	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	F 	 & 	 	 & 	 T	 & 	 F	 & 	 F	 & 	 T	 & 	 \\ 
+   &	 F	& 	 F	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 \\ 
+\end{tabular}
+\end{center}
+}
+
+\item $\enot(\enot A \eor B) $, $A \eif \enot C$, $A \eif (B \eif C)$ \hfill \myanswer{Consistent}
+
+\myanswer{
+\begin{center}
+\begin{tabular}{ccccccccccccccccc}
+   \enot & (\enot & A & \eor & B) &  & A  & \eif 	 & \enot 	 & C & 	 & A & \eif 	& (B & \eif & C) &  \\ 
+ \cline{1-5}\cline{7-10} \cline{12-16} 
+	F 	& 	F	 & 	T & T	 & T & 	  & T & F	 & 	 F & T 	 & 	 & T & T	 & T	 & T 	 & T 	 & \\ 
+   	 F	& 	F	 & 	T & T	 & T & 	  & T & T	 & 	 T & F	 & 	 & T & F	 & T	 & F	 & F 	 & \\ 
+   	 T & 	F 	& 	T & F	 & F & 	  & T & F	 & 	 F & T	 & 	 & T & T	 & F	 & T	 & T 	 & \\ 
+\cline{1-16}
+   	 \multicolumn{1}{|r}{{\color{red}T}}		&  F	 & 	T & F	 & 	F &  & 	T & {\color{red}T}	 & 	 T & F 	& 	 & T & {\color{red}T}	 & F	 & T	 & \multicolumn{1}{r|}{F} 	 & \\ 
+\cline{1-16}
+   	 F	& 	T	 & 	F & T	 & 	T &  & 	F & T	 & 	 F & T	 & 	 & F	 & F	 & T	 & T	 & T 	 & \\ 
+   	 F	& 	 T	& 	F & T	 & 	T &  & 	F & T	 & 	T & F 	& 	 & F	 & T	 & T	 & F 	 & F 	 & \\ 
+   	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	F & T	 & 	 & F	 & T	 & F	 & T	 & T 	 & \\ 
+   	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	T & F	 & 	 & F	 & T	 & F	 & T	 & F 	 & \\ 
+\end{tabular}
+\end{center}
+}
+
+
+
+\item $A \eif B$, $A \eand \enot B$ \hfill \myanswer{Inconsistent}
+
+\item $A \eif (B \eif C)$, $(A \eif B) \eif C$, $A \eif C$ \hfill \myanswer{ Consistent} 
+
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.consistent3}
+Determine whether each collection of sentences is jointly consistent or jointly inconsistent, using a complete truth table. 
+\begin{earg}
+\item $\enot B$, $A \eif B$, $A$ \vspace{.5ex} \hfill \myanswer{Inconsistent}
+\item $\enot(A \eor B)$, $A \eiff B$, $B \eif A$\vspace{.5ex} \hfill \myanswer{Consistent}
+\item $A \eor B$, $\enot B$, $\enot B \eif \enot A$\vspace{.5ex} \hfill \myanswer{Inconsistent}
+\item $A \eiff B$, $\enot B \eor \enot A$, $A \eif B$\vspace{.5ex} \hfill \myanswer{Consistent} 
+\item $(A \eor B) \eor C$, $\enot A \eor \enot B$, $\enot C \eor \enot B$\vspace{.5ex} \hfill \myanswer{Consistent}
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.valid2}
+Determine whether each argument is valid or invalid, using a complete truth table. 
+\begin{earg}
+\item $A\eif B$, $B \therefore  A$ \hfill \myanswer{Invalid}
+
+\item $A\eiff B$, $B\eiff C \therefore A\eiff C$ \hfill \myanswer{Valid}
+
+\item $A \eif B$, $A \eif C\therefore B \eif C$ \hfill \myanswer{Invalid}. 
+
+\item $A \eif B$, $B \eif A\therefore A \eiff B$ \hfill \myanswer{Valid} 
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.valid3}
+Determine whether each argument is valid or invalid, using a complete truth table. 
+\begin{earg}
+\item $A\eor\bigl[A\eif(A\eiff A)\bigr] \therefore  A $\vspace{.5ex} \hfill \myanswer{Invalid}
+\item $A\eor B$, $B\eor C$, $\enot B \therefore A \eand C$\vspace{.5ex} \hfill \myanswer{Valid}
+\item $A \eif B$, $\enot A\therefore \enot B$ \vspace{.5ex} \hfill \myanswer{Invalid}
+\item $A$, $B\therefore \enot(A\eif \enot B)$ \vspace{.5ex} \hfill \myanswer{Valid}
+\item $\enot(A \eand B)$, $A \eor B$, $A \eiff B\therefore C$ \vspace{.5ex} \hfill \myanswer{Valid}
+\end{earg}
+
 \solutions
-\setcounter{ProbPart}{10} % next problem is K (= 11)
 \problempart
 \label{pr.TT.concepts}
 Answer each of the questions below and justify your answer.
@@ -382,9 +759,10 @@ Is this principle correct? Explain your answer.
 
 \chapter{Truth table shortcuts}\setcounter{ProbPart}{0}
 \problempart
-\label{pr.TT.TTorC}
+\label{pr.TT.TTorC2}
 Using shortcuts, determine whether each sentence is a tautology, a contradiction, or neither. 
 \begin{earg}
+
 \item $\enot B \eand B$ %contra
 \myanswer{ \hfill Contradiction\begin{center}
 \begin{tabular}{c | d e e f }
@@ -513,7 +891,7 @@ F & F & F & F & & F & & \TTbf{F} &  & T & &  F
 
 \chapter{Partial truth tables}\setcounter{ProbPart}{0}
 \problempart
-\label{pr.TT.equiv}
+\label{pr.TT.equiv3}
 Use complete or partial truth tables (as appropriate) to determine whether these pairs of sentences are logically equivalent:
 \begin{earg}
 \item $A$, $\enot A$
@@ -662,7 +1040,7 @@ T & T & T & F & F & T & T & T& T& T& T& T
 
 \solutions
 \problempart
-\label{pr.TT.valid}
+\label{pr.TT.valid4}
 Use complete or partial truth tables (as appropriate) to determine whether each argument is valid or invalid:
 \begin{earg}
 \item $A\eor\bigl[A\eif(A\eiff A)\bigr] \therefore A$ %invalid
@@ -728,3 +1106,232 @@ F & F & F &  &  & T
 \end{tabular}
 \end{center}}
 \end{earg}
+
+\problempart
+\label{pr.TT.TTorC3}
+Determine whether each sentence is a tautology, a contradiction, or a contingent sentence. Justify your answer with a complete or partial truth table where appropriate.
+
+% truth tables in LaTeX generated by http://www.curtisbright.com/logic/. Be sure to give him a shout out.
+
+\begin{earg}
+\item  $A \eif \enot A$ 
+\myanswer{\hfill Contingent
+ \[
+ \begin{array}{c|cccc}
+ A&A&\eif&\enot&A\\\hline
+ T&T&\mathbf{F}&F&T\\
+ F&F&\mathbf{T}&T&F
+ \end{array}
+ \]
+}
+%	T letter, 2 connectives
+\item $A \eif (A \eand (A \eor B))$ 
+\myanswer{ \hfill Tautology
+\[
+\begin{array}{cc|ccc@{}ccc@{}ccc@{}c@{}c}
+A&B&A&\eif&(&A&\eand&(&A&\eor&B&)&)\\\hline
+T&T&T&\mathbf{T}&&T&T&&T&T&T&&\\
+T&F&T&\mathbf{T}&&T&T&&T&T&F&&\\
+F&T&F&\mathbf{T}&&F&F&&F&T&T&&\\
+F&F&F&\mathbf{T}&&F&F&&F&F&F&&
+\end{array}
+\]
+\vspace{6pt}
+}
+%			2 letters, 3 connectives
+
+\item $(A \eif B) \eiff (B \eif A)$
+\myanswer{ \hfill Contingent
+\[
+\begin{array}{cc|c@{}ccc@{}ccc@{}ccc@{}c}
+A&B&(&A&\rightarrow&B&)&\leftrightarrow&(&B&\rightarrow&A&)\\\hline
+T&T&&T&T&T&&\mathbf{T}&&T&T&T&\\
+T&F&&T&F&F&&\mathbf{F}&&F&T&T&\\
+F&T&&F&T&T&&\mathbf{F}&&T&F&F&\\
+F&F&&F&T&F&&\mathbf{T}&&F&T&F&
+\end{array}
+\]}
+%		2 letters, 3 connectives
+
+\item $A \eif \enot(A \eand (A \eor B)) $
+\myanswer{ \hfill Contingent
+\[
+\begin{array}{cc|cccc@{}ccc@{}ccc@{}c@{}c}
+A&B&A&\rightarrow&\enot&(&A&\eand&(&A&\eor&B&)&)\\\hline
+T&T&T&\mathbf{F}&F&&T&T&&T&T&T&&\\
+T&F&T&\mathbf{F}&F&&T&T&&T&T&F&&\\
+F&T&F&\mathbf{T}&T&&F&F&&F&T&T&&\\
+F&F&F&\mathbf{T}&T&&F&F&&F&F&F&&
+\end{array}
+\]
+}
+
+% 2 letters, 4 connectives
+
+\item $\enot B \eif [(\enot A \eand A) \eor B]$
+\myanswer{ \hfill Contingent
+\[
+\begin{array}{cc|cccc@{}c@{}cccc@{}ccc@{}c}
+A&B&\enot&B&\rightarrow&(&(&\enot&A&\eand&A&)&\eor&B&)\\\hline
+T&T&F&T&\mathbf{T}&&&F&T&F&T&&T&T&\\
+T&F&T&F&\mathbf{F}&&&F&T&F&T&&F&F&\\
+F&T&F&T&\mathbf{T}&&&T&F&F&F&&T&T&\\
+F&F&T&F&\mathbf{F}&&&T&F&F&F&&F&F&
+\end{array}
+\]}
+%	2 letters, 5 connectives
+
+\item $\enot(A \eor B) \eiff (\enot A \eand \enot B)$
+\myanswer{ \hfill Tautology
+\[
+\begin{array}{cc|cc@{}ccc@{}ccc@{}ccccc@{}c}
+A&B&\enot&(&A&\eor&B&)&\leftrightarrow&(&\enot&A&\eand&\enot&B&)\\\hline
+T&T&F&&T&T&T&&\mathbf{T}&&F&T&F&F&T&\\
+T&F&F&&T&T&F&&\mathbf{T}&&F&T&F&T&F&\\
+F&T&F&&F&T&T&&\mathbf{T}&&T&F&F&F&T&\\
+F&F&T&&F&F&F&&\mathbf{T}&&T&F&T&T&F&
+\end{array}
+\]}
+%2 letters, 6 connectives
+
+\item $[(A \eand B) \eand C] \eif B$
+\myanswer{ \hfill Tautology
+\[
+\begin{array}{ccc|c@{}c@{}ccc@{}ccc@{}ccc}
+A&B&C&(&(&A&\eand&B&)&\eand&C&)&\rightarrow&B\\\hline
+T&T&T&&&T&T&T&&T&T&&\mathbf{T}&T\\
+T&T&F&&&T&T&T&&F&F&&\mathbf{T}&T\\
+T&F&T&&&T&F&F&&F&T&&\mathbf{T}&F\\
+T&F&F&&&T&F&F&&F&F&&\mathbf{T}&F\\
+F&T&T&&&F&F&T&&F&T&&\mathbf{T}&T\\
+F&T&F&&&F&F&T&&F&F&&\mathbf{T}&T\\
+F&F&T&&&F&F&F&&F&T&&\mathbf{T}&F\\
+F&F&F&&&F&F&F&&F&F&&\mathbf{T}&F
+\end{array}
+\]}
+
+%3 letters, 3 connectives
+
+\item $\enot\bigl[(C\eor A) \eor B\bigr]$
+\myanswer{ \hfill Contingent
+\[
+\begin{array}{ccc|cc@{}c@{}ccc@{}ccc@{}c}
+A&B&C&\enot&(&(&C&\eor&A&)&\eor&B&)\\\hline
+T&T&T&\mathbf{F}&&&T&T&T&&T&T&\\
+T&T&F&\mathbf{F}&&&F&T&T&&T&T&\\
+T&F&T&\mathbf{F}&&&T&T&T&&T&F&\\
+T&F&F&\mathbf{F}&&&F&T&T&&T&F&\\
+F&T&T&\mathbf{F}&&&T&T&F&&T&T&\\
+F&T&F&\mathbf{F}&&&F&F&F&&T&T&\\
+F&F&T&\mathbf{F}&&&T&T&F&&T&F&\\
+F&F&F&\mathbf{T}&&&F&F&F&&F&F&
+\end{array}
+\]}
+%	 	3 letters, 3 connectives
+
+\item $\bigl[(A\eand B) \eand\enot(A\eand B)\bigr] \eand C$
+\myanswer{ \hfill Contradiction
+\[
+\begin{array}{ccc|c@{}c@{}ccc@{}cccc@{}ccc@{}c@{}ccc}
+A&B&C&(&(&A&\eand&B&)&\eand&\enot&(&A&\eand&B&)&)&\eand&C\\\hline
+T&T&T&&&T&T&T&&F&F&&T&T&T&&&\mathbf{F}&T\\
+T&T&F&&&T&T&T&&F&F&&T&T&T&&&\mathbf{F}&F\\
+T&F&T&&&T&F&F&&F&T&&T&F&F&&&\mathbf{F}&T\\
+T&F&F&&&T&F&F&&F&T&&T&F&F&&&\mathbf{F}&F\\
+F&T&T&&&F&F&T&&F&T&&F&F&T&&&\mathbf{F}&T\\
+F&T&F&&&F&F&T&&F&T&&F&F&T&&&\mathbf{F}&F\\
+F&F&T&&&F&F&F&&F&T&&F&F&F&&&\mathbf{F}&T\\
+F&F&F&&&F&F&F&&F&T&&F&F&F&&&\mathbf{F}&F
+\end{array}
+\]}
+
+% 	3 letters, 5 connectives
+
+\item $(A \eand B) ]\eif[(A \eand C) \eor (B \eand D)]$
+\myanswer{ \hfill Contingent
+\[
+\begin{array}{cccc|c@{}c@{}ccc@{}c@{}ccc@{}c@{}ccc@{}ccc@{}ccc@{}c@{}c}
+A&B&C&D&(&(&A&\eand&B&)&)&\eif&(&(&A&\eand&C&)&\eor&(&B&\eand&D&)&)\\\hline
+T&T&T&T&&&T&T&T&&&\mathbf{T}&&&T&T&T&&T&&T&T&T&&\\
+T&T&F&F&&&T&T&T&&&\mathbf{F}&&&T&F&F&&F&&T&F&F&&\\
+\end{array}
+\]}
+
+%	4 letters, 5 connectives
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.TTorC4}
+Determine whether each sentence is a tautology, a contradiction, or a contingent sentence. Justify your answer with a complete or partial truth table where appropriate.
+\begin{earg}
+\item  $\enot (A \eor A)$\vspace{.5ex}		\hfill			\myanswer{		Contradiction}	%	1 letter, 2 connectives
+\item $(A \eif B) \eor (B \eif A)$\vspace{.5ex}	\hfill		\myanswer{			Tautology	}	%	2 letters, 2 connectives
+\item $[(A \eif B) \eif A] \eif A$\vspace{.5ex}	\hfill			\myanswer{	  	Tautology		 }   %2 letters, 3 connectives
+\item $\enot[( A \eif B) \eor (B \eif A)]$\vspace{.5ex}	\hfill		\myanswer{		Contradiction}	%	2 letters, 4 connectives
+\item $(A \eand B) \eor (A \eor B)$\vspace{.5ex} 	\hfill			\myanswer{		Contingent	}	%2 letters, 5 connectives
+\item $\enot(A\eand B) \eiff A$\vspace{.5ex} 		\hfill			\myanswer{	Contingent		}	%2 letters, 3 connectives
+\item $A\eif(B\eor C)$\vspace{.5ex} 				\hfill			\myanswer{	Contingent		}	%3 letters, 2 connectives
+\item $(A \eand\enot A) \eif (B \eor C)$\vspace{.5ex} 	\hfill		\myanswer{	Tautology		}	%3 letters, 4 connectives 
+\item $(B\eand D) \eiff [A \eiff(A \eor C)]$\vspace{.5ex}\hfill		\myanswer{		Contingent	}	%	4 letters, 4 connectives
+\item $\enot[(A \eif B) \eor (C \eif D)]$\vspace{.5ex} 	\hfill		\myanswer{	 Contingent 	}	%4 letters, 4 connectives
+\end{earg}
+
+
+
+\noindent\problempart
+Determine whether each the following pairs of sentences are logically equivalent using complete truth tables. If the two sentences really are logically equivalent, write ``equivalent.'' Otherwise write, ``not equivalent.''
+\begin{earg}
+\item $A$ and $A \eor A$
+\item $A$ and $A \eand A$
+\item $A \eor \enot B$ and $A\eif B$
+\item $(A \eif B)$ and $(\enot B \eif \enot A)$
+\item $\enot(A \eand B)$ and $\enot A \eor \enot B$
+\item $ ((U \eif (X \eor X)) \eor U)$ and $\enot (X \eand (X \eand U))$
+\item $ ((C \eand (N \eiff C)) \eiff C)$ and $(\enot \enot \enot N \eif C)$
+\item $[(A \eor B) \eand C]$ and $[A \eor (B \eand C)]$
+\item $((L \eand C) \eand I)$ and $L \eor C$
+\end{earg}
+
+
+\noindent\problempart
+\label{pr.TT.consistent5}
+Determine whether each collection of sentences is jointly consistent or jointly inconsistent. Justify your answer with a complete or partial truth table where appropriate.
+\begin{earg}
+\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ \vspace{.5ex} \hfill \myanswer{Consistent}
+\item $A \eif \enot A$, $\enot A \eif A$\vspace{.5ex} \hfill \myanswer{Inconsistent }
+\item $A\eor B$, $A\eif C$, $B\eif C$\vspace{.5ex} \hfill \myanswer{Consistent}
+\item $A \eor B$, $A \eif C$, $B \eif C$, $\enot C$\vspace{.5ex} \hfill \myanswer{	Inconsistent}
+\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$\vspace{.5ex}  \hfill \myanswer{Inconsistent}
+\item $(A \eiff B) \eif B$,  $B \eif \enot (A \eiff B)$, $A \eor B$ \vspace{.5ex} \hfill \myanswer{Consistent}
+\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$\vspace{.5ex} \hfill \myanswer{Consistent}
+\item  $A \eiff B$,  $\enot B \eor \enot A$,  $A \eif  B$ \vspace{.5ex} \hfill \myanswer{ Consistent}
+\item $A \eiff B$, $A \eif C$, $B \eif D$, $\enot(C \eor D)$\vspace{.5ex} \hfill \myanswer{Consistent}
+\item $\enot (A \eand \enot B)$,  $B \eif \enot A$, $\enot B$  \vspace{.5ex} \hfill \myanswer{Consistent}
+\end{earg}
+
+\noindent\problempart Determine whether each argument is valid or invalid. Justify your answer with a complete or partial truth table where appropriate.
+\label{pr.TT.valid5} 
+\begin{enumerate}
+\item $A\eif(A\eand\enot A)\therefore \enot A$ \hfill \myanswer{ Valid}
+\item $A \eor B$, $A \eif B$, $B \eif A \therefore  A \eiff B$  \hfill \myanswer{ Valid}
+\item $A\eor(B\eif A)\therefore \enot A \eif \enot B$ \hfill \myanswer{Valid}
+\item $A \eor B$, $A \eif B$, $ B \eif A \therefore  A \eand B$ \hfill \myanswer{Valid}
+\item $(B\eand A)\eif C$, $(C\eand A)\eif B\therefore (C\eand B)\eif A$ \hfill \myanswer{Invalid}
+\item $\enot (\enot A \eor \enot B)$, $A \eif \enot C \therefore  A \eif (B \eif C)$ \hfill \myanswer{ Invalid}
+\item $A \eand (B \eif C)$, $\enot C \eand (\enot B \eif \enot A)\therefore C \eand \enot C$ \hfill \myanswer{ Valid}
+\item $A \eand B$, $\enot A \eif \enot C$, $B \eif \enot D \therefore  A \eor B$ \hfill \myanswer{ Invalid}
+\item $A \eif B\therefore (A \eand B) \eor (\enot A \eand \enot B)$ \hfill \myanswer{ Invalid}
+\item $\enot A \eif B$,$ \enot B \eif C $,$ \enot C \eif A \therefore  \enot A \eif (\enot B \eor \enot C)$ \hfill \myanswer{Invalid}
+
+\end{enumerate}
+
+\noindent\problempart Determine whether each argument is valid or invalid. Justify your answer with a complete or partial truth table where appropriate.
+\label{pr.TT.valid6} 
+\begin{enumerate}
+\item $A\eiff\enot(B\eiff A)\therefore A$ \hfill \myanswer{ Invalid}
+\item $A\eor B$, $B\eor C$, $\enot A\therefore B \eand C$ \hfill \myanswer{ Invalid}
+\item $A \eif C$, $E \eif (D \eor B)$, $B \eif \enot D\therefore (A \eor C) \eor (B \eif (E \eand D))$ \hfill \myanswer{ Invalid}
+\item $A \eor B$, $C \eif A$, $C \eif B\therefore A \eif (B \eif C)$ \hfill \myanswer{ Invalid}
+\item $A \eif B$, $\enot B \eor A\therefore A \eiff B$ \hfill \myanswer{ Valid}
+\end{enumerate}
+

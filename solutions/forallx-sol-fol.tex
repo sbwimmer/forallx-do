@@ -40,12 +40,12 @@ Here are the syllogistic figures identified by Aristotle and his successors, alo
 	\item \textbf{Fresison.} No F are G. Some G is H. So: Some H is not F.
 	\item[] \myanswer{$\forall x (Fx \eif \enot Gx), \exists x (Gx \eand Hx) \therefore \exists (Hx \eand \enot Fx)$}
 \end{ebullet}
-Symbolise each argument in FOL.
+Symbolize each argument in FOL.
 
 \
 \problempart
 \label{pr.FOLvegetarians}
-Using the following symbolisation key:
+Using the following symbolization key:
 \begin{ekey}
 \item[\text{domain}] people
 \item[Kx] \gap{x} knows the combination to the safe
@@ -55,7 +55,7 @@ Using the following symbolisation key:
 \item[h] Hofthor
 \item[i] Ingmar
 \end{ekey}
-symbolise the following sentences in FOL:
+symbolize the following sentences in FOL:
 \begin{earg}
 \item Neither Hofthor nor Ingmar is a vegetarian.
 \item[] \myanswer{$\enot Vh \eand \enot Vi$}
@@ -76,7 +76,7 @@ symbolise the following sentences in FOL:
 
 \solutions
 \problempart\label{pr.FOLalligators}
-Using this symbolisation key:
+Using this symbolization key:
 \begin{ekey}
 \item[\text{domain}] all animals
 \item[Ax] \gap{x} is an alligator.
@@ -87,7 +87,7 @@ Using this symbolisation key:
 \item[b] Bouncer
 \item[c] Cleo
 \end{ekey}
-symbolise each of the following sentences in FOL:
+symbolize each of the following sentences in FOL:
 \begin{earg}
 \item Amos, Bouncer, and Cleo all live at the zoo. 
 \item[] \myanswer{$Za \eand Zb \eand Zc$}
@@ -116,7 +116,7 @@ symbolise each of the following sentences in FOL:
 
 \problempart
 \label{pr.FOLarguments}
-For each argument, write a symbolisation key and symbolise the argument in FOL.
+For each argument, write a symbolization key and symbolize the argument in FOL.
 \begin{earg}
 \item Willard is a logician. All logicians wear funny hats. So Willard wears a funny hat
 \myanswer{
@@ -179,7 +179,7 @@ $\forall x (Bx \eif Ix), \forall x (Ix \eif \enot Cx), Bb \therefore \enot Cb$}
 
 \chapter{Multiple generality}\setcounter{ProbPart}{0}
 \problempart
-Using this symbolisation key:
+Using this symbolization key:
 \begin{ekey}
 \item[\text{domain}] all animals
 \item[Ax] \gap{x} is an alligator
@@ -191,7 +191,7 @@ Using this symbolisation key:
 \item[b] Bouncer
 \item[c] Cleo
 \end{ekey}
-symbolise each of the following sentences in FOL:
+symbolize each of the following sentences in FOL:
 \begin{earg}
 \item If Cleo loves Bouncer, then Bouncer is a monkey. 
 \item[] \myanswer{$Lcb \eif Mb$}
@@ -215,44 +215,44 @@ symbolise each of the following sentences in FOL:
 \end{earg}
 
 \problempart 
-Using the following symbolisation key:
+Using the following symbolization key:
 \begin{ekey}
 \item[\text{domain}] all animals
 \item[Dx] \gap{x} is a dog
 \item[Sx] \gap{x} likes samurai movies
 \item[Lxy] \gap{x} is larger than \gap{y}
-\item[b] Bertie
-\item[e] Emerson
-\item[f] Fergis
+\item[r] Rave
+\item[s] Shane
+\item[d] Daisy
 \end{ekey}
-symbolise the following sentences in FOL:
+symbolize the following sentences in FOL:
 \begin{earg}
-\item Bertie is a dog who likes samurai movies.
-\item[] \myanswer{$Db \eand Sb$}
-\item Bertie, Emerson, and Fergis are all dogs.
-\item[] \myanswer{$Db \eand De \eand D\emph{f}$}
-\item Emerson is larger than Bertie, and Fergis is larger than Emerson.
-\item[] \myanswer{$Leb \eand L\emph{f}e$}
+\item Rave is a dog who likes samurai movies.
+\item[] \myanswer{$Dr \eand Sr$}
+\item Rave, Shane, and Daisy are all dogs.
+\item[] \myanswer{$Dr \eand Ds \eand D\emph{d}$}
+\item Shane is larger than Rave, and Daisy is larger than Shane.
+\item[] \myanswer{$Lsr \eand L\emph{d}s$}
 \item All dogs like samurai movies.
 \item[] \myanswer{$\forall x(Dx \eif Sx)$}
 \item Only dogs like samurai movies.
 \item[] \myanswer{$\forall x(Sx \eif Dx)$\\
 Comment: the FOL sentence just written does not require that anyone likes samurai movies. The English sentence might suggest that at least some dogs \emph{do} like samurai movies?}
-\item There is a dog that is larger than Emerson.
-\item[] \myanswer{$\exists x (Dx \eand Lxe)$}
-\item If there is a dog larger than Fergis, then there is a dog larger than Emerson.
-\item[] \myanswer{$\exists x (Dx \eand Lx\emph{f}) \eif \exists x(Dx \eand Lxe)$}
-\item No animal that likes samurai movies is larger than Emerson.
-\item[] \myanswer{$\forall x (Sx \eif \enot Lxe)$}
-\item No dog is larger than Fergis.
-\item[] \myanswer{$\forall x (Dx \eif \enot Lx\emph{f})$}
-\item Any animal that dislikes samurai movies is larger than Bertie.
-\item[] \myanswer{$\forall x (\enot Sx \eif Lxb)$\\
+\item There is a dog that is larger than Shane.
+\item[] \myanswer{$\exists x (Dx \eand Lxs)$}
+\item If there is a dog larger than Daisy, then there is a dog larger than Shane.
+\item[] \myanswer{$\exists x (Dx \eand Lx\emph{d}) \eif \exists x(Dx \eand Lxs)$}
+\item No animal that likes samurai movies is larger than Shane.
+\item[] \myanswer{$\forall x (Sx \eif \enot Lxs)$}
+\item No dog is larger than Daisy.
+\item[] \myanswer{$\forall x (Dx \eif \enot Lx\emph{d})$}
+\item Any animal that dislikes samurai movies is larger than Rave.
+\item[] \myanswer{$\forall x (\enot Sx \eif Lxr)$\\
 Comment: this is very poor, though! For `dislikes' does not mean the same as `does not like'.}
-\item There is an animal that is between Bertie and Emerson in size.
-\item[] \myanswer{$\exists x((Lbx \eand Lxe) \eor (Lex \eand Lxb))$}
-\item There is no dog that is between Bertie and Emerson in size.
-\item[] \myanswer{$\forall x \bigl(Dx \eif \enot\bigl[(Lbx \eand Lxe) \eor (Lex \eand Lxb)\bigr]\bigr)$}
+\item There is an animal that is between Rave and Shane in size.
+\item[] \myanswer{$\exists x((Lbx \eand Lxs) \eor (Lsx \eand Lxr))$}
+\item There is no dog that is between Rave and Shane in size.
+\item[] \myanswer{$\forall x \bigl(Dx \eif \enot\bigl[(Lbx \eand Lxs) \eor (Lsx \eand Lxr)\bigr]\bigr)$}
 \item No dog is larger than itself.
 \item[] \myanswer{$\forall x(Dx \eif \enot Lxx)$}
 \item Every dog is larger than some dog.
@@ -267,7 +267,31 @@ Comment: I have assumed that `larger than any dog' here means `larger than every
 
 \setcounter{ProbPart}{3} % next exercise is D (= 4) 
 \problempart
-Using the following symbolisation key:
+\label{pr.QLcandies}
+Using the symbolization key given, translate each English-language sentence into FOL.
+\begin{ekey}
+\item[\text{domain}] candies
+\item[Cx] \gap{x} has chocolate in it.
+\item[Mx] \gap{x} has marzipan in it.
+\item[Sx] \gap{x} has sugar in it.
+\item[Tx] Boris has tried \gap{x}.
+\item[Bxy] \gap{x} is better than \gap{y}.
+\end{ekey}
+\begin{earg}
+\item Boris has never tried any candy.
+\item Marzipan is always made with sugar.
+\item Some candy is sugar-free.
+\item The very best candy is chocolate.
+\item No candy is better than itself.
+\item Boris has never tried sugar-free chocolate.
+\item Boris has tried marzipan and chocolate, but never together.
+%\item Boris has tried nothing that is better than sugar-free marzipan.
+\item Any candy with chocolate is better than any candy without it.
+\item Any candy with chocolate and marzipan is better than any candy that lacks both.
+\end{earg}
+
+\problempart
+Using the following symbolization key:
 \begin{ekey}
 \item[\text{domain}] people and dishes at a potluck
 \item[Rx] \gap{x} has run out.
@@ -279,7 +303,7 @@ Using the following symbolisation key:
 \item[f] Francesca
 \item[g] the guacamole
 \end{ekey}
-symbolise the following English sentences in FOL:
+symbolize the following English sentences in FOL:
 \begin{earg}
 \item All the food is on the table.
 \item[] \myanswer{$\forall x(Fx \eif Tx)$}
@@ -303,7 +327,7 @@ symbolise the following English sentences in FOL:
 \solutions
 \problempart
 \label{pr.FOLballet}
-Using the following symbolisation key:
+Using the following symbolization key:
 \begin{ekey}
 \item[\text{domain}] people
 \item[Dx] \gap{x} dances ballet.
@@ -315,7 +339,7 @@ Using the following symbolisation key:
 \item[j] Jane
 \item[p] Patrick
 \end{ekey}
-symbolise the following sentences in FOL:
+symbolize the following sentences in FOL:
 \begin{earg}
 \item All of Patrick's children are ballet dancers.
 \item[] \myanswer{$\forall x(Cxp \eif Dx)$}
@@ -347,7 +371,7 @@ symbolise the following sentences in FOL:
 \chapter{Identity}\label{sec.identity}\setcounter{ProbPart}{0}
 %\problempart
 %\label{pr.FOLcandies}
-%Using the following symbolisation key:
+%Using the following symbolization key:
 %\begin{ekey}
 %\item[\text{domain}] candies
 %\item[Cx] \gap{x} has chocolate in it.
@@ -356,7 +380,7 @@ symbolise the following sentences in FOL:
 %\item[Tx] Boris has tried \gap{x}.
 %\item[Bxy] \gap{x} is better than \gap{y}.
 %\end{ekey}
-%symbolise the following English sentences in FOL:\\
+%symbolize the following English sentences in FOL:\\
 %\myanswer{Comment: these are deliberately tricky. What follows is the \emph{best} we can offer in FOL, for each of these sentences. Some are not great.}
 %\begin{earg}
 %\item Boris has never tried any candy.
@@ -382,13 +406,13 @@ symbolise the following sentences in FOL:
 
 \problempart Explain why:
 	\begin{ebullet}
-		\item   `$\exists x \forall y(Ay \eiff x= y)$' is a good symbolisation of `there is exactly one apple'.
+		\item   `$\exists x \forall y(Ay \eiff x= y)$' is a good symbolization of `there is exactly one apple'.
 		\item[] \myanswer{We might naturally read this in English thus: 
 		\begin{ebullet}
 			\item There is something, x, such that, if you choose any object at all, if you chose an apple then you chose x itself, and if you chose x itself then you chose an apple. 
 		\end{ebullet}
 		The x in question must therefore be the one and only thing which is an apple.}
-		\item `$\exists x \exists y \bigl[\enot x = y \eand \forall z(Az \eiff (x= z \eor y = z)\bigr]$' is a good symbolisation of `there are exactly two apples'.
+		\item `$\exists x \exists y \bigl[\enot x = y \eand \forall z(Az \eiff (x= z \eor y = z)\bigr]$' is a good symbolization of `there are exactly two apples'.
 		\item[] \myanswer{Similarly to the above, we might naturally read this in English thus: 
 		\begin{ebullet}
 			\item There are two distinct things, x and y, such that if you choose any object at all, if you chose an apple then you either chose x or y, and if you chose either x or y then you chose an apple. 
@@ -400,7 +424,7 @@ symbolise the following sentences in FOL:
 
 \chapter{Definite descriptions}\setcounter{ProbPart}{0}
 \problempart
-Using the following symbolisation key:
+Using the following symbolization key:
 \begin{ekey}
 \item[\text{domain}] people
 \item[Kx] \gap{x} knows the combination to the safe.
@@ -410,7 +434,7 @@ Using the following symbolisation key:
 \item[h] Hofthor
 \item[i] Ingmar
 \end{ekey}
-symbolise the following sentences in FOL:
+symbolize the following sentences in FOL:
 \begin{earg}
 \item Hofthor trusts a vegetarian.
 \item[] \myanswer{$\exists x(Vx \eand Thx)$}
@@ -433,7 +457,7 @@ Comment: the scope of negation is potentially ambiguous here; I have read it as 
 \solutions
 \problempart
 \label{pr.FOLcards}
-Using the following symbolisation key:
+Using the following symbolization key:
 \begin{ekey}
 \item[\text{domain}] cards in a standard deck
 \item[Bx] \gap{x} is black.
@@ -444,7 +468,7 @@ Using the following symbolisation key:
 \item[Ox] \gap{x} is one-eyed.
 \item[Wx] \gap{x} is wild.
 \end{ekey}
-symbolise each sentence in FOL:
+symbolize each sentence in FOL:
 \begin{earg}
 \item All clubs are black cards.
 \item[] \myanswer{$\forall x (Cx \eif Bx)$}
@@ -470,7 +494,7 @@ $\exists w \exists x \exists y \exists z\bigl(\enot w = x \eand \enot w = y \ean
 \item[] \myanswer{$\forall x \bigl[(Jx \eand Ox) \eif Wx\bigr] \eand \exists x\bigl[Mx \eand \forall y(My \eif x = y) \eand Wx\bigr]$}
 \item If the deuce of clubs is wild, then there is exactly one wild card.
 \item[] \myanswer{$\exists x \bigl(Dx \eand Cx \eand \forall y \bigl[(Dy \eand Cy) \eif x= y\bigr] \eand Wx\bigr) \eif \exists x \bigl(Wx \eand \forall y(Wy \eif x = y)\bigr)$\\
-Comment: if there is not exactly one deuce of clubs, then the above sentence is true. Maybe that's the wrong verdict. Perhaps the sentence should definitely be taken to imply that there is one and only one deuce of clubs, and then express a conditional about wildness. If so, then we might symbolise it thus:
+Comment: if there is not exactly one deuce of clubs, then the above sentence is true. Maybe that's the wrong verdict. Perhaps the sentence should definitely be taken to imply that there is one and only one deuce of clubs, and then express a conditional about wildness. If so, then we might symbolize it thus:
 \\$\exists x \bigl(Dx \eand Cx \eand \forall y \bigl[(Dy \eand Cy) \eif x = y\bigr] \eand \bigl[Wx \eif \forall y (Wy \eif x = y)\bigr]\bigl)$}
 \item The man with the axe is not a jack.
 \item[] \myanswer{$\exists x \bigl[Mx \eand \forall y(My \eif x = y) \eand \enot Jx\bigr]$}
@@ -481,7 +505,7 @@ Comment: if there is not exactly one deuce of clubs, then the above sentence is 
 
 \
 
-\problempart Using the following symbolisation key:
+\problempart Using the following symbolization key:
 \begin{ekey}
 \item[\text{domain}] animals in the world
 \item[Bx] \gap{x} is in Farmer Brown's field.
@@ -489,7 +513,7 @@ Comment: if there is not exactly one deuce of clubs, then the above sentence is 
 \item[Px] \gap{x} is a Pegasus.
 \item[Wx] \gap{x} has wings.
 \end{ekey}
-symbolise the following sentences in FOL:
+symbolize the following sentences in FOL:
 \begin{earg}
 \item There are at least three horses in the world.
 \item[] \myanswer{$\exists x \exists y \exists z (\enot x = y \eand \enot x = z \eand \enot y = z \eand Hx \eand Hy \eand Hz)$}
@@ -511,24 +535,24 @@ symbolise the following sentences in FOL:
 \end{earg}
 
 \problempart
-In this section, I symbolised `Nick is the traitor' by `$\exists x (Tx \eand \forall y(Ty \eif x = y) \eand x = n)$'. Two equally good symbolisations would be:
+In this chapter, we symbolized `Nick is the traitor' by `$\exists x (Tx \eand \forall y(Ty \eif x = y) \eand x = n)$'. Two equally good symbolizations would be:
 	\begin{ebullet}
 		\item $Tn \eand \forall y(Ty \eif n = y)$
 		\item[] \myanswer{This sentence requires that Nick is a traitor, and that Nick alone is a traitor. Otherwise put, there is one and only one traitor, namely, Nick. Otherwise put: Nick is the traitor.}
 		\item $\forall y(Ty \eiff y = n)$
 		\item[] \myanswer{This sentence can be understood thus: Take anything you like; now, if you chose a traitor, you chose Nick, and if you chose Nick, you chose a traitor. So there is one and only one traitor, namely, Nick, as required.}
 	\end{ebullet}
-Explain why these would be equally good symbolisations.
+Explain why these would be equally good symbolizations.
 
 \chapter{Sentences of FOL}\setcounter{ProbPart}{0}
 \problempart
 \label{pr.freeFOL}
 Identify which variables are bound and which are free.
-\myanswer{I shall underline the bound variables, and put free variables in blue.}
+\myanswer{We underline the bound variables, and overline the free variables.}
 \begin{earg}
-\item $\exists x L\underline{x}\myanswer{y} \eand \forall y L\underline{y}\myanswer{x}$
-\item $\forall x A\underline{x} \eand B\myanswer{x}$
-\item $\forall x (A\underline{x} \eand B\underline{x}) \eand \forall y(C\myanswer{x} \eand D\underline{y})$
-\item $\forall x\exists y[R\underline{xy} \eif (J\myanswer{z} \eand K\underline{x})] \eor R\myanswer{yx}$
-\item $\forall x_1(M\myanswer{x_2} \eiff L\myanswer{x_2}\underline{x_1}) \eand \exists x_2 L\myanswer{x_3}\underline{x_2}$
+\item $\exists x L\underline{x}\overline{y} \eand \forall y L\underline{y}\overline{x}$
+\item $\forall x A\underline{x} \eand B\overline{x}$
+\item $\forall x (A\underline{x} \eand B\underline{x}) \eand \forall y(C\overline{x} \eand D\underline{y})$
+\item $\forall x\exists y[R\underline{xy} \eif (J\overline{z} \eand K\underline{x})] \eor R\overline{yx}$
+\item $\forall x_1(M\overline{x_2} \eiff L\overline{x_2}\underline{x_1}) \eand \exists x_2 L\overline{x_3}\underline{x_2}$
 \end{earg}

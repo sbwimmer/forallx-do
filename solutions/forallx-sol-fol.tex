@@ -222,7 +222,7 @@ Using the following symbolization key:
 \item[Sx] \gap{x} likes samurai movies
 \item[Lxy] \gap{x} is larger than \gap{y}
 \item[r] Rave
-\item[s] Shane
+\item[h] Shane
 \item[d] Daisy
 \end{ekey}
 symbolize the following sentences in FOL:
@@ -230,29 +230,29 @@ symbolize the following sentences in FOL:
 \item Rave is a dog who likes samurai movies.
 \item[] \myanswer{$Dr \eand Sr$}
 \item Rave, Shane, and Daisy are all dogs.
-\item[] \myanswer{$Dr \eand Ds \eand D\emph{d}$}
+\item[] \myanswer{$Dr \eand Dh \eand D\emph{d}$}
 \item Shane is larger than Rave, and Daisy is larger than Shane.
-\item[] \myanswer{$Lsr \eand L\emph{d}s$}
+\item[] \myanswer{$Lhr \eand L\emph{d}h$}
 \item All dogs like samurai movies.
 \item[] \myanswer{$\forall x(Dx \eif Sx)$}
 \item Only dogs like samurai movies.
 \item[] \myanswer{$\forall x(Sx \eif Dx)$\\
 Comment: the FOL sentence just written does not require that anyone likes samurai movies. The English sentence might suggest that at least some dogs \emph{do} like samurai movies?}
 \item There is a dog that is larger than Shane.
-\item[] \myanswer{$\exists x (Dx \eand Lxs)$}
+\item[] \myanswer{$\exists x (Dx \eand Lxh)$}
 \item If there is a dog larger than Daisy, then there is a dog larger than Shane.
-\item[] \myanswer{$\exists x (Dx \eand Lx\emph{d}) \eif \exists x(Dx \eand Lxs)$}
+\item[] \myanswer{$\exists x (Dx \eand Lx\emph{d}) \eif \exists x(Dx \eand Lxh)$}
 \item No animal that likes samurai movies is larger than Shane.
-\item[] \myanswer{$\forall x (Sx \eif \enot Lxs)$}
+\item[] \myanswer{$\forall x (Sx \eif \enot Lxh)$}
 \item No dog is larger than Daisy.
 \item[] \myanswer{$\forall x (Dx \eif \enot Lx\emph{d})$}
 \item Any animal that dislikes samurai movies is larger than Rave.
 \item[] \myanswer{$\forall x (\enot Sx \eif Lxr)$\\
 Comment: this is very poor, though! For `dislikes' does not mean the same as `does not like'.}
 \item There is an animal that is between Rave and Shane in size.
-\item[] \myanswer{$\exists x((Lbx \eand Lxs) \eor (Lsx \eand Lxr))$}
+\item[] \myanswer{$\exists x((Lbx \eand Lxh) \eor (Lhx \eand Lxr))$}
 \item There is no dog that is between Rave and Shane in size.
-\item[] \myanswer{$\forall x \bigl(Dx \eif \enot\bigl[(Lbx \eand Lxs) \eor (Lsx \eand Lxr)\bigr]\bigr)$}
+\item[] \myanswer{$\forall x \bigl(Dx \eif \enot\bigl[(Lbx \eand Lxh) \eor (Lhx \eand Lxr)\bigr]\bigr)$}
 \item No dog is larger than itself.
 \item[] \myanswer{$\forall x(Dx \eif \enot Lxx)$}
 \item Every dog is larger than some dog.

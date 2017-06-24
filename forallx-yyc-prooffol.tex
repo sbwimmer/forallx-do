@@ -358,6 +358,7 @@ For each of the following pairs of sentences: If they are provably equivalent, g
 For each of the following arguments: If it is valid in FOL, give a proof. If it is invalid, construct an interpretation to show that it is invalid.
 \begin{earg}
 \item $\exists y\forall x Rxy \therefore \forall x\exists y Rxy$
+\item $\forall x\exists y Rxy \therefore  \exists y\forall x Rxy$
 \item $\exists x(Px \eand \enot Qx) \therefore \forall x(Px \eif \enot Qx)$
 \item $\forall x(Sx \eif Ta), Sd \therefore Ta$
 \item $\forall x(Ax\eif Bx), \forall x(Bx \eif Cx) \therefore \forall x(Ax \eif Cx)$
@@ -365,6 +366,7 @@ For each of the following arguments: If it is valid in FOL, give a proof. If it 
 \item $\forall x\forall y(Rxy \eor Ryx) \therefore Rjj$
 \item $\exists x\exists y(Rxy \eor Ryx) \therefore Rjj$
 \item $\forall x Px \eif \forall x Qx, \exists x \enot Px \therefore \exists x \enot Qx$
+\item $\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx\therefore  \forall x \enot Mx$
 \end{earg}
 
 \chapter{Conversion of quantifiers}\label{s:CQ}
@@ -639,23 +641,3 @@ Is $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ \textbf{vali
 \end{sidewaystable}
 
 
-\practiceproblems
-
-%\problempart
-%Look back at Part \ref{pr.QLarguments} on p.~\pageref{pr.QLarguments}. For each argument: If it is valid in FOL, give a proof. If it is invalid, construct a model to show that it is invalid.
-
-\problempart
-\label{pr.QLvalidornot}
-For each of the following arguments: If it is valid in FOL, give a proof. If it is invalid, provide an interpretation to show that it is invalid.
-\begin{earg}
-\item $\forall x\exists y Rxy \therefore  \exists y\forall x Rxy$
-\item $\exists y\forall x Rxy \therefore  \forall x\exists y Rxy$
-\item $\exists x(Px \eand \enot Qx) \therefore  \forall x(Px \eif \enot Qx)$
-\item $\forall x(Sx \eif Ta)$, $Sd \therefore Ta$
-\item $\forall x(Ax\eif Bx)$, $\forall x(Bx \eif Cx) \therefore  \forall x(Ax \eif Cx)$
-\item $\exists x(Dx \eor Ex)$, $\forall x(Dx \eif Fx) \therefore  \exists x(Dx \eand Fx)$
-\item $\forall x\forall y(Rxy \eor Ryx)\therefore  Rjj$
-\item $\exists x\exists y(Rxy \eor Ryx)\therefore Rjj$
-\item $\forall x Px \eif \forall x Qx$, $\exists x \enot Px\therefore \exists x \enot Qx$
-\item $\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx\therefore  \forall x \enot Mx$
-\end{earg}

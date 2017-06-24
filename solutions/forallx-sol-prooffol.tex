@@ -531,6 +531,8 @@ For each of the following arguments: If it is valid in FOL, give a proof. If it 
 \have{Er1}{\exists y Rby}\Ee{EAr, Ar-Er}
 \have{AEr}{\forall x \exists y Rxy}\Ai{Er1}
 \end{proof}}
+\item $\forall x\exists y Rxy \therefore  \exists y\forall x Rxy$ \hfill \myanswer{Not valid
+\\Counter interpretation: let the domain be the numbers $1$ and $2$. Let `$Rxy$' be true of $1$ and $2$, and of $2$ and $1$ (but not $1$ and itself or $2$ and itself).}
 \item $\exists x(Px \eand \enot Qx) \therefore \forall x(Px \eif \enot Qx)$ \hfill \myanswer{Not valid
 \\Counter interpretation: let the domain be the numbers $1$ and $2$. Let `$Px$' be true of everything in the domain. Let `$Qx$' be true of, and only of, $2$.}
 \item $\forall x(Sx \eif Ta), Sd \therefore Ta$ \hfill \myanswer{Valid
@@ -585,6 +587,20 @@ Counter-interpretation: consider the following diagram, allowing `$j$' to name $
 \end{center}}
 \item $\forall x Px \eif \forall x Qx, \exists x \enot Px \therefore \exists x \enot Qx$ \hfill \myanswer{Invalid\\
 Counter-interpretation: let the domain be the number $1$. Let `$Px$' be true of nothing. Let `$Qx$' be true of everything.}
+
+\item $\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx\therefore  \forall x \enot Mx$\hfill \myanswer{Valid\\
+\begin{proof}
+\hypo{EMiEN}{\exists x Mx \eif \exists x Nx}
+\hypo{nEN}{\enot \exists x Nx}
+\open
+  \hypo{Ma}{Ma}
+  \have{EM}{\exists x Mx}\Ei{Ma}
+  \have{EN}{\exists x Nx}\ce{EMiEN,EM}
+  \have{abs}{\ered}\ri{EN, nEN}
+\close
+\have{nMa}{\enot Ma}\ni{Ma-abs}
+\have{AnM}{\forall x \enot Mx}\Ai{nMa}
+\end{proof}}
 \end{earg}
 
 
@@ -1286,23 +1302,3 @@ Offer proofs which justify the addition of the third and fourth CQ rules as deri
 	\have{nEa}{\enot \exists x Ax}\ni{Ea-con1}
 \end{proof}}
 
-\chapter{Proof-theoretic and Semantic Concepts}\setcounter{ProbPart}{0}
-
-%\problempart
-%Look back at Part \ref{pr.QLarguments} on p.~\pageref{pr.QLarguments}. For each argument: If it is valid in QL, give a proof. If it is invalid, construct a model to show that it is invalid.
-
-\problempart
-\label{pr.QLvalidornot}
-For each of the following arguments: If it is valid in FOL, give a proof. If it is invalid, provide an interpretation to show that it is invalid.
-\begin{earg}
-\item $\forall x\exists y Rxy \therefore  \exists y\forall x Rxy$
-\item $\exists y\forall x Rxy \therefore  \forall x\exists y Rxy$
-\item $\exists x(Px \eand \enot Qx) \therefore  \forall x(Px \eif \enot Qx)$
-\item $\forall x(Sx \eif Ta)$, $Sd \therefore Ta$
-\item $\forall x(Ax\eif Bx)$, $\forall x(Bx \eif Cx) \therefore  \forall x(Ax \eif Cx)$
-\item $\exists x(Dx \eor Ex)$, $\forall x(Dx \eif Fx) \therefore  \exists x(Dx \eand Fx)$
-\item $\forall x\forall y(Rxy \eor Ryx)\therefore  Rjj$
-\item $\exists x\exists y(Rxy \eor Ryx)\therefore Rjj$
-\item $\forall x Px \eif \forall x Qx$, $\exists x \enot Px\therefore \exists x \enot Qx$
-\item $\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx\therefore  \forall x \enot Mx$
-\end{earg}

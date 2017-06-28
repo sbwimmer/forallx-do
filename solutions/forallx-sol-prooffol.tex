@@ -1289,16 +1289,30 @@ Offer proofs which justify the addition of the third and fourth CQ rules as deri
 \\
 \myanswer{Justification for the fourth rule:
 \begin{proof}
-	\hypo{Ana}{\forall x \enot Ax} 
+	\hypo{nAa}{\enot \forall x Ax} 
 	\open
-		\hypo{Ea}{\exists x Ax}
-		\open
-			\hypo{a}{Aa}
-			\have{na}{\enot Aa}\Ae{Ana}
-			\have{con}{\ered}\ri{a,na}
-		\close
-		\have{con1}{\ered}\Ee{Ea, a-con}
+        \hypo{H1}{\exists x \enot Ax}
+        \have{H1C}{\exists x \enot Ax \eand \exists x \enot Ax}\ai{H1}
+        \have{conc1}{\exists x \enot Ax}\ae{H1C}
 	\close
-	\have{nEa}{\enot \exists x Ax}\ni{Ea-con1}
+        \open
+        \hypo{H2}{\enot \exists x \enot Ax}
+          \open
+          \hypo{H3}{Ab}
+          \have{H3C}{Ab \eand Ab}\ai{H3}
+          \have{H3R}{Ab}\ae{H3C}
+          \close
+          \open
+          \hypo{H4}{\enot Ab}
+          \have{EH4}{\exists x \enot Ax}\Ei{H4}
+          \have{abs4}{\ered}\ri{EH4,H2}
+          \have{Ab4}{Ab}\re{abs4}
+          \close          
+        \have{Ab}{Ab}\tnd{H3-H3R,H4-Ab4}
+        \have{Aa}{\forall x Ax}\Ai{Ab}
+        \have{abs}{\ered}\ri{Aa,nAa}
+        \have{conc2}{\exists x \enot Ax}\re{abs}
+        \close
+	\have{Ena}{\exists x \enot Ax}\tnd{H1-conc1,H2-conc2}
 \end{proof}}
 

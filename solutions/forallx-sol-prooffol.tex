@@ -1287,7 +1287,26 @@ Offer proofs which justify the addition of the second and fourth CQ rules as der
 
 \
 \\
-\myanswer{Justification for the fourth rule:
+\myanswer{The fourth rule is harder to justify.  Here is a proof that
+is relatively straightforward, but uses the derived rule DNE:
+\begin{proof}
+\hypo{nAa}{\enot \forall x Ax}
+  \open
+  \hypo{nEna}{\enot \exists x \enot Ax}
+    \open
+    \hypo{na}{\enot Aa}
+    \have{Ena}{\exists x \enot Ax}\Ei{na}
+    \have{abs1}{\ered}\ri{Ena,nEna}
+    \close
+  \have{nna}{\enot \enot Aa}\ni{na-abs1}
+  \have{a}{Aa}\dne{nna}
+  \have{Aa}{\forall x Ax}\Ai{a}
+  \have{abs2}{\ered}\ri{Aa,nAa}
+  \close
+\have{nnEna}{\enot \enot \exists x \enot Ax}\ni{nEna-abs2}
+\have{Ena2}{\exists x \enot Ax}\dne{nnEna}
+\end{proof}\\
+And here is a proof that does not use any derived rules:
 \begin{proof}
 	\hypo{nAa}{\enot \forall x Ax} 
 	\open

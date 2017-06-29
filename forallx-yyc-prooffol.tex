@@ -199,7 +199,7 @@ Now, suppose we tried to offer a proof that vindicates this argument:
 	\hypo{nf}{\exists x \enot Lx}	
 	\open	
 		\hypo{na}{\enot Lb}
-		\have{con}{Lb \eand \enot Lb}\ae{f, na}
+		\have{con}{Lb \eand \enot Lb}\ai{f, na}
 	\close
 	\have{econ1}{Lb \eand \enot Lb}\by{naughtily attempting to invoke $\exists$E }{nf, na-con}
 \end{proof}
@@ -209,7 +209,7 @@ The last line of the proof is not allowed. The name that we used in our substitu
 	\hypo{nf}{\exists x \enot Lx}	
 	\open	
 		\hypo{na}{\enot Lb}
-		\have{con}{Lb \eand \enot Lb}\ae{f, na}
+		\have{con}{Lb \eand \enot Lb}\ai{f, na}
 		\have{con1}{\exists x (Lx \eand \enot Lx)}\Ei{con}		
 	\close
 	\have{econ1}{\exists x (Lx \eand \enot Lx)}\by{naughtily attempting to invoke $\exists$E }{nf, na-con1}

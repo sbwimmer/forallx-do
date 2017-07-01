@@ -390,7 +390,9 @@ Equally, both sentences mean that if you do not catch a cold, then you must have
 
 Equally, both sentences mean that either you will wear a jacket or you will catch a cold. With this in mind, we might symbolize them as `$J \eor D$'.
 
-All three are correct symbolizations. Indeed, in chapter \ref{ch.TruthTables} we will see that all three symbolizations are equivalent in TFL.
+All three are correct symbolizations. Indeed, in chapter \ref{s:SemanticConcepts} we will see that all three symbolizations are equivalent in TFL.
+% TODO: it might be useful to reference exercise 11.F.3 explicitly
+% here, since the point is not discussed in the main text
 	\factoidbox{
 		If a sentence can be paraphrased as `Unless A, B,' then it can be symbolized as `$\meta{A}\eor\meta{B}$'.
 	}
@@ -641,7 +643,7 @@ name=main connective,
 description={The last connective that you add when you assemble a sentence using the recursive definition.}
 }
 
-The recursive structure of sentences in TFL will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence `$\enot \enot \enot D$' is true if and only if the sentence `$\enot \enot D$' is false, and so on through the structure of the sentence, until we arrive at the atomic components. We will return to this point in chapter \ref{ch.TruthTables}.
+The recursive structure of sentences in TFL will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence `$\enot \enot \enot D$' is true if and only if the sentence `$\enot \enot D$' is false, and so on through the structure of the sentence, until we arrive at the atomic components. We will return to this point in Part~\ref{ch.TruthTables}.
 
 The recursive structure of sentences in TFL also allows us to give a formal definition of the \emph{scope} of a negation (mentioned in \S\ref{s:ConnectiveConjunction}). The scope of a `$\enot$' is the subsentence for which `$\enot$' is the main logical operator. Consider a sentence like:
 $$(P \eand (\enot (R \eand B) \eiff Q))$$
@@ -813,7 +815,7 @@ and similarly, for expressions like `$(\meta{A} \eand \meta{B})$', `$(\meta{A} \
 
 
 \section{Quotation conventions for arguments}
-One of our main purposes for using TFL is to study arguments, and that will be our concern in chapter \ref{ch.TruthTables}. In English, the premises of an argument are often expressed by individual sentences, and the conclusion by a further sentence. Since we can symbolize English sentences, we can symbolize English arguments using TFL. Thus we might ask whether the argument whose premises are the TFL sentences `$A$' and `$A \eif C$', and whose conclusion is the TFL sentence `$C$', is valid. However, it is quite a mouthful to write that every time. So instead we will introduce another bit of abbreviation. This:
+One of our main purposes for using TFL is to study arguments, and that will be our concern in Parts \ref{ch.TruthTables} and \ref{ch.NDTFL}. In English, the premises of an argument are often expressed by individual sentences, and the conclusion by a further sentence. Since we can symbolize English sentences, we can symbolize English arguments using TFL. Thus we might ask whether the argument whose premises are the TFL sentences `$A$' and `$A \eif C$', and whose conclusion is the TFL sentence `$C$', is valid. However, it is quite a mouthful to write that every time. So instead we will introduce another bit of abbreviation. This:
 	$$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$$
 abbreviates:
 	\begin{quote}

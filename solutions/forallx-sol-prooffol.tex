@@ -97,7 +97,7 @@ The following three proofs are missing their citations (rule and line numbers). 
 
 \problempart
 \label{pr.BarbaraEtc.proof1}
-In \S\ref{s:MoreMonadic} problem part A, we considered fifteen syllogistic figures of Aristotelian logic. Provide proofs for each of the argument forms. NB: You will find it \emph{much} easier if you symbolize (for example) `No F is G' as `$\forall x (Fx \eif \enot Gx)$'.
+In \S\ref{s:MoreMonadic} problem A, we considered fifteen syllogistic figures of Aristotelian logic. Provide proofs for each of the argument forms. NB: You will find it \emph{much} easier if you symbolize (for example) `No F is G' as `$\forall x (Fx \eif \enot Gx)$'.
 \\\myanswer{I shall prove the four Figure I syllogisms; the rest are \emph{extremely} similar.
 \begin{multicols}{2}
 \noindent \textbf{Barbara}
@@ -531,6 +531,8 @@ For each of the following arguments: If it is valid in FOL, give a proof. If it 
 \have{Er1}{\exists y Rby}\Ee{EAr, Ar-Er}
 \have{AEr}{\forall x \exists y Rxy}\Ai{Er1}
 \end{proof}}
+\item $\forall x\exists y Rxy \therefore  \exists y\forall x Rxy$ \hfill \myanswer{Not valid
+\\Counter interpretation: let the domain be the numbers $1$ and $2$. Let `$Rxy$' be true of $1$ and $2$, and of $2$ and $1$ (but not $1$ and itself or $2$ and itself).}
 \item $\exists x(Px \eand \enot Qx) \therefore \forall x(Px \eif \enot Qx)$ \hfill \myanswer{Not valid
 \\Counter interpretation: let the domain be the numbers $1$ and $2$. Let `$Px$' be true of everything in the domain. Let `$Qx$' be true of, and only of, $2$.}
 \item $\forall x(Sx \eif Ta), Sd \therefore Ta$ \hfill \myanswer{Valid
@@ -585,21 +587,26 @@ Counter-interpretation: consider the following diagram, allowing `$j$' to name $
 \end{center}}
 \item $\forall x Px \eif \forall x Qx, \exists x \enot Px \therefore \exists x \enot Qx$ \hfill \myanswer{Invalid\\
 Counter-interpretation: let the domain be the number $1$. Let `$Px$' be true of nothing. Let `$Qx$' be true of everything.}
-\end{earg}
 
-\problempart
-Show that each of the following is provably inconsistent.
-\begin{earg}
-\item \{$Sa\eif Tm$, $Tm \eif Sa$, $Tm \eand \enot Sa$\}
-\item \{$\enot\exists x Rxa$, $\forall x \forall y Ryx$\}
-\item \{$\enot\exists x \exists y Lxy$, $Laa$\}
-\item \{$\forall x(Px \eif Qx)$, $\forall z(Pz \eif Rz)$, $\forall y Py$, $\enot Qa \eand \enot Rb$\}
+\item $\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx\therefore  \forall x \enot Mx$\hfill \myanswer{Valid\\
+\begin{proof}
+\hypo{EMiEN}{\exists x Mx \eif \exists x Nx}
+\hypo{nEN}{\enot \exists x Nx}
+\open
+  \hypo{Ma}{Ma}
+  \have{EM}{\exists x Mx}\Ei{Ma}
+  \have{EN}{\exists x Nx}\ce{EMiEN,EM}
+  \have{abs}{\ered}\ri{EN, nEN}
+\close
+\have{nMa}{\enot Ma}\ni{Ma-abs}
+\have{AnM}{\forall x \enot Mx}\Ai{nMa}
+\end{proof}}
 \end{earg}
 
 
 \chapter{Conversion of quantifiers}\setcounter{ProbPart}{0}
 \problempart
-Show that the following are provably inconsistent:
+Show in each case that the sentences are provably inconsistent:
 \begin{earg}
 \item $Sa\eif Tm, Tm \eif Sa, Tm \eand \enot Sa$
 \myanswer{\begin{proof}
@@ -1265,8 +1272,8 @@ And offer a proof of it.\\
 
 \chapter{Derived rules}\setcounter{ProbPart}{0}
 \problempart
-Offer proofs which justify the addition of the third and fourth CQ rules as derived rules.\\
-\myanswer{Justification for the third rule:
+Offer proofs which justify the addition of the second and fourth CQ rules as derived rules.\\
+\myanswer{Justification for the second rule:
 \begin{proof}
 	\hypo{nEa}{\enot \exists x Ax}
 	\open
@@ -1280,70 +1287,51 @@ Offer proofs which justify the addition of the third and fourth CQ rules as deri
 
 \
 \\
-\myanswer{Justification for the fourth rule:
+\myanswer{The fourth rule is harder to justify.  Here is a proof that
+is relatively straightforward, but uses the derived rule DNE:
 \begin{proof}
-	\hypo{Ana}{\forall x \enot Ax} 
+\hypo{nAa}{\enot \forall x Ax}
+  \open
+  \hypo{nEna}{\enot \exists x \enot Ax}
+    \open
+    \hypo{na}{\enot Aa}
+    \have{Ena}{\exists x \enot Ax}\Ei{na}
+    \have{abs1}{\ered}\ri{Ena,nEna}
+    \close
+  \have{nna}{\enot \enot Aa}\ni{na-abs1}
+  \have{a}{Aa}\dne{nna}
+  \have{Aa}{\forall x Ax}\Ai{a}
+  \have{abs2}{\ered}\ri{Aa,nAa}
+  \close
+\have{nnEna}{\enot \enot \exists x \enot Ax}\ni{nEna-abs2}
+\have{Ena2}{\exists x \enot Ax}\dne{nnEna}
+\end{proof}\\
+And here is a proof that does not use any derived rules:
+\begin{proof}
+	\hypo{nAa}{\enot \forall x Ax} 
 	\open
-		\hypo{Ea}{\exists x Ax}
-		\open
-			\hypo{a}{Aa}
-			\have{na}{\enot Aa}\Ae{Ana}
-			\have{con}{\ered}\ri{a,na}
-		\close
-		\have{con1}{\ered}\Ee{Ea, a-con}
+        \hypo{H1}{\exists x \enot Ax}
+        \have{H1C}{\exists x \enot Ax \eand \exists x \enot Ax}\ai{H1}
+        \have{conc1}{\exists x \enot Ax}\ae{H1C}
 	\close
-	\have{nEa}{\enot \exists x Ax}\ni{Ea-con1}
+        \open
+        \hypo{H2}{\enot \exists x \enot Ax}
+          \open
+          \hypo{H3}{Ab}
+          \have{H3C}{Ab \eand Ab}\ai{H3}
+          \have{H3R}{Ab}\ae{H3C}
+          \close
+          \open
+          \hypo{H4}{\enot Ab}
+          \have{EH4}{\exists x \enot Ax}\Ei{H4}
+          \have{abs4}{\ered}\ri{EH4,H2}
+          \have{Ab4}{Ab}\re{abs4}
+          \close          
+        \have{Ab}{Ab}\tnd{H3-H3R,H4-Ab4}
+        \have{Aa}{\forall x Ax}\Ai{Ab}
+        \have{abs}{\ered}\ri{Aa,nAa}
+        \have{conc2}{\exists x \enot Ax}\re{abs}
+        \close
+	\have{Ena}{\exists x \enot Ax}\tnd{H1-conc1,H2-conc2}
 \end{proof}}
 
-\chapter{Proof-theoretic and Semantic Concepts}\setcounter{ProbPart}{0}
-
-
-\problempart
-Show that each pair of sentences is provably equivalent.
-\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
-\item $\forall x (Ax\eif \enot Bx)$ and $\enot\exists x(Ax \eand Bx)$
-\item $\forall x (\enot Ax\eif Bd)$ and $\forall x Ax \eor Bd$
-\item $\exists x Px \eif Qc$ and $\forall x (Px \eif Qc)$
-\item $Rca \eiff \forall x Rxa$, $\forall x(Rca \eiff Rxa)$
-\end{enumerate}
-
-
-\problempart
-Show that each of the following is provably inconsistent.
-\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
-\item $Sa\eif Tm$, $Tm \eif Sa$, $Tm \eand \enot Sa$
-\item $\enot\exists x \exists y Lxy$, $Laa$
-\item $\forall x(Px \eif Qx)$, $\forall z(Pz \eif Rz)$, $\forall y Py$, $\enot Qa \eand \enot Rb$
-\end{enumerate}
-
-
-%\problempart
-%Look back at Part \ref{pr.QLarguments} on p.~\pageref{pr.QLarguments}. For each argument: If it is valid in QL, give a proof. If it is invalid, construct a model to show that it is invalid.
-
-\problempart
-\label{pr.QLequivornot}
-For each of the following pairs of sentences: If they are logically equivalent in FOL, give proofs to show this. If they are not, provide an interpretation to show this.
-\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
-\item $\forall x Px \eif Qc$ and $\forall x (Px \eif Qc)$
-\item $\forall x Px \eand Qc$ and $\forall x (Px \eand Qc)$
-\item $Qc \eor \exists x Qx$ and $\exists x (Qc \eor Qx)$
-\item $\forall x\forall y \forall z Bxyz$ and $\forall x Bxxx$
-\item $\forall x\forall y Dxy$ and $\forall y\forall x Dxy$
-\item $\exists x\forall y Dxy$ and $\forall y\exists x Dxy$
-\end{enumerate}
-
-\problempart
-\label{pr.QLvalidornot}
-For each of the following arguments: If it is valid in FOL, give a proof. If it is invalid, provide an interpretation to show that it is invalid.
-\begin{enumerate}%[label=\arabic*), topsep=0pt, parsep=0pt, itemsep=3pt]
-\item $\forall x\exists y Rxy \therefore  \exists y\forall x Rxy$
-\item $\exists y\forall x Rxy \therefore  \forall x\exists y Rxy$
-\item $\exists x(Px \eand \enot Qx) \therefore  \forall x(Px \eif \enot Qx)$
-\item $\forall x(Sx \eif Ta)$, $Sd \therefore Ta$
-\item $\forall x(Ax\eif Bx)$, $\forall x(Bx \eif Cx) \therefore  \forall x(Ax \eif Cx)$
-\item $\exists x(Dx \eor Ex)$, $\forall x(Dx \eif Fx) \therefore  \exists x(Dx \eand Fx)$
-\item $\forall x\forall y(Rxy \eor Ryx)\therefore  Rjj$
-\item $\exists x\exists y(Rxy \eor Ryx)\therefore Rjj$
-\item $\forall x Px \eif \forall x Qx$, $\exists x \enot Px\therefore \exists x \enot Qx$
-\item $\exists x Mx \eif \exists x Nx$, $\enot \exists x Nx\therefore  \forall x \enot Mx$
-\end{enumerate}

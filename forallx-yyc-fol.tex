@@ -661,7 +661,7 @@ Now let's try to symbolize these sentences:
 \item[\ex{dog2}] Geraldo is a dog owner.
 \item[\ex{dog3}] Someone is a dog owner.
 \item[\ex{dog4}] All of Geraldo's friends are dog owners.
-\item[\ex{dog5}] Every dog owner is the friend of a dog owner.
+\item[\ex{dog5}] Every dog owner is a friend of a dog owner.
 \item[\ex{dog6}] Every dog owner's friend owns a dog of a friend.
 \end{earg}
 Sentence \ref{dog2} can be paraphrased as, `There is a dog that Geraldo owns'. This can be symbolized by `$\exists x(Dx \eand Ogx)$'.
@@ -683,9 +683,9 @@ This adequately symbolizes sentence \ref{dog4}.
 Sentence \ref{dog5} can be paraphrased as `For any x that is a dog owner, there is a dog owner who x is a friend of'. Using our stepping-stone tactic, this becomes 
 $$\forall x\bigl[\mbox{$x$ is a dog owner}\eif\exists y(\mbox{$y$ is a dog owner}\eand Fxy)\bigr]$$
 Completing the symbolization, we end up with
-$$\forall x\bigl[\exists z(Dz \eand Oxz)\eif\exists y\bigl(\exists z(Dz \eand Oyz)\eand Fyx\bigr)\bigr]$$
+$$\forall x\bigl[\exists z(Dz \eand Oxz)\eif\exists y\bigl(\exists z(Dz \eand Oyz)\eand Fxy\bigr)\bigr]$$
 Note that we have used the same letter, `$z$', in both the antecedent and the consequent of the conditional, but that these are governed by two different quantifiers. This is ok: there is no clash here, because it is clear which quantifier that variable falls under. We might graphically represent the scope of the quantifiers thus:
-$$\overbrace{\forall x\bigl[\overbrace{\exists z(Dz \eand Oxz)}^{\text{scope of 1st `}\exists z\text{'}}\eif \overbrace{\exists y(\overbrace{\exists z(Dz \eand Oyz)}^{\text{scope of 2nd `}\exists z\text{'}}\eand Fyx)\bigr]}^{\text{scope of `}\exists y\text{'}}}^{\text{scope of `}\forall x\text{'}}$$
+$$\overbrace{\forall x\bigl[\overbrace{\exists z(Dz \eand Oxz)}^{\text{scope of 1st `}\exists z\text{'}}\eif \overbrace{\exists y(\overbrace{\exists z(Dz \eand Oyz)}^{\text{scope of 2nd `}\exists z\text{'}}\eand Fxy)\bigr]}^{\text{scope of `}\exists y\text{'}}}^{\text{scope of `}\forall x\text{'}}$$
 This shows that no variable is being forced to serve two masters simultaneously.
 
 Sentence \ref{dog6} is the trickiest yet. First we paraphrase it as `For any x that is a friend of a dog owner, x owns a dog which is also owned by a friend of x'. Using our stepping-stone tactic, this becomes:

@@ -1,6 +1,6 @@
 # forallx-yyc
 
-![Book Cover](http://forallx.openlogicproject.org/forallxyyc.png){.u-pull-right}
+![Book Cover](http://forallx.openlogicproject.org/forallxyyc.png)
 
 This is the formal logic textbook, _forall x: Calgary Remix_. It is
 based on [_forall x:

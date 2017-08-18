@@ -1,5 +1,7 @@
 # forallx-yyc
 
+![Book Cover](http://forallx.openlogicproject.org/forallxyyc.png){.u-pull-right}
+
 This is the formal logic textbook, _forall x: Calgary Remix_. It is
 based on [_forall x:
 Cambridge_](http://people.ds.cam.ac.uk/tecb2/forallx.shtml), by [Tim

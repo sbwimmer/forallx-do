@@ -33,8 +33,8 @@ The LaTeX source code for this work is available on GitHub at [github.com/rzach/
 You can download PDFs of the files here:
 
   - [`forallxyyc.pdf`](http://forallx.openlogicproject.org/forallxyyc.pdf) (in color, for screen reading)
-  - [`forallxyyc-print.tex`](http://forallx.openlogicproject.org/forallxyyc-print.pdf)` (b/w, for printing on Quarto stock)
-  - [`forallxyyc-letter.tex`](http://forallx.openlogicproject.org/forallxyyc-letter.pdf) (b/w, for printing on regular letter-size paper)
+  - [`forallxyyc-print.pdf`](http://forallx.openlogicproject.org/forallxyyc-print.pdf) (b/w, for printing on Quarto stock)
+  - [`forallxyyc-letter.pdf`](http://forallx.openlogicproject.org/forallxyyc-letter.pdf) (b/w, for printing on regular letter-size paper)
   - [`forallxsol.pdf`](http://forallx.openlogicproject.org/solutions/forallxsol.pdf) (solutions booklet)
 
 ## Buy a Printed Copy

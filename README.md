@@ -37,6 +37,10 @@ You can download PDFs of the files here:
   - [`forallxyyc-letter.pdf`](http://forallx.openlogicproject.org/forallxyyc-letter.pdf) (b/w, for printing on regular letter-size paper)
   - [`forallxsol.pdf`](http://forallx.openlogicproject.org/solutions/forallxsol.pdf) (solutions booklet)
 
+Note that these files change whenevery the source files are
+changed. So if you use the text in a course, better to download the
+PDFs and make them available to students directly, than to link here.
+
 ## Buy a Printed Copy
 
 If you'd like to purchase a nice paperback copy, you can do so on

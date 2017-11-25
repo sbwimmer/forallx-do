@@ -35,6 +35,7 @@ You can download PDFs of the files here:
   - [`forallxyyc.pdf`](http://forallx.openlogicproject.org/forallxyyc.pdf) (in color, for screen reading)
   - [`forallxyyc-print.pdf`](http://forallx.openlogicproject.org/forallxyyc-print.pdf) (b/w, for printing on Quarto stock)
   - [`forallxyyc-letter.pdf`](http://forallx.openlogicproject.org/forallxyyc-letter.pdf) (b/w, for printing on regular letter-size paper)
+  - [`forallxyyc-accessible.pdf`](http://forallx.openlogicproject.org/forallxyyc-accessible.pdf) (an accessible version for dyslexics)
   - [`forallxsol.pdf`](http://forallx.openlogicproject.org/solutions/forallxsol.pdf) (solutions booklet)
 
 Note that these files change whenevery the source files are

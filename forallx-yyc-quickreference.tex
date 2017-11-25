@@ -316,17 +316,22 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{c}{\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)} \Ai{a}
 \end{proof}
 
-\noindent 	\meta{c} must not occur in any undischarged assumption\\ 
-\meta{x} must not occur in $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$
+\medskip\begin{raggedright}
+\meta{c} must not occur in any undischarged assumption
+
+\meta{x} must not occur in\\ $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$
+\end{raggedright}
 
 \subsection*{Existential introduction}
 
 \begin{proof}
 	\have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
-	\have[\ ]{c}{\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)} \Ei{a}
+	\have[\ ]{c}{\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)}\Ei{a}
 \end{proof}
 
-\noindent \meta{x} must not occur in $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$
+\medskip\begin{raggedright}
+\noindent \meta{x} must not occur in\\ $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$
+\end{raggedright}
 %\noindent You can replace one or more instance of \meta{c} with \meta{x}.
 
 \subsection*{Existential elimination}
@@ -337,10 +342,12 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 		\hypo[i]{b}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
 		\have[j]{c}{\meta{B}}
 	\close
-	\have[\ ]{d}{\meta{B}} \Ee{a,b-c}
+	\have[\ ]{d}{\meta{B}}\Ee{a,b-c}
 \end{proof}
 
-\noindent \meta{c} must not occur in any undischarged assumption, in $\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)$, or in \meta{B}\vfill\columnbreak
+\medskip\begin{raggedright}
+\noindent \meta{c} must not occur in any undischarged assumption, in $\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)$, or in \meta{B}\end{raggedright}\vfill\columnbreak
+
 \end{multicols}
 
 \subsection*{Identity introduction}
@@ -365,7 +372,9 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \end{proof}
 \end{multicols}
 
+\begin{minipage}{\textwidth} % hack to keep section header with table
 \section{Derived rules for FOL}
+
 \begin{multicols}{2}
 \begin{proof}
 	\have[m]{ab}{\forall \meta{x}\enot \meta{A}}
@@ -382,4 +391,4 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \\	\have[\ ]{ac}{\exists \meta{x}\enot \meta{A}}\cq{m}
 \end{proof}
 \end{multicols}
-
+\end{minipage}

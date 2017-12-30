@@ -95,7 +95,7 @@
 \noindent{\Huge{Calgary Remix/Accessible}}
 
 \bigskip\bigskip
-\noindent{\huge \emph{An Introduction to\\ Formal Logic}}
+\noindent{\huge \emph{An Introduction to\\[1ex] Formal Logic}}
 
 \vfill
 \noindent{\fontsize{16pt}{18pt}\selectfont \textbf{P.~D. Magnus}\\
@@ -126,12 +126,14 @@
 \setlength\parskip{1em}
 
 % increase character spacing
-\SetTracking{encoding=*,shape=*}{70}
+\SetTracking[no ligatures = f]{encoding=*,shape=*}{70}
 
 % avoid italics and small caps
 \let\emph\textbf
 \renewcommand*{\define}[1]{\textbf{\color{leadbeater}#1}}
 
+% no all caps in headers
+\nouppercaseheads
 
 \input{forallx-yyc-content}
 

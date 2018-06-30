@@ -153,6 +153,20 @@ Although the name may not occur in any \emph{undischarged} assumption, it may oc
 \end{proof}
 This tells us that `$\forall z (Gz \eif Gz)$' is a \emph{theorem}. And that is as it should be.
 
+I should emphasise one last point. As per the conventions of \S\ref{s:MainLogicalOperatorQuantifier}, the use of $\forall$I requires that we are replacing \emph{every} instance of the name \meta{c} in $\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$ with the variable \meta{x}. If we only replace \emph{some} names and not others, we end up `proving' silly things. For example, consider the argument:
+	\begin{quote}
+	Everyone is as old as themselves; so everyone is as old as Judi Dench
+	\end{quote}
+We might symbolise this as follows:
+$$\forall x Oxx \therefore \forall x Oxd$$
+But now suppose we tried to \emph{vindicate} this terrible argument with the following:
+\begin{proof}
+	\hypo{x}{\forall x Oxx}
+	\have{a}{Odd}\Ae{x}
+	\have{y}{\forall x Oxd}\by{naughtily attempting to invoke $\forall$I}{a}	
+\end{proof}
+Fortunately, our rules do not allow for us to do this: the attempted proof is banned, since it doesn't replace \emph{every} occurrence of `$d$' in line $2$ with an `$x$'.
+
 \section{Existential elimination}
 Suppose we know that \emph{something} is F. The problem is that simply knowing this does not tell us which thing is F. So it would seem that from `$\exists x Fx$' we cannot immediately conclude `$Fa$', `$Fe_{23}$', or any other substitution instance of the sentence. What can we do?
 

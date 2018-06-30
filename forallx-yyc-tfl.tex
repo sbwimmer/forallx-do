@@ -637,6 +637,14 @@ Next, consider the example `$\enot (P \eand \enot (\enot Q \eor R))$'. Looking a
 
 Ultimately, every sentence is constructed nicely out of atomic sentences. When we are dealing with a \emph{sentence} other than an atomic sentence, we can see that there must be some sentential connective that was introduced \emph{last}, when constructing the sentence. We call that connective the \define{main logical operator} of the sentence. In the case of `$\enot\enot\enot D$', the main logical operator is the very first `$\enot$' sign. In the case of `$(P \eand \enot (\enot Q \eor R))$', the main logical operator is `$\eand$'. In the case of `$((\enot E \eor F) \eif \enot\enot G)$', the main logical operator is `$\eif$'.
 
+As a general rule, you can find the main logical operator for a sentence by using the following method:
+\begin{ebullet}
+	\item If the first symbol in the sentence is `$\enot$', then that is the main logical operator
+	\item Otherwise, start counting the brackets. For each open-bracket, i.e.\ `(', add $1$; for each closing-bracket, i.e.\ `$)$', subtract $1$. When your count is at exactly $1$, the first operator you hit (\emph{apart} from a `$\enot$') is the main logical operator. 
+\end{ebullet}
+
+(Note: if you do use this method, then make sure to included \emph{all} the brackets in the sentence, rather than omitting some as per the conventions of \S\ref{TFLconventions}!)
+
 \newglossaryentry{main logical operator}
 {
 name=main connective,

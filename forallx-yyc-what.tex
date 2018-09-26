@@ -9,7 +9,7 @@
 
 Logic is the business of evaluating arguments; sorting the good from the bad. 
 
-In everyday language, we sometimes use the word `argument' to talk about belligerent shouting matches.  If you and a friend have an argument in this sense, things are not going well between the two of you. Logic is not concerned with such teeth-gnashing and hair-pulling. They are not arguments, in our sense; they are disagreements.
+In everyday language, we sometimes use the word `argument' to talk about belligerent shouting matches.  If you and a friend have an argument in this sense, things are not going well between the two of you. Logic is not concerned with such teeth-gnashing and hair-pulling. They are not arguments, in our sense; they are just disagreements.
 
 An argument, as we will understand it, is something more like this:
 	\begin{earg}\label{argRaining}
@@ -37,11 +37,11 @@ Equally, it might have been presented with the conclusion in the middle:
 	\begin{quote}
 		It is raining heavily. Accordingly, you should take an umbrella, given that if you do not take an umbrella, you will get soaked.
 	\end{quote}
-When approaching an argument, we want to know whether or not the conclusion follows from the premises. So the first thing to do is to separate out the conclusion from the premises. As a guideline, the following words are often used to indicate an argument's conclusion:
+When approaching an argument, we want to know whether or not the conclusion follows from the premises. So the first thing to do is to separate out the conclusion from the premises. As a guide, these words are often used to indicate an argument's conclusion:
 	\begin{center}
 		so, therefore, hence, thus, accordingly, consequently
 	\end{center}
-Similarly, these expressions often indicate that we are dealing with a premise, rather than a conclusion:
+By contrast, these expressions often indicate that we are dealing with a premise, rather than a conclusion:
 	\begin{center}
 		since, because, given that
 	\end{center}
@@ -99,11 +99,11 @@ Also, there are things that would count as `sentences' in a linguistics or gramm
 
 
 \practiceproblems
-At the end of some chapters, there are problems that review and explore the material covered in the chapter. There is no substitute for actually working through some problems, because logic is more about a way of thinking than it is about memorizing facts.
+At the end of some chapters, there are exercises that review and explore the material covered in the chapter. There is no substitute for actually working through some problems, because learning logic is more about developing a way of thinking than it is about memorizing facts.
 
 \medskip
 
-Highlight the phrase which expresses the conclusion of each of these arguments:
+So here's the first exercise. Highlight the phrase which expresses the conclusion of each of these arguments:
 \begin{earg}
 	\item It is sunny. So I should take my sunglasses.
 	\item It must have been sunny. I did wear my sunglasses, after all.
@@ -137,14 +137,14 @@ What about the main argument discussed in \S\ref{s:Arguments}? The premises of t
 %This is not a terrible argument. Both of the premises are true. And most people who read this book are logic students. Yet, it is possible for someone besides a logic student to read this book. If your roommate picked up the book and thumbed through it, they would not immediately become a logic student. So the premises of this argument, even though they are true, do not guarantee the truth of the conclusion.
 %
 
-The general point is as follows. For any argument, there are two ways that it might go wrong:
+The general point is that, for any argument, there are two ways that it might go wrong:
 	\begin{ebullet}
 		\item One or more of the premises might be false. 
 		\item The conclusion might not follow from the premises.
 	\end{ebullet}
-To determine whether or not the premises of an argument are true is often a very important matter. However, that is normally a task best left to experts in the field: as it might be, historians, scientists, or whomever. In our role as \emph{logicians}, we are more concerned with arguments \emph{in general}. So we are (usually) more concerned with the second way in which arguments can go wrong.
+It is often important to determine whether or not the premises of an argument are true. However, that is normally a task best left to experts in the field: as it might be historians, scientists, or whomever. In our role as \emph{logicians}, we are more concerned with arguments \emph{in general}. So we are (usually) more concerned with the second way in which arguments can go wrong.
 
-So: we are interested in whether or not a conclusion \emph{follows from} some premises. Don't, though, say that the premises \emph{infer} the conclusion. Entailment is a relation between premises and conclusions; inference is something we do. (So if you want to mention inference when the conclusion follows from the premises, you could say that \emph{one may infer} the conclusion from the premises.)
+So: we are interested in whether or not a conclusion \emph{follows from} some premises. Don't, though, say that the premises \emph{infer} the conclusion. Entailment is a relation between premises and conclusions; inference is something we do. So if you want to mention inference when the conclusion follows from the premises, you could say that \emph{one may infer} the conclusion from the premises.
 
 \section{Validity}
 
@@ -165,13 +165,13 @@ name=invalid,
 description={A property of arguments that holds when it is possible for the premises to be true without the conclusion being true; the opposite of \gls{valid}}
 }
         
-The crucial thing about a valid argument is that it is impossible for the premises to be true whilst the conclusion is false. Consider this example:
+The crucial thing about a valid argument is that it is impossible for the premises to be true while the conclusion is false. Consider this example:
 	\begin{earg}
 		\item[] Oranges are either fruits or musical instruments.
 		\item[] Oranges are not fruits.
 		\item[\therefore] Oranges are musical instruments.
 	\end{earg}
-The conclusion of this argument is ridiculous. Nevertheless, it follows from the premises. \emph{If} both premises were true, \emph{then} the conclusion just has to be true. So the argument is valid. 
+The conclusion of this argument is ridiculous. Nevertheless, it follows from the premises. \emph{If} both premises are true, \emph{then} the conclusion just has to be true. So the argument is valid. 
 
 This highlights that valid arguments do not need to have true premises or true conclusions. Conversely, having true premises and a true conclusion is not enough to make an argument valid. Consider this example:
 	\begin{earg}
@@ -179,7 +179,7 @@ This highlights that valid arguments do not need to have true premises or true c
 		\item[] Beijing is in China.
 		\item[\therefore] Paris is in France.
 	\end{earg}
-The premises and conclusion of this argument are, as a matter of fact, all true, but the argument is invalid. If Paris were to declare independence from the rest of France, then the conclusion would be false, even though both of the premises would remain true. Thus, it is \emph{possible} for the premises of this argument to be true and the conclusion false. The argument is therefore invalid.
+The premises and conclusion of this argument are, as a matter of fact, all true, but the argument is invalid. If Paris were to declare independence from the rest of France, then the conclusion would be false, even though both of the premises would remain true. Thus, it is \emph{possible} for the premises of this argument to be true and the conclusion false. So the argument is invalid.
 
 The important thing to remember is that validity is not about the actual truth or falsity of the sentences in the argument. It is about whether it is \emph{possible} for all the premises to be true and the conclusion false. Nonetheless, we will say that an argument is \define{sound} if and only if it is both valid and all of its premises are true.
 
@@ -257,7 +257,7 @@ In each case: if so, give an example; if not, explain why not.
 
 \chapter{Other logical notions}\label{s:BasicNotions}
 
-In \S\ref{s:Valid}, we introduced the idea of a valid argument. We will want to introduce some more ideas that are important in logic.
+In \S\ref{s:Valid}, we introduced the idea of a valid argument.  This is one of the most important ideas in logic. In this section, we will introduce are some similarly important ideas. 
 
 %\section{Truth values}
 %As we said in \S\ref{s:Arguments}, arguments consist of premises and a conclusion. Note that many kinds of English sentence cannot be used to express premises or conclusions of arguments. For example:

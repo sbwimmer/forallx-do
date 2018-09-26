@@ -6,25 +6,24 @@ This is the formal logic textbook, _forall x: Calgary Remix_. It is
 based on [_forall x:
 Cambridge_](http://people.ds.cam.ac.uk/tecb2/forallx.shtml), by [Tim
 Button](http://people.ds.cam.ac.uk/tecb2/index.shtml) used under a [CC
-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) license,
+BY 4.0](https://creativecommons.org/licenses/by/4.0/) license,
 which is based in turn on [_forall
 x_](https://www.fecundity.com/logic/), by
-[P.D. Magnus](https://www.fecundity.com/job/) used under a [CC BY-SA
-3.0](https://creativecommons.org/licenses/by-sa/3.0/) license, and was
+[P.D. Magnus](https://www.fecundity.com/job/) used under a [CC BY
+4.0](https://creativecommons.org/licenses/by/3.0/) license, and was
 remixed, revised, & expanded by [Aaron Thomas-Bolduc](https://phil.ucalgary.ca/profiles/aaron-thomas-bolduc) & [Richard Zach](http://richardzach.org/).
 It includes additional material from _forall x_ by P.D. Magnus and
 [_Metatheory_](http://people.ds.cam.ac.uk/tecb2/metatheory.shtml) by
-Tim Button, both used under a [CC BY-SA
-3.0](https://creativecommons.org/licenses/by-sa/3.0/) license, and
+Tim Button, both used under a [CC BY
+4.0](https://creativecommons.org/licenses/by/4.0/) license, and
 from [_forall x: Lorain County
 Remix_](https://github.com/rob-helpy-chalk/openintroduction), by
 [Cathal Woods](https://sites.google.com/site/cathalwoods/) and
-J. Robert Loftis, used under a [CC BY-SA
-4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
+J. Robert Loftis, used with permission.
 
-[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 
 The LaTeX source code for this work is available on GitHub at [github.com/rzach/forallx-yyc](https://github.com/rzach/forallx-yyc).
 

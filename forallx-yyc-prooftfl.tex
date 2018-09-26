@@ -10,10 +10,10 @@ Way back in \S\ref{s:Valid}, we said that an argument is valid iff it is impossi
 In the case of TFL, this led us to develop truth tables. Each line of a complete truth table corresponds to a valuation. So, when faced with a TFL argument, we have a very direct way to assess whether it is possible to make all of the premises true and the conclusion false: just thrash through the truth table.
 
 However, truth tables do not necessarily give us much \emph{insight}. Consider two arguments in TFL:
-	\begin{align*}
-		P \eor Q, \enot P & \therefore Q\\
-		P \eif Q, P & \therefore Q
-	\end{align*}
+\begin{align*}
+P \eor Q, \enot P & \therefore Q\\
+P \eif Q, P & \therefore Q
+\end{align*}
 Clearly, these are valid arguments. You can confirm that they are valid by constructing four-line truth tables, but we might say that they make use of different \emph{forms} of reasoning. It might be nice to keep track of these different forms of inference. 
 
 One aim of a \emph{natural deduction system} is to show that particular arguments are valid, in a way that allows us to understand the reasoning that the arguments might involve. We begin with very basic rules of inference. These rules can be combined to offer more complicated arguments. Indeed, with just a small starter pack of rules of inference, we hope to capture all valid arguments. 
@@ -23,12 +23,12 @@ One aim of a \emph{natural deduction system} is to show that particular argument
 With truth tables, we directly consider different ways to make sentences true or false. With natural deduction systems, we manipulate sentences in accordance with rules that we have set down as good rules. The latter promises to give us a better insight---or at least, a different insight---into how arguments work.
 
 The move to natural deduction might be motivated by more than the search for insight. It might also be motivated by \emph{necessity}. Consider:
-	$$A_1 \eif C_1 \therefore (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5) \eif (C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5)$$
+$$A_1 \eif C_1 \therefore (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5) \eif (C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5)$$
 To test this argument for validity, you might use a 1024-line truth table. If you do it correctly, then you will see that there is no line on which all the premises are true and on which the conclusion is false. So you will know that the argument is valid. (But, as just mentioned, there is a sense in which you will not know \emph{why} the argument is valid.) But now consider:
-	\begin{align*}
-		A_1 \eif C_1 \therefore\ & (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10}) \eif \phantom{(}\\
-				&(C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5 \eor C_6 \eor C_7 \eor C_8 \eor C_9 \eor C_{10})
-	\end{align*}
+\begin{align*}
+A_1 \eif C_1 \therefore\ & (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10}) \eif \phantom{(}\\
+&(C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5 \eor C_6 \eor C_7 \eor C_8 \eor C_9 \eor C_{10})
+\end{align*}
 This argument is also valid---as you can probably tell---but to test it requires a truth table with $2^{20} = 1048576$ lines. In principle, we can set a machine to grind through truth tables and report back when it is finished. In practice, complicated arguments in TFL can become \emph{intractable} if we use truth tables.
 
 When we get to first-order logic (FOL) (beginning in chapter \ref{s:FOLBuildingBlocks}), though, the problem gets dramatically worse. There is nothing like the truth table test for FOL. To assess whether or not an argument is valid, we have to reason about \emph{all} interpretations, but, as we will see, there are infinitely many possible interpretations. We cannot even in principle set a machine to grind through infinitely many possible interpretations and report back when it is finished: it will \emph{never} finish. We either need to come up with some more efficient way of reasoning about all interpretations, or we need to look for something different. 
@@ -72,7 +72,7 @@ Note also that we have drawn a line underneath the premise. Everything written a
 \begin{proof}
 	\have[n]{con}{\enot A \eand \enot B}
 \end{proof}
-for some number $n$. It doesn't matter which line we end on, but we would obviously prefer a short proof to a long one.
+for some number $n$. It doesn't matter what line number we end on, but we would obviously prefer a short proof to a long one.
 
 Similarly, suppose we wanted to consider:
 $$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \therefore \enot C\eor D$$
@@ -128,7 +128,7 @@ Note that every line of our proof must either be an assumption, or must be justi
 	\have[15]{b}{L}
 	\have[\ ]{c}{L \eand R} \ai{b, a}
 \end{proof}
-with the citation reverse, to reflect the order of the conjuncts. More generally, here is our conjunction introduction rule:
+with the citation reversed, to reflect the order of the conjuncts. More generally, here is our conjunction introduction rule:
 \factoidbox{
 \begin{proof}
 	\have[m]{a}{\meta{A}}
@@ -149,7 +149,7 @@ and equally:
 	\have[m]{ab}{\meta{A}\eand\meta{B}}
 	\have[\ ]{b}{\meta{B}} \ae{ab}
 \end{proof}}
-The point is simply that, when you have a conjunction on some line of a proof, you can obtain either of the conjuncts by {\eand}E. (One point, might be worth emphasising: you can only apply this rule when conjunction is the main logical operator. So you cannot infer `$D$' just from `$C \eor (D \eand E)$'!)
+The point is simply that, when you have a conjunction on some line of a proof, you can obtain either of the conjuncts by {\eand}E. (But one point is worth emphasising: you can only apply this rule when conjunction is the main logical operator. So you cannot infer `$D$' just from `$C \eor (D \eand E)$'!)
 
 Even with just these two rules, we can start to see some of the power of our formal proof system. Consider:
 \begin{earg}
@@ -174,9 +174,9 @@ So by applying the {\eand}I rule to lines 3 and 2 (in that order), we arrive at 
 	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
 	\have{ba}{{[}(E \eor F) \eif (G\eor H){]} \eand {[}(A\eor B)\eif(C\eor D){]}} \ai{b,a}
 \end{proof}
-This is a very simple proof, but it shows how we can chain rules of proof together into longer proofs. In passing, note that investigating this argument with a truth table would have required a staggering 256 lines; our formal proof required only four lines. 
+This is a very simple proof, but it shows how we can chain rules of proof together into longer proofs. In passing, note that investigating this argument with a truth table would have required 256 lines; our formal proof required only four lines. 
 
-It is worth giving another example. Way back in \S\ref{s:MoreBracketingConventions}, we noted that this argument is valid:
+It is worth giving another example. Back in \S\ref{s:MoreBracketingConventions}, we noted that this argument is valid:
 	$$A \eand (B \eand C) \therefore (A \eand B) \eand C$$
 To provide a proof corresponding with this argument, we start by writing:
 \begin{proof}
@@ -202,7 +202,7 @@ But now we can merrily reintroduce conjunctions in the order we wanted them, so 
 \end{proof}
 Recall that our official definition of sentences in TFL only allowed conjunctions with two conjuncts. The proof just given suggests that we could drop inner brackets in all of our proofs. However, this is not standard, and we will not do this. Instead, we will maintain our more austere bracketing conventions. (Though we will still allow ourselves to drop outermost brackets, for legibility.)
 
-Let me offer one final illustration. When using the $\eand$I rule, there is no need to apply it to different sentences. So we can formally prove `$A$' from `$A$' as follows:
+Let me offer one final illustration. When using the $\eand$I rule, there is no need to apply it to different sentences. So, if we want, we can formally prove `$A$' from `$A$' thus:
 \begin{proof}
 	\hypo{a}{A}
 	\have{aa}{A \eand A}\ai{a, a}
@@ -330,7 +330,7 @@ If we were allowed to do this, it would be a disaster. It would allow us to prov
 We can describe the process of making an additional assumption as one of performing a \emph{subproof}: a subsidiary proof within the main proof. When we start a subproof, we draw another vertical line to indicate that we are no longer in the main proof. Then we write in the assumption upon which the subproof will be based. A subproof can be thought of as essentially posing this question: \emph{what could we show, if we also make this additional assumption?}
 
 When we are working within the subproof, we can refer to the additional assumption that we made in introducing the subproof, and to anything that we obtained from our original assumptions. (After all, those original assumptions are still in effect.) At some point though, we will want to stop working with the additional assumption: we will want to return from the subproof to the main proof. To indicate that we have returned to the main proof, the vertical line for the subproof comes to an end. At this point, we say that the subproof is \define{closed}. Having closed a subproof, we have set aside the additional assumption, so it will be illegitimate to draw upon anything that depends upon that additional assumption. Thus we stipulate:
-\factoidbox{Any rule whose citation requires mentioning individual lines can mention any earlier lines, \emph{except} for those lines which occur within a closed subproof.}
+\factoidbox{To cite individual lines when applying a rule, those lines must (1) come before the application of the rule, but (2) not occur within a closed subproof.}
 This stipulation rules out the disastrous attempted proof above. The rule of $\eif$E requires that we cite two individual lines from earlier in the proof. In the purported proof, above, one of these lines (namely, line 4) occurs within a subproof that has (by line 6) been closed. This is illegitimate. 
 
 Closing a subproof is called \define{discharging} the assumptions of that subproof. So we can put the point this way: \emph{you cannot refer back to anything that was obtained using discharged assumptions}. 
@@ -369,8 +369,9 @@ Again, though, we need to keep careful track of what we are assuming at any give
 This would be awful. If we tell you that Anne is smart, you should not be able to infer that, if Cath is smart (symbolized by `$C$') then \emph{both} Anne is smart and Queen Boudica stood 20-feet tall! But this is just what such a proof would suggest, if it were permissible.
 
 The essential problem is that the subproof that began with the assumption `$C$' depended crucially on the fact that we had assumed `$B$' on line 2. By line 6, we have \emph{discharged} the assumption `$B$': we have stopped asking ourselves what we could show, if we also assumed `$B$'. So it is simply cheating, to try to help ourselves (on line 7) to the subproof that began with the assumption `$C$'. Thus we stipulate, much as before:
-\factoidbox{Any rule whose citation requires mentioning an entire subproof can mention any earlier subproof, \emph{except} for those subproofs which occur within some \emph{other} closed subproof.}
+\factoidbox{To cite a subproof when applying a rule, the subproof must (1) come before the application of the rule, but (2) not occur within some other {closed} subproof.}
 The attempted disastrous proof violates this stipulation. The subproof of lines 3--4 occurs within a subproof that ends on line 5. So it cannot be invoked in line 7.
+The attempted disastrous proof violates this stipulation. The subproof of lines 3--4 occurs within the subproof of lines 2--5, so the subproof of lines 3--4 cannot be invoked in line 7.
 
 It is always permissible to open a subproof with any assumption. However, there is some strategy involved in picking a useful assumption. Starting a subproof with an arbitrary, wacky assumption would just waste lines of the proof. In order to obtain a conditional by {\eif}I, for instance, you must assume the antecedent of the conditional in a subproof. 
 
@@ -484,13 +485,12 @@ Here is a proof corresponding to this argument:
 		\close
 	\have{con}{(A \eand B) \eor (A \eand C)}\oe{boc, b-abo, c-aco}
 	\end{proof}
-Don't be alarmed if you think that you wouldn't have been able to come up with this proof yourself. The ability to come up with novel proofs will come with practice. The key question at this stage is whether, looking at the proof, you can see that it conforms with the rules that we have laid down. That just involves checking every line, and making sure that it is justified in accordance with the rules we have laid down.
+Don't be alarmed if you think that you wouldn't have been able to come up with this proof yourself. The ability to come up with novel proofs comes with practice. The key question at this stage is whether, looking at the proof, you can see that it conforms with the rules that we have laid down. That just involves checking every line, and making sure that it is justified in accordance with the rules we have laid down.
 
 
-\section{Contradiction and Negation}
+\section{Contradiction and negation}
 
-We have only one connective left to deal with: negation. 
-Negation is closely connected with \emph{contradiction}. 
+We have only one connective left to deal with: negation. But to tackle it, we must connect negation with \emph{contradiction}. 
 
 An effective form of argument is to argue your opponent into contradicting themselves. At that point, you have them on the ropes. They have to give up at least one of their assumptions. We are going to make use of this idea in our proof system, by adding a new symbol, `$\ered$', to our proofs. This should be read as something like `contradiction!'\ or `reductio!'\ or `but that's absurd!'  The rule for introducing this symbol is that we can use it whenever we explicitly contradict ourselves, i.e.\ whenever we find both a sentence and its negation appearing in our proof:
 \factoidbox{
@@ -754,7 +754,7 @@ Here is a proof corresponding with the argument:
 	\end{proof}
 
 \section{De Morgan Rules}
-Our final additional rules are called De Morgan's Laws. (These are named after Augustus De Morgan.) The shape of the rules should be familiar from truth tables.
+Our final additional rules are called De~Morgan's Laws (named after Augustus De~Morgan). The shape of the rules should be familiar from truth tables.
 
 The first De Morgan rule is:
 \factoidbox{\begin{proof}
@@ -852,7 +852,7 @@ to mean that there is a proof of $\meta{A}$ with no assumptions.
 
 The symbol `$\proves$' is called the \emph{single turnstile}. We want to emphasize that this is not the {double turnstile} symbol (`$\entails$') that we introduced in chapter~\ref{s:SemanticConcepts} to symbolize entailment. The single turnstile, `$\proves$', concerns the existence of proofs; the double turnstile, `$\entails$', concerns the existence of valuations (or interpretations, when used for FOL). \emph{They are very different notions.}
 
-Armed with our `$\proves$' symbol, we can introduce some new terminology.
+Armed with our `$\proves$' symbol, we can introduce some more terminology. To say that there is a proof of $\meta{A}$ with no undischarged assumptions, we write: ${} \proves \meta{A}$. In this case, we say that $\meta{A}$ is a \define{theorem}.
 	\factoidbox{\label{def:syntactic_tautology_in_sl}
 		$\meta{A}$ is a \define{theorem} iff $\proves \meta{A}$
 	}
@@ -862,7 +862,7 @@ name=theorem,
 description={A sentence that can be proved without any premises}
 }
 
-        To illustrate this, suppose we want to prove that `$\enot (A \eand \enot A)$' is a theorem. So we must start our proof without \emph{any} assumptions. However, since we want to prove a sentence whose main logical operator is a negation, we will want to  immediately begin a subproof, with the additional assumption `$A \eand \enot A$', and show that this leads to contradiction. All told, then, the proof looks like this:
+        To illustrate this, suppose we want to show that `$\enot (A \eand \enot A)$' is a theorem.  So we need a proof of `$\enot(A \eand \enot A)$' which has \emph{no} undischarged assumptions. However, since we want to prove a sentence whose main logical operator is a negation, we will want to start with a \emph{subproof} within which we assume `$A \eand \enot A$', and show that this assumption leads to contradiction. All told, then, the proof looks like this:
 	\begin{proof}
 		\open
 			\hypo{con}{A \eand \enot A}
@@ -999,7 +999,7 @@ You now want to repeat yourself, on some line $k$. You could just invoke the rul
 \end{proof}
 To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, `$\meta{A}$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\meta{A}$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
 
-Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the \emph{basic} rules of \S\ref{s:BasicTFL}. So we can describe the rule R as a \emph{derived} rule, since its justification is derived from our basic rules.
+Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the \emph{basic} rules of \S\ref{s:BasicTFL}. So we can describe the rule R as a \emph{derived} rule, since it can be justified using only the basic rules.
 
 
 \section{Derivation of Disjunctive Syllogism}

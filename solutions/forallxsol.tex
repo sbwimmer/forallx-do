@@ -1,4 +1,4 @@
-\documentclass[oneside, 10pt]{memoir}
+\documentclass[openany,oneside,10pt]{memoir}
 
 \usepackage{../forallxyyc}
 
@@ -11,9 +11,36 @@
         allcolors={dkleadbeater},
         pdfdisplaydoctitle={true}}
 
-\colorlet{leadbeater}{darkred}
-\colorlet{dkleadbeater}{black}
-\colorlet{ltleadbeater}{darkred!50}
+\usepackage[absolute,overlay]{textpos}
+
+% set stock & paper size with narrow margins
+
+\setstocksize{8in}{5in}
+
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\settrims{0pt}{0pt}
+
+% let's calculate the line length for 65 characters in \normalfont
+
+\setlxvchars
+
+% set the size of the type block to golden ratio calculated width
+
+\settypeblocksize{*}{1.05\lxvchars}{1.62}
+
+% set spine and and edge margin
+
+\setlrmargins{*}{*}{1}
+\setulmargins{.6in}{*}{*}
+\setheaderspaces{*}{*}{1}
+
+\checkandfixthelayout
+
+\definecolor{lyallpink}{RGB}{222,31,149}
+\colorlet{leadbeater}{lyallpink}
+\colorlet{dkleadbeater}{lyallpink!80!black}
+\colorlet{ltleadbeater}{lyallpink!50}
+\colorlet{vltleadbeater}{lyallpink!3}
 
 \begin{document}
 \midsloppy

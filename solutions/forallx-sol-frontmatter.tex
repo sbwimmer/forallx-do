@@ -1,32 +1,56 @@
 %!TEX root = forallxyyc.tex
-\thispagestyle{empty}  \pagecolor{darkred}\color{white}
+% Cover Page
 
-\noindent {\fontsize{46pt}{0pt}\selectfont forall $x$}
+\thispagestyle{empty}
 
-\
+\begin{textblock*}{\stockwidth}(0in,3.5in)
+  \noindent\includegraphics{../assets/forallx-coverart-screen.pdf}
+\end{textblock*}
 
-\noindent{\Huge{Calgary Remix}}
+% make front cover
+\begin{textblock*}{0in}(0in,0in)
+  \noindent\hfill
+  \begin{minipage}[b][\stockheight][s]{.9\stockwidth}
+    \begin{raggedleft}
+      \vspace*{1.7cm}
+      \hfill
+      \sffamily\fontsize{66pt}{0pt}\selectfont
+      \color{lyallpink}
+      \textbf{forall}%
+      \fontsize{80pt}{0pt}\selectfont\rmfamily\textit{\textbf{x}\/}
+                    
+      \vskip.5cm
+          
+      \sffamily\fontsize{24pt}{0pt}\selectfont
+      \color{black}
+      \textbf{\uppercase{Calgary Remix}}
 
-\bigskip\bigskip
-\noindent{\Huge \emph{Solutions to Selected Exercises}}
+      \vspace*{1cm}
+      \color{black}
+      \sffamily
+      \fontsize{20pt}{22pt}\selectfont
+      \textbf{Solutions to\\ Selected Exercises}
 
-\vspace*{50pt}
-\noindent\fontsize{16pt}{18pt}\selectfont \textit{By } \textbf{P.~D. Magnus}\\
-\textbf{Tim Button}\\
-\textit{with additions by}\\
-\textbf{J.~Robert Loftis}\\
-\textit{remixed and revised by}\\
-\textbf{Aaron Thomas-Bolduc}\\ \textbf{Richard Zach}
+      \vfill
+      \fontsize{11pt}{14pt}\selectfont
+      \color{white}
+      \textbf{P.~D. Magnus}\\
+      \textbf{Tim Button}\\
+      \textit{with additions by}\\
+      \textbf{J.~Robert Loftis}\\ \textit{remixed and revised by}\\
+      \textbf{Aaron Thomas-Bolduc}\\ \textbf{Richard Zach}\par
+      \vspace{1cm}
+      \textbf{\forallxversion}\par
+      \vspace{1cm}
+    \end{raggedleft}
+  \end{minipage}
+  \hspace*{1cm}
+\end{textblock*}
+\ 
+\newpage
+\color{black}
+\setlength{\barlength}{0pt} % no bar next to chapter headings in ebook
 
-\vfill
-
-\noindent\normalsize
-\includegraphics[width=1cm]{../assets/cc.pdf}
-\includegraphics[width=1cm]{../assets/by}
-\includegraphics[width=1cm]{../assets/remix}
-\hfill \vbox to 1cm{\vfill\hbox{\LARGE \forallxversion}\vfill}
-
-\newpage\nopagecolor\color{black}
 \noindent This booklet is based on the solutions booklet \href{http://people.ds.cam.ac.uk/tecb2/forallx.shtml}{\forallx:\emph{ Cambridge}}, by\\[2ex]
 \href{http://people.ds.cam.ac.uk/tecb2/index.shtml}{Tim Button}\\
 \emph{University of Cambridge}\\[2ex]
@@ -56,7 +80,7 @@ The \LaTeX{} source for this book is available on \href{https://github.com/rzach
 is revision \gitAbbrevHash{} (\gitAuthorDate).
 
 
-\vfill
+\bigskip
 \noindent The preparation of this textbook was made possible by a grant from the \href{http://www.ucalgary.ca/taylorinstitute/}{Taylor Institute for Teaching and Learning}.
 
 \bigskip

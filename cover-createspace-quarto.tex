@@ -1,29 +1,17 @@
 % cover-createspace-quarto.tex
 
-% make a cover PDF for CreateSpace Crown Quarto booksize.
-
-% note: Lulu will flatten this PDF and get the colors wrong. Convert
-% this PDF to PNG first (eg, using GIMP: just import at 300dpi then
-% export as PNG).
+% make a cover PDF for KDP Crown Quarto booksize.
 
 \documentclass{memoir}
-\usepackage[sfdefault]{universalis}
-\usepackage[osf]{Baskervaldx} % oldstyle figures
 
 \newcommand{\olpath}{../../}
 
 \usepackage[absolute,overlay]{textpos}
 \usepackage{rotating}
-\usepackage[cmyk]{xcolor}
+\usepackage{xcolor}
 \usepackage{forallxyyc}
 
-% make color the CMYK equivalent of RGB DarkRed (used
-% http://www.easyrgb.com/en/convert.php)
-\definecolor{rgbdarkred}{cmyk}{0,1,1,.455}
-
-\colorlet{leadbeater}{rgbdarkred}
-
-
+\usepackage{helvet}
 
 \newlength{\coverheight}
 \newlength{\coverwidth}
@@ -39,10 +27,14 @@
 
 % compute actual widths
 \addtolength{\coverheight}{.25in} % add bleed
-\addtolength{\spinepos}{.125in} % add bleed
+\addtolength{\spinepos}{.125in} % adjust for bleed
 \setlength{\coverwidth}{\spinepos}
 \addtolength{\coverwidth}{\coverwidth}
 \addtolength{\coverwidth}{\spinewidth}
+
+\newlength{\coverartpos}
+\setlength{\coverartpos}{-1in}
+\addtolength{\coverartpos}{\spinewidth}
 
 % \coverpos = \spinepso + \spinewidth
 \setlength{\coverpos}{\spinepos}
@@ -70,71 +62,92 @@
 \color{black}
 
 \begin{document}
+
+\sffamily
+
+\definecolor{lyallpink}{RGB}{222,31,149}
 % no folios
 \pagestyle{empty}
 
-% set back background to Matt's orange
-
-\pagecolor{leadbeater}
+\begin{textblock*}{\coverwidth}(\coverartpos,3.646in)
+  \noindent\includegraphics{assets/forallx-coverart-full.pdf}
+\end{textblock*}
 
 % make a spine
 \begin{textblock*}{\spinewidth}(\spinepos,0bp)%
-\noindent\hfil\rotatebox{-90}{% make spine text readable when book is lying cover up
-      \hbox to \coverheight{\hfil
-          \huge\sffamily\bfseries\color{white}
-            forall \textit{x}: An Introduction to Formal Logic\hfil \forallxshortversion\hspace{2cm}}}\hfil
+  \noindent\hfil
+  \rotatebox{-90}{% make spine text readable when book is lying cover up
+    \hbox to \coverheight{
+      \hskip 1.5cm
+      \fontsize{16pt}{19pt}\sffamily\bfseries\selectfont
+      \color{black}
+      forall x: Calgary Remix\hfil
+      \color{white}
+      \forallxshortversion\hspace{1.1cm}}}%
+  \hfil
 \end{textblock*}
 \newbox\adjust
+
 % make front cover
 \begin{textblock*}{\spinepos}(\coverpos,0pt)
-  \noindent\hfil
-  \begin{minipage}[b][\coverheight][s]{.8\spinepos}\color{white}
-\vspace*{3cm}
-    \noindent {\fontsize{46pt}{0pt}\selectfont forall $x$}
+  \noindent\hfill
+  \begin{minipage}[b][\coverheight][s]{.8\spinepos}
+    \begin{raggedleft}
+      \vspace*{1.7cm}
+      \hfill
+      \sffamily\fontsize{87pt}{0pt}\selectfont
+      \color{lyallpink}
+      \textbf{forall}%
+      \fontsize{110pt}{0pt}\selectfont\rmfamily\textit{\textbf{x}\/}
+                    
+      \vskip.5cm
+          
+      \sffamily\fontsize{32pt}{0pt}\selectfont
+      \color{black}
+      \textbf{\uppercase{Calgary Remix}}
 
-\
+      \vspace*{1cm}
+      \color{black}
+      \sffamily
+      \fontsize{25pt}{25pt}\selectfont
+      \textbf{An Introduction to\\ Formal Logic}
 
-\noindent{\Huge{Calgary Remix}}
-
-\vspace*{1cm}
-\noindent{\huge \emph{An Introduction to Formal Logic}}
-
-\vfill
-\noindent{\fontsize{16pt}{18pt}\selectfont \textbf{P.~D. Magnus}\\
-  \textbf{Tim Button}\\
-  \textit{with additions by}\\
-  \textbf{J.~Robert Loftis}\\ \textit{remixed and revised by}\\
-  \textbf{Aaron Thomas-Bolduc}\\ \textbf{Richard Zach}\par}
-\vfill
-\noindent
-\includegraphics[width=1cm]{assets/cc.pdf}
-\includegraphics[width=1cm]{assets/by.pdf}
-\includegraphics[width=1cm]{assets/remix.pdf}
-\hfill \vbox to 1cm{\vfill\hbox{\LARGE \forallxversion}\vfill}
-\vspace{2cm}
+      \vfill
+      \fontsize{16pt}{19pt}\selectfont
+      \color{white}
+      \textbf{P.~D. Magnus}\\
+      \textbf{Tim Button}\\
+      \textit{with additions by}\\
+      \textbf{J.~Robert Loftis}\\ \textit{remixed and revised by}\\
+      \textbf{Aaron Thomas-Bolduc}\\ \textbf{Richard Zach}\par
+      \vspace{1.2cm}
+      \textbf{\forallxversion}\par
+      \vspace{1.15cm}
+    \end{raggedleft}
   \end{minipage}
-  \hfil
-  \end{textblock*}
+  \hspace*{1.7cm}
+\end{textblock*}
 
 % make back cover
 \begin{textblock*}{\spinepos}(0pt,0pt)
   \noindent\hspace{1.5cm}
   \begin{minipage}[b][\coverheight][b]{.85\spinepos}
-\begin{minipage}[b]{2.5cm}
-\includegraphics[width=1.2cm]{assets/cc.pdf}
-\includegraphics[width=1.2cm]{assets/by.pdf}
-\includegraphics[width=1.2cm]{assets/remix.pdf}
-\end{minipage}
-\hspace{.3cm}
-\begin{minipage}[b]{4.7cm}
-  \fontsize{11pt}{1.2em}\selectfont\color{white}\textit{forall x:
-    Calgary Remix} by P.~D. Magnus et al.\ is licensed under a
-  Creative Commons Attribution 4.0 International License.
+    \begin{minipage}[b]{1.7cm}
+      \includegraphics[width=1.1cm]{assets/cc.pdf}
+      \includegraphics[width=1.1cm]{assets/by.pdf}
+      \includegraphics[width=1.1cm]{assets/remix.pdf}
+    \end{minipage}
+    \hspace{.3cm}
+    \begin{minipage}[b]{5cm}
+      \begin{raggedright}
+        \fontsize{14pt}{16pt}\selectfont\color{white}
+      \textit{forall x: Calgary Remix} by P.~D. Magnus et al.\ is
+      licensed under a Creative Commons Attribution 4.0 International
+      License.\par
+      \end{raggedright}
 
 \end{minipage}
-\hfill\color{black}
-%\colorbox{white}{\includegraphics{isbn_barcode.pdf}}
-
+\hfill
 \vspace*{2cm}
   \end{minipage}
   \hfill

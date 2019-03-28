@@ -14,7 +14,7 @@
 
 %RZ: typefaces 
 
-\usepackage[sfdefault]{universalis}
+\usepackage{helvet}
 \usepackage[osf]{Baskervaldx} % oldstyle figures
 \usepackage[bigdelims,baskervaldx]{newtxmath} 
 \usepackage[cal=boondoxo]{mathalfa}
@@ -39,6 +39,7 @@
 % Chapter style
 
 \newlength{\barlength}
+\setlength{\barlength}{400pt}
 \makechapterstyle{leadbeater}{%
   \setlength{\afterchapskip}{40pt}
   \setlength{\beforechapskip}{50pt}
@@ -52,7 +53,7 @@
   \renewcommand*{\printchaptertitle}[1]{%
     \chaptitlefont ##1\\[-\baselineskip]%
     \hspace*{-20pt}%
-    \smash{\color{leadbeater}\rule{7pt}{400pt}}}
+    \smash{\color{leadbeater}\rule{7pt}{\barlength}}}
 }
 
 \renewcommand*{\partnamefont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
@@ -743,7 +744,7 @@
 \newcommand*{\want}[1]{\by{want \ensuremath{#1}}{}}
 % an environment that separates the proof from surrounding paragraphs
 \newenvironment{proof}
-	{\begin{list}{}{}\item$\begin{nd}}
+	{\begin{list}{}{\setlength{\leftmargin}{0pt}}\item$\begin{nd}}
 	{\end{nd}$\end{list}}
 
 % I keep mixing up the \ce and \ae commands, so I define a less ambiguous

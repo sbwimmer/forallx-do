@@ -2,10 +2,11 @@
 \documentclass[openany,oneside,11pt]{memoir}
 
 \usepackage{forallxyyc}
+\usepackage[absolute,overlay]{textpos}
 
 % set stock & paper size with narrow margins
 
-\setstocksize{22cm}{17cm}
+\setstocksize{8in}{5in}
 
 \settrimmedsize{\stockheight}{\stockwidth}{*}
 \settrims{0pt}{0pt}
@@ -21,15 +22,16 @@
 % set spine and and edge margin
 
 \setlrmargins{*}{*}{1}
-\setulmargins{60pt}{*}{*}
+\setulmargins{.6in}{*}{*}
 \setheaderspaces{*}{*}{1}
 
 \checkandfixthelayout
 
-\colorlet{leadbeater}{darkred}
-\colorlet{dkleadbeater}{darkred!80!black}
-\colorlet{ltleadbeater}{darkred!50}
-\colorlet{vltleadbeater}{darkred!3}
+\definecolor{lyallpink}{RGB}{222,31,149}
+\colorlet{leadbeater}{lyallpink}
+\colorlet{dkleadbeater}{lyallpink!80!black}
+\colorlet{ltleadbeater}{lyallpink!50}
+\colorlet{vltleadbeater}{lyallpink!3}
 
 \begin{document}
 
@@ -41,32 +43,54 @@
 % Cover Page
 
 \thispagestyle{empty}
-\pagecolor{darkred}\color{white}
 
-\noindent {\fontsize{46pt}{0pt}\selectfont forall $x$}
+\begin{textblock*}{\stockwidth}(0in,3.5in)
+  \noindent\includegraphics{assets/forallx-coverart-screen.pdf}
+\end{textblock*}
 
-\
+% make front cover
+\begin{textblock*}{0in}(0in,0in)
+  \noindent\hfill
+  \begin{minipage}[b][\stockheight][s]{.9\stockwidth}
+    \begin{raggedleft}
+      \vspace*{1.7cm}
+      \hfill
+      \sffamily\fontsize{66pt}{0pt}\selectfont
+      \color{lyallpink}
+      \textbf{forall}%
+      \fontsize{80pt}{0pt}\selectfont\rmfamily\textit{\textbf{x}\/}
+                    
+      \vskip.5cm
+          
+      \sffamily\fontsize{24pt}{0pt}\selectfont
+      \color{black}
+      \textbf{\uppercase{Calgary Remix}}
 
-\noindent{\Huge{Calgary Remix}}
+      \vspace*{1cm}
+      \color{black}
+      \sffamily
+      \fontsize{20pt}{22pt}\selectfont
+      \textbf{An Introduction to\\ Formal Logic}
 
-\bigskip\bigskip
-\noindent{\huge \emph{An Introduction to Formal Logic}}
-
-\vfill
-\noindent{\fontsize{16pt}{18pt}\selectfont \textbf{P.~D. Magnus}\\
-  \textbf{Tim Button}\\
-  \textit{with additions by}\\
-\textbf{J.~Robert Loftis}\\ \textit{remixed and revised by}\\
-  \textbf{Aaron Thomas-Bolduc}\\ \textbf{Richard Zach}\par}
-\vfill
-
-\noindent
-\includegraphics[width=1cm]{assets/cc.pdf}
-\includegraphics[width=1cm]{assets/by}
-\includegraphics[width=1cm]{assets/remix}
-\hfill \vbox to 1cm{\vfill\hbox{\LARGE \forallxversion}\vfill}
-
-\newpage\nopagecolor\color{black}
+      \vfill
+      \fontsize{11pt}{14pt}\selectfont
+      \color{white}
+      \textbf{P.~D. Magnus}\\
+      \textbf{Tim Button}\\
+      \textit{with additions by}\\
+      \textbf{J.~Robert Loftis}\\ \textit{remixed and revised by}\\
+      \textbf{Aaron Thomas-Bolduc}\\ \textbf{Richard Zach}\par
+      \vspace{1cm}
+      \textbf{\forallxversion}\par
+      \vspace{1cm}
+    \end{raggedleft}
+  \end{minipage}
+  \hspace*{1cm}
+\end{textblock*}
+\ 
+\newpage
+\color{black}
+\setlength{\barlength}{0pt} % no bar next to chapter headings in ebook
 
 \input{forallx-yyc-content}
 

@@ -2,6 +2,8 @@
 
 ![Book Cover](http://forallx.openlogicproject.org/forallxyyc.png)
 
+## Description
+
 _forall x_ is a full-featured textbook on formal logic. It covers key
 notions of logic such as consequence and validity of arguments, the
 syntax of truth-functional propositional logic TFL and truth-table
@@ -14,6 +16,10 @@ available. It is provided in PDF (for screen reading, printing, and a
 special version for dyslexics) and in LaTeX source code. A proof
 editor/checker for the proof system used is available at
 [proofs.openlogicproject.org](http://proofs.openlogicproject.org/).
+
+[Download](#download) links below.
+
+## Credits and License
 
 The _forall x: Calgary Remix_ is based on [_forall x:
 Cambridge_](http://people.ds.cam.ac.uk/tecb2/forallx.shtml), by [Tim
@@ -40,7 +46,7 @@ This work is licensed under a [Creative Commons Attribution 4.0 International Li
 
 The LaTeX source code for this work is available on GitHub at [github.com/rzach/forallx-yyc](https://github.com/rzach/forallx-yyc).
 
-## Download PDFs
+## Download
 
 You can download PDFs of the files here:
 
@@ -57,11 +63,9 @@ PDFs and make them available to students directly, than to link here.
 ## Buy a Printed Copy
 
 If you'd like to purchase a nice paperback copy, you can do so on
-[Lulu.com](http://www.lulu.com/shop/richard-zach/forall-x-calgary-remix-spring-2017/paperback/product-23165559.html)
-or
 [Amazon](https://www.amazon.com/dp/1546435115/ref=cm_sw_r_cp_ep_dp_uLLhzbVJGFRNZ)
 ([Canada](https://www.amazon.ca/dp/1546435115/ref=cm_sw_r_cp_ep_dp_uLLhzbVJGFRNZ),
-[UK](https://www.amazon.co.uk/dp/1546435115/ref=cm_sw_r_cp_ep_dp_uLLhzbVJGFRNZ))
+[UK](https://www.amazon.co.uk/dp/1546435115/ref=cm_sw_r_cp_ep_dp_uLLhzbVJGFRNZ)) (or use search in your local Amazon store).
 
 (The process for getting the book printed is described [here](http://openlogicproject.org/2015/11/22/getting-your-book-to-print/) and [here](http://openlogicproject.org/2017/05/19/forall-x-yyc-is-now-on-amazon-and-how-it-got-there/).)
 

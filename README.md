@@ -2,21 +2,34 @@
 
 ![Book Cover](http://forallx.openlogicproject.org/forallxyyc.png)
 
-This is the formal logic textbook, _forall x: Calgary Remix_. It is
-based on [_forall x:
+_forall x_ is a full-featured textbook on formal logic. It covers key
+notions of logic such as consequence and validity of arguments, the
+syntax of truth-functional propositional logic TFL and truth-table
+semantics, the syntax of first-order (predicate) logic FOL with
+identity (first-order interpretations), translating (formalizing)
+English in TFL and FOL, and Fitch-style natural deduction proof
+systems for both TFL and FOL. It also deals with some advanced topics
+such as truth-functional completeness. Exercises with solutions are
+available. It is provided in PDF (for screen reading, printing, and a
+special version for dyslexics) and in LaTeX source code. A proof
+editor/checker for the proof system used is available at
+[proofs.openlogicproject.org](http://proofs.openlogicproject.org/).
+
+The _forall x: Calgary Remix_ is based on [_forall x:
 Cambridge_](http://people.ds.cam.ac.uk/tecb2/forallx.shtml), by [Tim
 Button](http://people.ds.cam.ac.uk/tecb2/index.shtml) used under a [CC
-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license,
-which is based in turn on [_forall
-x_](https://www.fecundity.com/logic/), by
+BY 4.0](https://creativecommons.org/licenses/by/4.0/) license, which
+is based in turn on [_forall x_](https://www.fecundity.com/logic/), by
 [P.D. Magnus](https://www.fecundity.com/job/) used under a [CC BY
 4.0](https://creativecommons.org/licenses/by/3.0/) license, and was
-remixed, revised, & expanded by [Aaron Thomas-Bolduc](https://phil.ucalgary.ca/profiles/aaron-thomas-bolduc) & [Richard Zach](http://richardzach.org/).
-It includes additional material from _forall x_ by P.D. Magnus and
+remixed, revised, & expanded by [Aaron
+Thomas-Bolduc](https://phil.ucalgary.ca/profiles/aaron-thomas-bolduc)
+& [Richard Zach](http://richardzach.org/).  It includes additional
+material from _forall x_ by P.D. Magnus and
 [_Metatheory_](http://people.ds.cam.ac.uk/tecb2/metatheory.shtml) by
 Tim Button, both used under a [CC BY
-4.0](https://creativecommons.org/licenses/by/4.0/) license, and
-from [_forall x: Lorain County
+4.0](https://creativecommons.org/licenses/by/4.0/) license, and from
+[_forall x: Lorain County
 Remix_](https://github.com/rob-helpy-chalk/openintroduction), by
 [Cathal Woods](https://sites.google.com/site/cathalwoods/) and
 J. Robert Loftis, used with permission.
@@ -57,6 +70,7 @@ or
 Clone the [GitHub repository](https://github.com/rzach/forallx-yyc) locally or download the ZIP file and run [LaTeX](http://www.latex-project.org/) on one of
 
   - `forallxyyc.tex` (in color, for screen reading)
+  - `forallxyyc-accessible.tex` (accessible version)
   - `forallxyyc-print.tex` (b/w, for printing on Quarto stock)
   - `forallxyyc-letter.tex` (b/w, for printing on regular letter-size paper)
 

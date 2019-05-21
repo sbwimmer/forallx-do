@@ -105,12 +105,19 @@
 % negation: {\sim} gives the swung dash 
 \def\enot{\ensuremath{\neg}}
 \def\ered{\ensuremath{\bot}}% TB: added to give an absurdity sign
+\newcommand*{\ebox}{\ensuremath{\Box}}
+\def\ediamond{\ensuremath{\Diamond}}
 \def\maththe{\rotatebox[origin=c]{180}{$\iota$}} % TB: added to give definite description operator
 \def\proves{\ensuremath{\vdash}}
 \def\entails{\ensuremath{\vDash}}
 \def\nproves{\ensuremath{\nvdash}}
 \def\nentails{\ensuremath{\nvDash}}
 
+% modal logic systems
+\def\mlK{\ensuremath{\mathbf{K}}}
+\def\mlT{\ensuremath{\mathbf{T}}}
+\def\mlSfour{\ensuremath{\mathbf{S4}}}
+\def\mlSfive{\ensuremath{\mathbf{S5}}}
 
 % args -- format a list of arguments separated by commas without commas
 
@@ -692,7 +699,14 @@
   \def\ds{\by{DS}}% TB: disjunctive syllogism (a derived rule in Cambridge version)
   \def\dem{\by{DeM}}% TB: De Morgan rule (derived rule)
   \def\cq{\by{CQ}}% TB: conversion of quantifiers (derived rule)
-}
+  \def\boxi{\by{{\ebox}I}}%
+  \def\boxe{\by{{\ebox}E}}%
+  \def\mc{\by{MC}}%
+  \def\diadf{\by{Def{\ediamond}}}%
+  \def\rt{\by{R$\mathbf{T}$}}%
+  \def\rfour{\by{R$\mathbf{4}$}}%
+  \def\rfive{\by{R$\mathbf{5}$}}%
+  }
 \newenvironment{nd}{\begingroup\nd*init\nd*beginb\nd*clr}{\nd*cmd\nd*endb\endgroup}
 \newenvironment{ndresume}{\begingroup\nd*init\nd*resumeb\nd*clr}%
   {\nd*cmd\nd*endb\endgroup}

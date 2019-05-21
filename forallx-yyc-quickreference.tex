@@ -30,28 +30,31 @@ F & F & F & F & T & T
 \label{app.symbolization}
 \begin{tabular*}{\textwidth}{rl}
 \multicolumn{2}{c}{\textsc{Sentential Connectives}}\\ \\
-It is not the case that P & $\enot P$\\
-Either P, or Q & $(P \eor Q)$\\
-Neither P, nor Q & $\enot(P \eor Q)$\ or \ $(\enot P \eand \enot Q)$\\
-Both P, and Q & $(P \eand Q)$\\
-If P, then Q & $(P \eif Q)$\\
-P only if Q & $(P \eif Q)$\\
-P if and only if Q & $(P \eiff Q)$\\
-P unless Q & $(P \eor Q)$\\
+It is not the case that $P$ & $\enot P$\\
+Either $P$ or $Q$ & $(P \eor Q)$\\
+Neither $P$ nor $Q$ & $\enot(P \eor Q)$\ or \ $(\enot P \eand \enot Q)$\\
+Both $P$ and $Q$ & $(P \eand Q)$\\
+If $P$ then $Q$ & $(P \eif Q)$\\
+$P$ only if $Q$ & $(P \eif Q)$\\
+$P$ if and only if $Q$ & $(P \eiff Q)$\\
+$P$ unless $Q$ & $(P \eor Q)$\\
 \\
 \multicolumn{2}{c}{\label{SymbolizingPredicates}\textsc{Predicates}}\\ \\
-All Fs are Gs & $\forall x(Fx \eif Gx)$\\
-Some Fs are Gs & $\exists x(Fx \eand Gx)$\\
-Not all Fs are Gs & $\enot\forall x(Fx \eif Gx)$\ or\ $\exists x(Fx \eand \enot Gx)$\\
-No Fs are Gs & $\forall x(Fx \eif\enot Gx)$\ or\ $\enot\exists x(Fx \eand Gx)$\\
+All $F$s are $G$s & $\forall x(\atom{F}{x} \eif \atom{G}{x})$\\
+Some $F$s are $G$s & $\exists x(\atom{F}{x} \eand \atom{G}{x})$\\
+Not all $F$s are $G$s & $\enot\forall x(\atom{F}{x} \eif \atom{G}{x})$\ or\\
+& $\exists x(\atom{F}{x} \eand \enot \atom{G}{x})$\\
+No $F$s are $G$s & $\forall x(\atom{F}{x} \eif\enot \atom{G}{x})$\ or\\
+& $\enot\exists x(\atom{F}{x} \eand \atom{G}{x})$\\
 \\
 \multicolumn{2}{c}{\textsc{Identity}}\\ \\
-Only c is G & $\forall x(Gx \eiff x=c)$\\
-Everything besides c is G & $\forall x(\enot x = c \eif Gx)$\\
+Only $c$ is $G$ & $\forall x(\atom{G}{x} \eiff x=c)$\\
+Everything besides $c$ is $G$ & $\forall x(\enot x = c \eif \atom{G}{x} )$\\
 %$j$ is more $R$ than anyone else. & $\forall x(x\neq j \eif Rjx)$\\
-The F is G & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand Gx)$\\
-It is not the case that the F is G & $\enot\exists x(Fx \eand \forall y(Fy \eif x=y) \eand Gx)$\\
-The F is non-G & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand \enot Gx)$
+The $F$ is $G$ & $\exists x(\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x=y) \eand \atom{G}{x} )$\\
+It is not the case that\\
+ the $F$ is $G$ & $\enot\exists x(\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x=y) \eand \atom{G}{x} )$\\
+The $F$ is non-$G$ & $\exists x(\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x=y) \eand \enot \atom{G}{x} )$
 \end{tabular*}
 \end{center}
 
@@ -65,48 +68,57 @@ The F is non-G & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand \enot Gx)$
 \newpage
 \section{Using identity to symbolize quantities}
 
-\subsection*{There are at least \blank\ Fs.}
+\subsection*{There are at least \blank\ $F$s.}
 \label{summary.atleast}
 
-\begin{ekey}
-\item[\text{one}] $\exists xFx$
-\item[\text{two}] $\exists x_1\exists x_2(Fx_1 \eand Fx_2 \eand \enot x_1  = x_2)$
-\item[\text{three}] $\exists x_1\exists x_2\exists x_3(Fx_1 \eand Fx_2 \eand Fx_3 \eand \enot x_1 = x_2 \eand\enot x_1 = x_3 \eand \enot x_2 = x_3)$
-\item[\text{four}] $\exists x_1\exists x_2\exists x_3\exists x_4 (Fx_1 \eand Fx_2 \eand Fx_3 \eand Fx_4 \eand \phantom{x}$\\
-\phantom{$\exists x_1\exists x_2$}$\enot x_1 = x_2 \eand \enot x_1 = x_3 \eand \enot x_1 = x_4 \eand \enot x_2 = x_3 \eand \enot x_2 = x_4 \eand \enot x_3 = x_4)$
-\item[n] $\exists x_1\ldots\exists x_n(Fx_1 \eand\ldots\eand Fx_n \eand \enot x_1 = x_2 \eand\ldots\eand \enot x_{n-1} = x_n)$ 
-\end{ekey}
+\begin{tabular*}{\textwidth}{rl}
+one & $\exists x\,\atom{F}{x}$\\
+two & $\exists x_1\exists x_2(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \enot x_1  = x_2)$\\
+three & $\exists x_1\exists x_2\exists x_3(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand {}$\\
+& $\enot x_1 = x_2 \eand\enot x_1 = x_3 \eand \enot x_2 = x_3)$\\
+four & $\exists x_1\exists x_2\exists x_3\exists x_4 (\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand \atom{F}{x_4} \eand {}$\\
+& $\enot x_1 = x_2 \eand \enot x_1 = x_3 \eand \enot x_1 = x_4 \eand {}$\\
+& $ \enot x_2 = x_3 \eand \enot x_2 = x_4 \eand \enot x_3 = x_4)$\\
+$n$ & $\exists x_1\ldots\exists x_n(\atom{F}{x_1} \eand \ldots \eand \atom{F}{x_n} \eand {}$\\
+& $\enot x_1 = x_2 \eand\ldots\eand \enot x_{n-1} = x_n)$ 
+\end{tabular*}
 
-\subsection*{There are at most \blank\ Fs.}
+\subsection*{There are at most \blank\ $F$s.}
 \label{summary.atmost}
 
-One way to say `there are at most $n$ Fs' is to put a negation sign in front of the symbolization for `there are at least $n+1$ Fs'. Equivalently, we can offer:
-\begin{ekey}
-\item[\text{one}] $\forall x_1\forall x_2\bigl[(Fx_1 \eand Fx_2) \eif x_1=x_2\bigr]$
-\item[\text{two}] $\forall x_1\forall x_2\forall x_3\bigl[(Fx_1 \eand Fx_2 \eand Fx_3) \eif (x_1=x_2 \eor x_1=x_3 \eor x_2=x_3)\bigr]$
-\item[\text{three}] $\forall x_1\forall x_2\forall x_3\forall x_4\bigl[(Fx_1 \eand Fx_2 \eand Fx_3 \eand Fx_4) \eif \phantom{.}$\\
-\phantom{$\exists x_1 \exists x_2$}$(x_1=x_2 \eor x_1=x_3 \eor x_1=x_4 \eor x_2=x_3 \eor x_2=x_4 \eor x_3=x_4)\bigr]$
-\item[n]$\forall x_1\ldots\forall x_{n+1}
-\bigl[(Fx_1\eand \ldots \eand Fx_{n+1}) \eif (x_1=x_2 \eor \ldots \eor x_n=x_{n+1})\bigr]$ 
-\end{ekey}
+One way to say `there are at most $n$ $F$s' is to put a negation sign in front of the symbolization for `there are at least $n+1$ $F$s'. Equivalently, we can offer:
+\begin{tabular*}{\textwidth}{rl}
+one & $\forall x_1\forall x_2\bigl[(\atom{F}{x_1} \eand \atom{F}{x_2}) \eif x_1=x_2\bigr]$\\
+two & $\forall x_1\forall x_2\forall x_3\bigl[(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3}) \eif {}$\\ & $(x_1=x_2 \eor x_1=x_3 \eor x_2=x_3)\bigr]$\\
+three & $\forall x_1\forall x_2\forall x_3\forall x_4\bigl[(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand \atom{F}{x_4}) \eif {}$\\
+& $(x_1=x_2 \eor x_1=x_3 \eor x_1=x_4 \eor {}$\\
+& $x_2=x_3 \eor x_2=x_4 \eor x_3=x_4)\bigr]$\\
+$n$ & $\forall x_1\ldots\forall x_{n+1}
+\bigl[(\atom{F}{x_1} \eand \ldots \eand \atom{F}{x_{n+1}}) \eif {}$\\
+& $(x_1=x_2 \eor \ldots \eor x_n=x_{n+1})\bigr]$ 
+\end{tabular*}
 
-\subsection*{There are exactly \blank\ Fs.}
+
+\subsection*{There are exactly \blank\ $F$s.}
 \label{summary.exactly}
 
-One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolizations above and say `there are at least $n$ Fs and there are at most $n$ Fs.' The following equivalent formulae are shorter:
-\begin{ekey}
-\item[\text{zero}] $\forall x\enot Fx$
-\item[\text{one}] $\exists x\bigl[Fx \eand \forall y(Fy \eif x= y)\bigr]$
-\item[\text{two}] $\exists x_1\exists x_2\bigl[Fx_1 \eand Fx_2 \eand \enot x_1 = x_2 \eand \forall y\bigl(Fy \eif (y= x_1 \eor y = x_2)\bigr) \bigr]$
-\item[\text{three}] $\exists x_1\exists x_2\exists x_3\bigl[Fx_1 \eand Fx_2 \eand Fx_3 \eand \enot x_1 =  x_2 \eand \enot  x_1 = x_3 \eand \enot x_2 = x_3 \eand \phantom{.}$\\
-\phantom{$\exists x_1 \exists x_2$}$\forall y\bigl(Fy \eif (y = x_1 \eor y = x_2 \eor y =  x_3)\bigr) \bigr]$
-\item[n] $\exists x_1\ldots\exists x_n\bigl[Fx_1 \eand\ldots\eand Fx_n  \eand \enot x_1 = x_2 \eand\ldots\eand \enot x_{n-1}= x_n \eand \phantom{.}$\\
-\phantom{$\exists x_1\exists x_2$}$\forall y\bigl(Fy \eif (y= x_1 \eor \ldots \eor y= x_n)\bigr)\bigr]$ 
-%\item[one] $\exists x\forall y\bigl[Fx \eand (Fy \eif y = x)\bigr]$
-%\item[two] $\exists x\exists y\forall z\Bigl(Fx \eand Fy \eand \bigl[Fz \eif (z=x \eor z=y)\bigr] \eand x \neq y\Bigr)$
-%\item[three] $\exists x_1\exists x_2\exists x_3\forall y\Bigl(Fx_1 \eand Fx_2 \eand Fx_3 \eand [Fy \eif (y=x_1 \eor y=x_2 \eor y=x_3)] \eand x_1 \neq x_2 \eand x_1 \neq x_3 \eand x_2 \neq x_3\Bigr)$
-%\item[n] $\exists x_1\cdots\exists x_n\forall y\Bigl(Fx_1 \eand\cdots\eand Fx_n \eand \bigl[Fy \eif (y=x_1 \eor \cdots \eor y=x_n)\bigr] \eand x_1 \neq x_2 \eand\cdots\eand x_{n-1}\neq x_n\Bigr)$ 
-\end{ekey}
+One way to say `there are exactly $n$ $F$s' is to conjoin two of the symbolizations above and say `there are at least $n$ $F$s and there are at most $n$ $F$s.' The following equivalent formulas are shorter:
+\begin{tabular*}{\textwidth}{rl}
+zero & $\forall x\,\enot \atom{F}{x}$\\
+one & $\exists x\bigl[\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x = y)\bigr]$\\
+two & $\exists x_1\exists x_2\bigl[\atom{F}{x_1} \eand \atom{F}{x_2} \eand {}$\\
+& $\enot x_1 = x_2 \eand \forall y\bigl(\atom{F}{y} \eif (y= x_1 \eor y = x_2)\bigr) \bigr]$\\
+three & $\exists x_1\exists x_2\exists x_3\bigl[\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand {}$\\
+& $\enot x_1 =  x_2 \eand \enot  x_1 = x_3 \eand \enot x_2 = x_3 \eand {}$\\
+& $\forall y\bigl(\atom{F}{y} \eif (y = x_1 \eor y = x_2 \eor y =  x_3)\bigr) \bigr]$\\
+$n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}{x_n}  \eand {}$\\
+&$ \enot x_1 = x_2 \eand\ldots\eand \enot x_{n-1}= x_n \eand \phantom{.}$\\
+& $\forall y\bigl(\atom{F}{y} \eif (y= x_1 \eor \ldots \eor y= x_n)\bigr)\bigr]$ 
+%\item[one] $\exists x\forall y\bigl[\atom{F}{x} \eand (\atom{F}{y} \eif y = x)\bigr]$
+%\item[two] $\exists x\exists y\forall z\Bigl(\atom{F}{x} \eand \atom{F}{y} \eand \bigl[\atom{F}{z} \eif (z=x \eor z=y)\bigr] \eand x \neq y\Bigr)$
+%\item[three] $\exists x_1\exists x_2\exists x_3\forall y\Bigl(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand [\atom{F}{y} \eif (y=x_1 \eor y=x_2 \eor y=x_3)] \eand x_1 \neq x_2 \eand x_1 \neq x_3 \eand x_2 \neq x_3\Bigr)$
+%\item[n] $\exists x_1\cdots\exists x_n\forall y\Bigl(\atom{F}{x_1} \eand \cdots \eand \atom{F}{x_n} \eand \bigl[\atom{F}{y} \eif (y=x_1 \eor \cdots \eor y=x_n)\bigr] \eand x_1 \neq x_2 \eand\cdots\eand x_{n-1}\neq x_n\Bigr)$ 
+\end{tabular*}
 
 
 \label{ProofRules}

@@ -2,8 +2,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{forallxyyc}[2011/10/29 support for a logic textbook]
 
-\def\forallxversion{Fall 2018 \emph{bis}}
-\def\forallxshortversion{F18 \emph{bis}}
+\def\forallxversion{Fall 2019$\mathbf{\alpha}$}
+\def\forallxshortversion{F19$\mathbf{\alpha}$}
 
 \RequirePackage{amssymb,amsmath,hyperref,multicol,ifthen,graphicx,pifont,rotating,xcolor}
 \usepackage[numbered]{bookmark} %TB: added for speedy navigation
@@ -58,7 +58,7 @@
 
 \renewcommand*{\partnamefont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
 \renewcommand*{\partnumfont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
-\renewcommand*{\parttitlefont}{\normalfont\fontsize{54pt}{54pt}\selectfont\bfseries\itshape\color{leadbeater}}
+\renewcommand*{\parttitlefont}{\normalfont\fontsize{48pt}{48pt}\selectfont\bfseries\itshape\color{leadbeater}}
 \renewcommand*{\printpartname}{%
   \partnamefont PART}
 
@@ -111,6 +111,20 @@
 \def\nproves{\ensuremath{\nvdash}}
 \def\nentails{\ensuremath{\nvDash}}
 
+
+% args -- format a list of arguments separated by commas without commas
+
+\newcommand*{\args}[1]{%
+  \let\@argsep\@argsepinit
+  \@for\@arg:=#1\do{%
+    \@argsep\@arg}%
+}
+
+\def\@argsepinit{\let\@argsep\argsep}
+
+\newcommand{\argsep}{}
+
+\newcommand{\atom}[2]{\mathord{#1}(#2)}
 
 %    ****************************************
 %    *        TITLE AND VERSION DATA        *

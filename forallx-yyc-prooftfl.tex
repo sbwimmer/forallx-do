@@ -951,7 +951,7 @@ $\enot$E always yields~$\ered$. If you are using the IP strategy, this results i
 \end{proof} 
 This looks weird: We wanted to prove $A$ and the strategies failed us; so we used IP as a last resort. And now we find ourselves in the same situation: looking for a proof of~$\meta{A}$. But remember that we are now inside a subproof, and in that subproof we have an additional assumption ($\enot \meta{A}$) to work with which we didn't have before.
 
-\section{Indirect proof of excluded middle}
+\section{Indirect proof of excluded middle}\label{s:proofLEM}
 
 The sentence $A \eor \enot A$ is a tautology, and so should have a proof even without any premises. But working backwards does not work: to get $A \eor \enot A$ using $\eor$I we would have to prove either $A$ or $\enot A$---again, from no premises. But neither of these is a tautology, so we won't be able to prove either. Working forwards doesn't work either, since there is nothing to work forwards from. So, the only option is indirect proof.
 \begin{proof}
@@ -1387,7 +1387,7 @@ Consider the following deduction scheme:
 \end{proof}
 Again,  we can derive the DNE rule from the \emph{basic} rules of \S\ref{s:BasicTFL}.
 
-\section{Derivation of Excluded middle}
+\section{Derivation of excluded middle}
 Suppose you want to prove something using the LEM rule, i.e., you have in your proof
 \begin{proof}
   \open
@@ -1415,7 +1415,7 @@ One option is to first prove $\meta{A} \eor \enot\meta{A}$, and then apply $\eor
   \have[i]{tnd}{\meta{A} \eor \enot \meta{A}}
   \have[i+1]{fin}{\meta{B}}\oe{tnd, a-aaa,b-bbb}
 \end{proof}
-(We leave the proof of $\meta{A} \eor \enot\meta{A}$ using only our basic rules as an exercise.)
+(We gave a proof of $\meta{A} \eor \enot\meta{A}$ using only our basic rules in \S\ref{s:proofLEM}.)
 
 Here is another way that is a bit more complicated than the ones before. What you have to do is embed your two subproofs inside another subproof. The assumption of the subproof will be $\enot \meta{B}$, and the last line will be $\ered$. Thus, the complete subproof is the kind you need to conclude \meta{B} using IP. Inside the proof, you'd have to do a bit more work to get~$\ered$:
 \begin{proof}

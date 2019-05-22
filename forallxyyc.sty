@@ -2,8 +2,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{forallxyyc}[2011/10/29 support for a logic textbook]
 
-\def\forallxversion{Fall 2019$\mathbf{\alpha}$}
-\def\forallxshortversion{F19$\mathbf{\alpha}$}
+\def\forallxversion{Fall 2019$\boldsymbol{\alpha}$}
+\def\forallxshortversion{F19$\boldsymbol{\alpha}$}
 
 \RequirePackage{amssymb,amsmath,hyperref,multicol,ifthen,graphicx,pifont,rotating,xcolor}
 \usepackage[numbered]{bookmark} %TB: added for speedy navigation
@@ -214,13 +214,13 @@
 % Neither for lists nor an environment, but it really didn't
 % belong anywhere else.
 \usepackage{tcolorbox}
-\newcommand{\factoidbox}[1]{
+\newcommand{\factoidbox}[1]{\begin{factoidboxe}#1\end{factoidboxe}}
+\newenvironment{factoidboxe}{%
   \begin{tcolorbox}[%width=.9\textwidth,
       %      leftright skip=.05\textwidth,
       sharp corners=downhill,
       beforeafter skip=.7em,
-      colframe={leadbeater},colback={vltleadbeater}]   
-#1
+      colframe={leadbeater},colback={vltleadbeater}]}{
 \end{tcolorbox}}
 
 % \tablefbox{...} is used in certain tables to put a box around the contents of specific table cells without having lines that run the whole length of the table
@@ -707,6 +707,7 @@
   \def\rfour{\by{R$\mathbf{4}$}}%
   \def\rfive{\by{R$\mathbf{5}$}}%
   \def\ellipsesline{\have[ ]{}{\vdots}}%
+  \nddim{4.5ex}{3.5ex}{1.5ex}{.7em}{1em}{.5em}{1.5em}{.2mm}
   }
 \newenvironment{nd}{\begingroup\nd*init\nd*beginb\nd*clr}{\nd*cmd\nd*endb\endgroup}
 \newenvironment{ndresume}{\begingroup\nd*init\nd*resumeb\nd*clr}%

@@ -264,7 +264,7 @@ In our go-to interpretation, `$\forall x \exists y\, \atom{R}{x,y}$' should be f
 
 If you have understood these three examples, good. That's what matters. Strictly speaking, though, we still need to give a precise definition of the truth conditions for quantified sentences. The result, sadly, is a bit ugly, and requires a few new definitions. Brace yourself!
 
-Suppose that \meta{A} is a formula containing at least one instance of the variable \meta{x}, and that $\meta{x}$ is free in $\meta{A}$. We will write this thus:
+Suppose that \meta{A} is a formula containing at least one occurrence of the variable \meta{x}, and that $\meta{x}$ is free in $\meta{A}$. We will write this thus:
 $$\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$$
 Suppose also that \meta{c} is a name. Then we will write:
 $$\meta{A}(\ldots \meta{c} \ldots \meta{c} \ldots)$$
@@ -279,17 +279,39 @@ with the instantiating name `$e$'.
   description = {The result of replacing every free occurrence of a \gls{variable} in a \gls{formula} with a \gls{name}}
 }
 
-Armed with this notation, the rough idea is as follows. The sentence $\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$ will be true iff $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$ is true no matter what object (in the domain) we name with $\meta{c}$. Similarly, the sentence $\exists \meta{x}\meta{A}$ will be true iff there is \emph{some} way to assign the name $\meta{c}$ to an object that makes $\meta{A}(\ldots \meta{c} \ldots \meta{c} \ldots)$ true. More precisely, we stipulate:
+Our interpretation will include a specification of which names correspond to which objects in the domain. Take any object in the domain, say, $d$, and a name $\meta{c}$ which is not already assigned by the interpretation. If our interpretation is $\mathbf{I}$, then we can consider the interpretation $\mathbf{I}[d/\meta{c}]$ which is just like $\mathbf{I}$ except it \emph{also} assigns the name $\meta{c}$ to the object~$d$. Then we can say that $d$ \define{satisfies} the formula $\meta{A}(\dots\meta{x}\dots\meta{x}\dots)$ in the interpretation~$\mathbf{I}$ if, and only if, $\meta{A}(\dots\meta{c}\dots\meta{c}\dots)$ is true in $\mathbf{I}[d/\meta{c}]$. (If $d$ satisfies $\meta{A}(\dots\meta{x}\dots\meta{x}\dots)$ we also say that $\meta{A}(\dots\meta{x}\dots\meta{x}\dots)$ is \emph{true of}~$d$.) So, for instance, Socrates satisfies the formula~$\atom{P}{x}$ since $\atom{P}{c}$ is true in the interpretation $\mathbf{I}[\mathrm{Socrates}/c]$, i.e., the interpretation:
+\begin{ekey}
+	\item[\text{domain}] all people born before 2000\textsc{ce}
+	\item[a] Aristotle
+	\item[b] Beyonc\'e
+	\item[c] Socrates 
+	\item[\atom{P}{x}] \gap{x} is a philosopher
+	\item[\atom{R}{x,y}] \gap{x} was born before \gap{y}
+\end{ekey}
+
+Armed with this notation, the rough idea is as follows. The sentence $\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$ will be true in $\mathbf{I}$ iff $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$ is true in $\mathbf{I}[d/\meta{c}]$, i.e., no matter what object (in the domain) we name with $\meta{c}$. In other words, $\forall \meta{x} \meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$ is true iff every object in the domain satisfies $\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$. Similarly, the sentence $\exists \meta{x}\meta{A}$ will be true iff there is \emph{some} object that satisifes $\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$, i.e., $\meta{A}(\ldots \meta{c} \ldots \meta{c} \ldots)$ true in $\mathbf{I}[d/c]$ for some object~$d$.
 	\factoidbox{
 		$\forall \meta{x}\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$ is true in an interpretation \textbf{iff}\\ 
-		$\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$ is true in \emph{every} interpretation that extends the original interpretation by assigning an object to any name $\meta{c}$ (without changing the interpretation in any other way).
+		every object in the domain satisfies $\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)$.
 		
 		\
 		\\
-		$\exists \meta{x}\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$ is true in an interpretation \textbf{iff}\\ 
-		$\meta{A}(\ldots \meta{c}\ldots\meta{c}\ldots)$ is true in \emph{some} interpretation that extends the original interpretation by assigning an object to some name $\meta{c}$ (without changing the interpretation in any other way).
+		$\exists \meta{x}\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$ is true in an interpretation \textbf{iff}\\ at least one object in the domain satisfies
+		$\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$.
 	}
 To be clear: all this is doing is formalizing (very pedantically) the intuitive idea expressed on the previous page. The result is a bit ugly, and the final definition might look a bit opaque. Hopefully, though, the \emph{spirit} of the idea is clear. 
+
+Finally, let us note that the concept of an object satisfying a formula with a free variable can also be extended to formulas with more than one free variable. If we have a formula $\meta{A}(\meta{x},\meta{y})$ with two free variables $\meta{x}$ and $\meta{y}$, then we can say that a pair of objects $\langle a, b\rangle$ satisfies $\meta{A}(\meta{x},\meta{y})$ iff $\meta{A}(\meta{c},\meta{d})$ is true in the interpretation extended by two names $\meta{c}$ and $\meta{d}$, where $\meta{c}$ names~$a$ and $\meta{d}$ names~$b$. So, for instance, $\langle \mathrm{Socrates}, \mathrm{Plato}\rangle$ satisfies $R(x,y)$ since $R(c,d)$ is true in the interpretation:
+\begin{ekey}
+	\item[\text{domain}] all people born before 2000\textsc{ce}
+	\item[a] Aristotle
+	\item[b] Beyonc\'e
+	\item[c] Socrates
+	\item[d] Plato
+	\item[\atom{P}{x}] \gap{x} is a philosopher
+	\item[\atom{R}{x,y}] \gap{x} was born before \gap{y}
+\end{ekey}
+For atomic formulas, the objects, pairs of objects, etc., that satisfy them are exactly the extension of the predicate given in the interpretation. But the notion of satisfaction also applies to non-atomic formulas, e.g., the formula $\atom{P}{x} \land \atom{R}{x,b}$ is satisfied by all philosophers born before Beyonc\'e. It even applies to formulas involving quantifiers, e.g., $P(x) \eand \lnot\exists y(P(y) \land R(y,x))$ is satisfied by all people who are philosophers and for whom it is true that no philosopher was born before them---in other words, it is true of the first philosopher.
 
 
 \practiceproblems
@@ -588,7 +610,7 @@ Show that the following pairs of sentences are not logically equivalent.
 Show that the following sentences are jointly satisfiable:
 \begin{earg}
 \item  $\atom{M}{a}, \enot \atom{N}{a}, \atom{P}{a}, \enot \atom{Q}{a}$
-\item $\atom{L}{e}e, \atom{L}{e,g}, \enot \atom{L}{g,e}, \enot \atom{L}{g,g}$
+\item $\atom{L}{e,e}, \atom{L}{e,g}, \enot \atom{L}{g,e}, \enot \atom{L}{g,g}$
 \item $\enot (\atom{M}{a} \eand \exists x\, \atom{A}{x}), \atom{M}{a} \eor \atom{F}{a}, \forall x(\atom{F}{x} \eif \atom{A}{x})$
 \item $\atom{M}{a} \eor \atom{M}{b}, \atom{M}{a} \eif \forall x \enot \atom{M}{x}$
 \item $\forall y\, \atom{G}{y}, \forall x (\atom{G}{x} \eif \atom{H}{x}), \exists y \enot \atom{I}{y}$
@@ -622,18 +644,18 @@ Show that the following arguments are invalid:
 \section{Validities and contradictions}
 We can show that a sentence is \emph{not} a validity just by providing one carefully specified interpretation: an interpretation in which the sentence is false. To show that something is a validity, on the other hand, it would not be enough to construct ten, one hundred, or even a thousand interpretations in which the sentence is true. A sentence is only a validity if it is true in \emph{every} interpretation, and there are infinitely many interpretations. We need to reason about all of them, and we cannot do this by dealing with them one by one!
 
-Sometimes, we can reason about all interpretations fairly easily. For example, we can offer a relatively simple argument that `$\atom{R}{a,a}\eiff \atom{R}{a,a}$' is a validity:
+Sometimes, we can reason about all interpretations fairly easily. For example, we can offer a relatively simple argument that `$\atom{R}{a,a}\eor\enot \atom{R}{a,a}$' is a validity:
 	\begin{quote}
 		\label{allmodels1}
-		Any relevant interpretation will give `$\atom{R}{a,a}$' a truth value. If `$\atom{R}{a,a}$' is true in an interpretation, then `$\atom{R}{a,a} \eiff \atom{R}{a,a}$' is true in that interpretation. If `$\atom{R}{a,a}$' is false in an interpretation, then `$\atom{R}{a,a} \eiff \atom{R}{a,a}$' is true in that interpretation. These are the only alternatives. So `$\atom{R}{a,a} \eiff \atom{R}{a,a}$' is true in every interpretation. Therefore, it is a validity.
+		Any relevant interpretation will give `$\atom{R}{a,a}$' a truth value. If `$\atom{R}{a,a}$' is true in an interpretation, then `$\atom{R}{a,a} \eor \enot\atom{R}{a,a}$' is true in that interpretation. If `$\atom{R}{a,a}$' is false in an interpretation, then $\enot\atom{R}{a,a}$ is true, and so `$\atom{R}{a,a} \eor\enot \atom{R}{a,a}$' is true in that interpretation. These are the only alternatives. So `$\atom{R}{a,a} \eor\enot \atom{R}{a,a}$' is true in every interpretation. Therefore, it is a validity.
 	\end{quote}
 This argument is valid, of course, and its conclusion is true. However, it is not an argument in FOL. Rather, it is an argument in English \emph{about} FOL: it is an argument in the metalanguage. 
 
 Note another feature of the argument. Since the sentence in question contained no quantifiers, we did not need to think about how to interpret `$a$' and `$R$'; the point was just that, however we interpreted them, `$\atom{R}{a,a}$' would have some truth value or other. (We could ultimately have given the same argument concerning TFL sentences.)
 
-Here is another bit of reasoning. Consider the sentence `$\forall x(\atom{R}{x,x}\eiff \atom{R}{x,x})$'. Again, it should obviously be a validity, but to say precisely why is quite a challenge. We cannot say that `$\atom{R}{x,x} \eiff \atom{R}{x,x}$' is true in every interpretation, since `$\atom{R}{x,x} \eiff \atom{R}{x,x}$' is not even a \emph{sentence} of FOL (remember that `$x$' is a variable, not a name). So we have to be a bit cleverer. 
+Here is another bit of reasoning. Consider the sentence `$\forall x(\atom{R}{x,x}\eor\enot \atom{R}{x,x})$'. Again, it should obviously be a validity, but to say precisely why is quite a challenge. We cannot say that `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$' is true in every interpretation, since `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$' is not even a \emph{sentence} of FOL (remember that `$x$' is a variable, not a name). So we have to be a bit cleverer. 
 	\begin{quote}
-		Consider some arbitrary interpretation. Consider some arbitrary member of the domain, which, for convenience, we will call \emph{obbie}, and suppose we extend our original interpretation by adding a new name, `$c$', to name \emph{obbie}. Then either `$\atom{R}{c,c}$' will be true or it will be false. If `$\atom{R}{c,c}$' is true, then `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' is true. If `$\atom{R}{c,c}$' is false, then `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' will be true. So either way, `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' is true. Since there was nothing special about \emph{obbie}---we might have chosen any object---we see that no matter how we extend our original interpretation by allowing `$c$' to name some new object, `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' will be true in the new interpretation. So `$\forall x (\atom{R}{x,x} \eiff \atom{R}{x,x})$' was true in the original interpretation. But we chose our interpretation arbitrarily, so `$\forall x (\atom{R}{x,x} \eiff \atom{R}{x,x})$' is true in every interpretation. It is therefore a validity.
+		Consider some arbitrary interpretation. $\forall x(\atom{R}{x,x}\eor \enot\atom{R}{x,x})$ is true in our interpretation iff $\atom{R}{x,x}\eor\enot\atom{R}{x,x}$ is satisfied by every object of its domain. Consider some arbitrary member of the domain, which, for convenience, we will call Fred. Either Fred satisfies $\atom{R}{x,x}$ or it does not. If Fred satisfies `$\atom{R}{x,x}$', then Fred also satisfies `$\atom{R}{x,x} \eor \enot \atom{R}{c,c}$'. If Fred does not satisfy `$\atom{R}{x,x}$', it \emph{does} satisfy `$\enot\atom{R}{x,x}$' and so also `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$'.\footnote{We use here the fact that the truth conditions for connectives also apply to satisfaction: $a$ satisfies $\meta{A}(\meta{x}) \lor \meta{B}(\meta{x})$ iff $a$ satisfies $\meta{A}(\meta{x})$ or $\meta{B}(\meta{x})$, etc.} So either way, Fred satisfies `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$'. Since there was nothing special about Fred---we might have chosen any object---we see that every object in the domain satisfies `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$'. So `$\forall x (\atom{R}{x,x} \eor\enot \atom{R}{x,x})$' is true in our interpretation. But we chose our interpretation arbitrarily, so `$\forall x (\atom{R}{x,x} \eor\enot \atom{R}{x,x})$' is true in every interpretation. It is therefore a validity.
 	\end{quote}
 This is quite longwinded, but, as things stand, there is no alternative. In order to show that a sentence is a validity, we must reason about \emph{all} interpretations. 
 
@@ -650,7 +672,7 @@ The problem is that, with the tools available to you so far, reasoning about all
 	$$\forall x(\atom{H}{x} \eand \atom{J}{x}) \therefore \forall x\, \atom{H}{x}$$
 After all, if everything is both $H$ and $J$, then everything is~$H$. But we can only show that the argument is valid by considering what must be true in every interpretation in which the premise is true. To show this, we would have to reason as follows:
 	\begin{quote}
-		Consider an arbitrary interpretation in which the premise `$\forall x(\atom{H}{x} \eand \atom{J}{x})$' is true. It follows that, however we expand the interpretation with a new name, for example `$c$', `$\atom{H}{c} \eand \atom{J}{c}$' will be true in this new interpretation. `$\atom{H}{c}$' will, then, also be true in this new interpretation. But since this held for \emph{any} way of expanding the interpretation, it must be that `$\forall x\, \atom{H}{x}$' is true in the old interpretation. We've assumed nothing about the interpretation except that it was one in which `$\forall x(\atom{H}{x} \eand \atom{J}{x})$'  is true, so any interpretation in which `$\forall x(\atom{H}{x} \eand \atom{J}{x})$' is true is one in which `$\forall x\, \atom{H}{x}$' is true. The argument is valid!
+		Consider an arbitrary interpretation in which the premise `$\forall x(\atom{H}{x} \eand \atom{J}{x})$' is true. It follows that `$\atom{H}{x} \eand \atom{J}{x}$' is satisfied by every object in this interpretation. `$\atom{H}{x}$' will, then, also be satisfied by every object.\footnote{Here again we make use of the fact that any object that satisfies $\meta{A}(\meta{x}) \land \meta{B}(\meta{x})$ must satisfy both $\meta{A}(\meta{x})$ and $\meta{B}(\meta{x})$.} So it must be that `$\forall x\, \atom{H}{x}$' is true in the  interpretation. We've assumed nothing about the interpretation except that it was one in which `$\forall x(\atom{H}{x} \eand \atom{J}{x})$'  is true, so any interpretation in which `$\forall x(\atom{H}{x} \eand \atom{J}{x})$' is true is one in which `$\forall x\, \atom{H}{x}$' is true. The argument is valid!
 \end{quote}
 Even for a simple argument like this one, the reasoning is somewhat complicated. For longer arguments, the reasoning can be extremely torturous.
 

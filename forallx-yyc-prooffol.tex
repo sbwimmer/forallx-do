@@ -383,6 +383,124 @@ For each of the following arguments: If it is valid in FOL, give a proof. If it 
 \item $\exists x\,\atom{M}{x} \eif \exists x\,\atom{N}{x}$, $\enot \exists x\,\atom{N}{x}\therefore  \forall x \enot \atom{M}{x}$
 \end{earg}
 
+\chapter[Proofs for quantifiers]{Constructing proofs for quantifiers}
+
+In \S\ref{s:stratTFL} we discussed strategies for constructing proofs using the basic rules of natural deduction for TFL. The same principles apply to the rules for the quantifiers. If we want to prove a quantifier sentence $\forall \meta{x} \meta{A}(\meta{x})$ or $\exists \meta{x} \meta{A}(\meta{x})$ we can work backwards by justifying the sentence we want by $\forall$I or $\exists$I and trying to find a proof of the corresponding premise of that rule. And to use a quantified sentence we apply $\forall$E or $\exists$E, as the case may be. 
+
+Specifically, suppose you want to prove $\forall \meta{x} \meta{A}(\meta{x})$. To do so using $\forall$I, we would need a proof of $\meta{A}(\meta{c})$ for some name~$\meta{c}$ which does not occur in any undischarged assumption. To apply the corresponding strategy, i.e., to construct a proof of $\forall \meta{x} \meta{A}(\meta{x})$ by working backwards, is thus to write $\meta{A}(\meta{c})$ above it and then to continue to try to find a proof of that sentence.
+\begin{proof}
+	\ellipsesline
+	\have[n]{n}{\meta{A}(\meta{c})}
+	\have{m}{\forall \meta{x} \meta{A}(\meta{x})}\Ai{n}
+\end{proof}
+$\meta{A}(\meta{c})$ is obtained from $\meta{A}(\meta{x})$ by replacing every free occurrence of $\meta{x}$ in $\meta{A}(\meta{x})$ by~$\meta{c}$. For this to work, of course, $\meta{c}$ must satisfy the special condition. We can ensure that it does by always picking a name that does not already occur in the proof constructed so far. (Of course, if will occur in the proof we end up constructing---just not in an assumption that is undischarged at line~$n+1$.)
+
+To work backward from a sentence $\exists \meta{x} \meta{A}(\meta{x})$ we similarly write a sentence above it that can serve as a justification for an application of the $\exists$I rule, i.e., a sentence of the form $\meta{A}(\meta{c})$. 
+\begin{proof}
+	\ellipsesline
+	\have[n]{n}{\meta{A}(\meta{c})}
+	\have{m}{\exists \meta{x} \meta{A}(\meta{x})}\Ei{n}
+\end{proof}
+This looks just like what we would do if we were working backwards from a universally quantified sentence. The difference is that whereas for $\forall$I we have to pick a name~$\meta{c}$ which does not occur in the proof (so far), for $\exists$I we may and in general must pick a name~$\meta{c}$ which already occurs in the proof.  Just like in the case of $\eor$I, it is often not clear which $\meta{c}$ will work out, and so to avoid having to backtrack you should work backwards from existentially quantified sentences only when all other strategies have been applied.
+
+By contrast, working \emph{forwards} from sentences $\exists \meta{x} \meta{A}(\meta{x})$ generally always works and you won't have to backtrack. Working forwards from an existentially quantified sentence takes into account not just $\exists \meta{x} \meta{A}(\meta{x})$ but also whatever sentence $\meta{B}$ you would like to prove. It requires that you set up a subproof above $\meta{B}$, wherein $\meta{B}$ is the last line, and a substitution instance $\meta{A}(\meta{c})$ of $\exists \meta{x} \meta{A}(\meta{x})$ is the assumption.  In order to ensure that the condition on $\meta{c}$ that governs $\exists$E, chose a name $\meta{c}$ which does not already occur in the proof. 
+\begin{proof}
+	\ellipsesline
+	\hypo[m]{m}{\exists \meta{x} \meta{A}(\meta{x})}
+	\ellipsesline
+	\open
+	\hypo[n]{n}{\meta{A}(\meta{c})}
+	\ellipsesline
+	\have[k]{k}{\meta{B}}
+	\close
+	\have{e}{\meta{B}}\Ee{m,n-k}
+\end{proof}
+You'll then continue with the goal of proving $\meta{B}$, but now inside a subproof in which you have an additional sentence to work with, namely~$\meta{A}(\meta{c})$.
+
+Lastly, working forwards from $\forall \meta{x} \meta{A}(\meta{x})$ means that you can always write down $\meta{A}(\meta{c})$ and justify it using $\forall$E, for any name~$\meta{c}$. Of course, you wouldn't want to do that willy-nilly. Only certain names $\meta{c}$ will help in your task of proving whatever goal sentence you are working on. So, like working backward from $\exists \meta{x} \meta{A}(\meta{x})$, you should work forwards from $\forall \meta{x} \meta{A}(\meta{x})$ only after all other strategies have been applied.
+
+Let's consider as an example the argument $\forall x(A(x) \eif B) \therefore (\exists x\,A(x) \eif B)$. To start constructing a proof, we write the premise at the top and the conclusion at the bottom.
+\begin{proof}
+\hypo{1}{\forall x(A(x) \eif B)}
+\ellipsesline
+\have[n]{7}{\exists x\,A(x) \eif B}
+\end{proof}
+The strategies for connectives of TFL still apply, and you should apply them in the same order: first work backwards from conditionals, negated sentences, conjunctions, and now also universal quantifiers, then forward from disjunctions and now existential quantifiers, and only then try to apply $\eif$E, $\enot$E, $\lor$I, $\forall$E, or $\exists$I. In our case, that means, working backward from the conclusion:
+\begin{proof}
+	\hypo{1}{\forall x(A(x) \eif B)}
+	\open
+	\hypo{2}{\exists x\,A(x)}
+	\ellipsesline
+	\have[n][-1]{6}{B}
+	\close
+	\have[n]{7}{\exists x\,A(x) \eif B}\ci{2-(6)}
+\end{proof}
+Our next step should be to work forward from $\exists x\,A(x)$ on line~2. For it we have to pick a name not already in our proof. Since no names appear, we can pick any name, say~$d$
+\begin{proof}
+	\hypo{1}{\forall x(A(x) \eif B)}
+	\open
+	\hypo{2}{\exists x\,A(x)}
+	\open
+	\hypo{3}{A(d)}
+	\ellipsesline
+	\have[n][-2]{5}{B}
+	\close
+	\have[n][-1]{6}{B}\Ee{2,3-(5)}
+	\close
+	\have[n]{7}{\exists x\,A(x) \eif B}\ci{2-(6)}
+\end{proof}
+Now we've exhausted our primary strategies, and it is time to work forward from the premise $\forall x(A(x) \eif B)$. Applying $\forall$E means we can justify any instance of $A(\meta{c}) \eif B$, regardless of what $\meta{c}$ we choose. Of course, we'll do well to choose $d$, since that will give us $A(d) \eif B$ and then we can apply $\eif$E to justify~$B$, finishing the proof.
+\begin{proof}
+	\hypo{1}{\forall x(A(x) \eif B)}
+	\open
+	\hypo{2}{\exists x\,A(x)}
+	\open
+	\hypo{3}{A(d)}
+\have{4}{A(d) \eif B}\Ae{1}
+	\have{5}{B}\ce{4,3}
+	\close
+	\have{6}{B}\Ee{2,3-5}
+	\close
+	\have{7}{\exists x\,A(x) \eif B}\ci{2-6}
+\end{proof}
+
+Now let's construct a proof of the converse. We begin with
+\begin{proof}
+	\hypo{1}{\exists x\,A(x) \eif B}
+	\ellipsesline
+	\have[n]{7}{\forall x(A(x) \eif B)}
+\end{proof}
+Note that the premise is a conditional, not an existentially quantified sentence, so we should not (yet) work forward from it. Working backwards from the conclusion, $\forall x(A(x) \eif B)$ leads us to look for a proof of $A(d) \eif B$:
+\begin{proof}
+	\hypo{1}{\exists x\,A(x) \eif B}
+	\ellipsesline
+	\have[n][-1]{6}{A(d) \eif B}
+	\have[n]{7}{\forall x(A(x) \eif B)}\Ai{6}
+\end{proof}
+And working backward from $A(d) \eif B$ means we should set up a subproof with $A(d)$ as an assumption and $B$ as the last line:
+\begin{proof}
+	\hypo{1}{\exists x\,A(x) \eif B}
+	\open
+	\hypo{2}{A(d)}
+	\ellipsesline
+	\have[n][-2]{5}{B}
+	\close
+	\have[n][-1]{6}{A(d) \eif B}\ci{2-(5)}
+	\have[n]{7}{\forall x(A(x) \eif B)}\Ai{6}
+\end{proof}
+Now we can work forwards from the premise on line~1. That's a conditional, and its consequent happens to be the sentence~$B$ we are trying to justify. So we should look for a proof of its antecedent, $\exists x\,A(x)$. Of course, that is now readily available, by $\exists$I from line~2, and we're done:
+\begin{proof}
+	\hypo{1}{\exists x\,A(x) \eif B}
+	\open
+	\hypo{2}{A(d)}
+	\have{3}{\exists x\,A(x)}\Ei{2}
+	\have{5}{B}\ce{1,3}
+	\close
+	\have{6}{A(d) \eif B}\ci{2-5}
+	\have{7}{\forall x(A(x) \eif B)}\Ai{6}
+\end{proof}
+
+
 \chapter{Conversion of quantifiers}\label{s:CQ}
 
 In this section, we will add some additional rules to the basic rules of the previous section. These govern the interaction of quantifiers and negation.

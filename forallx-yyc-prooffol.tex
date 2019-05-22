@@ -85,7 +85,7 @@ The following proof combines our two new rules for quantifiers:
 	\end{proof}
 Could this be a bad proof? If anything exists at all, then certainly we can infer that something is F, from the fact that everything is F. But what if \emph{nothing} exists at all? Then it is surely vacuously true that everything is F; however, it does not following that something is F, for there is nothing to \emph{be} F. So if we claim that, as a matter of logic alone, `$\exists x\,\atom{F}{x}$' follows from `$\forall x\,\atom{F}{x}$', then we are claiming that, as a matter of \emph{logic alone}, there is something rather than nothing. This might strike us as a bit odd.
 
-Actually, we are already committed to this oddity. In \S\ref{s:FOLBuildingBlocks}, we stipulated that domains in FOL must have at least one member. We then defined a logical truth (of FOL) as a sentence which is true in every interpretation. Since `$\exists x\, x=x$' will be true in every interpretation, this \emph{also} had the effect of stipulating that it is a matter of logic that there is something rather than nothing.
+Actually, we are already committed to this oddity. In \S\ref{s:FOLBuildingBlocks}, we stipulated that domains in FOL must have at least one member. We then defined a validity (of FOL) as a sentence which is true in every interpretation. Since `$\exists x\, x=x$' will be true in every interpretation, this \emph{also} had the effect of stipulating that it is a matter of logic that there is something rather than nothing.
 
 Since it is far from clear that logic should tell us that there must be something rather than nothing, we might well be cheating a bit here. 
 
@@ -359,7 +359,7 @@ Show that each pair of sentences is provably equivalent.
 \label{pr.FOLequivornot}
 For each of the following pairs of sentences: If they are provably equivalent, give proofs to show this. If they are not, construct an interpretation to show that they are not logically equivalent.
 \begin{earg}
-\item $\forall x\,\atom{P}{x} \eif Qc, \forall x (\atom{P}{x} \eif \atom{Q}{c})$
+\item $\forall x\,\atom{P}{x} \eif \atom{Q}{c}, \forall x (\atom{P}{x} \eif \atom{Q}{c})$
 \item $\forall x\forall y \forall z\,\atom{B}{x,y,z}, \forall x\,\atom{B}{x,x}x$
 \item $\forall x\forall y\,\atom{D}{x,y}, \forall y\forall x\,\atom{D}{x,y}$
 \item $\exists x\forall y\,\atom{D}{x,y}, \forall y\exists x\,\atom{D}{x,y}$
@@ -519,12 +519,10 @@ Show that the following are provably equivalent:
 \item $\exists x \bigl([\atom{F}{x} \eand \forall y (\atom{F}{y} \eif x = y)] \eand x = n\bigr)$
 \item $\atom{F}{n} \eand \forall y (\atom{F}{y} \eif n= y)$
 \end{ebullet}
-And hence that both have a decent claim to symbolize the English sentence `Nick is the F'.
-
-\
+And hence that both have a decent claim to symbolize the English sentence `Nick is the~$F$'.\\
 
 \problempart
-In \S\ref{sec.identity}, we claimed that the following are logically equivalent symbolizations of the English sentence `there is exactly one F':
+In \S\ref{sec.identity}, we claimed that the following are logically equivalent symbolizations of the English sentence `there is exactly one $F$':
 \begin{ebullet}
 \item $\exists x\,\atom{F}{x} \eand \forall x \forall y \bigl[(\atom{F}{x} \eand \atom{F}{y}) \eif x = y\bigr]$
 \item $\exists x \bigl[\atom{F}{x} \eand \forall y (\atom{F}{y} \eif x = y)\bigr]$
@@ -599,13 +597,13 @@ It cannot be emphasized enough that these are different notions. But we can emph
 
 Once you have internalised this point, continue reading. 
 
-Although our semantic and proof-theoretic notions are different, there is a deep connection between them. To explain this connection,we will start by considering the relationship between logical truths and theorems.
+Although our semantic and proof-theoretic notions are different, there is a deep connection between them. To explain this connection,we will start by considering the relationship between validities and theorems.
 
-To show that a sentence is a theorem, you need only produce a proof. Granted, it may be hard to produce a twenty line proof, but it is not so hard to check each line of the proof and confirm that it is legitimate; and if each line of the proof individually is legitimate, then the whole proof is legitimate. Showing that a sentence is a logical truth, though, requires reasoning about all possible interpretations. Given a choice between showing that a sentence is a theorem and showing that it is a logical truth, it would be easier to show that it is a theorem.
+To show that a sentence is a theorem, you need only produce a proof. Granted, it may be hard to produce a twenty line proof, but it is not so hard to check each line of the proof and confirm that it is legitimate; and if each line of the proof individually is legitimate, then the whole proof is legitimate. Showing that a sentence is a validity, though, requires reasoning about all possible interpretations. Given a choice between showing that a sentence is a theorem and showing that it is a validity, it would be easier to show that it is a theorem.
 
-Contrawise, to show that a sentence is \emph{not} a theorem is hard. We would need to reason about all (possible) proofs. That is very difficult. However, to show that a sentence is not a logical truth, you need only construct an interpretation in which the sentence is false. Granted, it may be hard to come up with the interpretation; but once you have done so, it is relatively straightforward to check what truth value it assigns to a sentence. Given a choice between showing that a sentence is not a theorem and showing that it is not a logical truth, it would be easier to show that it is not a logical truth.
+Contrawise, to show that a sentence is \emph{not} a theorem is hard. We would need to reason about all (possible) proofs. That is very difficult. However, to show that a sentence is not a validity, you need only construct an interpretation in which the sentence is false. Granted, it may be hard to come up with the interpretation; but once you have done so, it is relatively straightforward to check what truth value it assigns to a sentence. Given a choice between showing that a sentence is not a theorem and showing that it is not a validity, it would be easier to show that it is not a validity.
 
-Fortunately, \emph{a sentence is a theorem if and only if it is a logical truth}. As a result, if we provide a proof of $\meta{A}$ on no assumptions, and thus show that $\meta{A}$ is a theorem,  i.e.\ ${}\proves \meta{A}$, we can legitimately infer that $\meta{A}$ is a logical truth, i.e., $\entails\meta{A}$. Similarly, if we construct an interpretation in which \meta{A} is false and thus show that it is not a logical truth, i.e.\ $\nentails \meta{A}$, it follows that \meta{A} is not a theorem, i.e.\  $\nproves \meta{A}$.
+Fortunately, \emph{a sentence is a theorem if and only if it is a validity}. As a result, if we provide a proof of $\meta{A}$ on no assumptions, and thus show that $\meta{A}$ is a theorem,  i.e.\ ${}\proves \meta{A}$, we can legitimately infer that $\meta{A}$ is a validity, i.e., $\entails\meta{A}$. Similarly, if we construct an interpretation in which \meta{A} is false and thus show that it is not a validity, i.e.\ $\nentails \meta{A}$, it follows that \meta{A} is not a theorem, i.e.\  $\nproves \meta{A}$.
 
 More generally, we have the following powerful result:
 $$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \proves\meta{B} \textbf{ iff }\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \entails\meta{B}$$
@@ -613,7 +611,7 @@ This shows that, whilst provability and entailment are \emph{different} notions,
 	\begin{ebullet}
 		\item An argument is \emph{valid} iff \emph{the conclusion can be proved from the premises}.
 		\item Two sentences are \emph{logically equivalent} iff they are \emph{provably equivalent}.
-		\item Sentences are \emph{provably consistent} iff they are \emph{not provably inconsistent}.
+		\item Sentences are \emph{satisfiable} iff they are \emph{not provably inconsistent}.
 	\end{ebullet}
 For this reason, you can pick and choose when to think in terms of proofs and when to think in terms of valuations/interpretations, doing whichever is easier for a given task. The table on the next page summarises which is (usually) easier.
 
@@ -626,7 +624,7 @@ In fact, demonstrating that provability and semantic entailment agree is, very d
 \begin{tabular*}{\textwidth}{p{.25\textheight}p{.325\textheight}p{.325\textheight}}
  & \textbf{Yes}  & \textbf{No}\\
 \\
-Is \meta{A} a \textbf{logical truth}? 
+Is \meta{A} a \textbf{validity}? 
 & give a proof which shows $\proves\meta{A}$ 
 & give an interpretation in which \meta{A} is false\\
 \\
@@ -641,7 +639,7 @@ Are \meta{A} and \meta{B} \textbf{equivalent}? &
 give two proofs, one for $\meta{A}\proves\meta{B}$ and one for $\meta{B}\proves\meta{A}$  
 & give an interpretation in which \meta{A} and \meta{B} have different truth values\\
 \\
-Are $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ \textbf{jointly consistent}? 
+Are $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ \textbf{jointly satisfiable}? 
 & give an interpretation in which all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ are true 
 & prove a contradiction from assumptions $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$\\
 \\

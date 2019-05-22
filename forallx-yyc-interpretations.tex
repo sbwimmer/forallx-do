@@ -114,9 +114,10 @@ To bring this out, consider the following interpretation:
 Suppose `$A$' is a one-place predicate; then `$\atom{A}{a}$' is false and `$\atom{A}{b}$' is false, so `$\atom{A}{a} \eiff \atom{A}{b}$' is true. Similarly, if `$R$' is a two-place predicate, then `$\atom{R}{a,a}$' is false and `$\atom{R}{a,b}$' is false, so that `$\atom{R}{a,a} \eiff \atom{R}{a,b}$' is true. And so it goes: every atomic sentence not involving `$=$' is false, so every biconditional linking such sentences is true. For all that, Tim Button and P.D.\ Magnus are two distinct people, not one and the same!
 
 \section{Interpretation}
-We defined a \define{valuation} in TFL as any assignment of truth and falsity to atomic sentences. In FOL, we are going to define an \define{interpretation} as consisting of three things:
+We defined a \define{valuation} in TFL as any assignment of truth and falsity to sentence letters. In FOL, we are going to define an \define{interpretation} as consisting of four things:
 	\begin{ebullet}	
 		\item the specification of a domain
+		\item for each sentence letter we care to consider, a truth value
 		\item for each name that we care to consider, an assignment of exactly one object within the domain 
 		\item for each predicate that we care to consider---other than `$=$'---a specification of what things (in what order) the predicate is to be true of
 	\end{ebullet}
@@ -124,10 +125,10 @@ The symbolization keys that we considered in Part~\ref{ch.FOL} consequently give
 
 \newglossaryentry{interpretation}{
   name = {interpretation},
-  description = {a specification of a \gls{domain} together with the objects the \glspl{name} pick out and which objects the \glspl{predicate} are true of}
+  description = {A specification of a \gls{domain} together with the objects the \glspl{name} pick out and which objects the \glspl{predicate} are true of}
 }
 
-Suppose we want to consider just a single two-place predicate, `$\atom{R}{x,y}$'. Then we can represent it just by drawing an arrow between two objects, and stipulate that `$\atom{R}{x,y}$' is to hold of x and y just in case there is an arrow running from x to y in our diagram. As an example, we might offer:
+Suppose we want to consider just a single two-place predicate, `$\atom{R}{x,y}$'. Then we can represent it just by drawing an arrow between two objects, and stipulate that `$\atom{R}{x,y}$' is to hold of $x$ and $y$ just in case there is an arrow running from $x$ to $y$ in our diagram. As an example, we might offer:
 \begin{center}
 \begin{tikzpicture}
 \node (atom1) at (0,2) {1};
@@ -196,7 +197,7 @@ We will provide a completely general explanation in this section. However, to tr
 This will be our \emph{go-to example} in what follows.
 
 \section{Atomic sentences}
-The truth of atomic sentences should be fairly straightforward. The sentence `$\atom{P}{a}$' should be true just in case `$\atom{P}{x}$' is true of `$a$'. Given our go-to interpretation, this is true iff Aristotle is a philosopher. Aristotle is a philosopher. So the sentence is true. Equally, `$\atom{P}{b}$' is false on our go-to interpretation.
+The truth of atomic sentences should be fairly straightforward. For sentence letters, the interpretation specifies if it is true or false. The sentence `$\atom{P}{a}$' should be true just in case `$\atom{P}{x}$' is true of `$a$'. Given our go-to interpretation, this is true iff Aristotle is a philosopher. Aristotle is a philosopher. So the sentence is true. Equally, `$\atom{P}{b}$' is false on our go-to interpretation.
 
 Likewise, on this interpretation, `$\atom{R}{a,b}$' is true iff the object named by `$a$' was born before the object named by `$b$'. Well, Aristotle was born before Beyonc\'e. So `$\atom{R}{a,b}$' is true. Equally, `$\atom{R}{a,a}$' is false: Aristotle was not born before Aristotle. 
 
@@ -206,7 +207,7 @@ Dealing with atomic sentences, then, is very intuitive. When \meta{R} is an $n$-
 		$\atom{\meta{R}}{\meta{a}_{1},\meta{a}_{2},\dots,\meta{a}_{n}}$ is true in an interpretation \textbf{iff}\\
 		$\meta{R}$ is true of the objects named by $\meta{a}_{1}$, $\meta{a}_{2}$, \dots, $\meta{a}_{n}$ in that interpretation (considered in that order)
 	}
-Recall, though, that there is a second kind of atomic sentence: two names connected by an identity sign constitute an atomic sentence. This kind of atomic sentence is also easy to handle. Where \meta{a} and \meta{b} are any names, 
+Recall, though, that there is a special kind of atomic sentence: two names connected by an identity sign constitute an atomic sentence. This kind of atomic sentence is also easy to handle. Where \meta{a} and \meta{b} are any names, 
 	\factoidbox{
 		$\meta{a} = \meta{b}$ is true in an interpretation \textbf{iff}\\
 		 \meta{a} and \meta{b} name the very same object in that interpretation
@@ -219,18 +220,18 @@ We saw in \S\ref{s:FOLSentences} that FOL sentences can be built up from simpler
 	\factoidbox{
 		$\meta{A} \eand \meta{B}$ is true in an interpretation \textbf{iff}\\ both $\meta{A}$ is true and $\meta{B}$ is true in that interpretation
 		
-		\
-		\\		
+		\medskip
+		
 		$\meta{A} \eor \meta{B}$ is true in an interpretation \textbf{iff}\\ either $\meta{A}$ is true or $\meta{B}$ is true in that interpretation
 
-		\
-		\\$\enot \meta{A}$ is true in an interpretation \textbf{iff} \\$\meta{A}$ is false in that interpretation
+		\medskip
+		$\enot \meta{A}$ is true in an interpretation \textbf{iff} \\$\meta{A}$ is false in that interpretation
 
-		\
-		\\$\meta{A} \eif \meta{B}$ is true in an interpretation \textbf{iff}\\ either $\meta{A}$ is false or $\meta{B}$ is true in that interpretation
+		\medskip
+		$\meta{A} \eif \meta{B}$ is true in an interpretation \textbf{iff}\\ either $\meta{A}$ is false or $\meta{B}$ is true in that interpretation
 
-		\
-		\\$\meta{A} \eiff \meta{B}$ is true in an interpretation \textbf{iff} \\$\meta{A}$ has the same truth value as $\meta{B}$ in that interpretation
+		\medskip
+		$\meta{A} \eiff \meta{B}$ is true in an interpretation \textbf{iff} \\$\meta{A}$ has the same truth value as $\meta{B}$ in that interpretation
 	}
 This presents the very same information as the characteristic truth tables for the connectives; it just does so in a slightly different way. Some examples will probably help to illustrate the idea. On our go-to interpretation:
 	\begin{earg}
@@ -275,7 +276,7 @@ with the instantiating name `$e$'.
 
 \newglossaryentry{substitution instance}{
   name = substitution instance,
-  description = {the result of replacing every free occurrence of a \gls{variable} in a \gls{formula} with a \gls{name}}
+  description = {The result of replacing every free occurrence of a \gls{variable} in a \gls{formula} with a \gls{name}}
 }
 
 Armed with this notation, the rough idea is as follows. The sentence $\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$ will be true iff $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$ is true no matter what object (in the domain) we name with $\meta{c}$. Similarly, the sentence $\exists \meta{x}\meta{A}$ will be true iff there is \emph{some} way to assign the name $\meta{c}$ to an object that makes $\meta{A}(\ldots \meta{c} \ldots \meta{c} \ldots)$ true. More precisely, we stipulate:
@@ -395,10 +396,10 @@ means that \meta{A} is true in every interpretation.
 The other logical notions also have corresponding definitions in FOL:
 
 \begin{itemize}
-\item An FOL sentence $\meta{A}$ is a \define{logical truth} iff $\meta{A}$ is true in every interpretation; i.e.,  $\entails\meta{A}$.
-\newglossaryentry{logical truth}
+\item An FOL sentence $\meta{A}$ is a \define{validity} iff $\meta{A}$ is true in every interpretation; i.e.,  $\entails\meta{A}$.
+\newglossaryentry{validity}
 {
-name=logical truth,
+name=validity,
 description={A \gls{sentence of FOL} that is true in every \gls{interpretation}}
 }
 
@@ -411,27 +412,27 @@ description={A \gls{sentence of FOL} that is false in every \gls{interpretation}
 }
   
 \item $\meta{A}_1, \meta{A}_2, \ldots \meta{A}_n \therefore \meta{C}$ is \define{valid in FOL} iff there is no interpretation in which all of the premises are true and the conclusion is false; i.e., $\meta{A}_1,\meta{A}_2,\ldots \meta{A}_n \entails\meta{C}$. It is \define{invalid in FOL} otherwise.
-\newglossaryentry{logically valid in FOL}
+\newglossaryentry{valid in FOL}
 {
-  name=logical validity (in FOL),
-  text = logically valid,
-description={A property held by arguments if and only if no \gls{interpretation} makes all premises true and the conclusion false}
+  name=validity of arguments (in FOL),
+  text = valid,
+description={A property held by arguments; an argument is valid if and only if no \gls{interpretation} makes all premises true and the conclusion false}
 }
 
-\item Two FOL sentences \meta{A} and \meta{B} are \define{logically equivalent} iff they are true in exactly the same interpretations as each other; i.e., both $\meta{A}\entails\meta{B}$ and $\meta{B}\entails\meta{A}$.
+\item Two FOL sentences \meta{A} and \meta{B} are \define{equivalent} iff they are true in exactly the same interpretations as each other; i.e., both $\meta{A}\entails\meta{B}$ and $\meta{B}\entails\meta{A}$.
 
-\newglossaryentry{logically equivalent in FOL}
+\newglossaryentry{equivalent in FOL}
 {
-  name=logical equivalence (in FOL),
-  text = logically equivalent,
-description={A property held by pairs of \glspl{sentence of FOL} if and only if the sentences have the same truth value in every \gls{interpretation}.}
+  name=equivalence (in FOL),
+  text = equivalent,
+description={A property held by pairs of \glspl{sentence of FOL} if and only if the sentences have the same truth value in every \gls{interpretation}}
 }
 
-\item The FOL sentences $\meta{A}_1$, $\meta{A}_2$, \dots, $\meta{A}_n$ are \define{jointly consistent} iff there is some interpretation in which all of the sentences are true. They are \define{jointly inconsistent} iff there is no such interpretation.
-\newglossaryentry{logically consistent in FOL}
+\item The FOL sentences $\meta{A}_1$, $\meta{A}_2$, \dots, $\meta{A}_n$ are \define{jointly satisfiable} iff there is some interpretation in which all of the sentences are true. They are \define{jointly unsatisfiable} iff there is no such interpretation.
+\newglossaryentry{satisfiable in FOL}
 {
-  name=logical consistency (in FOL),
-  text=jointly consistent,
+  name=satisfiability (in FOL),
+  text=jointly satisfiable,
 description={A property held by \glspl{sentence of FOL} if and only if some \gls{interpretation} makes all the sentences true}
 }
 \end{itemize}
@@ -439,8 +440,8 @@ description={A property held by \glspl{sentence of FOL} if and only if some \gls
 \chapter{Using interpretations}
 \label{sec.UsingModels}
 
-\section{Logical truths and contradictions}
-Suppose we want to show that `$\exists x\, \atom{A}{x,x} \eif \atom{B}{d}$' is \emph{not} a logical truth. This requires showing that the sentence is not true in every interpretation; i.e.,\ that it is false in some interpretation. If we can provide just one interpretation in which the sentence is false, then we will have shown that the sentence is not a logical truth.
+\section{Validities and contradictions}
+Suppose we want to show that `$\exists x\, \atom{A}{x,x} \eif \atom{B}{d}$' is \emph{not} a validity. This requires showing that the sentence is not true in every interpretation; i.e.,\ that it is false in some interpretation. If we can provide just one interpretation in which the sentence is false, then we will have shown that the sentence is not a validity.
 
 In order for `$\exists x\,\atom{A}{x,x} \eif \atom{B}{d}$' to be false, the antecedent (`$\exists x\, \atom{A}{x,x}$') must be true, and the consequent (`$\atom{B}{d}$') must be false. To construct such an interpretation, we start by specifying a domain. Keeping the domain small makes it easier to specify what the predicates will be true of, so we will start with a domain that has just one member. For concreteness, let's say it is the city of Paris. 
 	\begin{ekey}
@@ -458,7 +459,7 @@ Now `$\atom{A}{d,d}$' is true, so it is surely true that `$\exists x\, \atom{A}{
 	\begin{ekey}
 		\item[\atom{B}{x}] \gap{x} is in Germany
 	\end{ekey}
-Now we have an interpretation where `$\exists x\, \atom{A}{x,x}$' is true, but where `$\atom{B}{d}$' is false. So there is an interpretation where `$\exists x\, \atom{A}{x,x} \eif \atom{B}{d}$' is false. So `$\exists x\, \atom{A}{x,x} \eif \atom{B}{d}$' is not a logical truth.
+Now we have an interpretation where `$\exists x\, \atom{A}{x,x}$' is true, but where `$\atom{B}{d}$' is false. So there is an interpretation where `$\exists x\, \atom{A}{x,x} \eif \atom{B}{d}$' is false. So `$\exists x\, \atom{A}{x,x} \eif \atom{B}{d}$' is not a validity.
 
 We can just as easily show that `$\exists x\atom{A}{x,x} \eif \atom{B}{d}$' is not a contradiction. We need only specify an interpretation in which `$\exists x\atom{A}{x,x} \eif \atom{B}{d}$' is true; i.e., an interpretation in which either `$\exists x\, \atom{A}{x,x}$' is false or `$\atom{B}{d}$' is true. Here is one:
 	\begin{ekey}
@@ -480,15 +481,15 @@ We can make `$\exists x\, \atom{S}{x}$' true by including something in the exten
 	\end{ekey}
 Now `$\exists x\, \atom{S}{x}$' is true, because `$\atom{S}{x}$' is true of Ornette Coleman. Slightly more precisely, extend our interpretation by allowing `$c$' to name Ornette Coleman.  `$\atom{S}{c}$' is true in this extended interpretation, so `$\exists x\, \atom{S}{x}$' was true in the original interpretation. Similarly, `$\forall x\, \atom{S}{x}$' is false, because `$\atom{S}{x}$' is false of Miles Davis. Slightly more precisely, extend our interpretation by allowing `$d$' to name Miles Davis, and `$\atom{S}{d}$' is false in this extended interpretation, so `$\forall x\, \atom{S}{x}$' was false in the original interpretation. We have provided a counter-interpretation to the claim that `$\forall x\, \atom{S}{x}$' and `$\exists x\, \atom{S}{x}$' are logically equivalent.
 	\factoidbox{
-		To show that $\meta{A}$ is not a logical truth, it suffices to find an interpretation where $\meta{A}$ is false.
+		To show that $\meta{A}$ is not a validity, it suffices to find an interpretation where $\meta{A}$ is false.
 		
 		To show that $\meta{A}$ is not a contradiction, it suffices to find an interpretation where $\meta{A}$ is true.
 		
 		To show that $\meta{A}$ and $\meta{B}$ are not logically equivalent, it suffices to find an interpretation where one is true and the other is false.
 	}
 
-\section{Validity, entailment and consistency}
-To test for validity, entailment, or consistency, we typically need to produce interpretations that determine the truth value of several sentences simultaneously. 
+\section{Validity, entailment and satisfiability}
+To test for validity, entailment, or satisfiability, we typically need to produce interpretations that determine the truth value of several sentences simultaneously. 
 
 Consider the following argument in FOL:
 $$\exists x(\atom{G}{x} \eif \atom{G}{a}) \therefore \exists x\, \atom{G}{x} \eif \atom{G}{a}$$
@@ -500,9 +501,9 @@ To show that this is invalid, we must make the premise true and the conclusion f
 	\end{ekey}
 Given that Marx wrote \emph{The Communist Manifesto}, `$\atom{G}{a}$' is plainly false in this interpretation. But von Mises famously hated communism, so `$\exists x\, \atom{G}{x}$' is true in this interpretation. Hence `$\exists x\, \atom{G}{x} \eif \atom{G}{a}$' is false, as required. 
 
-Does this interpretation make the premise true? Yes it does! Note that `$\atom{G}{a} \eif \atom{G}{a}$' is true. (Indeed, it is a logical truth.) But then certainly `$\exists x (\atom{G}{x} \eif \atom{G}{a})$' is true, so the premise is true, and the conclusion is false, in this interpretation. The argument is therefore invalid. 
+Does this interpretation make the premise true? Yes it does! Note that `$\atom{G}{a} \eif \atom{G}{a}$' is true. (Indeed, it is a validity.) But then certainly `$\exists x (\atom{G}{x} \eif \atom{G}{a})$' is true, so the premise is true, and the conclusion is false, in this interpretation. The argument is therefore invalid. 
 
-In passing, note that we have also shown that `$\exists x(\atom{G}{x} \eif \atom{G}{a})$' does \emph{not} entail `$\exists x\, \atom{G}{x} \eif \atom{G}{a}$'. Equally, we have shown that the sentences `$\exists x (\atom{G}{x} \eif \atom{G}{a})$' and `$\enot (\exists x\, \atom{G}{x} \eif \atom{G}{a})$' are jointly consistent.
+In passing, note that we have also shown that `$\exists x(\atom{G}{x} \eif \atom{G}{a})$' does \emph{not} entail `$\exists x\, \atom{G}{x} \eif \atom{G}{a}$'. Equally, we have shown that the sentences `$\exists x (\atom{G}{x} \eif \atom{G}{a})$' and `$\enot (\exists x\, \atom{G}{x} \eif \atom{G}{a})$' are jointly satisfiable.
 
 Let's consider a second example. Consider:
 	$$\forall x \exists y\, \atom{L}{x,y} \therefore \exists y \forall x\, \atom{L}{x,y}$$
@@ -511,7 +512,7 @@ Again, we want to show that this is invalid. To do this, we must make the premis
 		\item[\text{domain}] UK citizens currently in a civil partnership with another UK citizen
 		\item[\atom{L}{x,y}] \gap{x} is in a civil partnership with \gap{y}
 	\end{ekey}
-The premise is clearly true on this interpretation. Anyone in the domain is a UK citizen in a civil partnership with some other UK citizen. That other citizen will also, then, be in the domain. So for everyone in the domain, there will be someone (else) in the domain with whom they are in a civil partnership. Hence `$\forall x \exists y\, \atom{L}{x,y}$' is true. However, the conclusion is clearly false, for that would require that there is some single person who is in a civil partnership with everyone in the domain, and there is no such person, so the argument is invalid. We observe immediately that the sentences `$\forall x \exists y\, \atom{L}{x,y}$' and `$\enot\exists y \forall x\, \atom{L}{x,y}$' are jointly consistent and that `$\forall x \exists y\, \atom{L}{x,y}$' does not entail `$\exists y \forall x\, \atom{L}{x,y}$'. 
+The premise is clearly true on this interpretation. Anyone in the domain is a UK citizen in a civil partnership with some other UK citizen. That other citizen will also, then, be in the domain. So for everyone in the domain, there will be someone (else) in the domain with whom they are in a civil partnership. Hence `$\forall x \exists y\, \atom{L}{x,y}$' is true. However, the conclusion is clearly false, for that would require that there is some single person who is in a civil partnership with everyone in the domain, and there is no such person, so the argument is invalid. We observe immediately that the sentences `$\forall x \exists y\, \atom{L}{x,y}$' and `$\enot\exists y \forall x\, \atom{L}{x,y}$' are jointly satisfiable and that `$\forall x \exists y\, \atom{L}{x,y}$' does not entail `$\exists y \forall x\, \atom{L}{x,y}$'. 
 
 For our third example, we'll mix things up a bit. In \S\ref{s:Interpretations}, we described how we can present some interpretations using diagrams. For example:
 \begin{center}
@@ -534,7 +535,7 @@ Using the conventions employed in \S\ref{s:Interpretations}, the domain of this 
 		\item `$\exists x \forall y\, \enot \atom{R}{x,y}$' \hfill witness 3
 		\item `$\exists x (\exists y\, \atom{R}{y,x} \eand \enot \exists y\, \atom{R}{x,y})$' \hfill witness 3
 	\end{ebullet}
-This immediately shows that all of the preceding six sentences are jointly consistent. We can use this observation to generate \emph{invalid} arguments, e.g.:
+This immediately shows that all of the preceding six sentences are jointly satisfiable. We can use this observation to generate \emph{invalid} arguments, e.g.:
 	\begin{align*}
 		\forall x \exists y\, \atom{R}{y,x}, \exists x \forall y\, \atom{R}{x,y}  &\therefore  \forall x \exists y\, \atom{R}{x,y}\\
 		\exists x \forall y\, \atom{R}{x,y}, \exists x \forall y \enot \atom{R}{x,y} & \therefore \enot \exists x \exists y \exists z (\enot y = z \eand (\atom{R}{x,y} \eand \atom{R}{z,x}))
@@ -546,15 +547,15 @@ and many more besides.
 	
 	That same interpretation will show that $\meta{A}_1$, $\meta{A}_2$, \dots, $\meta{A}_n$ do not entail~$\meta{C}$.
 	
-	It will also show that $\meta{A}_1$, $\meta{A}_2$, \dots, $\meta{A}_n$, $\enot \meta{C}$ are jointly consistent.}
-When you provide an interpretation to refute a claim---to logical truth, say, or to entailment---this is sometimes called providing a \emph{counter-interpretation} (or providing a \emph{counter-model}).
+	It will also show that $\meta{A}_1$, $\meta{A}_2$, \dots, $\meta{A}_n$, $\enot \meta{C}$ are jointly satisfiable.}
+When you provide an interpretation to refute a claim---to show that a sentence is not a validity, say, or that an entailment fails---this is sometimes called providing a \emph{counter-interpretation} (or providing a \emph{counter-model}).
 
 \practiceproblems
 
 \solutions
 \problempart
 \label{pr.Contingent}
-Show that each of the following is neither a logical truth nor a contradiction:
+Show that each of the following is neither a validity nor a contradiction:
 \begin{earg}
 \item \leftsolutions\ $\atom{D}{a}  \eand \atom{D}{b}$
 \item \leftsolutions\ $\exists x\, \atom{T}{x,h}$
@@ -584,7 +585,7 @@ Show that the following pairs of sentences are not logically equivalent.
 
 
 \problempart
-Show that the following sentences are jointly consistent:
+Show that the following sentences are jointly satisfiable:
 \begin{earg}
 \item  $\atom{M}{a}, \enot \atom{N}{a}, \atom{P}{a}, \enot \atom{Q}{a}$
 \item $\atom{L}{e}e, \atom{L}{e,g}, \enot \atom{L}{g,e}, \enot \atom{L}{g,g}$
@@ -618,30 +619,30 @@ Show that the following arguments are invalid:
 
 \chapter[Reasoning about interpretations]{Reasoning about all interpretations}
 
-\section{Logical truths and contradictions}
-We can show that a sentence is \emph{not} a logical truth just by providing one carefully specified interpretation: an interpretation in which the sentence is false. To show that something is a logical truth, on the other hand, it would not be enough to construct ten, one hundred, or even a thousand interpretations in which the sentence is true. A sentence is only a logical truth if it is true in \emph{every} interpretation, and there are infinitely many interpretations. We need to reason about all of them, and we cannot do this by dealing with them one by one!
+\section{Validities and contradictions}
+We can show that a sentence is \emph{not} a validity just by providing one carefully specified interpretation: an interpretation in which the sentence is false. To show that something is a validity, on the other hand, it would not be enough to construct ten, one hundred, or even a thousand interpretations in which the sentence is true. A sentence is only a validity if it is true in \emph{every} interpretation, and there are infinitely many interpretations. We need to reason about all of them, and we cannot do this by dealing with them one by one!
 
-Sometimes, we can reason about all interpretations fairly easily. For example, we can offer a relatively simple argument that `$\atom{R}{a,a}\eiff \atom{R}{a,a}$' is a logical truth:
+Sometimes, we can reason about all interpretations fairly easily. For example, we can offer a relatively simple argument that `$\atom{R}{a,a}\eiff \atom{R}{a,a}$' is a validity:
 	\begin{quote}
 		\label{allmodels1}
-		Any relevant interpretation will give `$\atom{R}{a,a}$' a truth value. If `$\atom{R}{a,a}$' is true in an interpretation, then `$\atom{R}{a,a} \eiff \atom{R}{a,a}$' is true in that interpretation. If `$\atom{R}{a,a}$' is false in an interpretation, then `$\atom{R}{a,a} \eiff \atom{R}{a,a}$' is true in that interpretation. These are the only alternatives. So `$\atom{R}{a,a} \eiff \atom{R}{a,a}$' is true in every interpretation. Therefore, it is a logical truth.
+		Any relevant interpretation will give `$\atom{R}{a,a}$' a truth value. If `$\atom{R}{a,a}$' is true in an interpretation, then `$\atom{R}{a,a} \eiff \atom{R}{a,a}$' is true in that interpretation. If `$\atom{R}{a,a}$' is false in an interpretation, then `$\atom{R}{a,a} \eiff \atom{R}{a,a}$' is true in that interpretation. These are the only alternatives. So `$\atom{R}{a,a} \eiff \atom{R}{a,a}$' is true in every interpretation. Therefore, it is a validity.
 	\end{quote}
 This argument is valid, of course, and its conclusion is true. However, it is not an argument in FOL. Rather, it is an argument in English \emph{about} FOL: it is an argument in the metalanguage. 
 
 Note another feature of the argument. Since the sentence in question contained no quantifiers, we did not need to think about how to interpret `$a$' and `$R$'; the point was just that, however we interpreted them, `$\atom{R}{a,a}$' would have some truth value or other. (We could ultimately have given the same argument concerning TFL sentences.)
 
-Here is another bit of reasoning. Consider the sentence `$\forall x(\atom{R}{x,x}\eiff \atom{R}{x,x})$'. Again, it should obviously be a logical truth, but to say precisely why is quite a challenge. We cannot say that `$\atom{R}{x,x} \eiff \atom{R}{x,x}$' is true in every interpretation, since `$\atom{R}{x,x} \eiff \atom{R}{x,x}$' is not even a \emph{sentence} of FOL (remember that `$x$' is a variable, not a name). So we have to be a bit cleverer. 
+Here is another bit of reasoning. Consider the sentence `$\forall x(\atom{R}{x,x}\eiff \atom{R}{x,x})$'. Again, it should obviously be a validity, but to say precisely why is quite a challenge. We cannot say that `$\atom{R}{x,x} \eiff \atom{R}{x,x}$' is true in every interpretation, since `$\atom{R}{x,x} \eiff \atom{R}{x,x}$' is not even a \emph{sentence} of FOL (remember that `$x$' is a variable, not a name). So we have to be a bit cleverer. 
 	\begin{quote}
-		Consider some arbitrary interpretation. Consider some arbitrary member of the domain, which, for convenience, we will call \emph{obbie}, and suppose we extend our original interpretation by adding a new name, `$c$', to name \emph{obbie}. Then either `$\atom{R}{c,c}$' will be true or it will be false. If `$\atom{R}{c,c}$' is true, then `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' is true. If `$\atom{R}{c,c}$' is false, then `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' will be true. So either way, `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' is true. Since there was nothing special about \emph{obbie}---we might have chosen any object---we see that no matter how we extend our original interpretation by allowing `$c$' to name some new object, `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' will be true in the new interpretation. So `$\forall x (\atom{R}{x,x} \eiff \atom{R}{x,x})$' was true in the original interpretation. But we chose our interpretation arbitrarily, so `$\forall x (\atom{R}{x,x} \eiff \atom{R}{x,x})$' is true in every interpretation. It is therefore a logical truth.
+		Consider some arbitrary interpretation. Consider some arbitrary member of the domain, which, for convenience, we will call \emph{obbie}, and suppose we extend our original interpretation by adding a new name, `$c$', to name \emph{obbie}. Then either `$\atom{R}{c,c}$' will be true or it will be false. If `$\atom{R}{c,c}$' is true, then `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' is true. If `$\atom{R}{c,c}$' is false, then `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' will be true. So either way, `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' is true. Since there was nothing special about \emph{obbie}---we might have chosen any object---we see that no matter how we extend our original interpretation by allowing `$c$' to name some new object, `$\atom{R}{c,c} \eiff \atom{R}{c,c}$' will be true in the new interpretation. So `$\forall x (\atom{R}{x,x} \eiff \atom{R}{x,x})$' was true in the original interpretation. But we chose our interpretation arbitrarily, so `$\forall x (\atom{R}{x,x} \eiff \atom{R}{x,x})$' is true in every interpretation. It is therefore a validity.
 	\end{quote}
-This is quite longwinded, but, as things stand, there is no alternative. In order to show that a sentence is a logical truth, we must reason about \emph{all} interpretations. 
+This is quite longwinded, but, as things stand, there is no alternative. In order to show that a sentence is a validity, we must reason about \emph{all} interpretations. 
 
 \section{Other cases}
 Similar points hold of other cases too. Thus, we must reason about all interpretations if we want to show:
 	\begin{ebullet}
 		\item that a sentence is a contradiction; for this requires that it is false in \emph{every} interpretation. 
 		\item that two sentences are logically equivalent; for this requires that they have the same truth value in \emph{every} interpretation.
-		\item that some sentences are jointly inconsistent; for this requires that there is no interpretation in which all of those sentences are true together; i.e.\ that, in \emph{every} interpretation, at  least one of those sentences is false.
+		\item that some sentences are jointly unsatisfiable; for this requires that there is no interpretation in which all of those sentences are true together; i.e.\ that, in \emph{every} interpretation, at  least one of those sentences is false.
 		\item that an argument is valid; for this requires that the conclusion is true in \emph{every} interpretation where the premises are true. 
 		\item that some sentences entail another sentence.
 	\end{ebullet}
@@ -662,10 +663,10 @@ The following table summarises whether a single (counter-)interpretation suffice
  & \textbf{Yes} & \textbf{No}\\
  \hline
 %\cline{2-3}
-logical truth? & all interpretations & one counter-interpretation\\
+validity? & all interpretations & one counter-interpretation\\
 contradiction? &  all interpretations  & one counter-interpretation\\
 equivalent? & all interpretations & one counter-interpretation\\
-consistent? & one interpretation & all interpretations\\
+satisfiable? & one interpretation & all interpretations\\
 valid? & all interpretations & one counter-interpretation\\
 entailment? & all interpretations & one counter-interpretation\\
 \end{tabular}

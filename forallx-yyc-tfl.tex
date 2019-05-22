@@ -20,9 +20,9 @@ and another argument:
 	\end{earg}
 Both arguments are valid, and there is a straightforward sense in which we can say that they share a common structure. We might express the structure thus:
 	\begin{earg}
-		\item[] A
-		\item[] If A, then C
-		\item[\therefore] C
+		\item[] $A$
+		\item[] If $A$, then $C$
+		\item[\therefore] $C$
 	\end{earg}
 This looks like an excellent argument \emph{structure}. Indeed, surely any argument with this \emph{structure} will be valid, and this is not the only good argument structure. Consider an argument like:
 	\begin{earg}
@@ -32,9 +32,9 @@ This looks like an excellent argument \emph{structure}. Indeed, surely any argum
 	\end{earg}
 Again, this is a valid argument. The structure here is something like:
 	\begin{earg}
-		\item[] A or B
-		\item[] not-A
-		\item[\therefore] B
+		\item[] $A$ or $B$
+		\item[] not-$A$
+		\item[\therefore] $B$
 	\end{earg}
 A superb structure! Here is another example:
 	\begin{earg}
@@ -44,9 +44,9 @@ A superb structure! Here is another example:
 	\end{earg}
 This valid argument has a structure which we might represent thus:
 	\begin{earg}
-		\item[] not-(A and B)
-		\item[] A
-		\item[\therefore] not-B
+		\item[] not-($A$ and $B$)
+		\item[] $A$
+		\item[\therefore] not-$B$
 	\end{earg}
 These examples illustrate an important idea, which we might describe as \emph{validity in virtue of form}. The validity of the arguments just considered has nothing very much to do with the meanings of English expressions like `Jenny is miserable', `Dipan is an avid reader of Tolstoy', or `Jim acted in lots of plays'. If it has to do with meanings at all, it is with the meanings of phrases like `and', `or', `not,' and `if\ldots, then\ldots'. 
 
@@ -81,41 +81,46 @@ The important moral can be stated as follows. \emph{At best, TFL will help us to
 
 We started isolating the form of an argument, in \S\ref{s:ValidityInVirtueOfForm}, by replacing  \emph{subsentences} of sentences with individual letters. Thus in the first example of this section, `it is raining outside' is a subsentence of `If it is raining outside, then Jenny is miserable', and we replaced this subsentence with `$A$'. 
 
-Our artificial language, TFL, pursues this idea absolutely ruthlessly. We start with some \emph{atomic sentences}. These will be the basic building blocks out of which more complex sentences are built. We will use uppercase Roman letters for atomic sentences of TFL. There are only twenty-six letters of the alphabet, but there is no limit to the number of atomic sentences that we might want to consider. By adding subscripts to letters, we obtain new atomic sentences. So, here are five different atomic sentences of TFL:
+Our artificial language, TFL, pursues this idea absolutely ruthlessly. We start with some \emph{sentence letters}. These will be the basic building blocks out of which more complex sentences are built. We will use single uppercase letters as sentence letters of TFL. There are only twenty-six letters of the alphabet, but there is no limit to the number of sentence letters that we might want to consider. By adding subscripts to letters, we obtain new sentence letters. So, here are five different sentence letters of TFL:
 	$$A, P, P_1, P_2, A_{234}$$
-We will use atomic sentences to represent, or \emph{symbolize}, certain English sentences. To do this, we provide a \define{symbolization key}, such as the following:
+We will use sentence letters to represent, or \emph{symbolize}, certain English sentences. To do this, we provide a \define{symbolization key}, such as the following:
 	\begin{ekey}
 		\item[A] It is raining outside
 		\item[C] Jenny is miserable
 	\end{ekey}
-In doing this, we are not fixing this symbolization \emph{once and for all}. We are just saying that, for the time being, we will think of the atomic sentence of TFL, `$A$', as symbolizing the English sentence `It is raining outside', and the atomic sentence of TFL, `$C$', as symbolizing the English sentence `Jenny is miserable'. Later, when we are dealing with different sentences or different arguments, we can provide a new symbolization key; as it might be:
+In doing this, we are not fixing this symbolization \emph{once and for all}. We are just saying that, for the time being, we will think of the sentence letter of TFL, `$A$', as symbolizing the English sentence `It is raining outside', and the sentence letter of TFL, `$C$', as symbolizing the English sentence `Jenny is miserable'. Later, when we are dealing with different sentences or different arguments, we can provide a new symbolization key; as it might be:
 	\begin{ekey}
 		\item[A] Jenny is an anarcho-syndicalist
 		\item[C] Dipan is an avid reader of Tolstoy
 	\end{ekey}
-It is important to understand that whatever structure an English sentence might have is lost when it is symbolized by an atomic sentence of TFL. From the point of view of TFL, an atomic sentence is just a letter. It can be used to build more complex sentences, but it cannot be taken apart.
+It is important to understand that whatever structure an English sentence might have is lost when it is symbolized by a sentence letter of TFL. From the point of view of TFL, a sentence letter is just a letter. It can be used to build more complex sentences, but it cannot be taken apart.
 
+\newglossaryentry{sentence letter}
+{
+name=sentence letter,
+description={An letter used to represent a basic sentence in TFL}
+}
 \newglossaryentry{atomic sentence}
 {
 name=atomic sentence,
-description={A sentence used to represent a basic sentence; a single letter in TFL, or a predicate symbol followed by names in FOL}
+description={An expression used to represent a basic sentence; a sentence letter in TFL, or a predicate symbol followed by names in FOL}
 }
 
 \newglossaryentry{symbolization key}
 {
 name=symbolization key,
-description={A list that shows which English sentences are represented by which \glspl{atomic sentence} in TFL}
+description={A list that shows which English sentences are represented by which \glspl{sentence letter} in TFL}
 }
 
 \chapter{Connectives}
 \label{s:TFLConnectives}
 
-In the previous chapter, we considered symbolizing fairly basic English sentences with atomic sentences of TFL. This leaves us wanting to deal with the English expressions `and', `or', `not', and so forth. These are \emph{connectives}---they can be used to form new sentences out of old ones. In TFL, we will make use of logical connectives to build complex sentences from atomic components. There are five logical connectives in TFL. This table summarises them, and they are explained throughout this section.
+In the previous chapter, we considered symbolizing fairly basic English sentences with sentence letters of TFL. This leaves us wanting to deal with the English expressions `and', `or', `not', and so forth. These are \emph{connectives}---they can be used to form new sentences out of old ones. In TFL, we will make use of logical connectives to build complex sentences from atomic components. There are five logical connectives in TFL. This table summarises them, and they are explained throughout this section.
 
 \newglossaryentry{connective}
 {
 name=connective,
-description={A logical operator in TFL used to combine \glspl{atomic sentence} into larger sentences}
+description={A logical operator in TFL used to combine \glspl{sentence letter} into larger sentences}
 }
 	\begin{table}[h]
 	\center
@@ -143,7 +148,7 @@ Consider how we might symbolize these sentences:
 	\item[\ex{not2}] It is not the case that Mary is in Barcelona.
 	\item[\ex{not3}] Mary is not in Barcelona.
 	\end{earg}
-In order to symbolize sentence \ref{not1}, we will need an atomic sentence. We might offer this symbolization key:
+In order to symbolize sentence \ref{not1}, we will need a sentence letter. We might offer this symbolization key:
 	\begin{ekey}
 		\item[B] Mary is in Barcelona.
 	\end{ekey}
@@ -172,7 +177,7 @@ But some care is needed when handling negations. Consider:
 		\item[\ex{not6}] Jane is happy.
 		\item[\ex{not7}] Jane is unhappy.
 	\end{earg}
-If we let the TFL-sentence `$H$' symbolize  `Jane is happy', then we can symbolize sentence \ref{not6} as `$H$'. However, it would be a mistake to symbolize sentence \ref{not7} with `$\enot{H}$'. If Jane is unhappy, then she is not happy; but sentence \ref{not7} does not mean the same thing as `It is not the case that Jane is happy'. Jane might be neither happy nor unhappy; she might be in a state of blank indifference. In order to symbolize sentence \ref{not7}, then, we would need a new atomic sentence of TFL.
+If we let the TFL-sentence `$H$' symbolize  `Jane is happy', then we can symbolize sentence \ref{not6} as `$H$'. However, it would be a mistake to symbolize sentence \ref{not7} with `$\enot{H}$'. If Jane is unhappy, then she is not happy; but sentence \ref{not7} does not mean the same thing as `It is not the case that Jane is happy'. Jane might be neither happy nor unhappy; she might be in a state of blank indifference. In order to symbolize sentence \ref{not7}, then, we would need a new sentence letter of TFL.
 \newglossaryentry{negation}
 {
 name=negation,
@@ -188,7 +193,7 @@ Consider these sentences:
 		\item[\ex{and2}]Barbara is athletic.
 		\item[\ex{and3}]Adam is athletic, and Barbara is also athletic.
 	\end{earg}
-We will need separate atomic sentences of TFL to symbolize sentences \ref{and1} and \ref{and2}; perhaps
+We will need separate sentence letters of TFL to symbolize sentences \ref{and1} and \ref{and2}; perhaps
 	\begin{ekey}
 		\item[A] Adam is athletic.
 		\item[B] Barbara is athletic.
@@ -216,11 +221,11 @@ Some more examples will bring out this point:
 		\item[\ex{and6}]Although Barbara is energetic, she is not athletic.
 	\item[\ex{and7}]Adam is athletic, but Barbara is more athletic than him.
 	\end{earg}
-Sentence \ref{and4} is obviously a conjunction. The sentence says two things (about Barbara). In English, it is permissible to refer to Barbara only once. It \emph{might} be tempting to think that we need to symbolize sentence \ref{and4} with something along the lines of `$B$ and energetic'. This would be a mistake. Once we symbolize part of a sentence as `$B$', any further structure is lost, as `$B$' is an atomic sentence of TFL. Conversely, `energetic' is not an English sentence at all. What we are aiming for is something like `$B$ and Barbara is energetic'. So we need to add another sentence letter to the symbolization key. Let `$E$' symbolize `Barbara is energetic'. Now the entire sentence can be symbolized as `$(B\eand E)$'.
+Sentence \ref{and4} is obviously a conjunction. The sentence says two things (about Barbara). In English, it is permissible to refer to Barbara only once. It \emph{might} be tempting to think that we need to symbolize sentence \ref{and4} with something along the lines of `$B$ and energetic'. This would be a mistake. Once we symbolize part of a sentence as `$B$', any further structure is lost, as `$B$' is a sentence letter of TFL. Conversely, `energetic' is not an English sentence at all. What we are aiming for is something like `$B$ and Barbara is energetic'. So we need to add another sentence letter to the symbolization key. Let `$E$' symbolize `Barbara is energetic'. Now the entire sentence can be symbolized as `$(B\eand E)$'.
 
 Sentence \ref{and5} says one thing about two different subjects. It says of both Barbara and Adam that they are athletic, even though in English we use the word `athletic' only once. The sentence can be paraphrased as `Barbara is athletic, and Adam is athletic'. We can symbolize this in TFL as `$(B\eand A)$', using the same symbolization key that we have been using.
 
-Sentence \ref{and6} is slightly more complicated. The word `although' sets up a contrast between the first part of the sentence and the second part. Nevertheless, the sentence tells us both that Barbara is energetic and that she is not athletic. In order to make each of the conjuncts an atomic sentence, we need to replace `she' with `Barbara'. So we can paraphrase sentence \ref{and6} as, `\emph{Both} Barbara is energetic, \emph{and} Barbara is not athletic'. The second conjunct contains a negation, so we paraphrase further: `\emph{Both} Barbara is energetic \emph{and} \emph{it is not the case that} Barbara is athletic'. Now we can symbolize this with the TFL sentence `$(E\eand\enot B)$'. Note that we have lost all sorts of nuance in this symbolization. There is a distinct difference in tone between sentence \ref{and6} and `Both Barbara is energetic and it is not the case that Barbara is athletic'. TFL does not (and cannot) preserve these nuances.
+Sentence \ref{and6} is slightly more complicated. The word `although' sets up a contrast between the first part of the sentence and the second part. Nevertheless, the sentence tells us both that Barbara is energetic and that she is not athletic. In order to make each of the conjuncts a sentence letter, we need to replace `she' with `Barbara'. So we can paraphrase sentence \ref{and6} as, `\emph{Both} Barbara is energetic, \emph{and} Barbara is not athletic'. The second conjunct contains a negation, so we paraphrase further: `\emph{Both} Barbara is energetic \emph{and} \emph{it is not the case that} Barbara is athletic'. Now we can symbolize this with the TFL sentence `$(E\eand\enot B)$'. Note that we have lost all sorts of nuance in this symbolization. There is a distinct difference in tone between sentence \ref{and6} and `Both Barbara is energetic and it is not the case that Barbara is athletic'. TFL does not (and cannot) preserve these nuances.
 
 Sentence \ref{and7} raises similar issues. There is a contrastive structure, but this is not something that TFL can deal with. So we can paraphrase the sentence as `\emph{Both} Adam is athletic, \emph{and} Barbara is more athletic than Adam'. (Notice that we once again replace the pronoun `him' with `Adam'.) How should we deal with the second conjunct? We already have the sentence letter `$A$', which is being used to symbolize `Adam is athletic', and the sentence `$B$' which is being used to symbolize `Barbara is athletic'; but neither of these concerns their relative athleticity. So, to symbolize the entire sentence, we need a new sentence letter. Let the TFL sentence `$R$' symbolize the English sentence `Barbara is more athletic than Adam'. Now we can symbolize sentence \ref{and7} by `$(A \eand R)$'.
 	\factoidbox{
@@ -361,7 +366,7 @@ Sentence \ref{iff3} says something stronger than either \ref{iff1} or \ref{iff2}
 \newglossaryentry{biconditional}
 {
 name=biconditional,
-description={The symbol \eiff, used to represent words and phrases that function like the English phrase ``if and only if''; or a sentence formed using this connective.}
+description={The symbol \eiff, used to represent words and phrases that function like the English phrase ``if and only if''; or a sentence formed using this connective}
 }
 
 We could treat every biconditional this way. So, just as we do not need a new TFL symbol to deal with \emph{exclusive or}, we do not really need a new TFL symbol to deal with biconditionals. Because the biconditional occurs so often, however, we will use the symbol `\eiff' for it. We can then symbolize sentence \ref{iff3} with the TFL sentence `$D \eiff M$'. 
@@ -596,14 +601,14 @@ We define an \define{expression of TFL} as any string of symbols of TFL. Take an
 \section{Sentences}\label{s:Sentences}
 Of course, many expressions of TFL will be total gibberish. We want to know when an expression of TFL amounts to a \emph{sentence}. 
 
-Obviously, individual atomic sentences like `$A$' and `$G_{13}$' should count as sentences. We can form further sentences out of these by using the various connectives. Using negation, we can get `$\enot A$' and `$\enot G_{13}$'. Using conjunction, we can get `$(A \eand G_{13})$', `$(G_{13} \eand A)$', `$(A \eand A)$', and `$(G_{13} \eand G_{13})$'. We could also apply negation repeatedly to get sentences like `$\enot \enot A$' or apply negation along with conjunction to get sentences like `$\enot(A \eand G_{13})$' and `$\enot(G_{13} \eand \enot G_{13})$'. The possible combinations are endless, even starting with just these two sentence letters, and there are infinitely many sentence letters. So there is no point in trying to list all the sentences one by one.
+Obviously, individual sentence letters like `$A$' and `$G_{13}$' should count as sentences. (We'll also call them \emph{atomic} sentences.) We can form further sentences out of these by using the various connectives. Using negation, we can get `$\enot A$' and `$\enot G_{13}$'. Using conjunction, we can get `$(A \eand G_{13})$', `$(G_{13} \eand A)$', `$(A \eand A)$', and `$(G_{13} \eand G_{13})$'. We could also apply negation repeatedly to get sentences like `$\enot \enot A$' or apply negation along with conjunction to get sentences like `$\enot(A \eand G_{13})$' and `$\enot(G_{13} \eand \enot G_{13})$'. The possible combinations are endless, even starting with just these two sentence letters, and there are infinitely many sentence letters. So there is no point in trying to list all the sentences one by one.
 
 Instead, we will describe the process by which sentences can be \emph{constructed}. Consider negation: Given any sentence \meta{A} of TFL, $\enot\meta{A}$ is a sentence of TFL. (Why the funny fonts? We return to this in \S\ref{s:Metavariables}.)
 
 We can say similar things for each of the other connectives. For instance, if \meta{A} and \meta{B} are sentences of TFL, then $(\meta{A}\eand\meta{B})$ is a sentence of TFL. Providing clauses like this for all of the connectives, we arrive at the following formal definition for a \define{sentence of TFL}:
 	\factoidbox{\label{TFLsentences}
 	\begin{enumerate}
-		\item Every atomic sentence is a sentence.
+		\item Every sentence letter is a sentence.
 		\item If \meta{A} is a sentence, then $\enot\meta{A}$ is a sentence.
 		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eand\meta{B})$ is a sentence.
 		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eor\meta{B})$ is a sentence.
@@ -614,8 +619,8 @@ We can say similar things for each of the other connectives. For instance, if \m
 	}
 \newglossaryentry{sentence of TFL}
 {
-name=sentence of TFL,
-description={A string of symbols in TFL that can be built up according to the recursive rules given on p.~\pageref{TFLsentences}.}
+name=sentence (of TFL),
+description={A string of symbols in TFL that can be built up according to the recursive rules given on p.~\pageref{TFLsentences}}
 }
 
 Definitions like this are called \emph{recursive}. Recursive definitions begin with some specifiable base elements, and then present ways to generate indefinitely many more elements by compounding together previously established ones. To give you a better idea of what a recursive definition is, we can give a recursive definition of the idea of \emph{an ancestor of mine}. We specify a base clause.
@@ -624,18 +629,18 @@ Definitions like this are called \emph{recursive}. Recursive definitions begin w
 	\end{ebullet}
 and then offer further clauses like:
 	\begin{ebullet}
-		\item If x is an ancestor of mine, then x's parents are ancestors of mine.
+		\item If $x$ is an ancestor of mine, then $x$'s parents are ancestors of mine.
 		\item Nothing else is an ancestor of mine.
 	\end{ebullet}
-Using this definition, we can easily check to see whether someone is my ancestor: just check whether she is the parent of the parent of\ldots one of my parents. And the same is true for our recursive definition of sentences of TFL. Just as the recursive definition allows complex sentences to be built up from simpler parts, the definition allows us to decompose sentences into their simpler parts. Once we get down to atomic sentences, then we know we are ok. 
+Using this definition, we can easily check to see whether someone is my ancestor: just check whether she is the parent of the parent of\ldots one of my parents. And the same is true for our recursive definition of sentences of TFL. Just as the recursive definition allows complex sentences to be built up from simpler parts, the definition allows us to decompose sentences into their simpler parts. Once we get down to sentence letters, then we know we are ok. 
 
 Let's consider some examples.
 
-Suppose we want to know whether or not `$\enot \enot \enot D$' is a sentence of TFL. Looking at the second clause of the definition, we know that `$\enot \enot \enot D$' is a sentence \emph{if} `$\enot \enot D$' is a sentence. So now we need to ask whether or not `$\enot \enot D$' is a sentence. Again looking at the second clause of the definition, `$\enot \enot D$' is a sentence \emph{if} `$\enot D$' is. So, `$\enot D$' is a sentence \emph{if} `$D$' is a sentence. Now `$D$' is an atomic sentence of TFL, so we know that `$D$' is a sentence by the first clause of the definition. So for a compound sentence like `$\enot \enot \enot D$', we must apply the definition repeatedly. Eventually we arrive at the atomic sentences from which the sentence is built up.
+Suppose we want to know whether or not `$\enot \enot \enot D$' is a sentence of TFL. Looking at the second clause of the definition, we know that `$\enot \enot \enot D$' is a sentence \emph{if} `$\enot \enot D$' is a sentence. So now we need to ask whether or not `$\enot \enot D$' is a sentence. Again looking at the second clause of the definition, `$\enot \enot D$' is a sentence \emph{if} `$\enot D$' is. So, `$\enot D$' is a sentence \emph{if} `$D$' is a sentence. Now `$D$' is a sentence letter of TFL, so we know that `$D$' is a sentence by the first clause of the definition. So for a compound sentence like `$\enot \enot \enot D$', we must apply the definition repeatedly. Eventually we arrive at the sentence letters from which the sentence is built up.
 
-Next, consider the example `$\enot (P \eand \enot (\enot Q \eor R))$'. Looking at the second clause of the definition, this is a sentence if `$(P \eand \enot (\enot Q \eor R))$' is, and this is a sentence if \emph{both} `$P$' \emph{and} `$\enot (\enot Q \eor R)$' are sentences. The former is an atomic sentence, and the latter is a sentence if `$(\enot Q \eor R)$' is a sentence. It is. Looking at the fourth clause of the definition, this is a sentence if both `$\enot Q$' and `$R$' are sentences, and both are!
+Next, consider the example `$\enot (P \eand \enot (\enot Q \eor R))$'. Looking at the second clause of the definition, this is a sentence if `$(P \eand \enot (\enot Q \eor R))$' is, and this is a sentence if \emph{both} `$P$' \emph{and} `$\enot (\enot Q \eor R)$' are sentences. The former is a sentence letter, and the latter is a sentence if `$(\enot Q \eor R)$' is a sentence. It is. Looking at the fourth clause of the definition, this is a sentence if both `$\enot Q$' and `$R$' are sentences, and both are!
 
-Ultimately, every sentence is constructed nicely out of atomic sentences. When we are dealing with a \emph{sentence} other than an atomic sentence, we can see that there must be some sentential connective that was introduced \emph{last}, when constructing the sentence. We call that connective the \define{main logical operator} of the sentence. In the case of `$\enot\enot\enot D$', the main logical operator is the very first `$\enot$' sign. In the case of `$(P \eand \enot (\enot Q \eor R))$', the main logical operator is `$\eand$'. In the case of `$((\enot E \eor F) \eif \enot\enot G)$', the main logical operator is `$\eif$'.
+Ultimately, every sentence is constructed nicely out of sentence letters. When we are dealing with a \emph{sentence} other than a sentence letter, we can see that there must be some sentential connective that was introduced \emph{last}, when constructing the sentence. We call that connective the \define{main logical operator} of the sentence. In the case of `$\enot\enot\enot D$', the main logical operator is the very first `$\enot$' sign. In the case of `$(P \eand \enot (\enot Q \eor R))$', the main logical operator is `$\eand$'. In the case of `$((\enot E \eor F) \eif \enot\enot G)$', the main logical operator is `$\eif$'.
 
 As a general rule, you can find the main logical operator for a sentence by using the following method:
 \begin{ebullet}
@@ -648,7 +653,7 @@ As a general rule, you can find the main logical operator for a sentence by usin
 \newglossaryentry{main logical operator}
 {
 name=main connective,
-description={The last connective that you add when you assemble a sentence using the recursive definition.}
+description={The last connective that you add when you assemble a sentence using the recursive definition}
 }
 
 The recursive structure of sentences in TFL will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence `$\enot \enot \enot D$' is true if and only if the sentence `$\enot \enot D$' is false, and so on through the structure of the sentence, until we arrive at the atomic components. We will return to this point in Part~\ref{ch.TruthTables}.
@@ -657,12 +662,6 @@ The recursive structure of sentences in TFL also allows us to give a formal defi
 $$(P \eand (\enot (R \eand B) \eiff Q))$$
 which was constructed by conjoining `$P$' with `$ (\enot (R \eand B) \eiff Q)$'. This last sentence was constructed by placing a biconditional between `$\enot (R \eand B)$' and `$Q$'. The former of these sentences---a subsentence of our original sentence---is a sentence for which `$\enot$' is the main logical operator. So the scope of the negation is just `$\enot(R \eand B)$'. More generally:
 	\factoidbox{The \define{scope} of a connective (in a sentence) is the subsentence for which that connective is the main logical operator.}
-\newglossaryentry{scope}
-{
-name=scope,
-description={The sentences that are joined by a connective. These are the sentences the connective was applied to when the sentence was assembled using a recursive definition.}
-}
-
 
 
 \section{Bracketing conventions}
@@ -701,7 +700,7 @@ For each of the following: (a) Is it a sentence of TFL, strictly speaking? (b) I
 \end{earg}
 
 \problempart
-Are there any sentences of TFL that contain no atomic sentences? Explain your answer.\\
+Are there any sentences of TFL that contain no sentence letters? Explain your answer.\\
 
 \problempart
 What is the scope of each connective in the sentence
@@ -745,22 +744,22 @@ When we talk about a language, the language that we are talking about is called 
 {
 name=object language,
 description={A language that is constructed and studied by logicians. In this textbook,
- the object languages are TFL and FOL.}
+ the object languages are TFL and FOL}
 }
 
 \newglossaryentry{metalanguage}
 {
 name=metalanguage,
-description={The language logicians use to talk about the object language. In this textbook, the metalanguage is English, supplemented by certain symbols like metavariables and technical terms like ``valid.''}
+description={The language logicians use to talk about the object language. In this textbook, the metalanguage is English, supplemented by certain symbols like metavariables and technical terms like ``valid''}
 }
 
 For the most part, the object language in this chapter has been the formal language that we have been developing: TFL. The metalanguage is English. Not conversational English exactly, but English supplemented with some additional vocabulary which helps us to get along.
 
-Now, we have used italic uppercase letters for atomic sentences of TFL:
+Now, we have used uppercase letters as sentence letters of TFL:
 	$$A, B, C, Z, A_1, B_4, A_{25}, J_{375},\ldots$$
 These are sentences of the object language (TFL). They are not sentences of English. So we must not say, for example:
 	\begin{ebullet}
-		\item $D$ is an atomic sentence of TFL.
+		\item $D$ is a sentence letter of TFL.
 	\end{ebullet}
 Obviously, we are trying to come out with an English sentence that says something about the object language (TFL), but `$D$' is a sentence of TFL, and not part of English. So the preceding is gibberish, just like:
 	\begin{ebullet}
@@ -772,7 +771,7 @@ What we surely meant to say, in this case, is:
 	\end{ebullet}
 Equally, what we meant to say above is just:
 	\begin{ebullet}
-		\item `$D$' is an atomic sentence of TFL.
+		\item `$D$' is a sentence letter of TFL.
 	\end{ebullet}
 The general point is that, whenever we want to talk in English about some specific expression of TFL, we need to indicate that we are \emph{mentioning} the expression, rather than \emph{using} it. We can either deploy quotation marks, or we can adopt some similar convention, such as  placing it centrally in the page. 
 
@@ -790,12 +789,12 @@ This talks about \emph{arbitrary} sentences. If we had instead offered:
 	\end{ebullet}
 this would not have allowed us to determine whether `$\enot B$' is a sentence. To emphasize, then:
 	\factoidbox{
-	  `$\meta{A}$' is a symbol (called a \define{metavariable}) in augmented English, which we use to talk about any TFL expression. 	`$A$' is a particular atomic sentence of TFL.}
+	  `$\meta{A}$' is a symbol (called a \define{metavariable}) in augmented English, which we use to talk about any TFL expression. 	`$A$' is a particular sentence letter of TFL.}
 
         \newglossaryentry{metavariables}
 {
 name=metavariables,
-description={A variable in the metalanguage that can represent any sentence in the object language.}
+description={A variable in the metalanguage that can represent any sentence in the object language}
 }
 But this last example raises a further complication for our quotation conventions. We have not included any quotation marks in the second clause of our recursive definition. Should we have done so?
 

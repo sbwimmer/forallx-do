@@ -325,7 +325,7 @@ But suppose we now tried to continue the proof as follows:
 	\have{con}{B \eif B}\ci{b1-b2}
 	\have{b}{B}\by{naughty attempt to invoke $\eif$E}{con, b2}
 \end{proof}
-If we were allowed to do this, it would be a disaster. It would allow us to prove any atomic sentence letter from any other atomic sentence letter. However, if you tell me that Anne is fast (symbolized by `$A$'), we shouldn't be able to conclude that Queen Boudica stood twenty-feet tall (symbolized by `$B$')! We must be prohibited from doing this, but how are we to implement the prohibition?
+If we were allowed to do this, it would be a disaster. It would allow us to prove any sentence letter from any other sentence letter. However, if you tell me that Anne is fast (symbolized by `$A$'), we shouldn't be able to conclude that Queen Boudica stood twenty-feet tall (symbolized by `$B$')! We must be prohibited from doing this, but how are we to implement the prohibition?
 
 We can describe the process of making an additional assumption as one of performing a \emph{subproof}: a subsidiary proof within the main proof. When we start a subproof, we draw another vertical line to indicate that we are no longer in the main proof. Then we write in the assumption upon which the subproof will be based. A subproof can be thought of as essentially posing this question: \emph{what could we show, if we also make this additional assumption?}
 
@@ -559,7 +559,7 @@ Note that \meta{A} can be \emph{any} sentence whatsoever.
 
 The explosion rule is a bit odd. It looks like \meta{A} arrives in our proof like a bunny out of a hat. When trying to find proofs, it is very tempting to try to use it everywhere, since it seems so powerful. Resist this temptation: you can only apply it when you already have~$\ered$!  And you get $\ered$ only when your assumptions are contradictory.
 
-Still, isn't it odd that from a contradiction anything whatsoever should follow? Not according to our notion of entailment and validity. For \meta{A} entails \meta{B} iff there is no valuation of the atomic sentences which makes \meta{A} true and \meta{B} false at the same time. Now $\ered$ is a contradiction---it is never true, whatever the valuation of the atomic sentences. Since there is no valuation which makes $\ered$ true, there of course is also no valuation that makes $\ered$ true and \meta{B} false! So according to our definition of entailment, $\ered \entails \meta{B}$, whatever \meta{B} is. A contradiction entails anything.\footnote{There are some logicians who don't buy this. They think that if \meta{A} entails \meta{B}, there must be some \emph{relevant connection} between \meta{A} and \meta{B}---and there isn't one between $\ered$ and some arbitrary sentence~\meta{B}. So these logicians develop other, ``relevant'' logics in which you aren't allowed the explosion rule.}
+Still, isn't it odd that from a contradiction anything whatsoever should follow? Not according to our notion of entailment and validity. For \meta{A} entails \meta{B} iff there is no valuation of the sentence letters which makes \meta{A} true and \meta{B} false at the same time. Now $\ered$ is a contradiction---it is never true, whatever the valuation of the sentence letters. Since there is no valuation which makes $\ered$ true, there of course is also no valuation that makes $\ered$ true and \meta{B} false! So according to our definition of entailment, $\ered \entails \meta{B}$, whatever \meta{B} is. A contradiction entails anything.\footnote{There are some logicians who don't buy this. They think that if \meta{A} entails \meta{B}, there must be some \emph{relevant connection} between \meta{A} and \meta{B}---and there isn't one between $\ered$ and some arbitrary sentence~\meta{B}. So these logicians develop other, ``relevant'' logics in which you aren't allowed the explosion rule.}
 
 \emph{These are all of the basic rules for the proof system for TFL.}
 
@@ -1218,9 +1218,9 @@ Contingent sentence	&	A sentence whose truth table contains both Ts and Fs under
 
 Equivalent sentences &	The columns under the main connectives are identical.& The sentences can be derived from each other	\\ \hline
 
-Inconsistent sentences	&	Sentences which do not have a single line in their truth table where they are all true.	& Sentences  from which one can derive a contradiction \\ \hline
+Unsatisfiable/ inconsistent sentences	&	Sentences which do not have a single line in their truth table where they are all true.	& Sentences  from which one can derive a contradiction \\ \hline
 
-Consistent sentences	&	Sentences which have at least one line in their truth table where they are all true. & Sentences which are not inconsistent	\\ \hline
+Satisfiable/ Consistent sentences	&	Sentences which have at least one line in their truth table where they are all true. & Sentences from which one cannot derive a contradiction	\\ \hline
 
 Valid argument		&	An argument whose truth table has no lines where there are all Ts under main connectives for the premises and an F under the main connective for the conclusion.  & An argument where one can derive the conclusion from the premises	\\ 
 \end{tabu}
@@ -1266,7 +1266,7 @@ Table \ref{table.ProofOrModel} summarizes when it is best to give proofs and whe
 \tabulinesep=1ex
 \begin{tabu}{X[.7,c,m] ||X[1,l,m] |X[1,l,m]}
 \textbf{Logical property} 	&	\textbf{To prove it present} 	&	\textbf{To prove it absent} \\ \hline \hline
-Being a tautology 		& Derive the sentence  						& Find the false line in the truth table for the sentence \\ \hline
+Being a theorem 		& Derive the sentence  						& Find the false line in the truth table for the sentence \\ \hline
 Being a contradiction 	&  Derive the negation of the sentence  		 & Find the true line in the truth table for the sentence\\ \hline
 Contingency 			& Find a false line and a true line in the truth table for the sentence & Prove the sentence or its negation\\ \hline
 Equivalence 			& Derive each sentence from the other 		 & Find a line in the truth tables for the sentence where they have different values\\ \hline
@@ -1282,16 +1282,16 @@ Validity 				& Derive the conclusion from the premises & Find no line in the tru
 \practiceproblems
 \noindent\problempart Use either a derivation or a truth table for each of the following. 
 \begin{enumerate}%[label=(\arabic*)]
-\item Show that $A \eif [((B \eand C) \eor D) \eif A]$ is a tautology.
-\item Show that $A \eif (A \eif B)$ is not a tautology
+\item Show that $A \eif [((B \eand C) \eor D) \eif A]$ is a theorem.
+\item Show that $A \eif (A \eif B)$ is not a theorem.
 \item Show that the sentence $A \eif \enot{A}$ is not a contradiction.
 \item Show that the sentence $A \eiff \enot A$ is a contradiction. 
-\item Show that the sentence $ \enot (W \eif (J \eor J)) $ is contingent
-\item Show that the sentence $ \enot(X \eor (Y \eor Z)) \eor (X \eor (Y \eor Z))$ is not contingent
- \item Show that the sentence $B \eif \enot S$ is equivalent to the sentence $\enot \enot B \eif \enot S$
-\item Show that the sentence $ \enot (X \eor O) $ is not equivalent to the sentence $X \eand O$
+\item Show that the sentence $ \enot (W \eif (J \eor J)) $ is contingent.
+\item Show that the sentence $ \enot(X \eor (Y \eor Z)) \eor (X \eor (Y \eor Z))$ is not contingent.
+ \item Show that the sentence $B \eif \enot S$ is equivalent to the sentence $\enot \enot B \eif \enot S$.
+\item Show that the sentence $ \enot (X \eor O) $ is not equivalent to the sentence $X \eand O$.
 \item Show that the sentences $\enot(A \eor B)$, $C$, $C \eif A$  are jointly inconsistent.
-\item Show that the sentences $\enot(A \eor B)$, $\enot{B}$, $B \eif A$ are jointly consistent
+\item Show that the sentences $\enot(A \eor B)$, $\enot{B}$, $B \eif A$ are jointly consistent.
 \item Show that $\enot(A \eor (B \eor C)) $ \therefore $ \enot{C}$ is valid.
 \item Show that $\enot(A \eand (B \eor C))$ \therefore $ \enot{C}$ is invalid. 
 \end{enumerate}
@@ -1299,16 +1299,16 @@ Validity 				& Derive the conclusion from the premises & Find no line in the tru
 
 \noindent\problempart Use either a derivation or a truth table for each of the following. 
 \begin{enumerate}%[label=(\arabic*)]
-\item Show that $A \eif (B \eif A)$ is a tautology
-\item Show that $\enot (((N \eiff Q) \eor Q) \eor N)$ is not a tautology
-\item Show that $ Z \eor (\enot Z \eiff Z) $ is contingent
-\item show that $ (L \eiff ((N \eif N) \eif L)) \eor H $ is not contingent
-\item Show that $ (A \eiff A) \eand (B \eand \enot B)$ is a contradiction
+\item Show that $A \eif (B \eif A)$ is a theoremy.
+\item Show that $\enot (((N \eiff Q) \eor Q) \eor N)$ is not a theorem.
+\item Show that $ Z \eor (\enot Z \eiff Z) $ is contingent.
+\item show that $ (L \eiff ((N \eif N) \eif L)) \eor H $ is not contingent.
+\item Show that $ (A \eiff A) \eand (B \eand \enot B)$ is a contradiction.
 \item Show that $ (B \eiff (C \eor B)) $ is not a contradiction.
-\item Show that $ ((\enot X \eiff X) \eor X) $ is equivalent to $X$
-\item Show that $F \eand (K \eand R) $ is not equivalent to $ (F \eiff (K \eiff R)) $
-\item Show that the sentences $ \enot (W \eif W)$, $(W \eiff W) \eand W$, $E \eor (W \eif \enot (E \eand W))$ are inconsistent.
-\item Show that the sentences  $\enot R \eor C $, $(C \eand R) \eif \enot R$, $(\enot (R \eor R) \eif R) $ are consistent.
+\item Show that $ ((\enot X \eiff X) \eor X) $ is equivalent to $X$.
+\item Show that $F \eand (K \eand R) $ is not equivalent to $ (F \eiff (K \eiff R)) $.
+\item Show that the sentences $ \enot (W \eif W)$, $(W \eiff W) \eand W$, $E \eor (W \eif \enot (E \eand W))$ are jointly inconsistent.
+\item Show that the sentences  $\enot R \eor C $, $(C \eand R) \eif \enot R$, $(\enot (R \eor R) \eif R) $ are jointly consistent.
 \item Show that $\enot \enot (C \eiff \enot C), ((G \eor C) \eor G) \therefore ((G \eif C) \eand G) $ is valid.
 \item Show that $ \enot \enot L,  (C \eif \enot L) \eif C) \therefore \enot C$ is invalid. 
 \end{enumerate}

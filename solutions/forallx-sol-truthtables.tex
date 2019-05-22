@@ -457,10 +457,10 @@ Revisit your answers to \S10\textbf{A}. Determine which sentences were tautologi
 \
 
 \problempart
-\label{pr.TT.consistent}
-Use truth tables to determine whether these sentences are jointly consistent, or jointly inconsistent:
+\label{pr.TT.satisfiable}
+Use truth tables to determine whether these sentences are jointly satisfiable, or jointly unsatisfiable:
 \begin{earg}
-\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ \hfill \myanswer{Jointly consistent (see line 1)}
+\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ \hfill \myanswer{Jointly satisfiable (see line 1)}
 \myanswer{\begin{center}
 \begin{tabular}{c | d e f | d e e e f | d e f | d e f}
 $A$ &  $A$&$\eif$&$A$&$\enot$&$A$&$\eif$&$\enot$&$A$&$A$&$\eand$&$A$&$A$&$\eor$&$A$\\
@@ -469,7 +469,7 @@ T & T & \TTbf{T} & T& F & T & \TTbf{T} & F & T & T & \TTbf{T} & T & T & \TTbf{T}
 F & F & \TTbf{T} & F& T & F & \TTbf{T} & T & F & F & \TTbf{F} & F & F & \TTbf{F} & F
 \end{tabular}
 \end{center}}
-\item $A\eor B$, $A\eif C$, $B\eif C$ \hfill \myanswer{Jointly consistent (see line 1)}
+\item $A\eor B$, $A\eif C$, $B\eif C$ \hfill \myanswer{Jointly satisfiable (see line 1)}
 \myanswer{\begin{center}
 \begin{tabular}{c c c | d e f | d e f | d e f}
 $A$ & $B$ & $C$ & $A$&$\eor$&$B$&$A$&$\eif$&$C$&$B$&$\eif$&$C$\\
@@ -484,7 +484,7 @@ F & F & T & F & \TTbf{F} & F & F & \TTbf{T} & T & F & \TTbf{T} & T\\
 F & F & F & F & \TTbf{F} & F & F & \TTbf{T} & F & F & \TTbf{T} & F\\
 \end{tabular}
 \end{center}}
-\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$ \hfill \myanswer{Jointly inconsistent}
+\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$ \hfill \myanswer{Jointly unsatisfiable}
 \myanswer{\begin{center}
 \begin{tabular}{c c c | d e e e f | d e f | d e e f}
 $A$ & $B$ & $C$ & $B$&$\eand$&$(C$&$\eor$&$A)$&$A$&$\eif$&$B$&$\enot$&$(B$&$\eor$&$C)$\\
@@ -499,7 +499,7 @@ F & F & T & F & \TTbf{F} & T & T & F & F & \TTbf{T} & F & \TTbf{F} & F & T & T\\
 F & F & F & F & \TTbf{F} & F & F & F & F & \TTbf{T} & F & \TTbf{T} & F & F & F\\
 \end{tabular}
 \end{center}}
-\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$  \hfill \myanswer{Jointly consistent (see line 8)}
+\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$  \hfill \myanswer{Jointly satisfiable (see line 8)}
 \myanswer{\begin{center}
 \begin{tabular}{c c c | d e e e f | d e e f | d e e f}
 $A$ & $B$ & $C$ & $A$&$\eiff$&$(B$&$\eor$&$C)$&$C$&$\eif$&$\enot$&$A$&$A$&$\eif$&$\enot$&$B$\\
@@ -627,8 +627,8 @@ Determine whether each the following sentences are logically equivalent using co
 \end{earg}
 
 \problempart
-\label{pr.TT.consistent2}
-Determine whether each collection of sentences is jointly consistent or jointly inconsistent using a complete truth table. 
+\label{pr.TT.satisfiable2}
+Determine whether each collection of sentences is jointly satisfiable or jointly unsatisfiable using a complete truth table. 
 
 \begin{earg}
 
@@ -649,12 +649,12 @@ Determine whether each collection of sentences is jointly consistent or jointly 
 \end{center}
 }
 
-\item $A \eor B$, $A \eif \enot A$, $B \eif \enot B$ %inconsistent. 
+\item $A \eor B$, $A \eif \enot A$, $B \eif \enot B$ %unsatisfiable. 
 
 \myanswer{
 \begin{center}
 \begin{tabular}{ccccccccccccccc} 
-  & A	 & \eor 	 & B 	 & 	 	 & A 	 & \eif 	 & 	\enot & A 	 & 	 	 & B 	 & \eif 	 & \enot	 & 	B 	 & 	Inconsistent \\ 
+  & A	 & \eor 	 & B 	 & 	 	 & A 	 & \eif 	 & 	\enot & A 	 & 	 	 & B 	 & \eif 	 & \enot	 & 	B 	 & 	Insatisfiable \\ 
 \cline{2-4}\cline{6- 9} \cline{11-14}
    &	 T	 & 	 T	 &T  	 & 	 	 & T	 & 	 F	 & 	F 	 & T 	 & 	 	 & 	T 	 & 	F 	 & 	 F	 & 	T 	 & 	 \\ 
    &	 T	& 	 T	 & F 	 & 	 	 & 	T 	 & 	 F	 & 	 F	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	 F	 & 	 \\ 
@@ -687,19 +687,19 @@ Determine whether each collection of sentences is jointly consistent or jointly 
 
 
 
-\item $A \eif B$, $A \eand \enot B$ \hfill \myanswer{Inconsistent}
+\item $A \eif B$, $A \eand \enot B$ \hfill \myanswer{Insatisfiable}
 
 \item $A \eif (B \eif C)$, $(A \eif B) \eif C$, $A \eif C$ \hfill \myanswer{ Consistent} 
 
 \end{earg}
 
 \noindent\problempart
-\label{pr.TT.consistent3}
-Determine whether each collection of sentences is jointly consistent or jointly inconsistent, using a complete truth table. 
+\label{pr.TT.satisfiable3}
+Determine whether each collection of sentences is jointly satisfiable or jointly unsatisfiable, using a complete truth table. 
 \begin{earg}
-\item $\enot B$, $A \eif B$, $A$ \vspace{.5ex} \hfill \myanswer{Inconsistent}
+\item $\enot B$, $A \eif B$, $A$ \vspace{.5ex} \hfill \myanswer{Insatisfiable}
 \item $\enot(A \eor B)$, $A \eiff B$, $B \eif A$\vspace{.5ex} \hfill \myanswer{Consistent}
-\item $A \eor B$, $\enot B$, $\enot B \eif \enot A$\vspace{.5ex} \hfill \myanswer{Inconsistent}
+\item $A \eor B$, $\enot B$, $\enot B \eif \enot A$\vspace{.5ex} \hfill \myanswer{Insatisfiable}
 \item $A \eiff B$, $\enot B \eor \enot A$, $A \eif B$\vspace{.5ex} \hfill \myanswer{Consistent} 
 \item $(A \eor B) \eor C$, $\enot A \eor \enot B$, $\enot C \eor \enot B$\vspace{.5ex} \hfill \myanswer{Consistent}
 \end{earg}
@@ -737,8 +737,8 @@ Answer each of the questions below and justify your answer.
 \item[] \myanswer{\meta{A} and \meta{B} have the same truth value on every line of a complete truth table, so $\meta{A}\eiff\meta{B}$ is true on every line. It is a tautology.}
 \item Suppose that $(\meta{A}\eand\meta{B})\eif\meta{C}$ is neither a tautology nor a contradiction. What can you say about whether $\meta{A}, \meta{B} \therefore\meta{C}$ is valid?
 \item[] \myanswer{Since the sentence $(\meta{A}\eand\meta{B})\eif\meta{C}$ is not a tautology, there is some line on which it is false. Since it is a conditional, on that line, \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is invalid.}
-\item Suppose that $\meta{A}$, $\meta{B}$ and $\meta{C}$  are jointly inconsistent. What can you say about $(\meta{A}\eand\meta{B}\eand\meta{C})$?
-\item[] \myanswer{Since the sentences are jointly inconsistent, there is no valuation on which they are all true. So their conjunction is false on every valuation. It is a contradiction}
+\item Suppose that $\meta{A}$, $\meta{B}$ and $\meta{C}$  are jointly unsatisfiable. What can you say about $(\meta{A}\eand\meta{B}\eand\meta{C})$?
+\item[] \myanswer{Since the sentences are jointly unsatisfiable, there is no valuation on which they are all true. So their conjunction is false on every valuation. It is a contradiction}
 \item Suppose that \meta{A} is a contradiction. What can you say about whether $\meta{A}, \meta{B} \entails \meta{C}$?
 \item[] \myanswer{Since \meta{A} is false on every line of a complete truth table, there is no line on which \meta{A} and \meta{B} are true and \meta{C} is false. So the entailment holds.}
 \item Suppose that \meta{C} is a tautology. What can you say about whether $\meta{A}, \meta{B}\entails \meta{C}$?
@@ -982,11 +982,11 @@ F & F &T& T & & \TTbf{T} & T
 
 \solutions
 \problempart
-\label{pr.TT.consistent4}
-Use complete or partial truth tables (as appropriate) to determine whether these sentences are jointly consistent, or jointly inconsistent:
+\label{pr.TT.satisfiable4}
+Use complete or partial truth tables (as appropriate) to determine whether these sentences are jointly satisfiable, or jointly unsatisfiable:
 \begin{earg}
-\item $A \eand B$, $C\eif \enot B$, $C$ %inconsistent
-\myanswer{\hfill Jointly inconsistent
+\item $A \eand B$, $C\eif \enot B$, $C$ %unsatisfiable
+\myanswer{\hfill Jointly unsatisfiable
 \begin{center}
 \begin{tabular}{c c c | c | d e f | c c c c  }
 $A$ & $B$ & $C$ & $A \eand B$ & $C$&$\eif$&$\enot B$&$C$\\
@@ -1001,8 +1001,8 @@ F & F & T & F & & \TTbf{T} & T& T \\
 F & F & F & F & & \TTbf{T} & &  F \\ 
 \end{tabular}
 \end{center}}
-\item $A\eif B$, $B\eif C$, $A$, $\enot C$ %inconsistent
-\myanswer{\hfill Jointly inconsistent
+\item $A\eif B$, $B\eif C$, $A$, $\enot C$ %unsatisfiable
+\myanswer{\hfill Jointly unsatisfiable
 \begin{center}
 \begin{tabular}{c c c | c | c | c | c }
 $A$ & $B$ & $C$ & $A \eif B$ & $B \eif C$ & $A$ & $\enot C$\\
@@ -1017,8 +1017,8 @@ F & F & T & T & T & F & F\\
 F & F & F & T & T & F & T
 \end{tabular}
 \end{center}}
-\item $A \eor B$, $B\eor C$, $C\eif \enot A$ %consistent
-\myanswer{\hfill Jointly consistent
+\item $A \eor B$, $B\eor C$, $C\eif \enot A$ %satisfiable
+\myanswer{\hfill Jointly satisfiable
 \begin{center}
 \begin{tabular}{c c c | c | c | d e f }
 $A$ & $B$ & $C$ & $A \eor B$ & $B \eor C$ & $C$&$\eif$& $\enot A$\\
@@ -1026,8 +1026,8 @@ $A$ & $B$ & $C$ & $A \eor B$ & $B \eor C$ & $C$&$\eif$& $\enot A$\\
 F & T & T & T & T & & \TTbf{T} & T\\
 \end{tabular}
 \end{center}}
-\item $A$, $B$, $C$, $\enot D$, $\enot E$, $F$ %consistent
-\myanswer{\hfill Jointly consistent
+\item $A$, $B$, $C$, $\enot D$, $\enot E$, $F$ %satisfiable
+\myanswer{\hfill Jointly satisfiable
 \begin{center}
 \begin{tabular}{c c c c c c| c | c | c | c |c | c }
 $A$ & $B$ & $C$ & $D$ & $E$ & $F$ & $A$ & $B$ & $C$ & $\enot D$ & $\enot E$ & $F$\\
@@ -1294,14 +1294,14 @@ Determine whether each the following pairs of sentences are logically equivalent
 
 
 \noindent\problempart
-\label{pr.TT.consistent5}
-Determine whether each collection of sentences is jointly consistent or jointly inconsistent. Justify your answer with a complete or partial truth table where appropriate.
+\label{pr.TT.satisfiable5}
+Determine whether each collection of sentences is jointly satisfiable or jointly unsatisfiable. Justify your answer with a complete or partial truth table where appropriate.
 \begin{earg}
 \item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ \vspace{.5ex} \hfill \myanswer{Consistent}
-\item $A \eif \enot A$, $\enot A \eif A$\vspace{.5ex} \hfill \myanswer{Inconsistent }
+\item $A \eif \enot A$, $\enot A \eif A$\vspace{.5ex} \hfill \myanswer{Insatisfiable }
 \item $A\eor B$, $A\eif C$, $B\eif C$\vspace{.5ex} \hfill \myanswer{Consistent}
-\item $A \eor B$, $A \eif C$, $B \eif C$, $\enot C$\vspace{.5ex} \hfill \myanswer{	Inconsistent}
-\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$\vspace{.5ex}  \hfill \myanswer{Inconsistent}
+\item $A \eor B$, $A \eif C$, $B \eif C$, $\enot C$\vspace{.5ex} \hfill \myanswer{	Insatisfiable}
+\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$\vspace{.5ex}  \hfill \myanswer{Insatisfiable}
 \item $(A \eiff B) \eif B$,  $B \eif \enot (A \eiff B)$, $A \eor B$ \vspace{.5ex} \hfill \myanswer{Consistent}
 \item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$\vspace{.5ex} \hfill \myanswer{Consistent}
 \item  $A \eiff B$,  $\enot B \eor \enot A$,  $A \eif  B$ \vspace{.5ex} \hfill \myanswer{ Consistent}

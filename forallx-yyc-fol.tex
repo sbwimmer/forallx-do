@@ -22,7 +22,7 @@ This is \emph{invalid} in TFL, but the original English argument is clearly vali
 
 The problem is not that we have made a mistake while symbolizing the argument. This is the best symbolization we can give \emph{in TFL}. The problem lies with TFL itself. `All logicians wear funny hats' is about both logicians and hat-wearing. By not retaining this structure in our symbolization, we lose the connection between Willard's being a logician and Willard's wearing a hat.
 
-The basic units of TFL are atomic sentences, and TFL cannot decompose these. To symbolize arguments like the preceding one, we will have to develop a new logical language which will allow us to \emph{split the atom}. We will call this language \emph{first-order logic}, or \emph{FOL}. 
+The basic units of TFL are sentence letters, and TFL cannot decompose these. To symbolize arguments like the preceding one, we will have to develop a new logical language which will allow us to \emph{split the atom}. We will call this language \emph{first-order logic}, or \emph{FOL}. 
 
 The details of FOL will be explained throughout this chapter, but here is the basic idea for splitting the atom.
 
@@ -46,7 +46,7 @@ These should be thought of along the lines of proper names in English, but with 
 
 \newglossaryentry{name}{
   name = name,
-  description = {a symbol of FOL used to pick out an object of the \gls{domain}}
+  description = {A symbol of FOL used to pick out an object of the \gls{domain}}
   }
 
 As with TFL, we can provide symbolization keys. These indicate, temporarily, what a name will pick out. So we might offer:
@@ -82,7 +82,7 @@ In FOL, \define{predicates} are capital letters $A$ through $Z$, with or without
 
 \newglossaryentry{predicate}{
   name = predicate,
-  description = {a symbol of FOL used to symbolize a property or relation}
+  description = {A symbol of FOL used to symbolize a property or relation}
 }
 
 If we combine our two symbolization keys, we can start to symbolize some English sentences that use these names and predicates in combination. For example, consider the English sentences:
@@ -108,14 +108,14 @@ It might be tempting to symbolize sentence \ref{q.a} as `$\atom{H}{e} \eand \ato
 
 \newglossaryentry{universal quantifier}{
   name = universal quantifier,
-  description = {the symbol $\forall$ of FOL used to symbolize generality; $\forall x\, \atom{F}{x}$ is true iff every member of the domain is~$F$}
+  description = {The symbol $\forall$ of FOL used to symbolize generality; $\forall x\, \atom{F}{x}$ is true iff every member of the domain is~$F$}
 }
 
 A quantifier must always be followed by a \define{variable}. In FOL, variables are italic lowercase letters `$s$' through `$z$', with or without subscripts. So we might symbolize sentence \ref{q.a} as `$\forall x\, \atom{H}{x}$'.  The variable `$x$' is serving as a kind of placeholder. The expression `$\forall x$' intuitively means that you can pick anyone and put them in as `$x$'. The subsequent `$\atom{H}{x}$' indicates, of that thing you picked out, that it is happy. 
 
 \newglossaryentry{variable}{
   name = variable,
-  description = {a symbol of FOL used following quantifiers and as placeholders in atomic formulas; lowercase letters between $s$ and~$z$}
+  description = {A symbol of FOL used following quantifiers and as placeholders in atomic formulas; lowercase letters between $s$ and~$z$}
 }
 
 
@@ -125,7 +125,7 @@ To symbolize sentence \ref{q.e}, we introduce another new symbol: the \define{ex
 
 \newglossaryentry{existential quantifier}{
   name = existential quantifier,
-  description = {the symbol $\exists$ of FOL used to symbolize existence; $\exists x\, \atom{F}{x}$ is true iff at least one member of the domain is~$F$}
+  description = {The symbol $\exists$ of FOL used to symbolize existence; $\exists x\, \atom{F}{x}$ is true iff at least one member of the domain is~$F$}
 }
 
 Some more examples will help. Consider these further sentences:
@@ -150,7 +150,7 @@ The quantifiers \emph{range over} the domain. Given this domain, `$\forall x$' i
 
 \newglossaryentry{domain}{
   name = domain,
-  description = {the collection of objects assumed for a symbolization in FOL, or that gives the range of the quantifiers in an \gls{interpretation}}
+  description = {The collection of objects assumed for a symbolization in FOL, or that gives the range of the quantifiers in an \gls{interpretation}}
 }
 
 In FOL, the domain must always include at least one thing. Moreover, in English we can infer `something is angry' from `Gregor is angry'. In FOL, then, we will want to be able to infer `$\exists x\,\atom{A}{x}$' from `$\atom{A}{g}$'. So we will insist that each name must pick out exactly one thing in the domain. If we want to name people in places beside Chicago, then we need to include those people in the domain. 
@@ -263,7 +263,7 @@ In \S\ref{s:FOLBuildingBlocks}, we emphasized that a name must pick out exactly 
 
 \newglossaryentry{empty predicate}{
   name = {empty predicate},
-  description = {a \gls{predicate} that applies to no object in the \gls{domain}}
+  description = {A \gls{predicate} that applies to no object in the \gls{domain}}
 }
 
 Suppose we want to symbolize these two sentences:
@@ -1313,24 +1313,25 @@ So, here are some terms:
 Next we need to define atomic formulas.
 	\factoidbox{
 		\begin{enumerate}
-		\item Any atomic sentence is an atomic formula.
+		\item Any sentence letter is an atomic formula.
 		\item If $\meta{R}$ is an $n$-place predicate and $\meta{t}_1, \meta{t}_2, \ldots, \meta{t}_n$ are terms, then $\atom{\meta{R}}{\meta{t}_1, \meta{t}_2, \ldots, \meta{t}_n}$ is an atomic formula.
 		\item If $\meta{t}_1$ and $\meta{t}_2$ are terms, then $\meta{t}_1 = \meta{t}_2$ is an atomic formula.
 		\item Nothing else is an atomic formula.
 		\end{enumerate}
 	}
+Note that we consider sentence letters also formulas of FOL, so every sentence of TFL is also a formula of FOL.
 
 \newglossaryentry{term}{
   name = term,
-  description = {either a \gls{name} or a \gls{variable}}
+  description = {Either a \gls{name} or a \gls{variable}}
 }
 
 \newglossaryentry{formula}{
   name = formula,
-  description = {an expression of FOL built according to the recursive rules in \S\ref{s:TermsFormulas}}
+  description = {An expression of FOL built according to the recursive rules in \S\ref{s:TermsFormulas}}
 }
-        
-        
+
+
 The use of script letters here follows the conventions laid down in \S\ref{s:UseMention}. So, `$\meta{R}$' is not itself a predicate of FOL. Rather, it is a symbol of our metalanguage (augmented English) that we use to talk about any predicate of FOL. Similarly, `$\meta{t}_1$' is not a term of FOL, but a symbol of the metalanguage that we can use to talk about any term of FOL. So, where `$F$' is a one-place predicate, `$G$' is a three-place predicate, and `$S$' is a six-place predicate, here are some atomic formulas:
 	\begin{center}
 		$D$\\
@@ -1391,12 +1392,12 @@ So we can graphically illustrate the scope of the quantifiers in the preceding e
 
 \newglossaryentry{main logical operator}{
   name = main logical operator,
-  description = {the operator used last in the construction of a \gls{formula}}
+  description = {The operator used last in the construction of a \gls{sentence of TFL} or a \gls{formula} of FOL}
 }
 
 \newglossaryentry{scope}{
   name = scope,
-  description = {the subformula of a \gls{formula} of FOL for which the \gls{main logical operator} is the operator}
+  description = {the subformula of a \gls{sentence of TFL} or a \gls{formula} of FOL for which the \gls{main logical operator} is the operator}
 }
 
 
@@ -1422,12 +1423,12 @@ Let's make this idea precise.
 
 \newglossaryentry{bound variable}{
   name = bound variable,
-  description = {an occurrence of a variable in a \gls{formula} which is in the scope of a quantifier followed by the same variable}
+  description = {An occurrence of a variable in a \gls{formula} which is in the scope of a quantifier followed by the same variable}
 }
 
 \newglossaryentry{free variable}{
   name = free variable,
-  description = {an occurrence of a variable in a \gls{formula} which is not a \gls{bound variable}}
+  description = {An occurrence of a variable in a \gls{formula} which is not a \gls{bound variable}}
 }
 
         
@@ -1441,8 +1442,9 @@ Finally we can say the following.
 	}
 
 \newglossaryentry{sentence of FOL}{
-  name = sentence of FOL,
-  description = {a \gls{formula} of FOL which has no \glspl{bound variable}}
+	name = sentence (of FOL),
+	text = sentence of FOL,
+	description = {A \gls{formula} of FOL which has no \glspl{bound variable}}
 }
 
 

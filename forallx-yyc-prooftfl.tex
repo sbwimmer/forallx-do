@@ -5,9 +5,9 @@
 
 \chapter{The very idea of natural deduction}\label{s:NDVeryIdea}
 
-Way back in \S\ref{s:Valid}, we said that an argument is valid iff it is impossible to make all of the premises true and the conclusion false. 
+Way back in \S\ref{s:Valid}, we said that an argument is valid iff there is no case in which all of the premises are true and the conclusion is false. 
 
-In the case of TFL, this led us to develop truth tables. Each line of a complete truth table corresponds to a valuation. So, when faced with a TFL argument, we have a very direct way to assess whether it is possible to make all of the premises true and the conclusion false: just thrash through the truth table.
+In the case of TFL, this led us to develop truth tables. Each line of a complete truth table corresponds to a valuation. So, when faced with a TFL argument, we have a very direct way to assess whether there is a valuation on which the premises are true and the conclusion is false: just thrash through the truth table.
 
 However, truth tables do not necessarily give us much \emph{insight}. Consider two arguments in TFL:
 \begin{align*}
@@ -66,9 +66,9 @@ We will start a proof by writing the premise:
 \begin{proof}
 	\hypo{a1}{\enot (A \eor B)}
 \end{proof}
-Note that we have numbered the premise, since we will want to refer back to it. Indeed, every line on a proof is numbered, so that we can refer back to it. 
+Note that we have numbered the premise, since we will want to refer back to it. Indeed, every line on of proof is numbered, so that we can refer back to it. 
 
-Note also that we have drawn a line underneath the premise. Everything written above the line is an \emph{assumption}. Everything written below the line will either be something which follows from the assumptions, or it will be some new assumption. We are hoping to conclude that `$\enot A \eand \enot B$'; so we are hoping ultimately to conclude our proof with
+Note also that we have drawn a line underneath the premise. Everything written above the line is an \emph{assumption}. Everything written below the line will either be something which follows from the assumptions, or it will be some new assumption. We are hoping to conclude `$\enot A \eand \enot B$'; so we are hoping ultimately to conclude our proof with
 \begin{proof}
 	\have[n]{con}{\enot A \eand \enot B}
 \end{proof}
@@ -88,25 +88,25 @@ and we are hoping to conclude with some line:
 \end{proof}
 All that remains to do is to explain each of the rules that we can use along the way from premises to conclusion. The rules are broken down by our logical connectives.
 
-%\section{Reiteration}
-%The very first rule is so breathtakingly obvious that it is surprising we bother with it at all. 
-%
-%If you already have shown something in the course of a proof, the \emph{reiteration rule} allows you to repeat it on a new line. For example:
-%\begin{proof}
-%	\have[4]{a1}{A \eand B}
-%	\have[$\vdots$]{}{\vdots}
-%	\have[10]{a2}{A \eand B} \by{R}{a1}
-%\end{proof}
-%This indicates that we have written `$A \eand B$' on line 4. Now, at some later line---line 10, for example---we have decided that we want to repeat this. So we write it down again. We also add a citation which justifies what we have written. In this case, we write `R', to indicate that we are using the reiteration rule, and we write `$4$', to indicate that we have applied it to line $4$.
-%
-%Here is a general expression of the rule:
-%\begin{proof}
-%	\have[m]{a}{\meta{A}}
-%	\have[\ ]{c}{\meta{A}} \by{R}{a}
-%\end{proof}
-%The point is that, if any sentence $\meta{A}$ occurs on some line, then we can repeat $\meta{A}$ on later lines. Each line of our proof must be justified by some rule, and here we have `R $m$'. This means: Reiteration, applied to line $m$. 
-%
-%Two things need emphasising. First `$\meta{A}$' is not a sentence of TFL. Rather, it a symbol in the metalanguage, which we use when we want to talk about any sentence of TFL (see \S\ref{s:UseMention}). Second, and similarly, `$m$' is not a numeral that will appear on a proof. Rather, it is a symbol in the metalanguage, which we use when we want to talk about any line number of a proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth. But when we define the rule, we use variables to underscore the point that the rule may be applied at any point.
+\section{Reiteration}
+The very first rule is so breathtakingly obvious that it is surprising we bother with it at all. 
+
+If you already have shown something in the course of a proof, the \emph{reiteration rule} allows you to repeat it on a new line. For example:
+\begin{proof}
+	\have[4]{a1}{A \eand B}
+	\have[$\vdots$]{}{\vdots}
+	\have[10]{a2}{A \eand B} \by{R}{a1}
+\end{proof}
+This indicates that we have written `$A \eand B$' on line~$4$. Now, at some later line---line~$10$, for example---we have decided that we want to repeat this. So we write it down again. We also add a citation which justifies what we have written. In this case, we write `R', to indicate that we are using the reiteration rule, and we write `$4$', to indicate that we have applied it to line $4$.
+
+Here is a general expression of the rule:
+\begin{proof}
+	\have[m]{a}{\meta{A}}
+	\have[\ ]{c}{\meta{A}} \by{R}{a}
+\end{proof}
+The point is that, if any sentence $\meta{A}$ occurs on some line, then we can repeat $\meta{A}$ on later lines. Each line of our proof must be justified by some rule, and here we have `R $m$'. This means: Reiteration, applied to line~$m$. 
+
+Two things need emphasizing. First `$\meta{A}$' is not a sentence of TFL. Rather, it a symbol in the metalanguage, which we use when we want to talk about any sentence of TFL (see \S\ref{s:UseMention}). Second, and similarly, `$m$' is not a symbol that will appear on a proof. Rather, it is a symbol in the metalanguage, which we use when we want to talk about any line number of a proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth. But when we define the rule, we use variables like `$m$' to underscore the point that the rule may be applied at any point.
 
 \section{Conjunction}
 Suppose we want to show that Ludwig is both reactionary and libertarian. One obvious way to do this would be as follows: first we show that Ludwig is reactionary; then we show that Ludwig is libertarian; then we put these two demonstrations together, to obtain the conjunction.
@@ -149,7 +149,7 @@ and equally:
 	\have[m]{ab}{\meta{A}\eand\meta{B}}
 	\have[\ ]{b}{\meta{B}} \ae{ab}
 \end{proof}}
-The point is simply that, when you have a conjunction on some line of a proof, you can obtain either of the conjuncts by {\eand}E. (But one point is worth emphasising: you can only apply this rule when conjunction is the main logical operator. So you cannot infer `$D$' just from `$C \eor (D \eand E)$'!)
+The point is simply that, when you have a conjunction on some line of a proof, you can obtain either of the conjuncts by {\eand}E. One point is worth emphasising: you can only apply this rule when conjunction is the main logical operator. So you cannot infer `$D$' just from `$C \eor (D \eand E)$'!
 
 Even with just these two rules, we can start to see some of the power of our formal proof system. Consider:
 \begin{earg}
@@ -178,7 +178,7 @@ This is a very simple proof, but it shows how we can chain rules of proof togeth
 
 It is worth giving another example. Back in \S\ref{s:MoreBracketingConventions}, we noted that this argument is valid:
 	$$A \eand (B \eand C) \therefore (A \eand B) \eand C$$
-To provide a proof corresponding with this argument, we start by writing:
+To provide a proof corresponding to this argument, we start by writing:
 \begin{proof}
 	\hypo{ab}{A \eand (B \eand C)}
 \end{proof}
@@ -202,19 +202,20 @@ But now we can merrily reintroduce conjunctions in the order we wanted them, so 
 \end{proof}
 Recall that our official definition of sentences in TFL only allowed conjunctions with two conjuncts. The proof just given suggests that we could drop inner brackets in all of our proofs. However, this is not standard, and we will not do this. Instead, we will maintain our more austere bracketing conventions. (Though we will still allow ourselves to drop outermost brackets, for legibility.)
 
-Let me offer one final illustration. When using the $\eand$I rule, there is no need to apply it to different sentences. So, if we want, we can formally prove `$A$' from `$A$' thus:
+Let's give one final illustration. When using the $\eand$I rule, there is no requirement to apply it to different sentences. So, if we want, we can formally prove `$A \eand A$' from `$A$' thus:
 \begin{proof}
 	\hypo{a}{A}
 	\have{aa}{A \eand A}\ai{a, a}
-	\have{a2}{A}\ae{aa}
 \end{proof}
 Simple, but effective.
 
 \section{Conditional}
 Consider the following argument:
-	\begin{quote}
-		If Jane is smart then she is fast. Jane is smart. \therefore Jane is fast.
-	\end{quote}
+\begin{earg}
+		\item[] If Jane is smart then she is fast.
+		\item[] Jane is smart.
+		\item[\therefore] Jane is fast.
+\end{earg}
 This argument is certainly valid, and it suggests a straightforward conditional elimination rule ($\eif$E):
 \factoidbox{
 \begin{proof}
@@ -222,7 +223,7 @@ This argument is certainly valid, and it suggests a straightforward conditional 
 	\have[n]{a}{\meta{A}}
 	\have[\ ]{b}{\meta{B}} \ce{ab,a}
 \end{proof}}
-This rule is also sometimes called \emph{modus ponens}. Again, this is an elimination rule, because it allows us to obtain a sentence that may not contain `$\eif$', having started with a sentence that did contain `$\eif$'. Note that the conditional and the antecedent can be separated from one another, and they can appear in any order. However, in the citation for $\eif$E, we always cite the conditional first, followed by the antecedent.
+This rule is also sometimes called \emph{modus ponens}. Again, this is an elimination rule, because it allows us to obtain a sentence that may not contain `$\eif$', having started with a sentence that did contain `$\eif$'. Note that the conditional $\meta{A}\eif\meta{B}$ and the antecedent~$\meta{A}$ can be separated from one another in the proof, and they can appear in any order. However, in the citation for $\eif$E, we always cite the conditional first, followed by the antecedent.
 
 The rule for conditional introduction is also quite easy to motivate. The following argument should be valid:
 	\begin{quote}
@@ -242,7 +243,7 @@ The next thing we did is to make an \emph{additional} assumption (`Ludwig is lib
 		\open
 			\hypo{l}{L}
 	\end{proof}
-Note that we are \emph{not} claiming, on line 2, to have proved `$L$' from line 1, so we do not need to write in any justification for the additional assumption on line 2. We do, however, need to mark that it is an additional assumption. We do this by drawing a line under it (to indicate that it is an assumption) and by indenting it with a further vertical line (to indicate that it is additional). 
+Note that we are \emph{not} claiming, on line 2, to have proved `$L$' from line 1, so we do not write in any justification for the additional assumption on line 2. We do, however, need to mark that it is an additional assumption. We do this by drawing a line under it (to indicate that it is an assumption) and by indenting it with a further vertical line (to indicate that it is additional). 
 
 With this extra assumption in place, we are in a position to use $\eand$I. So we can continue our proof:
 	\begin{proof}
@@ -262,9 +263,9 @@ So we have now shown that, on the additional assumption, `$L$', we can obtain `$
 			\close
 		\have{con}{L \eif (R \eand L)}\ci{l-rl}
 	\end{proof}
-Observe that we have dropped back to using one vertical line.  We have \emph{discharged} the additional assumption, `$L$', since the conditional itself follows just from our original assumption, `$R$'.
+Observe that we have dropped back to using one vertical line on the left.  We have \emph{discharged} the additional assumption, `$L$', since the conditional itself follows just from our original assumption, `$R$'.
 
-The general pattern at work here is the following. We first make an additional assumption, A; and from that additional assumption, we prove B. In that case, we know the following: If A, then B. This is wrapped up in the rule for conditional introduction:
+The general pattern at work here is the following. We first make an additional assumption, $\meta{A}$; and from that additional assumption, we prove~$\meta{B}$. In that case, we know the following: If~$\meta{A}$ is true, then~$\meta{B}$ is true. This is wrapped up in the rule for conditional introduction:
 \factoidbox{
 	\begin{proof}
 		\open
@@ -307,8 +308,7 @@ Consider this proof:
 	\hypo{a}{A}
 	\open
 		\hypo{b1}{B}
-		\have{bb}{B \eand B}\ai{b1, b1}
-		\have{b2}{B} \ae{bb}
+		\have{b2}{B} \by{R}{b1}
 	\close
 	\have{con}{B \eif B}\ci{b1-b2}
 \end{proof}
@@ -319,19 +319,23 @@ But suppose we now tried to continue the proof as follows:
 	\hypo{a}{A}
 	\open
 		\hypo{b1}{B}
-		\have{bb}{B \eand B}\ai{b1, b1}
-		\have{b2}{B} \ae{bb}
+		\have{b2}{B} \by{R}{b1}
 	\close
 	\have{con}{B \eif B}\ci{b1-b2}
-	\have{b}{B}\by{naughty attempt to invoke $\eif$E}{con, b2}
+	\have{b}{B} \by{naughty attempt}{}
+	\have [\ ]{x}{} \by{to invoke $\eif$E}{con, b2}
 \end{proof}
 If we were allowed to do this, it would be a disaster. It would allow us to prove any sentence letter from any other sentence letter. However, if you tell me that Anne is fast (symbolized by `$A$'), we shouldn't be able to conclude that Queen Boudica stood twenty-feet tall (symbolized by `$B$')! We must be prohibited from doing this, but how are we to implement the prohibition?
 
 We can describe the process of making an additional assumption as one of performing a \emph{subproof}: a subsidiary proof within the main proof. When we start a subproof, we draw another vertical line to indicate that we are no longer in the main proof. Then we write in the assumption upon which the subproof will be based. A subproof can be thought of as essentially posing this question: \emph{what could we show, if we also make this additional assumption?}
 
 When we are working within the subproof, we can refer to the additional assumption that we made in introducing the subproof, and to anything that we obtained from our original assumptions. (After all, those original assumptions are still in effect.) At some point though, we will want to stop working with the additional assumption: we will want to return from the subproof to the main proof. To indicate that we have returned to the main proof, the vertical line for the subproof comes to an end. At this point, we say that the subproof is \define{closed}. Having closed a subproof, we have set aside the additional assumption, so it will be illegitimate to draw upon anything that depends upon that additional assumption. Thus we stipulate:
-\factoidbox{To cite individual lines when applying a rule, those lines must (1) come before the application of the rule, but (2) not occur within a closed subproof.}
-This stipulation rules out the disastrous attempted proof above. The rule of $\eif$E requires that we cite two individual lines from earlier in the proof. In the purported proof, above, one of these lines (namely, line 4) occurs within a subproof that has (by line 6) been closed. This is illegitimate. 
+\factoidbox{To cite an individual line when applying a rule:
+\begin{enumerate}
+\item the line must come before the line where the rule is applied, but 
+\item not occur within a subproof that has been closed before the line where the rule is applied.
+\end{enumerate}}
+This stipulation rules out the disastrous attempted proof above. The rule of $\eif$E requires that we cite two individual lines from earlier in the proof. In the purported proof, above, one of these lines (namely, line~$4$) occurs within a subproof that has (by line~$5$) been closed. This is illegitimate. 
 
 Closing a subproof is called \define{discharging} the assumptions of that subproof. So we can put the point this way: \emph{you cannot refer back to anything that was obtained using discharged assumptions}. 
 
@@ -350,7 +354,7 @@ Once we have started thinking about what we can show by making additional assump
 \close
 \have{bcab}{B \eif (C \eif (A \eand B))}\ci{b-cab}
 \end{proof}
-Notice that the citation on line 4 refers back to the initial assumption (on line 1) and an assumption of a subproof (on line 2). This is perfectly in order, since neither assumption has been discharged at the time (i.e.\ by line 4).
+Notice that the citation on line~$4$ refers back to the initial assumption (on line 1) and an assumption of a subproof (on line~$2$). This is perfectly in order, since neither assumption has been discharged at the time (i.e., by line~$4$).
 
 Again, though, we need to keep careful track of what we are assuming at any given moment. Suppose we tried to continue the proof as follows:
 \begin{proof}
@@ -364,18 +368,57 @@ Again, though, we need to keep careful track of what we are assuming at any give
 	\have{cab}{C \eif (A \eand B)}\ci{c-ab}
 \close
 \have{bcab}{B \eif(C \eif (A \eand B))}\ci{b-cab}
-\have{bcab}{C \eif (A \eand B)}\by{naughty attempt to invoke $\eif$I}{c-ab}
+\have{bcab}{C \eif (A \eand B)}\by{naughty attempt}{}
+\have [\ ]{x}{} \by{to invoke $\eif$I}{c-ab}
 \end{proof}
 This would be awful. If we tell you that Anne is smart, you should not be able to infer that, if Cath is smart (symbolized by `$C$') then \emph{both} Anne is smart and Queen Boudica stood 20-feet tall! But this is just what such a proof would suggest, if it were permissible.
 
-The essential problem is that the subproof that began with the assumption `$C$' depended crucially on the fact that we had assumed `$B$' on line 2. By line 6, we have \emph{discharged} the assumption `$B$': we have stopped asking ourselves what we could show, if we also assumed `$B$'. So it is simply cheating, to try to help ourselves (on line 7) to the subproof that began with the assumption `$C$'. Thus we stipulate, much as before:
-\factoidbox{To cite a subproof when applying a rule, the subproof must (1) come before the application of the rule, but (2) not occur within some other {closed} subproof.}
-The attempted disastrous proof violates this stipulation. The subproof of lines 3--4 occurs within a subproof that ends on line 5. So it cannot be invoked in line 7.
-The attempted disastrous proof violates this stipulation. The subproof of lines 3--4 occurs within the subproof of lines 2--5, so the subproof of lines 3--4 cannot be invoked in line 7.
+The essential problem is that the subproof that began with the assumption~`$C$' depended crucially on the fact that we had assumed `$B$' on line~$2$. By line~$6$, we have \emph{discharged} the assumption~`$B$': we have stopped asking ourselves what we could show, if we also assumed `$B$'. So it is simply cheating, to try to help ourselves (on line~$7$) to the subproof that began with the assumption~`$C$'. Thus we stipulate, much as before, that a subproof can only be cited on a line if it does not occur within some other subproof which is already closed at that line. The attempted disastrous proof violates this stipulation. The subproof of lines $3$--$4$ occurs within a subproof that ends on line~$5$. So it cannot be invoked on line~$7$.
+
+Here is one further case we have to exclude:
+\begin{proof}
+\hypo{a}{A}
+\open
+	\hypo{b}{B}
+	\open
+	\hypo{c}{C}
+	\have{bc}{B \eand C}\ai{b,c}
+	\have{c2}{C}\ae{bc}
+	\close
+\close
+\have{bcab}{B \eif C}\by{naughty attempt}{}
+\have [\ ]{x}{} \by{to invoke $\eif$I}{b-c2}
+\end{proof}
+Here we are trying to cite a subproof that begins on line~$2$ and ends on line~$5$---but the sentence on line~$5$ depends not only on the assumption on line~$2$, but also on one another assumption (line~$3$) which we have not discharged at the end of the subproof. The subproof started on line~$3$ is still open at line~$3$. But $\eif$I requires that the last line of the subproof \emph{only} relies on the assumption of the subproof being cited, i.e., the subproof beginning on line~$2$ (and anything before it), and not on assumptions of any subproofs within it. In particular, the last line of the subproof cited must not itself lie within a nested subproof.
+
+\factoidbox{To cite a subproof when applying a rule:
+\begin{enumerate} 
+\item the cited subproof must come entirely before the application of the rule where it is cited, 
+\item the cited subproof must not lie within some other closed subproof which is closed at the line it is cited, and 
+\item its last line of the cited subproof must not occur inside a nested subproof.
+\end{enumerate}}
+
+One last point to emphasize how rules can be applied: where a rule requires you to cite an individual line, you cannot cite a subproof instead; and where it requires you to cite a subproof, you cannot cite an individual line instead. So for instance, this is incorrect:
+\begin{proof}
+\hypo{a}{A}
+\open
+	\hypo{b}{B}
+	\open
+	\hypo{c}{C}
+	\have{bc}{B \eand C}\ai{b,c}
+	\have{c2}{C}\ae{bc}
+	\close
+	\have{c3}{C}\by{naughty attempt}{}
+\have [\ ]{x}{} \by{to invoke R}{c-c2}
+\close
+\have[7]{bcab}{B \eif C}\ci{b-c3}
+\end{proof}
+Here, we have tried to justify $C$ on line~$6$ by the reiteration rule, but we have cited the subproof on lines $3$--$5$ with it. That subproof is closed and can in principle be cited on line~$6$. (For instance, we could use it to justify $C \eif C$ by $\eif$I.) But the reiteration rule~R requires you to cite an individual line, so citing the entire subproof is inadmissible (even if that subproof contains the sentence~$C$ we want to reiterate).
+
 
 It is always permissible to open a subproof with any assumption. However, there is some strategy involved in picking a useful assumption. Starting a subproof with an arbitrary, wacky assumption would just waste lines of the proof. In order to obtain a conditional by {\eif}I, for instance, you must assume the antecedent of the conditional in a subproof. 
 
-Equally, it is always permissible to close a subproof and discharge its assumptions. However, it will not be helpful to do so until you have reached something useful.
+Equally, it is always permissible to close a subproof (and discharge its assumptions). However, it will not be helpful to do so until you have reached something useful. Once the subproof is closed, you can only cite the entire subproof in any justification. Those rules that call for a subproof or subproofs, in turn, require that the last line of the subproof is a sentence of some form or other. For instance, you are only allowed to cite a subproof for $\eif$I if the line you are justifying is of the form $\meta{A} \eif \meta{B}$, $\meta{A}$ is the assumption of your subproof, and $\meta{B}$ is the last line of your subproof.
 
 
 \section{Biconditional}
@@ -414,7 +457,7 @@ Note that the biconditional, and the right or left half, can be separated from o
 \section{Disjunction}
 Suppose Ludwig is reactionary. Then Ludwig is either reactionary or libertarian. After all, to say that Ludwig is either reactionary or libertarian is to say something weaker than to say that Ludwig is reactionary. 
 
-Let me emphasize this point. Suppose Ludwig is reactionary. It follows that Ludwig is \emph{either} reactionary \emph{or} a kumquat. Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that kumquats are the only fruit.  Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that God is dead. Many of these are strange inferences to draw, but there is nothing \emph{logically} wrong with them (even if they maybe violate all sorts of implicit conversational norms).
+Let's emphasize this point. Suppose Ludwig is reactionary. It follows that Ludwig is \emph{either} reactionary \emph{or} a kumquat. Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that kumquats are the only fruit.  Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that God is dead. Many of these are strange inferences to draw, but there is nothing \emph{logically} wrong with them (even if they maybe violate all sorts of implicit conversational norms).
 
 Armed with all this, we present the disjunction introduction rule(s):
 \factoidbox{\begin{proof}
@@ -485,14 +528,14 @@ Here is a proof corresponding to this argument:
 		\close
 	\have{con}{(A \eand B) \eor (A \eand C)}\oe{boc, b-abo, c-aco}
 	\end{proof}
-Don't be alarmed if you think that you wouldn't have been able to come up with this proof yourself. The ability to come up with novel proofs comes with practice. The key question at this stage is whether, looking at the proof, you can see that it conforms with the rules that we have laid down. That just involves checking every line, and making sure that it is justified in accordance with the rules we have laid down.
+Don't be alarmed if you think that you wouldn't have been able to come up with this proof yourself. The ability to come up with novel proofs comes with practice, and we'll cover some strategies for finding proofs in \S\ref{s:stratTFL}. The key question at this stage is whether, looking at the proof, you can see that it conforms to the rules that we have laid down. That just involves checking every line, and making sure that it is justified in accordance with the rules we have laid down.
 
 
 \section{Contradiction and negation}
 
 We have only one connective left to deal with: negation. But to tackle it, we must connect negation with \emph{contradiction}. 
 
-An effective form of argument is to argue your opponent into contradicting themselves. At that point, you have them on the ropes. They have to give up at least one of their assumptions. We are going to make use of this idea in our proof system, by adding a new symbol, `$\ered$', to our proofs. This should be read as something like `contradiction!'\ or `reductio!'\ or `but that's absurd!'  The rule for introducing this symbol is that we can use it whenever we explicitly contradict ourselves, i.e.\ whenever we find both a sentence and its negation appearing in our proof:
+An effective form of argument is to argue your opponent into contradicting themselves. At that point, you have them on the ropes. They have to give up at least one of their assumptions. We are going to make use of this idea in our proof system, by adding a new symbol, `$\ered$', to our proofs. This should be read as something like `contradiction!'\ or `reductio!'\ or `but that's absurd!'  The rule for introducing this symbol is that we can use it whenever we explicitly contradict ourselves, i.e., whenever we find both a sentence and its negation appearing in our proof:
 \factoidbox{
 \begin{proof}
   \have[m]{na}{\enot\meta{A}}
@@ -502,7 +545,7 @@ An effective form of argument is to argue your opponent into contradicting thems
 It does not matter what order the sentence and its negation appear in, and they do not need to appear on adjacent lines. However, we always cite the line number of the negation first, followed by that of the sentence it is a negation of.
 
 There is obviously a tight link between contradiction and negation. 
-The rule $\enot$E lets us proceed from two contradictory sentences---$\meta{A}$ and its negation $\enot \meta{A}$---to an explicit contradition~$\ered$. We choose the label for a reason: it is the the most basic rule that lets us proceed from a premise containing a negation, i.e.\ $\enot\meta{A}$, to a sentence not containing it, i.e.\ $\ered$. So it is a rule that \emph{eliminates}~$\enot$.
+The rule $\enot$E lets us proceed from two contradictory sentences---$\meta{A}$ and its negation $\enot \meta{A}$---to an explicit contradition~$\ered$. We choose the label for a reason: it is the the most basic rule that lets us proceed from a premise containing a negation, i.e., $\enot\meta{A}$, to a sentence not containing it, i.e., $\ered$. So it is a rule that \emph{eliminates}~$\enot$.
 
 We have said that `$\ered$' should be read as something like `contradiction!' but this does not tell us much about the symbol. There are, roughly, three ways to approach the symbol. 
 	\begin{ebullet}
@@ -530,7 +573,7 @@ There can be as many lines between $i$ and $j$ as you like. To see this in pract
 		\have{con}{\enot\enot D}\ni{nd-ndr}
 	\end{proof}
 
-        If the assumption that $\meta{A}$ is true leads to a contradiction, $\meta{A}$ cannot be true, i.e.\ it must be false, i.e.,\ $\enot\meta{A}$ must be true. Of course, if the assumption that $\meta{A}$ is false (i.e.\ the assumption that $\enot\meta{A}$ is true) leads to a contradiction, then $\meta{A}$ cannot be false, i.e.\ $\meta{A}$ must be true. So we can consider the following rule:
+        If the assumption that $\meta{A}$ is true leads to a contradiction, $\meta{A}$ cannot be true, i.e., it must be false, i.e., $\enot\meta{A}$ must be true. Of course, if the assumption that $\meta{A}$ is false (i.e., the assumption that $\enot\meta{A}$ is true) leads to a contradiction, then $\meta{A}$ cannot be false, i.e., $\meta{A}$ must be true. So we can consider the following rule:
 \factoidbox{\begin{proof}
 \open
 	\hypo[i]{a}{\enot\meta{A}}
@@ -550,7 +593,7 @@ Using $\enot$I, we were able to give a proof of $\enot\enot\meta{D}$ from $\meta
 		\have{con}{D}\ip{nd-ndr}
 	\end{proof}
 
-We need one last rule. It is a kind of elimination rule for `$\ered$', and known as \emph{explosion}.\footnote{The latin name for this principle is\emph{ex contradictione quod libet}, ``from contradiction, anything.''} If we obtain a contradiction, symbolized by `$\ered$', then we can infer whatever we like. How can this be motivated, as a rule of argumentation? Well, consider the English rhetorical device `\ldots and if \emph{that's} true, I'll eat my hat'. Since contradictions simply cannot be true, if one \emph{is} true then not only will I eat my hat, I'll have it too.\footnote{Thanks to Adam Caulton for this.} Here is the formal rule:
+We need one last rule. It is a kind of elimination rule for `$\ered$', and known as \emph{explosion}.\footnote{The latin name for this principle is \emph{ex contradictione quod libet}, ``from contradiction, anything.''} If we obtain a contradiction, symbolized by `$\ered$', then we can infer whatever we like. How can this be motivated, as a rule of argumentation? Well, consider the English rhetorical device `\ldots and if \emph{that's} true, I'll eat my hat'. Since contradictions simply cannot be true, if one \emph{is} true then not only will I eat my hat, I'll have it too. Here is the formal rule:
 \factoidbox{\begin{proof}
 \have[m]{bot}{\ered}
 \have[ ]{}{\meta{A}}\re{bot}
@@ -655,13 +698,15 @@ Give a proof for each of the following arguments:
 
 There is no simple recipe for finding proofs, and there is no substitute for practice. Here, though, are some rules of thumb and strategies to keep in mind.
 
-\section{Working backwards from what we want}
+\section{Working backward from what we want}
 
-The ultimate goal is to obtain the conclusion. Look at the conclusion and ask what the introduction rule is for its main logical operator. This gives you an idea of what should happen \emph{just before} the last line of the proof. Then you can treat this line as if it were your goal. Ask what you could do to get to this new goal.
+So you're trying to find a proof of some conclusion~$\meta{C}$, which will be the last line of your proof. The first thing you do is look at~$\meta{C}$ and ask what the introduction rule is for its main logical operator. This gives you an idea of what should happen \emph{before} the last line of the proof. The justifications for the introduction rule require one or two other sentences above the last line, or one or two subproofs. Moreover, you can tell from~$\meta{C}$ what those sentences are, or what the assumptions and conclusions of the subproof(s) are. Then you can write down those sentence or outline the subproof(s) above the last line, and treat those as your new goals.
 
-For example: If your conclusion is a conditional $\meta{A}\eif\meta{B}$, plan to use the {\eif}I rule. This requires starting a subproof in which you assume \meta{A}. The subproof ought to end with \meta{B}. Then, continue by thinking about what can you do to get $\meta{B}$ inside that subproof, and how you can use the assumption $\meta{A}$.
+For example: If your conclusion is a conditional $\meta{A}\eif\meta{B}$, plan to use the {\eif}I rule. This requires starting a subproof in which you assume~\meta{A}. The subproof ought to end with~\meta{B}. Then, continue by thinking about what you should do to get $\meta{B}$ inside that subproof, and how you can use the assumption~$\meta{A}$.
 
-If your goal is a conjunction, conditional, or negated sentence, you should start by working backwards in this way. We'll describe what you have to do in each of these cases in detail.
+If your goal is a conjunction, conditional, or negated sentence, you should start by working backward in this way. We'll describe what you have to do in each of these cases in detail.
+
+\subsection*{Working backward from a conjunction}
 
 If we want to prove $\meta{A} \eand \meta{B}$, working backward means we should write $\meta{A} \eand \meta{B}$ at the bottom of our proof, and try to prove it using $\eand$I. At the top, we'll write out the premises of the proof, if there are any. Then, at the bottom, we write the sentence we want to prove. If it is a conjunction, we'll prove it using $\eand$I.
   \begin{proof}
@@ -674,7 +719,9 @@ If we want to prove $\meta{A} \eand \meta{B}$, working backward means we should 
 	\have[m]{m}{\meta{B}}
     \have{4}{\meta{A} \eand \meta{B}}\ai{n,m}
   \end{proof}
-For $\eand$I, we need to prove $\meta{A}$ first, then prove $\meta{B}$. For the last line, we'll cite the lines where we proved $\meta{A}$ and  $\meta{B}$, and use $\eand$I.The parts of the proof labelled $\vdots$ have to still be filled in. We'll mark the line numbers $m$, $n$ for now. When the proof is complete, these placeholders can be replaced by actual numbers.
+For $\eand$I, we need to prove $\meta{A}$ first, then prove $\meta{B}$. For the last line, we have to cite the lines where we (will have) proved $\meta{A}$ and  $\meta{B}$, and use~$\eand$I. The parts of the proof labelled $\vdots$ have to still be filled in. We'll mark the line numbers $m$, $n$ for now. When the proof is complete, these placeholders can be replaced by actual numbers.
+
+\subsection*{Working backward from a conditional}
 
 If our goal is to prove a conditional $\meta{A} \eif \meta{B}$, we'll have to use $\eif$I. This requires a subproof starting with $\meta{A}$ and ending with~$\meta{B}$. We'll set up our proof as follows:
 \begin{proof}
@@ -687,6 +734,8 @@ If our goal is to prove a conditional $\meta{A} \eif \meta{B}$, we'll have to us
 \end{proof} 
 Again we'll leave placeholders in the line number slots. We'll record the last inference as $\eif$I, citing the subproof.
 
+\subsection*{Working backward from a negated sentence}
+
 If we want to prove $\enot \meta{A}$, we'll have to use $\enot$I.
 \begin{proof}
 \open
@@ -696,43 +745,46 @@ If we want to prove $\enot \meta{A}$, we'll have to use $\enot$I.
 \close
 \have{4}{\enot \meta{A}}\ni{2-3}
 \end{proof} 
-For $\enot$I, we have to start a subproof with assumption $\meta{A}$; the last line of the subproof has to be $\ered$.  We'll cite the subproof, and use $\enot$I.
+For $\enot$I, we have to start a subproof with assumption $\meta{A}$; the last line of the subproof has to be $\ered$.  We'll cite the subproof, and use~$\enot$I as the rule.
 
-When working backwards, continue to do so until as long as you can. So if you're working backwards to prove $\meta{A} \eif \meta{B}$ and have set up a subproof in which you want to prove $\meta{B}$, now look at it~$\meta{B}$. If, say, it is a conjunction, work backwards from it, and write down the two conjuncts inside your subproof.
+When working backward, continue to do so as long as you can. So if you're working backward to prove $\meta{A} \eif \meta{B}$ and have set up a subproof in which you want to prove $\meta{B}$. Now look at~$\meta{B}$. If, say, it is a conjunction, work backward from it, and write down the two conjuncts inside your subproof. Etc.
 
-Of course, you can also work backward from a disjunction $\meta{A} \lor \meta{B}$, if that is your goal.
+\subsection*{Working backward from a disjunction}
+
+Of course, you can also work backward from a disjunction $\meta{A} \eor \meta{B}$, if that is your goal.
 The $\eor$I rule requires that you have one of the disjuncts in order to infer $\meta{A} \eor \meta{B}$.
-So to work backwards, you pick a disjunct, infer $\meta{A} \eor \meta{B}$ from it, and then continue to look for a proof of the disjunct you picked:
+So to work backward, you pick a disjunct, infer $\meta{A} \eor \meta{B}$ from it, and then continue to look for a proof of the disjunct you picked:
 \begin{proof}
 	\ellipsesline
 	\have[n]{2}{\meta{A}} 
-	\have{3}{\meta{A} \lor \meta{B}}\oi{2}
+	\have{3}{\meta{A} \eor \meta{B}}\oi{2}
 \end{proof}
 However, you may not be able to prove the disjunct you picked. In that case you have to backtrack. When you can't fill in the $\vdots$, delete everything, and try with the other disjunct:
 \begin{proof}
 	\ellipsesline 
 	\have[n]{2}{\meta{B}} 
-	\have{3}{\meta{A} \lor \meta{B}}\oi{2}
+	\have{3}{\meta{A} \eor \meta{B}}\oi{2}
 \end{proof}
-Obviously, deleting everything and starting over is frustrating, so you should avoid it. If your goal is a disjunction, therefore, you should \emph{not} start by working backwards: try working forwards first, and apply the $\eor$I strategy only when working forwards (and working backwards using $\eand$I, $\eif$I, and $\enot$I) no longer work.
+Obviously, deleting everything and starting over is frustrating, so you should avoid it. If your goal is a disjunction, therefore, you should \emph{not start} by working backward: try working forward first, and apply the $\eor$I strategy only when working forward (and working backward using $\eand$I, $\eif$I, and $\enot$I) no longer work.
 
-\section{Work forwards from what you have}
+\section{Work forward from what you have}
 
-Your proof may have premises. If you've worked backwards in order to prove a conditional or a negated sentence, you will have set up subproofs with an assumption. These premises and assumptions are sentences you have and can use to fill in the missing steps in your proof. Using them means applying emlimination rules for the main operators of these sentences. These will tell you what your options are. 
+Your proof may have premises. And if you've worked backward in order to prove a conditional or a negated sentence, you will have set up subproofs with an assumption, and be looking to prove a final sentence in the subproof. These premises and assumptions are sentences you can work forward from in order to fill in the missing steps in your proof. That means applying elimination rules for the main operators of these sentences. The form of the rules will tell you what you'll have to do. 
 
-If we want to use a sentence of the form $\meta{A} \eand \meta{B}$ we use $\eand$E. That rule allows us to do two things: infer $\meta{A}$, and infer $\meta{B}$. So in a proof where we have $\meta{A} \eand \meta{B}$, we can always work forwards by writing $\meta{A}$ and $\meta{B}$ immediately below the conjunction:
+\subsection*{Working forward from a conjunction}
+
+To work forward from a sentence of the form $\meta{A} \eand \meta{B}$, we use $\eand$E. That rule allows us to do two things: infer $\meta{A}$, and infer $\meta{B}$. So in a proof where we have $\meta{A} \eand \meta{B}$, we can work forward by writing $\meta{A}$ and/or $\meta{B}$ immediately below the conjunction:
 \begin{proof}
-	\ellipsesline
-	\have[n]{1}{\meta{A} \eand \meta{B}}
+  \have[n]{1}{\meta{A} \eand \meta{B}}
   \have{2}{\meta{A}}\ae{1}
   \have{3}{\meta{B}}\ae{1}
-  \ellipsesline 
-\end{proof} 
-We'll probably need them further down in the proof. In some cases we won't need both; but it doesn't hurt to write them both down.
+\end{proof}
+Usually it will be clear in the particular situation you're in which one of \meta{A} or \meta{B} you'll need. It doesn't hurt, however, to write them both down.
 
-Working forwards from a disjunction works a bit differently. To use a disjunction, we use the $\eor$E rule. But in order to apply that rule, it is not enough to know what the disjuncts of the disjunction are that we want to use. We must also keep in mind what it is that we want to prove. Suppose we want to prove $\meta{C}$, and we have $\meta{A} \lor B$ to work with. (Again, that $\meta{A} \lor B$ may be a premise of the proof, an assumption of a subproof, or something already proved, e.g., by $\eand$E.) In order to be able to apply the $\eor$E rule, we'll have to set up two subproofs.
+\subsection*{Working forward from a disjunction}
+
+Working forward from a disjunction works a bit differently. To use a disjunction, we use the $\eor$E rule. In order to apply that rule, it is not enough to know what the disjuncts of the disjunction are that we want to use. We must also keep in mind what we want to prove. Suppose we want to prove~$\meta{C}$, and we have $\meta{A} \eor B$ to work with. (That $\meta{A} \eor B$ may be a premise of the proof, an assumption of a subproof, or something already proved.) In order to be able to apply the $\eor$E rule, we'll have to set up two subproofs:
 \begin{proof}
-	\ellipsesline
 	\have[n]{1}{\meta{A} \eor \meta{B}}
 	\open
 	\hypo{2}{\meta{A}} 
@@ -745,98 +797,94 @@ Working forwards from a disjunction works a bit differently. To use a disjunctio
 	\have[k]{5}{\meta{C}}
 	\close
 	\have{6}{\meta{C}}\oe{1,(2)-3,(4)-5} 
-	\ellipsesline
 \end{proof} 
-The first subproof starts with the first disjunct, $\meta{A}$, and ends with the sentence we're looking for, $\meta{C}$. The second subproof starts with the other disjunct, $\meta{B}$, and also ends with the goal sentence~$\meta{C}$. Each of these subproofs have to be filled in further. We
-can justify $\meta{C}$ by using $\eor$E, citing the line with $\meta{A}
-\eor \meta{B}$ and the two subproofs.
+The first subproof starts with the first disjunct, $\meta{A}$, and ends with the sentence we're looking for, $\meta{C}$. The second subproof starts with the other disjunct, $\meta{B}$, and also ends with the goal sentence~$\meta{C}$. Each of these subproofs have to be filled in further. We can then justify the goal sentence $\meta{C}$ by using $\eor$E, citing the line with $\meta{A} \eor \meta{B}$ and the two subproofs.
 
-In order to use a conditional $\meta{A} \eif \meta{B}$, you need the antecedent $\meta{A}$ in order to apply $\eif$E. So to work forward from a conditional, you will derive $\meta{B}$, justify it by $\eif$E, and set up $\meta{A}$ as a new subgoal.
+\subsection*{Working forward from a conditional}
+
+In order to use a conditional $\meta{A} \eif \meta{B}$, you also need the antecedent $\meta{A}$ in order to apply~$\eif$E. So to work forward from a conditional, you will derive $\meta{B}$, justify it by $\eif$E, and set up $\meta{A}$ as a new subgoal.
 \begin{proof}
-	\ellipsesline
 	\have[n]{1}{\meta{A} \eif \meta{B}}
 	\ellipsesline 
 	\have[m]{2}{\meta{A}}
 	\have{3}{\meta{B}}\ce{1,2} 
-	\ellipsesline
 \end{proof}
 
-Finally, to use a negated sentence $\enot \meta{A}$, you would apply $\enot$E. It requires, in addition to $\enot \meta{A}$ also the corresponding sentence $\meta{A}$ without the negation. The sentence you'll get is always the same: $\ered$. So working forward from a negated sentence works especially well inside a subproof that you'll want to use for $\enot$I (or IP).
+\subsection*{Working forward from a negated sentence}
+
+Finally, to use a negated sentence $\enot \meta{A}$, you would apply $\enot$E. It requires, in addition to $\enot \meta{A}$, also the corresponding sentence~$\meta{A}$ without the negation. The sentence you'll get is always the same: $\ered$. So working forward from a negated sentence works especially well inside a subproof that you'll want to use for $\enot$I (or IP). You work forward from $\enot \meta{A}$ if you already have $\enot \meta{A}$ and you want to prove~$\ered$. To do it, you set up $\meta{A}$ as a new subgoal.
 \begin{proof}
-	\ellipsesline
 	\have[n]{1}{\enot \meta{A}}
 	\ellipsesline 
 	\have[m]{2}{\meta{A}}
 	\have{3}{\ered}\ne{1,2} 
-	\ellipsesline
 \end{proof}
-
 
 \section{Strategies at work}
 
-Suppose we want to show that the argument $(A \eand B) \lor (A \eand C) \therefore A \eand (B \lor C)$ is valid. We start the proof by writing the premise and conclusion down. (On a piece of paper, you would want as much space as possible between them, so write the premises at the top of the sheet and the conclusion at the bottom.)
+Suppose we want to show that the argument $(A \eand B) \eor (A \eand C) \therefore A \eand (B \eor C)$ is valid. We start the proof by writing the premise and conclusion down. (On a piece of paper, you would want as much space as possible between them, so write the premises at the top of the sheet and the conclusion at the bottom.)
 \begin{proof}
-   \hypo{1}{(A \eand B) \lor (A \eand C)}
+   \hypo{1}{(A \eand B) \eor (A \eand C)}
 \ellipsesline
-  \have[n]{2}{A \eand (B \lor C)}
+  \have[n]{2}{A \eand (B \eor C)}
 \end{proof}
-We now have two options: either work backwards from the conclusion, or work forwards from the premise. We'll pick the second strategy: we use the disjunction on line 1, and set up the subproofs we need for $\lor$E.
-
+We now have two options: either work backward from the conclusion, or work forward from the premise. We'll pick the second strategy: we use the disjunction on line~$1$, and set up the subproofs we need for $\eor$E. The disjunction on line~$1$ has two disjuncts, $A \eand B$ and $A \eand C$. The goal sentence you want to prove is $A \eand (B \eor C)$. So in this case you have to set up two subproofs, one with assumption $A \eand B$ and last line $A \eand (B \eor C)$, the other with assumption $A \eand C$ and last line $A \eand (B \eor C)$. The justification for the conclusion on line~$n$ will be $\eor$E, citing the disjunction on line~$1$ and the two subproofs. So your proof now looks like this:
 \begin{proof}
-	\hypo{1}{(A \eand B) \lor (A \eand C)}
+	\hypo{1}{(A \eand B) \eor (A \eand C)}
 	\open
 	\hypo{2}{A \eand B}
 	\ellipsesline 
-	\have[n]{6}{A \eand (B \lor C)}
+	\have[n]{6}{A \eand (B \eor C)}
 	\close
 	\open
 	\hypo{7}{A \eand C}
 	\ellipsesline
-	\have[m]{11}{A \eand (B \lor C)}
+	\have[m]{11}{A \eand (B \eor C)}
 	\close
-	\have{12}{A \eand (B \lor C)}\oe{1,2-6,7-11}
+	\have{12}{A \eand (B \eor C)}\oe{1,2-6,7-11}
 \end{proof}
-In the first subproof, we now work backwards from the conclusion and set up the sub goals for proving line 6 using $\eand$I.
+You now have two separate tasks, namely to fill in each of the two subproofs. In the first subproof, we now work backward from the conclusion $A \eand (B \eor C)$. That is a conjunction, so inside the first subproof, you will have two separate subgoals: proving $A$, and proving $B \eor C$. These subgoals will let you justify line~$n$ using~$\eand$I. Your proof now looks like this:
 \begin{proof}
-	\hypo{1}{(A \eand B) \lor (A \eand C)}
+	\hypo{1}{(A \eand B) \eor (A \eand C)}
 	\open
 	\hypo{2}{A \eand B}
 	\ellipsesline
 	\have[i]{4}{A}
 	\ellipsesline
-	\have[n][-1]{5}{B \lor C}
-	\have[n]{6}{A \eand (B \lor C)}\ai{4,5}
+	\have[n][-1]{5}{B \eor C}
+	\have[n]{6}{A \eand (B \eor C)}\ai{4,5}
 	\close
 	\open
 	\hypo{7}{A \eand C}
 	\ellipsesline
-	\have[m]{11}{A \eand (B \lor C)}
+	\have[m]{11}{A \eand (B \eor C)}
 	\close
-	\have{12}{A \eand (B \lor C)}\oe{1,2-6,(7)-11}
+	\have{12}{A \eand (B \eor C)}\oe{1,2-6,(7)-11}
 \end{proof}
-We immediately see that we get line $i$ from 2 by $\eand$E; let's apply the strategy for proving disjunctions to line $n-1$: look for a proof of $B$. (We have a choice of which disjunct to pick, but picking $C$ wouldn't work and we'd end up having to backtrack.)
+We immediately see that we can get line $i$ from line~$2$ by $\eand$E. So line~$i$ is actually line~$3$, and can be justified with $\eand$E from line~$2$. The other subgoal $B \eor C$ is a disjunction. We'll apply the strategy for working backward from a disjunctions to line $n-1$. We have a choice of which disjunct to pick as a subgoal, $B$ or~$C$. Picking $C$ wouldn't work and we'd end up having to backtrack. And you can already see that if you pick $B$ as a subgoal, you could get that by working forward again from the conjunction $A \eand B$ on line~$2$. So we can complete the first subproof as follows:
 \begin{proof}
-	\hypo{1}{(A \eand B) \lor (A \eand C)}
+	\hypo{1}{(A \eand B) \eor (A \eand C)}
 	\open
 	\hypo{2}{A \eand B}
 	\have{3}{A}\ae{2}
 	\have{4}{B}\ae{2}
-	\have{5}{B \lor C}\oi{4}
-	\have{6}{A \eand (B \lor C)}\ai{3,5}
+	\have{5}{B \eor C}\oi{4}
+	\have{6}{A \eand (B \eor C)}\ai{3,5}
 	\close
 	\open
 	\hypo{7}{A \eand C}
 	\ellipsesline
-	\have[m]{11}{A \eand (B \lor C)}
+	\have[m]{11}{A \eand (B \eor C)}
 	\close
-	\have{12}{A \eand (B \lor C)}\oe{1,2-6,7-11}
+	\have{12}{A \eand (B \eor C)}\oe{1,2-6,7-11}
 \end{proof}
-Like line $i$ (i.e., 3), we get line 4 from 2 by $\eand$E. That's it for
-the first subproof. The second subproof is almost exactly the same. We'll leave it as an exercise.
+Like line~$3$, we get line $4$ from $2$ by $\eand$E. Line~$5$ is justified by $\eor$I from line~$4$, since we were working backward from a disjunction there.
 
-Remember that when we started, we had the option of working forward from the premise, or working backward from the conclusion, and we picked the first option. The second option also leads to a proof, but it will look different.  The first steps would be to split the conclusion apart and set up two subgoals, $A$ and $B \lor C$, and then work forwards from the premise to prove them, e.g.,:
+That's it for the first subproof. The second subproof is almost exactly the same. We'll leave it as an exercise.
+
+Remember that when we started, we had the option of working forward from the premise, or working backward from the conclusion, and we picked the first option. The second option also leads to a proof, but it will look different.  The first steps would be to work backward from the conclusion and set up two subgoals, $A$ and $B \eor C$, and then work forward from the premise to prove them, e.g.,:
 \begin{proof}
-	\hypo{1}{(A \eand B) \lor (A \eand C)}
+	\hypo{1}{(A \eand B) \eor (A \eand C)}
 	\open
 	\hypo{2}{A \eand B}
 	\ellipsesline
@@ -851,18 +899,19 @@ Remember that when we started, we had the option of working forward from the pre
 	\open
 	\hypo{7}{A \eand B}
 	\ellipsesline
-	\have[l]{8}{B \lor C}
+	\have[l]{8}{B \eor C}
 	\close
 	\open
 	\hypo{9}{A \eand C}
 	\ellipsesline
-	\have[m][-1]{10}{B \lor C}
+	\have[m][-1]{10}{B \eor C}
 	\close
-	\have{11}{B \lor C}\oe{1,(7)-8,(9)-(10)}	
-	\have{12}{A \eand (B \lor C)}\ai{6,10}
+	\have{11}{B \eor C}\oe{1,(7)-8,(9)-(10)}	
+	\have{12}{A \eand (B \eor C)}\ai{6,11}
 \end{proof}
+We'll leave you to fill in the missing pieces indicated by~$\vdots$.
 
-Let's give another example to illustrate how to apply the strategies to deal with conditionals and negation. The sentence $(A \eif B) \eif (\enot B \eif \enot A)$ is a tautology; let's see if we can find a proof of it, from no premises, using the strategies. We first write the sentence at the bootom of a sheet of paper. Since working forwards is not an option, we work backwards, and set up a subproof to establish the sentence we want using $\eif$I. Its assumption must be the antecedent of the conditional we want to prove, and its last line the consequent.
+Let's give another example to illustrate how to apply the strategies to deal with conditionals and negation. The sentence $(A \eif B) \eif (\enot B \eif \enot A)$ is a tautology. Let's see if we can find a proof of it, from no premises, using the strategies. We first write the sentence at the bottom of a sheet of paper. Since working forward is not an option (there is nothing to work forward from), we work backward, and set up a subproof to establish the sentence we want $(A \eif B) \eif (\enot B \eif \enot A)$ using $\eif$I. Its assumption must be the antecedent of the conditional we want to prove, i.e., $A \eif B$, and its last line the consequent $\enot B \eif \enot A$.
 \begin{proof}
 \open
 \hypo{1}{A \eif B}
@@ -871,7 +920,7 @@ Let's give another example to illustrate how to apply the strategies to deal wit
 \close
 \have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
 \end{proof}
-The new goal, $\enot B \eif \enot A$ is itself a conditional, so working backwards we set up another subproof:
+The new goal, $\enot B \eif \enot A$ is itself a conditional, so working backward we set up another subproof:
 \begin{proof}
 	\open
 	\hypo{1}{A \eif B}
@@ -884,7 +933,7 @@ The new goal, $\enot B \eif \enot A$ is itself a conditional, so working backwar
 	\close
 	\have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
 \end{proof}
-From $\enot A$ we again work backwards:
+From $\enot A$ we again work backward. To do this, look at the $\enot$I rule. It requires a subproof with~$A$ as assumption, and $\ered$ as its last line. So the proof is now:
 \begin{proof}
 	\open
 	\hypo{1}{A \eif B}
@@ -900,7 +949,7 @@ From $\enot A$ we again work backwards:
 	\close
 	\have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
 \end{proof}
-To prove $\ered$ we now work forwards from the one negated sentence we have, $\enot B$ on line 2. That means we have to derive $B$---which we get in turn by working forwards from $A \eif B$, since $B$ is the consequent of that conditional. Its antecedent $A$ is already available on line~3. So we finish with:
+Now our goal is to prove~$\ered$. We said above, when discussing how to work forward from a negated sentence, that the $\enot$E rule allows you to prove~$\ered$, which is our goal in the innermost subproof. So we look for a negated sentence which we can work forward from: that would be $\enot B$ on line~$2$. That means we have to derive $B$ inside the subproof, since $\enot$E requires not just $\enot B$ (which we have already), but also~$B$. And $B$, in turn, we get by working forward from $A \eif B$, since $\eif$E will allow us to justify the consequent of that conditional~$B$ by $\eif$E. The rule $\eif$E also requires the antecedent~$A$ of the conditional, but that is also already available (on line~$3$). So we finish with:
 \begin{proof}
 	\open
 	\hypo{1}{A \eif B}
@@ -917,12 +966,45 @@ To prove $\ered$ we now work forwards from the one negated sentence we have, $\e
 	\have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
 \end{proof}
 
+\section{Working forward from $\ered$}\label{sec:backred}
+
+When applying the strategies, you will sometimes find yourself in a situation where you can justify~$\ered$. Using the explosion rule, this would allow you to justify \emph{anything}. So $\ered$ works like a wildcard in proofs. For instance, suppose you want to give a proof of the argument $A \eor B, \enot A \therefore B$. You set up your proof, writing the premises $A \eor B$ and $\enot A$ at the top on lines $1$ and $2$, and the conclusion~$B$ at the bottom of the page. $B$ has no main connective, so you can't work backward from it. Instead, you must work forward from $A \eor B$: That requires two subproofs, like so:
+\begin{proof}
+	\hypo{1}{A \eor B}
+	\hypo{7}{\enot A}
+	\open
+	\hypo{2}{A} 
+	\ellipsesline 
+	\have[m]{3}{B}
+	\close 
+	\open
+	\hypo{4}{B}
+	\ellipsesline
+	\have[k]{5}{B}
+	\close
+	\have{6}{B}\oe{1,2-3,(4)-5} 
+\end{proof} 
+Notice that you have $\enot A$ on line~$2$ and $A$ as the assumption of your first subproof. That gives you $\ered$ using $\enot$E, and from $\ered$ you get the conclusion~$B$ of the first subroof using~X. Recall that you can repeat a sentence you already have by using the reiteration rule~R. So our proof would be:
+\begin{proof}
+	\hypo{1}{A \eor B}
+	\hypo{7}{\enot A}
+	\open
+	\hypo{2}{A} 
+	\have{8}{\ered}\ne{7,2} 
+	\have{3}{B}\re{8}
+	\close 
+	\open
+	\hypo{4}{B}
+	\have{5}{B}\by{R}{4}
+	\close
+	\have{6}{B}\oe{1,2-3,4-5} 
+\end{proof} 
+
 \section{Proceed indirectly}
 
-In very many cases, the strategies of working forwards and backwards will eventually pan out. But there are cases where they do not work.  If you cannot find a way to show $\meta{A}$ directly using those, use IP instead. To do this, set up a subproof in which you assume $\enot\meta{A}$ and look for a proof of $\ered$ inside that subproof.
+In very many cases, the strategies of working forward and backward will eventually pan out. But there are cases where they do not work.  If you cannot find a way to show $\meta{A}$ directly using those, use IP instead. To do this, set up a subproof in which you assume $\enot\meta{A}$ and look for a proof of $\ered$ inside that subproof.
 
 \begin{proof}
-\ellipsesline
 \open
 \hypo[n]{2}{\enot A}
 \ellipsesline 
@@ -931,16 +1013,10 @@ In very many cases, the strategies of working forwards and backwards will eventu
 \have{4}{\meta{A}}\ip{2-3}
 \end{proof}
 Here, we have to start a subproof with assumption $\enot \meta{A}$;
-the last line of the subproof has to be $\ered$.
-We'll cite the subproof, and use IP.  In the subproof, we now
-have an additional assumption (on line $n$) to work with.
+the last line of the subproof has to be~$\ered$. We'll cite the subproof, and use~IP as the rule.  In the subproof, we now have an additional assumption (on line $n$) to work with.
 
-Suppose we used the indirect proof strategy, or we're in some other situation
-where we're looking for a proof of $\ered$.  What's a good candidate?
-Of course the obvious candidate would be to use a negated sentence, since (as we saw above)
-$\enot$E always yields~$\ered$. If you are using the IP strategy, this results in the following paradoxical situation: 
+Suppose we used the indirect proof strategy, or we're in some other situation where we're looking for a proof of $\ered$.  What's a good candidate? Of course the obvious candidate would be to use a negated sentence, since (as we saw above) $\enot$E always yields~$\ered$. If you set up a proof as above, trying to prove \meta{A} using~IP, you will have $\enot \meta{A}$ as the assumption of your subproof---so working forward from it to justify $\ered$ inside your subproof, you would next set up \meta{A} as a goal inside your subproof. If you are using this IP strategy, you will find yourself in the following situation: 
 \begin{proof}
-\ellipsesline
 \open
 \hypo[n]{2}{\enot \meta{A}}
 \ellipsesline
@@ -949,30 +1025,30 @@ $\enot$E always yields~$\ered$. If you are using the IP strategy, this results i
 \close
 \have{5}{\meta{A}}\ip{2-4}
 \end{proof} 
-This looks weird: We wanted to prove $A$ and the strategies failed us; so we used IP as a last resort. And now we find ourselves in the same situation: looking for a proof of~$\meta{A}$. But remember that we are now inside a subproof, and in that subproof we have an additional assumption ($\enot \meta{A}$) to work with which we didn't have before.
+This looks weird: We wanted to prove $\meta{A}$ and the strategies failed us; so we used IP as a last resort. And now we find ourselves in the same situation: we are again looking for a proof of~$\meta{A}$. But notice that we are now \emph{inside} a subproof, and in that subproof we have an additional assumption ($\enot \meta{A}$) to work with which we didn't have before. Let's look at an example.
 
 \section{Indirect proof of excluded middle}\label{s:proofLEM}
 
-The sentence $A \eor \enot A$ is a tautology, and so should have a proof even without any premises. But working backwards does not work: to get $A \eor \enot A$ using $\eor$I we would have to prove either $A$ or $\enot A$---again, from no premises. But neither of these is a tautology, so we won't be able to prove either. Working forwards doesn't work either, since there is nothing to work forwards from. So, the only option is indirect proof.
+The sentence $A \eor \enot A$ is a tautology, and so should have a proof even without any premises. But working backward fails us: to get $A \eor \enot A$ using $\eor$I we would have to prove either $A$ or $\enot A$---again, from no premises. Neither of these is a tautology, so we won't be able to prove either. Working forward doesn't work either, since there is nothing to work forward from. So, the only option is indirect proof.
 \begin{proof}
 	\open
 	\hypo{2}{\enot (A \eor \enot A)}
 	\ellipsesline
 	\have[m]{8}{\ered}
 	\close
-	\have{9}{A \lor \enot A}\ip{2-8}
+	\have{9}{A \eor \enot A}\ip{2-8}
 \end{proof}
-Now we do have something to work forward from: the assumption $\enot(A \eor \enot A)$. To use it, we justify $\ered$ by $\enot$E, citing the assumption, in addition to the corresponding unnegated sentence (yet to be proved).
+Now we do have something to work forward from: the assumption $\enot(A \eor \enot A)$. To use it, we justify $\ered$ by $\enot$E, citing the assumption on line~$1$, and also the corresponding unnegated sentence $A \eor \enot A$, yet to be proved.
 \begin{proof}
 	\open
 	\hypo{2}{\enot (A \eor \enot A)}
 	\ellipsesline
-	\have[m][-1]{7}{A \lor \enot A}
+	\have[m][-1]{7}{A \eor \enot A}
 	\have{8}{\ered}\ne{2,7}
 	\close
-	\have{9}{A \lor \enot A}\ip{2-8}
+	\have{9}{A \eor \enot A}\ip{2-8}
 \end{proof}
-At the outset, working backwards to prove $A \eor\enot A$ by $\eor$I did not work. But we are now in a different situation: we want to prove $A \eor\enot A$ inside a subproof. In general, when dealing with new goals we should go back and start with the basic strategies. In this case, we should pick a disjunct and try to prove it. Let's pick $\enot A$. Then working backward from that, we start another subproof in order to justify $\enot A$ using $\enot$I.
+At the outset, working backward to prove $A \eor\enot A$ by $\eor$I did not work. But we are now in a different situation: we want to prove $A \eor\enot A$ inside a subproof. In general, when dealing with new goals we should go back and start with the basic strategies. In this case, we should first try to work backward from the disjunction $A \eor \enot A$, i.e., we have to pick a disjunct and try to prove it. Let's pick~$\enot A$. This would let us justify $A \eor \enot A$ on line~$m - 1$ using $\eor$I. Then working backward from $\enot A$, we start another subproof in order to justify $\enot A$ using $\enot$I. That subproof must have $A$ as the assumption and~$\ered$ as its last line.
 \begin{proof}
 	\open
 	\hypo{2}{\enot (A \eor \enot A)}
@@ -982,12 +1058,12 @@ At the outset, working backwards to prove $A \eor\enot A$ by $\eor$I did not wor
 	\have[m][-3]{5}{\ered}
 	\close
 	\have{6}{\enot A}\ni{3-(5)}
-	\have{7}{A \lor \enot A}\oi{6}
+	\have{7}{A \eor \enot A}\oi{6}
 	\have{8}{\ered}\ne{2,7}
 	\close
-	\have{9}{A \lor \enot A}\ni{2-8}
+	\have{9}{A \eor \enot A}\ni{2-8}
 \end{proof}
-Inside this new subproof, we need to justify $\ered$. Again, the best way to do this is to use a negated sentence, and $\enot(A \eor \enot A)$ is the only negated sentence we can use. The corresponding unnegated sentence, $A \eor \enot A$, however, directly follows from $A$ by $\eor$I. Our complete proof is:
+Inside this new subproof, we again need to justify $\ered$. The best way to do this is to work forward from a negated sentence; $\enot(A \eor \enot A)$ on line~$1$ is the only negated sentence we can use. The corresponding unnegated sentence, $A \eor \enot A$, however, directly follows from $A$ (which we have on line~$2$) by $\eor$I. Our complete proof is:
 \begin{proof}
 	\open
 	\hypo{2}{\enot (A \eor \enot A)}
@@ -997,36 +1073,79 @@ Inside this new subproof, we need to justify $\ered$. Again, the best way to do 
 	\have{5}{\ered}\ne{2,4}
 	\close
 	\have{6}{\enot A}\ni{3-5}
-	\have{7}{A \lor \enot A}\oi{6}
+	\have{7}{A \eor \enot A}\oi{6}
 	\have{8}{\ered}\ne{2,7}
 	\close
-	\have{9}{A \lor \enot A}\ni{2-8}
+	\have{9}{A \eor \enot A}\ni{2-8}
 \end{proof}
 
+\practiceproblems
+
+\problempart
+Use the strategies to find proofs for each of the following arguments:
+\begin{earg}
+\item $A \eif B, A \eif C \therefore A \eif (B \eand C)$
+\item $(A \eand B) \eif C \therefore A \eif (B \eif C)$
+\item $A \eif (B \eif C) \therefore (A \eif B) \eif (A \eif C)$
+\item $A \eor (B \eand C) \therefore (A \eor B) \eand (A \eor C)$
+\item $(A \eand B) \eor (A \eand C) \therefore A \eand (B \eor C)$
+\item $A \eor B, A \eif C, B \eif D \therefore C \eor D$
+\item $\enot A \lor \enot B \therefore \enot(A \eand B)$
+\item $A \eand \enot B \therefore \enot(A \eif B)$
+\end{earg}
+
+\problempart
+Formulate strategies for working backward and forward from $\meta{A} \eiff \meta{B}$.
+
+\problempart
+Use the strategies to find proofs for each of the following sentences:
+\begin{earg}
+\item $\enot A \eif (A \eif \ered)$
+\item $\enot(A \eand \enot A)$
+\item $[(A \eif C) \eand (B \eif C)] \eif [(A \lor B) \eif C]$
+\item $\enot(A \eif B) \eif (A \eand \enot B)$
+\item $(A \eor \enot B) \eif (A \eif B)$
+\end{earg}
+Since these should be proofs of sentences from no premises, you will start with the respective sentence at the \emph{bottom} of the proof, which will have no premises.
+
+\problempart
+Use the strategies to find proofs for each one of the following arguments and sentences:
+\begin{earg}
+\item $\enot\enot A \eif A$
+\item $\enot A \eif \enot B \therefore B \eif A$
+\item $A \eif B \therefore \enot A \eor B$
+\item $\enot(A \eand B) \eif (\enot A \eor \enot B)$
+\item $A \eif (B \eor C) \therefore (A \eif B) \eor (A \eif C)$
+\item $(A \eif B) \lor (B \eif A)$
+\item $((A \eif B) \eif B) \eif B$
+\end{earg}
+These all will require the IP strategy. The last three especially are quite hard!
 
 \chapter{Additional rules for TFL}\label{s:Further}
-In \S\ref{s:BasicTFL}, we introduced the basic rules of our proof system for TFL. In this section, we will add some additional rules to our system. These will make our system much easier to work with. (However, in \S\ref{s:Derived} we will see that they are not strictly speaking \emph{necessary}.)
+In \S\ref{s:BasicTFL}, we introduced the basic rules of our proof system for TFL. In this section, we will add some additional rules to our system. Our extended proof system is a bit easier to work with. (However, in \S\ref{s:Derived} we will see that they are not strictly speaking \emph{necessary}.)
 
-\section{Reiteration}
-The first additional rule is \emph{reiteration} (R). This just allows us to repeat ourselves:
-\factoidbox{\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{b}{\meta{A}} \by{R}{a}
-\end{proof}}
-Such a rule is obviously legitimate; but one might well wonder how such a rule could ever be useful. Well, consider:
-\begin{proof}
-	\hypo{ana}{A \eif \enot A}
-	\open
-		\hypo{a}{A}
-		\have{na}{\enot A}\ce{ana, a}
-	\close
-	\open
-		\hypo{na1}{\enot A}
-		\have{na2}{\enot A}\by{R}{na1}
-	\close
-	\have{na3}{\enot A}\tnd{a-na, na1-na2}
-\end{proof}
-This is a fairly typical use of the R rule.
+% \section{Reiteration}
+% The first additional rule is \emph{reiteration} (R). This just allows us to repeat ourselves:
+% \factoidbox{\begin{proof}
+% 	\have[m]{a}{\meta{A}}
+% 	\have[\ ]{b}{\meta{A}} \by{R}{a}
+% \end{proof}}
+% Such a rule is obviously legitimate; we could have used it in our proof in \S\ref{sec:backred}:
+% \begin{proof}
+% 	\hypo{1}{A \eor B}
+% 	\hypo{7}{\enot A}
+% 	\open
+% 	\hypo{2}{A} 
+% 	\have{8}{\ered}\ne{7,2} 
+% 	\have{3}{B}\re{8}
+% 	\close 
+% 	\open
+% 	\hypo{4}{B}
+% 	\have{5}{B}\by{R}{4}
+% 	\close
+% 	\have{6}{B}\oe{1,2-3,4-5} 
+% \end{proof}
+% This is a fairly typical use of the R rule.
 
 \section{Disjunctive syllogism}
 Here is a very natural argument form.
@@ -1086,7 +1205,7 @@ This line of thinking motivates the following rule:
 		\close
 		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
 	\end{proof}}
-The rule is sometimes called the law of \emph{excluded middle}, since it encapsulates the idea that \meta{A} can be true or $\enot \meta{A}$ may be true, but there is no middle way where neither is true.\footnote{You may sometimes find logicians or philosophers talking about ``tertium non datur.'' That's the same principle as excluded middle; it means ``no third way.'' Logicians who have qualms about indirect proof also have qualms about LEM.} There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
+The rule is sometimes called the law of \emph{excluded middle}, since it encapsulates the idea that \meta{A} may be true or $\enot \meta{A}$ may be true, but there is no middle way where neither is true.\footnote{You may sometimes find logicians or philosophers talking about ``tertium non datur.'' That's the same principle as excluded middle; it means ``no third way.'' Logicians who have qualms about indirect proof also have qualms about LEM.} There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
 
 To see the rule in action, consider:
 	$$P \therefore (P \eand D) \eor (P \eand \enot D)$$
@@ -1105,6 +1224,20 @@ Here is a proof corresponding with the argument:
 		\close
 		\have{con}{(P \eand D) \eor (P \eand \enot D)}\tnd{b-abo, nb-anbo}
 	\end{proof}
+Here is another example:
+\begin{proof}
+	\hypo{ana}{A \eif \enot A}
+	\open
+		\hypo{a}{A}
+		\have{na}{\enot A}\ce{ana, a}
+	\close
+	\open
+		\hypo{na1}{\enot A}
+		\have{na2}{\enot A}\by{R}{na1}
+	\close
+	\have{na3}{\enot A}\tnd{a-na, na1-na2}
+\end{proof}
+
 
 \section{De Morgan Rules}
 Our final additional rules are called De~Morgan's Laws (named after Augustus De~Morgan). The shape of the rules should be familiar from truth tables.
@@ -1136,8 +1269,9 @@ And the fourth is the reverse of the third:
 \problempart
 \label{pr.justifyTFLproof}
 The following proofs are missing their citations (rule and line numbers). Add them wherever they are required:
-\begin{multicols}{2}
-\begin{proof}
+\begin{earg}
+\item 
+	\begin{proof}
 \hypo{1}{W \eif \enot B}
 \hypo{2}{A \eand W}
 \hypo{2b}{B \eor (J \eand K)}
@@ -1146,8 +1280,7 @@ The following proofs are missing their citations (rule and line numbers). Add th
 \have{5}{J \eand K} {}
 \have{6}{K}{}
 \end{proof}
-\vfill
-\begin{proof}
+\item\begin{proof}
 \hypo{1}{L \eiff \enot O}
 \hypo{2}{L \eor \enot O}
 \open
@@ -1159,8 +1292,7 @@ The following proofs are missing their citations (rule and line numbers). Add th
 \have{3b}{\enot\enot L}{}
 \have{3}{L}{}
 \end{proof}
-\columnbreak
-\begin{proof}
+\item\begin{proof}
 \hypo{1}{Z \eif (C \eand \enot N)}
 \hypo{2}{\enot Z \eif (N \eand \enot C)}
 \open
@@ -1182,7 +1314,7 @@ The following proofs are missing their citations (rule and line numbers). Add th
 \have{3b}{\enot\enot(N \eor C)}{}
 \have{3}{N \eor C}{}
 \end{proof}
-\end{multicols}
+\end{earg}
 
 \problempart 
 Give a proof for each of these arguments:
@@ -1246,7 +1378,7 @@ As in the case of showing that a sentence is a theorem, it is relatively easy to
 
 Here is a third, related, bit of terminology:
 	\factoidbox{
-		The sentences $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n$ are \define{provably inconsistent} iff a contradiction can be proved from them, i.e.\ $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n \proves \ered$. If they are not \define{inconsistent}, we call them \define{provably consistent}.
+		The sentences $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n$ are \define{provably inconsistent} iff a contradiction can be proved from them, i.e., $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n \proves \ered$. If they are not \define{inconsistent}, we call them \define{provably consistent}.
 	}
         
 \newglossaryentry{provably inconsistent}
@@ -1314,22 +1446,22 @@ If you know that $\meta{A}\proves\meta{B}$, what can you say about $(\meta{A}\ea
 
 
 \chapter{Derived rules}\label{s:Derived}
-In this section, we will see why we introduced the rules of our proof system in two separate batches. In particular, we want to show that the additional rules of \S\ref{s:Further} are not strictly speaking necessary, but can be derived from the basic rules of \S\ref{s:BasicTFL}.
+In this section, we will see why we introduced the rules of our proof system in two separate batches. In particular, we want to show that the additional rules of \S\ref{s:Further} are not strictly speaking necessary, but can be derived from the basic rules of \S\ref{s:BasicTFL}. 
 
 \section{Derivation of Reiteration}
-Suppose you have some sentence on some line of your deduction:
+To illustrate what it means to derive a \emph{rule} from other rules, first consider reiteration. It is a basic rule of our system, but it is also not necessary. Suppose you have some sentence on some line of your deduction:
 \begin{proof}
 	\have[m]{a}{\meta{A}}
 \end{proof}
-You now want to repeat yourself, on some line $k$. You could just invoke the rule R, introduced in \S\ref{s:Further}. But equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
+You now want to repeat yourself, on some line $k$. You could just invoke the rule~R. But equally well, you can do this with other basic rules of \S\ref{s:BasicTFL}:
 \begin{proof}
 	\have[m]{a}{\meta{A}}
 	\have[k]{aa}{\meta{A} \eand \meta{A}}\ai{a, a}
 	\have{a2}{\meta{A}}\ae{aa}
 \end{proof}
-To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, `$\meta{A}$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\meta{A}$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
+To be clear: this is not a proof. Rather, it is a proof \emph{scheme}. After all, it uses a variable, `$\meta{A}$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\meta{A}$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
 
-Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the \emph{basic} rules of \S\ref{s:BasicTFL}. So we can describe the rule R as a \emph{derived} rule, since it can be justified using only the basic rules.
+Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the basic rules of \S\ref{s:BasicTFL} without~R. That is what it means to say that the rule~R can be derived from the other basic rules: anything that can be justified using~R can be justified using only the other basic rules.
 
 
 \section{Derivation of Disjunctive Syllogism}
@@ -1349,14 +1481,13 @@ You now want, on line $k$, to prove $\meta{B}$. You can do this with the rule of
 		\close
 		\open
 			\hypo{b}{\meta{B}}
-			\have{bb}{\meta{B} \eand \meta{B}}\ai{b, b}
-			\have{b2}{\meta{B}}\ae{bb}
+			\have{b2}{\meta{B}}\by{R}{b}
 		\close
 	\have{con}{\meta{B}}\oe{ab, a-b1, b-b2}
 \end{proof}
 So the DS rule, again, can be derived from our more basic rules. Adding it to our system did not make any new proofs possible. Anytime you use the DS rule, you could always take a few extra lines and prove the same thing using only our basic rules. It is a \emph{derived} rule.
 
-\section{Derivation of Modus tollens}
+\section{Derivation of Modus Tollens}
 Suppose you have the following in your proof:
 \begin{proof}
 	\have[m]{ab}{\meta{A}\eif\meta{B}}
@@ -1375,7 +1506,7 @@ You now want, on line $k$, to prove $\enot \meta{A}$. You can do this with the r
 \end{proof}
 Again, the rule of MT can be derived from the \emph{basic} rules of \S\ref{s:BasicTFL}.
 
-\section{Derivation of Double-negation elimination}
+\section{Derivation of Double-Negation Elimination}
 Consider the following deduction scheme:
 	\begin{proof}
 	\have[m]{m}{\enot \enot \meta{A}}
@@ -1387,7 +1518,7 @@ Consider the following deduction scheme:
 \end{proof}
 Again,  we can derive the DNE rule from the \emph{basic} rules of \S\ref{s:BasicTFL}.
 
-\section{Derivation of excluded middle}
+\section{Derivation of Excluded Middle}
 Suppose you want to prove something using the LEM rule, i.e., you have in your proof
 \begin{proof}
   \open
@@ -1411,7 +1542,7 @@ One option is to first prove $\meta{A} \eor \enot\meta{A}$, and then apply $\eor
   \hypo[k]{b}{\enot\meta{A}}
   \have[l]{bbb}{\meta{B}}
   \close
-  \have[\ ]{prf}{\dots}
+  \ellipsesline
   \have[i]{tnd}{\meta{A} \eor \enot \meta{A}}
   \have[i+1]{fin}{\meta{B}}\oe{tnd, a-aaa,b-bbb}
 \end{proof}
@@ -1422,20 +1553,22 @@ Here is another way that is a bit more complicated than the ones before. What yo
   \open
   \hypo[m]{nb}{\enot\meta{B}}
   \open
-  \hypo[m+1]{a}{\meta{A}}
-  \have[n+1]{aaa}{\meta{B}}
-  \have[n+2]{aaaa}{\ered}\ne{nb, aaa}
+  \hypo{a}{\meta{A}}
+  \ellipsesline
+  \have[n]{aaa}{\meta{B}}
+  \have{aaaa}{\ered}\ne{nb, aaa}
   \close
   \open
-  \hypo[k+2]{b}{\enot\meta{A}}
-  \have[l+2]{bbb}{\meta{B}}
-  \have[l+3]{bbbb}{\ered}\ne{b, bbb}
+  \hypo{b}{\enot\meta{A}}
+  \ellipsesline
+  \have[l]{bbb}{\meta{B}}
+  \have{bbbb}{\ered}\ne{nb, bbb}
   \close
-  \have[l+4]{na}{\enot\meta{A}}\ni{a-aaaa}
-  \have[l+5]{nna}{\enot\enot\meta{A}}\ni{b-bbbb}
-  \have[l+6]{bot}{\ered}\ne{nna, na}
+  \have{na}{\enot\meta{A}}\ni{(a)-(aaaa)}
+  \have{nna}{\enot\enot\meta{A}}\ni{(b)-(bbbb)}
+  \have{bot}{\ered}\ne{nna, na}
   \close
-  \have[l+7]{B}{\meta{B}}\ip{nb-bot}
+  \have{B}{\meta{B}}\ip{nb-(bot)}
 \end{proof}
 Note that because we add an assumption at the top and additional conclusions inside the subproofs, the line numbers change. You may have to stare at this for a while before you understand what's going on.
 
@@ -1496,7 +1629,7 @@ The proofs you offered in response to the practice exercises of \S\S\ref{s:Furth
 \
 
 \problempart
-Give a proof of $\meta{A} \lor \enot\meta{A}$. Then
+Give a proof of $\meta{A} \eor \enot\meta{A}$. Then
 give a proof that \emph{uses only the basic rules}.
 
 \
@@ -1510,7 +1643,7 @@ Show that if you had LEM as a basic rule, you could justify IP as a derived rule
   \have[n]{aaa}{\ered}
   \close
 \end{proof}
-How could you use it to prove \meta{A} without using IP but with using TND as well as all the other primite rules?
+How could you use it to prove \meta{A} without using IP but with using LEM as well as all the other basic rules?
 
 \
 
@@ -1522,7 +1655,7 @@ Give a proof of the first De Morgan rule, but using only the basic rules, in par
 
 In \S\ref{s:ProofTheoreticConcepts}, we saw that we could use derivations to test for the same concepts we used truth tables to test for. Not only could we use derivations to prove that an argument is valid, we could also use them to test if a sentence is a tautology or a pair of sentences are equivalent. We also started using the single turnstile the same way we used the double turnstile. If we could prove that \meta{A} was a tautology with a truth table, we wrote $\entails \meta{A}$, and if we could prove it using a derivation, we wrote $\proves \meta{A}.$ 
 
-You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \meta{A} is a tautology using truth tables, can you also always show that it is true using a derivation? Is the reverse true? Are these things also true for tautologies and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately and then proving them equivalent. That is, we imagine that we actually have two notions of validity, valid$_{\entails}$ and  valid$_{\proves}$ and then show that the two concepts always work the same way. 
+You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \meta{A} is a tautology using truth tables, can you also always show that it is a theorem using a derivation? Is the reverse true? Are these things also true for valid arguments and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately and then proving them equivalent. That is, we imagine that we actually have two notions of validity, valid$_{\entails}$ and  valid$_{\proves}$ and then show that the two concepts always work the same way. 
 
 To begin with, we need to define all of our logical concepts separately for truth tables and derivations. A lot of this work has already been done. We handled all of the truth table definitions in \S\ref{s:SemanticConcepts}. We have also already given syntactic definitions for tautologies (theorems) and pairs of logically equivalent sentences. The other definitions follow naturally. For most logical properties we can devise a test using derivations, and those that we cannot test for directly can be defined in terms of the concepts that we can define.
 
@@ -1535,7 +1668,7 @@ A collection of sentences are \define{provably inconsistent in TFL} \label{def:s
 Finally, an argument is \define{provably valid in TFL} \label{def:syntactically_valid_in_SL} if and only if there is a derivation of its conclusion from its premises. All of these definitions are given in Table \ref{table:truth_tables_or_derivations}.
 
 
-\begin{sidewaystable}
+\begin{sidewaystable}\small
 \tabulinesep=1ex
 \begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
 \textbf{Concept} 		&	\textbf{Truth table (semantic) definition} 	&	\textbf{Proof-theoretic (syntactic) definition} \\ \hline \hline
@@ -1568,11 +1701,11 @@ description={A property held by logical systems if and only if $\proves $ implie
 
 This argument from $\proves $ to $\entails $ is the problem of \define{\gls{soundness}}. \label{def:soundness} A proof system is \define{sound} if there are no derivations of arguments that can be shown invalid by truth tables. \label{def_Soundness} Demonstrating that the proof system is sound would require showing that \emph{any} possible proof is the proof of a valid argument. It would not be enough simply to succeed when trying to prove many valid arguments and to fail when trying to prove invalid ones.
 
-The proof that we will sketch depends on the fact that we initially defined a sentence of TFL using a recursive definition (see p.~\pageref{TFLsentences}). We could have also used recursive definitions to define a proper proof in TFL and a proper truth table. \nix{Later this will be a truth assignment}(Although we didn't.) If we had these definitions, we could then use a \emph{recursive proof} to show the soundness of TFL. A recursive proof works the same way as a recursive definition. With the recursive definition, we identified a group of base elements that were stipulated to be examples of the thing we were trying to define. In the case of a TFL sentence, the base class was the set of sentence letters $A$, $B$, $C$, \dots. We just announced that these were sentences. The second step of a recursive definition is to say that anything that is built up from your base class using certain rules also counts as an example of the thing you are defining. In the case of a definition of a sentence, the rules corresponded to the five sentential connectives (see p.~\pageref{TFLsentences}). Once you have established a recursive definition, you can use that definition to show that all the members of the class you have defined have a certain property. You simply prove that the property is true of the members of the base class, and then you prove that the rules for extending the base class don't change the property. This is what it means to give a recursive proof.
+The proof that we will sketch depends on the fact that we initially defined a sentence of TFL using an inductive definition (see p.~\pageref{TFLsentences}). We could have also used inductive definitions to define a proper proof in TFL and a proper truth table. \nix{Later this will be a truth assignment}(Although we didn't.) If we had these definitions, we could then use a \emph{inductive proof} to show the soundness of TFL. An inductive proof works the same way as an inductive definition. With the inductive definition, we identified a group of base elements that were stipulated to be examples of the thing we were trying to define. In the case of a TFL sentence, the base class was the set of sentence letters $A$, $B$, $C$, \dots. We just announced that these were sentences. The second step of an inductive definition is to say that anything that is built up from your base class using certain rules also counts as an example of the thing you are defining. In the case of a definition of a sentence, the rules corresponded to the five sentential connectives (see p.~\pageref{TFLsentences}). Once you have established an inductive definition, you can use that definition to show that all the members of the class you have defined have a certain property. You simply prove that the property is true of the members of the base class, and then you prove that the rules for extending the base class don't change the property. This is what it means to give an inductive proof.
 
-Even though we don't have a recursive definition of a proof in TFL, we can sketch how a recursive proof of the soundness of TFL would go. Imagine a base class of one-line proofs, one for each of our eleven rules of inference. The members of this class would look like this $\meta{A}, \meta{B} \proves  \meta{A} \eand \meta{B}$; $\meta{A} \eand \meta{B} \proves \meta{A}$; $\meta{A} \eor \meta{B}, \enot\meta{A} \proves  \meta{B}$ \ldots{} etc. Since some rules have a couple different forms, we would have to have add some members to this base class, for instance $\meta{A} \eand \meta{B} \proves  \meta{B}$ Notice that these are all statements in the metalanguage. The proof that TFL is sound is not a part of TFL, because TFL does not have the power to talk about itself. 
+Even though we don't have an inductive definition of a proof in TFL, we can sketch how an inductive proof of the soundness of TFL would go. Imagine a base class of one-line proofs, one for each of our eleven rules of inference. The members of this class would look like this $\meta{A}, \meta{B} \proves  \meta{A} \eand \meta{B}$; $\meta{A} \eand \meta{B} \proves \meta{A}$; $\meta{A} \eor \meta{B}, \enot\meta{A} \proves  \meta{B}$ \ldots{} etc. Since some rules have a couple different forms, we would have to have add some members to this base class, for instance $\meta{A} \eand \meta{B} \proves  \meta{B}$ Notice that these are all statements in the metalanguage. The proof that TFL is sound is not a part of TFL, because TFL does not have the power to talk about itself. 
 
-You can use truth tables to prove to yourself that each of these one-line proofs in this base class is valid$_{\entails}$. For instance the proof $\meta{A}, \meta{B} \proves \meta{A} \eand \meta{B}$ corresponds to a truth table that shows $\meta{A}, \meta{B} \entails  \meta{A} \eand \meta{B}$ This establishes the first part of our recursive proof. 
+You can use truth tables to prove to yourself that each of these one-line proofs in this base class is valid$_{\entails}$. For instance the proof $\meta{A}, \meta{B} \proves \meta{A} \eand \meta{B}$ corresponds to a truth table that shows $\meta{A}, \meta{B} \entails  \meta{A} \eand \meta{B}$ This establishes the first part of our inductive proof. 
 
 The next step is to show that adding lines to any proof will never change a valid$_{\entails}$ proof into an invalid$_{\entails}$ one. We would need to do this for each of our eleven basic rules of inference. So, for instance, for \eand{I} we need to show that for any proof $\meta{A}_{1}$, \dots, $\meta{A}_{n} \proves  \meta {B}$ adding a line where we use \eand{I} to infer $\meta{C} \eand \meta{D}$, where $\meta{C} \eand \meta{D}$ can be legitimately inferred from $\meta{A}_{1}$, \dots, $\meta{A}_{n}$,~$\meta{B}$, would not change a valid proof into an invalid proof. But wait, if we can legitimately derive $\meta{C} \eand \meta{D}$ from these premises, then $\meta{C}$ and $\meta{D}$ must be already available in the proof. They are either already among $\meta{A}_{1}$, \dots, $\meta{A}_{n}$,~$\meta {B}$, or can be legitimately derived from them. As such, any truth table line in which the premises are true must be a truth table line in which \meta{C} and \meta{D} are true. According to the characteristic truth table for \eand, this means that $\meta{C} \eand \meta{D}$ is also true on that line. Therefore, $\meta{C} \eand \meta{D}$ validly follows from the premises. This means that using the {\eand}E rule to extend a valid proof produces another valid proof.
 
@@ -1592,16 +1725,16 @@ Now that we know that the truth table method is interchangeable with the method 
 
 Table \ref{table.ProofOrModel} summarizes when it is best to give proofs and when it is best to give truth tables. 
 
-\begin{table}
+\begin{table}\small
 \tabulinesep=1ex
 \begin{tabu}{X[.7,c,m] ||X[1,l,m] |X[1,l,m]}
 \textbf{Logical property} 	&	\textbf{To prove it present} 	&	\textbf{To prove it absent} \\ \hline \hline
-Being a theorem 		& Derive the sentence  						& Find the false line in the truth table for the sentence \\ \hline
-Being a contradiction 	&  Derive the negation of the sentence  		 & Find the true line in the truth table for the sentence\\ \hline
+Being a theorem 		& Derive the sentence  						& Find a false line in the truth table for the sentence \\ \hline
+Being a contradiction 	&  Derive the negation of the sentence  		 & Find a true line in the truth table for the sentence\\ \hline
 Contingency 			& Find a false line and a true line in the truth table for the sentence & Prove the sentence or its negation\\ \hline
 Equivalence 			& Derive each sentence from the other 		 & Find a line in the truth tables for the sentence where they have different values\\ \hline
 Consistency 		& Find a line in truth table for the sentence where they all are true & Derive a contradiction from the sentences\\ \hline
-Validity 				& Derive the conclusion from the premises & Find no line in the truth table where the premises are true and the conclusion false. \\ 
+Validity 				& Derive the conclusion from the premises & Find a line in the truth table where the premises are true and the conclusion false. \\ 
 \end{tabu}
 \caption{When to provide a truth table and when to provide a proof.}
 \label{table.ProofOrModel}

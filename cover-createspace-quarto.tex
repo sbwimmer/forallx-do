@@ -1,7 +1,7 @@
 % cover-createspace-quarto.tex
 
 % make a cover PDF for KDP Crown Quarto booksize.
-
+\pdfminorversion=4
 \documentclass{memoir}
 
 \newcommand{\olpath}{../../}
@@ -23,7 +23,7 @@
 
 \setlength{\coverheight}{9.69in}  % trim height
 \setlength{\spinepos}{7.44in} % trim width
-\setlength{\spinewidth}{312\sheetwidth}
+\setlength{\spinewidth}{399\sheetwidth}
 
 % compute actual widths
 \addtolength{\coverheight}{.25in} % add bleed
@@ -61,6 +61,8 @@
 
 \color{black}
 
+%\usepackage[x-1a]{pdfx}
+
 \begin{document}
 
 \sffamily
@@ -81,7 +83,7 @@
       \hskip 1.5cm
       \fontsize{16pt}{19pt}\sffamily\bfseries\selectfont
       \color{black}
-      forall x: Calgary Remix\hfil
+      forall x: Calgary\hfil
       \color{white}
       \forallxshortversion\hspace{1.1cm}}}%
   \hfil
@@ -104,7 +106,7 @@
           
       \sffamily\fontsize{32pt}{0pt}\selectfont
       \color{black}
-      \textbf{\uppercase{Calgary Remix}}
+      \textbf{\uppercase{Calgary}}
 
       \vspace*{1cm}
       \color{black}
@@ -143,7 +145,7 @@
     \begin{minipage}[b]{5cm}
       \begin{raggedright}
         \fontsize{14pt}{16pt}\selectfont\color{white}
-      \textit{forall x: Calgary Remix} by P.~D. Magnus et al.\ is
+      \textit{forall x: Calgary} by P.~D. Magnus et al.\ is
       licensed under a Creative Commons Attribution 4.0 International
       License.\par
       \end{raggedright}

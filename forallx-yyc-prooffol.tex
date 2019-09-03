@@ -30,10 +30,10 @@ This motivates the universal elimination rule ($\forall$E):
 \end{proof}}
 The notation here was introduced in \S\ref{s:TruthFOL}. The point is that you can obtain any \emph{substitution instance} of a universally quantified formula: replace every instance of the quantified variable with any name you like. 
 
-I should emphasize that (as with every elimination rule) you can only apply the $\forall$E rule when the universal quantifier is the main logical operator. So the following is \emph{banned}:
+We should emphasize that (as with every elimination rule) you can only apply the $\forall$E rule when the universal quantifier is the main logical operator. So the following is \emph{banned}:
 \begin{proof}
 	\hypo{a}{\forall x\,\atom{B}{x} \eif \atom{B}{k}}
-	\have{c}{\atom{B}{b} \eif \atom{B}{k}}\by{naughtily attempting to invoke $\forall$E}{a}
+	\have{c}{\atom{B}{b} \eif \atom{B}{k}}\by{naughy attempt to invoke $\forall$E}{a}
 \end{proof}
 This is illegitimate, since `$\forall x$' is not the main logical operator in line 1. (If you need a reminder as to why this sort of inference should be banned, reread \S\ref{s:MoreMonadic}.)
 
@@ -72,7 +72,7 @@ But this is banned:
 \begin{proof}
 	\hypo{a}{\atom{R}{a,a,d}}
 	\have{d}{\exists x\, \atom{R}{x,a,d}} \Ei{a}
-	\have{e}{\exists x \exists x\, \atom{R}{x,x,d}}\by{naughtily attempting to invoke $\exists$I}{d}
+	\have{e}{\exists x\, \exists x\, \atom{R}{x,x,d}}\by{naughty attempt to invoke $\exists$I}{d}
 \end{proof}
 since the expression on line~3 contains clashing variables, and so is not a sentence of FOL.
 
@@ -83,7 +83,7 @@ The following proof combines our two new rules for quantifiers:
 		\have{in}{\atom{F}{a}}\Ae{a}
 		\have{e}{\exists x\, \atom{F}{x}}\Ei{in}
 	\end{proof}
-Could this be a bad proof? If anything exists at all, then certainly we can infer that something is F, from the fact that everything is F. But what if \emph{nothing} exists at all? Then it is surely vacuously true that everything is F; however, it does not following that something is F, for there is nothing to \emph{be} F. So if we claim that, as a matter of logic alone, `$\exists x\,\atom{F}{x}$' follows from `$\forall x\,\atom{F}{x}$', then we are claiming that, as a matter of \emph{logic alone}, there is something rather than nothing. This might strike us as a bit odd.
+Could this be a bad proof? If anything exists at all, then certainly we can infer that something is~$F$, from the fact that everything is~$F$. But what if \emph{nothing} exists at all? Then it is surely vacuously true that everything is~$F$; however, it does not following that something is~$F$, for there is nothing to \emph{be}~$F$. So if we claim that, as a matter of logic alone, `$\exists x\,\atom{F}{x}$' follows from `$\forall x\,\atom{F}{x}$', then we are claiming that, as a matter of \emph{logic alone}, there is something rather than nothing. This might strike us as a bit odd.
 
 Actually, we are already committed to this oddity. In \S\ref{s:FOLBuildingBlocks}, we stipulated that domains in FOL must have at least one member. We then defined a validity (of FOL) as a sentence which is true in every interpretation. Since `$\exists x\, x=x$' will be true in every interpretation, this \emph{also} had the effect of stipulating that it is a matter of logic that there is something rather than nothing.
 
@@ -105,7 +105,7 @@ Suppose you had shown of each particular thing that it is F (and that there are 
 
 Unfortunately, that rule would be utterly unusable. To establish each and every single substitution instance would require proving `$\atom{F}{a}$', `$\atom{F}{b}$', \dots, `$\atom{F}{j_2}$', \dots, `$\atom{F}{r_{79002}}$', \ldots, and so on. Indeed, since there are infinitely many names in FOL, this process would never come to an end. So we could never apply that rule. We need to be a bit more cunning in coming up with our rule for introducing universal quantification. 
 
-Our cunning thought will be inspired by considering:
+A solution will be inspired by considering:
 $$\forall x\,\atom{F}{x} \therefore \forall y\,\atom{F}{y}$$
 This argument should \emph{obviously} be valid. After all, alphabetical variation ought to be a matter of taste, and of no logical consequence. But how might our proof system reflect this? Suppose we begin a proof thus:
 \begin{proof}
@@ -138,7 +138,7 @@ Now, suppose we tried to offer a proof that vindicates this argument:
 \begin{proof}
 	\hypo{x}{\forall x\, \atom{L}{x,k}}
 	\have{a}{\atom{L}{k,k}} \Ae{x}
-	\have{y}{\forall x\, \atom{L}{x,x}} \by{naughtily attempting to invoke $\forall$I}{a}
+	\have{y}{\forall x\, \atom{L}{x,x}} \by{naughty attempt to invoke $\forall$I}{a}
 \end{proof}\noindent
 This is not allowed, because `$k$' occurred already in an undischarged assumption, namely, on line 1. The crucial point is that, if we have made any assumptions about the object we are working with, then we are not reasoning generally enough to license $\forall$I.
 
@@ -153,7 +153,7 @@ Although the name may not occur in any \emph{undischarged} assumption, it may oc
 \end{proof}
 This tells us that `$\forall z (\atom{G}{z} \eif \atom{G}{z})$' is a \emph{theorem}. And that is as it should be.
 
-I should emphasise one last point. As per the conventions of \S\ref{s:MainLogicalOperatorQuantifier}, the use of $\forall$I requires that we are replacing \emph{every} instance of the name \meta{c} in $\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$ with the variable \meta{x}. If we only replace \emph{some} names and not others, we end up `proving' silly things. For example, consider the argument:
+We should emphasise one last point. As per the conventions of \S\ref{s:MainLogicalOperatorQuantifier}, the use of $\forall$I requires that we are replacing \emph{every} instance of the name \meta{c} in $\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$ with the variable \meta{x}. If we only replace \emph{some} names and not others, we end up `proving' silly things. For example, consider the argument:
 	\begin{quote}
 	Everyone is as old as themselves; so everyone is as old as Judi Dench
 	\end{quote}
@@ -163,7 +163,7 @@ But now suppose we tried to \emph{vindicate} this terrible argument with the fol
 \begin{proof}
 	\hypo{x}{\forall x\, \atom{O}{x,x}}
 	\have{a}{\atom{O}{d,d}}\Ae{x}
-	\have{y}{\forall x\, \atom{O}{x,d}}\by{naughtily attempting to invoke $\forall$I}{a}	
+	\have{y}{\forall x\, \atom{O}{x,d}}\by{naughty attempt to invoke $\forall$I}{a}	
 \end{proof}
 Fortunately, our rules do not allow for us to do this: the attempted proof is banned, since it doesn't replace \emph{every} occurrence of `$d$' in line $2$ with an `$x$'.
 
@@ -172,21 +172,21 @@ Suppose we know that \emph{something} is~$F$. The problem is that simply knowing
 
 Suppose we know that something is~$F$, and that everything which is~$F$ is also~$G$. In (almost) natural English, we might reason thus:
 	\begin{quote}
-		Since something is $F$, there is some particular thing which is an~$F$. We do not know anything about it, other than that it's an~$F$, but for convenience, let's call it `obbie'. So: obbie is $F$. Since everything which is $F$ is~$G$, it follows that obbie is~$G$. But since obbie is~$G$, it follows that something is~$G$. And nothing depended on which object, exactly, obbie was. So, something is~$G$.
+		Since something is $F$, there is some particular thing which is an~$F$. We do not know anything about it, other than that it's an~$F$, but for convenience, let's call it `Becky'. So: Becky is $F$. Since everything which is $F$ is~$G$, it follows that Becky is~$G$. But since Becky is~$G$, it follows that something is~$G$. And nothing depended on which object, exactly, Becky was. So, something is~$G$.
 	\end{quote}
 We might try to capture this reasoning pattern in a proof as follows:
 \begin{proof}
 	\hypo{es}{\exists x\, \atom{F}{x}}
 	\hypo{ast}{\forall x(\atom{F}{x} \eif \atom{G}{x})}
 	\open
-		\hypo{s}{\atom{F}{o}}
-		\have{st}{\atom{F}{o} \eif \atom{G}{o}}\Ae{ast}
-		\have{t}{\atom{G}{o}} \ce{st, s}
+		\hypo{s}{\atom{F}{b}}
+		\have{st}{\atom{F}{b} \eif \atom{G}{b}}\Ae{ast}
+		\have{t}{\atom{G}{b}} \ce{st, s}
 		\have{et1}{\exists x\, \atom{G}{x}}\Ei{t}
 	\close
 	\have{et2}{\exists x\, \atom{G}{x}}\Ee{es,s-et1}
 \end{proof}\noindent
-Breaking this down: we started by writing down our assumptions. At line 3, we made an additional assumption: `$\atom{F}{o}$'. This was just a substitution instance of `$\exists x\,\atom{F}{x}$'. On this assumption, we established `$\exists x\,\atom{G}{x}$'. Note that we had made no \emph{special} assumptions about the object named by `$o$'; we had \emph{only} assumed that it satisfies `$\atom{F}{x}$'. So nothing depends upon which object it is. And line 1 told us that \emph{something} satisfies `$\atom{F}{x}$', so our reasoning pattern was perfectly general. We can discharge the specific assumption `$\atom{F}{o}$', and simply infer `$\exists x\,\atom{G}{x}$' on its own.
+Breaking this down: we started by writing down our assumptions. At line~$3$, we made an additional assumption: `$\atom{F}{b}$'. This was just a substitution instance of `$\exists x\,\atom{F}{x}$'. On this assumption, we established `$\exists x\,\atom{G}{x}$'. Note that we had made no \emph{special} assumptions about the object named by `$b$'; we had \emph{only} assumed that it satisfies `$\atom{F}{x}$'. So nothing depends upon which object it is. And line~$1$ told us that \emph{something} satisfies `$\atom{F}{x}$', so our reasoning pattern was perfectly general. We can discharge the specific assumption `$\atom{F}{b}$', and simply infer `$\exists x\,\atom{G}{x}$' on its own.
 
 Putting this together, we obtain the existential elimination rule ($\exists$E):
 \factoidbox{
@@ -215,9 +215,10 @@ Now, suppose we tried to offer a proof that vindicates this argument:
 		\hypo{na}{\enot \atom{L}{b}}
 		\have{con}{\atom{L}{b} \eand \enot \atom{L}{b}}\ai{f, na}
 	\close
-	\have{econ1}{\atom{L}{b} \eand \enot \atom{L}{b}}\by{naughtily attempting to invoke $\exists$E }{nf, na-con}
+	\have{econ1}{\atom{L}{b} \eand \enot \atom{L}{b}}\by{naughty attempt}{}
+	\have[\ ]{x}{}\by{to invoke $\exists$E }{nf, na-con}
 \end{proof}
-The last line of the proof is not allowed. The name that we used in our substitution instance for `$\exists x\, \enot \atom{L}{x}$' on line 3, namely `$b$', occurs in line 4. The this would be no better:
+The last line of the proof is not allowed. The name that we used in our substitution instance for `$\exists x\, \enot \atom{L}{x}$' on line~$3$, namely `$b$', occurs in line~$4$. The this would be no better:
 \begin{proof}
 	\hypo{f}{\atom{L}{b}}
 	\hypo{nf}{\exists x\, \enot \atom{L}{x}}	
@@ -226,9 +227,10 @@ The last line of the proof is not allowed. The name that we used in our substitu
 		\have{con}{\atom{L}{b} \eand \enot \atom{L}{b}}\ai{f, na}
 		\have{con1}{\exists x (\atom{L}{x} \eand \enot \atom{L}{x})}\Ei{con}		
 	\close
-	\have{econ1}{\exists x (\atom{L}{x} \eand \enot \atom{L}{x})}\by{naughtily attempting to invoke $\exists$E }{nf, na-con1}
+	\have{econ1}{\exists x (\atom{L}{x} \eand \enot \atom{L}{x})}\by{naughty attempt}{}
+	\have[\ ]{x}{}\by{to invoke $\exists$E }{nf, na-con1}
 \end{proof}
-The last line is still not be allowed. For the name that we used in our substitution instance for `$\exists x\, \enot \atom{L}{x}$', namely `$b$', occurs in an undischarged assumption, namely line 1. 
+The last line is still not allowed. For the name that we used in our substitution instance for `$\exists x\, \enot \atom{L}{x}$', namely `$b$', occurs in an undischarged assumption, namely line~$1$. 
 
 The moral of the story is this. \emph{If you want to squeeze information out of an existential quantifier, choose a new name for your substitution instance.} That way, you can guarantee that you meet all the constraints on the rule for $\exists$E.
 
@@ -240,10 +242,10 @@ Explain why these two `proofs' are \emph{incorrect}. Also, provide interpretatio
 		\hypo{Rxx}{\forall x\, \atom{R}{x,x}}
 		\have{Raa}{\atom{R}{a,a}}\Ae{Rxx}
 		\have{Ray}{\forall y\, \atom{R}{a,y}}\Ai{Raa}
-		\have{Rxy}{\forall x \forall y\, \atom{R}{x,y}}\Ai{Ray}
+		\have{Rxy}{\forall x\, \forall y\, \atom{R}{x,y}}\Ai{Ray}
 	\end{proof}
 	\begin{proof}
-		\hypo{AE}{\forall x \exists y\, \atom{R}{x,y}}
+		\hypo{AE}{\forall x\, \exists y\, \atom{R}{x,y}}
 		\have{E}{\exists y\, \atom{R}{a,y}}\Ae{AE}
 		\open
 			\hypo{ass}{\atom{R}{a,a}}
@@ -256,7 +258,8 @@ Explain why these two `proofs' are \emph{incorrect}. Also, provide interpretatio
 \problempart 
 \label{pr.justifyFOLproof}
 The following three proofs are missing their citations (rule and line numbers). Add them, to turn them into bona fide proofs. 
-\begin{proof}
+\begin{earg}
+\item \begin{proof}
 \hypo{p1}{\forall x\exists y(\atom{R}{x,y} \eor \atom{R}{y,x})}
 \hypo{p2}{\forall x\,\enot \atom{R}{m,x}}
 \have{3}{\exists y(\atom{R}{m,y} \eor \atom{R}{y,m})}{}
@@ -268,8 +271,8 @@ The following three proofs are missing their citations (rule and line numbers). 
 	\close
 \have{n}{\exists x\, \atom{R}{x,m}} {}
 \end{proof}
-\begin{multicols}{2}
-\begin{proof}
+
+\item \begin{proof}
 \hypo{1}{\forall x(\exists y\,\atom{L}{x,y} \eif \forall z\,\atom{L}{z,x})}
 \hypo{2}{\atom{L}{a,b}}
 \have{3}{\exists y\,\atom{L}{a,y} \eif \forall z\atom{L}{z,a}}{}
@@ -280,14 +283,15 @@ The following three proofs are missing their citations (rule and line numbers). 
 \have{8}{\exists y\, \atom{L}{c,y}}{}
 \have{9}{\forall z\, \atom{L}{z,c}}{}
 \have{10}{\atom{L}{c,c}}{}
-\have{11}{\forall x \atom{L}{x,x}}{}
+\have{11}{\forall x\, \atom{L}{x,x}}{}
 \end{proof}
-\begin{proof}
+
+\item \begin{proof}
 \hypo{a}{\forall x(\atom{J}{x} \eif \atom{K}{x})}
-\hypo{b}{\exists x\forall y \atom{L}{x,y}}
-\hypo{c}{\forall x \atom{J}{x}}
+\hypo{b}{\exists x\,\forall y\, \atom{L}{x,y}}
+\hypo{c}{\forall x\, \atom{J}{x}}
 \open
-	\hypo{2}{\forall y \atom{L}{a,y}}
+	\hypo{2}{\forall y\, \atom{L}{a,y}}
 	\have{3}{\atom{L}{a,a}}{}
 	\have{d}{\atom{J}{a}}{}
 	\have{e}{\atom{J}{a} \eif \atom{K}{a}}{}
@@ -297,8 +301,7 @@ The following three proofs are missing their citations (rule and line numbers). 
 \close
 \have{j}{\exists x(\atom{K}{x} \eand \atom{L}{x,x})}{}
 \end{proof}
-\end{multicols}
-
+\end{earg}
 
 \problempart
 \label{pr.BarbaraEtc.proof1}
@@ -309,7 +312,7 @@ In \S\ref{s:MoreMonadic} problem A, we considered fifteen syllogistic figures of
 \problempart
 \label{pr.BarbaraEtc.proof2}
 Aristotle and his successors identified other syllogistic forms which depended upon `existential import'. Symbolize each of these argument forms in FOL and offer proofs.
-\begin{ebullet}
+\begin{earg}
 	\item \textbf{Barbari.} Something is H. All G are F. All H are G. So: Some H is F
 	\item \textbf{Celaront.} Something is H. No G are F. All H are G. So: Some H is not F
 	\item \textbf{Cesaro.} Something is H. No F are G. All H are G. So: Some H is not F.
@@ -319,21 +322,20 @@ Aristotle and his successors identified other syllogistic forms which depended u
 	\item \textbf{Calemos.} Something is H. All F are G. No G are H. So: Some H is not F.
 	\item \textbf{Fesapo.} Something is G. No F is G. All G are H. So: Some H is not F.
 	\item \textbf{Bamalip.} Something is F. All F are G. All G are H. So: Some H are F.
-\end{ebullet}
+\end{earg}
 
 \problempart
 \label{pr.someFOLproofs}
 Provide a proof of each claim.
 \begin{earg}
-\item $\proves \forall x\,\atom{F}{x} \eor \enot \forall x\,\atom{F}{x}$
-\item $\proves\forall z (\atom{P}{z} \eor \enot \atom{P}{z})$
+\item $\proves \forall x\,\atom{F}{x} \eif \forall y(\atom{F}{y} \eand \atom{F}{y})$
 \item $\forall x(\atom{A}{x}\eif \atom{B}{x}), \exists x\,\atom{A}{x} \proves \exists x\,\atom{B}{x}$
 \item $\forall x(\atom{M}{x} \eiff \atom{N}{x}), \atom{M}{a} \eand \exists x\,\atom{R}{x,a} \proves \exists x\,\atom{N}{x}$
-\item $\forall x \forall y\,\atom{G}{x,y}\proves\exists x\,\atom{G}{x,x}$
-\item $\proves\forall x\,\atom{R}{x,x} \eif \exists x \exists y\,\atom{R}{x,y}$
-\item $\proves\forall y \exists x (\atom{Q}{y} \eif \atom{Q}{x})$
+\item $\forall x\, \forall y\,\atom{G}{x,y}\proves\exists x\,\atom{G}{x,x}$
+\item $\proves\forall x\,\atom{R}{x,x} \eif \exists x\, \exists y\,\atom{R}{x,y}$
+\item $\proves\forall y\, \exists x (\atom{Q}{y} \eif \atom{Q}{x})$
 \item $\atom{N}{a} \eif \forall x(\atom{M}{x} \eiff \atom{M}{a}), \atom{M}{a}, \enot\atom{M}{b}\proves \enot \atom{N}{a}$
-\item $\forall x \forall y (\atom{G}{x,y} \eif \atom{G}{y,x}) \proves \forall x\forall y (\atom{G}{x,y} \eiff \atom{G}{y,x})$
+\item $\forall x\, \forall y (\atom{G}{x,y} \eif \atom{G}{y,x}) \proves \forall x\forall y (\atom{G}{x,y} \eiff \atom{G}{y,x})$
 \item $\forall x(\enot\atom{M}{x} \eor \atom{L}{j,x}), \forall x(\atom{B}{x}\eif \atom{L}{j,x}), \forall x(\atom{M}{x}\eor \atom{B}{x})\proves \forall x\atom{L}{j,x}$
 \end{earg}
 
@@ -360,9 +362,9 @@ Show that each pair of sentences is provably equivalent.
 For each of the following pairs of sentences: If they are provably equivalent, give proofs to show this. If they are not, construct an interpretation to show that they are not logically equivalent.
 \begin{earg}
 \item $\forall x\,\atom{P}{x} \eif \atom{Q}{c}, \forall x (\atom{P}{x} \eif \atom{Q}{c})$
-\item $\forall x\forall y \forall z\,\atom{B}{x,y,z}, \forall x\,\atom{B}{x,x}x$
-\item $\forall x\forall y\,\atom{D}{x,y}, \forall y\forall x\,\atom{D}{x,y}$
-\item $\exists x\forall y\,\atom{D}{x,y}, \forall y\exists x\,\atom{D}{x,y}$
+\item $\forall x\,\forall y\, \forall z\,\atom{B}{x,y,z}, \forall x\,\atom{B}{x,x}x$
+\item $\forall x\,\forall y\,\atom{D}{x,y}, \forall y\,\forall x\,\atom{D}{x,y}$
+\item $\exists x\,\forall y\,\atom{D}{x,y}, \forall y\,\exists x\,\atom{D}{x,y}$
 \item $\forall x (\atom{R}{c,a} \eiff \atom{R}{x,a}), \atom{R}{c,a} \eiff \forall x\,\atom{R}{x,a}$
 \end{earg}
 
@@ -371,163 +373,200 @@ For each of the following pairs of sentences: If they are provably equivalent, g
 \label{pr.FOLvalidornot}
 For each of the following arguments: If it is valid in FOL, give a proof. If it is invalid, construct an interpretation to show that it is invalid.
 \begin{earg}
-\item $\exists y\forall x\,\atom{R}{x,y} \therefore \forall x\exists y\,\atom{R}{x,y}$
-\item $\forall x\exists y\,\atom{R}{x,y} \therefore  \exists y\forall x\,\atom{R}{x,y}$
+\item $\exists y\,\forall x\,\atom{R}{x,y} \therefore \forall x\,\exists y\,\atom{R}{x,y}$
+\item $\forall x\,\exists y\,\atom{R}{x,y} \therefore  \exists y\,\forall x\,\atom{R}{x,y}$
 \item $\exists x(\atom{P}{x} \eand \enot \atom{Q}{x}) \therefore \forall x(\atom{P}{x} \eif \enot \atom{Q}{x})$
 \item $\forall x(\atom{S}{x} \eif \atom{T}{a}), \atom{S}{d} \therefore \atom{T}{a}$
 \item $\forall x(\atom{A}{x}\eif \atom{B}{x}), \forall x(\atom{B}{x} \eif \atom{C}{x}) \therefore \forall x(\atom{A}{x} \eif \atom{C}{x})$
 \item $\exists x(\atom{D}{x} \eor \atom{E}{x}), \forall x(\atom{D}{x} \eif \atom{F}{x}) \therefore \exists x(\atom{D}{x} \eand \atom{F}{x})$
-\item $\forall x\forall y(\atom{R}{x,y} \eor \atom{R}{y,x}) \therefore \atom{R}{j,j}$
-\item $\exists x\exists y(\atom{R}{x,y} \eor \atom{R}{y,x}) \therefore \atom{R}{j,j}$
-\item $\forall x\,\atom{P}{x} \eif \forall x\,\atom{Q}{x}, \exists x \enot\atom{P}{x} \therefore \exists x \enot \atom{Q}{x}$
-\item $\exists x\,\atom{M}{x} \eif \exists x\,\atom{N}{x}$, $\enot \exists x\,\atom{N}{x}\therefore  \forall x \enot \atom{M}{x}$
+\item $\forall x\,\forall y(\atom{R}{x,y} \eor \atom{R}{y,x}) \therefore \atom{R}{j,j}$
+\item $\exists x\,\exists y(\atom{R}{x,y} \eor \atom{R}{y,x}) \therefore \atom{R}{j,j}$
+\item $\forall x\,\atom{P}{x} \eif \forall x\,\atom{Q}{x}, \exists x\, \enot\atom{P}{x} \therefore \exists x\, \enot \atom{Q}{x}$
+\item $\exists x\,\atom{M}{x} \eif \exists x\,\atom{N}{x}$, $\enot \exists x\,\atom{N}{x}\therefore  \forall x\, \enot \atom{M}{x}$
 \end{earg}
 
-\chapter[Proofs for quantifiers]{Constructing proofs for quantifiers}
+\chapter{Proofs with quantifiers}
 
-In \S\ref{s:stratTFL} we discussed strategies for constructing proofs using the basic rules of natural deduction for TFL. The same principles apply to the rules for the quantifiers. If we want to prove a quantifier sentence $\forall \meta{x} \meta{A}(\meta{x})$ or $\exists \meta{x} \meta{A}(\meta{x})$ we can work backwards by justifying the sentence we want by $\forall$I or $\exists$I and trying to find a proof of the corresponding premise of that rule. And to use a quantified sentence we apply $\forall$E or $\exists$E, as the case may be. 
+In \S\ref{s:stratTFL} we discussed strategies for constructing proofs using the basic rules of natural deduction for TFL. The same principles apply to the rules for the quantifiers. If we want to prove a quantifier sentence $\forall \meta{x}\, \atom{\meta{A}}{\meta{x}}$ or $\exists \meta{x}\, \atom{\meta{A}}{\meta{x}}$. We can work backward by justifying the sentence we want by $\forall$I or $\exists$I and trying to find a proof of the corresponding premise of that rule. And to work forward from a quantified sentence, we apply $\forall$E or $\exists$E, as the case may be. 
 
-Specifically, suppose you want to prove $\forall \meta{x} \meta{A}(\meta{x})$. To do so using $\forall$I, we would need a proof of $\meta{A}(\meta{c})$ for some name~$\meta{c}$ which does not occur in any undischarged assumption. To apply the corresponding strategy, i.e., to construct a proof of $\forall \meta{x} \meta{A}(\meta{x})$ by working backwards, is thus to write $\meta{A}(\meta{c})$ above it and then to continue to try to find a proof of that sentence.
+Specifically, suppose you want to prove $\forall \meta{x}\, \atom{\meta{A}}{\meta{x}}$. To do so using $\forall$I, we would need a proof of $\atom{\meta{A}}{\meta{c}}$ for some name~$\meta{c}$ which does not occur in any undischarged assumption. To apply the corresponding strategy, i.e., to construct a proof of $\forall \meta{x}\, \atom{\meta{A}}{\meta{x}}$ by working backward, is thus to write $\atom{\meta{A}}{\meta{c}}$ above it and then to continue to try to find a proof of that sentence.
 \begin{proof}
 	\ellipsesline
-	\have[n]{n}{\meta{A}(\meta{c})}
-	\have{m}{\forall \meta{x} \meta{A}(\meta{x})}\Ai{n}
+	\have[n]{n}{\atom{\meta{A}}{\meta{c}}}
+	\have{m}{\forall \meta{x}\, \atom{\meta{A}}{\meta{x}}}\Ai{n}
 \end{proof}
-$\meta{A}(\meta{c})$ is obtained from $\meta{A}(\meta{x})$ by replacing every free occurrence of $\meta{x}$ in $\meta{A}(\meta{x})$ by~$\meta{c}$. For this to work, of course, $\meta{c}$ must satisfy the special condition. We can ensure that it does by always picking a name that does not already occur in the proof constructed so far. (Of course, if will occur in the proof we end up constructing---just not in an assumption that is undischarged at line~$n+1$.)
+$\atom{\meta{A}}{\meta{c}}$ is obtained from $\atom{\meta{A}}{\meta{x}}$ by replacing every free occurrence of $\meta{x}$ in $\atom{\meta{A}}{\meta{x}}$ by~$\meta{c}$. For this to work, $\meta{c}$ must satisfy the special condition. We can ensure that it does by always picking a name that does not already occur in the proof constructed so far. (Of course, it will occur in the proof we end up constructing---just not in an assumption that is undischarged at line~$n+1$.)
 
-To work backward from a sentence $\exists \meta{x} \meta{A}(\meta{x})$ we similarly write a sentence above it that can serve as a justification for an application of the $\exists$I rule, i.e., a sentence of the form $\meta{A}(\meta{c})$. 
+To work backward from a sentence $\exists \meta{x}\, \atom{\meta{A}}{\meta{x}}$ we similarly write a sentence above it that can serve as a justification for an application of the $\exists$I rule, i.e., a sentence of the form $\atom{\meta{A}}{\meta{c}}$. 
 \begin{proof}
 	\ellipsesline
-	\have[n]{n}{\meta{A}(\meta{c})}
-	\have{m}{\exists \meta{x} \meta{A}(\meta{x})}\Ei{n}
+	\have[n]{n}{\atom{\meta{A}}{\meta{c}}}
+	\have{m}{\exists \meta{x}\, \atom{\meta{A}}{\meta{x}}}\Ei{n}
 \end{proof}
-This looks just like what we would do if we were working backwards from a universally quantified sentence. The difference is that whereas for $\forall$I we have to pick a name~$\meta{c}$ which does not occur in the proof (so far), for $\exists$I we may and in general must pick a name~$\meta{c}$ which already occurs in the proof.  Just like in the case of $\eor$I, it is often not clear which $\meta{c}$ will work out, and so to avoid having to backtrack you should work backwards from existentially quantified sentences only when all other strategies have been applied.
+This looks just like what we would do if we were working backward from a universally quantified sentence. The difference is that whereas for $\forall$I we have to pick a name~$\meta{c}$ which does not occur in the proof (so far), for $\exists$I we may and in general must pick a name~$\meta{c}$ which already occurs in the proof.  Just like in the case of $\eor$I, it is often not clear which $\meta{c}$ will work out, and so to avoid having to backtrack you should work backward from existentially quantified sentences only when all other strategies have been applied.
 
-By contrast, working \emph{forwards} from sentences $\exists \meta{x} \meta{A}(\meta{x})$ generally always works and you won't have to backtrack. Working forwards from an existentially quantified sentence takes into account not just $\exists \meta{x} \meta{A}(\meta{x})$ but also whatever sentence $\meta{B}$ you would like to prove. It requires that you set up a subproof above $\meta{B}$, wherein $\meta{B}$ is the last line, and a substitution instance $\meta{A}(\meta{c})$ of $\exists \meta{x} \meta{A}(\meta{x})$ is the assumption.  In order to ensure that the condition on $\meta{c}$ that governs $\exists$E, chose a name $\meta{c}$ which does not already occur in the proof. 
+By contrast, working \emph{forward} from sentences $\exists \meta{x}\, \atom{\meta{A}(\meta{x}})$ generally always works and you won't have to backtrack. Working forward from an existentially quantified sentence takes into account not just $\exists \meta{x}\, \atom{\meta{A}}{\meta{x}}$ but also whatever sentence $\meta{B}$ you would like to prove. It requires that you set up a subproof above $\meta{B}$, wherein $\meta{B}$ is the last line, and a substitution instance $\atom{\meta{A}}{\meta{c}}$ of $\exists \meta{x}\, \atom{\meta{A}}{\meta{x}}$ as the assumption.  In order to ensure that the condition on $\meta{c}$ that governs $\exists$E is satisfied, chose a name $\meta{c}$ which does not already occur in the proof. 
 \begin{proof}
 	\ellipsesline
-	\hypo[m]{m}{\exists \meta{x} \meta{A}(\meta{x})}
+	\have[m]{m}{\exists \meta{x}\, \atom{\meta{A}}{\meta{x}}}
 	\ellipsesline
 	\open
-	\hypo[n]{n}{\meta{A}(\meta{c})}
+	\hypo[n]{n}{\atom{\meta{A}}{\meta{c}}}
 	\ellipsesline
 	\have[k]{k}{\meta{B}}
 	\close
 	\have{e}{\meta{B}}\Ee{m,n-k}
 \end{proof}
-You'll then continue with the goal of proving $\meta{B}$, but now inside a subproof in which you have an additional sentence to work with, namely~$\meta{A}(\meta{c})$.
+You'll then continue with the goal of proving $\meta{B}$, but now inside a subproof in which you have an additional sentence to work with, namely~$\atom{\meta{A}}{\meta{c}}$.
 
-Lastly, working forwards from $\forall \meta{x} \meta{A}(\meta{x})$ means that you can always write down $\meta{A}(\meta{c})$ and justify it using $\forall$E, for any name~$\meta{c}$. Of course, you wouldn't want to do that willy-nilly. Only certain names $\meta{c}$ will help in your task of proving whatever goal sentence you are working on. So, like working backward from $\exists \meta{x} \meta{A}(\meta{x})$, you should work forwards from $\forall \meta{x} \meta{A}(\meta{x})$ only after all other strategies have been applied.
+Lastly, working forward from $\forall \meta{x}\, \atom{\meta{A}}{\meta{x}}$ means that you can always write down $\atom{\meta{A}}{\meta{c}}$ and justify it using $\forall$E, for any name~$\meta{c}$. Of course, you wouldn't want to do that willy-nilly. Only certain names $\meta{c}$ will help in your task of proving whatever goal sentence you are working on. So, like working backward from $\exists \meta{x}\, \atom{\meta{A}}{\meta{x}}$, you should work forward from $\forall \meta{x}\, \atom{\meta{A}}{\meta{x}}$ only after all other strategies have been applied.
 
-Let's consider as an example the argument $\forall x(A(x) \eif B) \therefore (\exists x\,A(x) \eif B)$. To start constructing a proof, we write the premise at the top and the conclusion at the bottom.
+Let's consider as an example the argument $\forall x(\atom{A}{x} \eif B) \therefore \exists x\,\atom{A}{x} \eif B$. To start constructing a proof, we write the premise at the top and the conclusion at the bottom.
 \begin{proof}
-\hypo{1}{\forall x(A(x) \eif B)}
+\hypo{1}{\forall x(\atom{A}{x} \eif B)}
 \ellipsesline
-\have[n]{7}{\exists x\,A(x) \eif B}
+\have[n]{7}{\exists x\,\atom{A}{x} \eif B}
 \end{proof}
-The strategies for connectives of TFL still apply, and you should apply them in the same order: first work backwards from conditionals, negated sentences, conjunctions, and now also universal quantifiers, then forward from disjunctions and now existential quantifiers, and only then try to apply $\eif$E, $\enot$E, $\lor$I, $\forall$E, or $\exists$I. In our case, that means, working backward from the conclusion:
+The strategies for connectives of TFL still apply, and you should apply them in the same order: first work backward from conditionals, negated sentences, conjunctions, and now also universal quantifiers, then forward from disjunctions and now existential quantifiers, and only then try to apply $\eif$E, $\enot$E, $\lor$I, $\forall$E, or $\exists$I. In our case, that means, working backward from the conclusion:
 \begin{proof}
-	\hypo{1}{\forall x(A(x) \eif B)}
+	\hypo{1}{\forall x(\atom{A}{x} \eif B)}
 	\open
-	\hypo{2}{\exists x\,A(x)}
+	\hypo{2}{\exists x\,\atom{A}{x}}
 	\ellipsesline
 	\have[n][-1]{6}{B}
 	\close
-	\have[n]{7}{\exists x\,A(x) \eif B}\ci{2-(6)}
+	\have[n]{7}{\exists x\,\atom{A}{x} \eif B}\ci{2-(6)}
 \end{proof}
-Our next step should be to work forward from $\exists x\,A(x)$ on line~2. For it we have to pick a name not already in our proof. Since no names appear, we can pick any name, say~$d$
+Our next step should be to work forward from $\exists x\,\atom{A}{x}$ on line~$2$. For that, we have to pick a name not already in our proof. Since no names appear, we can pick any name, say~`$d$'
 \begin{proof}
-	\hypo{1}{\forall x(A(x) \eif B)}
+	\hypo{1}{\forall x(\atom{A}{x} \eif B)}
 	\open
-	\hypo{2}{\exists x\,A(x)}
+	\hypo{2}{\exists x\,\atom{A}{x}}
 	\open
-	\hypo{3}{A(d)}
+	\hypo{3}{\atom{A}{d}}
 	\ellipsesline
 	\have[n][-2]{5}{B}
 	\close
 	\have[n][-1]{6}{B}\Ee{2,3-(5)}
 	\close
-	\have[n]{7}{\exists x\,A(x) \eif B}\ci{2-(6)}
+	\have[n]{7}{\exists x\,\atom{A}{x} \eif B}\ci{2-(6)}
 \end{proof}
-Now we've exhausted our primary strategies, and it is time to work forward from the premise $\forall x(A(x) \eif B)$. Applying $\forall$E means we can justify any instance of $A(\meta{c}) \eif B$, regardless of what $\meta{c}$ we choose. Of course, we'll do well to choose $d$, since that will give us $A(d) \eif B$ and then we can apply $\eif$E to justify~$B$, finishing the proof.
+Now we've exhausted our primary strategies, and it is time to work forward from the premise $\forall x(\atom{A}{x} \eif B)$. Applying $\forall$E means we can justify any instance of $A(\meta{c}) \eif B$, regardless of what $\meta{c}$ we choose. Of course, we'll do well to choose $d$, since that will give us $\atom{A}{d} \eif B$. Then we can apply $\eif$E to justify~$B$, finishing the proof.
 \begin{proof}
-	\hypo{1}{\forall x(A(x) \eif B)}
+	\hypo{1}{\forall x(\atom{A}{x} \eif B)}
 	\open
-	\hypo{2}{\exists x\,A(x)}
+	\hypo{2}{\exists x\,\atom{A}{x}}
 	\open
-	\hypo{3}{A(d)}
-\have{4}{A(d) \eif B}\Ae{1}
+	\hypo{3}{\atom{A}{d}}
+\have{4}{\atom{A}{d} \eif B}\Ae{1}
 	\have{5}{B}\ce{4,3}
 	\close
 	\have{6}{B}\Ee{2,3-5}
 	\close
-	\have{7}{\exists x\,A(x) \eif B}\ci{2-6}
+	\have{7}{\exists x\,\atom{A}{x} \eif B}\ci{2-6}
 \end{proof}
 
 Now let's construct a proof of the converse. We begin with
 \begin{proof}
-	\hypo{1}{\exists x\,A(x) \eif B}
+	\hypo{1}{\exists x\,\atom{A}{x} \eif B}
 	\ellipsesline
-	\have[n]{7}{\forall x(A(x) \eif B)}
+	\have[n]{7}{\forall x(\atom{A}{x} \eif B)}
 \end{proof}
-Note that the premise is a conditional, not an existentially quantified sentence, so we should not (yet) work forward from it. Working backwards from the conclusion, $\forall x(A(x) \eif B)$ leads us to look for a proof of $A(d) \eif B$:
+Note that the premise is a conditional, not an existentially quantified sentence, so we should not (yet) work forward from it. Working backward from the conclusion, $\forall x(\atom{A}{x} \eif B)$, leads us to look for a proof of $\atom{A}{d} \eif B$:
 \begin{proof}
-	\hypo{1}{\exists x\,A(x) \eif B}
+	\hypo{1}{\exists x\,\atom{A}{x} \eif B}
 	\ellipsesline
-	\have[n][-1]{6}{A(d) \eif B}
-	\have[n]{7}{\forall x(A(x) \eif B)}\Ai{6}
+	\have[n][-1]{6}{\atom{A}{d} \eif B}
+	\have[n]{7}{\forall x(\atom{A}{x} \eif B)}\Ai{6}
 \end{proof}
-And working backward from $A(d) \eif B$ means we should set up a subproof with $A(d)$ as an assumption and $B$ as the last line:
+And working backward from $\atom{A}{d} \eif B$ means we should set up a subproof with $\atom{A}{d}$ as an assumption and $B$ as the last line:
 \begin{proof}
-	\hypo{1}{\exists x\,A(x) \eif B}
+	\hypo{1}{\exists x\,\atom{A}{x} \eif B}
 	\open
-	\hypo{2}{A(d)}
+	\hypo{2}{\atom{A}{d}}
 	\ellipsesline
 	\have[n][-2]{5}{B}
 	\close
-	\have[n][-1]{6}{A(d) \eif B}\ci{2-(5)}
-	\have[n]{7}{\forall x(A(x) \eif B)}\Ai{6}
+	\have[n][-1]{6}{\atom{A}{d} \eif B}\ci{2-(5)}
+	\have[n]{7}{\forall x(\atom{A}{x} \eif B)}\Ai{6}
 \end{proof}
-Now we can work forwards from the premise on line~1. That's a conditional, and its consequent happens to be the sentence~$B$ we are trying to justify. So we should look for a proof of its antecedent, $\exists x\,A(x)$. Of course, that is now readily available, by $\exists$I from line~2, and we're done:
+Now we can work forward from the premise on line~$1$. That's a conditional, and its consequent happens to be the sentence~$B$ we are trying to justify. So we should look for a proof of its antecedent, $\exists x\,\atom{A}{x}$. Of course, that is now readily available, by $\exists$I from line~$2$, and we're done:
 \begin{proof}
-	\hypo{1}{\exists x\,A(x) \eif B}
+	\hypo{1}{\exists x\,\atom{A}{x} \eif B}
 	\open
-	\hypo{2}{A(d)}
-	\have{3}{\exists x\,A(x)}\Ei{2}
+	\hypo{2}{\atom{A}{d}}
+	\have{3}{\exists x\,\atom{A}{x}}\Ei{2}
 	\have{5}{B}\ce{1,3}
 	\close
-	\have{6}{A(d) \eif B}\ci{2-5}
-	\have{7}{\forall x(A(x) \eif B)}\Ai{6}
+	\have{6}{\atom{A}{d} \eif B}\ci{2-5}
+	\have{7}{\forall x(\atom{A}{x} \eif B)}\Ai{6}
 \end{proof}
 
+\practiceproblems
+
+\problempart
+Use the strategies to find proofs for each of the following arguments and theorems:
+\begin{earg}
+\item $A \eif \forall x\,\atom{B}{x} \therefore \forall x(A \eif \atom{B}{x})$
+\item $\exists x(A \eif \atom{B}{x}) \therefore A \eif \exists x\, \atom{B}{x}$
+\item $\forall x(\atom{A}{x} \eand \atom{B}{x}) \eiff (\forall x\,\atom{A}{x} \eand \forall x\,\atom{B}{x})$
+\item $\exists x(\atom{A}{x} \eor \atom{B}{x}) \eiff (\exists x\,\atom{A}{x} \eor \exists x\,\atom{B}{x})$
+\item $A \eor \forall x\,\atom{B}{x}) \therefore \forall x(A \eor \atom{B}{x})$
+\item $\forall x(\atom{A}{x} \eif B) \therefore \exists x\,\atom{A}{x} \eif B$
+\item $\exists x(\atom{A}{x} \eif B) \therefore \forall x\,\atom{A}{x} \eif B$
+\item $\forall x(\atom{A}{x} \eif \exists y\,\atom{A}{y})$
+\end{earg}
+Use only the basic rules of TFL in addition to the basic quantifier rules.
+
+\problempart
+Use the strategies to find proofs for each of the following arguments and theorems:
+\begin{earg}
+\item $\forall x\,\atom{R}{x,x} \therefore \forall x\,\exists y\,\atom{R}{x,y}$
+\item $\forall x\,\forall y\,\forall z[(\atom{R}{x,y} \eand \atom{R}{y,z}) \eif \atom{R}{x,z}]$ \\
+$\therefore \forall x\,\forall y[\atom{R}{x,y} \eif \forall z(\atom{R}{y,z} \eif \atom{R}{x,z})]$
+\item $\forall x\,\forall y\,\forall z[(\atom{R}{x,y} \eand \atom{R}{y,z}) \eif \atom{R}{x,z}],$\\ $\forall x\,\forall y(\atom{R}{x,y} \eif \atom{R}{y, x})$ \\ $\therefore \forall x\,\forall y\,\forall z[(\atom{R}{x,y} \eand \atom{R}{x,z}) \eif \atom{R}{y,z}]$
+\item $\forall x\,\forall y(\atom{R}{x,y} \eif \atom{R}{y, x})$ \\$\therefore \forall x\,\forall y\,\forall z[(\atom{R}{x,y} \eand \atom{R}{x,z}) \eif \exists u(\atom{R}{y,u} \eand \atom{R}{z,u})]$
+\item $\enot \exists x\,\forall y (\atom{A}{x, y} \eiff \lnot\atom{A}{y, y})$
+\end{earg}
+
+\problempart
+Use the strategies to find proofs for each of the following arguments and theorems:
+\begin{earg}
+\item $\forall x\,\atom{A}{x} \eif B \therefore \exists x(\atom{A}{x} \eif B)$
+\item $A \eif \exists x\, \atom{B}{x} \therefore \exists x(A \eif \atom{B}{x})$
+\item $\forall x(A \eor \atom{B}{x}) \therefore A \eor \forall x\,\atom{B}{x})$
+\item $\exists x(\atom{A}{x} \eif \forall y\,\atom{A}{y})$
+\item $\exists x(\exists y\,\atom{A}{y} \eif \atom{A}{x})$
+\end{earg}
+These require the use of IP. Use only the basic rules of TFL in addition to the basic quantifier rules.
 
 \chapter{Conversion of quantifiers}\label{s:CQ}
 
 In this section, we will add some additional rules to the basic rules of the previous section. These govern the interaction of quantifiers and negation.
  
-In \S\ref{s:FOLBuildingBlocks}, we noted that $\enot\exists x\meta{A}$ is logically equivalent to $\forall x \enot\meta{A}$. We will add some rules to our proof system that govern this. In particular, we add:
+In \S\ref{s:FOLBuildingBlocks}, we noted that $\enot\exists x\meta{A}$ is logically equivalent to $\forall x\, \enot\meta{A}$. We will add some rules to our proof system that govern this. In particular, we add:
 	\factoidbox{
 	\begin{proof}
-		\have[m]{a}{\forall \meta{x} \enot\meta{A}}
-		\have[\ ]{con}{\enot \exists \meta{x} \meta{A}}\cq{a}
+		\have[m]{a}{\forall \meta{x}\, \enot\meta{A}}
+		\have[\ ]{con}{\enot \exists \meta{x}\, \meta{A}}\cq{a}
 	\end{proof}}
 and
 \factoidbox{
 	\begin{proof}
-		\have[m]{a}{ \enot \exists \meta{x} \meta{A}}
-		\have[\ ]{con}{\forall  \meta{x} \enot \meta{A}}\cq{a}
+		\have[m]{a}{ \enot \exists \meta{x}\, \meta{A}}
+		\have[\ ]{con}{\forall \meta{x}\, \enot \meta{A}}\cq{a}
 	\end{proof}}
 Equally, we add:
 \factoidbox{
 	\begin{proof}
-		\have[m]{a}{\exists \meta{x}\enot \meta{A}}
-		\have[\ ]{con}{\enot \forall \meta{x} \meta{A}}\cq{a}
+		\have[m]{a}{\exists \meta{x}\, \enot \meta{A}}
+		\have[\ ]{con}{\enot \forall \meta{x}\, \meta{A}}\cq{a}
 	\end{proof}}
 and
 \factoidbox{
 	\begin{proof}
-		\have[m]{a}{\enot \forall \meta{x} \meta{A}}
-		\have[\ ]{con}{\exists \meta{x} \enot \meta{A}}\cq{a}
+		\have[m]{a}{\enot \forall \meta{x}\, \meta{A}}
+		\have[\ ]{con}{\exists \meta{x}\, \enot \meta{A}}\cq{a}
 	\end{proof}}
 
 \practiceproblems
@@ -535,8 +574,8 @@ and
 Show in each case that the sentences are provably inconsistent:
 \begin{earg}
 \item $\atom{S}{a}\eif \atom{T}{m}, \atom{T}{m} \eif \atom{S}{a}, \atom{T}{m} \eand \enot \atom{S}{a}$
-\item $\enot\exists x\,\atom{R}{x,a}, \forall x \forall y\,\atom{R}{y,x}$
-\item $\enot\exists x \exists y\,\atom{L}{x,y}, \atom{L}{a,a}$
+\item $\enot\exists x\,\atom{R}{x,a}, \forall x\, \forall y\,\atom{R}{y,x}$
+\item $\enot\exists x\, \exists y\,\atom{L}{x,y}, \atom{L}{a,a}$
 \item $\forall x(\atom{P}{x} \eif \atom{Q}{x}), \forall z(\atom{P}{z} \eif \atom{R}{z}), \forall y\,\atom{P}{y}, \enot \atom{Q}{a} \eand \enot \atom{R}{b}$
 \end{earg}
 
@@ -595,7 +634,7 @@ To see the rules in action, we will prove some quick results. First, we will pro
 	\close
 	\have{abba}{a = b \eif b =a}\ci{ab-ba}
 	\have{ayya}{\forall y (a = y \eif y = a)}\Ai{abba}
-	\have{xyyx}{\forall x \forall y (x = y \eif y = x)}\Ai{ayya}
+	\have{xyyx}{\forall x\, \forall y (x = y \eif y = x)}\Ai{ayya}
 \end{proof}
 We obtain line 3 by replacing one instance of `$a$' in line 2 with an instance of `$b$'; this is justified given `$a= b$'. 
 
@@ -609,8 +648,8 @@ Second, we will prove that identity is \emph{transitive}:
 	\close
 	\have{con}{(a = b \eand b =c) \eif a = c}\ci{abc-ac}
 	\have{conz}{\forall z((a = b \eand b = z) \eif a = z)}\Ai{con}
-	\have{cony}{\forall y\forall z((a = y \eand y = z) \eif a = z)}\Ai{conz}
-	\have{conx}{\forall x \forall y \forall z((x = y \eand y = z) \eif x = z)}\Ai{cony}
+	\have{cony}{\forall y\,\forall z((a = y \eand y = z) \eif a = z)}\Ai{conz}
+	\have{conx}{\forall x\,\forall y \forall z((x = y \eand y = z) \eif x = z)}\Ai{cony}
 \end{proof}
 We obtain line 4 by replacing `$b$' in line 3 with `$a$'; this is justified given `$a= b$'. 
 
@@ -622,9 +661,9 @@ Provide a proof of each claim.
 \item $\atom{P}{a} \eor \atom{Q}{b}, \atom{Q}{b} \eif b=c, \enot\atom{P}{a} \proves \atom{Q}{c}$
 \item $m=n \eor n=o, \atom{A}{n} \proves \atom{A}{m} \eor \atom{A}{o}$
 \item $\forall x\ x=m, \atom{R}{m,a} \proves \exists x\,\atom{R}{x,x}$
-\item $\forall x\forall y(\atom{R}{x,y} \eif x=y)\proves \atom{R}{a,b} \eif \atom{R}{b,a}$
-\item $\enot \exists x\enot x = m \proves \forall x\forall y (\atom{P}{x} \eif \atom{P}{y})$
-\item $\exists x\,\atom{J}{x}, \exists x \enot\atom{J}{x}\proves \exists x \exists y\ \enot x = y$
+\item $\forall x\,\forall y(\atom{R}{x,y} \eif x=y)\proves \atom{R}{a,b} \eif \atom{R}{b,a}$
+\item $\enot \exists x\enot x = m \proves \forall x\,\forall y (\atom{P}{x} \eif \atom{P}{y})$
+\item $\exists x\,\atom{J}{x}, \exists x\, \enot\atom{J}{x}\proves \exists x\, \exists y\, \enot x = y$
 \item $\forall x(x=n \eiff \atom{M}{x}), \forall x(\atom{O}{x} \eor \enot \atom{M}{x})\proves \atom{O}{n}$
 \item $\exists x\,\atom{D}{x}, \forall x(x=p \eiff \atom{D}{x})\proves \atom{D}{p}$
 \item $\exists x\bigl[(\atom{K}{x} \eand \forall y(\atom{K}{y} \eif x=y)) \eand \atom{B}{x}\bigr], Kd\proves \atom{B}{d}$
@@ -642,9 +681,9 @@ And hence that both have a decent claim to symbolize the English sentence `Nick 
 \problempart
 In \S\ref{sec.identity}, we claimed that the following are logically equivalent symbolizations of the English sentence `there is exactly one $F$':
 \begin{ebullet}
-\item $\exists x\,\atom{F}{x} \eand \forall x \forall y \bigl[(\atom{F}{x} \eand \atom{F}{y}) \eif x = y\bigr]$
+\item $\exists x\,\atom{F}{x} \eand \forall x\, \forall y \bigl[(\atom{F}{x} \eand \atom{F}{y}) \eif x = y\bigr]$
 \item $\exists x \bigl[\atom{F}{x} \eand \forall y (\atom{F}{y} \eif x = y)\bigr]$
-\item $\exists x \forall y (\atom{F}{y} \eiff x = y)$
+\item $\exists x\, \forall y (\atom{F}{y} \eiff x = y)$
 \end{ebullet}
 Show that they are all provably equivalent. (\emph{Hint}: to show that three claims are provably equivalent, it suffices to show that the first proves the second, the second proves the third and the third proves the first; think about why.)
 
@@ -657,7 +696,7 @@ Symbolize the following argument
 	\end{quote}
 And offer a proof of it.
 %\begin{ebullet}
-%\item  $\exists x \bigl[\atom{F}{x} \eand \forall y (\atom{F}{y} \eif x = y)\bigr], \exists x \bigl[\atom{G}{x} \eand \forall y (\atom{G}{y} \eif x = y)\bigr], \forall x (\enot\atom{F}{x} \eor \enot \atom{G}{x}) \proves \exists x \exists y \bigl[\enot x = y \eand \forall z ((\atom{F}{z} \eor \atom{G}{z}) \eif (x = y \eor x = z))\bigr]$
+%\item  $\exists x \bigl[\atom{F}{x} \eand \forall y (\atom{F}{y} \eif x = y)\bigr], \exists x \bigl[\atom{G}{x} \eand \forall y (\atom{G}{y} \eif x = y)\bigr], \forall x (\enot\atom{F}{x} \eor \enot \atom{G}{x}) \proves \exists x\, \exists y \bigl[\enot x = y \eand \forall z ((\atom{F}{z} \eor \atom{G}{z}) \eif (x = y \eor x = z))\bigr]$
 %\end{ebullet}
 
 
@@ -666,9 +705,9 @@ And offer a proof of it.
 \chapter{Derived rules}\label{s:DerivedFOL}
 As in the case of TFL, we first introduced some rules for FOL as basic (in \S\ref{s:BasicFOL}), and then added some further rules for conversion of quantifiers (in \S\ref{s:CQ}). In fact, the CQ rules should be regarded as \emph{derived} rules, for they can be derived from the  \emph{basic} rules of \S\ref{s:BasicFOL}. (The point here is as in \S\ref{s:Derived}.) Here is a justification for the first CQ rule:
 \begin{proof}
-	\hypo{An}{\forall x \enot \atom{A}{x}}
+	\hypo{An}{\forall x\, \enot \atom{A}{x}}
 	\open
-		\hypo{E}{\exists x \atom{A}{x}}
+		\hypo{E}{\exists x\, \atom{A}{x}}
 		\open
 			\hypo{c}{\atom{A}{c}}%\by{for $\exists$E}{}
 			\have{nc}{\enot \atom{A}{c}}\Ae{An}
@@ -676,14 +715,14 @@ As in the case of TFL, we first introduced some rules for FOL as basic (in \S\re
 		\close
 		\have{red2}{\ered}\Ee{E,c-red}
 	\close
-	\have{dada}{\enot \exists x \atom{A}{x}}\ni{E-red2}
+	\have{dada}{\enot \exists x\, \atom{A}{x}}\ni{E-red2}
 \end{proof}
 %You will note that on line 3 I have written `for $\exists$E'. This is not technically a part of the proof. It is just a reminder---to me and to you---of why I have bothered to introduce `$\enot \atom{A}{c}$' out of the blue. You might find it helpful to add similar annotations to assumptions when performing proofs. But do not add annotations on lines other than assumptions: the proof requires its own citation, and your annotations will clutter it.
 Here is a justification of the third CQ rule:
 \begin{proof}
-	\hypo{nEna}{\exists x  \enot \atom{A}{x}} 
+	\hypo{nEna}{\exists x\, \enot \atom{A}{x}} 
 	\open
-		\hypo{Aa}{\forall x \atom{A}{x}}
+		\hypo{Aa}{\forall x\, \atom{A}{x}}
 		\open
 			\hypo{nac}{\enot \atom{A}{c}}%\by{for $\exists$E}{}
 			\have{a}{\atom{A}{c}}\Ae{Aa}
@@ -691,7 +730,7 @@ Here is a justification of the third CQ rule:
 		\close
 		\have{con1}{\ered}\Ee{nEna, nac-con}
 	\close
-	\have{dada}{\enot \forall x \atom{A}{x}}\ni{Aa-con1}
+	\have{dada}{\enot \forall x\, \atom{A}{x}}\ni{Aa-con1}
 \end{proof}
 This explains why the CQ rules can be treated as derived. Similar justifications can be offered for the other two CQ rules. 
 
@@ -702,7 +741,7 @@ Offer proofs which justify the addition of the second and fourth CQ rules as der
 
 
 
-\chapter{Proof-theoretic and semantic concepts}
+\chapter{Proofs and semantics}
 We have used two different turnstiles in this book.  This:
 $$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \proves \meta{C}$$
 means that there is some proof which starts with assumptions $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ and ends with $\meta{C}$ (and no undischarged assumptions other than $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$). This is a \emph{proof-theoretic notion}.
@@ -737,7 +776,7 @@ It is intuitive that provability and semantic entailment should agree. But---let
 
 In fact, demonstrating that provability and semantic entailment agree is, very decisively, the point at which introductory logic becomes intermediate logic.
 
-\begin{sidewaystable}
+\begin{sidewaystable}\small
 \begin{center}
 \begin{tabular*}{\textwidth}{p{.25\textheight}p{.325\textheight}p{.325\textheight}}
  & \textbf{Yes}  & \textbf{No}\\

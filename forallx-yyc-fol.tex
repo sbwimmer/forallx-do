@@ -248,7 +248,7 @@ Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} 
 	}
 Sentence \ref{quan2} is most naturally symbolized using an existential quantifier. It can be paraphrased as `there is some coin which is both on the table and which is a dime'. So we can symbolize it as `$\exists x(\atom{T}{x} \eand \atom{D}{x})$'.
 
-Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. Suppose we had instead written `$\exists x(\atom{T}{x} \eif \atom{D}{x})$'. That would mean that there is some object in the domain of which `$(\atom{T}{x} \eif \atom{D}{x})$' is true. Recall that, in TFL, $\meta{A} \eif \meta{B}$ is logically equivalent (in TFL) to $\enot\meta{A} \eor \meta{B}$. This equivalence will also hold in FOL. So `$\exists x(\atom{T}{x} \eif \atom{D}{x})$' is true if there is some object in the domain, such that `$(\enot \atom{T}{x} \eor \atom{D}{x})$' is true of that object. That is, `$\exists x (\atom{T}{x} \eif \atom{D}{x})$' is true if some coin is \emph{either} not on the table \emph{or} is a dime. Of course there is a coin that is not on the table: there are coins lots of other places. So it is \emph{very easy} for `$\exists x(\atom{T}{x} \eif \atom{D}{x})$' to be true. A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier tends to say something very weak indeed. As a general rule of thumb, do not put conditionals in the scope of existential quantifiers unless you are sure that you need one.
+Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. Suppose we had instead written `$\exists x(\atom{T}{x} \eif \atom{D}{x})$'. That would mean that there is some object in the domain of which `$(\atom{T}{x} \eif \atom{D}{x})$' is true. Recall that, in TFL, $\meta{A} \eif \meta{B}$ is logically equivalent (in TFL) to $\enot\meta{A} \eor \meta{B}$. This equivalence will also hold in FOL. So `$\exists x(\atom{T}{x} \eif \atom{D}{x})$' is true if there is some object in the domain, such that `$(\enot \atom{T}{x} \eor \atom{D}{x})$' is true of that object. That is, `$\exists x (\atom{T}{x} \eif \atom{D}{x})$' is true if some coin is \emph{either} not on the table \emph{or} is a dime. Of course there is a coin that is not on the table: there are coins in  lots of other places. So it is \emph{very easy} for `$\exists x(\atom{T}{x} \eif \atom{D}{x})$' to be true. A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier tends to say something very weak indeed. As a general rule of thumb, do not put conditionals in the scope of existential quantifiers unless you are sure that you need one.
 	\factoidbox{
 		A sentence can be symbolized as $\exists x (\atom{\meta{F}}{x} \eand \atom{\meta{G}}{x})$ if it can be paraphrased in English as `some $F$ is~$G$'.
 	}		
@@ -374,7 +374,7 @@ To symbolize these sentences, we will have to add a new name to the symbolizatio
 	\end{ekey}
 Sentence \ref{qscope1} is a conditional, whose antecedent is `everyone is a bassist', so we will symbolize it with `$\forall x\, \atom{B}{x} \eif \atom{B}{l}$'. This sentence is \emph{necessarily} true: if \emph{everyone} is indeed a bassist, then take any one you like---for example Lars---and he will be a bassist. 
 
-Sentence \ref{qscope2}, by contrast, might best be paraphrased by `every person $x$ is such that, if $x$ is a bassist, then Lars is a bassist'. This is symbolized by `$\forall x (\atom{B}{x} \eif \atom{B}{l})$'. This sentence is false; Kim Deal is a bassist. So `$\atom{B}{k}$' is true, but Lars is not a bassist, so `$\atom{B}{l}$' is false. Accordingly, `$\atom{B}{k} \eif \atom{B}{l}$' will be false, so `$\forall x (\atom{B}{x} \eif \atom{B}{l})$' will be false as well. 
+Sentence \ref{qscope2}, by contrast, might best be paraphrased by `every person $x$ is such that, if $x$ is a bassist, then Lars is a bassist'. This is symbolized by `$\forall x (\atom{B}{x} \eif \atom{B}{l})$'. This sentence is false; Kim Deal is a bassist. So `$\atom{B}{k}$' is true. Suppose that Lars is not a bassist (say, he's a drummer instead), so `$\atom{B}{l}$' is false. Accordingly, `$\atom{B}{k} \eif \atom{B}{l}$' will be false, so `$\forall x (\atom{B}{x} \eif \atom{B}{l})$' will be false as well. 
 
 In short, `$\forall x \atom{B}{x} \eif \atom{B}{l}$' and `$\forall x (\atom{B}{x} \eif \atom{B}{l})$' are very different sentences. We can explain the difference in terms of the \emph{scope} of the quantifier. The scope of quantification is very much like the scope of negation, which we considered when discussing TFL, and it will help to explain it in this way.
 
@@ -444,7 +444,7 @@ Must we always distinguish between different ways of being skilled, good, bad, o
 \problempart
 \label{pr.BarbaraEtc}
 Here are the syllogistic figures identified by Aristotle and his successors, along with their medieval names:
-\begin{ebullet}
+\begin{earg}
 	\item \textbf{Barbara.} All G are F. All H are G. So:  All H are F
 	\item \textbf{Celarent.} No G are F. All H are G. So: No H are F
 	\item \textbf{Ferio.} No G are F. Some H is G. So: Some H is not F
@@ -460,7 +460,7 @@ Here are the syllogistic figures identified by Aristotle and his successors, alo
 	\item \textbf{Camenes.} All F are G. No G are H So: No H is F.
 	\item \textbf{Dimaris.} Some F is G. All G are H. So: Some H is F.
 	\item \textbf{Fresison.} No F are G. Some G is H. So: Some H is not~F.
-\end{ebullet}
+\end{earg}
 Symbolize each argument in FOL.
 
 \
@@ -680,7 +680,7 @@ To continue our symbolization, then, we must choose some different variable for 
 $$\forall x\bigl[\atom{F}{x,g} \eif\exists z(\atom{D}{z} \eand \atom{O}{x,z})\bigr]$$
 This adequately symbolizes sentence \ref{dog4}.
 
-Sentence \ref{dog5} can be paraphrased as `For any x that is a dog owner, there is a dog owner who x is a friend of'. Using our stepping-stone tactic, this becomes 
+Sentence \ref{dog5} can be paraphrased as `For any $x$ that is a dog owner, there is a dog owner who $x$ is a friend of'. Using our stepping-stone tactic, this becomes 
 $$\forall x\bigl[\mbox{$x$ is a dog owner}\eif\exists y(\mbox{$y$ is a dog owner}\eand \atom{F}{x,y})\bigr]$$
 Completing the symbolization, we end up with
 $$\forall x\bigl[\exists z(\atom{D}{z} \eand \atom{O}{x,z})\eif\exists y\bigl(\exists z(\atom{D}{z} \eand \atom{O}{y,z})\eand \atom{F}{x,y}\bigr)\bigr]$$
@@ -1003,7 +1003,7 @@ Sentence \ref{atleast3} requires talking about three different apples. Now we ne
 \[
 	\exists x \exists y\exists z[((\atom{A}{x} \eand \atom{A}{y}) \eand \atom{A}{z}) \eand ((\enot x = y \eand \enot y = z) \eand \enot x = z)].
 \]
-Note that it is \emph{not} enough to use `$\lnot x = y \land \lnot y = z$' symbolize `$x$, $y$, and~$z$ are all different.' For that would be true if $x$ and $y$ were different, but $x = z$. In general, to say that $x_1$, \dots, $x_n$ are all different, we must have a conjunction of $\lnot x_i = x_j$ for every different pair $i$ and~$j$.
+Note that it is \emph{not} enough to use `$\lnot x = y \land \lnot y = z$' to symbolize `$x$, $y$, and~$z$ are all different.' For that would be true if $x$ and $y$ were different, but $x = z$. In general, to say that $x_1$, \dots, $x_n$ are all different, we must have a conjunction of $\lnot x_i = x_j$ for every different pair $i$ and~$j$.
 
 \section{There are at most\ldots}
 Now consider these sentences:
@@ -1104,7 +1104,7 @@ These are definite descriptions: they are meant to pick out a \emph{unique} obje
 \section{Treating definite descriptions as terms}
 One option would be to introduce new names whenever we come across a definite description. This is probably not a great idea. We know that \emph{the} traitor---whoever it is---is indeed \emph{a} traitor. We want to preserve that information in our symbolization.
 
-A second option would be to use a \emph{new} definite description operator, such as `$\maththe$'. The idea would be to symbolize `the $F$' as `$\maththe x\,\atom{F}{x}$'; or to symbolize `the $G$' as `$\maththe x\,\atom{G}{x}$', etc. Expression of the form $\maththe \meta{x}\, \atom{\meta{A}}{\meta{x}}$ would then behave like names. If we followed this path, then using the following symbolization key:
+A second option would be to use a \emph{new} definite description operator, such as `$\maththe$'. The idea would be to symbolize `the $F$' as `$\maththe x\,\atom{F}{x}$'; or to symbolize `the $G$' as `$\maththe x\,\atom{G}{x}$', etc. Expression of the form $\maththe \meta{x}\, \atom{\meta{A}}{\meta{x}}$ would then behave like names. If we followed this path, then using the following symbolization key
 	\begin{ekey}
 		\item[\text{domain}] people
 		\item[\atom{T}{x}] \gap{x} is a traitor
@@ -1112,7 +1112,7 @@ A second option would be to use a \emph{new} definite description operator, such
 		\item[\atom{C}{x}] \gap{x} went to Cambridge
 		\item[n] Nick
 	\end{ekey}
-We could symbolize sentence \ref{traitor1} with `$n = \maththe x\, \atom{T}{x}$', sentence \ref{traitor2} with `$\atom{C}{\maththe x\,\atom{T}{x}}$', and sentence \ref{traitor3} with `$\maththe x\, \atom{T}{x} = \maththe x\, \atom{D}{x}$'. 
+we could symbolize sentence \ref{traitor1} with `$n = \maththe x\, \atom{T}{x}$', sentence \ref{traitor2} with `$\atom{C}{\maththe x\,\atom{T}{x}}$', and sentence \ref{traitor3} with `$\maththe x\, \atom{T}{x} = \maththe x\, \atom{D}{x}$'. 
 
 However, it would be nice if we didn't have to add a new symbol to FOL. And indeed, we might be able to make do without one.
 
@@ -1133,10 +1133,12 @@ In fact, we could express the same point rather more crisply, by recognizing tha
 	$$\exists x \bigl[(\atom{F}{x} \eand \forall y (\atom{F}{y} \eif x = y)) \eand \atom{G}{x}\bigr]$$
 Using these sorts of techniques, we can now symbolize sentences \ref{traitor1}--\ref{traitor3} without using any new-fangled fancy operator, such as `$\maththe$'. 
 
-Sentence \ref{traitor1} is exactly like the examples we have just considered. So we would symbolize it by `$\exists x (\atom{T}{x} \eand \forall y(\atom{T}{y} \eif x = y) \eand x = n)$'. 
-
-Sentence \ref{traitor2} poses no problems either: `$\exists x (\atom{T}{x} \eand \forall y(\atom{T}{y} \eif x = y) \eand \atom{C}{x})$'.
-
+Sentence \ref{traitor1} is exactly like the examples we have just considered. So we would symbolize it by 
+\begin{align*}
+\exists x \bigl[\atom{T}{x} \eand \forall y(\atom{T}{y} \eif x = y) & \eand x = n\bigr].
+\intertext{Sentence \ref{traitor2} poses no problems either:} 
+\exists x \bigl[\atom{T}{x} \eand \forall y(\atom{T}{y} \eif x = y) & \eand \atom{C}{x}\bigr].
+\end{align*}
 Sentence \ref{traitor3} is a little trickier, because it links two definite descriptions. But, deploying  Russell's analysis, it can be paraphrased by `there is exactly one traitor, $x$, and there is exactly one deputy, $y$, and $x = y$'. So we can symbolize it by: 
 \begin{multline*}
 	\exists x \exists y \bigl(\bigl[\atom{T}{x} \eand 
@@ -1328,22 +1330,17 @@ Note that we consider sentence letters also formulas of FOL, so every sentence o
 
 \newglossaryentry{formula}{
   name = formula,
-  description = {An expression of FOL built according to the recursive rules in \S\ref{s:TermsFormulas}}
+  description = {An expression of FOL built according to the inductive rules in \S\ref{s:TermsFormulas}}
 }
 
 
 The use of script letters here follows the conventions laid down in \S\ref{s:UseMention}. So, `$\meta{R}$' is not itself a predicate of FOL. Rather, it is a symbol of our metalanguage (augmented English) that we use to talk about any predicate of FOL. Similarly, `$\meta{t}_1$' is not a term of FOL, but a symbol of the metalanguage that we can use to talk about any term of FOL. So, where `$F$' is a one-place predicate, `$G$' is a three-place predicate, and `$S$' is a six-place predicate, here are some atomic formulas:
-	\begin{center}
-		$D$\\
-		$x = a$\\
-		$a = b$\\
-		$\atom{F}{x}$\\
-		$\atom{F}{a}$\\
-		$\atom{G}{x,a,y}$\\
-		$\atom{G}{a,a,a}$\\
-		$\atom{S}{x_1, x_2, a, b, y, x_1}$\\
-		$\atom{S}{b,y_{254}, z, a, a, z}$
-	\end{center}
+	\begin{align*}
+		& D &&  \atom{F}{a}\\
+		& x = a && \atom{G}{x,a,y}\\
+		& a = b && \atom{G}{a,a,a}\\
+		& \atom{F}{x} && \atom{S}{x_1, x_2, a, b, y, x_1}\\
+	\end{align*}
 Once we know what atomic formulas are, we can offer recursion clauses to define arbitrary formulas. The first few clauses are exactly the same as for TFL.
 	\factoidbox{
 	\begin{enumerate}
@@ -1362,21 +1359,22 @@ Once we know what atomic formulas are, we can offer recursion clauses to define 
 		\item Nothing else is a formula.
 	\end {enumerate}
 	}
-So, assuming again that `$F$' is a one-place predicate, `$G$' is a three-place predicate and `$H$' is a six place-predicate, here are some formulas:
-	\begin{center}
-		$\atom{F}{x}$\\
-		$\atom{G}{a,y,z}$\\
-		$\atom{S}{y,z,y,a,y,x}$\\
-		$(\atom{G}{a,y,z} \eif \atom{S}{y,z,y,a,y,x})$\\
-		$\forall z (\atom{G}{a,y,z} \eif \atom{S}{y,z,y,a,y,x})$\\
-		$\atom{F}{x} \eiff \forall z (\atom{G}{a,y,z} \eif \atom{S}{y,z,y,a,y,x})$\\
-		$\exists y (\atom{F}{x} \eiff \forall z (\atom{G}{a,y,z} \eif \atom{S}{y,z,y,a,y,x}))$\\
-		$\forall x \exists y (\atom{F}{x} \eiff \forall z (\atom{G}{a,y,z} \eif \atom{S}{y,z,y,a,y,x}))$		\end{center}
+So, assuming again that `$F$' is a one-place predicate, `$G$' is a three-place predicate and `$H$' is a six place-predicate, here are some formulas you can build this way:
+	\begin{align*}
+		& \atom{F}{x}\\
+		& \atom{G}{a,y,z}\\
+		& \atom{S}{y,z,y,a,y,x}\\
+		(\atom{G}{a,y,z} \eif {}& \atom{S}{y,z,y,a,y,x})\\
+		\forall z (\atom{G}{a,y,z} \eif {}& \atom{S}{y,z,y,a,y,x})\\
+		\atom{F}{x} \eand \forall z (\atom{G}{a,y,z} \eif {}& \atom{S}{y,z,y,a,y,x})\\
+		\exists y (\atom{F}{x} \eand \forall z (\atom{G}{a,y,z} \eif {}& \atom{S}{y,z,y,a,y,x}))\\
+		\forall x \exists y (\atom{F}{x} \eand \forall z (\atom{G}{a,y,z} \eif {}& \atom{S}{y,z,y,a,y,x}))
+	\end{align*}
 %However, this is \emph{not} a formula:
 %	\begin{center}
 %		$\forall x \exists x\, \atom{G}{x,x,x}$
 %	\end{center}
-%Certainly `$\atom{G}{x,x,x}$' is a formula, and `$\exists x\, \atom{G}{x,x,x}$' is therefore also a formula. But we cannot form a new formula by putting `$\forall x$' at the front. This violates the constraints on clause 7 of our recursive definition: `$\exists x\, \atom{G}{x,x,x}$' contains at least one occurrence of `$x$', but it already contains `$\exists x$'.
+%Certainly `$\atom{G}{x,x,x}$' is a formula, and `$\exists x\, \atom{G}{x,x,x}$' is therefore also a formula. But we cannot form a new formula by putting `$\forall x$' at the front. This violates the constraints on clause 7 of our inductive definition: `$\exists x\, \atom{G}{x,x,x}$' contains at least one occurrence of `$x$', but it already contains `$\exists x$'.
 
 %These constraints have the effect of ensuring that variables only serve one master at any one time (see \S\ref{s:MultipleGenerality}). In fact, w
 We can now give a formal definition of scope, which incorporates the definition of the scope of a quantifier. Here we follow the case of TFL, though we note that a logical operator can be either a connective or a quantifier:
@@ -1410,7 +1408,7 @@ Recall that we are largely concerned in logic with assertoric sentences: sentenc
 	\end{ekey}
 Consider the atomic formula `$\atom{L}{z,z}$'. All atomic formula are formulas, so `$\atom{L}{z,z}$' is a formula, but can it be true or false? You might think that it will be true just in case the person named by `$z$' loves themself, in the same way that `$\atom{L}{b,b}$' is true just in case Boris (the person named by `$b$') loves himself. \emph{However, `$z$' is a variable, and does not name anyone or any thing.}
 
-Of course, if we put an existential quantifier out front, obtaining `$\exists z\atom{L}{z,z}$', then this would be true iff someone loves herself. Equally, if we wrote `$\forall z \atom{L}{z,z}$', this would be true iff everyone loves themself. The point is that we need a quantifier to tell us how to deal with a variable. 
+Of course, if we put an existential quantifier out front, obtaining `$\exists z\atom{L}{z,z}$', then this would be true iff someone loves themself. Equally, if we wrote `$\forall z \atom{L}{z,z}$', this would be true iff everyone loves themself. The point is that we need a quantifier to tell us how to deal with a variable. 
 
 Let's make this idea precise.
 	\factoidbox{

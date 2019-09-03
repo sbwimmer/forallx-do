@@ -146,7 +146,7 @@ As it happens, Lara has drawn the following:
 	\node[right=10pt of cat3, diamond, white_shape] (cat4)  {D};
 \end{tikzpicture}
 \end{center}
-In this case, our claim is surely true.  Shapes C and D are not grey, and so can hardly present \emph{counterexamples} to our claim. Shape A \emph{is} grey, but fortunately it is also circular. So my claim has no counterexamples. It must be true. That means that each of the following \emph{instances} of our claim must be true too:
+In this case, our claim is surely true.  Shapes C and D are not grey, and so can hardly present \emph{counterexamples} to our claim. Shape A \emph{is} grey, but fortunately it is also circular. So our claim has no counterexamples. It must be true. That means that each of the following \emph{instances} of our claim must be true too:
 	\begin{ebullet}
 		\item If A is grey, then it is circular \hfill (true antecedent, true consequent)
 		\item If C is grey, then it is circular\hfill (false antecedent, true consequent)
@@ -255,7 +255,7 @@ $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
  F & F & F & {F} & F & \TTbf{T} & F
 \end{tabular}
 \end{center}
-Most of the columns underneath the sentence are only there for bookkeeping purposes. The column that matters most is the column underneath the \emph{main logical operator} for the sentence, since this tells you the truth value of the entire sentence. We have emphasized this, by putting this column in bold. When you work through truth tables yourself, you should similarly emphasize it (perhaps by underlining).
+Most of the columns underneath the sentence are only there for bookkeeping purposes. The column that matters most is the column underneath the \emph{main logical operator} for the sentence, since this tells you the truth value of the entire sentence. We have emphasized this, by putting this column in bold. When you work through truth tables yourself, you should similarly emphasize it (perhaps by highlighting).
 
 \section{Building complete truth tables}
 A \define{complete truth table} has a line for every possible assignment of True and False to the relevant sentence letters. Each line represents a \emph{valuation}, and a complete truth table has a line for all the different valuations. 
@@ -323,7 +323,7 @@ But we should not simply write:
 	\begin{align*}
 		A \eor B \eor C
 	\end{align*}
-In fact, it is a specific fact about the characteristic truth table of $\eor$ and $\eand$ that guarantees that any two conjunctions (or disjunctions) of the same sentences are truth functionally equivalent, however you place the brackets. \emph{But be careful}. These two sentences have \emph{different} truth tables:
+In fact, it is a specific fact about the characteristic truth table of $\eor$ and $\eand$ that guarantees that any two conjunctions (or disjunctions) of the same sentences are truth functionally equivalent, however you place the brackets. \emph{This is only true of conjunctions and disjunctions}, however. The following two sentences have \emph{different} truth tables:
 	\begin{align*}
 		((A \eif B) \eif C)\\
 		(A \eif (B \eif C))
@@ -332,7 +332,7 @@ So if we were to write:
 	\begin{align*}
 		A \eif B \eif C
 	\end{align*}
-it would be dangerously ambiguous. So we must not do the same with conditionals. Equally, these sentences have different truth tables:
+it would be dangerously ambiguous. Leaving out brackets in this case would be disastrous. Equally, these sentences have different truth tables:
 	\begin{align*}
 		((A \eor B) \eand C)\\
 		(A \eor (B \eand C))
@@ -341,7 +341,7 @@ So if we were to write:
 	\begin{align*}
 		A \eor B \eand C
 	\end{align*}
-it would be dangerously ambiguous. \emph{Never write this.} The moral is: never drop brackets.
+it would be dangerously ambiguous. \emph{Never write this.} The moral is: never drop brackets (except the outermost ones).
 
 \practiceproblems\label{pr.TT.TTorC}
 \problempart
@@ -569,7 +569,7 @@ This is only, though, a \emph{surrogate} for necessary truth. There are some nec
 
 We have a similar surrogate for necessary falsity:
 	\factoidbox{
-		$\meta{A}$ is a \define{contradiction} iff it is false on every valuation.
+		$\meta{A}$ is a \define{contradiction} (in TFL) iff it is false on every valuation.
 	}
 \newglossaryentry{contradiction of TFL}
 {
@@ -584,7 +584,7 @@ We can determine whether a sentence is a contradiction just by using truth table
 \section{Equivalence}
 Here is a similar useful notion:
 	\factoidbox{
-		$\meta{A}$ and $\meta{B}$ are \define{equivalent} iff, for every valuation, their truth values agree, i.e.\ if there is no valuation in which they have opposite truth values.
+		$\meta{A}$ and $\meta{B}$ are \define{equivalent} (in TFL) iff, for every valuation, their truth values agree, i.e.\ if there is no valuation in which they have opposite truth values.
 	}
 \newglossaryentry{equivalent}
 {
@@ -610,7 +610,7 @@ Look at the columns for the main logical operators; negation for the first sente
 \section{Satisfiability}
 In \S\ref{s:BasicNotions}, we said that sentences are jointly possible iff it is possible for all of them to be true at once. We can offer a surrogate for this notion too:
 	\factoidbox{
-		$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ are \define{jointly satisfiable} iff there is some valuation which makes them all true.
+		$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ are \define{jointly satisfiable} (in TFL) iff there is some valuation which makes them all true.
 	}
 
         \newglossaryentry{satisfiability in TFL}
@@ -620,12 +620,12 @@ In \S\ref{s:BasicNotions}, we said that sentences are jointly possible iff it is
 description={A property held by sentences if and only if the \gls{complete truth table} for those sentences contains one line on which all the sentences are true, i.e., if some \gls{valuation} makes all the sentences true}
 }
 
-Derivatively, sentences are jointly unsatisfiable if there is no valuation that makes them all true. Again, it is easy to test for joint satisfiability using truth tables. 
+Derivatively, sentences are \define{jointly unsatisfiable} if there is no valuation that makes them all true. Again, it is easy to test for joint satisfiability using truth tables. 
 
 \section{Entailment and validity}
 The following idea is closely related to that of joint satisfiability:
 	\factoidbox{
-		The sentences $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ \define{entail} the sentence $\meta{C}$ if there is no valuation of the sentence letters which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true and $\meta{C}$ false.
+		The sentences $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ \define{entail} (in TFL) the sentence $\meta{C}$ if there is no valuation of the sentence letters which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true and $\meta{C}$ false.
 	}
        \newglossaryentry{valid in TFL}
 {
@@ -650,11 +650,11 @@ The only row on which both`$\enot L \eif (J \eor L)$' and `$\enot L$' are true i
 
 We now make an important observation:
 	\factoidbox{
-		If $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$, then $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ is valid.
+		If $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$, in TFL then $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ is valid.
 	}
-Here's why. If $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$, then there is no valuation which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true whilst making $\meta{C}$ false. This means that it is \emph{logically impossible} for $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ all to be true whilst $\meta{C}$ is false. But this is just what it takes for an argument, with premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ and conclusion $\meta{C}$, to be valid!
+Here's why. If $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$, then there is no valuation which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true and also makes $\meta{C}$ false. Any case in which all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ are true and $\meta{C}$ is false would generate a valuation with this property: take the truth value of any sentence letter to be just the truth value the corresponding sentence in that case. Since there is no such valuation, there is no case in which all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ are true and $\meta{C}$ is false.  But this is just what it takes for an argument, with premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ and conclusion $\meta{C}$, to be valid!
 
-In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$, and conclusion $\meta{C}$. Then we test for entailment using truth tables. 
+In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$, and conclusion $\meta{C}$. Then we test for entailment in TFL using truth tables. 
 
 
 \section{The limits of these tests}\label{s:ParadoxesOfMaterialConditional}
@@ -691,11 +691,11 @@ and symbolize \ref{n:GodParadox2} as `$G \eif \enot M$'.  Now, if atheists are r
 In different ways, these four examples highlight some of the limits of working with a language (like TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of the material conditional}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using TFL, before we can adequately discuss its limits, and consider alternatives. 
 
 \section{The double-turnstile}
-We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\meta{A}_1, \meta{A}_2, \ldots$ and $\meta{A}_n$ together entail $\meta{C}$, we will abbreviate this by:
+We are going to use the notion of entailment rather a lot in this book. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\meta{A}_1, \meta{A}_2, \ldots$ and $\meta{A}_n$ together entail $\meta{C}$, we will abbreviate this by:
 	$$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \entails \meta{C}$$
-The symbol `$\entails$' is known as \emph{the double-turnstile}, since it looks like a turnstile with two horizontal beams.
+The symbol `$\entails$' is known as \emph{the double turnstile}, since it looks like a turnstile with two horizontal beams.
 
-Let me be clear. `$\entails$' is not a symbol of TFL. Rather, it is a symbol of our metalanguage, augmented English (recall the difference between object language and metalanguage from \S\ref{s:UseMention}). So the metalanguage sentence:
+Let's' be clear. `$\entails$' is not a symbol of TFL. Rather, it is a symbol of our metalanguage, augmented English (recall the difference between object language and metalanguage from \S\ref{s:UseMention}). So the metalanguage sentence:
 	\begin{ebullet}
 		\item $P, P \eif Q \entails Q$
 	\end{ebullet}
@@ -1004,7 +1004,7 @@ $J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
  F & F & &&?&&&&{T}&& {F}
 \end{tabular}
 \end{center}
-Note that we no longer need to consider the third line on the table: it will not be a bad line, because (at least) one of premises is false on that line. Finally, we complete the truth table:
+Note that we no longer need to consider the third line of the table: it will not be a bad line, because (at least) one of premises is false on that line. Finally, we complete the truth table:
 \begin{center}
 \begin{tabular}{c c|d e e e e f |d f|c}
 $J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
@@ -1152,10 +1152,10 @@ $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 \end{tabular}
 \end{center}
 
-\paragraph{Truth functional equivalence.}
-To show that two sentences are logically equivalent, we must show that the sentences have the same truth value on every valuation. So this requires a  complete truth table.
+\paragraph{Equivalence.}
+To show that two sentences are equivalent, we must show that the sentences have the same truth value on every valuation. So this requires a  complete truth table.
 
-To show that two sentences are \emph{not} logically equivalent, we only need to show that there is a valuation on which they have different truth values. So this requires only a one-line partial truth table: make the table so that one sentence is true and the other false.
+To show that two sentences are \emph{not} equivalent, we only need to show that there is a valuation on which they have different truth values. So this requires only a one-line partial truth table: make the table so that one sentence is true and the other false.
 
 \paragraph{Consistency.}
 To show that some sentences are jointly satisfiable, we must show that there is a valuation which makes all of the sentences true,so this requires only a partial truth table with a single line. 

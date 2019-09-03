@@ -4,7 +4,7 @@
 
 ## Description
 
-_forall x_ is a full-featured textbook on formal logic. It covers key
+_forall x: Calgary_ is a full-featured textbook on formal logic. It covers key
 notions of logic such as consequence and validity of arguments, the
 syntax of truth-functional propositional logic TFL and truth-table
 semantics, the syntax of first-order (predicate) logic FOL with
@@ -21,9 +21,9 @@ editor/checker for the proof system used is available at
 
 ## Credits and License
 
-The _forall x: Calgary Remix_ is based on [_forall x:
+_forall x: Calgary_ is based on [_forall x:
 Cambridge_](http://people.ds.cam.ac.uk/tecb2/forallx.shtml), by [Tim
-Button](http://people.ds.cam.ac.uk/tecb2/index.shtml) used under a [CC
+Button](http://nottub.com/) used under a [CC
 BY 4.0](https://creativecommons.org/licenses/by/4.0/) license, which
 is based in turn on [_forall x_](https://www.fecundity.com/logic/), by
 [P.D. Magnus](https://www.fecundity.com/job/) used under a [CC BY
@@ -34,11 +34,11 @@ Thomas-Bolduc](https://phil.ucalgary.ca/profiles/aaron-thomas-bolduc)
 material from _forall x_ by P.D. Magnus and
 [_Metatheory_](http://people.ds.cam.ac.uk/tecb2/metatheory.shtml) by
 Tim Button, both used under a [CC BY
-4.0](https://creativecommons.org/licenses/by/4.0/) license, and from
+4.0](https://creativecommons.org/licenses/by/4.0/) license, from
 [_forall x: Lorain County
 Remix_](https://github.com/rob-helpy-chalk/openintroduction), by
 [Cathal Woods](https://sites.google.com/site/cathalwoods/) and
-J. Robert Loftis, used with permission.
+J. Robert Loftis, used with permission, and \href{http://www.rtrueman.com/uploads/7/0/3/2/70324387/modal_logic_primer.pdf}{\emph{A Modal Logic Primer}} by \href{http://www.rtrueman.com/}{Robert Trueman}, used with permission.
 
 [![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
 

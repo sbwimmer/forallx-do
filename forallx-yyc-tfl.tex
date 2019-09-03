@@ -152,7 +152,7 @@ In order to symbolize sentence \ref{not1}, we will need a sentence letter. We mi
 	\begin{ekey}
 		\item[B] Mary is in Barcelona.
 	\end{ekey}
-Since sentence \ref{not2} is obviously related to sentence \ref{not1}, we will not want to symbolize it with a completely different sentence. Roughly, sentence \ref{not2} means something like `It is not the case that B'. In order to symbolize this, we need a symbol for negation. We will use `\enot'. Now we can symbolize sentence \ref{not2} with `$\enot B$'.
+Since sentence \ref{not2} is obviously related to sentence \ref{not1}, we will not want to symbolize it with a completely different sentence letter. Roughly, sentence \ref{not2} means something like `It is not the case that~$B$'. In order to symbolize this, we need a symbol for negation. We will use `\enot'. Now we can symbolize sentence \ref{not2} with `$\enot B$'.
 
 Sentence \ref{not3} also contains the word `not', and it is obviously equivalent to sentence \ref{not2}. As such, we can also symbolize it with `$\enot B$'.
 \factoidbox{
@@ -280,7 +280,7 @@ Sentence \ref{or2} is only slightly more complicated. There are two subjects, bu
 	}
 Sometimes in English, the word `or' is used in a way that excludes the possibility that both disjuncts are true. This is called an \define{exclusive or}.  An \emph{exclusive or} is clearly intended when it says, on a restaurant menu, `Entrees come with either soup or salad': you may have soup; you may have salad; but, if you want \emph{both} soup \emph{and} salad, then you have to pay extra.
 
-At other times, the word `or' allows for the possibility that both disjuncts might be true. This is probably the case with sentence \ref{or2}, above. Fatima might play videogames alone, Omar might play videogames alone, or they might both play. Sentence \ref{or2} merely says that \emph{at least} one of them plays videogames. This is called an \define{inclusive or}. The TFL symbol `\eor' always symbolizes an \emph{inclusive or}.
+At other times, the word `or' allows for the possibility that both disjuncts might be true. This is probably the case with sentence \ref{or2}, above. Fatima might play videogames alone, Omar might play videogames alone, or they might both play. Sentence~\ref{or2} merely says that \emph{at least} one of them plays videogames. This is called an \define{inclusive or}. The TFL symbol `\eor' always symbolizes an \emph{inclusive or}.
 
 It might help to see negation interact with disjunction. Consider:
 	\begin{earg}
@@ -620,10 +620,10 @@ We can say similar things for each of the other connectives. For instance, if \m
 \newglossaryentry{sentence of TFL}
 {
 name=sentence (of TFL),
-description={A string of symbols in TFL that can be built up according to the recursive rules given on p.~\pageref{TFLsentences}}
+description={A string of symbols in TFL that can be built up according to the inductive rules given on p.~\pageref{TFLsentences}}
 }
 
-Definitions like this are called \emph{recursive}. Recursive definitions begin with some specifiable base elements, and then present ways to generate indefinitely many more elements by compounding together previously established ones. To give you a better idea of what a recursive definition is, we can give a recursive definition of the idea of \emph{an ancestor of mine}. We specify a base clause.
+Definitions like this are called \emph{inductive}. inductive definitions begin with some specifiable base elements, and then present ways to generate indefinitely many more elements by compounding together previously established ones. To give you a better idea of what an inductive definition is, we can give an inductive definition of the idea of \emph{an ancestor of mine}. We specify a base clause.
 	\begin{ebullet}
 		\item My parents are ancestors of mine.
 	\end{ebullet}
@@ -632,7 +632,7 @@ and then offer further clauses like:
 		\item If $x$ is an ancestor of mine, then $x$'s parents are ancestors of mine.
 		\item Nothing else is an ancestor of mine.
 	\end{ebullet}
-Using this definition, we can easily check to see whether someone is my ancestor: just check whether she is the parent of the parent of\ldots one of my parents. And the same is true for our recursive definition of sentences of TFL. Just as the recursive definition allows complex sentences to be built up from simpler parts, the definition allows us to decompose sentences into their simpler parts. Once we get down to sentence letters, then we know we are ok. 
+Using this definition, we can easily check to see whether someone is my ancestor: just check whether she is the parent of the parent of\ldots one of my parents. And the same is true for our inductive definition of sentences of TFL. Just as the inductive definition allows complex sentences to be built up from simpler parts, the definition allows us to decompose sentences into their simpler parts. Once we get down to sentence letters, then we know we are ok. 
 
 Let's consider some examples.
 
@@ -653,12 +653,12 @@ As a general rule, you can find the main logical operator for a sentence by usin
 \newglossaryentry{main logical operator}
 {
 name=main connective,
-description={The last connective that you add when you assemble a sentence using the recursive definition}
+description={The last connective that you add when you assemble a sentence using the inductive definition}
 }
 
-The recursive structure of sentences in TFL will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence `$\enot \enot \enot D$' is true if and only if the sentence `$\enot \enot D$' is false, and so on through the structure of the sentence, until we arrive at the atomic components. We will return to this point in Part~\ref{ch.TruthTables}.
+The inductive structure of sentences in TFL will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence `$\enot \enot \enot D$' is true if and only if the sentence `$\enot \enot D$' is false, and so on through the structure of the sentence, until we arrive at the atomic components. We will return to this point in Part~\ref{ch.TruthTables}.
 
-The recursive structure of sentences in TFL also allows us to give a formal definition of the \emph{scope} of a negation (mentioned in \S\ref{s:ConnectiveConjunction}). The scope of a `$\enot$' is the subsentence for which `$\enot$' is the main logical operator. Consider a sentence like:
+The inductive structure of sentences in TFL also allows us to give a formal definition of the \emph{scope} of a negation (mentioned in \S\ref{s:ConnectiveConjunction}). The scope of a `$\enot$' is the subsentence for which `$\enot$' is the main logical operator. Consider a sentence like:
 $$(P \eand (\enot (R \eand B) \eiff Q))$$
 which was constructed by conjoining `$P$' with `$ (\enot (R \eand B) \eiff Q)$'. This last sentence was constructed by placing a biconditional between `$\enot (R \eand B)$' and `$Q$'. The former of these sentences---a subsentence of our original sentence---is a sentence for which `$\enot$' is the main logical operator. So the scope of the negation is just `$\enot(R \eand B)$'. More generally:
 	\factoidbox{The \define{scope} of a connective (in a sentence) is the subsentence for which that connective is the main logical operator.}
@@ -777,9 +777,9 @@ The general point is that, whenever we want to talk in English about some specif
 
 
 \section{Metavariables}\label{s:Metavariables}
-However, we do not just want to talk about \emph{specific} expressions of TFL. We also want to be able to talk about \emph{any arbitrary} sentence of TFL. Indeed, we had to do this in \S\ref{s:Sentences}, when we presented the recursive definition of a sentence of TFL. We used uppercase script letters to do this, namely:
+However, we do not just want to talk about \emph{specific} expressions of TFL. We also want to be able to talk about \emph{any arbitrary} sentence of TFL. Indeed, we had to do this in \S\ref{s:Sentences}, when we presented the inductive definition of a sentence of TFL. We used uppercase script letters to do this, namely:
 	$$\meta{A}, \meta{B}, \meta{C}, \meta{D}, \ldots$$
-These symbols do not belong to TFL. Rather, they are part of our (augmented) metalanguage that we use to talk about \emph{any} expression of TFL. To repeat the second clause of the recursive definition of a sentence of TFL, we said:
+These symbols do not belong to TFL. Rather, they are part of our (augmented) metalanguage that we use to talk about \emph{any} expression of TFL. To repeat the second clause of the inductive definition of a sentence of TFL, we said:
 	\begin{earg}
 		\item[2.] If $\meta{A}$ is a sentence, then $\enot \meta{A}$ is a sentence.
 	\end{earg}
@@ -796,7 +796,7 @@ this would not have allowed us to determine whether `$\enot B$' is a sentence. T
 name=metavariables,
 description={A variable in the metalanguage that can represent any sentence in the object language}
 }
-But this last example raises a further complication for our quotation conventions. We have not included any quotation marks in the second clause of our recursive definition. Should we have done so?
+But this last example raises a further complication for our quotation conventions. We have not included any quotation marks in the second clause of our inductive definition. Should we have done so?
 
 The problem is that the expression on the right-hand-side of this rule is not a sentence of English, since it contains `$\enot$'. So we might try to write:
 	\begin{enumerate}

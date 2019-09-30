@@ -1386,7 +1386,7 @@ We can now give a formal definition of scope, which incorporates the definition 
 		The \define{scope} of a logical operator in a formula is the subformula for which that operator is the main logical operator.
 	}
 So we can graphically illustrate the scope of the quantifiers in the preceding example thus:
-	$$\overbrace{\forall x \overbrace{\exists y (\atom{F}{x} \eiff \overbrace{\forall z (\atom{G}{a,y,z} \eif Syzyayx)}^{\text{scope of `}\forall z\text{'}}}^{\text{scope of `}\exists y\text{'}})}^{\text{scope of `$\forall x$'}}$$
+	$$\overbrace{\forall x \overbrace{\exists y (\atom{F}{x} \eiff \overbrace{\forall z (\atom{G}{a,y,z} \eif \atom{S}{y,z,y,a,y,x})}^{\text{scope of `}\forall z\text{'}}}^{\text{scope of `}\exists y\text{'}})}^{\text{scope of `$\forall x$'}}$$
 
 \newglossaryentry{main logical operator}{
   name = main logical operator,

@@ -1061,7 +1061,7 @@ At the outset, working backward to prove $A \eor\enot A$ by $\eor$I did not work
 	\have{7}{A \eor \enot A}\oi{6}
 	\have{8}{\ered}\ne{2,7}
 	\close
-	\have{9}{A \eor \enot A}\ni{2-8}
+	\have{9}{A \eor \enot A}\ip{2-8}
 \end{proof}
 Inside this new subproof, we again need to justify $\ered$. The best way to do this is to work forward from a negated sentence; $\enot(A \eor \enot A)$ on line~$1$ is the only negated sentence we can use. The corresponding unnegated sentence, $A \eor \enot A$, however, directly follows from $A$ (which we have on line~$2$) by $\eor$I. Our complete proof is:
 \begin{proof}
@@ -1076,7 +1076,7 @@ Inside this new subproof, we again need to justify $\ered$. The best way to do t
 	\have{7}{A \eor \enot A}\oi{6}
 	\have{8}{\ered}\ne{2,7}
 	\close
-	\have{9}{A \eor \enot A}\ni{2-8}
+	\have{9}{A \eor \enot A}\ip{2-8}
 \end{proof}
 
 \practiceproblems
@@ -1117,7 +1117,7 @@ Use the strategies to find proofs for each one of the following arguments and se
 \item $\enot(A \eand B) \eif (\enot A \eor \enot B)$
 \item $A \eif (B \eor C) \therefore (A \eif B) \eor (A \eif C)$
 \item $(A \eif B) \lor (B \eif A)$
-\item $((A \eif B) \eif B) \eif B$
+\item $((A \eif B) \eif A) \eif A$
 \end{earg}
 These all will require the IP strategy. The last three especially are quite hard!
 

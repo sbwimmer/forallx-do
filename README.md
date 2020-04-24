@@ -11,7 +11,7 @@ semantics, the syntax of first-order (predicate) logic FOL with
 identity (first-order interpretations), translating (formalizing)
 English in TFL and FOL, and Fitch-style natural deduction proof
 systems for both TFL and FOL. It also deals with some advanced topics
-such as truth-functional completeness. Exercises with solutions are
+such as modal logic, soundness, and functional completeness. Exercises with solutions are
 available. It is provided in PDF (for screen reading, printing, and a
 special version for dyslexics) and in LaTeX source code. A proof
 editor/checker for the proof system used is available at
@@ -81,5 +81,6 @@ You'll have to run `makeglossaries` to produce the glossary as well.
 
 To make changes to the definitions in the preamble and `forallyyc.sty`
 file, put them in a file named `forallxyyc-local.sty`. For instance,
-to get the connectives to be & for and and horseshoe for the
-conditional, copy `forallxyyc-local-sample.sty` to that file.
+to get the connectives to be ∼, &, ⊃, ≡ instead of ¬, ∧, →, ↔, and 
+atomic formulas _Lab_ instead of _L(a,b)_, copy 
+`forallxyyc-local-sample.sty` to that file.

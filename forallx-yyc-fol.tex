@@ -134,7 +134,7 @@ Some more examples will help. Consider these further sentences:
 		\item[\ex{q.en}] There is someone who is not happy.
 		\item[\ex{q.na}] Not everyone is happy.
 	\end{earg}
-Sentence \ref{q.ne} can be paraphrased as, `It is not the case that someone is angry'. We can then symbolize it using negation and an existential quantifier: `$\enot \exists x\,\atom{A}{x}$'. Yet sentence \ref{q.ne} could also be paraphrased as, `Everyone is not angry'. With this in mind, it can be symbolized using negation and a universal quantifier: `$\forall x\, \enot \atom{A}{x}$'. Both of these are acceptable symbolizations.  Indeed, it will transpire that, in general, $\forall x\, \enot\meta{A}$ is logically equivalent to $\enot\exists x\,\meta{A}$. (Notice that we have here returned to the practice of using `$\meta{A}$' as a metavariable, from \S\ref{s:UseMention}.) Symbolizing a sentence one way, rather than the other, might seem more `natural' in some contexts, but it is not much more than a matter of taste.
+Sentence \ref{q.ne} can be paraphrased as, `It is not the case that someone is angry'. We can then symbolize it using negation and an existential quantifier: `$\enot \exists x\,\atom{A}{x}$'. Yet sentence \ref{q.ne} could also be paraphrased as, `Everyone is not angry'. With this in mind, it can be symbolized using negation and a universal quantifier: `$\forall x\, \enot \atom{A}{x}$'. Both of these are acceptable symbolizations.  Indeed, it will transpire that, in general, $\forall x\, \enot\metav{A}$ is logically equivalent to $\enot\exists x\,\metav{A}$. (Notice that we have here returned to the practice of using `$\metav{A}$' as a metavariable, from \S\ref{s:UseMention}.) Symbolizing a sentence one way, rather than the other, might seem more `natural' in some contexts, but it is not much more than a matter of taste.
 
 Sentence \ref{q.en} is most naturally paraphrased as, `There is some~$x$, such that $x$ is not happy'. This then becomes `$\exists x\, \enot \atom{H}{x}$'. Of course, we could equally have written `$\enot\forall x\,\atom{H}{x}$', which we would naturally read as `it is not the case that everyone is happy'. That too would be a perfectly adequate symbolization of sentence \ref{q.na}.
 
@@ -244,15 +244,15 @@ Sentence \ref{quan1} is most naturally symbolized using a universal quantifier. 
 
 Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} that are quarters, it might be tempting to symbolize it using a conjunction. However, the sentence `$\forall x(\atom{P}{x} \eand \atom{Q}{x})$' would symbolize the sentence `every coin is both a quarter and in my pocket'. This obviously means something very different than sentence \ref{quan1}. And so we see:
 	\factoidbox{
-		A sentence can be symbolized as $\forall x (\atom{\meta{F}}{x} \eif \atom{\meta{G}}{x})$ if it can be paraphrased in English as `every $F$ is $G$'.
+		A sentence can be symbolized as $\forall x (\atom{\metav{F}}{x} \eif \atom{\metav{G}}{x})$ if it can be paraphrased in English as `every $F$ is $G$'.
 	}
 Sentence \ref{quan2} is most naturally symbolized using an existential quantifier. It can be paraphrased as `there is some coin which is both on the table and which is a dime'. So we can symbolize it as `$\exists x(\atom{T}{x} \eand \atom{D}{x})$'.
 
-Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. Suppose we had instead written `$\exists x(\atom{T}{x} \eif \atom{D}{x})$'. That would mean that there is some object in the domain of which `$(\atom{T}{x} \eif \atom{D}{x})$' is true. Recall that, in TFL, $\meta{A} \eif \meta{B}$ is logically equivalent (in TFL) to $\enot\meta{A} \eor \meta{B}$. This equivalence will also hold in FOL. So `$\exists x(\atom{T}{x} \eif \atom{D}{x})$' is true if there is some object in the domain, such that `$(\enot \atom{T}{x} \eor \atom{D}{x})$' is true of that object. That is, `$\exists x (\atom{T}{x} \eif \atom{D}{x})$' is true if some coin is \emph{either} not on the table \emph{or} is a dime. Of course there is a coin that is not on the table: there are coins in  lots of other places. So it is \emph{very easy} for `$\exists x(\atom{T}{x} \eif \atom{D}{x})$' to be true. A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier tends to say something very weak indeed. As a general rule of thumb, do not put conditionals in the scope of existential quantifiers unless you are sure that you need one.
+Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. Suppose we had instead written `$\exists x(\atom{T}{x} \eif \atom{D}{x})$'. That would mean that there is some object in the domain of which `$(\atom{T}{x} \eif \atom{D}{x})$' is true. Recall that, in TFL, $\metav{A} \eif \metav{B}$ is logically equivalent (in TFL) to $\enot\metav{A} \eor \metav{B}$. This equivalence will also hold in FOL. So `$\exists x(\atom{T}{x} \eif \atom{D}{x})$' is true if there is some object in the domain, such that `$(\enot \atom{T}{x} \eor \atom{D}{x})$' is true of that object. That is, `$\exists x (\atom{T}{x} \eif \atom{D}{x})$' is true if some coin is \emph{either} not on the table \emph{or} is a dime. Of course there is a coin that is not on the table: there are coins in  lots of other places. So it is \emph{very easy} for `$\exists x(\atom{T}{x} \eif \atom{D}{x})$' to be true. A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier tends to say something very weak indeed. As a general rule of thumb, do not put conditionals in the scope of existential quantifiers unless you are sure that you need one.
 	\factoidbox{
-		A sentence can be symbolized as $\exists x (\atom{\meta{F}}{x} \eand \atom{\meta{G}}{x})$ if it can be paraphrased in English as `some $F$ is~$G$'.
+		A sentence can be symbolized as $\exists x (\atom{\metav{F}}{x} \eand \atom{\metav{G}}{x})$ if it can be paraphrased in English as `some $F$ is~$G$'.
 	}		
-Sentence \ref{quan3} can be paraphrased as, `It is not the case that every coin on the table is a dime'. So we can symbolize it by `$\enot \forall x(\atom{T}{x} \eif \atom{D}{x})$'. You might look at sentence \ref{quan3} and paraphrase it instead as, `Some coin on the table is not a dime'. You would then symbolize it by `$\exists x(\atom{T}{x} \eand \enot \atom{D}{x})$'. Although it is probably not immediately obvious yet, these two sentences are logically equivalent. (This is due to the logical equivalence between $\enot\forall x\,\meta{A}$ and $\exists x\enot\meta{A}$, mentioned in \S\ref{s:FOLBuildingBlocks}, along with the equivalence between $\enot(\meta{A}\eif\meta{B})$ and $\meta{A}\eand\enot\meta{B}$.)
+Sentence \ref{quan3} can be paraphrased as, `It is not the case that every coin on the table is a dime'. So we can symbolize it by `$\enot \forall x(\atom{T}{x} \eif \atom{D}{x})$'. You might look at sentence \ref{quan3} and paraphrase it instead as, `Some coin on the table is not a dime'. You would then symbolize it by `$\exists x(\atom{T}{x} \eand \enot \atom{D}{x})$'. Although it is probably not immediately obvious yet, these two sentences are logically equivalent. (This is due to the logical equivalence between $\enot\forall x\,\metav{A}$ and $\exists x\enot\metav{A}$, mentioned in \S\ref{s:FOLBuildingBlocks}, along with the equivalence between $\enot(\metav{A}\eif\metav{B})$ and $\metav{A}\eand\enot\metav{B}$.)
 
 Sentence \ref{quan4} can be paraphrased as, `It is not the case that there is some dime in my pocket'. This can be symbolized by `$\enot\exists x(\atom{P}{x} \eand \atom{D}{x})$'. It might also be paraphrased as, `Everything in my pocket is a non-dime', and then could be symbolized by `$\forall x(\atom{P}{x} \eif \enot \atom{D}{x})$'. Again the two symbolizations are logically equivalent; both are correct symbolizations of sentence \ref{quan4}.
 
@@ -291,7 +291,7 @@ Now consider the sentence `$\forall x(\atom{R}{x} \eif \atom{M}{x})$'. This symb
 
 If you were actually dealing with the sentence `All refrigerators are monkeys', then you would most likely want to include kitchen appliances in the domain. Then the predicate `$R$' would not be empty and the sentence `$\forall x(\atom{R}{x} \eif \atom{M}{x})$' would be false.
 	\factoidbox{
-		When $\meta{F}$ is an empty predicate, a sentence $\forall x (\atom{\meta{F}}{x} \eif \ldots)$ will be vacuously true.
+		When $\metav{F}$ is an empty predicate, a sentence $\forall x (\atom{\metav{F}}{x} \eif \ldots)$ will be vacuously true.
 	}
 
 
@@ -1104,7 +1104,7 @@ These are definite descriptions: they are meant to pick out a \emph{unique} obje
 \section{Treating definite descriptions as terms}
 One option would be to introduce new names whenever we come across a definite description. This is probably not a great idea. We know that \emph{the} traitor---whoever it is---is indeed \emph{a} traitor. We want to preserve that information in our symbolization.
 
-A second option would be to use a \emph{new} definite description operator, such as `$\maththe$'. The idea would be to symbolize `the $F$' as `$\maththe x\,\atom{F}{x}$'; or to symbolize `the $G$' as `$\maththe x\,\atom{G}{x}$', etc. Expression of the form $\maththe \meta{x}\, \atom{\meta{A}}{\meta{x}}$ would then behave like names. If we followed this path, then using the following symbolization key
+A second option would be to use a \emph{new} definite description operator, such as `$\maththe$'. The idea would be to symbolize `the $F$' as `$\maththe x\,\atom{F}{x}$'; or to symbolize `the $G$' as `$\maththe x\,\atom{G}{x}$', etc. Expression of the form $\maththe \metav{x}\, \atom{\metav{A}}{\metav{x}}$ would then behave like names. If we followed this path, then using the following symbolization key
 	\begin{ekey}
 		\item[\text{domain}] people
 		\item[\atom{T}{x}] \gap{x} is a traitor
@@ -1316,8 +1316,8 @@ Next we need to define atomic formulas.
 	\factoidbox{
 		\begin{enumerate}
 		\item Any sentence letter is an atomic formula.
-		\item If $\meta{R}$ is an $n$-place predicate and $\meta{t}_1, \meta{t}_2, \ldots, \meta{t}_n$ are terms, then $\atom{\meta{R}}{\meta{t}_1, \meta{t}_2, \ldots, \meta{t}_n}$ is an atomic formula.
-		\item If $\meta{t}_1$ and $\meta{t}_2$ are terms, then $\meta{t}_1 = \meta{t}_2$ is an atomic formula.
+		\item If $\metav{R}$ is an $n$-place predicate and $\metav{t}_1, \metav{t}_2, \ldots, \metav{t}_n$ are terms, then $\atom{\metav{R}}{\metav{t}_1, \metav{t}_2, \ldots, \metav{t}_n}$ is an atomic formula.
+		\item If $\metav{t}_1$ and $\metav{t}_2$ are terms, then $\metav{t}_1 = \metav{t}_2$ is an atomic formula.
 		\item Nothing else is an atomic formula.
 		\end{enumerate}
 	}
@@ -1334,7 +1334,7 @@ Note that we consider sentence letters also formulas of FOL, so every sentence o
 }
 
 
-The use of script letters here follows the conventions laid down in \S\ref{s:UseMention}. So, `$\meta{R}$' is not itself a predicate of FOL. Rather, it is a symbol of our metalanguage (augmented English) that we use to talk about any predicate of FOL. Similarly, `$\meta{t}_1$' is not a term of FOL, but a symbol of the metalanguage that we can use to talk about any term of FOL. So, where `$F$' is a one-place predicate, `$G$' is a three-place predicate, and `$S$' is a six-place predicate, here are some atomic formulas:
+The use of script letters here follows the conventions laid down in \S\ref{s:UseMention}. So, `$\metav{R}$' is not itself a predicate of FOL. Rather, it is a symbol of our metalanguage (augmented English) that we use to talk about any predicate of FOL. Similarly, `$\metav{t}_1$' is not a term of FOL, but a symbol of the metalanguage that we can use to talk about any term of FOL. So, where `$F$' is a one-place predicate, `$G$' is a three-place predicate, and `$S$' is a six-place predicate, here are some atomic formulas:
 	\begin{align*}
 		& D &&  \atom{F}{a}\\
 		& x = a && \atom{G}{x,a,y}\\
@@ -1345,17 +1345,17 @@ Once we know what atomic formulas are, we can offer recursion clauses to define 
 	\factoidbox{
 	\begin{enumerate}
 		\item Every atomic formula is a formula. 
-		\item If \meta{A} is a formula, then $\enot\meta{A}$ is a formula.
-		\item If \meta{A} and \meta{B} are formulas, then $(\meta{A}\eand\meta{B})$ is a formula.
-		\item If \meta{A} and \meta{B} are formulas, then $(\meta{A}\eor\meta{B})$ is a formula.
-		\item If \meta{A} and \meta{B} are formulas, then $(\meta{A}\eif\meta{B})$ is a formula.
-		\item If \meta{A} and \meta{B} are formulas, then $(\meta{A}\eiff\meta{B})$ is a formula.
-		\item If \meta{A} is a formula and \meta{x} is a variable,
-		% \meta{A} contains at least one occurrence of \meta{x}, and \meta{A} contains neither $\forall \meta{x}$ nor $\exists \meta{x}$, 
-		then $\forall\meta{x}\,\meta{A}$ is a formula.
-		\item If \meta{A} is a formula and \meta{x} is a variable, 
-		%\meta{A} contains at least one occurrence of \meta{x}, and \meta{A} contains neither $\forall \meta{x}$ nor $\exists \meta{x}$, 
-		then $\exists\meta{x}\,\meta{A}$ is a formula.
+		\item If \metav{A} is a formula, then $\enot\metav{A}$ is a formula.
+		\item If \metav{A} and \metav{B} are formulas, then $(\metav{A}\eand\metav{B})$ is a formula.
+		\item If \metav{A} and \metav{B} are formulas, then $(\metav{A}\eor\metav{B})$ is a formula.
+		\item If \metav{A} and \metav{B} are formulas, then $(\metav{A}\eif\metav{B})$ is a formula.
+		\item If \metav{A} and \metav{B} are formulas, then $(\metav{A}\eiff\metav{B})$ is a formula.
+		\item If \metav{A} is a formula and \metav{x} is a variable,
+		% \metav{A} contains at least one occurrence of \metav{x}, and \metav{A} contains neither $\forall \metav{x}$ nor $\exists \metav{x}$, 
+		then $\forall\metav{x}\,\metav{A}$ is a formula.
+		\item If \metav{A} is a formula and \metav{x} is a variable, 
+		%\metav{A} contains at least one occurrence of \metav{x}, and \metav{A} contains neither $\forall \metav{x}$ nor $\exists \metav{x}$, 
+		then $\exists\metav{x}\,\metav{A}$ is a formula.
 		\item Nothing else is a formula.
 	\end {enumerate}
 	}
@@ -1395,7 +1395,7 @@ So we can graphically illustrate the scope of the quantifiers in the preceding e
 
 \newglossaryentry{scope}{
   name = scope,
-  description = {the subformula of a \gls{sentence of TFL} or a \gls{formula} of FOL for which the \gls{main logical operator} is the operator}
+  description = {The subformula of a \gls{sentence of TFL} or a \gls{formula} of FOL for which the \gls{main logical operator} is the operator}
 }
 
 
@@ -1412,7 +1412,7 @@ Of course, if we put an existential quantifier out front, obtaining `$\exists z\
 
 Let's make this idea precise.
 	\factoidbox{
-		A \define{bound variable} is an occurrence of a variable \meta{x} that is within the scope of either $\forall\meta{x}$ or $\exists\meta{x}$. 
+		A \define{bound variable} is an occurrence of a variable \metav{x} that is within the scope of either $\forall\metav{x}$ or $\exists\metav{x}$. 
 		
 		\bigskip
 		

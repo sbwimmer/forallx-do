@@ -1,5 +1,10 @@
-\documentclass[openany,11pt,letter]{memoir}
+% forallxyyc-letter
+% Driver file to produce version of forall x:YYC on letter-size paper 
+% for printing (in black and white)
 
+\documentclass[openany,11pt,letterpaper]{memoir}
+
+\usepackage{forallxyyc-style}
 \usepackage{forallxyyc}
 
 \colorlet{leadbeater}{black}
@@ -9,16 +14,7 @@
 
 \hypersetup{hidelinks}
 
-\makeevenhead{leadbeater}{\color{leadbeater}\sffamily\bfseries\thepage}{}
-             {\small\sffamily\color{leadbeater}\leftmark}
-\makeoddhead{leadbeater}{\small\sffamily\color{leadbeater}\rightmark}{}
-            {\color{leadbeater}\sffamily\bfseries\thepage}
-
-
 \begin{document}
-
-% discard page after cover
-%\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 
 \midsloppy
 

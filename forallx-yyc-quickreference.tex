@@ -5,7 +5,7 @@
 \label{app.CharacteristicTTs}
 
 \begin{tabular}{c|c}
-\meta{A} & \enot\meta{A}\\
+\metav{A} & \enot\metav{A}\\
 \hline
 T & F\\
 F & T \\
@@ -14,7 +14,7 @@ F & T \\
 \end{tabular}
 \hfill
 \begin{tabular}{c c|c|c|c|c}
-\meta{A} & \meta{B} & $\meta{A}\eand\meta{B}$ & $\meta{A}\eor\meta{B}$ & $\meta{A}\eif\meta{B}$ & $\meta{A}\eiff\meta{B}$\\
+\metav{A} & \metav{B} & $\metav{A}\eand\metav{B}$ & $\metav{A}\eor\metav{B}$ & $\metav{A}\eif\metav{B}$ & $\metav{A}\eiff\metav{B}$\\
 \hline
 T & T & T & T & T & T\\
 T & F & F & T & F & F\\
@@ -123,7 +123,7 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 
 \label{ProofRules}
 \newpage\section{Basic deduction rules for TFL}
-\renewenvironment{proof}
+\renewenvironment{fitchproof}
 	{\noindent\par\noindent\small$\begin{nd}}
 	{\end{nd}$\noindent\normalsize\ignorespacesafterend}
 
@@ -131,113 +131,113 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 \begin{multicols}{2}
 \subsection*{Reiteration}
 
-\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{c}{\meta{A}} \by{R}{a}
-\end{proof}
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[\ ]{c}{\metav{A}} \by{R}{a}
+\end{fitchproof}
 
 \subsection*{Conjunction}
 
-\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[n]{b}{\meta{B}}
-	\have[\ ]{c}{\meta{A}\eand\meta{B}} \ai{a, b}
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[n]{b}{\metav{B}}
+	\have[\ ]{c}{\metav{A}\eand\metav{B}} \ai{a, b}
 
-	\have[m]{ab}{\meta{A}\eand\meta{B}}
-\\	\have[\ ]{a}{\meta{A}} \ae{ab}
+	\have[m]{ab}{\metav{A}\eand\metav{B}}
+\\	\have[\ ]{a}{\metav{A}} \ae{ab}
 
-	\have[m]{ab}{\meta{A}\eand\meta{B}}
-\\	\have[\ ]{b}{\meta{B}} \ae{ab}
-\end{proof}
+	\have[m]{ab}{\metav{A}\eand\metav{B}}
+\\	\have[\ ]{b}{\metav{B}} \ae{ab}
+\end{fitchproof}
 
 \subsection*{Conditional}
 
-\begin{proof}
+\begin{fitchproof}
 	\open
-		\hypo[i]{a}{\meta{A}}
-		\have[j]{b}{\meta{B}}
+		\hypo[i]{a}{\metav{A}}
+		\have[j]{b}{\metav{B}}
 	\close
-	\have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
+	\have[\ ]{ab}{\metav{A}\eif\metav{B}}\ci{a-b}
 
-	\have[m]{ab}{\meta{A}\eif\meta{B}}
-\\	\have[n]{a}{\meta{A}}
-	\have[\ ]{b}{\meta{B}} \ce{ab,a}
-\end{proof}
+	\have[m]{ab}{\metav{A}\eif\metav{B}}
+\\	\have[n]{a}{\metav{A}}
+	\have[\ ]{b}{\metav{B}} \ce{ab,a}
+\end{fitchproof}
 
 \subsection*{Negation}
 
-\begin{proof}
+\begin{fitchproof}
 \open
-	\hypo[i]{a}{\meta{A}}
+	\hypo[i]{a}{\metav{A}}
 	\have[j]{nb}{\ered}
 \close
-\have[\ ]{na}{\enot\meta{A}}\ni{a-nb}
+\have[\ ]{na}{\enot\metav{A}}\ni{a-nb}
 
-\have[m]{na}{\enot\meta{A}}
-\\ \have[n]{a}{\meta{A}}
+\have[m]{na}{\enot\metav{A}}
+\\ \have[n]{a}{\metav{A}}
 \have[ ]{bot}{\ered}\ri{na, a}
-\end{proof}
+\end{fitchproof}
 
 \subsection*{Indirect proof}
 
-\begin{proof}
+\begin{fitchproof}
 \open
-	\hypo[i]{a}{\enot\meta{A}}
+	\hypo[i]{a}{\enot\metav{A}}
 	\have[j]{nb}{\ered}
 \close
-\have[\ ]{na}{\meta{A}}\ip{a-nb}
-\end{proof}
+\have[\ ]{na}{\metav{A}}\ip{a-nb}
+\end{fitchproof}
 
 
 \subsection*{Explosion}
 
-\begin{proof}
+\begin{fitchproof}
 \have[m]{bot}{\ered}
-\\\have[ ]{}{\meta{A}}\re{bot}
-\end{proof}
+\\\have[ ]{}{\metav{A}}\re{bot}
+\end{fitchproof}
 
 \subsection*{Disjunction}
 
-\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{ab}{\meta{A}\eor\meta{B}}\oi{a}
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[\ ]{ab}{\metav{A}\eor\metav{B}}\oi{a}
 
-	\have[m]{a}{\meta{A}}
-\\	\have[\ ]{ba}{\meta{B}\eor\meta{A}}\oi{a}
+	\have[m]{a}{\metav{A}}
+\\	\have[\ ]{ba}{\metav{B}\eor\metav{A}}\oi{a}
 
-	\have[m]{ab}{\meta{A}\eor\meta{B}}
+	\have[m]{ab}{\metav{A}\eor\metav{B}}
 \\	\open
-		\hypo[i]{a}{\meta{A}}
-		\have[j]{c1}{\meta{C}}
+		\hypo[i]{a}{\metav{A}}
+		\have[j]{c1}{\metav{C}}
 	\close
 	\open
-		\hypo[k]{b}{\meta{B}}
-		\have[l]{c2}{\meta{C}}
+		\hypo[k]{b}{\metav{B}}
+		\have[l]{c2}{\metav{C}}
 	\close
-	\have[\ ]{c}{\meta{C}} \oe{ab,a-c1, b-c2}
-\end{proof}
+	\have[\ ]{c}{\metav{C}} \oe{ab,a-c1, b-c2}
+\end{fitchproof}
 
 \subsection*{Biconditional}
 
-\begin{proof}
+\begin{fitchproof}
 	\open
-		\hypo[i]{a1}{\meta{A}} 
-		\have[j]{b1}{\meta{B}}
+		\hypo[i]{a1}{\metav{A}} 
+		\have[j]{b1}{\metav{B}}
 	\close
 	\open
-		\hypo[k]{b2}{\meta{B}}
-		\have[l]{a2}{\meta{A}}
+		\hypo[k]{b2}{\metav{B}}
+		\have[l]{a2}{\metav{A}}
 	\close
-	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
+	\have[\ ]{ab}{\metav{A}\eiff\metav{B}}\bi{a1-b1,b2-a2}
 
-	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-\\	\have[n]{a}{\meta{A}}
-	\have[\ ]{b}{\meta{B}} \be{ab,a}
+	\have[m]{ab}{\metav{A}\eiff\metav{B}}
+\\	\have[n]{a}{\metav{A}}
+	\have[\ ]{b}{\metav{B}} \be{ab,a}
 
-	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-\\	\have[n]{a}{\meta{B}}
-	\have[\ ]{b}{\meta{A}} \be{ab,a}
-\end{proof}
+	\have[m]{ab}{\metav{A}\eiff\metav{B}}
+\\	\have[n]{a}{\metav{B}}
+	\have[\ ]{b}{\metav{A}} \be{ab,a}
+\end{fitchproof}
 
 \end{multicols}
 
@@ -245,67 +245,67 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 \section{Derived rules for TFL}
 \begin{multicols}{2}
 \subsection*{Disjunctive syllogism}
-\begin{proof}
-	\have[m]{ab}{\meta{A} \eor \meta{B}}
-	\have[n]{nb}{\enot \meta{A}}
-	\have[\ ]{con}{\meta{B}}\by{DS}{ab, nb}
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A} \eor \metav{B}}
+	\have[n]{nb}{\enot \metav{A}}
+	\have[\ ]{con}{\metav{B}}\by{DS}{ab, nb}
 
-	\have[m]{ab}{\meta{A} \eor \meta{B}}
-\\	\have[n]{nb}{\enot \meta{B}}
-	\have[\ ]{con}{\meta{A}}\by{DS}{ab, nb}
-\end{proof}
+	\have[m]{ab}{\metav{A} \eor \metav{B}}
+\\	\have[n]{nb}{\enot \metav{B}}
+	\have[\ ]{con}{\metav{A}}\by{DS}{ab, nb}
+\end{fitchproof}
 
 \subsection*{Modus Tollens}
 
-\begin{proof}
-	\have[m]{ab}{\meta{A}\eif\meta{B}}
-	\have[n]{a}{\enot\meta{B}}
-	\have[\ ]{b}{\enot\meta{A}} \by{MT}{ab,a}
-\end{proof}
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eif\metav{B}}
+	\have[n]{a}{\enot\metav{B}}
+	\have[\ ]{b}{\enot\metav{A}} \by{MT}{ab,a}
+\end{fitchproof}
 
 \subsection*{Double-negation elimination}
-	\begin{proof}
-		\have[m]{dna}{\enot \enot \meta{A}}
-		\have[ ]{a}{\meta{A}}\dne{dna}
-	\end{proof}
+	\begin{fitchproof}
+		\have[m]{dna}{\enot \enot \metav{A}}
+		\have[ ]{a}{\metav{A}}\dne{dna}
+	\end{fitchproof}
 
 
 \subsection*{Excluded middle}
-	\begin{proof}
+	\begin{fitchproof}
 		\open
-			\hypo[i]{a}{\meta{A}}
-			\have[j]{c1}{\meta{B}}
+			\hypo[i]{a}{\metav{A}}
+			\have[j]{c1}{\metav{B}}
 		\close
 		\open
-			\hypo[k]{b}{\enot\meta{A}}
-			\have[l]{c2}{\meta{B}}
+			\hypo[k]{b}{\enot\metav{A}}
+			\have[l]{c2}{\metav{B}}
 		\close
-		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
-	\end{proof}
+		\have[\ ]{ab}{\metav{B}}\tnd{a-c1,b-c2}
+	\end{fitchproof}
 
 %
 %\subsection*{Hypothetical Syllogism}
 %
-%\begin{proof}
-%	\have[m]{ab}{\meta{A}\eif\meta{B}}
-%	\have[n]{bc}{\meta{B}\eif\meta{C}}
-%	\have[\ ]{ac}{\meta{A}\eif\meta{C}}\by{HS}{ab,bc}
-%\end{proof}
+%\begin{fitchproof}
+%	\have[m]{ab}{\metav{A}\eif\metav{B}}
+%	\have[n]{bc}{\metav{B}\eif\metav{C}}
+%	\have[\ ]{ac}{\metav{A}\eif\metav{C}}\by{HS}{ab,bc}
+%\end{fitchproof}
 
 \subsection*{De Morgan Rules}
-\begin{proof}
-	\have[m]{ab}{\enot (\meta{A} \eor \meta{B})}
-	\have[\ ]{dm}{\enot \meta{A} \eand \enot \meta{B}}\dem{ab}
+\begin{fitchproof}
+	\have[m]{ab}{\enot (\metav{A} \eor \metav{B})}
+	\have[\ ]{dm}{\enot \metav{A} \eand \enot \metav{B}}\dem{ab}
 
-	\have[m]{ab}{\enot \meta{A} \eand \enot \meta{B}}
-\\	\have[\ ]{dm}{\enot (\meta{A} \eor \meta{B})}\dem{ab}
+	\have[m]{ab}{\enot \metav{A} \eand \enot \metav{B}}
+\\	\have[\ ]{dm}{\enot (\metav{A} \eor \metav{B})}\dem{ab}
 
-	\have[m]{ab}{\enot (\meta{A} \eand \meta{B})}
-\\	\have[\ ]{dm}{\enot \meta{A} \eor \enot \meta{B}}\dem{ab}
+	\have[m]{ab}{\enot (\metav{A} \eand \metav{B})}
+\\	\have[\ ]{dm}{\enot \metav{A} \eor \enot \metav{B}}\dem{ab}
 
-	\have[m]{ab}{\enot \meta{A} \eor \enot \meta{B}}
-\\	\have[\ ]{dm}{\enot (\meta{A} \eand \meta{B})}\dem{ab}
-\end{proof}
+	\have[m]{ab}{\enot \metav{A} \eor \enot \metav{B}}
+\\	\have[\ ]{dm}{\enot (\metav{A} \eand \metav{B})}\dem{ab}
+\end{fitchproof}
 \end{multicols}
 
 \newpage
@@ -315,91 +315,91 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 \begin{multicols}{2}
 \subsection*{Universal elimination}
 
-\begin{proof}
-	\have[m]{a}{\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)}
-	\have[\ ]{c}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)} \Ae{a}
-\end{proof}
+\begin{fitchproof}
+	\have[m]{a}{\forall \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)}
+	\have[\ ]{c}{\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)} \Ae{a}
+\end{fitchproof}
 
 \subsection*{Universal introduction}
 
-\begin{proof}
-	\have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
-	\have[\ ]{c}{\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)} \Ai{a}
-\end{proof}
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)}
+	\have[\ ]{c}{\forall \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)} \Ai{a}
+\end{fitchproof}
 
 \medskip\begin{raggedright}
-\meta{c} must not occur in any undischarged assumption
+\metav{c} must not occur in any undischarged assumption
 
-\meta{x} must not occur in\\ $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$
+\metav{x} must not occur in\\ $\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$
 \end{raggedright}
 
 \subsection*{Existential introduction}
 
-\begin{proof}
-	\have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
-	\have[\ ]{c}{\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)}\Ei{a}
-\end{proof}
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)}
+	\have[\ ]{c}{\exists \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{c}\ldots)}\Ei{a}
+\end{fitchproof}
 
 \medskip\begin{raggedright}
-\noindent \meta{x} must not occur in\\ $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$
+\noindent \metav{x} must not occur in\\ $\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$
 \end{raggedright}
-%\noindent You can replace one or more instance of \meta{c} with \meta{x}.
+%\noindent You can replace one or more instance of \metav{c} with \metav{x}.
 
 \subsection*{Existential elimination}
 
-\begin{proof}
-	\have[m]{a}{\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)}
+\begin{fitchproof}
+	\have[m]{a}{\exists \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)}
 	\open	
-		\hypo[i]{b}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
-		\have[j]{c}{\meta{B}}
+		\hypo[i]{b}{\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)}
+		\have[j]{c}{\metav{B}}
 	\close
-	\have[\ ]{d}{\meta{B}}\Ee{a,b-c}
-\end{proof}
+	\have[\ ]{d}{\metav{B}}\Ee{a,b-c}
+\end{fitchproof}
 
 \medskip\begin{raggedright}
-\noindent \meta{c} must not occur in any undischarged assumption, in $\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)$, or in \meta{B}\end{raggedright}\vfill\columnbreak
+\noindent \metav{c} must not occur in any undischarged assumption, in $\exists \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)$, or in \metav{B}\end{raggedright}\vfill\columnbreak
 
 \end{multicols}
 
 \subsection*{Identity introduction}
 
-\begin{proof}
-	\have[\ \,\,\,]{x}{\meta{c}=\meta{c}} \by{=I}{}
-\end{proof}
+\begin{fitchproof}
+	\have[\ \,\,\,]{x}{\metav{c}=\metav{c}} \by{=I}{}
+\end{fitchproof}
 
 
 \subsection*{Identity elimination}
 
 \begin{multicols}{2}
-\begin{proof}
-	\have[m]{e}{\meta{a}=\meta{b}}
-	\have[n]{a}{\meta{A}(\ldots \meta{a} \ldots \meta{a}\ldots)}
-	\have[\ ]{ea1}{\meta{A}(\ldots \meta{b} \ldots \meta{a}\ldots)} \by{=E}{e,a}
-\end{proof}
-\begin{proof}
-	\have[m]{e}{\meta{a}=\meta{b}}
-	\have[n]{a}{\meta{A}(\ldots \meta{b} \ldots \meta{b}\ldots)}
-	\have[\ ]{ea2}{\meta{A}(\ldots \meta{a} \ldots \meta{b}\ldots)} \by{=E}{e,a}
-\end{proof}
+\begin{fitchproof}
+	\have[m]{e}{\metav{a}=\metav{b}}
+	\have[n]{a}{\metav{A}(\ldots \metav{a} \ldots \metav{a}\ldots)}
+	\have[\ ]{ea1}{\metav{A}(\ldots \metav{b} \ldots \metav{a}\ldots)} \by{=E}{e,a}
+\end{fitchproof}
+\begin{fitchproof}
+	\have[m]{e}{\metav{a}=\metav{b}}
+	\have[n]{a}{\metav{A}(\ldots \metav{b} \ldots \metav{b}\ldots)}
+	\have[\ ]{ea2}{\metav{A}(\ldots \metav{a} \ldots \metav{b}\ldots)} \by{=E}{e,a}
+\end{fitchproof}
 \end{multicols}
 
 \begin{minipage}{\textwidth} % hack to keep section header with table
 \section{Derived rules for FOL}
 
 \begin{multicols}{2}
-\begin{proof}
-	\have[m]{ab}{\forall \meta{x}\enot \meta{A}}
-	\have[\ ]{ac}{\enot \exists \meta{x} \meta{A}}\cq{m}
+\begin{fitchproof}
+	\have[m]{ab}{\forall \metav{x}\enot \metav{A}}
+	\have[\ ]{ac}{\enot \exists \metav{x} \metav{A}}\cq{m}
 
-	\have[m]{ab}{\enot \exists \meta{x}  \meta{A}}
-\\	\have[\ ]{ac}{\forall \meta{x}\enot\meta{A}}\cq{m}
-\end{proof}
-\begin{proof}
-	\have[m]{ab}{\exists \meta{x}\enot\meta{A}}
-	\have[\ ]{ac}{\enot \forall \meta{x} \meta{A}}\cq{m}
+	\have[m]{ab}{\enot \exists \metav{x}  \metav{A}}
+\\	\have[\ ]{ac}{\forall \metav{x}\enot\metav{A}}\cq{m}
+\end{fitchproof}
+\begin{fitchproof}
+	\have[m]{ab}{\exists \metav{x}\enot\metav{A}}
+	\have[\ ]{ac}{\enot \forall \metav{x} \metav{A}}\cq{m}
 
-	\have[m]{ab}{\enot \forall \meta{x}  \meta{A}}
-\\	\have[\ ]{ac}{\exists \meta{x}\enot \meta{A}}\cq{m}
-\end{proof}
+	\have[m]{ab}{\enot \forall \metav{x}  \metav{A}}
+\\	\have[\ ]{ac}{\exists \metav{x}\enot \metav{A}}\cq{m}
+\end{fitchproof}
 \end{multicols}
 \end{minipage}

@@ -1,8 +1,15 @@
+% forallxyyc-print
+% Driver file to produce version of forall x:YYC on quarto stock 
+% for printing in black and white via Amazon KDP or similar print-on-demand service.
+
 \pdfminorversion=3
 
 \documentclass[openany,11pt]{memoir}
 
+\usepackage{forallxyyc-style}
 \usepackage{forallxyyc}
+
+\usepackage[x-1a]{pdfx}
 
 % set stock & paper size to Quarto
 
@@ -32,18 +39,7 @@
 \colorlet{ltleadbeater}{black!50}
 \colorlet{vltleadbeater}{black!3}
 
-\usepackage[x-1a]{pdfx}
-
-\makeevenhead{leadbeater}{\color{leadbeater}\sffamily\bfseries\thepage}{}
-             {\small\sffamily\color{leadbeater}\leftmark}
-\makeoddhead{leadbeater}{\small\sffamily\color{leadbeater}\rightmark}{}
-            {\color{leadbeater}\sffamily\bfseries\thepage}
-
-
 \begin{document}
-
-% discard page after cover
-%\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 
 \midsloppy
 

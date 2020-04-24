@@ -156,7 +156,7 @@ Since sentence \ref{not2} is obviously related to sentence \ref{not1}, we will n
 
 Sentence \ref{not3} also contains the word `not', and it is obviously equivalent to sentence \ref{not2}. As such, we can also symbolize it with `$\enot B$'.
 \factoidbox{
-A sentence can be symbolized as $\enot\meta{A}$ if it can be paraphrased in English as `It is not the case that\ldots'.
+A sentence can be symbolized as $\enot\metav{A}$ if it can be paraphrased in English as `It is not the case that\ldots'.
 }
 It will help to offer a few more examples:
 	\begin{earg}
@@ -229,7 +229,7 @@ Sentence \ref{and6} is slightly more complicated. The word `although' sets up a 
 
 Sentence \ref{and7} raises similar issues. There is a contrastive structure, but this is not something that TFL can deal with. So we can paraphrase the sentence as `\emph{Both} Adam is athletic, \emph{and} Barbara is more athletic than Adam'. (Notice that we once again replace the pronoun `him' with `Adam'.) How should we deal with the second conjunct? We already have the sentence letter `$A$', which is being used to symbolize `Adam is athletic', and the sentence `$B$' which is being used to symbolize `Barbara is athletic'; but neither of these concerns their relative athleticity. So, to symbolize the entire sentence, we need a new sentence letter. Let the TFL sentence `$R$' symbolize the English sentence `Barbara is more athletic than Adam'. Now we can symbolize sentence \ref{and7} by `$(A \eand R)$'.
 	\factoidbox{
-		A sentence can be symbolized as $(\meta{A}\eand\meta{B})$ if it can be paraphrased in English as `Both\ldots, and\ldots', or as `\ldots, but \ldots', or as `although \ldots, \ldots'.
+		A sentence can be symbolized as $(\metav{A}\eand\metav{B})$ if it can be paraphrased in English as `Both\ldots, and\ldots', or as `\ldots, but \ldots', or as `although \ldots, \ldots'.
 	}
 You might be wondering why we put brackets around the conjunctions. The reason for this is brought out by considering how negation might interact with conjunction. Consider:
 	\begin{earg}
@@ -276,7 +276,7 @@ description={A sentence joined to another by a \gls{disjunction}}
 
 Sentence \ref{or2} is only slightly more complicated. There are two subjects, but the English sentence only gives the verb once. However, we can paraphrase sentence \ref{or2} as `Either Fatima will play videogames, or Omar will play videogames'. Now we can obviously symbolize it by `$(F \eor O)$' again.
 	\factoidbox{
-		A sentence can be symbolized as $(\meta{A}\eor\meta{B})$ if it can be paraphrased in English as `Either\ldots, or\ldots.' Each of the disjuncts must be a sentence.
+		A sentence can be symbolized as $(\metav{A}\eor\metav{B})$ if it can be paraphrased in English as `Either\ldots, or\ldots.' Each of the disjuncts must be a sentence.
 	}
 Sometimes in English, the word `or' is used in a way that excludes the possibility that both disjuncts are true. This is called an \define{exclusive or}.  An \emph{exclusive or} is clearly intended when it says, on a restaurant menu, `Entrees come with either soup or salad': you may have soup; you may have salad; but, if you want \emph{both} soup \emph{and} salad, then you have to pay extra.
 
@@ -332,7 +332,7 @@ Sentence \ref{if2} is also a conditional. Since the word `if' appears in the sec
 
 In fact, sentence \ref{if2} can be paraphrased as `If Jean is in France, then Jean is in Paris'. So we can symbolize it by `$(F \eif P)$'.
 	\factoidbox{
-		A sentence can be symbolized as $\meta{A} \eif \meta{B}$ if it can be paraphrased in English as `If A, then B' or `A only if B'.
+		A sentence can be symbolized as $\metav{A} \eif \metav{B}$ if it can be paraphrased in English as `If A, then B' or `A only if B'.
 	}
 \noindent In fact, many English expressions can be represented using the conditional. Consider:
 	\begin{earg}
@@ -373,7 +373,7 @@ We could treat every biconditional this way. So, just as we do not need a new TF
 
 The expression `if and only if' occurs a lot especially in philosophy, mathematics, and logic. For brevity, we can abbreviate it with the snappier word `iff'. We will follow this practice. So `if' with only \emph{one} `f' is the English conditional. But `iff' with \emph{two} `f's is the English biconditional. Armed with this we can say:
 	\factoidbox{
-		A sentence can be symbolized as $\meta{A} \eiff \meta{B}$ if it can be paraphrased in English as `A iff B'; that is, as `A if and only if B'.
+		A sentence can be symbolized as $\metav{A} \eiff \metav{B}$ if it can be paraphrased in English as `A iff B'; that is, as `A if and only if B'.
 	}
 A word of caution. Ordinary speakers of English often use `if \ldots, then\ldots' when they really mean to use something more like `\ldots if and only if \ldots'. Perhaps your parents told you, when you were a child: `if you don't eat your greens, you won't get any dessert'. Suppose you ate your greens, but that your parents refused to give you any dessert, on the grounds that they were only committed to the \emph{conditional} (roughly `if you get dessert, then you will have eaten your greens'), rather than the biconditional (roughly, `you get dessert iff you eat your greens'). Well, a tantrum would rightly ensue. So, be aware of this when interpreting people; but in your own writing, make sure you use the biconditional iff you mean to.
 
@@ -399,7 +399,7 @@ All three are correct symbolizations. Indeed, in chapter \ref{s:SemanticConcepts
 % TODO: it might be useful to reference exercise 11.F.3 explicitly
 % here, since the point is not discussed in the main text
 	\factoidbox{
-		If a sentence can be paraphrased as `Unless A, B,' then it can be symbolized as `$\meta{A}\eor\meta{B}$'.
+		If a sentence can be paraphrased as `Unless A, B,' then it can be symbolized as `$\metav{A}\eor\metav{B}$'.
 	}
 Again, though, there is a little complication. `Unless' can be symbolized as a conditional; but as we said above, people often use the conditional (on its own) when they mean to use the biconditional. Equally, `unless' can be symbolized as a disjunction; but there are two kinds of disjunction (exclusive and inclusive). So it will not surprise you to discover that ordinary speakers of English often use `unless' to mean something more like the biconditional, or like exclusive disjunction. Suppose someone says: `I will go running unless it rains'. They probably mean something like `I will go running iff it does not rain' (i.e.\ the biconditional), or  `either I will go running or it will rain, but not both' (i.e.\ exclusive disjunction). Again: be aware of this when interpreting what other people have said, but be precise in your writing.
 
@@ -603,17 +603,17 @@ Of course, many expressions of TFL will be total gibberish. We want to know when
 
 Obviously, individual sentence letters like `$A$' and `$G_{13}$' should count as sentences. (We'll also call them \emph{atomic} sentences.) We can form further sentences out of these by using the various connectives. Using negation, we can get `$\enot A$' and `$\enot G_{13}$'. Using conjunction, we can get `$(A \eand G_{13})$', `$(G_{13} \eand A)$', `$(A \eand A)$', and `$(G_{13} \eand G_{13})$'. We could also apply negation repeatedly to get sentences like `$\enot \enot A$' or apply negation along with conjunction to get sentences like `$\enot(A \eand G_{13})$' and `$\enot(G_{13} \eand \enot G_{13})$'. The possible combinations are endless, even starting with just these two sentence letters, and there are infinitely many sentence letters. So there is no point in trying to list all the sentences one by one.
 
-Instead, we will describe the process by which sentences can be \emph{constructed}. Consider negation: Given any sentence \meta{A} of TFL, $\enot\meta{A}$ is a sentence of TFL. (Why the funny fonts? We return to this in \S\ref{s:Metavariables}.)
+Instead, we will describe the process by which sentences can be \emph{constructed}. Consider negation: Given any sentence \metav{A} of TFL, $\enot\metav{A}$ is a sentence of TFL. (Why the funny fonts? We return to this in \S\ref{s:Metavariables}.)
 
-We can say similar things for each of the other connectives. For instance, if \meta{A} and \meta{B} are sentences of TFL, then $(\meta{A}\eand\meta{B})$ is a sentence of TFL. Providing clauses like this for all of the connectives, we arrive at the following formal definition for a \define{sentence of TFL}:
+We can say similar things for each of the other connectives. For instance, if \metav{A} and \metav{B} are sentences of TFL, then $(\metav{A}\eand\metav{B})$ is a sentence of TFL. Providing clauses like this for all of the connectives, we arrive at the following formal definition for a \define{sentence of TFL}:
 	\factoidbox{\label{TFLsentences}
 	\begin{enumerate}
 		\item Every sentence letter is a sentence.
-		\item If \meta{A} is a sentence, then $\enot\meta{A}$ is a sentence.
-		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eand\meta{B})$ is a sentence.
-		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eor\meta{B})$ is a sentence.
-		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eif\meta{B})$ is a sentence.
-		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eiff\meta{B})$ is a sentence.
+		\item If \metav{A} is a sentence, then $\enot\metav{A}$ is a sentence.
+		\item If \metav{A} and \metav{B} are sentences, then $(\metav{A}\eand\metav{B})$ is a sentence.
+		\item If \metav{A} and \metav{B} are sentences, then $(\metav{A}\eor\metav{B})$ is a sentence.
+		\item If \metav{A} and \metav{B} are sentences, then $(\metav{A}\eif\metav{B})$ is a sentence.
+		\item If \metav{A} and \metav{B} are sentences, then $(\metav{A}\eiff\metav{B})$ is a sentence.
 		\item Nothing else is a sentence.
 	\end{enumerate}
 	}
@@ -778,10 +778,10 @@ The general point is that, whenever we want to talk in English about some specif
 
 \section{Metavariables}\label{s:Metavariables}
 However, we do not just want to talk about \emph{specific} expressions of TFL. We also want to be able to talk about \emph{any arbitrary} sentence of TFL. Indeed, we had to do this in \S\ref{s:Sentences}, when we presented the inductive definition of a sentence of TFL. We used uppercase script letters to do this, namely:
-	$$\meta{A}, \meta{B}, \meta{C}, \meta{D}, \ldots$$
+	$$\metav{A}, \metav{B}, \metav{C}, \metav{D}, \ldots$$
 These symbols do not belong to TFL. Rather, they are part of our (augmented) metalanguage that we use to talk about \emph{any} expression of TFL. To repeat the second clause of the inductive definition of a sentence of TFL, we said:
 	\begin{earg}
-		\item[2.] If $\meta{A}$ is a sentence, then $\enot \meta{A}$ is a sentence.
+		\item[2.] If $\metav{A}$ is a sentence, then $\enot \metav{A}$ is a sentence.
 	\end{earg}
 This talks about \emph{arbitrary} sentences. If we had instead offered:
 	\begin{ebullet}
@@ -789,7 +789,7 @@ This talks about \emph{arbitrary} sentences. If we had instead offered:
 	\end{ebullet}
 this would not have allowed us to determine whether `$\enot B$' is a sentence. To emphasize, then:
 	\factoidbox{
-	  `$\meta{A}$' is a symbol (called a \define{metavariable}) in augmented English, which we use to talk about any TFL expression. 	`$A$' is a particular sentence letter of TFL.}
+	  `$\metav{A}$' is a symbol (called a \define{metavariable}) in augmented English, which we use to talk about any TFL expression. 	`$A$' is a particular sentence letter of TFL.}
 
         \newglossaryentry{metavariables}
 {
@@ -800,32 +800,32 @@ But this last example raises a further complication for our quotation convention
 
 The problem is that the expression on the right-hand-side of this rule is not a sentence of English, since it contains `$\enot$'. So we might try to write:
 	\begin{enumerate}
-		\item[2$'$.] If \meta{A} is a sentence, then `$\enot \meta{A}$' is a sentence.
+		\item[2$'$.] If \metav{A} is a sentence, then `$\enot \metav{A}$' is a sentence.
 	\end{enumerate}
-But this is no good: `$\enot \meta{A}$' is not a TFL sentence, since `$\meta{A}$' is a symbol of (augmented) English rather than a symbol of TFL.
+But this is no good: `$\enot \metav{A}$' is not a TFL sentence, since `$\metav{A}$' is a symbol of (augmented) English rather than a symbol of TFL.
 
 What we really want to say is something like this:
 	\begin{enumerate}
-		\item[2$''$.] If \meta{A} is a sentence, then the result of concatenating the symbol `$\enot$' with the sentence \meta{A} is a sentence.
+		\item[2$''$.] If \metav{A} is a sentence, then the result of concatenating the symbol `$\enot$' with the sentence \metav{A} is a sentence.
 	\end{enumerate}
 This is impeccable, but rather long-winded. %Quine introduced a convention that speeds things up here. In place of (2$''$), he suggested:
 %	\begin{enumerate}
-%		\item[2$'''$.] If \meta{A} and \meta{B} are sentences, then $\ulcorner (\meta{A}\eand\meta{B})\urcorner$ is a sentence
+%		\item[2$'''$.] If \metav{A} and \metav{B} are sentences, then $\ulcorner (\metav{A}\eand\metav{B})\urcorner$ is a sentence
 %	\end{enumerate}
-%The rectangular quote-marks are sometimes called `Quine quotes', after Quine. The general interpretation of an expression like `$\ulcorner (\meta{A}\eand\meta{B})\urcorner$' is in terms of rules for concatenation. 
-But we can avoid long-windedness by creating our own conventions. We can perfectly well stipulate that an expression like `$\enot \meta{A}$' should simply be read \emph{directly} in terms of rules for concatenation. So, \emph{officially}, the metalanguage expression `$\enot \meta{A}$'
+%The rectangular quote-marks are sometimes called `Quine quotes', after Quine. The general interpretation of an expression like `$\ulcorner (\metav{A}\eand\metav{B})\urcorner$' is in terms of rules for concatenation. 
+But we can avoid long-windedness by creating our own conventions. We can perfectly well stipulate that an expression like `$\enot \metav{A}$' should simply be read \emph{directly} in terms of rules for concatenation. So, \emph{officially}, the metalanguage expression `$\enot \metav{A}$'
 simply abbreviates:
 \begin{quote}
-	the result of concatenating the symbol `$\enot$' with the sentence \meta{A}
+	the result of concatenating the symbol `$\enot$' with the sentence \metav{A}
 \end{quote}
-and similarly, for expressions like `$(\meta{A} \eand \meta{B})$', `$(\meta{A} \eor \meta{B})$', etc.
+and similarly, for expressions like `$(\metav{A} \eand \metav{B})$', `$(\metav{A} \eor \metav{B})$', etc.
 
 
 \section{Quotation conventions for arguments}
 One of our main purposes for using TFL is to study arguments, and that will be our concern in Parts \ref{ch.TruthTables} and \ref{ch.NDTFL}. In English, the premises of an argument are often expressed by individual sentences, and the conclusion by a further sentence. Since we can symbolize English sentences, we can symbolize English arguments using TFL. Thus we might ask whether the argument whose premises are the TFL sentences `$A$' and `$A \eif C$', and whose conclusion is the TFL sentence `$C$', is valid. However, it is quite a mouthful to write that every time. So instead we will introduce another bit of abbreviation. This:
-	$$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$$
+	$$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \therefore \metav{C}$$
 abbreviates:
 	\begin{quote}
-		the argument with premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ and conclusion $\meta{C}$
+		the argument with premises $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ and conclusion $\metav{C}$
 	\end{quote}
 To avoid unnecessary clutter, we will not regard this as requiring quotation marks around it. (Note, then, that `$\therefore$' is a symbol of our augmented \emph{metalanguage}, and not a new symbol of TFL.)

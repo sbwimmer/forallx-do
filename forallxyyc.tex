@@ -1,7 +1,11 @@
-% !TeX root = ./forallxyyc.tex
+% forallxyyc
+% Driver file to produce version of forall x:YYC for screen reading
+
 \documentclass[openany,oneside,11pt]{memoir}
 
+\usepackage{forallxyyc-style}
 \usepackage{forallxyyc}
+
 \usepackage[absolute,overlay]{textpos}
 
 \RequirePackage[a-1b]{pdfx}
@@ -36,9 +40,6 @@
 \colorlet{vltleadbeater}{lyallpink!3}
 
 \begin{document}
-
-% discard page after cover
-%\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 
 \midsloppy
 

@@ -201,16 +201,16 @@ The truth of atomic sentences should be fairly straightforward. For sentence let
 
 Likewise, on this interpretation, `$\atom{R}{a,b}$' is true iff the object named by `$a$' was born before the object named by `$b$'. Well, Aristotle was born before Beyonc\'e. So `$\atom{R}{a,b}$' is true. Equally, `$\atom{R}{a,a}$' is false: Aristotle was not born before Aristotle. 
 
-Dealing with atomic sentences, then, is very intuitive. When \meta{R} is an $n$-place predicate and $\meta{a}_1$, $\meta{a}_{2}$, \dots, $\meta{a}_{n}$ are names, 
+Dealing with atomic sentences, then, is very intuitive. When \metav{R} is an $n$-place predicate and $\metav{a}_1$, $\metav{a}_{2}$, \dots, $\metav{a}_{n}$ are names, 
 
 	\factoidbox{
-		$\atom{\meta{R}}{\meta{a}_{1},\meta{a}_{2},\dots,\meta{a}_{n}}$ is true in an interpretation \textbf{iff}\\
-		$\meta{R}$ is true of the objects named by $\meta{a}_{1}$, $\meta{a}_{2}$, \dots, $\meta{a}_{n}$ in that interpretation (considered in that order)
+		$\atom{\metav{R}}{\metav{a}_{1},\metav{a}_{2},\dots,\metav{a}_{n}}$ is true in an interpretation \textbf{iff}\\
+		$\metav{R}$ is true of the objects named by $\metav{a}_{1}$, $\metav{a}_{2}$, \dots, $\metav{a}_{n}$ in that interpretation (considered in that order)
 	}
-Recall, though, that there is a special kind of atomic sentence: two names connected by an identity sign constitute an atomic sentence. This kind of atomic sentence is also easy to handle. Where \meta{a} and \meta{b} are any names, 
+Recall, though, that there is a special kind of atomic sentence: two names connected by an identity sign constitute an atomic sentence. This kind of atomic sentence is also easy to handle. Where \metav{a} and \metav{b} are any names, 
 	\factoidbox{
-		$\meta{a} = \meta{b}$ is true in an interpretation \textbf{iff}\\
-		 \meta{a} and \meta{b} name the very same object in that interpretation
+		$\metav{a} = \metav{b}$ is true in an interpretation \textbf{iff}\\
+		 \metav{a} and \metav{b} name the very same object in that interpretation
 	}
 So in our go-to interpretation, `$a = b$' is false, since Aristotle is distinct from Beyonc\'e.
 
@@ -218,20 +218,20 @@ So in our go-to interpretation, `$a = b$' is false, since Aristotle is distinct 
 \section{Sentential connectives}
 We saw in \S\ref{s:FOLSentences} that FOL sentences can be built up from simpler ones using the truth-functional connectives that were familiar from TFL. The rules governing these truth-functional connectives are \emph{exactly} the same as they were when we considered TFL. Here they are:
 	\factoidbox{
-		$\meta{A} \eand \meta{B}$ is true in an interpretation \textbf{iff}\\ both $\meta{A}$ is true and $\meta{B}$ is true in that interpretation
+		$\metav{A} \eand \metav{B}$ is true in an interpretation \textbf{iff}\\ both $\metav{A}$ is true and $\metav{B}$ is true in that interpretation
 		
 		\medskip
 		
-		$\meta{A} \eor \meta{B}$ is true in an interpretation \textbf{iff}\\ either $\meta{A}$ is true or $\meta{B}$ is true in that interpretation
+		$\metav{A} \eor \metav{B}$ is true in an interpretation \textbf{iff}\\ either $\metav{A}$ is true or $\metav{B}$ is true in that interpretation
 
 		\medskip
-		$\enot \meta{A}$ is true in an interpretation \textbf{iff} \\$\meta{A}$ is false in that interpretation
+		$\enot \metav{A}$ is true in an interpretation \textbf{iff} \\$\metav{A}$ is false in that interpretation
 
 		\medskip
-		$\meta{A} \eif \meta{B}$ is true in an interpretation \textbf{iff}\\ either $\meta{A}$ is false or $\meta{B}$ is true in that interpretation
+		$\metav{A} \eif \metav{B}$ is true in an interpretation \textbf{iff}\\ either $\metav{A}$ is false or $\metav{B}$ is true in that interpretation
 
 		\medskip
-		$\meta{A} \eiff \meta{B}$ is true in an interpretation \textbf{iff} \\$\meta{A}$ has the same truth value as $\meta{B}$ in that interpretation
+		$\metav{A} \eiff \metav{B}$ is true in an interpretation \textbf{iff} \\$\metav{A}$ has the same truth value as $\metav{B}$ in that interpretation
 	}
 This presents the very same information as the characteristic truth tables for the connectives; it just does so in a slightly different way. Some examples will probably help to illustrate the idea. On our go-to interpretation:
 	\begin{earg}
@@ -250,7 +250,7 @@ Here is a na\"{i}ve first thought. We want to say that `$\forall x\, \atom{F}{x}
 
 Unfortunately, this na\"{i}ve thought is not general enough. For example, we want to be able to say that `$\forall x \exists y\, \atom{L}{x,y}$' is true just in case `$\exists y\, \atom{L}{x,y}$' is true of everything in the domain. This is problematic, since our interpretation does not directly specify what `$\exists y\, \atom{L}{x,y}$' is to be true of. Instead, whether or not this is true of something should follow just from the interpretation of `$\atom{L}{x,y}$', the domain, and the meanings of the quantifiers. 
 
-So here is a second na\"{i}ve thought. We might try to say that `$\forall x \exists y\, \atom{L}{x,y}$' is to be true in an interpretation iff $\exists y\, \atom{L}{\meta{a},y}$ is true for \emph{every} name \meta{a} that we have included in our interpretation. Similarly, we might try to say that $\exists y\, \atom{L}{\meta{a},y}$ is true just in case $\atom{L}{\meta{a},\meta{b}}$ is true for \emph{some} name \meta{b} that we have included in our interpretation.
+So here is a second na\"{i}ve thought. We might try to say that `$\forall x \exists y\, \atom{L}{x,y}$' is to be true in an interpretation iff $\exists y\, \atom{L}{\metav{a},y}$ is true for \emph{every} name \metav{a} that we have included in our interpretation. Similarly, we might try to say that $\exists y\, \atom{L}{\metav{a},y}$ is true just in case $\atom{L}{\metav{a},\metav{b}}$ is true for \emph{some} name \metav{b} that we have included in our interpretation.
 
 Unfortunately, this is not right either. To see this, observe that in our go-to interpretation, we have only given interpretations for \emph{two} names, `$a$' and `$b$', but the domain---all people born before the year 2000\textsc{ce}---contains many more than two people. We have no intention of trying to name \emph{all} of them!
 
@@ -264,11 +264,11 @@ In our go-to interpretation, `$\forall x \exists y\, \atom{R}{x,y}$' should be f
 
 If you have understood these three examples, good. That's what matters. Strictly speaking, though, we still need to give a precise definition of the truth conditions for quantified sentences. The result, sadly, is a bit ugly, and requires a few new definitions. Brace yourself!
 
-Suppose that \meta{A} is a formula containing at least one occurrence of the variable \meta{x}, and that $\meta{x}$ is free in $\meta{A}$. We will write this thus:
-$$\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$$
-Suppose also that \meta{c} is a name. Then we will write:
-$$\meta{A}(\ldots \meta{c} \ldots \meta{c} \ldots)$$
-for the formula obtained by replacing \emph{every} occurrence of $\meta{x}$ in \meta{A} with $\meta{c}$. The resulting formula is called a \define{substitution instance} of $\forall \meta{x}\meta{A}$ and $\exists\meta{x}\meta{A}$.  Also, $\meta{c}$ is called the \define{instantiating name}. So:
+Suppose that \metav{A} is a formula containing at least one occurrence of the variable \metav{x}, and that $\metav{x}$ is free in $\metav{A}$. We will write this thus:
+$$\metav{A}(\ldots \metav{x} \ldots \metav{x} \ldots)$$
+Suppose also that \metav{c} is a name. Then we will write:
+$$\metav{A}(\ldots \metav{c} \ldots \metav{c} \ldots)$$
+for the formula obtained by replacing \emph{every} occurrence of $\metav{x}$ in \metav{A} with $\metav{c}$. The resulting formula is called a \define{substitution instance} of $\forall \metav{x}\metav{A}$ and $\exists\metav{x}\metav{A}$.  Also, $\metav{c}$ is called the \define{instantiating name}. So:
 	$$\exists x (\atom{R}{e,x} \eiff \atom{F}{x})$$
 is a substitution instance of 
 	$$\forall y \exists x (\atom{R}{y,x} \eiff \atom{F}{x})$$
@@ -279,13 +279,13 @@ with the instantiating name `$e$' and instantiated variable~`$y$'.
   description = {The result of replacing every free occurrence of a \gls{variable} in a \gls{formula} with a \gls{name}}
 }
 
-Our interpretation will include a specification of which names correspond to which objects in the domain. Take any object in the domain, say, $d$, and a name $\meta{c}$ which is not already assigned by the interpretation. If our interpretation is $\mathbf{I}$, then we can consider the interpretation $\mathbf{I}[d/\meta{c}]$ which is just like $\mathbf{I}$ except it \emph{also} assigns the name $\meta{c}$ to the object~$d$. Then we can say that $d$ \define{satisfies} the formula $\meta{A}(\dots\meta{x}\dots\meta{x}\dots)$ in the interpretation~$\mathbf{I}$ if, and only if, $\meta{A}(\dots\meta{c}\dots\meta{c}\dots)$ is true in $\mathbf{I}[d/\meta{c}]$. (If $d$ satisfies $\meta{A}(\dots\meta{x}\dots\meta{x}\dots)$ we also say that $\meta{A}(\dots\meta{x}\dots\meta{x}\dots)$ is \emph{true of}~$d$.) 
+Our interpretation will include a specification of which names correspond to which objects in the domain. Take any object in the domain, say, $d$, and a name $\metav{c}$ which is not already assigned by the interpretation. If our interpretation is $\mathbf{I}$, then we can consider the interpretation $\mathbf{I}[d/\metav{c}]$ which is just like $\mathbf{I}$ except it \emph{also} assigns the name $\metav{c}$ to the object~$d$. Then we can say that $d$ \define{satisfies} the formula $\metav{A}(\dots\metav{x}\dots\metav{x}\dots)$ in the interpretation~$\mathbf{I}$ if, and only if, $\metav{A}(\dots\metav{c}\dots\metav{c}\dots)$ is true in $\mathbf{I}[d/\metav{c}]$. (If $d$ satisfies $\metav{A}(\dots\metav{x}\dots\metav{x}\dots)$ we also say that $\metav{A}(\dots\metav{x}\dots\metav{x}\dots)$ is \emph{true of}~$d$.) 
 
-\factoidbox{The interpretation $\mathbf{I}[d/\meta{c}]$ is just like the interpretation $\mathbf{I}$ except it also assigns the name $\meta{c}$ to the object~$d$.
+\factoidbox{The interpretation $\mathbf{I}[d/\metav{c}]$ is just like the interpretation $\mathbf{I}$ except it also assigns the name $\metav{c}$ to the object~$d$.
 
 \
 \\
-An object $d$ \define{satisfies} $\meta{A}(\dots\meta{x}\dots\meta{x}\dots)$ in interpretation~$\mathbf{I}$ \textbf{iff} $\meta{A}(\dots\meta{c}\dots\meta{c}\dots)$ is true in $\mathbf{I}[d/\meta{c}]$.
+An object $d$ \define{satisfies} $\metav{A}(\dots\metav{x}\dots\metav{x}\dots)$ in interpretation~$\mathbf{I}$ \textbf{iff} $\metav{A}(\dots\metav{c}\dots\metav{c}\dots)$ is true in $\mathbf{I}[d/\metav{c}]$.
 }
 
 So, for instance, Socrates satisfies the formula~$\atom{P}{x}$ since $\atom{P}{c}$ is true in the interpretation $\mathbf{I}[\text{Socrates}/c]$, i.e., the interpretation:
@@ -298,19 +298,19 @@ So, for instance, Socrates satisfies the formula~$\atom{P}{x}$ since $\atom{P}{c
 	\item[\atom{R}{x,y}] \gap{x} was born before \gap{y}
 \end{ekey}
 
-Armed with this notation, the rough idea is as follows. The sentence $\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$ will be true in $\mathbf{I}$ iff, for any object~$d$ in the domain, $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$ is true in $\mathbf{I}[d/\meta{c}]$, i.e., no matter what object (in the domain) we name with $\meta{c}$. In other words, $\forall \meta{x} \meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$ is true iff every object in the domain satisfies $\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$. Similarly, the sentence $\exists \meta{x}\meta{A}$ will be true iff there is \emph{some} object that satisifes $\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$, i.e., $\meta{A}(\ldots \meta{c} \ldots \meta{c} \ldots)$ true in $\mathbf{I}[d/\meta{c}]$ for some object~$d$.
+Armed with this notation, the rough idea is as follows. The sentence $\forall \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{x} \ldots)$ will be true in $\mathbf{I}$ iff, for any object~$d$ in the domain, $\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$ is true in $\mathbf{I}[d/\metav{c}]$, i.e., no matter what object (in the domain) we name with $\metav{c}$. In other words, $\forall \metav{x} \metav{A}(\ldots \metav{x} \ldots \metav{x} \ldots)$ is true iff every object in the domain satisfies $\metav{A}(\ldots \metav{x} \ldots \metav{x} \ldots)$. Similarly, the sentence $\exists \metav{x}\metav{A}$ will be true iff there is \emph{some} object that satisifes $\metav{A}(\ldots \metav{x} \ldots \metav{x} \ldots)$, i.e., $\metav{A}(\ldots \metav{c} \ldots \metav{c} \ldots)$ true in $\mathbf{I}[d/\metav{c}]$ for some object~$d$.
 	\factoidbox{
-		$\forall \meta{x}\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$ is true in an interpretation \textbf{iff}\\ 
-		every object in the domain satisfies $\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)$.
+		$\forall \metav{x}\metav{A}(\ldots \metav{x}\ldots\metav{x}\ldots)$ is true in an interpretation \textbf{iff}\\ 
+		every object in the domain satisfies $\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)$.
 		
 		\
 		\\
-		$\exists \meta{x}\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$ is true in an interpretation \textbf{iff}\\ at least one object in the domain satisfies
-		$\meta{A}(\ldots \meta{x}\ldots\meta{x}\ldots)$.
+		$\exists \metav{x}\metav{A}(\ldots \metav{x}\ldots\metav{x}\ldots)$ is true in an interpretation \textbf{iff}\\ at least one object in the domain satisfies
+		$\metav{A}(\ldots \metav{x}\ldots\metav{x}\ldots)$.
 	}
 To be clear: all this is doing is formalizing (very pedantically) the intuitive idea expressed on the previous page. The result is a bit ugly, and the final definition might look a bit opaque. Hopefully, though, the \emph{spirit} of the idea is clear. 
 
-Finally, let us note that the concept of an object satisfying a formula with a free variable can also be extended to formulas with more than one free variable. If we have a formula $\meta{A}(\meta{x},\meta{y})$ with two free variables $\meta{x}$ and $\meta{y}$, then we can say that a pair of objects $\langle a, b\rangle$ satisfies $\meta{A}(\meta{x},\meta{y})$ iff $\meta{A}(\meta{c},\meta{d})$ is true in the interpretation extended by two names $\meta{c}$ and $\meta{d}$, where $\meta{c}$ names~$a$ and $\meta{d}$ names~$b$. So, for instance, $\langle \text{Socrates}, \text{Plato}\rangle$ satisfies $R(x,y)$ since $R(c,d)$ is true in the interpretation:
+Finally, let us note that the concept of an object satisfying a formula with a free variable can also be extended to formulas with more than one free variable. If we have a formula $\metav{A}(\metav{x},\metav{y})$ with two free variables $\metav{x}$ and $\metav{y}$, then we can say that a pair of objects $\langle a, b\rangle$ satisfies $\metav{A}(\metav{x},\metav{y})$ iff $\metav{A}(\metav{c},\metav{d})$ is true in the interpretation extended by two names $\metav{c}$ and $\metav{d}$, where $\metav{c}$ names~$a$ and $\metav{d}$ names~$b$. So, for instance, $\langle \text{Socrates}, \text{Plato}\rangle$ satisfies $R(x,y)$ since $R(c,d)$ is true in the interpretation:
 \begin{ekey}
 	\item[\text{domain}] all people born before 2000\textsc{ce}
 	\item[a] Aristotle
@@ -419,22 +419,22 @@ Determine whether each of the following sentences is true or false in that inter
 Offering a precise definition of truth in FOL was more than a little fiddly, but now that we are done, we can define various central logical notions. These will look very similar to the definitions we offered for TFL. However, remember that they concern \emph{interpretations}, rather than valuations. 
 
 We will use the symbol `$\entails$' for FOL much as we did for TFL. So:
-	$$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \entails\meta{C}$$
-means that there is no interpretation in which all of $\meta{A}_1$, $\meta{A}_2$, \dots, $\meta{A}_n$ are true and in which \meta{C} is false. Derivatively,
-	$$\entails\meta{A}$$
-means that \meta{A} is true in every interpretation.
+	$$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \entails\metav{C}$$
+means that there is no interpretation in which all of $\metav{A}_1$, $\metav{A}_2$, \dots, $\metav{A}_n$ are true and in which \metav{C} is false. Derivatively,
+	$$\entails\metav{A}$$
+means that \metav{A} is true in every interpretation.
 
 The other logical notions also have corresponding definitions in FOL:
 
 \begin{itemize}
-\item An FOL sentence $\meta{A}$ is a \define{validity} iff $\meta{A}$ is true in every interpretation; i.e.,  $\entails\meta{A}$.
+\item An FOL sentence $\metav{A}$ is a \define{validity} iff $\metav{A}$ is true in every interpretation; i.e.,  $\entails\metav{A}$.
 \newglossaryentry{validity}
 {
 name=validity,
 description={A \gls{sentence of FOL} that is true in every \gls{interpretation}}
 }
 
-\item $\meta{A}$ is a \define{contradiction} iff $\meta{A}$ is false in every interpretation; i.e., $\entails\enot\meta{A}$.
+\item $\metav{A}$ is a \define{contradiction} iff $\metav{A}$ is false in every interpretation; i.e., $\entails\enot\metav{A}$.
 \newglossaryentry{contradiction of FOL}
 {
   name=contradiction (of FOL),
@@ -442,7 +442,7 @@ description={A \gls{sentence of FOL} that is true in every \gls{interpretation}}
 description={A \gls{sentence of FOL} that is false in every \gls{interpretation}}
 }
   
-\item $\meta{A}_1, \meta{A}_2, \ldots \meta{A}_n \therefore \meta{C}$ is \define{valid in FOL} iff there is no interpretation in which all of the premises are true and the conclusion is false; i.e., $\meta{A}_1,\meta{A}_2,\ldots \meta{A}_n \entails\meta{C}$. It is \define{invalid in FOL} otherwise.
+\item $\metav{A}_1, \metav{A}_2, \ldots \metav{A}_n \therefore \metav{C}$ is \define{valid in FOL} iff there is no interpretation in which all of the premises are true and the conclusion is false; i.e., $\metav{A}_1,\metav{A}_2,\ldots \metav{A}_n \entails\metav{C}$. It is \define{invalid in FOL} otherwise.
 \newglossaryentry{valid in FOL}
 {
   name=validity of arguments (in FOL),
@@ -450,7 +450,7 @@ description={A \gls{sentence of FOL} that is false in every \gls{interpretation}
 description={A property held by arguments; an argument is valid if and only if no \gls{interpretation} makes all premises true and the conclusion false}
 }
 
-\item Two FOL sentences \meta{A} and \meta{B} are \define{equivalent} iff they are true in exactly the same interpretations as each other; i.e., both $\meta{A}\entails\meta{B}$ and $\meta{B}\entails\meta{A}$.
+\item Two FOL sentences \metav{A} and \metav{B} are \define{equivalent} iff they are true in exactly the same interpretations as each other; i.e., both $\metav{A}\entails\metav{B}$ and $\metav{B}\entails\metav{A}$.
 
 \newglossaryentry{equivalent in FOL}
 {
@@ -459,7 +459,7 @@ description={A property held by arguments; an argument is valid if and only if n
 description={A property held by pairs of \glspl{sentence of FOL} if and only if the sentences have the same truth value in every \gls{interpretation}}
 }
 
-\item The FOL sentences $\meta{A}_1$, $\meta{A}_2$, \dots, $\meta{A}_n$ are \define{jointly satisfiable} iff there is some interpretation in which all of the sentences are true. They are \define{jointly unsatisfiable} iff there is no such interpretation.
+\item The FOL sentences $\metav{A}_1$, $\metav{A}_2$, \dots, $\metav{A}_n$ are \define{jointly satisfiable} iff there is some interpretation in which all of the sentences are true. They are \define{jointly unsatisfiable} iff there is no such interpretation.
 \newglossaryentry{satisfiable in FOL}
 {
   name=satisfiability (in FOL),
@@ -501,9 +501,9 @@ We can just as easily show that `$\exists x\atom{A}{x,x} \eif \atom{B}{d}$' is n
 	\end{ekey}
 This shows that there is an interpretation where `$\exists x\atom{A}{x,x} \eif \atom{B}{d}$' is true. So `$\exists x\, \atom{A}{x,x} \eif \atom{B}{d}$' is not a contradiction.
 	\factoidbox{
-		To show that $\meta{A}$ is not a validity, it suffices to find an interpretation where $\meta{A}$ is false.
+		To show that $\metav{A}$ is not a validity, it suffices to find an interpretation where $\metav{A}$ is false.
 		
-		To show that $\meta{A}$ is not a contradiction, it suffices to find an interpretation where $\meta{A}$ is true.
+		To show that $\metav{A}$ is not a contradiction, it suffices to find an interpretation where $\metav{A}$ is true.
 	}
 
 \section{Logical equivalence}
@@ -517,7 +517,7 @@ We can make `$\exists x\, \atom{S}{x}$' true by including something in the exten
 	\end{ekey}
 Now `$\exists x\, \atom{S}{x}$' is true, because `$\atom{S}{x}$' is true of Ornette Coleman. Slightly more precisely, extend our interpretation by allowing `$c$' to name Ornette Coleman.  `$\atom{S}{c}$' is true in this extended interpretation, so `$\exists x\, \atom{S}{x}$' was true in the original interpretation. Similarly, `$\forall x\, \atom{S}{x}$' is false, because `$\atom{S}{x}$' is false of Miles Davis. Slightly more precisely, extend our interpretation by allowing `$d$' to name Miles Davis, and `$\atom{S}{d}$' is false in this extended interpretation, so `$\forall x\, \atom{S}{x}$' was false in the original interpretation. We have provided a counter-interpretation to the claim that `$\forall x\, \atom{S}{x}$' and `$\exists x\, \atom{S}{x}$' are logically equivalent.
 	\factoidbox{
-		To show that $\meta{A}$ and $\meta{B}$ are not logically equivalent, it suffices to find an interpretation where one is true and the other is false.
+		To show that $\metav{A}$ and $\metav{B}$ are not logically equivalent, it suffices to find an interpretation where one is true and the other is false.
 	}
 
 \section{Validity, entailment and satisfiability}
@@ -575,11 +575,11 @@ This immediately shows that all of the preceding six sentences are jointly satis
 and many more besides.
 
 	\factoidbox{
-	To show that $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ is invalid, it suffices to find an interpretation where all of $\meta{A}_1$, $\meta{A}_2$, \dots, $\meta{A}_n$ are true and where $\meta{C}$ is false.
+	To show that $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \therefore \metav{C}$ is invalid, it suffices to find an interpretation where all of $\metav{A}_1$, $\metav{A}_2$, \dots, $\metav{A}_n$ are true and where $\metav{C}$ is false.
 	
-	That same interpretation will show that $\meta{A}_1$, $\meta{A}_2$, \dots, $\meta{A}_n$ do not entail~$\meta{C}$.
+	That same interpretation will show that $\metav{A}_1$, $\metav{A}_2$, \dots, $\metav{A}_n$ do not entail~$\metav{C}$.
 	
-	It will also show that $\meta{A}_1$, $\meta{A}_2$, \dots, $\meta{A}_n$, $\enot \meta{C}$ are jointly satisfiable.}
+	It will also show that $\metav{A}_1$, $\metav{A}_2$, \dots, $\metav{A}_n$, $\enot \metav{C}$ are jointly satisfiable.}
 When you provide an interpretation to refute a claim---to show that a sentence is not a validity, say, or that an entailment fails---this is sometimes called providing a \emph{counter-interpretation} (or providing a \emph{counter-model}).
 
 \practiceproblems
@@ -665,7 +665,7 @@ Note another feature of the argument. Since the sentence in question contained n
 
 Here is another bit of reasoning. Consider the sentence `$\forall x(\atom{R}{x,x}\eor\enot \atom{R}{x,x})$'. Again, it should obviously be a validity, but to say precisely why is quite a challenge. We cannot say that `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$' is true in every interpretation, since `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$' is not even a \emph{sentence} of FOL (remember that `$x$' is a variable, not a name). So we have to be a bit cleverer. 
 	\begin{quote}
-		Consider some arbitrary interpretation. $\forall x(\atom{R}{x,x}\eor \enot\atom{R}{x,x})$ is true in our interpretation iff $\atom{R}{x,x}\eor\enot\atom{R}{x,x}$ is satisfied by every object of its domain. Consider some arbitrary member of the domain, which, for convenience, we will call Fred. Either Fred satisfies $\atom{R}{x,x}$ or it does not. If Fred satisfies `$\atom{R}{x,x}$', then Fred also satisfies `$\atom{R}{x,x} \eor \enot \atom{R}{x,x}$'. If Fred does not satisfy `$\atom{R}{x,x}$', it \emph{does} satisfy `$\enot\atom{R}{x,x}$' and so also `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$'.\footnote{We use here the fact that the truth conditions for connectives also apply to satisfaction: $a$ satisfies $\meta{A}(\meta{x}) \lor \meta{B}(\meta{x})$ iff $a$ satisfies $\meta{A}(\meta{x})$ or $\meta{B}(\meta{x})$, etc.} So either way, Fred satisfies `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$'. Since there was nothing special about Fred---we might have chosen any object---we see that every object in the domain satisfies `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$'. So `$\forall x (\atom{R}{x,x} \eor\enot \atom{R}{x,x})$' is true in our interpretation. But we chose our interpretation arbitrarily, so `$\forall x (\atom{R}{x,x} \eor\enot \atom{R}{x,x})$' is true in every interpretation. It is therefore a validity.
+		Consider some arbitrary interpretation. $\forall x(\atom{R}{x,x}\eor \enot\atom{R}{x,x})$ is true in our interpretation iff $\atom{R}{x,x}\eor\enot\atom{R}{x,x}$ is satisfied by every object of its domain. Consider some arbitrary member of the domain, which, for convenience, we will call Fred. Either Fred satisfies $\atom{R}{x,x}$ or it does not. If Fred satisfies `$\atom{R}{x,x}$', then Fred also satisfies `$\atom{R}{x,x} \eor \enot \atom{R}{x,x}$'. If Fred does not satisfy `$\atom{R}{x,x}$', it \emph{does} satisfy `$\enot\atom{R}{x,x}$' and so also `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$'.\footnote{We use here the fact that the truth conditions for connectives also apply to satisfaction: $a$ satisfies $\metav{A}(\metav{x}) \lor \metav{B}(\metav{x})$ iff $a$ satisfies $\metav{A}(\metav{x})$ or $\metav{B}(\metav{x})$, etc.} So either way, Fred satisfies `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$'. Since there was nothing special about Fred---we might have chosen any object---we see that every object in the domain satisfies `$\atom{R}{x,x} \eor\enot \atom{R}{x,x}$'. So `$\forall x (\atom{R}{x,x} \eor\enot \atom{R}{x,x})$' is true in our interpretation. But we chose our interpretation arbitrarily, so `$\forall x (\atom{R}{x,x} \eor\enot \atom{R}{x,x})$' is true in every interpretation. It is therefore a validity.
 	\end{quote}
 This is quite longwinded, but, as things stand, there is no alternative. In order to show that a sentence is a validity, we must reason about \emph{all} interpretations. 
 
@@ -682,7 +682,7 @@ The problem is that, with the tools available to you so far, reasoning about all
 	$$\forall x(\atom{H}{x} \eand \atom{J}{x}) \therefore \forall x\, \atom{H}{x}$$
 After all, if everything is both $H$ and $J$, then everything is~$H$. But we can only show that the argument is valid by considering what must be true in every interpretation in which the premise is true. To show this, we would have to reason as follows:
 	\begin{quote}
-		Consider an arbitrary interpretation in which the premise `$\forall x(\atom{H}{x} \eand \atom{J}{x})$' is true. It follows that `$\atom{H}{x} \eand \atom{J}{x}$' is satisfied by every object in this interpretation. `$\atom{H}{x}$' will, then, also be satisfied by every object.\footnote{Here again we make use of the fact that any object that satisfies $\meta{A}(\meta{x}) \land \meta{B}(\meta{x})$ must satisfy both $\meta{A}(\meta{x})$ and $\meta{B}(\meta{x})$.} So it must be that `$\forall x\, \atom{H}{x}$' is true in the  interpretation. We've assumed nothing about the interpretation except that it was one in which `$\forall x(\atom{H}{x} \eand \atom{J}{x})$'  is true, so any interpretation in which `$\forall x(\atom{H}{x} \eand \atom{J}{x})$' is true is one in which `$\forall x\, \atom{H}{x}$' is true. The argument is valid!
+		Consider an arbitrary interpretation in which the premise `$\forall x(\atom{H}{x} \eand \atom{J}{x})$' is true. It follows that `$\atom{H}{x} \eand \atom{J}{x}$' is satisfied by every object in this interpretation. `$\atom{H}{x}$' will, then, also be satisfied by every object.\footnote{Here again we make use of the fact that any object that satisfies $\metav{A}(\metav{x}) \land \metav{B}(\metav{x})$ must satisfy both $\metav{A}(\metav{x})$ and $\metav{B}(\metav{x})$.} So it must be that `$\forall x\, \atom{H}{x}$' is true in the  interpretation. We've assumed nothing about the interpretation except that it was one in which `$\forall x(\atom{H}{x} \eand \atom{J}{x})$'  is true, so any interpretation in which `$\forall x(\atom{H}{x} \eand \atom{J}{x})$' is true is one in which `$\forall x\, \atom{H}{x}$' is true. The argument is valid!
 \end{quote}
 Even for a simple argument like this one, the reasoning is somewhat complicated. For longer arguments, the reasoning can be extremely torturous.
 

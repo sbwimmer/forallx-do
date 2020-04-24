@@ -63,50 +63,50 @@ A \emph{formal proof} is a sequence of sentences, some of which are marked as be
 As an illustration, consider:
 	$$\enot (A \eor B) \therefore \enot A \eand \enot B$$
 We will start a proof by writing the premise:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{a1}{\enot (A \eor B)}
-\end{proof}
+\end{fitchproof}
 Note that we have numbered the premise, since we will want to refer back to it. Indeed, every line on of proof is numbered, so that we can refer back to it. 
 
 Note also that we have drawn a line underneath the premise. Everything written above the line is an \emph{assumption}. Everything written below the line will either be something which follows from the assumptions, or it will be some new assumption. We are hoping to conclude `$\enot A \eand \enot B$'; so we are hoping ultimately to conclude our proof with
-\begin{proof}
+\begin{fitchproof}
 	\have[n]{con}{\enot A \eand \enot B}
-\end{proof}
+\end{fitchproof}
 for some number $n$. It doesn't matter what line number we end on, but we would obviously prefer a short proof to a long one.
 
 Similarly, suppose we wanted to consider:
 $$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \therefore \enot C\eor D$$
 The argument has three premises, so we start by writing them all down, numbered, and drawing a line under them:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{a1}{A \eor B}
 	\hypo{a2}{\enot (A\eand C)}
 	\hypo{a3}{\enot (B \eand \enot D)}
-\end{proof}
+\end{fitchproof}
 and we are hoping to conclude with some line:
-\begin{proof}
+\begin{fitchproof}
 	\have[n]{con}{\enot C \eor D}
-\end{proof}
+\end{fitchproof}
 All that remains to do is to explain each of the rules that we can use along the way from premises to conclusion. The rules are broken down by our logical connectives.
 
 \section{Reiteration}
 The very first rule is so breathtakingly obvious that it is surprising we bother with it at all. 
 
 If you already have shown something in the course of a proof, the \emph{reiteration rule} allows you to repeat it on a new line. For example:
-\begin{proof}
+\begin{fitchproof}
 	\have[4]{a1}{A \eand B}
 	\have[$\vdots$]{}{\vdots}
 	\have[10]{a2}{A \eand B} \by{R}{a1}
-\end{proof}
+\end{fitchproof}
 This indicates that we have written `$A \eand B$' on line~$4$. Now, at some later line---line~$10$, for example---we have decided that we want to repeat this. So we write it down again. We also add a citation which justifies what we have written. In this case, we write `R', to indicate that we are using the reiteration rule, and we write `$4$', to indicate that we have applied it to line $4$.
 
 Here is a general expression of the rule:
-\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{c}{\meta{A}} \by{R}{a}
-\end{proof}
-The point is that, if any sentence $\meta{A}$ occurs on some line, then we can repeat $\meta{A}$ on later lines. Each line of our proof must be justified by some rule, and here we have `R $m$'. This means: Reiteration, applied to line~$m$. 
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[\ ]{c}{\metav{A}} \by{R}{a}
+\end{fitchproof}
+The point is that, if any sentence $\metav{A}$ occurs on some line, then we can repeat $\metav{A}$ on later lines. Each line of our proof must be justified by some rule, and here we have `R $m$'. This means: Reiteration, applied to line~$m$. 
 
-Two things need emphasizing. First `$\meta{A}$' is not a sentence of TFL. Rather, it a symbol in the metalanguage, which we use when we want to talk about any sentence of TFL (see \S\ref{s:UseMention}). Second, and similarly, `$m$' is not a symbol that will appear on a proof. Rather, it is a symbol in the metalanguage, which we use when we want to talk about any line number of a proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth. But when we define the rule, we use variables like `$m$' to underscore the point that the rule may be applied at any point.
+Two things need emphasizing. First `$\metav{A}$' is not a sentence of TFL. Rather, it a symbol in the metalanguage, which we use when we want to talk about any sentence of TFL (see \S\ref{s:UseMention}). Second, and similarly, `$m$' is not a symbol that will appear on a proof. Rather, it is a symbol in the metalanguage, which we use when we want to talk about any line number of a proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth. But when we define the rule, we use variables like `$m$' to underscore the point that the rule may be applied at any point.
 
 \section{Conjunction}
 Suppose we want to show that Ludwig is both reactionary and libertarian. One obvious way to do this would be as follows: first we show that Ludwig is reactionary; then we show that Ludwig is libertarian; then we put these two demonstrations together, to obtain the conjunction.
@@ -117,38 +117,38 @@ Our natural deduction system will capture this thought straightforwardly. In the
 		\item[L] Ludwig is libertarian
 	\end{ekey}
 Perhaps we are working through a proof, and we have obtained `$R$' on line 8 and `$L$' on line 15. Then on any subsequent line we can obtain `$R \eand L$' thus:
-\begin{proof}
+\begin{fitchproof}
 	\have[8]{a}{R}
 	\have[15]{b}{L}
 	\have[\ ]{c}{R \eand L} \ai{a, b}
-\end{proof}
+\end{fitchproof}
 Note that every line of our proof must either be an assumption, or must be justified by some rule. We cite `$\eand$I 8, 15' here to indicate that the line is obtained by the rule of conjunction introduction ($\eand$I) applied to lines 8 and 15. We could equally well obtain:
-\begin{proof}
+\begin{fitchproof}
 	\have[8]{a}{R}
 	\have[15]{b}{L}
 	\have[\ ]{c}{L \eand R} \ai{b, a}
-\end{proof}
+\end{fitchproof}
 with the citation reversed, to reflect the order of the conjuncts. More generally, here is our conjunction introduction rule:
 \factoidbox{
-\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[n]{b}{\meta{B}}
-	\have[\ ]{c}{\meta{A}\eand\meta{B}} \ai{a, b}
-\end{proof}}
-To be clear, the statement of the rule is \emph{schematic}. It is not itself a proof.  `$\meta{A}$' and `$\meta{B}$' are not sentences of TFL. Rather, they are symbols in the metalanguage, which we use when we want to talk about any sentence of TFL (see \S\ref{s:UseMention}). Similarly, `$m$' and `$n$' are not a numerals that will appear on any actual proof. Rather, they are symbols in the metalanguage, which we use when we want to talk about any line number of any proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth, but when we define the rule, we use variables to emphasize that the rule may be applied at any point. The rule requires only that we have both conjuncts available to us somewhere in the proof. They can be separated from one another, and they can appear in any order. 
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[n]{b}{\metav{B}}
+	\have[\ ]{c}{\metav{A}\eand\metav{B}} \ai{a, b}
+\end{fitchproof}}
+To be clear, the statement of the rule is \emph{schematic}. It is not itself a proof.  `$\metav{A}$' and `$\metav{B}$' are not sentences of TFL. Rather, they are symbols in the metalanguage, which we use when we want to talk about any sentence of TFL (see \S\ref{s:UseMention}). Similarly, `$m$' and `$n$' are not a numerals that will appear on any actual proof. Rather, they are symbols in the metalanguage, which we use when we want to talk about any line number of any proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth, but when we define the rule, we use variables to emphasize that the rule may be applied at any point. The rule requires only that we have both conjuncts available to us somewhere in the proof. They can be separated from one another, and they can appear in any order. 
 
 The rule is called `conjunction \emph{introduction}' because it introduces the symbol `$\eand$' into our proof where it may have been absent. Correspondingly, we have a rule that \emph{eliminates} that symbol.  Suppose you have shown that Ludwig is both reactionary and libertarian. You are entitled to conclude that Ludwig is reactionary. Equally, you are entitled to conclude that Ludwig is libertarian. Putting this together, we obtain our conjunction elimination rule(s):
 \factoidbox{
-\begin{proof}
-	\have[m]{ab}{\meta{A}\eand\meta{B}}
-	\have[\ ]{a}{\meta{A}} \ae{ab}
-\end{proof}}
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eand\metav{B}}
+	\have[\ ]{a}{\metav{A}} \ae{ab}
+\end{fitchproof}}
 and equally:
 \factoidbox{
-\begin{proof}
-	\have[m]{ab}{\meta{A}\eand\meta{B}}
-	\have[\ ]{b}{\meta{B}} \ae{ab}
-\end{proof}}
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eand\metav{B}}
+	\have[\ ]{b}{\metav{B}} \ae{ab}
+\end{fitchproof}}
 The point is simply that, when you have a conjunction on some line of a proof, you can obtain either of the conjuncts by {\eand}E. One point is worth emphasising: you can only apply this rule when conjunction is the main logical operator. So you cannot infer `$D$' just from `$C \eor (D \eand E)$'!
 
 Even with just these two rules, we can start to see some of the power of our formal proof system. Consider:
@@ -157,41 +157,41 @@ Even with just these two rules, we can start to see some of the power of our for
 \item[\therefore] $[(E \eor F) \eif (G\eor H)] \eand [(A\eor B)\eif(C\eor D)]$
 \end{earg}
 The main logical operator in both the premise and conclusion of this argument is `$\eand$'. In order to provide a proof, we begin by writing down the premise, which is our assumption. We draw a line below this: everything after this line must follow from our assumptions by (repeated applications of) our rules of inference. So the beginning of the proof looks like this:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
-\end{proof}
+\end{fitchproof}
 From the premise, we can get each of the conjuncts by {\eand}E. The proof now looks like this:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
 	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
 	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
-\end{proof}
+\end{fitchproof}
 So by applying the {\eand}I rule to lines 3 and 2 (in that order), we arrive at the desired conclusion. The finished proof looks like this:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
 
 	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
 	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
 	\have{ba}{{[}(E \eor F) \eif (G\eor H){]} \eand {[}(A\eor B)\eif(C\eor D){]}} \ai{b,a}
-\end{proof}
+\end{fitchproof}
 This is a very simple proof, but it shows how we can chain rules of proof together into longer proofs. In passing, note that investigating this argument with a truth table would have required 256 lines; our formal proof required only four lines. 
 
 It is worth giving another example. Back in \S\ref{s:MoreBracketingConventions}, we noted that this argument is valid:
 	$$A \eand (B \eand C) \therefore (A \eand B) \eand C$$
 To provide a proof corresponding to this argument, we start by writing:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{ab}{A \eand (B \eand C)}
-\end{proof}
+\end{fitchproof}
 From the premise, we can get each of the conjuncts by applying $\eand$E twice. We can then apply $\eand$E twice more, so our proof looks like:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{ab}{A \eand (B \eand C)}
 	\have{a}{A} \ae{ab}
 	\have{bc}{B \eand C} \ae{ab}
 	\have{b}{B} \ae{bc}
 	\have{c}{C} \ae{bc}
-\end{proof}
+\end{fitchproof}
 But now we can merrily reintroduce conjunctions in the order we wanted them, so that our final proof is:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{abc}{A \eand (B \eand C)}
 	\have{a}{A} \ae{abc}
 	\have{bc}{B \eand C} \ae{abc}
@@ -199,14 +199,14 @@ But now we can merrily reintroduce conjunctions in the order we wanted them, so 
 	\have{c}{C} \ae{bc}
 	\have{ab}{A \eand B}\ai{a, b}
 	\have{con}{(A \eand B) \eand C}\ai{ab, c}
-\end{proof}
+\end{fitchproof}
 Recall that our official definition of sentences in TFL only allowed conjunctions with two conjuncts. The proof just given suggests that we could drop inner brackets in all of our proofs. However, this is not standard, and we will not do this. Instead, we will maintain our more austere bracketing conventions. (Though we will still allow ourselves to drop outermost brackets, for legibility.)
 
 Let's give one final illustration. When using the $\eand$I rule, there is no requirement to apply it to different sentences. So, if we want, we can formally prove `$A \eand A$' from `$A$' thus:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{a}{A}
 	\have{aa}{A \eand A}\ai{a, a}
-\end{proof}
+\end{fitchproof}
 Simple, but effective.
 
 \section{Conditional}
@@ -218,12 +218,12 @@ Consider the following argument:
 \end{earg}
 This argument is certainly valid, and it suggests a straightforward conditional elimination rule ($\eif$E):
 \factoidbox{
-\begin{proof}
-	\have[m]{ab}{\meta{A}\eif\meta{B}}
-	\have[n]{a}{\meta{A}}
-	\have[\ ]{b}{\meta{B}} \ce{ab,a}
-\end{proof}}
-This rule is also sometimes called \emph{modus ponens}. Again, this is an elimination rule, because it allows us to obtain a sentence that may not contain `$\eif$', having started with a sentence that did contain `$\eif$'. Note that the conditional $\meta{A}\eif\meta{B}$ and the antecedent~$\meta{A}$ can be separated from one another in the proof, and they can appear in any order. However, in the citation for $\eif$E, we always cite the conditional first, followed by the antecedent.
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eif\metav{B}}
+	\have[n]{a}{\metav{A}}
+	\have[\ ]{b}{\metav{B}} \ce{ab,a}
+\end{fitchproof}}
+This rule is also sometimes called \emph{modus ponens}. Again, this is an elimination rule, because it allows us to obtain a sentence that may not contain `$\eif$', having started with a sentence that did contain `$\eif$'. Note that the conditional $\metav{A}\eif\metav{B}$ and the antecedent~$\metav{A}$ can be separated from one another in the proof, and they can appear in any order. However, in the citation for $\eif$E, we always cite the conditional first, followed by the antecedent.
 
 The rule for conditional introduction is also quite easy to motivate. The following argument should be valid:
 	\begin{quote}
@@ -234,61 +234,61 @@ If someone doubted that this was valid, we might try to convince them otherwise 
 		Assume that Ludwig is reactionary. Now, \emph{additionally} assume that Ludwig is libertarian. Then by conjunction introduction---which we just discussed---Ludwig is both reactionary and libertarian. Of course, that's conditional on the assumption that Ludwig is libertarian. But this just means that, if Ludwig is libertarian, then he is both reactionary and libertarian.
 	\end{quote}
 Transferred into natural deduction format, here is the pattern of reasoning that we just used. We started with one premise, `Ludwig is reactionary', thus:
-	\begin{proof}
+	\begin{fitchproof}
 		\hypo{r}{R}
-	\end{proof}
+	\end{fitchproof}
 The next thing we did is to make an \emph{additional} assumption (`Ludwig is libertarian'), for the sake of argument. To indicate that we are no longer dealing \emph{merely} with our original assumption (`$R$'), but with some additional assumption, we continue our proof as follows:
-	\begin{proof}
+	\begin{fitchproof}
 		\hypo{r}{R}
 		\open
 			\hypo{l}{L}
-	\end{proof}
+	\end{fitchproof}
 Note that we are \emph{not} claiming, on line 2, to have proved `$L$' from line 1, so we do not write in any justification for the additional assumption on line 2. We do, however, need to mark that it is an additional assumption. We do this by drawing a line under it (to indicate that it is an assumption) and by indenting it with a further vertical line (to indicate that it is additional). 
 
 With this extra assumption in place, we are in a position to use $\eand$I. So we can continue our proof:
-	\begin{proof}
+	\begin{fitchproof}
 		\hypo{r}{R}
 		\open
 			\hypo{l}{L}
 			\have{rl}{R \eand L}\ai{r, l}
 %			\close
 %		\have{con}{L \eif (R \eand L)}\ci{l-rl}
-	\end{proof}
+	\end{fitchproof}
 So we have now shown that, on the additional assumption, `$L$', we can obtain `$R \eand L$'. We can therefore conclude that, if `$L$' obtains, then so does `$R \eand L$'. Or, to put it more briefly, we can conclude `$L \eif (R \eand L)$':
-	\begin{proof}
+	\begin{fitchproof}
 		\hypo{r}{R}
 		\open
 			\hypo{l}{L}
 			\have{rl}{R \eand L}\ai{r, l}
 			\close
 		\have{con}{L \eif (R \eand L)}\ci{l-rl}
-	\end{proof}
+	\end{fitchproof}
 Observe that we have dropped back to using one vertical line on the left.  We have \emph{discharged} the additional assumption, `$L$', since the conditional itself follows just from our original assumption, `$R$'.
 
-The general pattern at work here is the following. We first make an additional assumption, $\meta{A}$; and from that additional assumption, we prove~$\meta{B}$. In that case, we know the following: If~$\meta{A}$ is true, then~$\meta{B}$ is true. This is wrapped up in the rule for conditional introduction:
+The general pattern at work here is the following. We first make an additional assumption, $\metav{A}$; and from that additional assumption, we prove~$\metav{B}$. In that case, we know the following: If~$\metav{A}$ is true, then~$\metav{B}$ is true. This is wrapped up in the rule for conditional introduction:
 \factoidbox{
-	\begin{proof}
+	\begin{fitchproof}
 		\open
-			\hypo[i]{a}{\meta{A}} 
-			\have[j]{b}{\meta{B}}
+			\hypo[i]{a}{\metav{A}} 
+			\have[j]{b}{\metav{B}}
 		\close
-		\have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
-	\end{proof}}
+		\have[\ ]{ab}{\metav{A}\eif\metav{B}}\ci{a-b}
+	\end{fitchproof}}
 There can be as many or as few lines as you like between lines $i$ and $j$. 
 
 It will help to offer a second  illustration of $\eif$I in action. Suppose we want to consider the following:
 	$$P \eif Q, Q \eif R \therefore P \eif R$$
 We start by listing \emph{both} of our premises. Then, since we want to arrive at a conditional (namely, `$P \eif R$'), we additionally assume the antecedent to that conditional. Thus our main proof starts:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{pq}{P \eif Q}
 	\hypo{qr}{Q \eif R}
 	\open
 		\hypo{p}{P}
 	\close
-\end{proof}
+\end{fitchproof}
 Note that we have made `$P$' available, by treating it as an additional assumption, but now, we can use {\eif}E on the first premise. This will yield `$Q$'. We can then use {\eif}E on the second premise. So, by assuming `$P$' we were able to prove `$R$', so we apply the {\eif}I rule---discharging `$P$'---and finish the proof. Putting all this together, we have:
 \label{HSproof}
-\begin{proof}
+\begin{fitchproof}
 	\hypo{pq}{P \eif Q}
 	\hypo{qr}{Q \eif R}
 	\open
@@ -297,25 +297,25 @@ Note that we have made `$P$' available, by treating it as an additional assumpti
 		\have{r}{R}\ce{qr,q}
 	\close
 	\have{pr}{P \eif R}\ci{p-r}
-\end{proof}
+\end{fitchproof}
 
 
 \section{Additional assumptions and subproofs}
 The rule $\eif$I invoked the idea of making additional assumptions. These need to be handled with some care.
 
 Consider this proof:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{a}{A}
 	\open
 		\hypo{b1}{B}
 		\have{b2}{B} \by{R}{b1}
 	\close
 	\have{con}{B \eif B}\ci{b1-b2}
-\end{proof}
+\end{fitchproof}
 This is perfectly in keeping with the rules we have laid down already, and it should not seem particularly strange. Since `$B \eif B$' is a tautology, no particular premises should be required to prove it. 
 
 But suppose we now tried to continue the proof as follows:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{a}{A}
 	\open
 		\hypo{b1}{B}
@@ -324,7 +324,7 @@ But suppose we now tried to continue the proof as follows:
 	\have{con}{B \eif B}\ci{b1-b2}
 	\have{b}{B} \by{naughty attempt}{}
 	\have [\ ]{x}{} \by{to invoke $\eif$E}{con, b2}
-\end{proof}
+\end{fitchproof}
 If we were allowed to do this, it would be a disaster. It would allow us to prove any sentence letter from any other sentence letter. However, if you tell me that Anne is fast (symbolized by `$A$'), we shouldn't be able to conclude that Queen Boudica stood twenty-feet tall (symbolized by `$B$')! We must be prohibited from doing this, but how are we to implement the prohibition?
 
 We can describe the process of making an additional assumption as one of performing a \emph{subproof}: a subsidiary proof within the main proof. When we start a subproof, we draw another vertical line to indicate that we are no longer in the main proof. Then we write in the assumption upon which the subproof will be based. A subproof can be thought of as essentially posing this question: \emph{what could we show, if we also make this additional assumption?}
@@ -342,7 +342,7 @@ Closing a subproof is called \define{discharging} the assumptions of that subpro
 Subproofs, then, allow us to think about what we could show, if we made additional assumptions. The point to take away from this is not surprising---in the course of a proof, we have to keep very careful track of what assumptions we are making, at any given moment. Our proof system does this very graphically. (Indeed, that's precisely why we have chosen to use \emph{this} proof system.)
 
 Once we have started thinking about what we can show by making additional assumptions, nothing stops us from posing the question of what we could show if we were to make \emph{even more} assumptions. This might motivate us to introduce a subproof within a subproof. Here is an example which only uses the rules of proof that we have considered so far:
-\begin{proof}
+\begin{fitchproof}
 \hypo{a}{A}
 \open
 	\hypo{b}{B}
@@ -353,11 +353,11 @@ Once we have started thinking about what we can show by making additional assump
 	\have{cab}{C \eif (A \eand B)}\ci{c-ab}
 \close
 \have{bcab}{B \eif (C \eif (A \eand B))}\ci{b-cab}
-\end{proof}
+\end{fitchproof}
 Notice that the citation on line~$4$ refers back to the initial assumption (on line 1) and an assumption of a subproof (on line~$2$). This is perfectly in order, since neither assumption has been discharged at the time (i.e., by line~$4$).
 
 Again, though, we need to keep careful track of what we are assuming at any given moment. Suppose we tried to continue the proof as follows:
-\begin{proof}
+\begin{fitchproof}
 \hypo{a}{A}
 \open
 	\hypo{b}{B}
@@ -370,13 +370,13 @@ Again, though, we need to keep careful track of what we are assuming at any give
 \have{bcab}{B \eif(C \eif (A \eand B))}\ci{b-cab}
 \have{bcab}{C \eif (A \eand B)}\by{naughty attempt}{}
 \have [\ ]{x}{} \by{to invoke $\eif$I}{c-ab}
-\end{proof}
+\end{fitchproof}
 This would be awful. If we tell you that Anne is smart, you should not be able to infer that, if Cath is smart (symbolized by `$C$') then \emph{both} Anne is smart and Queen Boudica stood 20-feet tall! But this is just what such a proof would suggest, if it were permissible.
 
 The essential problem is that the subproof that began with the assumption~`$C$' depended crucially on the fact that we had assumed `$B$' on line~$2$. By line~$6$, we have \emph{discharged} the assumption~`$B$': we have stopped asking ourselves what we could show, if we also assumed `$B$'. So it is simply cheating, to try to help ourselves (on line~$7$) to the subproof that began with the assumption~`$C$'. Thus we stipulate, much as before, that a subproof can only be cited on a line if it does not occur within some other subproof which is already closed at that line. The attempted disastrous proof violates this stipulation. The subproof of lines $3$--$4$ occurs within a subproof that ends on line~$5$. So it cannot be invoked on line~$7$.
 
 Here is one further case we have to exclude:
-\begin{proof}
+\begin{fitchproof}
 \hypo{a}{A}
 \open
 	\hypo{b}{B}
@@ -388,7 +388,7 @@ Here is one further case we have to exclude:
 \close
 \have{bcab}{B \eif C}\by{naughty attempt}{}
 \have [\ ]{x}{} \by{to invoke $\eif$I}{b-c2}
-\end{proof}
+\end{fitchproof}
 Here we are trying to cite a subproof that begins on line~$2$ and ends on line~$5$---but the sentence on line~$5$ depends not only on the assumption on line~$2$, but also on one another assumption (line~$3$) which we have not discharged at the end of the subproof. The subproof started on line~$3$ is still open at line~$3$. But $\eif$I requires that the last line of the subproof \emph{only} relies on the assumption of the subproof being cited, i.e., the subproof beginning on line~$2$ (and anything before it), and not on assumptions of any subproofs within it. In particular, the last line of the subproof cited must not itself lie within a nested subproof.
 
 \factoidbox{To cite a subproof when applying a rule:
@@ -399,7 +399,7 @@ Here we are trying to cite a subproof that begins on line~$2$ and ends on line~$
 \end{enumerate}}
 
 One last point to emphasize how rules can be applied: where a rule requires you to cite an individual line, you cannot cite a subproof instead; and where it requires you to cite a subproof, you cannot cite an individual line instead. So for instance, this is incorrect:
-\begin{proof}
+\begin{fitchproof}
 \hypo{a}{A}
 \open
 	\hypo{b}{B}
@@ -412,13 +412,13 @@ One last point to emphasize how rules can be applied: where a rule requires you 
 \have [\ ]{x}{} \by{to invoke R}{c-c2}
 \close
 \have[7]{bcab}{B \eif C}\ci{b-c3}
-\end{proof}
+\end{fitchproof}
 Here, we have tried to justify $C$ on line~$6$ by the reiteration rule, but we have cited the subproof on lines $3$--$5$ with it. That subproof is closed and can in principle be cited on line~$6$. (For instance, we could use it to justify $C \eif C$ by $\eif$I.) But the reiteration rule~R requires you to cite an individual line, so citing the entire subproof is inadmissible (even if that subproof contains the sentence~$C$ we want to reiterate).
 
 
 It is always permissible to open a subproof with any assumption. However, there is some strategy involved in picking a useful assumption. Starting a subproof with an arbitrary, wacky assumption would just waste lines of the proof. In order to obtain a conditional by {\eif}I, for instance, you must assume the antecedent of the conditional in a subproof. 
 
-Equally, it is always permissible to close a subproof (and discharge its assumptions). However, it will not be helpful to do so until you have reached something useful. Once the subproof is closed, you can only cite the entire subproof in any justification. Those rules that call for a subproof or subproofs, in turn, require that the last line of the subproof is a sentence of some form or other. For instance, you are only allowed to cite a subproof for $\eif$I if the line you are justifying is of the form $\meta{A} \eif \meta{B}$, $\meta{A}$ is the assumption of your subproof, and $\meta{B}$ is the last line of your subproof.
+Equally, it is always permissible to close a subproof (and discharge its assumptions). However, it will not be helpful to do so until you have reached something useful. Once the subproof is closed, you can only cite the entire subproof in any justification. Those rules that call for a subproof or subproofs, in turn, require that the last line of the subproof is a sentence of some form or other. For instance, you are only allowed to cite a subproof for $\eif$I if the line you are justifying is of the form $\metav{A} \eif \metav{B}$, $\metav{A}$ is the assumption of your subproof, and $\metav{B}$ is the last line of your subproof.
 
 
 \section{Biconditional}
@@ -426,32 +426,32 @@ The rules for the biconditional will be like double-barrelled versions of the ru
 
 In order to prove `$W \eiff X$', for instance, you must be able to prove `$X$' on the assumption `$W$' \emph{and} prove `$W$' on the assumption `$X$'. The biconditional introduction rule ({\eiff}I) therefore requires two subproofs. Schematically, the rule works like this:
 \factoidbox{
-\begin{proof}
+\begin{fitchproof}
 	\open
-		\hypo[i]{a1}{\meta{A}}
-		\have[j]{b1}{\meta{B}}
+		\hypo[i]{a1}{\metav{A}}
+		\have[j]{b1}{\metav{B}}
 	\close
 	\open
-		\hypo[k]{b2}{\meta{B}}
-		\have[l]{a2}{\meta{A}}
+		\hypo[k]{b2}{\metav{B}}
+		\have[l]{a2}{\metav{A}}
 	\close
-	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
-\end{proof}}
+	\have[\ ]{ab}{\metav{A}\eiff\metav{B}}\bi{a1-b1,b2-a2}
+\end{fitchproof}}
 There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
 
 The biconditional elimination rule ({\eiff}E) lets you do a bit more than the conditional rule. If you have the left-hand subsentence of the biconditional, you can obtain the right-hand subsentence. If you have the right-hand subsentence, you can obtain the left-hand subsentence. So we allow:
 \factoidbox{
-\begin{proof}
-	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-	\have[n]{a}{\meta{A}}
-	\have[\ ]{b}{\meta{B}} \be{ab,a}
-\end{proof}}
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eiff\metav{B}}
+	\have[n]{a}{\metav{A}}
+	\have[\ ]{b}{\metav{B}} \be{ab,a}
+\end{fitchproof}}
 and equally:
-\factoidbox{\begin{proof}
-	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-	\have[n]{a}{\meta{B}}
-	\have[\ ]{b}{\meta{A}} \be{ab,a}
-\end{proof}}
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eiff\metav{B}}
+	\have[n]{a}{\metav{B}}
+	\have[\ ]{b}{\metav{A}} \be{ab,a}
+\end{fitchproof}}
 Note that the biconditional, and the right or left half, can be separated from one another, and they can appear in any order. However, in the citation for $\eiff$E, we always cite the biconditional first.
 
 \section{Disjunction}
@@ -460,44 +460,44 @@ Suppose Ludwig is reactionary. Then Ludwig is either reactionary or libertarian.
 Let's emphasize this point. Suppose Ludwig is reactionary. It follows that Ludwig is \emph{either} reactionary \emph{or} a kumquat. Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that kumquats are the only fruit.  Equally, it follows that \emph{either} Ludwig is reactionary \emph{or} that God is dead. Many of these are strange inferences to draw, but there is nothing \emph{logically} wrong with them (even if they maybe violate all sorts of implicit conversational norms).
 
 Armed with all this, we present the disjunction introduction rule(s):
-\factoidbox{\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{ab}{\meta{A}\eor\meta{B}}\oi{a}
-\end{proof}}
+\factoidbox{\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[\ ]{ab}{\metav{A}\eor\metav{B}}\oi{a}
+\end{fitchproof}}
 and
-\factoidbox{\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{ba}{\meta{B}\eor\meta{A}}\oi{a}
-\end{proof}}
-Notice that \meta{B} can be \emph{any} sentence whatsoever, so the following is a perfectly acceptable proof:
-\begin{proof}
+\factoidbox{\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[\ ]{ba}{\metav{B}\eor\metav{A}}\oi{a}
+\end{fitchproof}}
+Notice that \metav{B} can be \emph{any} sentence whatsoever, so the following is a perfectly acceptable proof:
+\begin{fitchproof}
 	\hypo{m}{M}
 	\have{mmm}{M \eor ([(A\eiff B) \eif (C \eand D)] \eiff [E \eand F])}\oi{m}
-\end{proof}
+\end{fitchproof}
 Using a truth table to show this would have taken 128 lines.
 
 The disjunction elimination rule is, though, slightly trickier. Suppose that either Ludwig is reactionary or he is libertarian. What can you conclude? Not that Ludwig is reactionary; it might be that he is libertarian instead. Equally, not that Ludwig is libertarian; for he might merely be reactionary. Disjunctions, just by themselves, are hard to work with. 
 
 But suppose that we could somehow show both of the following: first, that Ludwig's being reactionary entails that he is an Austrian economist: second, that Ludwig's being libertarian entails that he is an Austrian economist. Then if we know that Ludwig is either reactionary or libertarian, then we know that, whichever he is, Ludwig is an Austrian economist. This insight can be expressed in the following rule, which is our disjunction elimination ($\eor$E) rule:
 \factoidbox{
-	\begin{proof}
-		\have[m]{ab}{\meta{A}\eor\meta{B}}
+	\begin{fitchproof}
+		\have[m]{ab}{\metav{A}\eor\metav{B}}
 		\open
-			\hypo[i]{a}{\meta{A}} {}
-			\have[j]{c1}{\meta{C}}
+			\hypo[i]{a}{\metav{A}} {}
+			\have[j]{c1}{\metav{C}}
 		\close
 		\open
-			\hypo[k]{b}{\meta{B}}{}
-			\have[l]{c2}{\meta{C}}
+			\hypo[k]{b}{\metav{B}}{}
+			\have[l]{c2}{\metav{C}}
 		\close
-		\have[ ]{c}{\meta{C}}\oe{ab, a-c1,b-c2}
-	\end{proof}}
-This is obviously a bit clunkier to write down than our previous rules, but the point is fairly simple. Suppose we have some disjunction, $\meta{A} \eor \meta{B}$. Suppose we have two subproofs, showing us that $\meta{C}$ follows from the assumption that $\meta{A}$, and that $\meta{C}$ follows from the assumption that $\meta{B}$. Then we can infer $\meta{C}$ itself. As usual, there can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs and the disjunction can come in any order, and do not have to be adjacent.
+		\have[ ]{c}{\metav{C}}\oe{ab, a-c1,b-c2}
+	\end{fitchproof}}
+This is obviously a bit clunkier to write down than our previous rules, but the point is fairly simple. Suppose we have some disjunction, $\metav{A} \eor \metav{B}$. Suppose we have two subproofs, showing us that $\metav{C}$ follows from the assumption that $\metav{A}$, and that $\metav{C}$ follows from the assumption that $\metav{B}$. Then we can infer $\metav{C}$ itself. As usual, there can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs and the disjunction can come in any order, and do not have to be adjacent.
 
 Some examples might help illustrate this. Consider this argument:
 $$(P \eand Q) \eor (P \eand R) \therefore P$$
 An example proof might run thus:
-	\begin{proof}
+	\begin{fitchproof}
 		\hypo{prem}{(P \eand Q) \eor (P \eand R) }
 			\open
 				\hypo{pq}{P \eand Q}
@@ -508,11 +508,11 @@ An example proof might run thus:
 				\have{p2}{P}\ae{pr}
 			\close
 		\have{con}{P}\oe{prem, pq-p1, pr-p2}
-	\end{proof}
+	\end{fitchproof}
 Here is a slightly harder example. Consider:
 	$$ A \eand (B \eor C) \therefore (A \eand B) \eor (A \eand C)$$
 Here is a proof corresponding to this argument:
-	\begin{proof}
+	\begin{fitchproof}
 		\hypo{aboc}{A \eand (B \eor C)}
 		\have{a}{A}\ae{aboc}
 		\have{boc}{B \eor C}\ae{aboc}
@@ -527,7 +527,7 @@ Here is a proof corresponding to this argument:
 			\have{aco}{(A \eand B) \eor (A \eand C)}\oi{ac}
 		\close
 	\have{con}{(A \eand B) \eor (A \eand C)}\oe{boc, b-abo, c-aco}
-	\end{proof}
+	\end{fitchproof}
 Don't be alarmed if you think that you wouldn't have been able to come up with this proof yourself. The ability to come up with novel proofs comes with practice, and we'll cover some strategies for finding proofs in \S\ref{s:stratTFL}. The key question at this stage is whether, looking at the proof, you can see that it conforms to the rules that we have laid down. That just involves checking every line, and making sure that it is justified in accordance with the rules we have laid down.
 
 
@@ -537,15 +537,15 @@ We have only one connective left to deal with: negation. But to tackle it, we mu
 
 An effective form of argument is to argue your opponent into contradicting themselves. At that point, you have them on the ropes. They have to give up at least one of their assumptions. We are going to make use of this idea in our proof system, by adding a new symbol, `$\ered$', to our proofs. This should be read as something like `contradiction!'\ or `reductio!'\ or `but that's absurd!'  The rule for introducing this symbol is that we can use it whenever we explicitly contradict ourselves, i.e., whenever we find both a sentence and its negation appearing in our proof:
 \factoidbox{
-\begin{proof}
-  \have[m]{na}{\enot\meta{A}}
-  \have[n]{a}{\meta{A}}
+\begin{fitchproof}
+  \have[m]{na}{\enot\metav{A}}
+  \have[n]{a}{\metav{A}}
   \have[ ]{bot}{\ered}\ne{na, a}
-\end{proof}}
+\end{fitchproof}}
 It does not matter what order the sentence and its negation appear in, and they do not need to appear on adjacent lines. However, we always cite the line number of the negation first, followed by that of the sentence it is a negation of.
 
 There is obviously a tight link between contradiction and negation. 
-The rule $\enot$E lets us proceed from two contradictory sentences---$\meta{A}$ and its negation $\enot \meta{A}$---to an explicit contradition~$\ered$. We choose the label for a reason: it is the the most basic rule that lets us proceed from a premise containing a negation, i.e., $\enot\meta{A}$, to a sentence not containing it, i.e., $\ered$. So it is a rule that \emph{eliminates}~$\enot$.
+The rule $\enot$E lets us proceed from two contradictory sentences---$\metav{A}$ and its negation $\enot \metav{A}$---to an explicit contradition~$\ered$. We choose the label for a reason: it is the the most basic rule that lets us proceed from a premise containing a negation, i.e., $\enot\metav{A}$, to a sentence not containing it, i.e., $\ered$. So it is a rule that \emph{eliminates}~$\enot$.
 
 We have said that `$\ered$' should be read as something like `contradiction!' but this does not tell us much about the symbol. There are, roughly, three ways to approach the symbol. 
 	\begin{ebullet}
@@ -556,53 +556,53 @@ We have said that `$\ered$' should be read as something like `contradiction!' bu
 There is something very philosophically attractive about the third option, but here we will \emph{officially} adopt the first. `$\ered$' is to be read as a sentence letter that is always false. This means that we can manipulate it, in our proofs, just like any other sentence.
 
 We still have to state a rule for negation introduction. The rule is very simple: if assuming something leads you to a contradiction, then the assumption must be wrong. This thought motivates the following rule:
-\factoidbox{\begin{proof}
+\factoidbox{\begin{fitchproof}
 \open
-	\hypo[i]{a}{\meta{A}}
+	\hypo[i]{a}{\metav{A}}
 	\have[j]{nb}{\ered}
 \close
-\have[\ ]{na}{\enot\meta{A}}\ni{a-nb}
-\end{proof}}
+\have[\ ]{na}{\enot\metav{A}}\ni{a-nb}
+\end{fitchproof}}
 There can be as many lines between $i$ and $j$ as you like. To see this in practice, and interacting with negation, consider this proof:
-	\begin{proof}
+	\begin{fitchproof}
 		\hypo{d}{D}
 		\open
 			\hypo{nd}{\enot D}
 			\have{ndr}{\ered}\ne{nd, d}
 		\close
 		\have{con}{\enot\enot D}\ni{nd-ndr}
-	\end{proof}
+	\end{fitchproof}
 
-        If the assumption that $\meta{A}$ is true leads to a contradiction, $\meta{A}$ cannot be true, i.e., it must be false, i.e., $\enot\meta{A}$ must be true. Of course, if the assumption that $\meta{A}$ is false (i.e., the assumption that $\enot\meta{A}$ is true) leads to a contradiction, then $\meta{A}$ cannot be false, i.e., $\meta{A}$ must be true. So we can consider the following rule:
-\factoidbox{\begin{proof}
+        If the assumption that $\metav{A}$ is true leads to a contradiction, $\metav{A}$ cannot be true, i.e., it must be false, i.e., $\enot\metav{A}$ must be true. Of course, if the assumption that $\metav{A}$ is false (i.e., the assumption that $\enot\metav{A}$ is true) leads to a contradiction, then $\metav{A}$ cannot be false, i.e., $\metav{A}$ must be true. So we can consider the following rule:
+\factoidbox{\begin{fitchproof}
 \open
-	\hypo[i]{a}{\enot\meta{A}}
+	\hypo[i]{a}{\enot\metav{A}}
 	\have[j]{nb}{\ered}
 \close
-\have[\ ]{na}{\meta{A}}\ip{a-nb}
-\end{proof}}
-This rule is called \emph{indirect proof}, since it allows us to prove $\meta{A}$ indirectly, by assuming its negation. Formally, the rule is very similar to $\enot$I, but $\meta{A}$ and $\enot\meta{A}$ have changed places. Since $\enot\meta{A}$ is not the conclusion of the rule, we are not introducing~$\enot$, so IP is not a rule that introduces any connective. It also doesn't eliminate a connective, since it has no free-standing premises which contain~$\enot$, only a subproof with an assumption of the form~$\enot\meta{A}$. By contrast, $\enot$E does have a premise of the form $\enot\meta{A}$: that's why $\enot$E eliminates~$\enot$, but IP does not.\footnote{There are logicians who have qualms about IP, but not about $\enot$E. They are called ``intuitionists.'' Intuitionists don't buy our basic assumption that every sentence has one of two truth values, true or false. They also think that $\enot$ works differently---for them, a proof of $\ered$ from $\meta{A}$ guarantees $\enot \meta{A}$, but a proof of $\ered$ from $\enot\meta{A}$ does not guarantee that~$\meta{A}$, but only $\enot\enot\meta{A}$. So, for them, $\meta{A}$ and $\enot\enot\meta{A}$ are not equivalent.}
+\have[\ ]{na}{\metav{A}}\ip{a-nb}
+\end{fitchproof}}
+This rule is called \emph{indirect proof}, since it allows us to prove $\metav{A}$ indirectly, by assuming its negation. Formally, the rule is very similar to $\enot$I, but $\metav{A}$ and $\enot\metav{A}$ have changed places. Since $\enot\metav{A}$ is not the conclusion of the rule, we are not introducing~$\enot$, so IP is not a rule that introduces any connective. It also doesn't eliminate a connective, since it has no free-standing premises which contain~$\enot$, only a subproof with an assumption of the form~$\enot\metav{A}$. By contrast, $\enot$E does have a premise of the form $\enot\metav{A}$: that's why $\enot$E eliminates~$\enot$, but IP does not.\footnote{There are logicians who have qualms about IP, but not about $\enot$E. They are called ``intuitionists.'' Intuitionists don't buy our basic assumption that every sentence has one of two truth values, true or false. They also think that $\enot$ works differently---for them, a proof of $\ered$ from $\metav{A}$ guarantees $\enot \metav{A}$, but a proof of $\ered$ from $\enot\metav{A}$ does not guarantee that~$\metav{A}$, but only $\enot\enot\metav{A}$. So, for them, $\metav{A}$ and $\enot\enot\metav{A}$ are not equivalent.}
 
-Using $\enot$I, we were able to give a proof of $\enot\enot\meta{D}$ from $\meta{D}$. Using IP, we can go the other direction (with essentially the same proof).
-	\begin{proof}
+Using $\enot$I, we were able to give a proof of $\enot\enot\metav{D}$ from $\metav{D}$. Using IP, we can go the other direction (with essentially the same proof).
+	\begin{fitchproof}
 		\hypo{d}{\enot\enot D}
 		\open
 			\hypo{nd}{\enot D}
 			\have{ndr}{\ered}\ne{d, nd}
 		\close
 		\have{con}{D}\ip{nd-ndr}
-	\end{proof}
+	\end{fitchproof}
 
 We need one last rule. It is a kind of elimination rule for `$\ered$', and known as \emph{explosion}.\footnote{The latin name for this principle is \emph{ex contradictione quod libet}, ``from contradiction, anything.''} If we obtain a contradiction, symbolized by `$\ered$', then we can infer whatever we like. How can this be motivated, as a rule of argumentation? Well, consider the English rhetorical device `\ldots and if \emph{that's} true, I'll eat my hat'. Since contradictions simply cannot be true, if one \emph{is} true then not only will I eat my hat, I'll have it too. Here is the formal rule:
-\factoidbox{\begin{proof}
+\factoidbox{\begin{fitchproof}
 \have[m]{bot}{\ered}
-\have[ ]{}{\meta{A}}\re{bot}
-\end{proof}}
-Note that \meta{A} can be \emph{any} sentence whatsoever.
+\have[ ]{}{\metav{A}}\re{bot}
+\end{fitchproof}}
+Note that \metav{A} can be \emph{any} sentence whatsoever.
 
-The explosion rule is a bit odd. It looks like \meta{A} arrives in our proof like a bunny out of a hat. When trying to find proofs, it is very tempting to try to use it everywhere, since it seems so powerful. Resist this temptation: you can only apply it when you already have~$\ered$!  And you get $\ered$ only when your assumptions are contradictory.
+The explosion rule is a bit odd. It looks like \metav{A} arrives in our proof like a bunny out of a hat. When trying to find proofs, it is very tempting to try to use it everywhere, since it seems so powerful. Resist this temptation: you can only apply it when you already have~$\ered$!  And you get $\ered$ only when your assumptions are contradictory.
 
-Still, isn't it odd that from a contradiction anything whatsoever should follow? Not according to our notion of entailment and validity. For \meta{A} entails \meta{B} iff there is no valuation of the sentence letters which makes \meta{A} true and \meta{B} false at the same time. Now $\ered$ is a contradiction---it is never true, whatever the valuation of the sentence letters. Since there is no valuation which makes $\ered$ true, there of course is also no valuation that makes $\ered$ true and \meta{B} false! So according to our definition of entailment, $\ered \entails \meta{B}$, whatever \meta{B} is. A contradiction entails anything.\footnote{There are some logicians who don't buy this. They think that if \meta{A} entails \meta{B}, there must be some \emph{relevant connection} between \meta{A} and \meta{B}---and there isn't one between $\ered$ and some arbitrary sentence~\meta{B}. So these logicians develop other, ``relevant'' logics in which you aren't allowed the explosion rule.}
+Still, isn't it odd that from a contradiction anything whatsoever should follow? Not according to our notion of entailment and validity. For \metav{A} entails \metav{B} iff there is no valuation of the sentence letters which makes \metav{A} true and \metav{B} false at the same time. Now $\ered$ is a contradiction---it is never true, whatever the valuation of the sentence letters. Since there is no valuation which makes $\ered$ true, there of course is also no valuation that makes $\ered$ true and \metav{B} false! So according to our definition of entailment, $\ered \entails \metav{B}$, whatever \metav{B} is. A contradiction entails anything.\footnote{There are some logicians who don't buy this. They think that if \metav{A} entails \metav{B}, there must be some \emph{relevant connection} between \metav{A} and \metav{B}---and there isn't one between $\ered$ and some arbitrary sentence~\metav{B}. So these logicians develop other, ``relevant'' logics in which you aren't allowed the explosion rule.}
 
 \emph{These are all of the basic rules for the proof system for TFL.}
 
@@ -610,7 +610,7 @@ Still, isn't it odd that from a contradiction anything whatsoever should follow?
 
 \problempart
 The following two `proofs' are \emph{incorrect}. Explain the mistakes they make.
-\begin{proof}
+\begin{fitchproof}
 \hypo{abc}{(\enot L \eand A) \eor L}
 \open
 \hypo{nla}{\enot L \eand A}
@@ -623,29 +623,29 @@ The following two `proofs' are \emph{incorrect}. Explain the mistakes they make.
 	\have{a2}{A}\re{red}
 \close
 \have{con}{A}\oe{abc, nla-a, l-a2}
-\end{proof}
+\end{fitchproof}
 
-\begin{proof}
+\begin{fitchproof}
 \hypo{abc}{A \eand (B \eand C)}
 \hypo{bcd}{(B \eor C) \eif D}
 \have{b}{B}\ae{abc}
 \have{bc}{B \eor C}\oi{b}
 \have{d}{D}\ce{bc, bcd}
-\end{proof}
+\end{fitchproof}
 
 \problempart
 The following three proofs are missing their citations (rule and line numbers). Add them, to turn them into \emph{bona fide} proofs. Additionally, write down the argument that corresponds to each proof.
 \begin{multicols}{2}
-\begin{proof}
+\begin{fitchproof}
 \hypo{ps}{P \eand S}
 \hypo{nsor}{S \eif R}
 \have{p}{P}%\ae{ps}
 \have{s}{S}%\ae{ps}
 \have{r}{R}%\ce{nsor, s}
 \have{re}{R \eor E}%\oi{r}
-\end{proof}
+\end{fitchproof}
 
-\begin{proof}
+\begin{fitchproof}
 \hypo{ad}{A \eif D}
 \open
 	\hypo{ab}{A \eand B}
@@ -654,9 +654,9 @@ The following three proofs are missing their citations (rule and line numbers). 
 	\have{de}{D \eor E}%\oi{d}
 \close
 \have{conc}{(A \eand B) \eif (D \eor E)}%\ci{ab-de}
-\end{proof}
+\end{fitchproof}
 
-\begin{proof}
+\begin{fitchproof}
 \hypo{nlcjol}{\enot L \eif (J \eor L)}
 \hypo{nl}{\enot L}
 \have{jol}{J \eor L}%\ce{nlcjol, nl}
@@ -671,7 +671,7 @@ The following three proofs are missing their citations (rule and line numbers). 
 	\have{j3}{J}%\re{red}
 \close
 \have{conc}{J}%\oe{jol, j-j2, l-j3}
-\end{proof}
+\end{fitchproof}
 \end{multicols}
 
 \solutions
@@ -700,71 +700,71 @@ There is no simple recipe for finding proofs, and there is no substitute for pra
 
 \section{Working backward from what we want}
 
-So you're trying to find a proof of some conclusion~$\meta{C}$, which will be the last line of your proof. The first thing you do is look at~$\meta{C}$ and ask what the introduction rule is for its main logical operator. This gives you an idea of what should happen \emph{before} the last line of the proof. The justifications for the introduction rule require one or two other sentences above the last line, or one or two subproofs. Moreover, you can tell from~$\meta{C}$ what those sentences are, or what the assumptions and conclusions of the subproof(s) are. Then you can write down those sentence or outline the subproof(s) above the last line, and treat those as your new goals.
+So you're trying to find a proof of some conclusion~$\metav{C}$, which will be the last line of your proof. The first thing you do is look at~$\metav{C}$ and ask what the introduction rule is for its main logical operator. This gives you an idea of what should happen \emph{before} the last line of the proof. The justifications for the introduction rule require one or two other sentences above the last line, or one or two subproofs. Moreover, you can tell from~$\metav{C}$ what those sentences are, or what the assumptions and conclusions of the subproof(s) are. Then you can write down those sentence or outline the subproof(s) above the last line, and treat those as your new goals.
 
-For example: If your conclusion is a conditional $\meta{A}\eif\meta{B}$, plan to use the {\eif}I rule. This requires starting a subproof in which you assume~\meta{A}. The subproof ought to end with~\meta{B}. Then, continue by thinking about what you should do to get $\meta{B}$ inside that subproof, and how you can use the assumption~$\meta{A}$.
+For example: If your conclusion is a conditional $\metav{A}\eif\metav{B}$, plan to use the {\eif}I rule. This requires starting a subproof in which you assume~\metav{A}. The subproof ought to end with~\metav{B}. Then, continue by thinking about what you should do to get $\metav{B}$ inside that subproof, and how you can use the assumption~$\metav{A}$.
 
 If your goal is a conjunction, conditional, or negated sentence, you should start by working backward in this way. We'll describe what you have to do in each of these cases in detail.
 
 \subsection*{Working backward from a conjunction}
 
-If we want to prove $\meta{A} \eand \meta{B}$, working backward means we should write $\meta{A} \eand \meta{B}$ at the bottom of our proof, and try to prove it using $\eand$I. At the top, we'll write out the premises of the proof, if there are any. Then, at the bottom, we write the sentence we want to prove. If it is a conjunction, we'll prove it using $\eand$I.
-  \begin{proof}
-	\have{1}{\meta{P}_1}
+If we want to prove $\metav{A} \eand \metav{B}$, working backward means we should write $\metav{A} \eand \metav{B}$ at the bottom of our proof, and try to prove it using $\eand$I. At the top, we'll write out the premises of the proof, if there are any. Then, at the bottom, we write the sentence we want to prove. If it is a conjunction, we'll prove it using $\eand$I.
+  \begin{fitchproof}
+	\have{1}{\metav{P}_1}
 	\ellipsesline 
-	\hypo[k]{k}{\meta{P}_k}
+	\hypo[k]{k}{\metav{P}_k}
 \ellipsesline
-    \have[n]{n}{\meta{A}}{} 
+    \have[n]{n}{\metav{A}}{} 
     \ellipsesline 
-	\have[m]{m}{\meta{B}}
-    \have{4}{\meta{A} \eand \meta{B}}\ai{n,m}
-  \end{proof}
-For $\eand$I, we need to prove $\meta{A}$ first, then prove $\meta{B}$. For the last line, we have to cite the lines where we (will have) proved $\meta{A}$ and  $\meta{B}$, and use~$\eand$I. The parts of the proof labelled $\vdots$ have to still be filled in. We'll mark the line numbers $m$, $n$ for now. When the proof is complete, these placeholders can be replaced by actual numbers.
+	\have[m]{m}{\metav{B}}
+    \have{4}{\metav{A} \eand \metav{B}}\ai{n,m}
+  \end{fitchproof}
+For $\eand$I, we need to prove $\metav{A}$ first, then prove $\metav{B}$. For the last line, we have to cite the lines where we (will have) proved $\metav{A}$ and  $\metav{B}$, and use~$\eand$I. The parts of the proof labelled $\vdots$ have to still be filled in. We'll mark the line numbers $m$, $n$ for now. When the proof is complete, these placeholders can be replaced by actual numbers.
 
 \subsection*{Working backward from a conditional}
 
-If our goal is to prove a conditional $\meta{A} \eif \meta{B}$, we'll have to use $\eif$I. This requires a subproof starting with $\meta{A}$ and ending with~$\meta{B}$. We'll set up our proof as follows:
-\begin{proof}
+If our goal is to prove a conditional $\metav{A} \eif \metav{B}$, we'll have to use $\eif$I. This requires a subproof starting with $\metav{A}$ and ending with~$\metav{B}$. We'll set up our proof as follows:
+\begin{fitchproof}
 \open
-\hypo[n]{2}{\meta{A}}
+\hypo[n]{2}{\metav{A}}
 \ellipsesline 
-\have[m]{3}{\meta{B}}
+\have[m]{3}{\metav{B}}
 \close
-\have{4}{\meta{A} \eif \meta{B}}\ci{2-3}
-\end{proof} 
+\have{4}{\metav{A} \eif \metav{B}}\ci{2-3}
+\end{fitchproof} 
 Again we'll leave placeholders in the line number slots. We'll record the last inference as $\eif$I, citing the subproof.
 
 \subsection*{Working backward from a negated sentence}
 
-If we want to prove $\enot \meta{A}$, we'll have to use $\enot$I.
-\begin{proof}
+If we want to prove $\enot \metav{A}$, we'll have to use $\enot$I.
+\begin{fitchproof}
 \open
-\hypo[n]{2}{\meta{A}}
+\hypo[n]{2}{\metav{A}}
 \ellipsesline 
 \have[m]{3}{\ered}
 \close
-\have{4}{\enot \meta{A}}\ni{2-3}
-\end{proof} 
-For $\enot$I, we have to start a subproof with assumption $\meta{A}$; the last line of the subproof has to be $\ered$.  We'll cite the subproof, and use~$\enot$I as the rule.
+\have{4}{\enot \metav{A}}\ni{2-3}
+\end{fitchproof} 
+For $\enot$I, we have to start a subproof with assumption $\metav{A}$; the last line of the subproof has to be $\ered$.  We'll cite the subproof, and use~$\enot$I as the rule.
 
-When working backward, continue to do so as long as you can. So if you're working backward to prove $\meta{A} \eif \meta{B}$ and have set up a subproof in which you want to prove $\meta{B}$. Now look at~$\meta{B}$. If, say, it is a conjunction, work backward from it, and write down the two conjuncts inside your subproof. Etc.
+When working backward, continue to do so as long as you can. So if you're working backward to prove $\metav{A} \eif \metav{B}$ and have set up a subproof in which you want to prove $\metav{B}$. Now look at~$\metav{B}$. If, say, it is a conjunction, work backward from it, and write down the two conjuncts inside your subproof. Etc.
 
 \subsection*{Working backward from a disjunction}
 
-Of course, you can also work backward from a disjunction $\meta{A} \eor \meta{B}$, if that is your goal.
-The $\eor$I rule requires that you have one of the disjuncts in order to infer $\meta{A} \eor \meta{B}$.
-So to work backward, you pick a disjunct, infer $\meta{A} \eor \meta{B}$ from it, and then continue to look for a proof of the disjunct you picked:
-\begin{proof}
+Of course, you can also work backward from a disjunction $\metav{A} \eor \metav{B}$, if that is your goal.
+The $\eor$I rule requires that you have one of the disjuncts in order to infer $\metav{A} \eor \metav{B}$.
+So to work backward, you pick a disjunct, infer $\metav{A} \eor \metav{B}$ from it, and then continue to look for a proof of the disjunct you picked:
+\begin{fitchproof}
 	\ellipsesline
-	\have[n]{2}{\meta{A}} 
-	\have{3}{\meta{A} \eor \meta{B}}\oi{2}
-\end{proof}
+	\have[n]{2}{\metav{A}} 
+	\have{3}{\metav{A} \eor \metav{B}}\oi{2}
+\end{fitchproof}
 However, you may not be able to prove the disjunct you picked. In that case you have to backtrack. When you can't fill in the $\vdots$, delete everything, and try with the other disjunct:
-\begin{proof}
+\begin{fitchproof}
 	\ellipsesline 
-	\have[n]{2}{\meta{B}} 
-	\have{3}{\meta{A} \eor \meta{B}}\oi{2}
-\end{proof}
+	\have[n]{2}{\metav{B}} 
+	\have{3}{\metav{A} \eor \metav{B}}\oi{2}
+\end{fitchproof}
 Obviously, deleting everything and starting over is frustrating, so you should avoid it. If your goal is a disjunction, therefore, you should \emph{not start} by working backward: try working forward first, and apply the $\eor$I strategy only when working forward (and working backward using $\eand$I, $\eif$I, and $\enot$I) no longer work.
 
 \section{Work forward from what you have}
@@ -773,63 +773,63 @@ Your proof may have premises. And if you've worked backward in order to prove a 
 
 \subsection*{Working forward from a conjunction}
 
-To work forward from a sentence of the form $\meta{A} \eand \meta{B}$, we use $\eand$E. That rule allows us to do two things: infer $\meta{A}$, and infer $\meta{B}$. So in a proof where we have $\meta{A} \eand \meta{B}$, we can work forward by writing $\meta{A}$ and/or $\meta{B}$ immediately below the conjunction:
-\begin{proof}
-  \have[n]{1}{\meta{A} \eand \meta{B}}
-  \have{2}{\meta{A}}\ae{1}
-  \have{3}{\meta{B}}\ae{1}
-\end{proof}
-Usually it will be clear in the particular situation you're in which one of \meta{A} or \meta{B} you'll need. It doesn't hurt, however, to write them both down.
+To work forward from a sentence of the form $\metav{A} \eand \metav{B}$, we use $\eand$E. That rule allows us to do two things: infer $\metav{A}$, and infer $\metav{B}$. So in a proof where we have $\metav{A} \eand \metav{B}$, we can work forward by writing $\metav{A}$ and/or $\metav{B}$ immediately below the conjunction:
+\begin{fitchproof}
+  \have[n]{1}{\metav{A} \eand \metav{B}}
+  \have{2}{\metav{A}}\ae{1}
+  \have{3}{\metav{B}}\ae{1}
+\end{fitchproof}
+Usually it will be clear in the particular situation you're in which one of \metav{A} or \metav{B} you'll need. It doesn't hurt, however, to write them both down.
 
 \subsection*{Working forward from a disjunction}
 
-Working forward from a disjunction works a bit differently. To use a disjunction, we use the $\eor$E rule. In order to apply that rule, it is not enough to know what the disjuncts of the disjunction are that we want to use. We must also keep in mind what we want to prove. Suppose we want to prove~$\meta{C}$, and we have $\meta{A} \eor B$ to work with. (That $\meta{A} \eor B$ may be a premise of the proof, an assumption of a subproof, or something already proved.) In order to be able to apply the $\eor$E rule, we'll have to set up two subproofs:
-\begin{proof}
-	\have[n]{1}{\meta{A} \eor \meta{B}}
+Working forward from a disjunction works a bit differently. To use a disjunction, we use the $\eor$E rule. In order to apply that rule, it is not enough to know what the disjuncts of the disjunction are that we want to use. We must also keep in mind what we want to prove. Suppose we want to prove~$\metav{C}$, and we have $\metav{A} \eor B$ to work with. (That $\metav{A} \eor B$ may be a premise of the proof, an assumption of a subproof, or something already proved.) In order to be able to apply the $\eor$E rule, we'll have to set up two subproofs:
+\begin{fitchproof}
+	\have[n]{1}{\metav{A} \eor \metav{B}}
 	\open
-	\hypo{2}{\meta{A}} 
+	\hypo{2}{\metav{A}} 
 	\ellipsesline 
-	\have[m]{3}{\meta{C}}
+	\have[m]{3}{\metav{C}}
 	\close 
 	\open
-	\hypo{4}{\meta{B}}
+	\hypo{4}{\metav{B}}
 	\ellipsesline
-	\have[k]{5}{\meta{C}}
+	\have[k]{5}{\metav{C}}
 	\close
-	\have{6}{\meta{C}}\oe{1,(2)-3,(4)-5} 
-\end{proof} 
-The first subproof starts with the first disjunct, $\meta{A}$, and ends with the sentence we're looking for, $\meta{C}$. The second subproof starts with the other disjunct, $\meta{B}$, and also ends with the goal sentence~$\meta{C}$. Each of these subproofs have to be filled in further. We can then justify the goal sentence $\meta{C}$ by using $\eor$E, citing the line with $\meta{A} \eor \meta{B}$ and the two subproofs.
+	\have{6}{\metav{C}}\oe{1,(2)-3,(4)-5} 
+\end{fitchproof} 
+The first subproof starts with the first disjunct, $\metav{A}$, and ends with the sentence we're looking for, $\metav{C}$. The second subproof starts with the other disjunct, $\metav{B}$, and also ends with the goal sentence~$\metav{C}$. Each of these subproofs have to be filled in further. We can then justify the goal sentence $\metav{C}$ by using $\eor$E, citing the line with $\metav{A} \eor \metav{B}$ and the two subproofs.
 
 \subsection*{Working forward from a conditional}
 
-In order to use a conditional $\meta{A} \eif \meta{B}$, you also need the antecedent $\meta{A}$ in order to apply~$\eif$E. So to work forward from a conditional, you will derive $\meta{B}$, justify it by $\eif$E, and set up $\meta{A}$ as a new subgoal.
-\begin{proof}
-	\have[n]{1}{\meta{A} \eif \meta{B}}
+In order to use a conditional $\metav{A} \eif \metav{B}$, you also need the antecedent $\metav{A}$ in order to apply~$\eif$E. So to work forward from a conditional, you will derive $\metav{B}$, justify it by $\eif$E, and set up $\metav{A}$ as a new subgoal.
+\begin{fitchproof}
+	\have[n]{1}{\metav{A} \eif \metav{B}}
 	\ellipsesline 
-	\have[m]{2}{\meta{A}}
-	\have{3}{\meta{B}}\ce{1,2} 
-\end{proof}
+	\have[m]{2}{\metav{A}}
+	\have{3}{\metav{B}}\ce{1,2} 
+\end{fitchproof}
 
 \subsection*{Working forward from a negated sentence}
 
-Finally, to use a negated sentence $\enot \meta{A}$, you would apply $\enot$E. It requires, in addition to $\enot \meta{A}$, also the corresponding sentence~$\meta{A}$ without the negation. The sentence you'll get is always the same: $\ered$. So working forward from a negated sentence works especially well inside a subproof that you'll want to use for $\enot$I (or IP). You work forward from $\enot \meta{A}$ if you already have $\enot \meta{A}$ and you want to prove~$\ered$. To do it, you set up $\meta{A}$ as a new subgoal.
-\begin{proof}
-	\have[n]{1}{\enot \meta{A}}
+Finally, to use a negated sentence $\enot \metav{A}$, you would apply $\enot$E. It requires, in addition to $\enot \metav{A}$, also the corresponding sentence~$\metav{A}$ without the negation. The sentence you'll get is always the same: $\ered$. So working forward from a negated sentence works especially well inside a subproof that you'll want to use for $\enot$I (or IP). You work forward from $\enot \metav{A}$ if you already have $\enot \metav{A}$ and you want to prove~$\ered$. To do it, you set up $\metav{A}$ as a new subgoal.
+\begin{fitchproof}
+	\have[n]{1}{\enot \metav{A}}
 	\ellipsesline 
-	\have[m]{2}{\meta{A}}
+	\have[m]{2}{\metav{A}}
 	\have{3}{\ered}\ne{1,2} 
-\end{proof}
+\end{fitchproof}
 
 \section{Strategies at work}
 
 Suppose we want to show that the argument $(A \eand B) \eor (A \eand C) \therefore A \eand (B \eor C)$ is valid. We start the proof by writing the premise and conclusion down. (On a piece of paper, you would want as much space as possible between them, so write the premises at the top of the sheet and the conclusion at the bottom.)
-\begin{proof}
+\begin{fitchproof}
    \hypo{1}{(A \eand B) \eor (A \eand C)}
 \ellipsesline
   \have[n]{2}{A \eand (B \eor C)}
-\end{proof}
+\end{fitchproof}
 We now have two options: either work backward from the conclusion, or work forward from the premise. We'll pick the second strategy: we use the disjunction on line~$1$, and set up the subproofs we need for $\eor$E. The disjunction on line~$1$ has two disjuncts, $A \eand B$ and $A \eand C$. The goal sentence you want to prove is $A \eand (B \eor C)$. So in this case you have to set up two subproofs, one with assumption $A \eand B$ and last line $A \eand (B \eor C)$, the other with assumption $A \eand C$ and last line $A \eand (B \eor C)$. The justification for the conclusion on line~$n$ will be $\eor$E, citing the disjunction on line~$1$ and the two subproofs. So your proof now looks like this:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{1}{(A \eand B) \eor (A \eand C)}
 	\open
 	\hypo{2}{A \eand B}
@@ -842,9 +842,9 @@ We now have two options: either work backward from the conclusion, or work forwa
 	\have[m]{11}{A \eand (B \eor C)}
 	\close
 	\have{12}{A \eand (B \eor C)}\oe{1,2-6,7-11}
-\end{proof}
+\end{fitchproof}
 You now have two separate tasks, namely to fill in each of the two subproofs. In the first subproof, we now work backward from the conclusion $A \eand (B \eor C)$. That is a conjunction, so inside the first subproof, you will have two separate subgoals: proving $A$, and proving $B \eor C$. These subgoals will let you justify line~$n$ using~$\eand$I. Your proof now looks like this:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{1}{(A \eand B) \eor (A \eand C)}
 	\open
 	\hypo{2}{A \eand B}
@@ -860,9 +860,9 @@ You now have two separate tasks, namely to fill in each of the two subproofs. In
 	\have[m]{11}{A \eand (B \eor C)}
 	\close
 	\have{12}{A \eand (B \eor C)}\oe{1,2-6,(7)-11}
-\end{proof}
+\end{fitchproof}
 We immediately see that we can get line $i$ from line~$2$ by $\eand$E. So line~$i$ is actually line~$3$, and can be justified with $\eand$E from line~$2$. The other subgoal $B \eor C$ is a disjunction. We'll apply the strategy for working backward from a disjunctions to line $n-1$. We have a choice of which disjunct to pick as a subgoal, $B$ or~$C$. Picking $C$ wouldn't work and we'd end up having to backtrack. And you can already see that if you pick $B$ as a subgoal, you could get that by working forward again from the conjunction $A \eand B$ on line~$2$. So we can complete the first subproof as follows:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{1}{(A \eand B) \eor (A \eand C)}
 	\open
 	\hypo{2}{A \eand B}
@@ -877,13 +877,13 @@ We immediately see that we can get line $i$ from line~$2$ by $\eand$E. So line~$
 	\have[m]{11}{A \eand (B \eor C)}
 	\close
 	\have{12}{A \eand (B \eor C)}\oe{1,2-6,7-11}
-\end{proof}
+\end{fitchproof}
 Like line~$3$, we get line $4$ from $2$ by $\eand$E. Line~$5$ is justified by $\eor$I from line~$4$, since we were working backward from a disjunction there.
 
 That's it for the first subproof. The second subproof is almost exactly the same. We'll leave it as an exercise.
 
 Remember that when we started, we had the option of working forward from the premise, or working backward from the conclusion, and we picked the first option. The second option also leads to a proof, but it will look different.  The first steps would be to work backward from the conclusion and set up two subgoals, $A$ and $B \eor C$, and then work forward from the premise to prove them, e.g.,:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{1}{(A \eand B) \eor (A \eand C)}
 	\open
 	\hypo{2}{A \eand B}
@@ -908,20 +908,20 @@ Remember that when we started, we had the option of working forward from the pre
 	\close
 	\have{11}{B \eor C}\oe{1,(7)-8,(9)-(10)}	
 	\have{12}{A \eand (B \eor C)}\ai{6,11}
-\end{proof}
+\end{fitchproof}
 We'll leave you to fill in the missing pieces indicated by~$\vdots$.
 
 Let's give another example to illustrate how to apply the strategies to deal with conditionals and negation. The sentence $(A \eif B) \eif (\enot B \eif \enot A)$ is a tautology. Let's see if we can find a proof of it, from no premises, using the strategies. We first write the sentence at the bottom of a sheet of paper. Since working forward is not an option (there is nothing to work forward from), we work backward, and set up a subproof to establish the sentence we want $(A \eif B) \eif (\enot B \eif \enot A)$ using $\eif$I. Its assumption must be the antecedent of the conditional we want to prove, i.e., $A \eif B$, and its last line the consequent $\enot B \eif \enot A$.
-\begin{proof}
+\begin{fitchproof}
 \open
 \hypo{1}{A \eif B}
 \ellipsesline
 \have[n]{7}{\enot B \eif \enot A}
 \close
 \have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
-\end{proof}
+\end{fitchproof}
 The new goal, $\enot B \eif \enot A$ is itself a conditional, so working backward we set up another subproof:
-\begin{proof}
+\begin{fitchproof}
 	\open
 	\hypo{1}{A \eif B}
 	\open
@@ -932,9 +932,9 @@ The new goal, $\enot B \eif \enot A$ is itself a conditional, so working backwar
 	\have{7}{\enot B \eif \enot A}\ci{2-(6)}
 	\close
 	\have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
-\end{proof}
+\end{fitchproof}
 From $\enot A$ we again work backward. To do this, look at the $\enot$I rule. It requires a subproof with~$A$ as assumption, and $\ered$ as its last line. So the proof is now:
-\begin{proof}
+\begin{fitchproof}
 	\open
 	\hypo{1}{A \eif B}
 	\open
@@ -948,9 +948,9 @@ From $\enot A$ we again work backward. To do this, look at the $\enot$I rule. It
 	\have{7}{\enot B \eif \enot A}\ci{2-(6)}
 	\close
 	\have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
-\end{proof}
+\end{fitchproof}
 Now our goal is to prove~$\ered$. We said above, when discussing how to work forward from a negated sentence, that the $\enot$E rule allows you to prove~$\ered$, which is our goal in the innermost subproof. So we look for a negated sentence which we can work forward from: that would be $\enot B$ on line~$2$. That means we have to derive $B$ inside the subproof, since $\enot$E requires not just $\enot B$ (which we have already), but also~$B$. And $B$, in turn, we get by working forward from $A \eif B$, since $\eif$E will allow us to justify the consequent of that conditional~$B$ by $\eif$E. The rule $\eif$E also requires the antecedent~$A$ of the conditional, but that is also already available (on line~$3$). So we finish with:
-\begin{proof}
+\begin{fitchproof}
 	\open
 	\hypo{1}{A \eif B}
 	\open
@@ -964,12 +964,12 @@ Now our goal is to prove~$\ered$. We said above, when discussing how to work for
 	\have{7}{\enot B \eif \enot A}\ci{2-6}
 	\close
 	\have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
-\end{proof}
+\end{fitchproof}
 
 \section{Working forward from $\ered$}\label{sec:backred}
 
 When applying the strategies, you will sometimes find yourself in a situation where you can justify~$\ered$. Using the explosion rule, this would allow you to justify \emph{anything}. So $\ered$ works like a wildcard in proofs. For instance, suppose you want to give a proof of the argument $A \eor B, \enot A \therefore B$. You set up your proof, writing the premises $A \eor B$ and $\enot A$ at the top on lines $1$ and $2$, and the conclusion~$B$ at the bottom of the page. $B$ has no main connective, so you can't work backward from it. Instead, you must work forward from $A \eor B$: That requires two subproofs, like so:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{1}{A \eor B}
 	\hypo{7}{\enot A}
 	\open
@@ -983,9 +983,9 @@ When applying the strategies, you will sometimes find yourself in a situation wh
 	\have[k]{5}{B}
 	\close
 	\have{6}{B}\oe{1,2-3,(4)-5} 
-\end{proof} 
+\end{fitchproof} 
 Notice that you have $\enot A$ on line~$2$ and $A$ as the assumption of your first subproof. That gives you $\ered$ using $\enot$E, and from $\ered$ you get the conclusion~$B$ of the first subroof using~X. Recall that you can repeat a sentence you already have by using the reiteration rule~R. So our proof would be:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{1}{A \eor B}
 	\hypo{7}{\enot A}
 	\open
@@ -998,48 +998,48 @@ Notice that you have $\enot A$ on line~$2$ and $A$ as the assumption of your fir
 	\have{5}{B}\by{R}{4}
 	\close
 	\have{6}{B}\oe{1,2-3,4-5} 
-\end{proof} 
+\end{fitchproof} 
 
 \section{Proceed indirectly}
 
-In very many cases, the strategies of working forward and backward will eventually pan out. But there are cases where they do not work.  If you cannot find a way to show $\meta{A}$ directly using those, use IP instead. To do this, set up a subproof in which you assume $\enot\meta{A}$ and look for a proof of $\ered$ inside that subproof.
+In very many cases, the strategies of working forward and backward will eventually pan out. But there are cases where they do not work.  If you cannot find a way to show $\metav{A}$ directly using those, use IP instead. To do this, set up a subproof in which you assume $\enot\metav{A}$ and look for a proof of $\ered$ inside that subproof.
 
-\begin{proof}
+\begin{fitchproof}
 \open
 \hypo[n]{2}{\enot A}
 \ellipsesline 
 \have[m]{3}{\ered}
 \close
-\have{4}{\meta{A}}\ip{2-3}
-\end{proof}
-Here, we have to start a subproof with assumption $\enot \meta{A}$;
+\have{4}{\metav{A}}\ip{2-3}
+\end{fitchproof}
+Here, we have to start a subproof with assumption $\enot \metav{A}$;
 the last line of the subproof has to be~$\ered$. We'll cite the subproof, and use~IP as the rule.  In the subproof, we now have an additional assumption (on line $n$) to work with.
 
-Suppose we used the indirect proof strategy, or we're in some other situation where we're looking for a proof of $\ered$.  What's a good candidate? Of course the obvious candidate would be to use a negated sentence, since (as we saw above) $\enot$E always yields~$\ered$. If you set up a proof as above, trying to prove \meta{A} using~IP, you will have $\enot \meta{A}$ as the assumption of your subproof---so working forward from it to justify $\ered$ inside your subproof, you would next set up \meta{A} as a goal inside your subproof. If you are using this IP strategy, you will find yourself in the following situation: 
-\begin{proof}
+Suppose we used the indirect proof strategy, or we're in some other situation where we're looking for a proof of $\ered$.  What's a good candidate? Of course the obvious candidate would be to use a negated sentence, since (as we saw above) $\enot$E always yields~$\ered$. If you set up a proof as above, trying to prove \metav{A} using~IP, you will have $\enot \metav{A}$ as the assumption of your subproof---so working forward from it to justify $\ered$ inside your subproof, you would next set up \metav{A} as a goal inside your subproof. If you are using this IP strategy, you will find yourself in the following situation: 
+\begin{fitchproof}
 \open
-\hypo[n]{2}{\enot \meta{A}}
+\hypo[n]{2}{\enot \metav{A}}
 \ellipsesline
-\have[m][-1]{3}{\meta{A}}
+\have[m][-1]{3}{\metav{A}}
 \have{4}{\ered}\ne{2,3}
 \close
-\have{5}{\meta{A}}\ip{2-4}
-\end{proof} 
-This looks weird: We wanted to prove $\meta{A}$ and the strategies failed us; so we used IP as a last resort. And now we find ourselves in the same situation: we are again looking for a proof of~$\meta{A}$. But notice that we are now \emph{inside} a subproof, and in that subproof we have an additional assumption ($\enot \meta{A}$) to work with which we didn't have before. Let's look at an example.
+\have{5}{\metav{A}}\ip{2-4}
+\end{fitchproof} 
+This looks weird: We wanted to prove $\metav{A}$ and the strategies failed us; so we used IP as a last resort. And now we find ourselves in the same situation: we are again looking for a proof of~$\metav{A}$. But notice that we are now \emph{inside} a subproof, and in that subproof we have an additional assumption ($\enot \metav{A}$) to work with which we didn't have before. Let's look at an example.
 
 \section{Indirect proof of excluded middle}\label{s:proofLEM}
 
 The sentence $A \eor \enot A$ is a tautology, and so should have a proof even without any premises. But working backward fails us: to get $A \eor \enot A$ using $\eor$I we would have to prove either $A$ or $\enot A$---again, from no premises. Neither of these is a tautology, so we won't be able to prove either. Working forward doesn't work either, since there is nothing to work forward from. So, the only option is indirect proof.
-\begin{proof}
+\begin{fitchproof}
 	\open
 	\hypo{2}{\enot (A \eor \enot A)}
 	\ellipsesline
 	\have[m]{8}{\ered}
 	\close
 	\have{9}{A \eor \enot A}\ip{2-8}
-\end{proof}
+\end{fitchproof}
 Now we do have something to work forward from: the assumption $\enot(A \eor \enot A)$. To use it, we justify $\ered$ by $\enot$E, citing the assumption on line~$1$, and also the corresponding unnegated sentence $A \eor \enot A$, yet to be proved.
-\begin{proof}
+\begin{fitchproof}
 	\open
 	\hypo{2}{\enot (A \eor \enot A)}
 	\ellipsesline
@@ -1047,9 +1047,9 @@ Now we do have something to work forward from: the assumption $\enot(A \eor \eno
 	\have{8}{\ered}\ne{2,7}
 	\close
 	\have{9}{A \eor \enot A}\ip{2-8}
-\end{proof}
+\end{fitchproof}
 At the outset, working backward to prove $A \eor\enot A$ by $\eor$I did not work. But we are now in a different situation: we want to prove $A \eor\enot A$ inside a subproof. In general, when dealing with new goals we should go back and start with the basic strategies. In this case, we should first try to work backward from the disjunction $A \eor \enot A$, i.e., we have to pick a disjunct and try to prove it. Let's pick~$\enot A$. This would let us justify $A \eor \enot A$ on line~$m - 1$ using $\eor$I. Then working backward from $\enot A$, we start another subproof in order to justify $\enot A$ using $\enot$I. That subproof must have $A$ as the assumption and~$\ered$ as its last line.
-\begin{proof}
+\begin{fitchproof}
 	\open
 	\hypo{2}{\enot (A \eor \enot A)}
 	\open
@@ -1062,9 +1062,9 @@ At the outset, working backward to prove $A \eor\enot A$ by $\eor$I did not work
 	\have{8}{\ered}\ne{2,7}
 	\close
 	\have{9}{A \eor \enot A}\ip{2-8}
-\end{proof}
+\end{fitchproof}
 Inside this new subproof, we again need to justify $\ered$. The best way to do this is to work forward from a negated sentence; $\enot(A \eor \enot A)$ on line~$1$ is the only negated sentence we can use. The corresponding unnegated sentence, $A \eor \enot A$, however, directly follows from $A$ (which we have on line~$2$) by $\eor$I. Our complete proof is:
-\begin{proof}
+\begin{fitchproof}
 	\open
 	\hypo{2}{\enot (A \eor \enot A)}
 	\open
@@ -1077,7 +1077,7 @@ Inside this new subproof, we again need to justify $\ered$. The best way to do t
 	\have{8}{\ered}\ne{2,7}
 	\close
 	\have{9}{A \eor \enot A}\ip{2-8}
-\end{proof}
+\end{fitchproof}
 
 \practiceproblems
 
@@ -1095,7 +1095,7 @@ Use the strategies to find proofs for each of the following arguments:
 \end{earg}
 
 \problempart
-Formulate strategies for working backward and forward from $\meta{A} \eiff \meta{B}$.
+Formulate strategies for working backward and forward from $\metav{A} \eiff \metav{B}$.
 
 \problempart
 Use the strategies to find proofs for each of the following sentences:
@@ -1126,12 +1126,12 @@ In \S\ref{s:BasicTFL}, we introduced the basic rules of our proof system for TFL
 
 % \section{Reiteration}
 % The first additional rule is \emph{reiteration} (R). This just allows us to repeat ourselves:
-% \factoidbox{\begin{proof}
-% 	\have[m]{a}{\meta{A}}
-% 	\have[\ ]{b}{\meta{A}} \by{R}{a}
-% \end{proof}}
+% \factoidbox{\begin{fitchproof}
+% 	\have[m]{a}{\metav{A}}
+% 	\have[\ ]{b}{\metav{A}} \by{R}{a}
+% \end{fitchproof}}
 % Such a rule is obviously legitimate; we could have used it in our proof in \S\ref{sec:backred}:
-% \begin{proof}
+% \begin{fitchproof}
 % 	\hypo{1}{A \eor B}
 % 	\hypo{7}{\enot A}
 % 	\open
@@ -1144,7 +1144,7 @@ In \S\ref{s:BasicTFL}, we introduced the basic rules of our proof system for TFL
 % 	\have{5}{B}\by{R}{4}
 % 	\close
 % 	\have{6}{B}\oe{1,2-3,4-5} 
-% \end{proof}
+% \end{fitchproof}
 % This is a fairly typical use of the R rule.
 
 \section{Disjunctive syllogism}
@@ -1153,17 +1153,17 @@ Here is a very natural argument form.
 		Elizabeth is either in Massachusetts or in DC. She is not in DC. So, she is in Massachusetts.
 	\end{quote}
 This inference pattern is called \emph{disjunctive syllogism}. We add it to our proof system as follows:
-\factoidbox{\begin{proof}
-	\have[m]{ab}{\meta{A} \eor \meta{B}}
-	\have[n]{nb}{\enot \meta{A}}
-	\have[\ ]{con}{\meta{B}}\by{DS}{ab, nb}
-\end{proof}}
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\metav{A} \eor \metav{B}}
+	\have[n]{nb}{\enot \metav{A}}
+	\have[\ ]{con}{\metav{B}}\by{DS}{ab, nb}
+\end{fitchproof}}
 and
-\factoidbox{\begin{proof}
-	\have[m]{ab}{\meta{A} \eor \meta{B}}
-	\have[n]{nb}{\enot \meta{B}}
-	\have[\ ]{con}{\meta{A}}\by{DS}{ab, nb}
-\end{proof}}
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\metav{A} \eor \metav{B}}
+	\have[n]{nb}{\enot \metav{B}}
+	\have[\ ]{con}{\metav{A}}\by{DS}{ab, nb}
+\end{fitchproof}}
 As usual, the disjunction and the negation of one disjunct may occur in either order and need not be adjacent. However, we always cite the disjunction first. 
 
 \section{Modus tollens}
@@ -1172,19 +1172,19 @@ Another useful pattern of inference is embodied in the following argument:
 		If Mitt has won the election, then he is in the White House. He is not in the White House. So he has not won the election.
 	\end{quote}
 This inference pattern is called \emph{modus tollens}. The corresponding rule is:
-\factoidbox{\begin{proof}
-	\have[m]{ab}{\meta{A}\eif\meta{B}}
-	\have[n]{a}{\enot\meta{B}}
-	\have[\ ]{b}{\enot\meta{A}}\mt{ab,a}
-\end{proof}}
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eif\metav{B}}
+	\have[n]{a}{\enot\metav{B}}
+	\have[\ ]{b}{\enot\metav{A}}\mt{ab,a}
+\end{fitchproof}}
 As usual, the premises may occur in either order, but we always cite the conditional first. 
 
 \section{Double-negation elimination}
 Another useful rule is \emph{double-negation elimination}. This rule does exactly what it says on the tin:
-\factoidbox{\begin{proof}
-		\have[m]{dna}{\enot \enot \meta{A}}
-		\have[ ]{a}{\meta{A}}\dne{dna}
-	\end{proof}}
+\factoidbox{\begin{fitchproof}
+		\have[m]{dna}{\enot \enot \metav{A}}
+		\have[ ]{a}{\metav{A}}\dne{dna}
+	\end{fitchproof}}
 The justification for this is that, in natural language, double-negations tend to cancel out. 
 
 That said, you should be aware that context and emphasis can prevent them from doing so. Consider: `Jane is not \emph{not} happy'. Arguably, one cannot infer `Jane is happy', since the first sentence should be understood as meaning the same as  `Jane is not \emph{un}happy'. This is compatible with `Jane is in a state of profound indifference'. As usual, moving to TFL forces us to sacrifice certain nuances of English expressions.
@@ -1194,23 +1194,23 @@ That said, you should be aware that context and emphasis can prevent them from d
 Suppose that we can show that if it's sunny outside, then Bill will have brought an umbrella (for fear of burning). Suppose we can also show that, if it's not sunny outside, then Bill will have brought an umbrella (for fear of rain). Well, there is no third way for the weather to be. So, \emph{whatever the weather}, Bill will have brought an umbrella. 
 
 This line of thinking motivates the following rule:
-\factoidbox{\begin{proof}
+\factoidbox{\begin{fitchproof}
 		\open
-			\hypo[i]{a}{\meta{A}}
-			\have[j]{c1}{\meta{B}}
+			\hypo[i]{a}{\metav{A}}
+			\have[j]{c1}{\metav{B}}
 		\close
 		\open
-			\hypo[k]{b}{\enot\meta{A}}
-			\have[l]{c2}{\meta{B}}
+			\hypo[k]{b}{\enot\metav{A}}
+			\have[l]{c2}{\metav{B}}
 		\close
-		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
-	\end{proof}}
-The rule is sometimes called the law of \emph{excluded middle}, since it encapsulates the idea that \meta{A} may be true or $\enot \meta{A}$ may be true, but there is no middle way where neither is true.\footnote{You may sometimes find logicians or philosophers talking about ``tertium non datur.'' That's the same principle as excluded middle; it means ``no third way.'' Logicians who have qualms about indirect proof also have qualms about LEM.} There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
+		\have[\ ]{ab}{\metav{B}}\tnd{a-c1,b-c2}
+	\end{fitchproof}}
+The rule is sometimes called the law of \emph{excluded middle}, since it encapsulates the idea that \metav{A} may be true or $\enot \metav{A}$ may be true, but there is no middle way where neither is true.\footnote{You may sometimes find logicians or philosophers talking about ``tertium non datur.'' That's the same principle as excluded middle; it means ``no third way.'' Logicians who have qualms about indirect proof also have qualms about LEM.} There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
 
 To see the rule in action, consider:
 	$$P \therefore (P \eand D) \eor (P \eand \enot D)$$
 Here is a proof corresponding with the argument:
-	\begin{proof}
+	\begin{fitchproof}
 		\hypo{a}{P}
 		\open
 			\hypo{b}{D}
@@ -1223,9 +1223,9 @@ Here is a proof corresponding with the argument:
 			\have{anbo}{(P \eand D) \eor (P \eand \enot D)}\oi{anb}
 		\close
 		\have{con}{(P \eand D) \eor (P \eand \enot D)}\tnd{b-abo, nb-anbo}
-	\end{proof}
+	\end{fitchproof}
 Here is another example:
-\begin{proof}
+\begin{fitchproof}
 	\hypo{ana}{A \eif \enot A}
 	\open
 		\hypo{a}{A}
@@ -1236,32 +1236,32 @@ Here is another example:
 		\have{na2}{\enot A}\by{R}{na1}
 	\close
 	\have{na3}{\enot A}\tnd{a-na, na1-na2}
-\end{proof}
+\end{fitchproof}
 
 
 \section{De Morgan Rules}
 Our final additional rules are called De~Morgan's Laws (named after Augustus De~Morgan). The shape of the rules should be familiar from truth tables.
 
 The first De Morgan rule is:
-\factoidbox{\begin{proof}
-	\have[m]{ab}{\enot (\meta{A} \eand \meta{B})}
-	\have[\ ]{dm}{\enot \meta{A} \eor \enot \meta{B}}\dem{ab}
-\end{proof}}
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\enot (\metav{A} \eand \metav{B})}
+	\have[\ ]{dm}{\enot \metav{A} \eor \enot \metav{B}}\dem{ab}
+\end{fitchproof}}
 The second De Morgan is the reverse of the first:
-\factoidbox{\begin{proof}
-	\have[m]{ab}{\enot \meta{A} \eor \enot \meta{B}}
-	\have[\ ]{dm}{\enot (\meta{A} \eand \meta{B})}\dem{ab}
-\end{proof}}
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\enot \metav{A} \eor \enot \metav{B}}
+	\have[\ ]{dm}{\enot (\metav{A} \eand \metav{B})}\dem{ab}
+\end{fitchproof}}
 The third De Morgan rule is the \emph{dual} of the first:
-\factoidbox{\begin{proof}
-	\have[m]{ab}{\enot (\meta{A} \eor \meta{B})}
-	\have[\ ]{dm}{\enot \meta{A} \eand \enot \meta{B}}\dem{ab}
-\end{proof}}
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\enot (\metav{A} \eor \metav{B})}
+	\have[\ ]{dm}{\enot \metav{A} \eand \enot \metav{B}}\dem{ab}
+\end{fitchproof}}
 And the fourth is the reverse of the third:
-\factoidbox{\begin{proof}
-	\have[m]{ab}{\enot \meta{A} \eand \enot \meta{B}}
-	\have[\ ]{dm}{\enot (\meta{A} \eor \meta{B})}\dem{ab}
-\end{proof}}
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\enot \metav{A} \eand \enot \metav{B}}
+	\have[\ ]{dm}{\enot (\metav{A} \eor \metav{B})}\dem{ab}
+\end{fitchproof}}
 \emph{These are all of the additional rules of our proof system for TFL.}
 
 \practiceproblems
@@ -1271,7 +1271,7 @@ And the fourth is the reverse of the third:
 The following proofs are missing their citations (rule and line numbers). Add them wherever they are required:
 \begin{earg}
 \item 
-	\begin{proof}
+	\begin{fitchproof}
 \hypo{1}{W \eif \enot B}
 \hypo{2}{A \eand W}
 \hypo{2b}{B \eor (J \eand K)}
@@ -1279,8 +1279,8 @@ The following proofs are missing their citations (rule and line numbers). Add th
 \have{4}{\enot B} {}
 \have{5}{J \eand K} {}
 \have{6}{K}{}
-\end{proof}
-\item\begin{proof}
+\end{fitchproof}
+\item\begin{fitchproof}
 \hypo{1}{L \eiff \enot O}
 \hypo{2}{L \eor \enot O}
 \open
@@ -1291,8 +1291,8 @@ The following proofs are missing their citations (rule and line numbers). Add th
 \close
 \have{3b}{\enot\enot L}{}
 \have{3}{L}{}
-\end{proof}
-\item\begin{proof}
+\end{fitchproof}
+\item\begin{fitchproof}
 \hypo{1}{Z \eif (C \eand \enot N)}
 \hypo{2}{\enot Z \eif (N \eand \enot C)}
 \open
@@ -1313,7 +1313,7 @@ The following proofs are missing their citations (rule and line numbers). Add th
 \close
 \have{3b}{\enot\enot(N \eor C)}{}
 \have{3}{N \eor C}{}
-\end{proof}
+\end{fitchproof}
 \end{earg}
 
 \problempart 
@@ -1330,16 +1330,16 @@ Give a proof for each of these arguments:
 \chapter{Proof-theoretic concepts}\label{s:ProofTheoreticConcepts}
 
 In this chapter we will introduce some new vocabulary. The following expression:
-$$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \proves \meta{C}$$
-means that there is some proof which starts with assumptions among $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ and ends with $\meta{C}$ (and contains no undischarged assumptions other than those we started with). Derivatively, we will write:
-$$\proves \meta{A}$$
-to mean that there is a proof of $\meta{A}$ with no assumptions. 
+$$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \proves \metav{C}$$
+means that there is some proof which starts with assumptions among $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ and ends with $\metav{C}$ (and contains no undischarged assumptions other than those we started with). Derivatively, we will write:
+$$\proves \metav{A}$$
+to mean that there is a proof of $\metav{A}$ with no assumptions. 
 
 The symbol `$\proves$' is called the \emph{single turnstile}. We want to emphasize that this is not the {double turnstile} symbol (`$\entails$') that we introduced in chapter~\ref{s:SemanticConcepts} to symbolize entailment. The single turnstile, `$\proves$', concerns the existence of proofs; the double turnstile, `$\entails$', concerns the existence of valuations (or interpretations, when used for FOL). \emph{They are very different notions.}
 
-Armed with our `$\proves$' symbol, we can introduce some more terminology. To say that there is a proof of $\meta{A}$ with no undischarged assumptions, we write: ${} \proves \meta{A}$. In this case, we say that $\meta{A}$ is a \define{theorem}.
+Armed with our `$\proves$' symbol, we can introduce some more terminology. To say that there is a proof of $\metav{A}$ with no undischarged assumptions, we write: ${} \proves \metav{A}$. In this case, we say that $\metav{A}$ is a \define{theorem}.
 	\factoidbox{\label{def:syntactic_tautology_in_sl}
-		$\meta{A}$ is a \define{theorem} iff $\proves \meta{A}$
+		$\metav{A}$ is a \define{theorem} iff $\proves \metav{A}$
 	}
 \newglossaryentry{theorem}
 {
@@ -1348,7 +1348,7 @@ description={A sentence that can be proved without any premises}
 }
 
         To illustrate this, suppose we want to show that `$\enot (A \eand \enot A)$' is a theorem.  So we need a proof of `$\enot(A \eand \enot A)$' which has \emph{no} undischarged assumptions. However, since we want to prove a sentence whose main logical operator is a negation, we will want to start with a \emph{subproof} within which we assume `$A \eand \enot A$', and show that this assumption leads to contradiction. All told, then, the proof looks like this:
-	\begin{proof}
+	\begin{fitchproof}
 		\open
 			\hypo{con}{A \eand \enot A}
 			\have{a}{A}\ae{con}
@@ -1356,14 +1356,14 @@ description={A sentence that can be proved without any premises}
 			\have{red}{\ered}\ne{na, a}
 		\close
 		\have{lnc}{\enot (A \eand \enot A)}\ni{con-red}
-	\end{proof}
+	\end{fitchproof}
 We have therefore proved `$\enot (A \eand \enot A)$' on no (undischarged) assumptions. This particular theorem is an instance of what is sometimes called \emph{the Law of Non-Contradiction}.
 
 To show that something is a theorem, you just have to find a suitable proof. It is typically much harder to show that something is \emph{not} a theorem. To do this, you would have to demonstrate, not just that certain proof strategies fail, but that \emph{no} proof is possible. Even if you fail in trying to prove a sentence in a thousand different ways, perhaps the proof is just too long and complex for you to make out. Perhaps you just didn't try hard enough.
 
 Here is another new bit of terminology:
 	\factoidbox{
-		Two sentences \meta{A} and \meta{B} are \define{provably equivalent} iff each can be proved from the other; i.e., both $\meta{A}\proves\meta{B}$ and $\meta{B}\proves\meta{A}$.
+		Two sentences \metav{A} and \metav{B} are \define{provably equivalent} iff each can be proved from the other; i.e., both $\metav{A}\proves\metav{B}$ and $\metav{B}\proves\metav{A}$.
 	}
         
 \newglossaryentry{provably equivalent}
@@ -1378,7 +1378,7 @@ As in the case of showing that a sentence is a theorem, it is relatively easy to
 
 Here is a third, related, bit of terminology:
 	\factoidbox{
-		The sentences $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n$ are \define{provably inconsistent} iff a contradiction can be proved from them, i.e., $\meta{A}_1,\meta{A}_2,\ldots, \meta{A}_n \proves \ered$. If they are not \define{inconsistent}, we call them \define{provably consistent}.
+		The sentences $\metav{A}_1,\metav{A}_2,\ldots, \metav{A}_n$ are \define{provably inconsistent} iff a contradiction can be proved from them, i.e., $\metav{A}_1,\metav{A}_2,\ldots, \metav{A}_n \proves \ered$. If they are not \define{inconsistent}, we call them \define{provably consistent}.
 	}
         
 \newglossaryentry{provably inconsistent}
@@ -1438,11 +1438,11 @@ Show that each of the following pairs of sentences are provably equivalent:
 \end{earg}
 
 \problempart
-If you know that $\meta{A}\proves\meta{B}$, what can you say about $(\meta{A}\eand\meta{C})\proves\meta{B}$? What about $(\meta{A}\eor\meta{C})\proves\meta{B}$? Explain your answers.
+If you know that $\metav{A}\proves\metav{B}$, what can you say about $(\metav{A}\eand\metav{C})\proves\metav{B}$? What about $(\metav{A}\eor\metav{C})\proves\metav{B}$? Explain your answers.
 
 \
 
-\problempart In this chapter, we claimed that it is just as hard to show that two sentences are not provably equivalent, as it is to show that a sentence is not a theorem. Why did we claim this? (\emph{Hint}: think of a sentence that would be a theorem iff \meta{A} and \meta{B} were provably equivalent.)
+\problempart In this chapter, we claimed that it is just as hard to show that two sentences are not provably equivalent, as it is to show that a sentence is not a theorem. Why did we claim this? (\emph{Hint}: think of a sentence that would be a theorem iff \metav{A} and \metav{B} were provably equivalent.)
 
 
 \chapter{Derived rules}\label{s:Derived}
@@ -1450,168 +1450,168 @@ In this section, we will see why we introduced the rules of our proof system in 
 
 \section{Derivation of Reiteration}
 To illustrate what it means to derive a \emph{rule} from other rules, first consider reiteration. It is a basic rule of our system, but it is also not necessary. Suppose you have some sentence on some line of your deduction:
-\begin{proof}
-	\have[m]{a}{\meta{A}}
-\end{proof}
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+\end{fitchproof}
 You now want to repeat yourself, on some line $k$. You could just invoke the rule~R. But equally well, you can do this with other basic rules of \S\ref{s:BasicTFL}:
-\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[k]{aa}{\meta{A} \eand \meta{A}}\ai{a, a}
-	\have{a2}{\meta{A}}\ae{aa}
-\end{proof}
-To be clear: this is not a proof. Rather, it is a proof \emph{scheme}. After all, it uses a variable, `$\meta{A}$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\meta{A}$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[k]{aa}{\metav{A} \eand \metav{A}}\ai{a, a}
+	\have{a2}{\metav{A}}\ae{aa}
+\end{fitchproof}
+To be clear: this is not a proof. Rather, it is a proof \emph{scheme}. After all, it uses a variable, `$\metav{A}$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\metav{A}$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
 
 Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the basic rules of \S\ref{s:BasicTFL} without~R. That is what it means to say that the rule~R can be derived from the other basic rules: anything that can be justified using~R can be justified using only the other basic rules.
 
 
 \section{Derivation of Disjunctive Syllogism}
 Suppose that you are in a proof, and you have something of this form:
-\begin{proof}
-	\have[m]{ab}{\meta{A}\eor\meta{B}}
-	\have[n]{na}{\enot \meta{A}}
-\end{proof}
-You now want, on line $k$, to prove $\meta{B}$. You can do this with the rule of DS, introduced in \S\ref{s:Further}, but equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
-	\begin{proof}
-		\have[m]{ab}{\meta{A}\eor\meta{B}}
-		\have[n]{na}{\enot \meta{A}}
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eor\metav{B}}
+	\have[n]{na}{\enot \metav{A}}
+\end{fitchproof}
+You now want, on line $k$, to prove $\metav{B}$. You can do this with the rule of DS, introduced in \S\ref{s:Further}, but equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
+	\begin{fitchproof}
+		\have[m]{ab}{\metav{A}\eor\metav{B}}
+		\have[n]{na}{\enot \metav{A}}
 		\open
-			\hypo[k]{a}{\meta{A}}
+			\hypo[k]{a}{\metav{A}}
 			\have{red}{\ered}\ne{na, a}
-			\have{b1}{\meta{B}}\re{red}
+			\have{b1}{\metav{B}}\re{red}
 		\close
 		\open
-			\hypo{b}{\meta{B}}
-			\have{b2}{\meta{B}}\by{R}{b}
+			\hypo{b}{\metav{B}}
+			\have{b2}{\metav{B}}\by{R}{b}
 		\close
-	\have{con}{\meta{B}}\oe{ab, a-b1, b-b2}
-\end{proof}
+	\have{con}{\metav{B}}\oe{ab, a-b1, b-b2}
+\end{fitchproof}
 So the DS rule, again, can be derived from our more basic rules. Adding it to our system did not make any new proofs possible. Anytime you use the DS rule, you could always take a few extra lines and prove the same thing using only our basic rules. It is a \emph{derived} rule.
 
 \section{Derivation of Modus Tollens}
 Suppose you have the following in your proof:
-\begin{proof}
-	\have[m]{ab}{\meta{A}\eif\meta{B}}
-	\have[n]{a}{\enot\meta{B}}
-\end{proof}
-You now want, on line $k$, to prove $\enot \meta{A}$. You can do this with the rule of MT, introduced in \S\ref{s:Further}. Equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
-\begin{proof}
-	\have[m]{ab}{\meta{A}\eif\meta{B}}
-	\have[n]{nb}{\enot\meta{B}}
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eif\metav{B}}
+	\have[n]{a}{\enot\metav{B}}
+\end{fitchproof}
+You now want, on line $k$, to prove $\enot \metav{A}$. You can do this with the rule of MT, introduced in \S\ref{s:Further}. Equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eif\metav{B}}
+	\have[n]{nb}{\enot\metav{B}}
 		\open
-		\hypo[k]{a}{\meta{A}}
-		\have{b}{\meta{B}}\ce{ab, a}
+		\hypo[k]{a}{\metav{A}}
+		\have{b}{\metav{B}}\ce{ab, a}
 		\have{nb1}{\ered}\ne{nb, b}
 		\close
-	\have{no}{\enot\meta{A}}\ni{a-nb1}
-\end{proof}
+	\have{no}{\enot\metav{A}}\ni{a-nb1}
+\end{fitchproof}
 Again, the rule of MT can be derived from the \emph{basic} rules of \S\ref{s:BasicTFL}.
 
 \section{Derivation of Double-Negation Elimination}
 Consider the following deduction scheme:
-	\begin{proof}
-	\have[m]{m}{\enot \enot \meta{A}}
+	\begin{fitchproof}
+	\have[m]{m}{\enot \enot \metav{A}}
 	\open
-		\hypo[k]{a}{\enot\meta{A}}
+		\hypo[k]{a}{\enot\metav{A}}
 		\have{a1}{\ered}\ne{m, a}
 	\close
-	\have{con}{\meta{A}}\ip{a-a1}
-\end{proof}
+	\have{con}{\metav{A}}\ip{a-a1}
+\end{fitchproof}
 Again,  we can derive the DNE rule from the \emph{basic} rules of \S\ref{s:BasicTFL}.
 
 \section{Derivation of Excluded Middle}
 Suppose you want to prove something using the LEM rule, i.e., you have in your proof
-\begin{proof}
+\begin{fitchproof}
   \open
-  \hypo[m]{a}{\meta{A}}
-  \have[n]{aaa}{\meta{B}}
+  \hypo[m]{a}{\metav{A}}
+  \have[n]{aaa}{\metav{B}}
   \close
   \open
-  \hypo[k]{b}{\enot\meta{A}}
-  \have[l]{bbb}{\meta{B}}
+  \hypo[k]{b}{\enot\metav{A}}
+  \have[l]{bbb}{\metav{B}}
   \close
-\end{proof}
-You now want, on line $l+1$, to prove $\meta{B}$. The rule LEM from \S\ref{s:Further} would allow you to do it. But can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}?
+\end{fitchproof}
+You now want, on line $l+1$, to prove $\metav{B}$. The rule LEM from \S\ref{s:Further} would allow you to do it. But can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}?
 
-One option is to first prove $\meta{A} \eor \enot\meta{A}$, and then apply $\eor$E, i.e.\ proof by cases:
-\begin{proof}
+One option is to first prove $\metav{A} \eor \enot\metav{A}$, and then apply $\eor$E, i.e.\ proof by cases:
+\begin{fitchproof}
   \open
-  \hypo[m]{a}{\meta{A}}
-  \have[n]{aaa}{\meta{B}}
+  \hypo[m]{a}{\metav{A}}
+  \have[n]{aaa}{\metav{B}}
   \close
   \open
-  \hypo[k]{b}{\enot\meta{A}}
-  \have[l]{bbb}{\meta{B}}
+  \hypo[k]{b}{\enot\metav{A}}
+  \have[l]{bbb}{\metav{B}}
   \close
   \ellipsesline
-  \have[i]{tnd}{\meta{A} \eor \enot \meta{A}}
-  \have[i+1]{fin}{\meta{B}}\oe{tnd, a-aaa,b-bbb}
-\end{proof}
-(We gave a proof of $\meta{A} \eor \enot\meta{A}$ using only our basic rules in \S\ref{s:proofLEM}.)
+  \have[i]{tnd}{\metav{A} \eor \enot \metav{A}}
+  \have[i+1]{fin}{\metav{B}}\oe{tnd, a-aaa,b-bbb}
+\end{fitchproof}
+(We gave a proof of $\metav{A} \eor \enot\metav{A}$ using only our basic rules in \S\ref{s:proofLEM}.)
 
-Here is another way that is a bit more complicated than the ones before. What you have to do is embed your two subproofs inside another subproof. The assumption of the subproof will be $\enot \meta{B}$, and the last line will be $\ered$. Thus, the complete subproof is the kind you need to conclude \meta{B} using IP. Inside the proof, you'd have to do a bit more work to get~$\ered$:
-\begin{proof}
+Here is another way that is a bit more complicated than the ones before. What you have to do is embed your two subproofs inside another subproof. The assumption of the subproof will be $\enot \metav{B}$, and the last line will be $\ered$. Thus, the complete subproof is the kind you need to conclude \metav{B} using IP. Inside the proof, you'd have to do a bit more work to get~$\ered$:
+\begin{fitchproof}
   \open
-  \hypo[m]{nb}{\enot\meta{B}}
+  \hypo[m]{nb}{\enot\metav{B}}
   \open
-  \hypo{a}{\meta{A}}
+  \hypo{a}{\metav{A}}
   \ellipsesline
-  \have[n]{aaa}{\meta{B}}
+  \have[n]{aaa}{\metav{B}}
   \have{aaaa}{\ered}\ne{nb, aaa}
   \close
   \open
-  \hypo{b}{\enot\meta{A}}
+  \hypo{b}{\enot\metav{A}}
   \ellipsesline
-  \have[l]{bbb}{\meta{B}}
+  \have[l]{bbb}{\metav{B}}
   \have{bbbb}{\ered}\ne{nb, bbb}
   \close
-  \have{na}{\enot\meta{A}}\ni{(a)-(aaaa)}
-  \have{nna}{\enot\enot\meta{A}}\ni{(b)-(bbbb)}
+  \have{na}{\enot\metav{A}}\ni{(a)-(aaaa)}
+  \have{nna}{\enot\enot\metav{A}}\ni{(b)-(bbbb)}
   \have{bot}{\ered}\ne{nna, na}
   \close
-  \have{B}{\meta{B}}\ip{nb-(bot)}
-\end{proof}
+  \have{B}{\metav{B}}\ip{nb-(bot)}
+\end{fitchproof}
 Note that because we add an assumption at the top and additional conclusions inside the subproofs, the line numbers change. You may have to stare at this for a while before you understand what's going on.
 
 
 \section{Derivation of De Morgan rules}
 Here is a demonstration of how we could derive the first De Morgan rule:
- 	\begin{proof}
-		\have[m]{nab}{\enot (\meta{A} \eand \meta{B})}
+ 	\begin{fitchproof}
+		\have[m]{nab}{\enot (\metav{A} \eand \metav{B})}
 		\open
-			\hypo[k]{a}{\meta{A}}
+			\hypo[k]{a}{\metav{A}}
 			\open
-				\hypo{b}{\meta{B}}
-				\have{ab}{\meta{A} \eand \meta{B}}\ai{a,b}
+				\hypo{b}{\metav{B}}
+				\have{ab}{\metav{A} \eand \metav{B}}\ai{a,b}
 				\have{nab1}{\ered}\ne{nab, ab}
 			\close
-			\have{nb}{\enot \meta{B}}\ni{b-nab1}
-			\have{dis}{\enot\meta{A} \eor \enot \meta{B}}\oi{nb}
+			\have{nb}{\enot \metav{B}}\ni{b-nab1}
+			\have{dis}{\enot\metav{A} \eor \enot \metav{B}}\oi{nb}
 		\close
 		\open
-			\hypo{na1}{\enot \meta{A}}
-			\have{dis1}{\enot\meta{A} \eor \enot \meta{B}}\oi{na1}
+			\hypo{na1}{\enot \metav{A}}
+			\have{dis1}{\enot\metav{A} \eor \enot \metav{B}}\oi{na1}
 		\close
-		\have{con}{\enot \meta{A} \eor \enot \meta{B}}\tnd{a-dis, na1-dis1}
-	\end{proof}
+		\have{con}{\enot \metav{A} \eor \enot \metav{B}}\tnd{a-dis, na1-dis1}
+	\end{fitchproof}
 Here is a demonstration of how we could derive the second De Morgan rule:
- 	\begin{proof}
-		\have[m]{nab}{\enot \meta{A} \eor \enot \meta{B}}
+ 	\begin{fitchproof}
+		\have[m]{nab}{\enot \metav{A} \eor \enot \metav{B}}
 		\open
-			\hypo[k]{ab}{\meta{A} \eand \meta{B}}
-			\have{a}{\meta{A}}\ae{ab}
-			\have{b}{\meta{B}}\ae{ab}
+			\hypo[k]{ab}{\metav{A} \eand \metav{B}}
+			\have{a}{\metav{A}}\ae{ab}
+			\have{b}{\metav{B}}\ae{ab}
 			\open
-				\hypo{na}{\enot \meta{A}}
+				\hypo{na}{\enot \metav{A}}
 				\have{c1}{\ered}\ne{na, a}
 			\close
 			\open
-				\hypo{nb}{\enot \meta{B}}
+				\hypo{nb}{\enot \metav{B}}
 				\have{c2}{\ered}\ne{nb, b}
 			\close
 			\have{con2}{\ered}\oe{nab, na-c1, nb-c2}
 		\close
-		\have{nab}{\enot (\meta{A} \eand \meta{B})}\ni{ab-con2}
-	\end{proof}
+		\have{nab}{\enot (\metav{A} \eand \metav{B})}\ni{ab-con2}
+	\end{fitchproof}
 Similar demonstrations can be offered explaining how we could derive the third and fourth De Morgan rules. These are left as exercises.
 
 
@@ -1629,21 +1629,21 @@ The proofs you offered in response to the practice exercises of \S\S\ref{s:Furth
 \
 
 \problempart
-Give a proof of $\meta{A} \eor \enot\meta{A}$. Then
+Give a proof of $\metav{A} \eor \enot\metav{A}$. Then
 give a proof that \emph{uses only the basic rules}.
 
 \
 
 \problempart
 Show that if you had LEM as a basic rule, you could justify IP as a derived rule. That is, suppose you had the proof:
-\begin{proof}
+\begin{fitchproof}
   \open
-  \hypo[m]{a}{\enot\meta{A}}
+  \hypo[m]{a}{\enot\metav{A}}
   \have[\ ]{aa}{\dots}
   \have[n]{aaa}{\ered}
   \close
-\end{proof}
-How could you use it to prove \meta{A} without using IP but with using LEM as well as all the other basic rules?
+\end{fitchproof}
+How could you use it to prove \metav{A} without using IP but with using LEM as well as all the other basic rules?
 
 \
 
@@ -1653,9 +1653,9 @@ Give a proof of the first De Morgan rule, but using only the basic rules, in par
 \chapter{Soundness and completeness}
 \label{sec:soundness_and_completeness}
 
-In \S\ref{s:ProofTheoreticConcepts}, we saw that we could use derivations to test for the same concepts we used truth tables to test for. Not only could we use derivations to prove that an argument is valid, we could also use them to test if a sentence is a tautology or a pair of sentences are equivalent. We also started using the single turnstile the same way we used the double turnstile. If we could prove that \meta{A} was a tautology with a truth table, we wrote $\entails \meta{A}$, and if we could prove it using a derivation, we wrote $\proves \meta{A}.$ 
+In \S\ref{s:ProofTheoreticConcepts}, we saw that we could use derivations to test for the same concepts we used truth tables to test for. Not only could we use derivations to prove that an argument is valid, we could also use them to test if a sentence is a tautology or a pair of sentences are equivalent. We also started using the single turnstile the same way we used the double turnstile. If we could prove that \metav{A} was a tautology with a truth table, we wrote $\entails \metav{A}$, and if we could prove it using a derivation, we wrote $\proves \metav{A}.$ 
 
-You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \meta{A} is a tautology using truth tables, can you also always show that it is a theorem using a derivation? Is the reverse true? Are these things also true for valid arguments and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately and then proving them equivalent. That is, we imagine that we actually have two notions of validity, valid$_{\entails}$ and  valid$_{\proves}$ and then show that the two concepts always work the same way. 
+You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \metav{A} is a tautology using truth tables, can you also always show that it is a theorem using a derivation? Is the reverse true? Are these things also true for valid arguments and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately and then proving them equivalent. That is, we imagine that we actually have two notions of validity, valid$_{\entails}$ and  valid$_{\proves}$ and then show that the two concepts always work the same way. 
 
 To begin with, we need to define all of our logical concepts separately for truth tables and derivations. A lot of this work has already been done. We handled all of the truth table definitions in \S\ref{s:SemanticConcepts}. We have also already given syntactic definitions for tautologies (theorems) and pairs of logically equivalent sentences. The other definitions follow naturally. For most logical properties we can devise a test using derivations, and those that we cannot test for directly can be defined in terms of the concepts that we can define.
 
@@ -1703,15 +1703,15 @@ This argument from $\proves $ to $\entails $ is the problem of \define{\gls{soun
 
 The proof that we will sketch depends on the fact that we initially defined a sentence of TFL using an inductive definition (see p.~\pageref{TFLsentences}). We could have also used inductive definitions to define a proper proof in TFL and a proper truth table. \nix{Later this will be a truth assignment}(Although we didn't.) If we had these definitions, we could then use a \emph{inductive proof} to show the soundness of TFL. An inductive proof works the same way as an inductive definition. With the inductive definition, we identified a group of base elements that were stipulated to be examples of the thing we were trying to define. In the case of a TFL sentence, the base class was the set of sentence letters $A$, $B$, $C$, \dots. We just announced that these were sentences. The second step of an inductive definition is to say that anything that is built up from your base class using certain rules also counts as an example of the thing you are defining. In the case of a definition of a sentence, the rules corresponded to the five sentential connectives (see p.~\pageref{TFLsentences}). Once you have established an inductive definition, you can use that definition to show that all the members of the class you have defined have a certain property. You simply prove that the property is true of the members of the base class, and then you prove that the rules for extending the base class don't change the property. This is what it means to give an inductive proof.
 
-Even though we don't have an inductive definition of a proof in TFL, we can sketch how an inductive proof of the soundness of TFL would go. Imagine a base class of one-line proofs, one for each of our eleven rules of inference. The members of this class would look like this $\meta{A}, \meta{B} \proves  \meta{A} \eand \meta{B}$; $\meta{A} \eand \meta{B} \proves \meta{A}$; $\meta{A} \eor \meta{B}, \enot\meta{A} \proves  \meta{B}$ \ldots{} etc. Since some rules have a couple different forms, we would have to have add some members to this base class, for instance $\meta{A} \eand \meta{B} \proves  \meta{B}$ Notice that these are all statements in the metalanguage. The proof that TFL is sound is not a part of TFL, because TFL does not have the power to talk about itself. 
+Even though we don't have an inductive definition of a proof in TFL, we can sketch how an inductive proof of the soundness of TFL would go. Imagine a base class of one-line proofs, one for each of our eleven rules of inference. The members of this class would look like this $\metav{A}, \metav{B} \proves  \metav{A} \eand \metav{B}$; $\metav{A} \eand \metav{B} \proves \metav{A}$; $\metav{A} \eor \metav{B}, \enot\metav{A} \proves  \metav{B}$ \ldots{} etc. Since some rules have a couple different forms, we would have to have add some members to this base class, for instance $\metav{A} \eand \metav{B} \proves  \metav{B}$ Notice that these are all statements in the metalanguage. The proof that TFL is sound is not a part of TFL, because TFL does not have the power to talk about itself. 
 
-You can use truth tables to prove to yourself that each of these one-line proofs in this base class is valid$_{\entails}$. For instance the proof $\meta{A}, \meta{B} \proves \meta{A} \eand \meta{B}$ corresponds to a truth table that shows $\meta{A}, \meta{B} \entails  \meta{A} \eand \meta{B}$ This establishes the first part of our inductive proof. 
+You can use truth tables to prove to yourself that each of these one-line proofs in this base class is valid$_{\entails}$. For instance the proof $\metav{A}, \metav{B} \proves \metav{A} \eand \metav{B}$ corresponds to a truth table that shows $\metav{A}, \metav{B} \entails  \metav{A} \eand \metav{B}$ This establishes the first part of our inductive proof. 
 
-The next step is to show that adding lines to any proof will never change a valid$_{\entails}$ proof into an invalid$_{\entails}$ one. We would need to do this for each of our eleven basic rules of inference. So, for instance, for \eand{I} we need to show that for any proof $\meta{A}_{1}$, \dots, $\meta{A}_{n} \proves  \meta {B}$ adding a line where we use \eand{I} to infer $\meta{C} \eand \meta{D}$, where $\meta{C} \eand \meta{D}$ can be legitimately inferred from $\meta{A}_{1}$, \dots, $\meta{A}_{n}$,~$\meta{B}$, would not change a valid proof into an invalid proof. But wait, if we can legitimately derive $\meta{C} \eand \meta{D}$ from these premises, then $\meta{C}$ and $\meta{D}$ must be already available in the proof. They are either already among $\meta{A}_{1}$, \dots, $\meta{A}_{n}$,~$\meta {B}$, or can be legitimately derived from them. As such, any truth table line in which the premises are true must be a truth table line in which \meta{C} and \meta{D} are true. According to the characteristic truth table for \eand, this means that $\meta{C} \eand \meta{D}$ is also true on that line. Therefore, $\meta{C} \eand \meta{D}$ validly follows from the premises. This means that using the {\eand}E rule to extend a valid proof produces another valid proof.
+The next step is to show that adding lines to any proof will never change a valid$_{\entails}$ proof into an invalid$_{\entails}$ one. We would need to do this for each of our eleven basic rules of inference. So, for instance, for \eand{I} we need to show that for any proof $\metav{A}_{1}$, \dots, $\metav{A}_{n} \proves  \metav {B}$ adding a line where we use \eand{I} to infer $\metav{C} \eand \metav{D}$, where $\metav{C} \eand \metav{D}$ can be legitimately inferred from $\metav{A}_{1}$, \dots, $\metav{A}_{n}$,~$\metav{B}$, would not change a valid proof into an invalid proof. But wait, if we can legitimately derive $\metav{C} \eand \metav{D}$ from these premises, then $\metav{C}$ and $\metav{D}$ must be already available in the proof. They are either already among $\metav{A}_{1}$, \dots, $\metav{A}_{n}$,~$\metav {B}$, or can be legitimately derived from them. As such, any truth table line in which the premises are true must be a truth table line in which \metav{C} and \metav{D} are true. According to the characteristic truth table for \eand, this means that $\metav{C} \eand \metav{D}$ is also true on that line. Therefore, $\metav{C} \eand \metav{D}$ validly follows from the premises. This means that using the {\eand}E rule to extend a valid proof produces another valid proof.
 
 In order to show that the proof system is sound, we would need to show this for the other inference rules. Since the derived rules are consequences of the basic rules, it would suffice to provide similar arguments for the 11 other basic rules. This tedious exercise falls beyond the scope of this book.
 
-So we have shown that $\meta{A} \proves  \meta{B}$ implies $\meta{A} \entails \meta{B}.$ What about the other direction, that is why think that \emph{every} argument that can be shown valid using truth tables can also be proven using a derivation. 
+So we have shown that $\metav{A} \proves  \metav{B}$ implies $\metav{A} \entails \metav{B}.$ What about the other direction, that is why think that \emph{every} argument that can be shown valid using truth tables can also be proven using a derivation. 
 
 \newglossaryentry{completeness}
 {

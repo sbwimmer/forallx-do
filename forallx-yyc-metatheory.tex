@@ -3,7 +3,7 @@
 \label{ch.normalform}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
-\chapter[Normal forms]{Normal forms and expressive completeness}
+\chapter[Normal forms]{Normal forms and functional completeness}
 
 
 \section{Disjunctive Normal Form}\label{s:DNFDefined}
@@ -19,7 +19,7 @@ Let's say that a sentence is in \define{disjunctive normal form} \emph{iff} it m
 \newglossaryentry{disjunctive normal form}{
   name = disjunctive normal form (DNF),
   text = disjunctive normal form,
-  description = {a sentence which is a disjunction of conjunctions of atomic sentences or negated atomic sentences}
+  description = {A sentence which is a disjunction of conjunctions of atomic sentences or negated atomic sentences}
 }
 So, here are are some sentences in disjunctive normal form:
 \begin{align*}
@@ -31,8 +31,8 @@ So, here are are some sentences in disjunctive normal form:
 \end{align*}
 Note that we have here broken one of the maxims of this book and \emph{temporarily} allowed ourselves to employ the relaxed bracketing-conventions that allow conjunctions and disjunctions to be of arbitrary length. These conventions make it easier to see when a sentence is in disjunctive normal form. We will continue to help ourselves to these relaxed conventions, without further comment.
 
-To further illustrate the idea of disjunctive normal form, we will introduce some more notation. We write `$\pm\meta{A}$' to indicate that $\meta{A}$ is an atomic sentence which may or may not be prefaced with an occurrence of negation. Then a sentence in disjunctive normal form has the following shape:
-	$$(\pm \meta{A}_1 \land \ldots \land \pm \meta{A}_i) \lor (\pm \meta{A}_{i+1} \land \ldots \land \pm\meta{A}_j) \lor \ldots \lor (\pm\meta{A}_{m+1} \land \ldots \land \pm \meta{A}_n)$$
+To further illustrate the idea of disjunctive normal form, we will introduce some more notation. We write `$\pm\metav{A}$' to indicate that $\metav{A}$ is an atomic sentence which may or may not be prefaced with an occurrence of negation. Then a sentence in disjunctive normal form has the following shape:
+	$$(\pm \metav{A}_1 \land \ldots \land \pm \metav{A}_i) \lor (\pm \metav{A}_{i+1} \land \ldots \land \pm\metav{A}_j) \lor \ldots \lor (\pm\metav{A}_{m+1} \land \ldots \land \pm \metav{A}_n)$$
 We now know what it is for a sentence to be in disjunctive normal form. The result that we are aiming at is:
 	\factoidbox{\label{thm:dnf}\textbf{Disjunctive Normal Form Theorem.} For any sentence, there is a logically equivalent sentence in disjunctive normal form.
 	}
@@ -44,10 +44,10 @@ Henceforth, we will abbreviate `Disjunctive Normal Form' by `DNF'.
 
 Our first proof of the DNF Theorem employs truth tables. We will first illustrate the technique for finding an equivalent sentence in DNF, and then turn this illustration into a rigorous proof. 
 
-Let's suppose we have some sentence, $\meta{S}$, which contains three atomic sentences, `$A$', `$B$' and `$C$'. The very first thing to do is fill out a complete truth table for $\meta{S}$. Maybe we end up with this:
+Let's suppose we have some sentence, $\metav{S}$, which contains three atomic sentences, `$A$', `$B$' and `$C$'. The very first thing to do is fill out a complete truth table for $\metav{S}$. Maybe we end up with this:
 \begin{center}
 \begin{tabular}{c c c | c}
-$A$ & $B$ & $C$ & $\meta{S}$\\
+$A$ & $B$ & $C$ & $\metav{S}$\\
 \hline
  T & T & T & T \\
  T & T & F & F \\
@@ -69,7 +69,7 @@ $A$ & $B$ & $C$ & $\meta{S}$\\
 %	$$(A \eand \enot B \eand C) \eor (\enot A \eand \enot B \eand C)$$
 %then it will be true on exactly \emph{two} lines of the truth table which describes all possible valuations of `$A$', `$B$' and `$C$'. 
 %
-As it happens, $\meta{S}$ is true on four lines of its truth table, namely lines 1, 3, 7 and 8. Corresponding to each of those lines, we will write down four sentences, whose only connectives are negations and conjunctions, where every negation has minimal scope:
+As it happens, $\metav{S}$ is true on four lines of its truth table, namely lines 1, 3, 7 and 8. Corresponding to each of those lines, we will write down four sentences, whose only connectives are negations and conjunctions, where every negation has minimal scope:
 	\begin{earg}
 		\item  `$A \eand B \eand C$'\hfill which is true on line 1 (and only then)
 		\item `$A \eand \enot B \eand C$' \hfill which is true on line 3 (and only then)
@@ -78,31 +78,31 @@ As it happens, $\meta{S}$ is true on four lines of its truth table, namely lines
 	\end{earg}
 We now combine all of these conjunctions using~$\eor$, like so:
 $$(A \eand B \eand C) \eor (A \eand \enot B \eand C) \eor (\enot A \eand \enot B \eand C) \eor (\enot A \eand \enot B \eand \enot C)$$
-This gives us a sentence in DNF which is true on exactly those lines where one of the disjuncts is true, i.e.\ it is true on (and only on) lines 1, 3, 7, and 8. So this sentence has exactly the same truth table as $\meta{S}$. So we have a sentence in DNF that is logically equivalent to $\meta{S}$, which is exactly what we wanted!
+This gives us a sentence in DNF which is true on exactly those lines where one of the disjuncts is true, i.e.\ it is true on (and only on) lines 1, 3, 7, and 8. So this sentence has exactly the same truth table as $\metav{S}$. So we have a sentence in DNF that is logically equivalent to $\metav{S}$, which is exactly what we wanted!
 
-Now, the strategy that we just adopted did not depend on the specifics of $\meta{S}$; it is perfectly general. Consequently, we can use it to obtain a simple proof of the DNF Theorem.
+Now, the strategy that we just adopted did not depend on the specifics of $\metav{S}$; it is perfectly general. Consequently, we can use it to obtain a simple proof of the DNF Theorem.
 
-Pick any arbitrary sentence, $\meta{S}$, and let $\meta{A}_1, \ldots, \meta{A}_n$ be the atomic sentences that occur in $\meta{S}$. To obtain a sentence in DNF that is logically equivalent $\meta{S}$, we consider $\meta{S}$'s truth table. There are two cases to consider:
+Pick any arbitrary sentence, $\metav{S}$, and let $\metav{A}_1, \ldots, \metav{A}_n$ be the atomic sentences that occur in $\metav{S}$. To obtain a sentence in DNF that is logically equivalent $\metav{S}$, we consider $\metav{S}$'s truth table. There are two cases to consider:
 	\begin{enumerate}
-		\item \emph{$\meta{S}$ is false on every line of its truth table.} Then, $\meta{S}$ is a contradiction. In that case, the contradiction $(\meta{A}_1 \eand \enot \meta{A}_1)$ is in DNF and logically equivalent to~$\meta{S}$. 
+		\item \emph{$\metav{S}$ is false on every line of its truth table.} Then, $\metav{S}$ is a contradiction. In that case, the contradiction $(\metav{A}_1 \eand \enot \metav{A}_1)$ is in DNF and logically equivalent to~$\metav{S}$. 
 	
-		\item \emph{$\meta{S}$ is true on at least one line of its truth table.}
-		For each line $i$ of the truth table, let $\meta{B}_i$ be a conjunction of the form 
-		$$(\pm\meta{A}_1 \land \ldots \land \pm\meta{A}_n)$$
+		\item \emph{$\metav{S}$ is true on at least one line of its truth table.}
+		For each line $i$ of the truth table, let $\metav{B}_i$ be a conjunction of the form 
+		$$(\pm\metav{A}_1 \land \ldots \land \pm\metav{A}_n)$$
 		where the following rules determine whether or not to include a negation in front of each atomic sentence:
 			\begin{align*}
-				\meta{A}_m\text{ is a conjunct of }\meta{B}_i&\emph{ iff }\meta{A}_m\text{ is true on line }i\\
-				\enot\meta{A}_m\text{ is a conjunct of }\meta{B}_i&\emph{ iff }\meta{A}_m\text{ is false on line }i
+				\metav{A}_m\text{ is a conjunct of }\metav{B}_i&\emph{ iff }\metav{A}_m\text{ is true on line }i\\
+				\enot\metav{A}_m\text{ is a conjunct of }\metav{B}_i&\emph{ iff }\metav{A}_m\text{ is false on line }i
 			\end{align*}
-		Given these rules, $\meta{B_i}$ is true on (and only on) line $i$ of the truth table which considers all possible valuations of $\meta{A}_1, \ldots, \meta{A}_n$ (i.e.\ $\meta{S}$'s truth table). 
+		Given these rules, $\metav{B_i}$ is true on (and only on) line $i$ of the truth table which considers all possible valuations of $\metav{A}_1, \ldots, \metav{A}_n$ (i.e.\ $\metav{S}$'s truth table). 
 		
-		Next, let $i_1$, $i_2$, \dots, $i_m$ be the numbers of the lines of the truth table where $\meta{S}$ is \emph{true}. Now let $\meta{D}$ be the sentence:
-		$$\meta{B}_{i_1} \eor \meta{B}_{i_2} \eor \ldots \eor \meta{B}_{i_m}$$
-		Since $\meta{S}$ is true on at least one line of its truth table, $\meta{D}$ is indeed well-defined; and in the limiting case where $\meta{S}$ is true on exactly one line of its truth table, $\meta{D}$ is just $\meta{B}_{i_1}$, for some $i_1$.
+		Next, let $i_1$, $i_2$, \dots, $i_m$ be the numbers of the lines of the truth table where $\metav{S}$ is \emph{true}. Now let $\metav{D}$ be the sentence:
+		$$\metav{B}_{i_1} \eor \metav{B}_{i_2} \eor \ldots \eor \metav{B}_{i_m}$$
+		Since $\metav{S}$ is true on at least one line of its truth table, $\metav{D}$ is indeed well-defined; and in the limiting case where $\metav{S}$ is true on exactly one line of its truth table, $\metav{D}$ is just $\metav{B}_{i_1}$, for some $i_1$.
 		
-		By construction, $\meta{D}$ is in DNF. Moreover, by construction, for each line~$i$ of the truth table: $\meta{S}$ is true on line $i$ of the truth table \emph{iff} one of $\meta{D}$'s disjuncts (namely, $\meta{B_i}$) is true on, and only on, line $i$. Hence $\meta{S}$ and $\meta{D}$ have the same truth table, and so are logically equivalent.
+		By construction, $\metav{D}$ is in DNF. Moreover, by construction, for each line~$i$ of the truth table: $\metav{S}$ is true on line $i$ of the truth table \emph{iff} one of $\metav{D}$'s disjuncts (namely, $\metav{B_i}$) is true on, and only on, line $i$. Hence $\metav{S}$ and $\metav{D}$ have the same truth table, and so are logically equivalent.
 	\end{enumerate}
-	These two cases are exhaustive and, either way, we have a sentence in DNF that is logically equivalent to $\meta{S}$.
+	These two cases are exhaustive and, either way, we have a sentence in DNF that is logically equivalent to $\metav{S}$.
 
 So we have proved the DNF Theorem. Before we say any more, though, we should immediately flag that we are hereby returning to the austere definition of a (TFL) sentence, according to which we can assume that any conjunction has exactly two conjuncts, and any disjunction has exactly two disjuncts.
 
@@ -121,21 +121,21 @@ The definition of CNF is exactly analogous to the definition of DNF. So, a sente
 \newglossaryentry{conjunctive normal form}{
   name = conjunctive normal form (DNF),
   text = conjunctive normal form,
-  description = {a sentence which is a conjunction of disjunctions of atomic sentences or negated atomic sentences}
+  description = {A sentence which is a conjunction of disjunctions of atomic sentences or negated atomic sentences}
 }
 Generally, then, a sentence in CNF looks like this
-	$$(\pm \meta{A}_1 \lor \ldots \lor \pm \meta{A}_i) \land (\pm \meta{A}_{i+1} \lor \ldots \lor \pm\meta{A}_j) \land \ldots \land (\pm\meta{A}_{m+1} \lor\ldots \lor \pm \meta{A}_n)$$
-where each $\meta{A}_k$ is an atomic sentence.
+	$$(\pm \metav{A}_1 \lor \ldots \lor \pm \metav{A}_i) \land (\pm \metav{A}_{i+1} \lor \ldots \lor \pm\metav{A}_j) \land \ldots \land (\pm\metav{A}_{m+1} \lor\ldots \lor \pm \metav{A}_n)$$
+where each $\metav{A}_k$ is an atomic sentence.
 
 We can now prove another normal form theorem:
 	\factoidbox{\label{thm:cnf}\textbf{Conjunctive Normal Form Theorem.} For any sentence, there is a logically equivalent sentence in conjunctive normal form.}
 
         
-	Given a TFL sentence, $\meta{S}$, we begin by writing down the complete truth table for $\meta{S}$.
+	Given a TFL sentence, $\metav{S}$, we begin by writing down the complete truth table for $\metav{S}$.
 	
-	If $\meta{S}$ is \emph{true} on every line of the truth table, then $\meta{S}$ and $(\meta{A}_1 \eor \enot \meta{A}_1)$ are logically equivalent.
+	If $\metav{S}$ is \emph{true} on every line of the truth table, then $\metav{S}$ and $(\metav{A}_1 \eor \enot \metav{A}_1)$ are logically equivalent.
 	
-	If $\meta{S}$ is \emph{false} on at least one line of the truth table then, for every line on the truth table where $\meta{S}$ is false, write down a disjunction $(\pm\meta{A}_1 \eor \ldots \eor \pm\meta{A}_n)$ which is \emph{false} on (and only on) that line. Let $\meta{C}$ be the conjunction of all of these disjuncts; by construction, $\meta{C}$ is in CNF and $\meta{S}$ and $\meta{C}$ are logically equivalent.
+	If $\metav{S}$ is \emph{false} on at least one line of the truth table then, for every line on the truth table where $\metav{S}$ is false, write down a disjunction $(\pm\metav{A}_1 \eor \ldots \eor \pm\metav{A}_n)$ which is \emph{false} on (and only on) that line. Let $\metav{C}$ be the conjunction of all of these disjuncts; by construction, $\metav{C}$ is in CNF and $\metav{S}$ and $\metav{C}$ are logically equivalent.
 
 \practiceproblems
 \problempart
@@ -151,7 +151,7 @@ Consider the following sentences:
 	\end{earg}
         For each sentence, find a logically equivalent sentence in DNF and one in CNF.
         
-\section{The expressive adequacy of TFL}
+\section{The functional completeness of TFL}
 
 Of our connectives, $\enot$ attaches to a single sentences, and the others all combine exactly two sentences. We may also introduce the idea of an $n$-place connective. For example, we could consider a three-place connective, `$\heartsuit$', and stipulate that it is to have the following characteristic truth table:
 \begin{center}
@@ -170,16 +170,16 @@ $A$ & $B$ & $C$ & $\heartsuit(A,B,C)$\\
 \end{center}
 Probably this new connective would not correspond with any natural English expression (at least not in the way that `$\eand$' corresponds with `and'). But a question arises: if we wanted to employ a connective with this characteristic truth table, must we add a \emph{new} connective to TFL? Or can we get by with the connectives we \emph{already have}?
 
-Let us make this question more precise. Say that some connectives are \define{jointly expressively adequate} \emph{iff}, for any possible truth table, there is a sentence containing only those connectives with that truth table.
+Let us make this question more precise. Say that some connectives are \define{jointly functionally complete} \emph{iff}, for any possible truth table, there is a sentence containing only those connectives with that truth table.
 
-\newglossaryentry{expressively adequate}{
-  name = {expressive adequacy},
-  text = {expressively adequate},
-  description = {property of a collection of connectives which holds iff every possible truth table is the truth table of a sentence involving only those connectives}}
+\newglossaryentry{functionally complete}{
+  name = {functional completeness},
+  text = {functionally complete},
+  description = {Property of a collection of connectives which holds iff every possible truth table is the truth table of a sentence involving only those connectives}}
 
-The general point is, when we are armed with some jointly expressively adequate connectives, no characteristic truth table lies beyond our grasp. And in fact, we are in luck.
-	\factoidbox{\label{thm:ExpressiveAdequacy}\textbf{Expressive Adequacy Theorem.}
-The connectives of TFL are jointly expressively adequate. Indeed, the following pairs of connectives are jointly expressively adequate:
+The general point is, when we are armed with some jointly functionally complete connectives, no characteristic truth table lies beyond our grasp. And in fact, we are in luck.
+	\factoidbox{\label{thm:ExpressiveAdequacy}\textbf{Functional Completeness Theorem.}
+The connectives of TFL are jointly functionally complete. Indeed, the following pairs of connectives are jointly functionally complete:
 \begin{earg}
 \item\label{expressive:eor} `$\enot$' and `$\eor$'
 \item\label{expressive:eand} `$\enot$' and `$\eand$'
@@ -188,37 +188,37 @@ The connectives of TFL are jointly expressively adequate. Indeed, the following 
 
 Given any truth table, we can use the method of proving the DNF Theorem (or the CNF Theorem) via truth tables, to write down a scheme which has the same truth table. For example, employing the truth table method for proving the DNF Theorem, we find that the following scheme has the same characteristic truth table as $\heartsuit(A,B,C)$, above:
 		$$(A \eand B \eand \enot C) \eor (A \eand \enot B \eand C) \eor (\enot A \eand B \eand \enot C)$$			
-It follows that the connectives of TFL are jointly expressively adequate. We now prove each of the subsidiary results.
+It follows that the connectives of TFL are jointly functionally complete. We now prove each of the subsidiary results.
 	
-\emph{Subsidiary Result \ref{expressive:eor}: expressive adequacy of `$\enot$' and `$\eor$'.} Observe that the scheme that we generate, using the truth table method of proving the DNF Theorem, will only contain the connectives `$\enot$', `$\eand$' and `$\eor$'. So it suffices to show that there is an equivalent scheme which contains only `$\enot$' and `$\eor$'. To show do this, we simply consider that
+\emph{Subsidiary Result \ref{expressive:eor}: functional completeness of `$\enot$' and `$\eor$'.} Observe that the scheme that we generate, using the truth table method of proving the DNF Theorem, will only contain the connectives `$\enot$', `$\eand$' and `$\eor$'. So it suffices to show that there is an equivalent scheme which contains only `$\enot$' and `$\eor$'. To show do this, we simply consider that
 		\begin{align*}
-		(\meta{A} \eand \meta{B}) & \text{\quad and \quad} \enot(\enot \meta{A} \eor\enot \meta{B})
+		(\metav{A} \eand \metav{B}) & \text{\quad and \quad} \enot(\enot \metav{A} \eor\enot \metav{B})
 		\end{align*}
 		are logically equivalent.
 
-\emph{Subsidiary Result \ref{expressive:eand}: expressive adequacy of `$\enot$' and `$\eand$'.} Exactly as in Subsidiary Result~\ref{expressive:eor}, making use of the fact that
+\emph{Subsidiary Result \ref{expressive:eand}: functional completeness of `$\enot$' and `$\eand$'.} Exactly as in Subsidiary Result~\ref{expressive:eor}, making use of the fact that
 		\begin{align*}
-		(\meta{A} \eor \meta{B}) & \text{\quad and \quad}\enot(\enot \meta{A} \eand\enot \meta{B})
+		(\metav{A} \eor \metav{B}) & \text{\quad and \quad}\enot(\enot \metav{A} \eand\enot \metav{B})
 		\end{align*}
 are logically equivalent.
 
-\emph{Subsidiary Result \ref{expressive:eif}: expressive adequacy of `$\enot$' and `$\eif$'.} Exactly as in Subsidiary Result~\ref{expressive:eor}, making use of these equivalences instead:
+\emph{Subsidiary Result \ref{expressive:eif}: functional completeness of `$\enot$' and `$\eif$'.} Exactly as in Subsidiary Result~\ref{expressive:eor}, making use of these equivalences instead:
 		\begin{align*}
-		(\meta{A} \eor \meta{B}) &\text{\quad and \quad} (\enot \meta{A} \eif \meta{B})\\
-		(\meta{A} \eand \meta{B}) &\text{\quad and \quad} \enot(\meta{A} \eif \enot\meta{B})
+		(\metav{A} \eor \metav{B}) &\text{\quad and \quad} (\enot \metav{A} \eif \metav{B})\\
+		(\metav{A} \eand \metav{B}) &\text{\quad and \quad} \enot(\metav{A} \eif \enot\metav{B})
 		\end{align*}
 Alternatively, we could simply rely upon one of the other two subsidiary results, and (repeatedly) invoke only one of these two equivalences.
 
 In short, there is never any \emph{need} to add new connectives to TFL. Indeed, there is already some redundancy among the connectives we have: we could have made do with just two connectives, if we had been feeling really austere.
 
-\section{Individually expressively adequate connectives}
+\section{Individually functionally complete connectives}
 
-In fact, some two-place connectives are \emph{individually} expressively adequate. These connectives are not standardly included in TFL, since they are rather cumbersome to use. But their existence shows that, if we had wanted to, we could have defined a truth-functional language that was expressively adequate, which contained only a single primitive connective.
+In fact, some two-place connectives are \emph{individually} functionally complete. These connectives are not standardly included in TFL, since they are rather cumbersome to use. But their existence shows that, if we had wanted to, we could have defined a truth-functional language that was functionally complete, which contained only a single primitive connective.
 
 The first such connective we will consider is `$\uparrow$', which has the following characteristic truth table. 
 \begin{center}
 \begin{tabular}{c c | c}
-$\meta{A}$ & $\meta{B}$ & $\meta{A} \mathrel{\uparrow} \meta{B}$\\
+$\metav{A}$ & $\metav{B}$ & $\metav{A} \mathrel{\uparrow} \metav{B}$\\
 \hline
  T & T & F \\
  T & F & T \\
@@ -227,19 +227,19 @@ $\meta{A}$ & $\meta{B}$ & $\meta{A} \mathrel{\uparrow} \meta{B}$\\
 \end{tabular}
 \end{center}
  This is often called `the Sheffer stroke', after Henry Sheffer, who used it to show how to reduce the number of logical connectives in Russell and Whitehead's \emph{Principia Mathematica}.\footnote{Sheffer, `A Set of Five Independent Postulates for Boolean Algebras, with application to logical constants,' (1913, \emph{Transactions of the American Mathematical Society} 14.4)} (In fact, Charles Sanders Peirce had anticipated Sheffer by about 30 years, but never published his results.)\footnote{See Peirce, `A Boolian Algebra with One Constant', which dates to c.1880; and Peirce's \emph{Collected Papers}, 4.264--5.} It is quite common, as well, to call it `nand', since its characteristic truth table is the negation of the truth table for `$\eand$'.
-\factoidbox{\label{prop:upexpressive}`$\uparrow$' is expressively adequate all by itself.}
+\factoidbox{\label{prop:upexpressive}`$\uparrow$' is functionally complete all by itself.}
 
-The Expressive Adequacy Theorem tells us that `$\enot$' and `$\eor$' are jointly expressively adequate. So it suffices to show that, given any scheme which contains only those two connectives, we can rewrite it as a logically equivalent scheme which contains only `$\uparrow$'. As in the proof of the subsidiary cases of the Expressive Adequacy Theorem, then, we simply apply the following equivalences:
+The functional completeness Theorem tells us that `$\enot$' and `$\eor$' are jointly functionally complete. So it suffices to show that, given any scheme which contains only those two connectives, we can rewrite it as a logically equivalent scheme which contains only `$\uparrow$'. As in the proof of the subsidiary cases of the functional completeness Theorem, then, we simply apply the following equivalences:
 		\begin{align*}
-			\enot \meta{A} &\text{\quad and \quad} (\meta{A} \uparrow \meta{A})\\
-			(\meta{A} \eor \meta{B}) & \text{\quad and \quad} ((\meta{A} \uparrow \meta{A}) \uparrow (\meta{B} \uparrow \meta{B}))
+			\enot \metav{A} &\text{\quad and \quad} (\metav{A} \uparrow \metav{A})\\
+			(\metav{A} \eor \metav{B}) & \text{\quad and \quad} ((\metav{A} \uparrow \metav{A}) \uparrow (\metav{B} \uparrow \metav{B}))
 		\end{align*}
 to the Subsidiary Result~\ref{expressive:eor}.
 
 Similarly, we can consider the connective `$\downarrow$':
 \begin{center}
 \begin{tabular}{c c | c}
-$\meta{A}$ & $\meta{B}$ & $\meta{A} \mathrel{\downarrow} \meta{B}$\\
+$\metav{A}$ & $\metav{B}$ & $\metav{A} \mathrel{\downarrow} \metav{B}$\\
 \hline
  T & T & F \\
  T & F & F  \\
@@ -249,26 +249,26 @@ $\meta{A}$ & $\meta{B}$ & $\meta{A} \mathrel{\downarrow} \meta{B}$\\
 \end{center}
 This is sometimes called the `Peirce arrow' (Peirce himself called it `ampheck'). More often, though, it is called `nor', since its characteristic truth table is the negation of `$\eor$', that is, of `neither \dots{} nor \dots'.
 	\factoidbox{
-	`$\downarrow$' is expressively adequate all by itself. }
+	`$\downarrow$' is functionally complete all by itself. }
 
 As in the previous result for $\uparrow$, although invoking the equivalences:
 		\begin{align*}
-			\enot \meta{A} &\text{\quad and \quad} (\meta{A} \downarrow \meta{A})\\
-			(\meta{A} \eand \meta{B}) & \text{\quad and \quad} ((\meta{A} \downarrow \meta{A}) \downarrow (\meta{B} \downarrow \meta{B}))
+			\enot \metav{A} &\text{\quad and \quad} (\metav{A} \downarrow \metav{A})\\
+			(\metav{A} \eand \metav{B}) & \text{\quad and \quad} ((\metav{A} \downarrow \metav{A}) \downarrow (\metav{B} \downarrow \metav{B}))
 		\end{align*}
 and Subsidiary Result~\ref{expressive:eand}.
 
 
-\section{Failures of expressive adequacy}
+\section{Failures of functional completeness}
 
-In fact, the \emph{only} two-place connectives which are individually expressively adequate are `$\uparrow$' and `$\downarrow$'. But how would we show this? More generally, how can we show that some connectives are \emph{not} jointly expressively adequate? 
+In fact, the \emph{only} two-place connectives which are individually functionally complete are `$\uparrow$' and `$\downarrow$'. But how would we show this? More generally, how can we show that some connectives are \emph{not} jointly functionally complete? 
  
 The obvious thing to do is to try to find some truth table which we \emph{cannot} express, using just the given connectives. But there is a bit of an art to this.
 
-To make this concrete, let's consider the question of whether `$\eor$' is expressively adequate all by itself. After a little reflection, it should be clear that it is not. In particular, it should be clear that any scheme which only contains disjunctions cannot have the same truth table as negation, i.e.:
+To make this concrete, let's consider the question of whether `$\eor$' is functionally complete all by itself. After a little reflection, it should be clear that it is not. In particular, it should be clear that any scheme which only contains disjunctions cannot have the same truth table as negation, i.e.:
 				\begin{center}
 				\begin{tabular}{c | c}
-				$\meta{A}$ & $\enot \meta{A}$\\
+				$\metav{A}$ & $\enot \metav{A}$\\
 				\hline
 				 T & F \\
 				 F & T
@@ -276,13 +276,13 @@ To make this concrete, let's consider the question of whether `$\eor$' is expres
 				\end{center}
 The intuitive reason, why this should be so, is simple: the top line of the desired truth table needs to have the value False; but the top line of any truth table for a scheme which \emph{only} contains $\eor$ will always be True. The same is true for $\eand$, $\eif$, and $\eiff$.
  	\factoidbox{
-		`$\eor$', `$\eand$', `$\eif$', and `$\eiff$' are not expressively adequate by themselves.}
+		`$\eor$', `$\eand$', `$\eif$', and `$\eiff$' are not functionally complete by themselves.}
 
 In fact, the following is true:
         
-\factoidbox{The \emph{only} two-place connectives that are expressively adequate by themselves are `$\uparrow$' and `$\downarrow$'. }
+\factoidbox{The \emph{only} two-place connectives that are functionally complete by themselves are `$\uparrow$' and `$\downarrow$'. }
 
-This is of course harder to prove than for the primitive connectives. For instance, the ``exclusive or'' connective does not have a T in the first line of its characteristic truth table, and so the method used above no longer suffices to show that it cannot express all truth tables.  It is also harder to show that, e.g., `$\eiff$' and `$\enot$' \emph{together} are not expressively adequate.
+This is of course harder to prove than for the primitive connectives. For instance, the ``exclusive or'' connective does not have a T in the first line of its characteristic truth table, and so the method used above no longer suffices to show that it cannot express all truth tables.  It is also harder to show that, e.g., `$\eiff$' and `$\enot$' \emph{together} are not functionally complete.
 
 
 \chapter{Soundness}\label{ch:Soundness}
@@ -290,15 +290,15 @@ This is of course harder to prove than for the primitive connectives. For instan
 In this chapter we relate TFL's semantics to its natural deduction \emph{proof system} (as defined in Part~\ref{ch.NDTFL}). We will prove that the formal proof system is safe: you can only prove sentences from premises from which they actually follow.
 Intuitively, a formal proof system is sound iff it does not allow you to prove any invalid arguments. This is obviously a highly desirable property. It tells us that our proof system will never lead us astray. Indeed, if our proof system were not sound, then we would not be able to trust our proofs. The aim of this chapter is to prove that our proof system is sound.
 
-Let's make the idea more precise. We'll abbreviate a list of sentences using the greek letter $\Gamma$ (`gamma'). A formal proof system is \define{sound} (relative to a given semantics) \emph{iff}, whenever there is a formal proof of $\meta{C}$ from assumptions among $\Gamma$, then $\Gamma$ genuinely entails $\meta{C}$ (given that semantics). Otherwise put, to prove that TFL's proof system is sound, we need to prove the following
+Let's make the idea more precise. We'll abbreviate a list of sentences using the greek letter $\Gamma$ (`gamma'). A formal proof system is \define{sound} (relative to a given semantics) \emph{iff}, whenever there is a formal proof of $\metav{C}$ from assumptions among $\Gamma$, then $\Gamma$ genuinely entails $\metav{C}$ (given that semantics). Otherwise put, to prove that TFL's proof system is sound, we need to prove the following
 
-\begin{factoidboxe}\textbf{Soundness Theorem.} For any sentences $\Gamma$ and $\meta{C}$: if $\Gamma\proves\meta{C}$, then $\Gamma \entails\meta{C}$
+\begin{factoidboxe}\textbf{Soundness Theorem.} For any sentences $\Gamma$ and $\metav{C}$: if $\Gamma\proves\metav{C}$, then $\Gamma \entails\metav{C}$
 \end{factoidboxe}
 
 To prove this, we will check each of the rules of TFL's proof system individually. We want to show that no application of those rules ever leads us astray. Since a proof just involves repeated application of those rules, this will show that no proof ever leads us astray. Or at least, that is the general idea.
 
 To begin with, we must make the idea of `leading us astray' more precise. Say that a line of a proof is \define{shiny} iff the assumptions on which that line depends tautologically entail the sentence on that line.\footnote{The word `shiny' is not standard among logicians.} To illustrate the idea, consider the following:
-	\begin{proof}
+	\begin{fitchproof}
 		\hypo{fgh}{F\eif(G\eand H)}
 		\open
 			\hypo{f}{F}
@@ -306,14 +306,14 @@ To begin with, we must make the idea of `leading us astray' more precise. Say th
 			\have{g}{G}\ae{gh}
 		\close
 		\have{fg}{F \eif G}\ci{f-g}
-	\end{proof}\noindent\noindent
+	\end{fitchproof}\noindent\noindent
 Line $1$ is shiny iff $F \eif (G \eand H) \entails F \eif (G \eand H)$. You should be easily convinced that line $1$ is, indeed, shiny! Similarly, line $4$ is shiny iff $F \eif (G \eand H), F \entails G$. Again, it is easy to check that line $4$ is shiny. As is every line in this TFL-proof. We want to show that this is no coincidence. That is, we want to prove:
 	\begin{factoidboxe}\textbf{Shininess Lemma.}
 		Every line of every TFL-proof is shiny.
 	\end{factoidboxe}\noindent
 Then we will know that we have never gone astray, on any line of a proof. Indeed, given the Shininess Lemma, it will be easy to prove the Soundness Theorem:
 
-\emph{Proof.} Suppose $\Gamma \proves \meta{C}$. Then there is a TFL-proof, with $\meta{C}$ appearing on its last line, whose only undischarged assumptions are among $\Gamma$. The Shininess Lemma tells us that every line on every TFL-proof is shiny. So this last line is shiny, i.e.\ $\Gamma \entails \meta{C}$. QED
+\emph{Proof.} Suppose $\Gamma \proves \metav{C}$. Then there is a TFL-proof, with $\metav{C}$ appearing on its last line, whose only undischarged assumptions are among $\Gamma$. The Shininess Lemma tells us that every line on every TFL-proof is shiny. So this last line is shiny, i.e.\ $\Gamma \entails \metav{C}$. QED
 
 It remains to prove the Shininess Lemma. 
 
@@ -330,26 +330,26 @@ It remains to show that every rule is rule-sound. This is not difficult, but it 
 \begin{factoidboxe}Introducing an assumption is rule-sound.
 \end{factoidboxe}
 
-If $\meta{A}$ is introduced as an assumption on line $n$, then $\meta{A}$ is among $\Delta_n$, and so $\Delta_n \entails \meta{A}$.
+If $\metav{A}$ is introduced as an assumption on line $n$, then $\metav{A}$ is among $\Delta_n$, and so $\Delta_n \entails \metav{A}$.
 
 \begin{factoidboxe}$\eand$I is rule-sound.
 \end{factoidboxe}
 
 \emph{Proof.} Consider any application of $\eand$I in any TFL-proof, i.e., something like:
-\begin{proof}
-	\have[i]{a}{\meta{A}}
-	\have[j]{b}{\meta{B}}
-	\have[n]{c}{\meta{A}\eand\meta{B}} \ai{a, b}
-\end{proof}\noindent
-To show that $\eand$I is rule-sound, we assume that every line before line $n$ is shiny; and we aim to show that line $n$ is shiny, i.e.\ that $\Delta_n \entails \meta{A} \eand \meta{B}$. 
+\begin{fitchproof}
+	\have[i]{a}{\metav{A}}
+	\have[j]{b}{\metav{B}}
+	\have[n]{c}{\metav{A}\eand\metav{B}} \ai{a, b}
+\end{fitchproof}\noindent
+To show that $\eand$I is rule-sound, we assume that every line before line $n$ is shiny; and we aim to show that line $n$ is shiny, i.e.\ that $\Delta_n \entails \metav{A} \eand \metav{B}$. 
 
 So, let $v$ be any valuation that makes all of $\Delta_{n}$ true. 
 
-We first show that $v$ makes $\meta{A}$ true. To prove this, note that all of $\Delta_i$ are among $\Delta_{n}$. By hypothesis, line $i$ is shiny. So any valuation that makes all of $\Delta_i$ true makes $\meta{A}$ true. Since $v$ makes all of $\Delta_i$ true, it makes $\meta{A}$ true too.
+We first show that $v$ makes $\metav{A}$ true. To prove this, note that all of $\Delta_i$ are among $\Delta_{n}$. By hypothesis, line $i$ is shiny. So any valuation that makes all of $\Delta_i$ true makes $\metav{A}$ true. Since $v$ makes all of $\Delta_i$ true, it makes $\metav{A}$ true too.
 
-We can similarly see that $v$ makes $\meta{B}$ true. 
+We can similarly see that $v$ makes $\metav{B}$ true. 
 
-So $v$ makes $\meta{A}$ true and $v$ makes $\meta{B}$ true. Consequently, $v$ makes $\meta{A}\eand\meta{B}$ true. So any valuation that makes all of the sentences among $\Delta_{n}$ true also makes $\meta{A} \eand \meta{B}$ true. That is: line $n$ is shiny. QED
+So $v$ makes $\metav{A}$ true and $v$ makes $\metav{B}$ true. Consequently, $v$ makes $\metav{A}\eand\metav{B}$ true. So any valuation that makes all of the sentences among $\Delta_{n}$ true also makes $\metav{A} \eand \metav{B}$ true. That is: line $n$ is shiny. QED
 
 
 All of the remaining lemmas establishing rule-soundness will have, essentially, the same structure as this one did. 
@@ -359,11 +359,11 @@ All of the remaining lemmas establishing rule-soundness will have, essentially, 
 
 \emph{Proof.}
 	Assume that every line before line $n$ on some TFL-proof is shiny, and that $\eand$E is used on line $n$. So the situation is:
-		   \begin{proof}
-			   \have[i]{ab}{\meta{A}\eand\meta{B}}
-			   \have[n]{a}{\meta{A}} \ae{ab}
-		   \end{proof}\noindent
-(or perhaps with $\meta{B}$ on line $n$ instead; but similar reasoning will apply in that case). Let $v$ be any valuation that makes all of $\Delta_{n}$ true. Note that all of $\Delta_i$ are among $\Delta_{n}$. By hypothesis, line $i$ is shiny. So any valuation that makes all of $\Delta_i$ true makes $\meta{A}\eand\meta{B}$ true. So $v$ makes $\meta{A}\eand\meta{B}$ true, and hence makes $\meta{A}$ true. So $\Delta_{n} \entails \meta{A}$. QED
+		   \begin{fitchproof}
+			   \have[i]{ab}{\metav{A}\eand\metav{B}}
+			   \have[n]{a}{\metav{A}} \ae{ab}
+		   \end{fitchproof}\noindent
+(or perhaps with $\metav{B}$ on line $n$ instead; but similar reasoning will apply in that case). Let $v$ be any valuation that makes all of $\Delta_{n}$ true. Note that all of $\Delta_i$ are among $\Delta_{n}$. By hypothesis, line $i$ is shiny. So any valuation that makes all of $\Delta_i$ true makes $\metav{A}\eand\metav{B}$ true. So $v$ makes $\metav{A}\eand\metav{B}$ true, and hence makes $\metav{A}$ true. So $\Delta_{n} \entails \metav{A}$. QED
 
 
 \begin{factoidboxe}$\eor$I is rule-sound.
@@ -376,24 +376,24 @@ We leave this as an exercise.
 
 \emph{Proof.}
 	Assume that every line before line $n$ on some TFL-proof is shiny, and that $\eand$E is used on line $n$. So the situation is:
-   \begin{proof}
-	   \have[m]{aob}{\meta{A}\eor\meta{B}}
+   \begin{fitchproof}
+	   \have[m]{aob}{\metav{A}\eor\metav{B}}
 	   \open
-		   \hypo[i]{a}{\meta{A}} %\by{want \meta{C}}{}
-		   \have[j]{c1}{\meta{C}}
+		   \hypo[i]{a}{\metav{A}} %\by{want \metav{C}}{}
+		   \have[j]{c1}{\metav{C}}
 	   \close
 	   \open
-		   \hypo[k]{b}{\meta{B}} %\by{want \meta{C}}{}
-		   \have[l]{c2}{\meta{C}}
+		   \hypo[k]{b}{\metav{B}} %\by{want \metav{C}}{}
+		   \have[l]{c2}{\metav{C}}
 	   \close
-	   \have[n]{ab}{\meta{C}}\oe{aob, a-c1,b-c2}
-   \end{proof}\noindent
-Let $v$ be any valuation that makes all of $\Delta_{n}$ true. Note that all of $\Delta_m$ are among $\Delta_{n}$. By hypothesis, line $m$ is shiny. So any valuation that makes $\Delta_{n}$ true makes $\meta{A} \eor \meta{B}$ true. So in particular, $v$ makes $\meta{A} \eor \meta{B}$ true, and hence either $v$ makes $\meta{A}$ true, or $v$ makes $\meta{B}$ true. We now reason through these two cases:
+	   \have[n]{ab}{\metav{C}}\oe{aob, a-c1,b-c2}
+   \end{fitchproof}\noindent
+Let $v$ be any valuation that makes all of $\Delta_{n}$ true. Note that all of $\Delta_m$ are among $\Delta_{n}$. By hypothesis, line $m$ is shiny. So any valuation that makes $\Delta_{n}$ true makes $\metav{A} \eor \metav{B}$ true. So in particular, $v$ makes $\metav{A} \eor \metav{B}$ true, and hence either $v$ makes $\metav{A}$ true, or $v$ makes $\metav{B}$ true. We now reason through these two cases:
    \begin{ebullet}
-	   \item[\emph{Case 1: $v$ makes $\meta{A}$ true.}] All of $\Delta_i$ are among $\Delta_{n}$, with the possible exception of $\meta{A}$. Since $v$ makes all of $\Delta_{n}$ true, and also makes $\meta{A}$ true,  $v$ makes all of $\Delta_i$ true. Now, by assumption, line $j$ is shiny; so $\Delta_{j} \entails \meta{C}$. But the sentences $\Delta_i$ are just the sentences $\Delta_{j}$, so $\Delta_i \entails \meta{C}$. So, any valuation that makes all of $\Delta_i$ true makes $\meta{C}$ true. But $v$ is just such a valuation. So $v$ makes $\meta{C}$ true. 
-	   \item[\emph{Case 2: $v$ makes $\meta{B}$ true.}] Reasoning in exactly the same way, considering lines $k$ and $l$, $v$ makes $\meta{C}$ true.
+	   \item[\emph{Case 1: $v$ makes $\metav{A}$ true.}] All of $\Delta_i$ are among $\Delta_{n}$, with the possible exception of $\metav{A}$. Since $v$ makes all of $\Delta_{n}$ true, and also makes $\metav{A}$ true,  $v$ makes all of $\Delta_i$ true. Now, by assumption, line $j$ is shiny; so $\Delta_{j} \entails \metav{C}$. But the sentences $\Delta_i$ are just the sentences $\Delta_{j}$, so $\Delta_i \entails \metav{C}$. So, any valuation that makes all of $\Delta_i$ true makes $\metav{C}$ true. But $v$ is just such a valuation. So $v$ makes $\metav{C}$ true. 
+	   \item[\emph{Case 2: $v$ makes $\metav{B}$ true.}] Reasoning in exactly the same way, considering lines $k$ and $l$, $v$ makes $\metav{C}$ true.
 	   \end{ebullet}
-Either way, $v$ makes $\meta{C}$ true. So $\Delta_n \entails \meta{C}$.
+Either way, $v$ makes $\metav{C}$ true. So $\Delta_n \entails \metav{C}$.
 QED
 
 
@@ -403,12 +403,12 @@ QED
 
 \emph{Proof.}
 	Assume that every line before line $n$ on some TFL-proof is shiny, and that $\enot$E is used on line $n$. So the situation is:
-\begin{proof}
-   \have[i]{i}{\meta{A}} 
-   \have[j]{j}{\enot\meta{A}}
+\begin{fitchproof}
+   \have[i]{i}{\metav{A}} 
+   \have[j]{j}{\enot\metav{A}}
    \have[n]{nb}{\ered}\ri{i, j}
-\end{proof}\noindent
-Note that all of $\Delta_i$ and all of $\Delta_j$ are among $\Delta_{n}$. By hypothesis, lines $i$ and $j$ are shiny. So any valuation which makes all of $\Delta_{n}$ true would have to make both $\meta{A}$ and $\enot\meta{A}$ true. But no valuation can do that. So no valuation makes all of $\Delta_{n}$ true. So $\Delta_{n} \entails \ered$, vacuously.
+\end{fitchproof}\noindent
+Note that all of $\Delta_i$ and all of $\Delta_j$ are among $\Delta_{n}$. By hypothesis, lines $i$ and $j$ are shiny. So any valuation which makes all of $\Delta_{n}$ true would have to make both $\metav{A}$ and $\enot\metav{A}$ true. But no valuation can do that. So no valuation makes all of $\Delta_{n}$ true. So $\Delta_{n} \entails \ered$, vacuously.
 QED
 
 \begin{factoidboxe}
@@ -423,14 +423,14 @@ We leave this as an exercise.
 
 \emph{Proof.}
 	Assume that every line before line $n$ on some TFL-proof is shiny, and that $\enot$I is used on line $n$. So the situation is:
-\begin{proof}
+\begin{fitchproof}
    \open
-	   \hypo[i]{a}{\meta{A}}
+	   \hypo[i]{a}{\metav{A}}
 	   \have[j]{b}{\ered}
    \close
-   \have[n]{na}{\enot\meta{A}}\ni{a-b}
-\end{proof}\noindent
-Let $v$ be any valuation that makes all of $\Delta_{n}$ true. Note that all of $\Delta_{n}$ are among $\Delta_i$, with the possible exception of $\meta{A}$ itself. By hypothesis, line $j$ is shiny. But no valuation can make `$\ered$' true, so no valuation can make all of $\Delta_{j}$ true. Since the sentences $\Delta_i$ are just the sentences $\Delta_{j}$, no valuation can make all of $\Delta_i$ true. Since $v$ makes all of $\Delta_{n}$ true, it must therefore make $\meta{A}$ false, and so make $\enot \meta{A}$ true. So $\Delta_n \entails \enot \meta{A}$.
+   \have[n]{na}{\enot\metav{A}}\ni{a-b}
+\end{fitchproof}\noindent
+Let $v$ be any valuation that makes all of $\Delta_{n}$ true. Note that all of $\Delta_{n}$ are among $\Delta_i$, with the possible exception of $\metav{A}$ itself. By hypothesis, line $j$ is shiny. But no valuation can make `$\ered$' true, so no valuation can make all of $\Delta_{j}$ true. Since the sentences $\Delta_i$ are just the sentences $\Delta_{j}$, no valuation can make all of $\Delta_i$ true. Since $v$ makes all of $\Delta_{n}$ true, it must therefore make $\metav{A}$ false, and so make $\enot \metav{A}$ true. So $\Delta_n \entails \enot \metav{A}$.
 QED
 
 
@@ -445,7 +445,7 @@ This establishes that all the basic rules of our proof system are rule-sound. Fi
 \end{factoidboxe}
 
 \emph{Proof.}
-	Suppose that we used a derived rule to obtain some sentence, $\meta{A}$, on line $n$ of some TFL-proof, and that every earlier line is shiny. Every use of a derived rule can be replaced (at the cost of long-windedness) with multiple uses of basic rules. That is to say, we could have used basic rules to write $\meta{A}$ on some line $n + k$, without introducing any further assumptions. So, applying our individual results that all basic rules are rule-sound several times ($k + 1$ times, in fact), we can see that line $n+k$ is shiny. Hence the derived rule is rule-sound. 
+	Suppose that we used a derived rule to obtain some sentence, $\metav{A}$, on line $n$ of some TFL-proof, and that every earlier line is shiny. Every use of a derived rule can be replaced (at the cost of long-windedness) with multiple uses of basic rules. That is to say, we could have used basic rules to write $\metav{A}$ on some line $n + k$, without introducing any further assumptions. So, applying our individual results that all basic rules are rule-sound several times ($k + 1$ times, in fact), we can see that line $n+k$ is shiny. Hence the derived rule is rule-sound. 
 QED
 	
 

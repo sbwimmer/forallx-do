@@ -3,7 +3,7 @@
 %\label{ch.NDTFL}
 %\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
-\renewenvironment{proof} %TB: make proofs smaller, since space is a premium here
+\renewenvironment{fitchproof} %TB: make proofs smaller, since space is a premium here
 	{\noindent\par\noindent\small$\begin{nd}}
 	{\end{nd}$\noindent\normalsize\ignorespacesafterend}
 
@@ -12,7 +12,7 @@
 \problempart
 The following two `proofs' are \emph{incorrect}. Explain the mistakes they make.
 \begin{multicols}{2}
-\begin{proof}
+\begin{fitchproof}
 \hypo{abc}{(\enot L \land A) \eor L}
 \open
 \hypo{nla}{\enot L \eand A}
@@ -25,20 +25,20 @@ The following two `proofs' are \emph{incorrect}. Explain the mistakes they make.
         \have{a2}{A}\re{red}
 \close
 \have{con}{A}\oe{abc, nla-a, l-a2}
-\end{proof}
+\end{fitchproof}
 \vfill
-\noindent\myanswer{$\eand$E on line 4 can't be applied to line~1, since it is not of the form $\meta{A} \eand \meta{B}$.  `$A$' could be obtained by $\eand$E, but from line~2.}
+\noindent\myanswer{$\eand$E on line 4 can't be applied to line~1, since it is not of the form $\metav{A} \eand \metav{B}$.  `$A$' could be obtained by $\eand$E, but from line~2.}
 
 \myanswer{$\ered$I on line 5 illicitly refers to a line from a closed subproof (line~3).}
 \hfill
 \columnbreak
-\begin{proof}
+\begin{fitchproof}
 \hypo{abc}{A \eand (B \eand C)}
 \hypo{bcd}{(B \eor C) \eif D}
 \have{b}{B}\ae{abc}
 \have{bc}{B \eor C}\oi{b}
 \have{d}{D}\ce{bc, bcd}
-\end{proof}
+\end{fitchproof}
 \vfill
 \noindent\myanswer{$\eand$E on line 3 should yield `$B \eand C$'.  `$B$' could then be obtained by $\eand$E again.}
 
@@ -49,19 +49,19 @@ The following two `proofs' are \emph{incorrect}. Explain the mistakes they make.
 The following three proofs are missing their citations (rule and line numbers). Add them, to turn them into \textit{bona fide} proofs. Additionally, write down the argument that corresponds to each proof.
 \newpage
 \begin{multicols}{2}
-\begin{proof}
+\begin{fitchproof}
 \hypo{ps}{P \eand S}
 \hypo{nsor}{S \eif R}
 \have{p}{P}\ae{ps}
 \have{s}{S}\ae{ps}
 \have{r}{R}\ce{nsor, s}
 \have{re}{R \eor E}\oi{r}
-\end{proof}
+\end{fitchproof}
 \\\myanswer{Corresponding argument: \\$P \eand S, S \eif R \therefore R \eor E$}
 
 \bigskip
 
-\begin{proof}
+\begin{fitchproof}
 \hypo{ad}{A \eif D}
 \open
 	\hypo{ab}{A \eand B}
@@ -70,12 +70,12 @@ The following three proofs are missing their citations (rule and line numbers). 
 	\have{de}{D \eor E}\oi{d}
 \close
 \have{conc}{(A \eand B) \eif (D \eor E)}\ci{ab-de}
-\end{proof}
+\end{fitchproof}
 \\\myanswer{Corresponding argument: \\$A \eif D \therefore (A \eand B) \eif (D \eor E)$}
 
 \columnbreak
 
-\begin{proof}
+\begin{fitchproof}
 \hypo{nlcjol}{\enot L \eif (J \eor L)}
 \hypo{nl}{\enot L}
 \have{jol}{J \eor L}\ce{nlcjol, nl}
@@ -90,7 +90,7 @@ The following three proofs are missing their citations (rule and line numbers). 
 	\have{j3}{J}\re{red}
 \close
 \have{conc}{J}\oe{jol, j-j2, l-j3}
-\end{proof}
+\end{fitchproof}
 \\\myanswer{Corresponding argument:\\
 $\enot L \eif (J \eor L), \enot L \therefore J$}
 \end{multicols}
@@ -101,7 +101,7 @@ $\enot L \eif (J \eor L), \enot L \therefore J$}
 Give a proof for each of the following arguments:
 \begin{earg}
 \item $J\eif\enot J \therefore \enot J$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{jnj}{J \eif \enot J}
 \open
 	\hypo{j}{J}
@@ -109,10 +109,10 @@ Give a proof for each of the following arguments:
 	\have{red}{\ered}\ri{j, nj}
 \close
 \have{con}{\enot J}\ni{j-red}
-\end{proof}}
+\end{fitchproof}}
 
 \item $Q\eif(Q\eand\enot Q) \therefore \enot Q$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{qq}{Q \eif  (Q \eand \enot Q)}
 \open
 	\hypo{q}{Q}
@@ -121,10 +121,10 @@ Give a proof for each of the following arguments:
 	\have{red}{\ered}\ri{q, nq}
 \close
 \have{con}{\enot Q}\ni{q-red}
-\end{proof}}
+\end{fitchproof}}
 
 \item $A\eif (B\eif C) \therefore (A\eand B)\eif C$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{abc}{A \eif (B \eif C)}
 \open
 	\hypo{ab}{A \eand B}
@@ -134,10 +134,10 @@ Give a proof for each of the following arguments:
 	\have{c}{C}\ce{bc, b}	
 \close
 \have{con}{(A \eand B) \eif C}\ci{ab-c}
-\end{proof}}
+\end{fitchproof}}
 
 \item $K\eand L \therefore K\eiff L$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{kl}{K \eand L}
 \open
 	\hypo{k1}{K}
@@ -148,10 +148,10 @@ Give a proof for each of the following arguments:
 	\have{k2}{K}\ae{kl}
 \close
 \have{con}{K \eiff L}\bi{k1-l1, l2-k2}
-\end{proof}}
+\end{fitchproof}}
 
 \item $(C\eand D)\eor E \therefore E\eor D$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{cde}{(C \eand D) \eor E}
 \open
 	\hypo{cd}{C \eand D}
@@ -163,10 +163,10 @@ Give a proof for each of the following arguments:
 	\have{ed1}{E \eor D}\oi{e}
 \close
 \have{con}{E \eor D}\oe{cde, cd-ed, e-ed1}
-\end{proof}}
+\end{fitchproof}}
 
 \item $A\eiff B, B\eiff C \therefore A\eiff C$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{ab}{A \eiff B}
 \hypo{bc}{B \eiff C}
 \open
@@ -180,10 +180,10 @@ Give a proof for each of the following arguments:
 	\have{a1}{A}\be{ab, b1}
 \close
 \have{con}{A \eiff C}\bi{a-c, c1-a1}
-\end{proof}}
+\end{fitchproof}}
 
 \item $\enot F\eif G, F\eif H \therefore G\eor H$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{nfg}{\enot F \eif G}
 \hypo{fh}{F \eif H}
 \open
@@ -200,10 +200,10 @@ Give a proof for each of the following arguments:
         \have{bot2}{\ered}\ri{ncon, gh2}
 \close        
 \have{con}{G \eor H}\ip{ncon-bot2}
-\end{proof}}
+\end{fitchproof}}
 
 \item $(Z\eand K) \eor (K\eand M), K \eif D \therefore D$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{zkkm}{(Z \eand K) \eor (K \eand M)}
 \hypo{kd}{K \eif D}
 \open
@@ -216,10 +216,10 @@ Give a proof for each of the following arguments:
 \close
 \have{k2}{K}\oe{zkkm, zk-k, km-k1}
 \have{d}{D}\ce{kd, k2}
-\end{proof}}
+\end{fitchproof}}
 
 \item $P \eand (Q\eor R), P\eif \enot R \therefore Q\eor E$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{pqr}{P \eand (Q \eor R)}
 \hypo{pnr}{P \eif \enot R}
 \have{p}{P}\ae{pqr}
@@ -235,11 +235,11 @@ Give a proof for each of the following arguments:
 	\have{qe1}{Q \eor E}\re{red}
 \close
 \have{con}{Q \eor E}\oe{qr, q-qe, r-qe1}
-\end{proof}}
+\end{fitchproof}}
 
 \newpage
 \item $S\eiff T \therefore S\eiff (T\eor S)$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{st}{S \eiff T}
 \open
 	\hypo{s}{S}
@@ -260,10 +260,10 @@ Give a proof for each of the following arguments:
 	\have{s4}{S}\oe{ts1, t1-s3, s1-s2}
 \close
 \have{con}{S \eiff (T \eor S)}\bi{s-ts, ts1-s4}
-\end{proof}}
+\end{fitchproof}}
 
 \item $\enot (P \eif Q) \therefore \enot Q$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{npq}{\enot (P \eif Q)}
 \open
 	\hypo{q}{Q}
@@ -276,10 +276,10 @@ Give a proof for each of the following arguments:
 	\have{red}{\ered}\ri{pq, npq}
 \close
 \have{con}{\enot Q}\ni{q-red}
-\end{proof}}
+\end{fitchproof}}
 
 \item $\enot (P \eif Q) \therefore P$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{npq}{\enot (P \eif Q)}
 \open
 	\hypo{np}{\enot P}
@@ -292,7 +292,7 @@ Give a proof for each of the following arguments:
 	\have{red1}{\ered}\ri{pq, npq}
 \close
 \have{con}{P}\ip{np-red1}
-\end{proof}}
+\end{fitchproof}}
 \end{earg}
 
 \setcounter{chapter}{16}
@@ -304,7 +304,7 @@ Give a proof for each of the following arguments:
 \label{pr.justifyTFLproof}
 The following proofs are missing their citations (rule and line numbers). Add them wherever they are required:
 \begin{multicols}{2}
-\begin{proof}
+\begin{fitchproof}
 \hypo{1}{W \eif \enot B}
 \hypo{2}{A \eand W}
 \hypo{2b}{B \eor (J \eand K)}
@@ -312,9 +312,9 @@ The following proofs are missing their citations (rule and line numbers). Add th
 \have{4}{\enot B}\ce{1, 3}
 \have{5}{J \eand K}\ds{2b, 4}
 \have{6}{K}\ae{5}
-\end{proof}
+\end{fitchproof}
 \vfill
-\begin{proof}
+\begin{fitchproof}
 \hypo{1}{L \eiff \enot O}
 \hypo{2}{L \eor \enot O}
 \open
@@ -325,9 +325,9 @@ The following proofs are missing their citations (rule and line numbers). Add th
 \close
 \have{3b}{\enot\enot L}\ni{a1-a4}
 \have{3}{L}\dne{3b}
-\end{proof}
+\end{fitchproof}
 \columnbreak
-\begin{proof}
+\begin{fitchproof}
 \hypo{1}{Z \eif (C \eand \enot N)}
 \hypo{2}{\enot Z \eif (N \eand \enot C)}
 \open
@@ -348,24 +348,24 @@ The following proofs are missing their citations (rule and line numbers). Add th
 \close
 \have{3b}{\enot\enot(N \eor C)}\ni{a1-a7}
 \have{3}{N \eor C}\dne{3b}
-\end{proof}
+\end{fitchproof}
 \end{multicols}
 
 \problempart 
 Give a proof for each of these arguments:
 \begin{earg}
 \item $E\eor F$, $F\eor G$, $\enot F \therefore E \eand G$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{ef}{E \eor F}
 \hypo{fg}{F \eor G}
 \hypo{nf}{\enot F}
 \have{e}{E}\ds{ef, nf}
 \have{g}{G}\ds{fg, nf}
 \have{eg}{E \eand G}\ai{e, g}
-\end{proof}}
+\end{fitchproof}}
 
 \item $M\eor(N\eif M) \therefore \enot M \eif \enot N$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{mnm}{M \eor (N \eif M)}
 \open
 	\hypo{nm}{\enot M}
@@ -373,10 +373,10 @@ Give a proof for each of these arguments:
 	\have{nn}{\enot N}\mt{nim, nm}
 \close
 \have{nminn}{\enot M \eif \enot N}\ci{nm-nn}
-\end{proof}}
+\end{fitchproof}}
 
 \item $(M \eor N) \eand (O \eor P)$, $N \eif P$, $\enot P \therefore M\eand O$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{mnop}{(M \eor N) \eand (O \eor P)}
 \hypo{nip}{N \eif P}
 \hypo{np}{\enot P}
@@ -386,10 +386,10 @@ Give a proof for each of these arguments:
 \have{op}{O \eor P}\ae{mnop}
 \have{o}{O}\ds{op, np}
 \have{mo}{M \eand O}\ai{m, o}
-\end{proof}}
+\end{fitchproof}}
 
 \item $(X\eand Y)\eor(X\eand Z)$, $\enot(X\eand D)$, $D\eor M$ \therefore $M$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{xyxz}{(X\eand Y)\eor(X\eand Z)}
 \hypo{nxd}{\enot (X \eand D)}
 \hypo{dm}{D \eor M}
@@ -409,7 +409,7 @@ Give a proof for each of these arguments:
 \close
 \have{nd}{\enot D}\ni{d-red}
 \have{m}{M}\ds{dm, nd}
-\end{proof}}
+\end{fitchproof}}
 
 \end{earg}
 
@@ -421,15 +421,15 @@ Give a proof for each of these arguments:
 Show that each of the following sentences is a theorem:
 \begin{earg}
 \item $O \eif O$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \open
 	\hypo{o}{O}
 	\have{o2}{O}\by{R}{o}
 \close
 \have{con}{O \eif O}\ci{o-o2}
-\end{proof}}
+\end{fitchproof}}
 \item $N \eor \enot N$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \open
         \hypo{ncon}{\enot (N \eor \enot N)}
         \open
@@ -442,11 +442,11 @@ Show that each of the following sentences is a theorem:
         \have{bot2}{\ered}\ri{ncon, nnn2}
 \close
 \have{con}{N \eor \enot N}\ip{ncon-bot2}
-\end{proof}}
+\end{fitchproof}}
 
 \newpage
 \item $J \eiff [J\eor (L\eand\enot L)]$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \open
 	\hypo{j1}{J}
 	\have{jlnl1}{J \eor (L \eand \enot L)}\oi{j1}
@@ -468,9 +468,9 @@ Show that each of the following sentences is a theorem:
 	\have{j5}{J}\ds{jlnl2, nlnl}
 \close
 \have{con}{J \eiff [J\eor (L\eand\enot L)]}\bi{j1-jlnl1, jlnl2-j5}
-\end{proof}}
+\end{fitchproof}}
 \item $((A \eif B) \eif A) \eif A$ 
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \open
 	\hypo{aba}{(A \eif B) \eif A}
 	\open 
@@ -487,7 +487,7 @@ Show that each of the following sentences is a theorem:
 	\have{a2}{A}\ip{aba-red1}
 \close
 \have{con}{((A \eif B) \eif A) \eif A}\ci{aba-a2}
-\end{proof}}
+\end{fitchproof}}
 \end{earg}
 
 
@@ -495,7 +495,7 @@ Show that each of the following sentences is a theorem:
 Provide proofs to show each of the following:
 \begin{earg}
 \item $C\eif(E\eand G), \enot C \eif G \proves G$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{ceg}{C \eif (E \eand G)}
 \hypo{ncg}{\enot C \eif G}
 \open
@@ -511,10 +511,10 @@ Provide proofs to show each of the following:
         \have{bot2}{\ered}\ri{ng, g2}
 \close
 \have{con}{G}\ip{ng-bot2}
-\end{proof}}
+\end{fitchproof}}
 
 \item $M \eand (\enot N \eif \enot M) \proves (N \eand M) \eor \enot M$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{MnNnM}{M \eand (\enot N \eif \enot M)}
 \have{M}{M}\ae{MnNnM}
 \have{nNnM}{\enot N \eif \enot M}\ae{MnNnM}
@@ -526,11 +526,11 @@ Provide proofs to show each of the following:
 \have{N}{N}\ip{nN-red}
 \have{NM}{N \eand M}\ai{N, M}
 \have{con}{(N \eand M) \eor \enot M}\oi{NM}	
-\end{proof}}
+\end{fitchproof}}
 
 
 \item $(Z\eand K)\eiff(Y\eand M), D\eand(D\eif M) \proves Y\eif Z$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{zkym}{(Z \eand K) \eiff (Y \eand M)}
 \hypo{ddm}{D \eand (D \eif M)}
 \have{d}{D}\ae{ddm}
@@ -543,11 +543,11 @@ Provide proofs to show each of the following:
 	\have{z}{Z}\ae{zk}
 \close
 \have{yz}{Y \eif Z}\ci{y-z}
-\end{proof}}
+\end{fitchproof}}
 
 
 \item $(W \eor X) \eor (Y \eor Z), X\eif Y, \enot Z \proves W\eor Y$
-\myanswer{\begin{proof}
+\myanswer{\begin{fitchproof}
 \hypo{wxyz}{(W \eor X) \eor (Y \eor Z)}
 \hypo{xy}{X \eif Y}
 \hypo{nz}{\enot Z}
@@ -570,7 +570,7 @@ Provide proofs to show each of the following:
 	\have{wy}{W \eor Y}\oi{y}
 \close
 \have{wy4}{W \eor Y}\oe{wxyz, wx-wy3, yz-wy}
-\end{proof}}
+\end{fitchproof}}
 \end{earg}
 
 
@@ -582,7 +582,7 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 
 1. $R \eiff E$, $E \eiff R$
 \myanswer{\ignorespaces\begin{multicols}{2}
-\begin{proof}
+\begin{fitchproof}
 \hypo{re}{R \eiff E}
 \open
 	\hypo{e}{E}
@@ -593,7 +593,7 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 	\have{e1}{E}\be{re, r1}
 \close
 \have{con}{E \eiff R}\bi{e-r, r1-e1}
-\end{proof}\begin{proof}
+\end{fitchproof}\begin{fitchproof}
 \hypo{re}{E \eiff R}
 \open
 	\hypo{e}{E}
@@ -604,11 +604,11 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 	\have{e1}{E}\be{re, r1}
 \close
 \have{con}{R \eiff E}\bi{r1-e1, e-r}
-\end{proof}
+\end{fitchproof}
 \end{multicols}}
 2. $G$, $\enot\enot\enot\enot G$
 \myanswer{\begin{multicols}{2}
-\begin{proof}
+\begin{fitchproof}
 \hypo{g}{G}
 \open
 	\hypo{nnng}{\enot \enot \enot G}
@@ -616,22 +616,22 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 	\have{red}{\ered}\ri{g,ng}
 \close
 \have{nnnng}{\enot\enot\enot\enot G}\ni{nnng-red}
-\end{proof}\begin{proof}
+\end{fitchproof}\begin{fitchproof}
 \hypo{nnnng}{\enot\enot\enot\enot G}
 \have{nng}{\enot \enot G}\dne{nnnng}
 \have{g}{G}\dne{nng}
-\end{proof}
+\end{fitchproof}
 \end{multicols}}
 3. $T\eif S$, $\enot S \eif \enot T$
 \myanswer{\begin{multicols}{2}
-\begin{proof}
+\begin{fitchproof}
 \hypo{ts}{T \eif S}
 \open
 	\hypo{ns}{\enot S}
 	\have{nt}{\enot T}\mt{ts, ns}
 \close
 \have{nsnt}{\enot S \eif \enot T}\ci{ns-nt}
-\end{proof}\begin{proof}
+\end{fitchproof}\begin{fitchproof}
 \hypo{nsnt}{\enot S \eif \enot T}
 \open
 	\hypo{t}{T}
@@ -644,11 +644,11 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 	\have{s}{S}\dne{nns}
 \close
 \have{ts}{T \eif S}\ci{t-s}
-\end{proof}\end{multicols}}
+\end{fitchproof}\end{multicols}}
 4. $U \eif I$, $\enot(U \eand \enot I)$
 \myanswer{
 \begin{multicols}{2}
-\begin{proof}
+\begin{fitchproof}
 \hypo{ui}{U \eif I}
 \open
 	\hypo{uni}{U \eand \enot I}
@@ -658,8 +658,8 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 	\have{red}{\ered}\ri{i, ni}
 \close
 \have{con}{\enot (U \eand \enot I)}\ni{uni-red}
-\end{proof}
-\begin{proof}
+\end{fitchproof}
+\begin{fitchproof}
 \hypo{con}{\enot (U \eand \enot I)}
 \open
 	\hypo{u}{U}
@@ -672,11 +672,11 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 	\have{i}{I}\dne{nni}
 \close
 \have{ui}{U \eif I}\ci{u-i}
-\end{proof}
+\end{fitchproof}
 \end{multicols}}
 \newpage 5. $\enot (C \eif D), C \eand \enot D$
 \myanswer{\begin{multicols}{2}
-\begin{proof}
+\begin{fitchproof}
 \hypo{cnd}{C \eand \enot D}
 \have{c}{C}\ae{cnd}
 \have{nd}{\enot D}\ae{cnd}
@@ -686,8 +686,8 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 	\have{red}{\ered}\ri{d, nd}
 \close
 \have{ncd}{\enot (C \eif D)}\ni{cd-red}
-\end{proof}
-\begin{proof}
+\end{fitchproof}
+\begin{fitchproof}
 \hypo{ncd}{\enot (C \eif D)}
 \open
 	\hypo{d}{D}
@@ -712,11 +712,11 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 \have{nnc}{\enot \enot C}\ni{nc-red2}
 \have{c2}{C}\dne{nnc}
 \have{cnd}{C \eand \enot D}\ai{c2, nd}
-\end{proof}
+\end{fitchproof}
 \end{multicols}}
 6. $\enot G \eiff H$, $\enot(G \eiff H)$ 
 \myanswer{\begin{multicols}{2}
-\begin{proof}
+\begin{fitchproof}
 \hypo{ngh}{\enot G \eiff H}
 \open
 	\hypo{gh}{G \eiff H}
@@ -735,8 +735,8 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 	\have{red2}{\ered}\tnd{g-red, ng1-red1}
 \close
 \have{con}{\enot (G \eiff H)}\ni{gh-red2}
-\end{proof}
-\begin{proof}
+\end{fitchproof}
+\begin{fitchproof}
 \hypo{ngh}{\enot (G \eiff H)}
 \open
 	\hypo{ng}{\enot G}
@@ -775,41 +775,41 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 	\have{ng1}{\enot G}\ni{g2-red3}
 \close
 \have{con}{\enot G \eiff H}\bi{ng-h2, h3-ng1}
-\end{proof}
+\end{fitchproof}
 \end{multicols}}
 
 \problempart
-If you know that $\meta{A}\proves\meta{B}$, what can you say about $(\meta{A}\eand\meta{C})\proves\meta{B}$? What about $(\meta{A}\eor\meta{C})\proves\meta{B}$? Explain your answers.
-\\\myanswer{If $\meta{A} \proves \meta{B}$, then $(\meta{A} \eand \meta{C})\proves \meta{B}$. After all, if $\meta{A} \proves \meta{B}$, then there is some proof with assumption $\meta{A}$ that ends with $\meta{B}$, and no undischarged assumptions other than $\meta{A}$. Now, if we start a proof with assumption $(\meta{A} \eand \meta{C})$, we can obtain $\meta{A}$ by $\eand$E. We can now copy and paste the original proof of $\meta{B}$ from $\meta{A}$, adding 1 to every line number and line number citation. The result will be a proof of $\meta{B}$ from assumption $\meta{A}$.}
+If you know that $\metav{A}\proves\metav{B}$, what can you say about $(\metav{A}\eand\metav{C})\proves\metav{B}$? What about $(\metav{A}\eor\metav{C})\proves\metav{B}$? Explain your answers.
+\\\myanswer{If $\metav{A} \proves \metav{B}$, then $(\metav{A} \eand \metav{C})\proves \metav{B}$. After all, if $\metav{A} \proves \metav{B}$, then there is some proof with assumption $\metav{A}$ that ends with $\metav{B}$, and no undischarged assumptions other than $\metav{A}$. Now, if we start a proof with assumption $(\metav{A} \eand \metav{C})$, we can obtain $\metav{A}$ by $\eand$E. We can now copy and paste the original proof of $\metav{B}$ from $\metav{A}$, adding 1 to every line number and line number citation. The result will be a proof of $\metav{B}$ from assumption $\metav{A}$.}
 
-\myanswer{However, we cannot prove much from $(\meta{A} \eor \meta{C})$. After all, it might be impossible to prove $\meta{B}$ from $\meta{C}$.}
+\myanswer{However, we cannot prove much from $(\metav{A} \eor \metav{C})$. After all, it might be impossible to prove $\metav{B}$ from $\metav{C}$.}
 
 \
 
-\problempart In this chapter, we claimed that it is just as hard to show that two sentences are not provably equivalent, as it is to show that a sentence is not a theorem. Why did we claim this? (\emph{Hint}: think of a sentence that would be a theorem iff \meta{A} and \meta{B} were provably equivalent.)
-\\\myanswer{Consider the sentence $\meta{A} \eiff \meta{B}$. Suppose we can show that this is a theorem. So we can prove it, with no assumptions, in $m$ lines, say. Then if we assume $\meta{A}$ and copy and paste the proof of $\meta{A} \eiff \meta{B}$ (changing the line numbering), we will have a deduction of this shape:
-\begin{proof}
-\hypo{a}{\meta{A}}
-\have[m][1]{m}{\meta{A} \eiff \meta{B}}
-\have{b}{\meta{B}}\be{m, a}
-\end{proof}
-\\This will show that $\meta{A} \proves \meta{B}$. In exactly the same way, we can show that $\meta{B} \proves \meta{A}$. So if we can show that $\meta{A} \eiff \meta{B}$ is a theorem, we can show that $\meta{A}$ and $\meta{B}$ are provably equivalent.}
+\problempart In this chapter, we claimed that it is just as hard to show that two sentences are not provably equivalent, as it is to show that a sentence is not a theorem. Why did we claim this? (\emph{Hint}: think of a sentence that would be a theorem iff \metav{A} and \metav{B} were provably equivalent.)
+\\\myanswer{Consider the sentence $\metav{A} \eiff \metav{B}$. Suppose we can show that this is a theorem. So we can prove it, with no assumptions, in $m$ lines, say. Then if we assume $\metav{A}$ and copy and paste the proof of $\metav{A} \eiff \metav{B}$ (changing the line numbering), we will have a deduction of this shape:
+\begin{fitchproof}
+\hypo{a}{\metav{A}}
+\have[m][1]{m}{\metav{A} \eiff \metav{B}}
+\have{b}{\metav{B}}\be{m, a}
+\end{fitchproof}
+\\This will show that $\metav{A} \proves \metav{B}$. In exactly the same way, we can show that $\metav{B} \proves \metav{A}$. So if we can show that $\metav{A} \eiff \metav{B}$ is a theorem, we can show that $\metav{A}$ and $\metav{B}$ are provably equivalent.}
 
-\myanswer{Conversely, suppose we can show that $\meta{A}$ and $\meta{B}$ are provably equivalent. Then we can prove $\meta{B}$ from the assumption of $\meta{A}$ in $m$ lines, say, and prove $\meta{A}$ from the assumption of $\meta{B}$ in $n$ lines, say. Copying and pasting these proofs together (changing the line numbering where appropriate), we obtain:
-\begin{proof}
+\myanswer{Conversely, suppose we can show that $\metav{A}$ and $\metav{B}$ are provably equivalent. Then we can prove $\metav{B}$ from the assumption of $\metav{A}$ in $m$ lines, say, and prove $\metav{A}$ from the assumption of $\metav{B}$ in $n$ lines, say. Copying and pasting these proofs together (changing the line numbering where appropriate), we obtain:
+\begin{fitchproof}
 \open
-	\hypo{a}{\meta{A}}
-	\have[m]{b1}{\meta{B}}
+	\hypo{a}{\metav{A}}
+	\have[m]{b1}{\metav{B}}
 \close 
 \open
-	\hypo{b}{\meta{B}}
-	\have[m+n]{a1}{\meta{A}}
+	\hypo{b}{\metav{B}}
+	\have[m+n]{a1}{\metav{A}}
 \close
-\have{ab}{\meta{A} \eiff \meta{B}}\bi{a-b1, b-a1}
-\end{proof}
-\\Thus showing that $\meta{A} \eiff \meta{B}$ is a theorem.}
+\have{ab}{\metav{A} \eiff \metav{B}}\bi{a-b1, b-a1}
+\end{fitchproof}
+\\Thus showing that $\metav{A} \eiff \metav{B}$ is a theorem.}
 
-\myanswer{There was nothing special about $\meta{A}$ and $\meta{B}$ in this. So what this shows is that the problem of showing that two sentences are provably equivalent is, essentially, the same problem as showing that a certain kind of sentence (a biconditional) is a theorem.}
+\myanswer{There was nothing special about $\metav{A}$ and $\metav{B}$ in this. So what this shows is that the problem of showing that two sentences are provably equivalent is, essentially, the same problem as showing that a certain kind of sentence (a biconditional) is a theorem.}
 
 
 \setcounter{chapter}{18}
@@ -819,43 +819,43 @@ Provide proof schemes that justify the addition of the third and fourth De Morga
 
 \
 \\\myanswer{Third rule:
-\begin{proof}
-		\have[m]{nab}{\enot \meta{A} \eand \enot \meta{B}}
-		\have[k]{na}{\enot \meta{A}}\ae{nab}
-		\have{nb}{\enot \meta{B}}\ae{nab}
+\begin{fitchproof}
+		\have[m]{nab}{\enot \metav{A} \eand \enot \metav{B}}
+		\have[k]{na}{\enot \metav{A}}\ae{nab}
+		\have{nb}{\enot \metav{B}}\ae{nab}
 		\open
-			\hypo{aob}{\meta{A} \eor \meta{B}}
+			\hypo{aob}{\metav{A} \eor \metav{B}}
 			\open
-				\hypo{a}{\meta{A}}
+				\hypo{a}{\metav{A}}
 				\have{con1}{\ered}\ri{a, na}
 			\close
 			\open
-				\hypo{b}{\meta{B}}
+				\hypo{b}{\metav{B}}
 				\have{con2}{\ered}\ri{b, nb}
 			\close			
 			\have{con3}{\ered}\oe{aob, a-con1, b-con2}
 		\close
-		\have{con}{\enot (\meta{A} \eor \meta{B})}\ni{aob-con3}
-	\end{proof}}
+		\have{con}{\enot (\metav{A} \eor \metav{B})}\ni{aob-con3}
+	\end{fitchproof}}
 
 \
 \\\myanswer{Fourth rule:
-	\begin{proof}
-		\have[m]{nab}{\enot (\meta{A} \eor \meta{B})}
+	\begin{fitchproof}
+		\have[m]{nab}{\enot (\metav{A} \eor \metav{B})}
 		\open
-			\hypo[k]{a}{\meta{A}}
-			\have{aob}{\meta{A} \eor \meta{B}}\oi{a}
+			\hypo[k]{a}{\metav{A}}
+			\have{aob}{\metav{A} \eor \metav{B}}\oi{a}
 			\have{nab1}{\ered}\ri{aob, nab}
 		\close
-		\have{na}{\enot \meta{A}}\ni{a-nab1}
+		\have{na}{\enot \metav{A}}\ni{a-nab1}
 		\open
-			\hypo{b}{\meta{B}}
-			\have{aob2}{\meta{A} \eor \meta{B}}\oi{b}
+			\hypo{b}{\metav{B}}
+			\have{aob2}{\metav{A} \eor \metav{B}}\oi{b}
 			\have{nab2}{\ered}\ri{aob2, nab}
 		\close
-		\have{nb}{\enot \meta{B}}\ni{b-nab2}
-		\have{con}{\enot \meta{A} \eand \enot \meta{B}}\ai{na, nb}
-	\end{proof}
+		\have{nb}{\enot \metav{B}}\ni{b-nab2}
+		\have{con}{\enot \metav{A} \eand \enot \metav{B}}\ai{na, nb}
+	\end{fitchproof}
 }
 
 \problempart

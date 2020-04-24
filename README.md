@@ -1,4 +1,4 @@
-# forallx-yyc
+# forall x: Calgary
 
 ![Book Cover](http://forallx.openlogicproject.org/forallxyyc.png)
 
@@ -38,7 +38,9 @@ Tim Button, both used under a [CC BY
 [_forall x: Lorain County
 Remix_](https://github.com/rob-helpy-chalk/openintroduction), by
 [Cathal Woods](https://sites.google.com/site/cathalwoods/) and
-J. Robert Loftis, used with permission, and \href{http://www.rtrueman.com/uploads/7/0/3/2/70324387/modal_logic_primer.pdf}{\emph{A Modal Logic Primer}} by \href{http://www.rtrueman.com/}{Robert Trueman}, used with permission.
+J. Robert Loftis, used with permission, and [_A Modal Logic
+Primer_](http://www.rtrueman.com/uploads/7/0/3/2/70324387/modal_logic_primer.pdf)
+by [Robert Trueman](http://www.rtrueman.com/), used with permission.
 
 [![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
 

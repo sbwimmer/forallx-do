@@ -498,7 +498,7 @@ Comment: if there is not exactly one deuce of clubs, then the above sentence is 
 \item The man with the axe is not a jack.
 \item[] \myanswer{$\exists x \bigl[\atom{M}{x} \eand \forall y(\atom{M}{y} \eif x = y) \eand \enot \atom{J}{x}\bigr]$}
 \item The deuce of clubs is not the man with the axe.
-\item[] \myanswer{$\exists x \exists y\bigl(\atom{D}{x} \eand \atom{C}{x} \eand \forall z[(\atom{D}{z} \eand \atom{C}{z}) \eif x = z] \eand \atom{M}{y} \eand \forall z(\atom{M}{z} \eif y = x) \eand \enot x = y\bigr)$}
+\item[] \myanswer{$\exists x \exists y\bigl(\atom{D}{x} \eand \atom{C}{x} \eand \forall z[(\atom{D}{z} \eand \atom{C}{z}) \eif x = z] \eand \atom{M}{y} \eand \forall z(\atom{M}{z} \eif y = z) \eand \enot x = y\bigr)$}
 
 \end{earg}
 
@@ -534,14 +534,13 @@ symbolize the following sentences in FOL:
 \end{earg}
 
 \problempart
-In this chapter, we symbolized `Nick is the traitor' by `$\exists x (\atom{T}{x} \eand \forall y(\atom{T}{y} \eif x = y) \eand x = n)$'. Two equally good symbolizations would be:
+In this chapter, we symbolized `Nick is the traitor' by `$\exists x (\atom{T}{x} \eand \forall y(\atom{T}{y} \eif x = y) \eand x = n)$'. Explain why these would be equally good symbolisations:
 	\begin{ebullet}
 		\item $\atom{T}{n} \eand \forall y(\atom{T}{y} \eif n = y)$
 		\item[] \myanswer{This sentence requires that Nick is a traitor, and that Nick alone is a traitor. Otherwise put, there is one and only one traitor, namely, Nick. Otherwise put: Nick is the traitor.}
 		\item $\forall y(\atom{T}{y} \eiff y = n)$
 		\item[] \myanswer{This sentence can be understood thus: Take anything you like; now, if you chose a traitor, you chose Nick, and if you chose Nick, you chose a traitor. So there is one and only one traitor, namely, Nick, as required.}
 	\end{ebullet}
-Explain why these would be equally good symbolizations.
 
 \chapter{Sentences of FOL}\setcounter{ProbPart}{0}
 \problempart

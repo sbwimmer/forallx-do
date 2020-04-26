@@ -9,7 +9,7 @@ Way back in \S\ref{s:Valid}, we said that an argument is valid iff there is no c
 
 In the case of TFL, this led us to develop truth tables. Each line of a complete truth table corresponds to a valuation. So, when faced with a TFL argument, we have a very direct way to assess whether there is a valuation on which the premises are true and the conclusion is false: just thrash through the truth table.
 
-However, truth tables do not necessarily give us much \emph{insight}. Consider two arguments in TFL:
+However, truth tables may not give us much \emph{insight}. Consider two arguments in TFL:
 \begin{align*}
 P \eor Q, \enot P & \therefore Q\\
 P \eif Q, P & \therefore Q
@@ -34,20 +34,6 @@ This argument is also valid---as you can probably tell---but to test it requires
 When we get to first-order logic (FOL) (beginning in chapter \ref{s:FOLBuildingBlocks}), though, the problem gets dramatically worse. There is nothing like the truth table test for FOL. To assess whether or not an argument is valid, we have to reason about \emph{all} interpretations, but, as we will see, there are infinitely many possible interpretations. We cannot even in principle set a machine to grind through infinitely many possible interpretations and report back when it is finished: it will \emph{never} finish. We either need to come up with some more efficient way of reasoning about all interpretations, or we need to look for something different. 
 
 There are, indeed, systems that codify ways to reason about all possible interpretations. They were developed in the 1950s by Evert Beth and Jaakko Hintikka, but we will not follow this path. We will, instead, look to natural deduction. 
-%And that is where we will look. 
-%
-%There is something philosophically desirable about Consider an argument like:
-%	\begin{earg}
-%		\item[(5)] $Fa \therefore \exists x Fx$
-%	\end{earg}
-%This is clearly valid. Sure, we \emph{could} justify it in terms of reasoning through what is true in all possible interpretations. But would that set the inference form on more solid ground? What, after all, could be more obvious than the acceptability of the basic form of argument that corresponds to:
-%	\begin{quote}
-%		Boris is a fool. Therefore someone is a fool.
-%	\end{quote}
-%
-%
-%\section{A roadmap}
-%So here is our plan. 
 
 Rather than reasoning directly about all valuations (in the case of TFL), we will try to select a few basic rules of inference. Some of these will govern the behaviour of the sentential connectives. Others will govern the behaviour of the quantifiers and identity that are the hallmarks of FOL. The resulting system of rules will give us a new way to think about the validity of arguments. 
 The modern development of natural deduction dates from simultaneous and unrelated papers by Gerhard Gentzen and Stanis\l{}aw Ja\'{s}kowski (1934). However, the natural deduction system that we will consider is based largely around work by Frederic Fitch (first published in 1952). 
@@ -58,7 +44,7 @@ The modern development of natural deduction dates from simultaneous and unrelate
 We will develop a \define{natural deduction} system. For each connective, there will be \define{introduction} rules, that allow us to prove a sentence that has that connective as the main logical operator, and \define{elimination} rules, that allow us to prove something given a sentence that has that connective as the main logical operator.
 
 \section{The idea of a formal proof}
-A \emph{formal proof} is a sequence of sentences, some of which are marked as being initial assumptions (or premises). The last line of the formal proof is the conclusion. (Henceforth, we will simply call these `proofs', but you should be aware that there are \emph{informal proofs} too.)
+A \emph{formal proof} is a sequence of sentences, some of which are marked as being initial assumptions (or premises). The last line of the formal proof is the conclusion. (Henceforth, we will simply call these `proofs', but be aware that there are \emph{informal proofs} too.)
 
 As an illustration, consider:
 	$$\enot (A \eor B) \therefore \enot A \eand \enot B$$
@@ -301,9 +287,7 @@ Note that we have made `$P$' available, by treating it as an additional assumpti
 
 
 \section{Additional assumptions and subproofs}
-The rule $\eif$I invoked the idea of making additional assumptions. These need to be handled with some care.
-
-Consider this proof:
+The rule $\eif$I invoked the idea of making additional assumptions. These need to be handled with some care. Consider this proof:
 \begin{fitchproof}
 	\hypo{a}{A}
 	\open
@@ -341,7 +325,7 @@ Closing a subproof is called \define{discharging} the assumptions of that subpro
 
 Subproofs, then, allow us to think about what we could show, if we made additional assumptions. The point to take away from this is not surprising---in the course of a proof, we have to keep very careful track of what assumptions we are making, at any given moment. Our proof system does this very graphically. (Indeed, that's precisely why we have chosen to use \emph{this} proof system.)
 
-Once we have started thinking about what we can show by making additional assumptions, nothing stops us from posing the question of what we could show if we were to make \emph{even more} assumptions. This might motivate us to introduce a subproof within a subproof. Here is an example which only uses the rules of proof that we have considered so far:
+Once we have started thinking about what we can show by making additional assumptions, nothing stops us from posing the question of what we could show if we were to make \emph{even more} assumptions? This might motivate us to introduce a subproof within a subproof. Here is an example using only the rules which we have considered so far: 
 \begin{fitchproof}
 \hypo{a}{A}
 \open
@@ -424,7 +408,7 @@ Equally, it is always permissible to close a subproof (and discharge its assumpt
 \section{Biconditional}
 The rules for the biconditional will be like double-barrelled versions of the rules for the conditional.
 
-In order to prove `$W \eiff X$', for instance, you must be able to prove `$X$' on the assumption `$W$' \emph{and} prove `$W$' on the assumption `$X$'. The biconditional introduction rule ({\eiff}I) therefore requires two subproofs. Schematically, the rule works like this:
+In order to prove `$F \eiff G$', for instance, you must be able to prove `$G$' on the assumption `$F$' \emph{and} prove `$F$' on the assumption `$G$'. The biconditional introduction rule ({\eiff}I) therefore requires two subproofs. Schematically, the rule works like this: 
 \factoidbox{
 \begin{fitchproof}
 	\open
@@ -573,7 +557,7 @@ There can be as many lines between $i$ and $j$ as you like. To see this in pract
 		\have{con}{\enot\enot D}\ni{nd-ndr}
 	\end{fitchproof}
 
-        If the assumption that $\metav{A}$ is true leads to a contradiction, $\metav{A}$ cannot be true, i.e., it must be false, i.e., $\enot\metav{A}$ must be true. Of course, if the assumption that $\metav{A}$ is false (i.e., the assumption that $\enot\metav{A}$ is true) leads to a contradiction, then $\metav{A}$ cannot be false, i.e., $\metav{A}$ must be true. So we can consider the following rule:
+If the assumption that $\metav{A}$ is true leads to a contradiction, $\metav{A}$ cannot be true, i.e., it must be false, i.e., $\enot\metav{A}$ must be true. Of course, if the assumption that $\metav{A}$ is false (i.e., the assumption that $\enot\metav{A}$ is true) leads to a contradiction, then $\metav{A}$ cannot be false, i.e., $\metav{A}$ must be true. So we can consider the following rule:
 \factoidbox{\begin{fitchproof}
 \open
 	\hypo[i]{a}{\enot\metav{A}}
@@ -1152,7 +1136,7 @@ Here is a very natural argument form.
 	\begin{quote}
 		Elizabeth is either in Massachusetts or in DC. She is not in DC. So, she is in Massachusetts.
 	\end{quote}
-This inference pattern is called \emph{disjunctive syllogism}. We add it to our proof system as follows:
+This is called \emph{disjunctive syllogism}. We add it to our proof system as follows:
 \factoidbox{\begin{fitchproof}
 	\have[m]{ab}{\metav{A} \eor \metav{B}}
 	\have[n]{nb}{\enot \metav{A}}
@@ -1169,7 +1153,7 @@ As usual, the disjunction and the negation of one disjunct may occur in either o
 \section{Modus tollens}
 Another useful pattern of inference is embodied in the following argument:
 	\begin{quote}
-		If Mitt has won the election, then he is in the White House. He is not in the White House. So he has not won the election.
+		If Hilary has won the election, then he is in the White House. She is not in the White House. So she has not won the election.
 	\end{quote}
 This inference pattern is called \emph{modus tollens}. The corresponding rule is:
 \factoidbox{\begin{fitchproof}
@@ -1180,7 +1164,7 @@ This inference pattern is called \emph{modus tollens}. The corresponding rule is
 As usual, the premises may occur in either order, but we always cite the conditional first. 
 
 \section{Double-negation elimination}
-Another useful rule is \emph{double-negation elimination}. This rule does exactly what it says on the tin:
+Another useful rule is \emph{double-negation elimination}. It does exactly what it says on the tin:
 \factoidbox{\begin{fitchproof}
 		\have[m]{dna}{\enot \enot \metav{A}}
 		\have[ ]{a}{\metav{A}}\dne{dna}
@@ -1322,7 +1306,7 @@ Give a proof for each of these arguments:
 \item $E\eor F$, $F\eor G$, $\enot F \therefore E \eand G$
 \item $M\eor(N\eif M) \therefore \enot M \eif \enot N$
 \item $(M \eor N) \eand (O \eor P)$, $N \eif P$, $\enot P \therefore M\eand O$
-\item $(X\eand Y)\eor(X\eand Z)$, $\enot(X\eand D)$, $D\eor M$ \therefore $M$
+\item $(X\eand Y)\eor(X\eand Z)$, $\enot(X\eand D)$, $D\eor M \therefore M$
 \end{earg}
 
 
@@ -1331,9 +1315,7 @@ Give a proof for each of these arguments:
 
 In this chapter we will introduce some new vocabulary. The following expression:
 $$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \proves \metav{C}$$
-means that there is some proof which starts with assumptions among $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ and ends with $\metav{C}$ (and contains no undischarged assumptions other than those we started with). Derivatively, we will write:
-$$\proves \metav{A}$$
-to mean that there is a proof of $\metav{A}$ with no assumptions. 
+means that there is some proof which ends with $\metav{C}$ whose undischarged assumptions are among $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$. When we want to say that it is \emph{not} the case that there is some proof which ends with $\metav{C}$ from $\metav{A}_1$, $\metav{A}_2$, \dots,~$\metav{A}_n$, we write:  $$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \nproves \meta{C}$$ 
 
 The symbol `$\proves$' is called the \emph{single turnstile}. We want to emphasize that this is not the {double turnstile} symbol (`$\entails$') that we introduced in chapter~\ref{s:SemanticConcepts} to symbolize entailment. The single turnstile, `$\proves$', concerns the existence of proofs; the double turnstile, `$\entails$', concerns the existence of valuations (or interpretations, when used for FOL). \emph{They are very different notions.}
 
@@ -1347,7 +1329,7 @@ name=theorem,
 description={A sentence that can be proved without any premises}
 }
 
-        To illustrate this, suppose we want to show that `$\enot (A \eand \enot A)$' is a theorem.  So we need a proof of `$\enot(A \eand \enot A)$' which has \emph{no} undischarged assumptions. However, since we want to prove a sentence whose main logical operator is a negation, we will want to start with a \emph{subproof} within which we assume `$A \eand \enot A$', and show that this assumption leads to contradiction. All told, then, the proof looks like this:
+To illustrate this, suppose we want to show that `$\enot (A \eand \enot A)$' is a theorem.  So we need a proof of `$\enot(A \eand \enot A)$' which has \emph{no} undischarged assumptions. However, since we want to prove a sentence whose main logical operator is a negation, we will want to start with a \emph{subproof} within which we assume `$A \eand \enot A$', and show that this assumption leads to contradiction. All told, then, the proof looks like this:
 	\begin{fitchproof}
 		\open
 			\hypo{con}{A \eand \enot A}
@@ -1461,7 +1443,7 @@ You now want to repeat yourself, on some line $k$. You could just invoke the rul
 \end{fitchproof}
 To be clear: this is not a proof. Rather, it is a proof \emph{scheme}. After all, it uses a variable, `$\metav{A}$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\metav{A}$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
 
-Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the basic rules of \S\ref{s:BasicTFL} without~R. That is what it means to say that the rule~R can be derived from the other basic rules: anything that can be justified using~R can be justified using only the other basic rules.
+Indeed, it is a recipe which shows us the following: anything we can prove using the rule R, we can prove (with one more line) using just the basic rules of \S\ref{s:BasicTFL} without~R. That is what it means to say that the rule~R can be derived from the other basic rules: anything that can be justified using~R can be justified using only the other basic rules.
 
 
 \section{Derivation of Disjunctive Syllogism}

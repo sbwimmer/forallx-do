@@ -35,7 +35,7 @@ We should emphasize that (as with every elimination rule) you can only apply the
 	\hypo{a}{\forall x\,\atom{B}{x} \eif \atom{B}{k}}
 	\have{c}{\atom{B}{b} \eif \atom{B}{k}}\by{naughy attempt to invoke $\forall$E}{a}
 \end{fitchproof}
-This is illegitimate, since `$\forall x$' is not the main logical operator in line 1. (If you need a reminder as to why this sort of inference should be banned, reread \S\ref{s:MoreMonadic}.)
+This is illegitimate, since `$\forall x$' is not the main logical operator in line~1. (If you need a reminder as to why this sort of inference should be banned, reread \S\ref{s:MoreMonadic}.)
 
 \section{Existential introduction}
 From the claim that some particular thing is~$F$, you can infer that something is~$F$. So we ought to allow:
@@ -155,7 +155,7 @@ This tells us that `$\forall z (\atom{G}{z} \eif \atom{G}{z})$' is a \emph{theor
 
 We should emphasise one last point. As per the conventions of \S\ref{s:MainLogicalOperatorQuantifier}, the use of $\forall$I requires that we are replacing \emph{every} instance of the name \metav{c} in $\metav{A}(\ldots \metav{x}\ldots\metav{x}\ldots)$ with the variable \metav{x}. If we only replace \emph{some} names and not others, we end up `proving' silly things. For example, consider the argument:
 	\begin{quote}
-	Everyone is as old as themselves; so everyone is as old as Judi Dench
+	Everyone is as old as themselves; so everyone is as old as Judi Dench.
 	\end{quote}
 We might symbolise this as follows:
 $$\forall x\,\atom{O}{x,x} \therefore \forall x\,\atom{O}{x,d}$$
@@ -744,9 +744,7 @@ Offer proofs which justify the addition of the second and fourth CQ rules as der
 \chapter{Proofs and semantics}
 We have used two different turnstiles in this book.  This:
 $$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \proves \metav{C}$$
-means that there is some proof which starts with assumptions $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ and ends with $\metav{C}$ (and no undischarged assumptions other than $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$). This is a \emph{proof-theoretic notion}.
-
-By contrast, this:
+means that there is some proof which ends with $\metav{C}$ and whose only undischarged assumptions are among $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$. This is a \emph{proof-theoretic notion}. By contrast, this: 
 $$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \entails \metav{C}$$
 means that no valuation (or interpretation) makes all of $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ true and~$\metav{C}$ false. This concerns assignments of truth and falsity to sentences. It is a \emph{semantic notion}.
 
@@ -760,7 +758,7 @@ To show that a sentence is a theorem, you need only produce a proof. Granted, it
 
 Contrawise, to show that a sentence is \emph{not} a theorem is hard. We would need to reason about all (possible) proofs. That is very difficult. However, to show that a sentence is not a validity, you need only construct an interpretation in which the sentence is false. Granted, it may be hard to come up with the interpretation; but once you have done so, it is relatively straightforward to check what truth value it assigns to a sentence. Given a choice between showing that a sentence is not a theorem and showing that it is not a validity, it would be easier to show that it is not a validity.
 
-Fortunately, \emph{a sentence is a theorem if and only if it is a validity}. As a result, if we provide a proof of $\metav{A}$ on no assumptions, and thus show that $\metav{A}$ is a theorem,  i.e.\ ${}\proves \metav{A}$, we can legitimately infer that $\metav{A}$ is a validity, i.e., $\entails\metav{A}$. Similarly, if we construct an interpretation in which \metav{A} is false and thus show that it is not a validity, i.e.\ $\nentails \metav{A}$, it follows that \metav{A} is not a theorem, i.e.\  $\nproves \metav{A}$.
+Fortunately, \emph{a sentence is a theorem if and only if it is a validity}. As a result, if we provide a proof of $\metav{A}$ on no assumptions, and thus show that $\metav{A}$ is a theorem, i.e., ${}\proves \metav{A}$, we can legitimately infer that $\metav{A}$ is a validity, i.e., $\entails\metav{A}$. Similarly, if we construct an interpretation in which \metav{A} is false and thus show that it is not a validity, i.e., $\nentails \metav{A}$, it follows that \metav{A} is not a theorem, i.e.,  $\nproves \metav{A}$.
 
 More generally, we have the following powerful result:
 $$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \proves\metav{B} \textbf{ iff }\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \entails\metav{B}$$

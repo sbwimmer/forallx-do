@@ -108,7 +108,7 @@ To derive the $\exists$E rule is rather more subtle. This is because the $\exist
 	\open
 		\hypo{nB}{\enot \metav{B}}
 		\have{nAc}{\enot \metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)}\mt{condi, nB}
-		\have{AxnA}{\forall \metav{x} \enot \metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)}\by{$\forall$I}{nAc}
+		\have{AxnA}{\forall \metav{x} \enot \metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)}\Ai{nAc}
 		\have{nEA}{\enot \exists \metav{x} \metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)}\cq{AxnA}
 		\have{red2}{\ered}\ne{nEA, ExA}
 	\close

@@ -3,7 +3,8 @@
 %\label{ch.FOL}
 %\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
-\setcounter{chapter}{21}
+\stepcounter{chapter} % Building blocks
+
 \chapter{Sentences with one quantifier}\label{s:MoreMonadic}\setcounter{ProbPart}{0}
 \problempart
 \label{pr.BarbaraEtc}
@@ -420,6 +421,19 @@ symbolize the following sentences in FOL:
 	\end{ebullet}		
 
 
+\chapter{Sentences of FOL}\setcounter{ProbPart}{0}
+\problempart
+\label{pr.freeFOL}
+Identify which variables are bound and which are free.
+\myanswer{We underline the bound variables, and overline the free variables.}
+\begin{earg}
+\item $\exists x\, \atom{L}{\underline{x},\overline{y}} \eand \forall y\,\atom{L}{\underline{y},\overline{x}}$
+\item $\forall x\, \atom{A}{\underline{x}} \eand \atom{B}{\overline{x}}$
+\item $\forall x (\atom{A}{\underline{x}} \eand \atom{B}{\underline{x}}) \eand \forall y(\atom{C}{\overline{x}} \eand \atom{D}{\underline{y}})$
+\item $\forall x\exists y[\atom{R}{\underline{x},\underline{y}} \eif (\atom{J}{\overline{z}} \eand \atom{K}{\underline{x}})] \eor \atom{R}{\overline{y},\overline{x}}$
+\item $\forall x_1(\atom{M}{\overline{x_2}} \eiff \atom{L}{\overline{x_2},\underline{x_1}}) \eand \exists x_2\, \atom{L}{\overline{x_3},\underline{x_2}}$
+\end{earg}
+
 
 \chapter{Definite descriptions}\setcounter{ProbPart}{0}
 \problempart
@@ -542,15 +556,4 @@ In this chapter, we symbolized `Nick is the traitor' by `$\exists x (\atom{T}{x}
 		\item[] \myanswer{This sentence can be understood thus: Take anything you like; now, if you chose a traitor, you chose Nick, and if you chose Nick, you chose a traitor. So there is one and only one traitor, namely, Nick, as required.}
 	\end{ebullet}
 
-\chapter{Sentences of FOL}\setcounter{ProbPart}{0}
-\problempart
-\label{pr.freeFOL}
-Identify which variables are bound and which are free.
-\myanswer{We underline the bound variables, and overline the free variables.}
-\begin{earg}
-\item $\exists x\, \atom{L}{\underline{x},\overline{y}} \eand \forall y\,\atom{L}{\underline{y},\overline{x}}$
-\item $\forall x\, \atom{A}{\underline{x}} \eand \atom{B}{\overline{x}}$
-\item $\forall x (\atom{A}{\underline{x}} \eand \atom{B}{\underline{x}}) \eand \forall y(\atom{C}{\overline{x}} \eand \atom{D}{\underline{y}})$
-\item $\forall x\exists y[\atom{R}{\underline{x},\underline{y}} \eif (\atom{J}{\overline{z}} \eand \atom{K}{\underline{x}})] \eor \atom{R}{\overline{y},\overline{x}}$
-\item $\forall x_1(\atom{M}{\overline{x_2}} \eiff \atom{L}{\overline{x_2},\underline{x_1}}) \eand \exists x_2\, \atom{L}{\overline{x_3},\underline{x_2}}$
-\end{earg}
+\stepcounter{chapter} % Ambiguity

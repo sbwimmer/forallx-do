@@ -3,7 +3,6 @@
 %\label{ch.NDFOL}
 %\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
-\setcounter{chapter}{31}
 \chapter{Basic rules for FOL}\setcounter{ProbPart}{0}
 \problempart
 Explain why these two `proofs' are incorrect. Also, provide interpretations which would invalidate the fallacious argument forms the `proofs' enshrine:
@@ -588,7 +587,8 @@ Counter-interpretation: let the domain be the number $1$. Let `$Px$' be true of 
 \end{fitchproof}}
 \end{earg}
 
-\stepcounter{chapter}
+\stepcounter{chapter} % Proofs with quantifiers
+
 \chapter{Conversion of quantifiers}\setcounter{ProbPart}{0}
 \problempart
 Show in each case that the sentences are provably inconsistent:
@@ -1318,3 +1318,4 @@ And here is a proof that does not use any derived rules:
 	\have{Ena}{\exists x \enot \atom{A}{x}}\tnd{H1-conc1,H2-conc2}
 \end{fitchproof}}
 
+\stepcounter{chapter} % Proofs and semantics

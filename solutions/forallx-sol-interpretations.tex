@@ -3,7 +3,8 @@
 %\label{ch.semantics}
 %\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
-\setcounter{chapter}{27}
+\stepcounter{chapter} % Extensionality
+
 \chapter{Truth in FOL}\setcounter{ProbPart}{0}
 \problempart
 \label{pr.TorF1}
@@ -93,7 +94,8 @@ Determine whether each of the following sentences is true or false in that inter
 \item $\exists x \exists y(\enot x = y \eand \atom{R}{x,y} \eand \forall z(\atom{R}{z,x} \eiff y = z))$ \hfill \myanswer{True}
 \end{earg}
 
-\setcounter{chapter}{29}
+\stepcounter{chapter} % Semantic concepts
+
 \chapter{Using Interpretations}\setcounter{ProbPart}{0}
 
 \solutions
@@ -159,3 +161,5 @@ Show that the following arguments are invalid:
 \item $\atom{L}{a,b} \eif \forall x\,\atom{L}{x,b}, \exists x\,\atom{L}{x,b} \therefore \atom{L}{b,b}$
 \item $\forall x(\atom{D}{x} \eif \exists y\,\atom{T}{y,x}) \therefore \exists y \exists z\ \enot y= z$
 \end{earg}
+
+\stepcounter{chapter} % Reasoning about interpretations

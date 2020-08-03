@@ -9,7 +9,7 @@
 %\usepackage{gensymb}
 %\input{fitch1.sty}
 
-\chapter{Introducing Modal Logic}
+\chapter{Introducing modal logic}
 \label{Intro}
 
 Modal logic (ML) is the logic of \emph{modalities}, ways in which a statement can be true. \emph{Necessity} and \emph{possibility} are two such modalities: a statement can be true, but it can also be necessarily true (true no matter how the world might have been). For instance, logical truths are not just true because of some accidental feature of the world, but true come what may. A possible statement may not actually be true, but it might have been true. We use $\ebox$ to express necessity, and $\ediamond$ to express possibility. So you can read $\ebox \metav{A}$ as \emph{It is necessarily the case that} $\metav{A}$, and $\ediamond \metav{A}$ as \emph{It is possibly the case that} $\metav{A}$.
@@ -46,7 +46,7 @@ Here are some examples of ML sentences:
 	\item[]$A,\;P\eor Q,\;\ebox A,\;C\eor \ebox D,\;\ebox\ebox (A\eif R),\;\ebox\ediamond (S\eand (Z\eiff (\ebox W \eor \ediamond Q)))$
 \end{itemize}
 
-\chapter{Natural Deduction for ML}
+\chapter{Natural deduction for ML}
 \label{Proof}
 
 Now that we know how to make sentences in ML, we can look at how to \emph{prove} things in ML. We will use $\proves$ to express provability.  So $\metav{A}_1,\metav{A}_2, \dots \metav{A}_n \proves \metav{C}$ means that $\metav{C}$ can be proven from $\metav{A}_1,\metav{A}_2, \dots \metav{A}_n$. However, we will be looking at a number of different systems of ML, and so it will be useful to add a subscript to indicate which system we are working with. So for example, if we want to say that we can prove $\metav{C}$ from $\metav{A}_1,\metav{A}_2, \dots \metav{A}_n$ \emph{in system}~\mlK, we will write: $\metav{A}_1,\metav{A}_2, \dots \metav{A}_n \proves_\mlK \metav{C}$.

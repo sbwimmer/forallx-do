@@ -3,10 +3,10 @@
 \label{ch.normalform}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
-\chapter[Normal forms]{Normal forms and functional completeness}
+\chapter{Normal forms}\label{c:NormalForms}
 
 
-\section{Disjunctive Normal Form}\label{s:DNFDefined}
+\section{Disjunctive normal form}\label{s:DNFDefined}
 
 Sometimes it is useful to consider sentences of a particularly simple form. For instance, we might consider sentences in which $\enot$ only attaches to atomic sentences, or those which are combinations of atomic sentences and negated atomic sentences using only $\eand$.  A relatively general but still simple form is that where a sentence is a disjunction of conjunctions of atomic or negated atomic sentences.  When such a sentence is constructed, we start with atomic sentences, then (perhaps) attach negations, then (perhaps) combine using $\eand$, and finally (perhaps) combine using~$\eor$. 
 
@@ -39,7 +39,7 @@ We now know what it is for a sentence to be in disjunctive normal form. The resu
 Henceforth, we will abbreviate `Disjunctive Normal Form' by `DNF'. 
 
 
-\section{Proof of DNF Theorem via truth tables}
+\section{Proof of DNF theorem via truth tables}
 \label{s:DNFTruthTable}
 
 Our first proof of the DNF Theorem employs truth tables. We will first illustrate the technique for finding an equivalent sentence in DNF, and then turn this illustration into a rigorous proof. 
@@ -107,7 +107,7 @@ Pick any arbitrary sentence, $\metav{S}$, and let $\metav{A}_1, \ldots, \metav{A
 So we have proved the DNF Theorem. Before we say any more, though, we should immediately flag that we are hereby returning to the austere definition of a (TFL) sentence, according to which we can assume that any conjunction has exactly two conjuncts, and any disjunction has exactly two disjuncts.
 
 
-\section{Conjunctive Normal Form}
+\section{Conjunctive normal form}
 \label{s:CNF}
 
 So far in this chapter, we have discussed \emph{disjunctive} normal form. It may not come as a surprise to hear that there is also such a thing as \emph{conjunctive normal form} (CNF).
@@ -151,9 +151,9 @@ Consider the following sentences:
 	\end{earg}
         For each sentence, find a logically equivalent sentence in DNF and one in CNF.
         
-\section{The functional completeness of TFL}
+\chapter{Functional completeness}
 
-Of our connectives, $\enot$ attaches to a single sentences, and the others all combine exactly two sentences. We may also introduce the idea of an $n$-place connective. For example, we could consider a three-place connective, `$\heartsuit$', and stipulate that it is to have the following characteristic truth table:
+Of our connectives, $\enot$ attaches to a single sentence, and the others all combine exactly two sentences. We may also introduce the idea of an $n$-place connective. For example, we could consider a three-place connective, `$\heartsuit$', and stipulate that it is to have the following characteristic truth table:
 \begin{center}
 \begin{tabular}{c c c | c}
 $A$ & $B$ & $C$ & $\heartsuit(A,B,C)$\\
@@ -168,7 +168,7 @@ $A$ & $B$ & $C$ & $\heartsuit(A,B,C)$\\
  F & F & F & F
 \end{tabular}
 \end{center}
-Probably this new connective would not correspond with any natural English expression (at least not in the way that `$\eand$' corresponds with `and'). But a question arises: if we wanted to employ a connective with this characteristic truth table, must we add a \emph{new} connective to TFL? Or can we get by with the connectives we \emph{already have}?
+Probably this new connective would not correspond with any natural English expression (at least not in the way that `$\eand$' corresponds with `and'). But a question arises: if we wanted to employ a connective with this characteristic truth table, must we add a \emph{new} connective to TFL? Or can we get by with the connectives we \emph{already have} (as we can for the connective `neither\dots nor' for instance)?
 
 Let us make this question more precise. Say that some connectives are \define{jointly functionally complete} \emph{iff}, for any possible truth table, there is a sentence containing only those connectives with that truth table.
 
@@ -186,7 +186,7 @@ The connectives of TFL are jointly functionally complete. Indeed, the following 
 \item\label{expressive:eif} `$\enot$' and `$\eif$'
 \end{earg}}
 
-Given any truth table, we can use the method of proving the DNF Theorem (or the CNF Theorem) via truth tables, to write down a scheme which has the same truth table. For example, employing the truth table method for proving the DNF Theorem, we find that the following scheme has the same characteristic truth table as $\heartsuit(A,B,C)$, above:
+Given any truth table, we can use the method of proving the DNF Theorem (or the CNF Theorem) via truth tables from chapter~\ref{c:NormalForms}, to write down a scheme which has the same truth table. For example, employing the truth table method for proving the DNF Theorem, we find that the following scheme has the same characteristic truth table as $\heartsuit(A,B,C)$, above:
 		$$(A \eand B \eand \enot C) \eor (A \eand \enot B \eand C) \eor (\enot A \eand B \eand \enot C)$$			
 It follows that the connectives of TFL are jointly functionally complete. We now prove each of the subsidiary results.
 	

@@ -3,6 +3,270 @@
 %\label{ch.TFL}
 %\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
+
+\stepcounter{chapter} % first steps
+
+\chapter{Connectives}\setcounter{ProbPart}{0}
+\problempart Using the symbolization key given, symbolize each English sentence in TFL.\label{pr.monkeysuits}
+	\begin{ekey}
+		\item[M] Those creatures are men in suits. 
+		\item[C] Those creatures are chimpanzees. 
+		\item[G] Those creatures are gorillas.
+	\end{ekey}
+\begin{earg}
+\item Those creatures are not men in suits.
+\item[] \myanswer{$\enot M$}
+\item Those creatures are men in suits, or they are not.
+\item[] \myanswer{$(M \eor \enot M$)} 
+\item Those creatures are either gorillas or chimpanzees.
+\item[] \myanswer{$(G \eor C)$}
+\item Those creatures are neither gorillas nor chimpanzees.
+\item[] \myanswer{$\enot (C \eor G)$}
+\item If those creatures are chimpanzees, then they are neither gorillas nor men in suits.
+\item[] \myanswer{$(C \eif \enot(G \eor M))$}
+\item Unless those creatures are men in suits, they are either chimpanzees or they are gorillas.
+\item[] \myanswer{$(M \eor (C \eor G))$}
+\end{earg}
+
+\problempart Using the symbolization key given, symbolize each English sentence in TFL.
+\begin{ekey}
+\item[A] Mister Ace was murdered.
+\item[B] The butler did it.
+\item[C] The cook did it.
+\item[D] The Duchess is lying.
+\item[E] Mister Edge was murdered.
+\item[F] The murder weapon was a frying pan.
+\end{ekey}
+\begin{earg}
+\item Either Mister Ace or Mister Edge was murdered.
+\item[] \myanswer{$(A \eor E)$}
+\item If Mister Ace was murdered, then the cook did it.
+\item[] \myanswer{$(A \eif C)$}
+\item If Mister Edge was murdered, then the cook did not do it.
+\item[] \myanswer{$(E \eif \enot C)$}
+\item Either the butler did it, or the Duchess is lying.
+\item[] \myanswer{$(B \eor D)$}
+\item The cook did it only if the Duchess is lying.
+\item[] \myanswer{$(C \eif D)$}
+\item If the murder weapon was a frying pan, then the culprit must have been the cook.
+\item[] \myanswer{$(F \eif C)$}
+\item If the murder weapon was not a frying pan, then the culprit was either the cook or the butler.
+\item[] \myanswer{$(\enot F \eif (C \eor B))$}
+\item Mister Ace was murdered if and only if Mister Edge was not murdered.
+\item[] \myanswer{$(A \eiff \enot E)$}
+\item The Duchess is lying, unless it was Mister Edge who was murdered.
+\item[] \myanswer{$(D \eor E)$}
+\item If Mister Ace was murdered, he was done in with a frying pan.
+\item[] \myanswer{$(A \eif F)$}
+\item Since the cook did it, the butler did not.
+\item[] \myanswer{$(C \eand \enot B)$}
+\item Of course the Duchess is lying!
+\item[] \myanswer{$D$}
+\end{earg}
+
+\solutions
+
+\problempart Using the symbolization key given, symbolize each English sentence in TFL.\label{pr.avacareer}
+	\begin{ekey}
+		\item[E_1] Ava is an electrician.
+		\item[E_2] Harrison is an electrician.
+		\item[F_1] Ava is a firefighter.
+		\item[F_2] Harrison is a firefighter.
+		\item[S_1] Ava is satisfied with her career.
+		\item[S_2] Harrison is satisfied with his career.
+	\end{ekey}
+\begin{earg}
+\item Ava and Harrison are both electricians.
+\item[] \myanswer{$(E_1 \eand E_2)$}
+\item If Ava is a firefighter, then she is satisfied with her career.
+\item[] \myanswer{$(F_1 \eif S_1)$}
+\item Ava is a firefighter, unless she is an electrician.
+\item[] \myanswer{$(F_1 \eor E_1)$}
+\item Harrison is an unsatisfied electrician.
+\item[] \myanswer{$(E_2 \eand \enot S_2)$}
+\item Neither Ava nor Harrison is an electrician.
+\item[] \myanswer{$\enot (E_1 \eor E_2)$}
+\item Both Ava and Harrison are electricians, but neither of them find it satisfying.
+\item[] \myanswer{$((E_1 \eand E_2) \eand \enot (S_1 \eor S_2))$}
+\item Harrison is satisfied only if he is a firefighter.
+\item[] \myanswer{$(S_2 \eif F_2)$}
+\item If Ava is not an electrician, then neither is Harrison, but if she is, then he is too.
+\item[] \myanswer{$((\enot E_1 \eif \enot E_2) \eand (E_1 \eif  E_2))$}
+\item Ava is satisfied with her career if and only if Harrison is not satisfied with his.
+\item[] \myanswer{$(S_1 \eiff \enot S_2)$}
+\item If Harrison is both an electrician and a firefighter, then he must be satisfied with his work.
+\item[] \myanswer{$((E_2 \eand F_2) \eif S_2)$}
+\item It cannot be that Harrison is both an electrician and a firefighter.
+\item[] \myanswer{$\enot (E_2 \eand F_2)$}
+\item Harrison and Ava are both firefighters if and only if neither of them is an electrician.
+\item[] \myanswer{$((F_2 \eand F_1) \eiff \enot(E_2 \eor E_1))$}
+\end{earg}
+
+\problempart
+Using the symbolization key given, translate each English-language sentence into TFL.
+\label{pr.jazzinstruments}
+\begin{ekey}
+\item[J_1] John Coltrane played tenor sax.
+\item[J_2] John Coltrane played soprano sax.
+\item[J_3] John Coltrane played tuba
+\item[M_1] Miles Davis played trumpet
+\item[M_2] Miles Davis played tuba
+\end{ekey}
+
+\begin{earg}
+\item John Coltrane played tenor and soprano sax. 
+\item[~] \myanswer{$J_1 \eand J_2$} 
+\item Neither Miles Davis nor John Coltrane played tuba.
+\item[~] \myanswer{$\enot(M_2 \eor J_3)$ or $\enot M_2 \eand \enot J_3$}
+\item John Coltrane did not play both tenor sax and tuba. 
+\item[~] \myanswer{$\enot(J_1 \eand J_3)$ or $\enot J_1 \eor \enot J_3$} 
+\item John Coltrane did not play tenor sax unless he also played soprano sax. 
+\item[~] \myanswer{$\enot J_1 \eor J_2$}
+\item John Coltrane did not play tuba, but Miles Davis did. 
+\item[~] \myanswer{$\enot J_3 \eand M_2$}
+\item Miles Davis played trumpet only if he also played tuba. 
+\item[~] \myanswer{$M_1 \eif M_2$} 
+\item If Miles Davis played trumpet, then John Coltrane played at least one of these three instruments: tenor sax, soprano sax, or tuba. 
+\item[~] \myanswer{$M_1 \eif (J_1 \eor (J_2 \eor J_3))$} 
+\item If John Coltrane played tuba then Miles Davis played neither trumpet nor tuba. 
+\item[~] \myanswer{$J_3 \eif \enot(M_1 \eor M_2)$ or $J_3 \eif (\enot M_1 \eand \enot M_2)$} 
+\item Miles Davis and John Coltrane both played tuba if and only if Coltrane did not play tenor sax and Miles Davis did not play trumpet. 
+\item[~] \myanswer{$(J_3 \eand M_2) \eiff (\enot J_1 \wedge \enot M_1)$ or $(J_3 \eand M_2) \eiff \enot (J_1 \eor M_1)$} 
+\end{earg}
+
+\problempart
+\label{pr.spies}
+Give a symbolization key and symbolize the following English sentences in TFL.
+\myanswer{\begin{ekey}
+\item[A] Alice is a spy.
+\item[B] Bob is a spy.
+\item[C] The code has been broken.
+\item[G] The German embassy will be in an uproar.
+\end{ekey}}
+\begin{earg}
+\item Alice and Bob are both spies.
+\item[] \myanswer{$(A \eand B)$}
+\item If either Alice or Bob is a spy, then the code has been broken.
+\item[] \myanswer{$((A \eor B) \eif C)$}
+\item If neither Alice nor Bob is a spy, then the code remains unbroken.
+\item[] \myanswer{$(\enot (A \eor B) \eif \enot C)$}
+\item The German embassy will be in an uproar, unless someone has broken the code.
+\item[] \myanswer{$(G \eor C)$}
+\item Either the code has been broken or it has not, but the German embassy will be in an uproar regardless.
+\item[] \myanswer{$((C \eor \enot C) \eand G)$}
+\item Either Alice or Bob is a spy, but not both.
+\item[] \myanswer{$((A \eor B) \eand \enot (A \eand B))$}
+\end{earg}
+
+
+\problempart Give a symbolization key and symbolize the following English sentences in TFL.
+\myanswer{\begin{ekey}
+\item[F] There is food to be found in the pridelands.
+\item[R] Rafiki will talk about squashed bananas.
+\item[A] Simba is alive.
+\item[K] Scar will remain as king.
+\end{ekey}}
+\begin{earg}
+\item If there is food to be found in the pridelands, then Rafiki will talk about squashed bananas.
+\item[] \myanswer{$(F \eif R)$}
+\item Rafiki will talk about squashed bananas unless Simba is alive.
+\item[] \myanswer{$(R \eor A)$}
+\item Rafiki will either talk about squashed bananas or he won't, but there is food to be found in the pridelands regardless.
+\item[] \myanswer{$((R \eor \enot R) \eand F)$}
+\item Scar will remain as king if and only if there is food to be found in the pridelands.
+\item[] \myanswer{$(K \eiff F)$}
+\item If Simba is alive, then Scar will not remain as king.
+\item[] \myanswer{$(A \eif \enot K)$}
+\end{earg}
+
+
+\problempart
+For each argument, write a symbolization key and symbolize all of the sentences of the argument in TFL.
+\begin{earg}
+\item If Dorothy plays the piano in the morning, then Roger wakes up cranky. Dorothy plays piano in the morning unless she is distracted. So if Roger does not wake up cranky, then Dorothy must be distracted.
+\myanswer{\begin{ekey}
+\item[P] Dorothy plays the Piano in the morning.
+\item[C] Roger wakes up cranky.
+\item[D] Dorothy is distracted.
+\end{ekey}}
+\item[] \myanswer{$(P \eif C)$, $(P \eor D)$, $(\enot C \eif D)$}
+\item It will either rain or snow on Tuesday. If it rains, Neville will be sad. If it snows, Neville will be cold. Therefore, Neville will either be sad or cold on Tuesday.
+\myanswer{\begin{ekey}
+\item[T_1] It rains on Tuesday
+\item[T_2] It snows on Tuesday
+\item[S] Neville is sad on Tuesday
+\item[C] Neville is cold on Tuesday
+\end{ekey}}
+\item[] \myanswer{$(T_1 \eor T_2)$, $(T_1 \eif S)$, $(T_2 \eif C)$, $(S \eor C)$}
+\item If Zoog remembered to do his chores, then things are clean but not neat. If he forgot, then things are neat but not clean. Therefore, things are either neat or clean; but not both.
+\myanswer{\begin{ekey}
+\item[Z] Zoog remembered to do his chores
+\item[C] Things are clean
+\item[N] Things are neat
+\end{ekey}}
+\item[] \myanswer{$(Z \eif (C \eand \enot N))$, $(\enot Z \eif (N \eand \enot C))$, $((N \eor C) \eand \enot (N \eand C))$.}
+\end{earg}
+
+\problempart
+For each argument, write a symbolization key and translate the argument as well as possible into TFL. The part of the passage in italics is there to provide context for the argument, and doesn't need to be symbolized.
+\begin{earg}
+\item It is going to rain soon. I know because my leg is hurting, and my leg hurts if it's going to rain. 
+
+%{\color{red}
+%\begin{ekey}
+%\item[A:]  
+%\item[B:]  
+%\item[C:]  %\end{ekey}
+
+%begin{\earg}
+%\item[1.]  
+%\item[2.]  
+%\item[$\therefore$]  
+%}
+
+\item  \emph{Spider-man tries to figure out the bad guy's plan.} If Doctor Octopus gets the uranium, he will blackmail the city. I am certain of this because if Doctor Octopus gets the uranium, he can make a dirty bomb, and if he can make a dirty bomb, he will blackmail the city.
+
+%{\color{red}
+%\begin{ekey}
+%\item[A:]  
+%\item[B:]  
+%\item[C:]  %\end{ekey}
+
+%begin{\earg}
+%\item[1.]  
+%\item[2.]  
+%\item[$\therefore$]  
+%}
+
+\item \emph{A westerner tries to predict the policies of the Chinese government.} If the Chinese government cannot solve the water shortages in Beijing, they will have to move the capital. They don't want to move the capital. Therefore they must solve the water shortage. But the only way to solve the water shortage is to divert almost all the water from the Yangzi river northward. Therefore the Chinese government will go with the project to divert water from the south to the north.       
+
+
+
+%{\color{red}
+%\begin{ekey}
+%\item[A:]  
+%\item[B:]  
+%\item[C:]  %\end{ekey}
+
+%begin{\earg}
+%\item[1.]  
+%\item[2.]  
+%\item[$\therefore$]  
+%}
+
+\end{earg}
+
+\problempart
+We symbolized an \emph{exclusive or} using `$\eor$', `$\eand$', and `$\enot$'. How could you symbolize an \emph{exclusive or} using only two connectives? Is there any way to symbolize an \emph{exclusive or} using only one connective?
+\\\myanswer{For two connectives, we could offer any of the following: 
+\begin{center}
+$\enot(\metav{A} \eiff \metav{B})$\\
+$(\enot\metav{A} \eiff \metav{B})$\\
+$(\enot (\enot \metav{A} \eand \enot \metav{B}) \eand \enot (\metav{A} \eand \metav{B}))$
+\end{center}
+But if we wanted to symbolize it using only one connective, we would have to introduce a new primitive connective.
+}
+
 \chapter{Sentences of TFL}\setcounter{ProbPart}{0}
 \problempart
 \label{pr.wiffTFL}
@@ -31,3 +295,6 @@ The scope of the right-most instance of `$\eif$' is `$(I \eif H)$'.\\
 The scope of the left-most instance of `$\eor$ is `$\bigl[(H \eif I) \eor (I \eif H)\bigr]$'\\
 The scope of the right-most instance of `$\eor$' is `$(J \eor K)$'\\
 The scope of the conjunction is the entire sentence; so conjunction is the main logical connective of the sentence.}
+
+\stepcounter{chapter} % Ambiguity
+\stepcounter{chapter} % Use and mention

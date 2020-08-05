@@ -65,8 +65,8 @@ PDFs and make them available to students directly, than to link here.
 ## Buy a Printed Copy
 
 If you'd like to purchase a nice paperback copy, you can do so on
-Amazon ([US](https://www.amazon.com/dp/1077319851) | [CA](https://www.amazon.ca/dp/1077319851) | 
-[UK](https://www.amazon.co.uk/dp/1077319851)) (or use search in your local Amazon store).
+Amazon ([US](https://www.amazon.com/dp/B08F6CG587) | [CA](https://www.amazon.ca/dp/B08F6CG587) | 
+[UK](https://www.amazon.co.uk/dp/B08F6CG587) | [DE](https://www.amazon.de/dp/B08F6CG587)), or use search in your local Amazon store. Be sure to get the latest version that's available in print (Fall 2020). The version on Amazon usually is not as current as the PDF.
 
 (The process for getting the book printed is described [here](http://openlogicproject.org/2015/11/22/getting-your-book-to-print/) and [here](http://openlogicproject.org/2017/05/19/forall-x-yyc-is-now-on-amazon-and-how-it-got-there/).)
 

@@ -2,7 +2,7 @@
 
 ## Description
 
-_forall x: Dortmund_ is an in-progress German translation of _forall x: Calgary_. 
+_forall x: Dortmund_ is an in-progress adaptation and German translation of _forall x: Calgary_. 
 As such, it is a full-featured textbook on formal logic. It covers key
 notions of logic such as consequence and validity of arguments, the
 syntax of truth-functional propositional logic TFL and truth-table

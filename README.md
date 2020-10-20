@@ -17,10 +17,10 @@ available. It is provided in PDF and in LaTeX source code.
 
 ## Credits and License
 
-_forall x: Dortmund_ is an adaptation and German translation of
+_forall x: Dortmund_ is an adaptation and German translation, compiled by 
+[Simon Wimmer](https://simonwimmer.weebly.com/) (with corrections by Daniel Foelsch), of
 _forall x: Calgary_ used under a [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 
-license, compiled by [Simon Wimmer](https://simonwimmer.weebly.com/) (with corrections by Daniel Foelsch). 
-[_forall x: Calgary_](https://forallx.openlogicproject.org/) is based on 
+license. [_forall x: Calgary_](https://forallx.openlogicproject.org/) is based on 
 [_forall x: Cambridge_](http://people.ds.cam.ac.uk/tecb2/forallx.shtml), 
 by [Tim Button](http://nottub.com/) used under a [CC
 BY 4.0](https://creativecommons.org/licenses/by/4.0/) license, which

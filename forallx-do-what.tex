@@ -1,0 +1,555 @@
+%!TEX root = forallxdo.tex
+
+\part{Zentrale Begriffe der Logik}
+\label{ch.intro}
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+
+
+\chapter{Argumente}
+\label{s:Arguments}
+
+Die Logik ist für das Bewerten von Argumenten zuständig; für das Unterscheiden von guten und schlechten Argumenten. 
+
+Ein Argument, wie wir es verstehen werden, ist so etwas wie das hier:
+	\begin{earg}\label{argButlerGardner}
+		\item[] Entweder hat es der Butler getan oder der Gärtner.
+		\item[] Der Butler hat es nicht getan.
+		\item[\therefore] Der Gärtner hat es getan.
+	\end{earg}
+Wir haben hier eine Reihe von Sätzen. Die drei Punkte in der dritten Zeile des Arguments werden als `Also' gelesen. Sie zeigen an, dass der letzte Satz die \emph{Schlussfolgerung} des Arguments ist. Die beiden Sätze davor sind die \emph{Prämissen} des Arguments. Wir nennen jede Reihen von Sätzen, die sich aus Prämissen und einer Schlussfolgerung zusammen setzt, ein Argument.
+
+In diesem Teil erörtern wir einige grundlegende logische Begriffe, die auf Argumente anwendbar sind. Es ist wichtig, mit einem klaren Verständnis davon zu beginnen, was Argumente sind und was es bedeutet, dass ein Argument gültig ist. Später werden wir Argumente aus dem Deutschen in einer formalen Sprachen symbolisieren. Wir wollen, dass die formale Gültigkeit, wie sie in der formalen Sprache definiert ist, zumindest einige der wichtigen Merkmale der Gültigkeit in unserer Anfangssprache, dem Deutschen, aufweist.
+
+Im eben genannten Beispiel haben wir einzelne Sätze verwendet, um die beiden Prämissen des Arguments auszudrücken, und einen dritten Satz, für die Schlussfolgerung des Arguments. Zwar drücken wir viele Argumente auf diese Weise aus, aber auch ein einzelner Satz kann ein vollständiges Argument liefern. Zum Beispiel:
+	\begin{quote}
+		 Der Butler hat ein Alibi, also kann er es nicht getan haben. 
+	\end{quote}
+Dieses Argument hat eine Prämisse, gefolgt von einer Schlussfolgerung.
+
+Viele Argumente beginnen mit einer Prämisse und enden mit einer Schlussfolgerung. Aber nicht alle. Das Argument vom Anfang dieses Abschnitts könnten wir auch mit der Schlussfolgerung zu Beginn präsentieren:
+	\begin{quote}
+		Der Gärtner hat es getan. Schlie{\ss}lich war es entweder der Butler oder der Gärtner. Und der Butler hat es nicht getan. 
+	\end{quote}
+Genauso könnten wir die Schlussfolgerung auch in der Mitte anführen:
+	\begin{quote}
+		Der Butler hat es nicht getan. Daher war es der Gärtner, denn es hat ja entweder der Gärtner oder der Butler getan.
+	\end{quote}
+Wenn wir uns mit einem Argument beschäftigen, wollen wir wissen, ob die Schlussfolgerung aus den Prämissen folgt. Als erstes müssen wir also die Schlussfolgerung von den Prämissen unterscheiden. Als Anhaltspunkt können wir die folgenden Worte nutzen, die oft verwendet werden, um die Schlussfolgerung eines Arguments anzuführen:
+	\begin{center}
+		also, folglich, daher, deshalb, darum, demzufolge, deswegen
+	\end{center}
+Aus diesem Grund können wir diese Worte \define{Schlussfolgerungsworte} nennen.
+
+Im Gegensatz dazu sind die folgenden Ausdrücke \define{Prämissenworte}, da sie oft darauf hinweisen, dass wir es mit einer Prämisse, und nicht mit einer Schlussfolgerung, zu tun haben:
+	\begin{center}
+		da, denn, schlie{\ss}lich, weil, angesichts der Tatsache, dass
+	\end{center}
+Trotz dieser Anhaltspunkte, gibt es bei der Analyse eines Arguments aber keinen Ersatz für eine gute Nase. 
+
+\newglossaryentry{Prämissenwort}
+{
+name=Prämissenwort,
+description={Ein Wort oder eine Phrase wie `weil', welche(s) häufig genutzt wird, um aufzuzeigen, dass das was folgt die Prämisse eines Arguments ist.}
+}
+
+\newglossaryentry{Schlussfolgerungswort}
+{
+name=Schlussfolgerungswort,
+description={Ein Wort oder eine Phrase wie `also', welche(s) häufig genutzt wird, um aufzuzeigen, dass das was folgt die Schlussfolgerung eines Arguments ist.}
+}
+
+\newglossaryentry{Argument}
+{
+name=Argument,
+description={Eine Reihe an Sätzen, bestehend aus \gls{Prämisse}n und \gls{Schlussfolgerung}}
+}
+
+\newglossaryentry{Prämisse}
+{
+name=Prämisse,
+description={Ein Satz in einem \gls{Argument}, der nicht als \gls{Schlussfolgerung} dient.}
+}
+
+\newglossaryentry{Schlussfolgerung}
+{
+name=Schlussfolgerung,
+description={Der letzte Satz eines \gls{Argument}s}
+}
+
+
+\section{Sätze}
+\label{intro.sentences}
+
+Ganz allgemein können wir ein \define{Argument} als eine Reihe von Sätzen definieren. Die Sätze am Anfang der Reihe sind Prämissen. Der letzte Satz in der Reihe ist die Schlussfolgerung.
+
+In der Logik sind wir nur an Sätzen interessiert, die als Prämisse oder Schlussfolgerung eines Arguments fungieren können, d.h.\@ an Sätzen, die wahr oder falsch sein können.  Wir werden uns also auf solche Sätze beschränken und einen \define{Satz} als einen Satz definieren, der wahr oder falsch sein kann.
+
+Sie sollten die Wahrheitswertfähigkeit eines Satzes nicht mit dem Unterschied zwischen Tatsache und Meinung verwechseln. Oft drücken Sätze in der Logik Dinge aus, die Tatsachen sein könnten, wie z.B.\@ `Kierkegaard hatte einen Buckel' oder `Kierkegaard mochte Mandeln'. Aber sie können natürlich auch Dinge ausdrücken, die man als Meinung bezeichnen könnte, z.B.\@ `Koriander ist lecker'. Mit anderen Worten: Ein Satz wird nicht deshalb als Teil eines Arguments disqualifiziert, weil wir nicht wissen, ob er wahr oder falsch ist, oder weil seine Wahrheit oder Falschheit eine Frage der Meinung ist. Wenn er die Art von Satz ist, die wahr oder falsch sein kann, kann er die Rolle einer Prämisse oder Schlussfolgerung spielen.
+
+Es gibt auch Dinge, die in einem Sprachkurs oder der Sprachwissenschaft als `Sätze' gelten würden, die wir in der Logik aber nicht als Sätze zählen werden.
+
+\paragraph{Fragen} In der Sprachwissenschaft würde `Sind Sie schon müde?' als Fragesatz zählen. Obwohl Sie vielleicht schläfrig oder wach sind, ist die Frage selbst weder wahr noch falsch. Aus diesem Grund zählen Fragen in der Logik nicht als Sätze. Angenommen, Sie beantworten die Frage, indem Sie sagen `Ich bin nicht müde'. Dies ist entweder wahr oder falsch und ist daher ein Satz im logischen Sinn. Im Allgemeinen zählen \emph{Fragen} nicht, aber \emph{Antworten} schon, als Sätze. `Worum geht es in dieser Vorlesung?' ist kein Satz (in unserem Sinne). `Niemand wei{\ss}, worum es in dieser Vorlesung geht' ist ein Satz.
+
+\paragraph{Befehle} Befehle werden oft als Imperative formuliert wie `Wach auf!', `Setz dich gerade hin!' und so weiter. In der Sprachwissenschaft würden diese als Imperativsätze zählen. Auch wenn es für Sie gut sein mag, gerade zu sitzen, ist der Befehl weder wahr noch falsch. Beachten Sie jedoch, dass Befehle nicht immer als Imperative formuliert werden. `Sie werden meine Autorität respektieren' ist entweder wahr oder falsch --- entweder Sie tun es oder Sie tun es nicht --- und so zählt es als Satz im logischen Sinne.
+
+\paragraph{Exklamationen} `Aua!' wird manchmal als ein Ausrufesatz bezeichnet, aber er ist weder wahr noch falsch. Wir werden `Aua, ich habe mir den Zeh verletzt!' so behandeln, dass es dasselbe bedeutet wie `Ich habe mir den Zeh verletzt'. Wenn `Aua' so wie hier auftritt, fügt es nichts hinzu, was wahr oder falsch sein könnte.
+
+
+\practiceproblems
+Am Ende vieler Kapitel gibt es Übungen, die das im jeweiligen Kapitel behandelte Material wiederholen. Es gibt keinen Ersatz dafür, einige dieser Probleme durchzuarbeiten, denn beim Lernen der Logik geht es mehr darum, eine Denkweise zu entwickeln, als darum, sich Fakten einzuprägen.
+
+\medskip
+
+Hier ist nun die erste Übung. Markieren Sie den Satz, der die Schlussfolgerung des jeweiligen Arguments ausdrückt.
+\begin{earg}
+	\item Es ist kalt. Ich sollte also meine Haube mitnehmen.
+	\item Es muss kalt gewesen sein. Schlie{\ss}lich trug ich ja meine Haube.
+	\item Niemand au{\ss}er dir hatte die Hände in der Keksdose. Und der Tatort ist mit Kekskrümeln übersät. Du bist der Schuldige!
+	\item Herr Scarlett und Professorin Plum waren zur Zeit des Mordes im Arbeitszimmer. Pfarrer Green hatte den Kerzenständer im Ballraum und wir wissen, dass kein Blut an seinen Händen war. Daher hat Oberst Mustard es in der Küche mit dem Bleirohr getan. Denn erinnere dich: die Waffe wurde nicht gefeuert.
+\end{earg}
+
+
+\chapter{Der Geltungsbereich der Logik}
+\label{s:Valid}
+
+\section{Folge und Gültigkeit}
+
+In \S\ref{s:Arguments} betrachteten wir Argumente, d.h.\@ Ansammlungen von Prämissen, gefolgt von einer Schlussfolgerung. Wir sagten, dass manche Worte wie `also' anzeigen, welche Sätze als Schlussfolgerungen zu verstehen sind. `Also' suggeriert natürlich, dass es einen Zusammenhang zwischen den Prämissen und der Schlussfolgerung gibt, nämlich, dass die Schlussfolgerung von den Prämissen \emph{folgt} oder \emph{eine Folge} der Prämissen ist.
+
+Dieser Begriff der Folge ist einer der wichtigsten, mit denen sich die Logik befasst. Man könnte sogar sagen, dass die Logik die Wissenschaft von dem ist, was aus was folgt. Die Logik entwickelt Theorien und Werkzeuge, die uns sagen, wann ein Satz aus einigen anderen Sätzen folgt.
+
+Was sollten wir über das Hauptargument sagen, das wir in \S\ref{s:Arguments} diskutierten? 
+\begin{earg}
+	\item[] Entweder der Butler oder der Gärtner hat es getan.
+	\item[] Der Butler hat es nicht getan.
+	\item[\therefore] Der Gärtner hat es getan.
+\end{earg}
+Wir haben keinen Kontext dafür, worauf sich die Sätze in diesem Argument beziehen. Vielleicht vermuten Sie, dass `hat es getan' hier bedeutet, `war der Täter eines nicht näher bezeichneten Verbrechens'. Sie könnten sich vorstellen, dass das Argument in einem Krimi oder einer Fernsehsendung vorkommt, vielleicht von einem/r Detektiv*in vorgetragen, der/die die Beweislage durchdenkt. Aber selbst ohne diese Informationen zu haben, stimmen Sie wahrscheinlich zu, dass das Argument insofern gut ist, als die Schlussfolgerung wahr sein muss, wenn beide Prämissen wahr sind, unabhängig davon, was die Prämissen genau aussagen. Wenn die erste Prämisse wahr ist, d.h.\@ wenn es wahr ist, dass der Butler es getan hat oder der Gärtner es getan hat, dann hat mindestens einer von ihnen `es getan', was auch immer das genau bedeutet. Und wenn die zweite Prämisse wahr ist, dann hat der Butler es nicht `getan', was auch immer das genau bedeutet. Aber nun bleibt nur eine Möglichkeit: `der Gärtner hat es getan' muss wahr sein, was auch immer das genau bedeutet. Hier folgt die Schlussfolgerung aus den Prämissen. Wir nennen Argumente, die diese Eigenschaft haben, \define{gültig}.
+
+Betrachten Sie dagegen das folgende Argument:
+\begin{earg}\label{argMaidDriver}
+	\item[] Wenn die Fahrerin es getan hat, dann hat der Putzmann es nicht getan.
+	\item[] Der Putzmann hat es nicht getan.
+	\item[\therefore] Die Fahrerin hat es getan.
+\end{earg}
+Wir haben auch hier keine Ahnung, wovon genau die Rede ist. Aber dennoch stimmen Sie wahrscheinlich zu, dass sich dieses Argument in einem wichtigen Punkt von dem vorhergehenden unterscheidet. Wenn die Prämissen wahr sind, ist in diesem Fall nicht garantiert, dass die Schlussfolgerung auch wahr ist. Die Prämissen dieses Arguments schlie{\ss}en, für sich genommen, nicht aus, dass jemand anderes als der Putzmann oder die Fahrerin `es getan hat'. Es gibt also einen Fall, in dem beide Prämissen wahr sind, die Fahrerin es aber nicht getan hat, d.h.\@ die Schlussfolgerung nicht wahr ist. In diesem zweiten Argument folgt die Schlussfolgerung nicht aus den Prämissen. Wenn, wie in diesem Argument, die Schlussfolgerung nicht aus den Prämissen folgt, sagen wir, dass es \define{ungültig} ist.
+
+\section{Fälle und Arten der Gültigkeit}
+
+Wie konnten wir feststellen, dass das zweite Argument ungültig ist? Wir wiesen auf einen möglichen Fall hin, in dem die Prämissen wahr sind und die Schlussfolgerung nicht wahr ist. Dies war ein Fall, in dem weder die Fahrerin noch der Putzmann, sondern eine dritte Person es tat. Wir nennen einen solchen Fall ein \define{Gegenbeispiel} zu unserem Argument. Wenn es ein Gegenbeispiel zu einem Argument gibt, dann folgt die Schlussfolgerung nicht aus den Prämissen. Damit die Schlussfolgerung eine Folge der Prämissen ist, muss die Wahrheit der Prämissen die Wahrheit der Schlussfolgerung garantieren. Aber wenn es ein Gegenbeispiel gibt, dann garantiert die Wahrheit der Prämissen nicht die Wahrheit der Schlussfolgerung.
+
+Als Logiker*innen wollen wir in der Lage sein, zu bestimmen, wann die Schlussfolgerung eines Arguments aus den Prämissen dieses Arguments folgt. Und die Schlussfolgerung ist eine Folge der Prämissen, wenn es kein Gegenbeispiel gibt -- keinen möglichen Fall, in dem die Prämissen alle wahr sind, die Schlussfolgerung aber nicht. Dies motiviert unsere Definition der Folgebeziehung:
+
+	\factoidbox{
+		Ein Satz $A$ ist eine \define{Folge} von Sätzen $B_1$, \dots, $B_n$ wenn und nur wenn es keinen Fall gibt, in dem $B_1$, \dots, $B_n$ alle wahr sind und $A$ nicht wahr ist. (Wir sagen auch, dass $A$ aus $B_1$, \dots, $B_n$ folgt oder, dass $B_1$, \dots, $B_n$ $A$ zur Folge haben.)
+	}
+
+Diese Definition ist unvollständig: sie sagt uns nicht, was ein `Fall' ist oder was es bedeutet, in einem Fall `wahr' oder `nicht wahr' zu sein. Bislang haben wir nur ein Beispiel gesehen: ein hypothetisches Szenario mit drei Personen. Von den drei Personen in diesem Szenario -- eine Fahrerin, ein Putzmann und eine dritte Person -- haben die Fahrerin und der Putzmann es nicht getan; anders als die dritte Person. In diesem Szenario, hat die Fahrerin es nicht getan. Daher ist es ein Fall, in dem der Satz `die Fahrerin war es' nicht wahr ist. Die Prämissen unseres zweiten Arguments sind wahr, aber die Schlussfolgerung nicht: Das Szenario ist ein Gegenbeispiel zu unserem Argument.
+
+Wir haben gesagt, dass Argumente, deren Schlussfolgerung eine Folge der Prämissen ist, gültig sind und Argumente, deren Schlussfolgerung keine Folge der Prämissen ist, ungültig sind. Da wir nun eine erste Definition der Folgebeziehung haben, können wir nun auch eine erste Definition der Gültigkeit/Ungültigkeit eines Arguments geben: 
+
+	\factoidbox{
+		Ein Argument ist \define{gültig} wenn und nur wenn die Schlussfolgerung eine Folge der Prämissen ist.
+	}
+
+	\factoidbox{
+		Ein Argument ist \define{ungültig} wenn und nur wenn es nicht gültig ist, d.h.\@, es ein Gegenbeispiel zum Argument gibt.
+	}
+
+\newglossaryentry{Gültigkeit}
+{
+name=Gültigkeit,
+description={Eine Eigenschaft von Argumenten, laut der die Schlussfolgerung eine Folge der Prämissen ist.}
+}
+
+\newglossaryentry{Ungültigkeit}
+{
+name=Ungültigkeit,
+description={Eine Eigenschaft von Argumenten, laut der die Schlussfolgerung keine Folge der Prämissen ist; das Gegenteil von \gls{Gültigkeit}}
+}
+
+Eine Aufgabe von Logiker*innen ist es, den Begriff des Falls zu präzisieren und zu untersuchen, welche Argumente gültig sind, wenn dieser Begriff auf die eine oder andere Weise präzisiert wird. Wenn wir unter einem Fall ein mögliches Szenario verstehen, wie das Gegenbeispiel zum zweiten Argument, ist klar, dass das erste Argument gültig ist. Denn wenn wir uns ein Szenario vorstellen, in dem entweder der Butler oder der Gärtner es getan hat und der Butler es nicht getan hat, dann stellen wir uns automatisch ein Szenario vor, in dem der Gärtner es getan hat. Jedes mögliche Szenario, in dem die Prämissen unseres ersten Arguments wahr sind, macht also automatisch die Schlussfolgerung unseres ersten Arguments wahr. Das ist der Grund dafür, dass das erste Argument gültig ist. 
+
+Die Präzisierung des Begriffs des Falls, indem wir ihn als den Begriff eines möglichen Szenarios interpretieren ist ein Fortschritt. Aber sie ist nicht das Ende unserer Untersuchung. Das erste Problem ist, dass wir nicht wissen, welche Szenarien genau wir als möglich erachten sollen. Sind sie durch die Gesetze der Physik begrenzt? Durch das, was denkbar ist, in einem sehr allgemeinen Sinne? Welche Antworten wir auf diese Fragen geben, bestimmt, welche Argumente wir als gültig betrachten.
+
+Nehmen Sie an, dass die Antwort auf unsere \emph{erste} Frage `Ja' lautet und betrachten Sie das folgende Argument:
+	\begin{earg}
+		\item[] Das Raumschiff \emph{Rocinante} brauchte sechs Stunden um Jupiter von der Tycho Raumstation zu erreichen.
+		\item[\therefore] Die Distanz zwischen der Tycho Raumstation und Jupiter beträgt weniger als 14 Milliarden Kilometer.
+	\end{earg}
+Ein Gegenbeispiel zu diesem Argument wäre ein Fall, in dem die \emph{Rocinante} eine Reise von über 14 Milliarden Kilometern in 6 Stunden macht und dabei die Lichtgeschwindigkeit überschreitet. Da ein solcher Fall mit den Gesetzen der Physik unvereinbar ist, gibt es keinen solchen Fall, wenn mögliche Szenarien mit den Gesetzen der Physik übereinstimmen müssen. Wenn mögliche Szenarien allerdings nicht durch die Gesetze der Physik begrenzt sind, gibt es ein Gegenbeispiel: ein Szenario, bei dem die \emph{Rocinante} schneller als mit Lichtgeschwindigkeit reist. 
+
+Nehmen Sie nun an, dass die Antwort auf unsere \emph{zweite} Frage `Ja' lautet und betrachten Sie ein weiteres Argument:
+	\begin{earg}
+		\item[] Priya ist eine Ophtalmologin.
+		\item[\therefore] Priya ist eine Augenärztin.
+	\end{earg}
+Wenn wir alle denkbaren Szenarien als möglich bezeichnen, dann ist dieses Argument gültig. Wenn man sich Priya als Ophtalmologin vorstellt, dann stellt man sich Priya automatisch auch als Augenärztin vor. Das ist genau das, was `Ophtalmologin' und `Augenärztin' bedeuten. Ein Szenario, in dem Priya eine Ophtalmologin, aber keine Augenärztin ist, wird durch die begriffliche Verbindung zwischen diesen Wörtern ausgeschlossen.
+
+Je nachdem, welche Arten von Szenarien wir als Fälle und somit als potenzielle Gegenbeispiele betrachten, kommen wir also zu unterschiedlichen Theorien der Folgebeziehung und der Gültigkeit. Wir könnten ein Argument als \define{nomologisch gültig} bezeichnen, wenn es keine Gegenbeispiele gibt, die mit den Naturgesetzen übereinstimmen. Ebenso könnten wir ein Argument als \define{begrifflich gültig} bezeichnen, wenn es keine Gegenbeispiele gibt, die mit den begrifflichen Verbindungen zwischen Wörtern übereinstimmen. Bei diesen beiden Begriffen der Gültigkeit bestimmen Eigenschaften der Welt (z.B.\@ was die Naturgesetze sind) beziehungsweise Eigenschaften der Bedeutung der Worte die im Argument genutzt werden (z.B.\@ der Bedeutung von `Ophtalmologin' und `Augenärztin'), ob ein Argument gültig ist.
+
+\section{Formale Gültigkeit}
+
+Ein Alleinstellungsmerkmal der \emph{logischen} Folgebeziehung ist jedoch, dass sie nicht vom Inhalt der Prämissen und Schlussfolgerungen abhängt, sondern nur von deren logischer Form. Anders gesagt: als Logiker*in wollen wir eine Theorie entwickeln, die noch feinere Unterscheidungen treffen kann. Z.B.\@, sowohl
+\begin{earg}
+	\item[] Priya ist entweder eine Ophtalmologin oder eine Zahnärztin.
+	\item[] Priya ist keine Zahnärztin.
+	\item[\therefore] Priya ist eine Augenärztin.
+\end{earg}
+als auch
+\begin{earg}
+	\item[] Priya ist entweder eine Ophtalmologin oder eine Zahnärztin.
+	\item[] Priya ist keine Zahnärztin.
+	\item[\therefore] Priya ist eine Ophtalmologin.
+\end{earg}
+sind gültige Argumente. Aber während die Gültigkeit des ersten Arguments von seinem Inhalt abhängt (d.h.\@ von der Bedeutung von `Ophtalmologin' und `Augenärztin'), hängt die Gültigkeit des zweiten Arguments nicht von seinem Inhalt ab. Das zweite Argument ist \define{formal gültig}. Wir können die `Form' dieses Arguments als ein Muster beschreiben, etwa so:
+\begin{earg}
+	\item[] $A$ ist entweder eine $X$ oder eine $Y$.
+	\item[] $A$ ist keine $Y$.
+	\item[\therefore] $A$ ist eine $X$.
+\end{earg}
+Hier sind $A$, $X$ und $Y$ Platzhalter für geeignete Ausdrücke, die, wenn sie für $A$, $X$ und $Y$ ersetzt werden, das Muster in ein aus Sätzen bestehendes Argument verwandeln. Beispielsweise ist
+\begin{earg}
+	\item[] Mei ist entweder eine Mathematikerin oder eine Botanikerin.
+	\item[] Mei ist keine Botanikerin.
+	\item[\therefore] Mei ist eine Mathematikerin.
+\end{earg}
+ein Argument der gleichen Form. Das erste Argument in diesem Abschnitt hingegen ist es nicht: wir müssten $Y$ in der Prämisse und der Schlussfolgerung durch verschiedene Ausdrücke ersetzen (einmal durch `Ophtalmologin' und einmal durch `Augenärztin'), um es aus dem Muster heraus zu kriegen.
+
+Hinzu kommt, dass das erste Argument nicht formal gültig ist. Die Form dieses Arguments ist:
+\begin{earg}
+	\item[] $A$ ist entweder eine $X$ oder eine $Y$.
+	\item[] $A$ ist keine $Y$.
+	\item[\therefore] $A$ ist eine $Z$.
+\end{earg}
+In diesem Muster können wir $X$ durch `Ophtalmologin' und $Z$ durch `Augenarzt' ersetzen, um das ursprüngliche Argument zu erhalten. Aber hier ist ein weiteres Argument der gleichen Form:
+\begin{earg}
+	\item[] Mei ist entweder eine Mathematikerin oder eine Botanikerin.
+	\item[] Mei ist keine Botanikerin.
+	\item[\therefore] Mei ist eine Akrobatin.
+\end{earg}
+Dieses Argument ist klarerweise nicht gültig, da wir uns leicht eine Mathematikerin namens Mei vorstellen können, die keine Akrobatin ist. Dieses mögliche Szenario würde allerdings dafür sorgen, dass die erste Prämisse des Arguments wahr ist, und die Schlussfolgerung nicht.
+
+Unsere Strategie als Logiker*innen wird sein, einen Begriff des Falls zu entwickeln, bei dem sich ein Argument als gültig erweist, wenn und nur wenn es formal gültig ist. Es ist klar, dass ein solcher Begriff des Falls nicht nur gegen einige Naturgesetze, sondern auch gegen einige Gesetze der deutschen Sprache versto{\ss}en muss. Da das erste Argument in diesem Sinne ungültig ist, müssen wir als Gegenbeispiel einen Fall zulassen, in dem Priya Ophtalmologin, aber keine Augenärztin ist. Dieser Fall ist kein denkbares Szenario: er wird durch die Bedeutungen der Worte `Ophtalmologin' und `Augenärztin' ausgeschlossen.
+
+Wenn wir Fälle verschiedener Art betrachten, um die Gültigkeit eines Arguments zu beurteilen, werden wir einige Annahmen machen. Die erste Annahme ist, dass jeder Fall jeden Satz wahr oder nicht wahr macht -- zumindest jeden Satz in dem Argument, das wir gerade betrachten. Das bedeutet zunächst einmal, dass wir keine Szenarien als potenzielle Gegenbeispiele zulassen, die unbestimmt lassen, ob ein Satz unseres Arguments wahr ist oder nicht. Zum Beispiel wird ein Szenario, in dem Priya eine Zahnärztin, aber keine Augenärztin ist, als ein Fall gelten, der mit Bezug auf die ersten paar Argumenten dieses Abschnitts zu berücksichtigen ist, aber nicht als ein Fall, der mit Bezug auf die letzten zwei Argumente zu berücksichtigen ist. Denn dieses Szenario sagt uns nicht, ob Mei eine Mathematikerin, eine Botanikerin oder eine Akrobatin ist. Wenn ein Fall einen Satz nicht wahr macht, sagen wir, dass er ihn \define{falsch} macht. Wir nehmen also auch an, dass Fälle Sätze wahr oder falsch machen, aber niemals beides. Denn Sätze können nicht sowohl wahr als auch nicht wahr sein.\footnote{Obwohl unsere zwei Annahmen Ihnen wahrscheinlich vernünftig erscheinen, sind sie unter Philosoph*innen der Logik umstritten. Zunächst einmal gibt es Logiker*innen, die Fälle in Betracht ziehen wollen, in denen Sätze weder wahr noch falsch sind, sondern eine Art Zwischenebene der Wahrheit haben. Umstrittener ist die Meinung einiger Philosoph*innen, dass wir die Möglichkeit zulassen sollten, dass Sätze gleichzeitig wahr und falsch sein können. Es gibt logische Systeme, in denen Sätze weder wahr noch falsch oder beides sein können, aber wir werden sie in diesem Buch nicht diskutieren.}
+
+\section{Korrekte Argumente}
+
+Bevor wir unsere Strategie umsetzen, sollten wir einige Sachen klarstellen. Argumente in folgendem Sinne, als Schlussfolgerungen, die aus Prämissen folgen sollen, werden im alltäglichen und wissenschaftlichen Diskurs häufig verwendet. Wenn dies der Fall ist, werden Argumente mit dem Ziel angeführt, ihre Schlussfolgerungen zu untermauern oder sogar zu beweisen. Nun, wenn ein Argument gültig ist, dann wird es seine Schlussfolgerung stützen, aber \emph{nur dann}, wenn seine Prämissen alle wahr sind. Die Gültigkeit eines Arguments schlie{\ss}t die Möglichkeit aus, dass die Prämissen des Arguments wahr sind, während die Schlussfolgerung nicht wahr ist. Sie schlie{\ss}t aber nicht von sich aus die Möglichkeit aus, dass die Schlussfolgerung nicht wahr (also: falsch) ist.  Anders gesagt: es ist durchaus möglich, dass ein gültiges Argument eine Schlussfolgerung hat, die falsch ist.
+
+Ein Beispiel:
+	\begin{earg}
+		\item[] Orangen sind entweder Früchte oder Musikinstrumente.
+		\item[] Orangen sind keine Früchte.
+		\item[\therefore] Orangen sind Musikinstrumente.
+	\end{earg}
+Die Schlussfolgerung dieses Arguments ist albern. Dennoch folgt sie von den Prämissen dieses Arguments. \emph{Wenn} diese Prämissen wahr sind, \emph{dann} muss die Schlussfolgerung auch wahr sein. Also ist das Argument gültig.
+
+Umgekehrt reicht es nicht aus, über wahre Prämissen und eine wahre Schlussfolgerung zu verfügen, um ein gültiges Argument zu erhalten. Hierzu ein weiteres Beispiel:
+	\begin{earg}
+		\item[] London ist in England.
+		\item[] Peking ist in China.
+		\item[\therefore] Paris ist in Frankreich.
+	\end{earg}
+Die Prämissen und Schlussfolgerungen dieses Arguments sind in der Tat alle wahr, aber das Argument ist ungültig. Würde Paris seine Unabhängigkeit vom Rest Frankreichs erklären, dann wäre die Schlussfolgerung nicht mehr wahr, auch wenn beide Prämissen weiterhin wahr wären. Es gibt also einen Fall, in dem die Prämissen dieses Arguments wahr sind, ohne dass die Schlussfolgerung wahr ist. Das Argument ist also ungültig.
+
+Es ist wichtig, dass es bei der Gültigkeit nicht um die tatsächliche Wahrheit oder Falschheit der Sätze eines Arguments geht. Es geht darum, ob es \emph{möglich} ist, dass alle Prämissen wahr sind und die Schlussfolgerung gleichzeitig nicht wahr ist. Was tatsächlich der Fall ist, spielt keine besondere Rolle; und was die Fakten sind, bestimmt normalerweise nicht, ob ein Argument gültig ist oder nicht. (Es hat einen Grund, wieso wir von `normalerweise' sprechen: denn wenn die Prämissen eines Arguments tatsächlich wahr sind und die Schlussfolgerung tatsächlich nicht wahr ist, dann leben wir in einem Gegenbeispiel; hier bestimmt, was tatsächlich der Fall ist, dass das Argument ungültig ist.) Es wird oft gesagt, dass sich die Logik nicht um Gefühle schert. Eigentlich sind ihr auch die Fakten egal.
+
+Wenn wir ein Argument benutzen, um zu beweisen, dass seine Schlussfolgerung wahr ist, dann brauchen wir zwei Dinge. Erstens muss das Argument gültig sein, d.h.\@ die Schlussfolgerung muss aus den Prämissen folgen. Aber es muss auch der Fall sein, dass die Prämissen wahr sind. Wir werden sagen, dass ein Argument \define{korrekt} ist, dann und nur dann, wenn es gültig ist und alle seine Prämissen wahr sind. 
+
+\newglossaryentry{Korrektheit}
+{
+name=Korrektheit,
+description={Eine Eigenschaft von Argumenten, laut der das Argument gültig ist und alle seine Prämissen wahr sind.}
+}
+
+Die Kehrseite der Medaille ist, dass Sie, wenn Sie ein Argument widerlegen wollen, zwei Möglichkeiten haben: Sie können zeigen, dass (eine oder mehrere) der Prämissen nicht wahr sind, oder Sie können zeigen, dass das Argument nicht gültig ist. Die Logik hilft Ihnen aber nur bei Letzterem!  
+
+\section{Induktive Argumente}
+
+Viele gute Argumente sind ungültig. Zum Beispiel:
+	\begin{earg}
+		\item[] Bis jetzt hat es jeden Winter in Dortmund Frost gegeben.
+	\item[\therefore] Auch im kommenden Winter wird es in Dortmund Frost geben.
+\end{earg}
+Dieses Argument verallgemeinert Beobachtungen über viele (vergangene) Fälle zu einer Schlussfolgerung über alle (zukünftigen) Fälle. Solche Argumente werden als \define{induktive} Argumente bezeichnet. Obwohl dieses Argument ein gutes ist, und wir Grund haben, die Schlussfolgerung des Arguments zu akzeptieren, wenn wir seine Prämisse akzeptieren, ist das Argument ungültig. Auch wenn es bisher jeden Winter Frost in Dortmund gegeben hat, bleibt es möglich, dass Dortmund den ganzen kommenden Winter frostfrei bleibt. Tatsächlich könnten wir uns, selbst wenn es fortan jeden Winter in Dortmund Frost gibt, immer noch einen Fall vorstellen, in dem dieses Jahr das erste Jahr ist, in dem es den ganzen Winter über frostfrei bleibt. Und dieses mögliche Szenario ist ein Fall, in dem die Prämissen des Arguments wahr sind, die Schlussfolgerung jedoch nicht. Daher ist das Argument ungültig.
+
+Induktive Argumente -- selbst gute induktive Argumente -- sind nicht (deduktiv) gültig. Sie sind nicht \emph{hieb- und stichfest}. Auch wenn es unwahrscheinlich ist, so ist es doch \emph{möglich}, dass ihre Schlussfolgerung falsch ist, selbst wenn alle ihre Prämissen wahr sind. In diesem Buch werden wir die Frage, was ein gutes induktives Argument ausmacht, ganz beiseite lassen. Wir sind daran interessiert, die (deduktiv) gültigen Argumente von den ungültigen zu unterscheiden.  
+
+\practiceproblems
+\problempart
+Welche der folgenden Argumente sind gültig? Welche sind ungültig?
+
+\begin{earg}
+\item Sokrates ist ein Mensch.
+\item Alle Menschen sind Karotten.
+\item[\therefore] Sokrates ist eine Karotte.
+\end{earg}
+
+\begin{earg}
+\item Abe Lincoln wurde entweder in Illinois geboren oder war einmal Präsident.
+\item Abe Lincoln war nie Präsident.
+\item[\therefore] Abe Lincoln wurde in Illinois geboren.
+\end{earg}
+
+\begin{earg}
+\item Wenn ich den Abzug betätige, dann wird Abe Lincoln sterben.
+\item Ich betätige den Abzug nicht.
+\item[\therefore] Also wird Abe Lincoln nicht sterben.
+\end{earg}
+
+\begin{earg}
+\item Abe Lincoln kam entweder aus Frankreich oder aus Luxemburg.
+\item Abe Lincoln kam nicht aus Luxemburg.
+\item[\therefore] Abe Lincoln kam aus Frankreich.
+\end{earg}
+
+\begin{earg}
+\item Wenn die Welt heute untergeht, dann muss ich morgen nicht früh aufstehen.
+\item Ich muss morgen früh aufstehen.
+\item[\therefore] Die Welt geht heute nicht unter.
+\end{earg}
+
+\begin{earg}
+\item Johann ist jetzt 19 Jahre alt.
+\item Johann ist jetzt 87 Jahre alt.
+\item[\therefore] Ronja ist jetzt 20 Jahre alt.
+\end{earg}
+
+\problempart
+\label{pr.EnglishCombinations}
+Könnte es die folgenden Dinge geben?
+	\begin{earg}
+		\item Ein gültiges Argument mit einer falschen und einer wahren Prämisse.
+		\item Ein gültiges Argument, das nur falsche Prämissen hat.
+		\item Ein gültiges Argument, das nur falsche Prämissen und auch eine falsche Schlussfolgerung hat.
+		\item Ein ungültiges Argument, das man durch das Hinzufügen einer Prämisse gültig machen kann.
+		\item Ein gültiges Argument, das man durch das Hinzufügen einer Prämisse ungültig machen kann.
+	\end{earg}
+In jedem Fall: wenn die Antwort `Ja' lautet, geben Sie ein Beispiel; falls die Antwort `Nein' lautet, begründen Sie, wieso das so ist.
+
+\chapter{Andere logische Begriffe}\label{s:BasicNotions}
+
+In \S\ref{s:Valid} führten wir die Begriffe der Folge und eines gültigen Arguments ein. Diese Begriffe gehören zu den wichtigsten der Logik. In diesem Kapitel werden wir ähnlich bedeutende Begriffe einführen. Sie alle stützen sich, wie auch die Gültigkeit, auf die Idee, dass Sätze in Fällen wahr sind (oder nicht). Für den Rest dieses Kapitels verstehen wir Fälle als denkbare Szenarien, d.h. in dem Sinne, in dem wir sie zur Definition der begrifflichen Gültigkeit verstanden haben. Die Punkte, die wir zu den verschiedenen Arten von Gültigkeit gemacht haben, lassen sich auf ähnliche Weise auf unsere neuen Begriffe übertragen: Wenn wir eine andere Ansicht dazu haben, was als `Fall' zählt, erhalten wir verschiedene präzisere Begriffe. Als Logiker*innen werden wir letztendlich eine andere Definition des Falles in Betracht ziehen, als wir es hier tun.  
+
+\section{Gemeinsame Möglichkeit}
+
+Betrachten Sie die folgenden zwei Sätze:
+	\begin{ebullet}
+		\item[B1.] Eylems einziger Bruder ist kleiner als sie.
+		\item[B2.] Eylems einziger Bruder ist grö{\ss}er als sie.
+	\end{ebullet}
+Die Logik allein kann uns nicht sagen, welcher dieser beiden Sätze, wenn überhaupt, wahr ist. Dennoch können wir sagen, dass der zweite Satz (B2) falsch sein muss, \emph{wenn} der erste Satz (B1) wahr ist. In ähnlicher Weise muss B1 falsch sein, wenn B2 wahr ist. Es gibt kein mögliches Szenario, in dem beide Sätze wahr sind. Diese Sätze sind miteinander inkompatibel, sie können nicht gleichzeitig wahr sein. Dies motiviert die folgende Definition:
+
+	\factoidbox{
+		Sätze sind \define{gemeinsam möglich} wenn und nur wenn es zumindest einen Fall gibt, in dem sie alle wahr sind.
+	}
+	\factoidbox{
+		Sätze sind \define{gemeinsam unmöglich} wenn und nur wenn sie nicht gemeinsam möglich sind, d.h.\@ es keinen Fall gibt, in dem sie alle wahr sind.
+	}
+
+B1 und B2 sind \emph{gemeinsam unmöglich}, während, zum Beispiel, die folgenden zwei Sätze gemeinsam möglich sind:
+	\begin{ebullet}
+		\item[B3.] Eylems einziger Bruder ist kleiner als sie.
+		\item[B4.] Eylems einziger Bruder ist jünger als sie.
+	\end{ebullet}
+
+\newglossaryentry{Möglichkeit}
+{
+name=gemeinsame Möglichkeit,
+text={gemeinsame Möglichkeit},
+description={Eine Eigenschaft, die Sätze besitzen, wenn es einen Fall gibt, in dem sie alle wahr sind.}
+}
+
+Wir können nach der gemeinsamen Möglichkeit einer beliebigen Anzahl von Sätzen fragen. Denken Sie zum Beispiel an die folgenden vier Sätze:
+	\begin{ebullet}	
+		\item[G1.] \label{MartianGiraffes} Im Wildtierpark gibt es mindestens vier Giraffen.
+		\item[G2.] Es gibt genau sieben Gorillas im Wildtierpark.
+		\item[G3.] Es gibt nicht mehr als zwei Marsmenschen im Wildtierpark.
+		\item[G4.] Jede Giraffe im Wildtierpark ist ein Marsmensch.
+	\end{ebullet}
+Aus G1 und G4 zusammen folgt, dass sich mindestens vier Marsmenschen im Park aufhalten. Dies steht im Widerspruch zu Satz G3, der besagt, dass es dort nicht mehr als zwei Marsmenschen gibt. Die Sätze G1-G4 sind also gemeinsam unmöglich. Sie können nicht alle zusammen wahr sein. (Beachten Sie, dass auch die Sätze G1, G3 und G4 alleine schon gemeinsam unmöglich sind. Grundsätzlich gilt: wenn Sätze bereits gemeinsam unmöglich sind, kann das Hinzufügen eines zusätzlichen Satzes sie nicht gemeinsam möglich machen).
+
+\section{Notwendige Wahrheit, notwendige Falschheit und Kontingenz}
+
+Bei der Beurteilung von Argumenten, ob Ihrer Gültigkeit, interessiert uns, was wahr ist, \emph{wenn} die Prämissen wahr sind. Aber einige Sätze müssen einfach wahr sein. Betrachten Sie diese Sätze:
+	\begin{earg}
+		\item[\ex{Acontingent}] Es regnet.
+		\item[\ex{Atautology}] Entweder regnet es hier oder es regnet hier nicht.
+		\item[\ex{Acontradiction}] Es regnet hier und es regnet hier nicht.
+	\end{earg}
+Um zu wissen, ob Satz \ref{Acontingent} wahr ist, müssen Sie nach drau{\ss}en schauen oder den Wetterkanal überprüfen. Er könnte wahr sein; er könnte falsch sein. Einen Satz, der sowohl wahr als auch falsch sein kann (natürlich unter jeweils anderen Umständen), nennen wir \define{kontingent}.
+
+\newglossaryentry{kontingenter Satz}
+{
+name=kontingenter Satz,
+description={Ein Satz, der weder eine \gls{notwendige Wahrheit}, noch eine \gls{notwendige Falschheit}, ist; ein Satz der in manchen Fällen wahr ist und in anderen falsch.}
+}
+
+Satz \ref{Atautology} unterscheidet sich von Satz \ref{Acontingent}. Sie müssen nicht nach drau{\ss}en schauen, um zu wissen, dass dieser Satz wahr ist. Wie auch immer es um das Wetter steht, entweder regnet es hier oder es regnet hier nicht. Das ist eine \define{notwendige Wahrheit}. 
+
+\newglossaryentry{notwendige Wahrheit} %evtl. hier stattdessen die Begriffe Tautologie und Antilogie?
+{
+name={notwendige Wahrheit},
+description={Ein Satz, der in jedem Fall wahr ist.}
+}
+
+Ebenso brauchen Sie nicht das Wetter zu prüfen, um festzustellen, ob Satz \ref{Acontradiction} wahr ist oder nicht. Er muss falsch sein, einfach aus Gründen der Logik. Vielleicht regnet es hier und nicht in der ganzen Stadt; vielleicht regnet es jetzt, aber es hört auf zu regnen, während Sie diesen Satz lesen; aber es ist unmöglich, dass es am selben Ort und zur selben Zeit regnet und nicht regnet. Wie auch immer die Welt beschaffen ist, es ist nicht der Fall, dass es hier regnet und gleichzeitig nicht regnet. Dieser Satz ist eine \define{notwendige Falschheit}.
+
+\newglossaryentry{notwendige Falschheit}
+{
+name={notwendige Falschheit},
+description={Ein Satz, der in jedem Fall falsch ist (d.h.\@ in keinem Fall wahr ist).}
+}
+
+Ein Satz könnte \emph{immer} wahr und doch kontingent sein. Wenn es beispielsweise keine Zeit gab, in der das Universum weniger als sieben Dinge enthielt, dann war der Satz `Mindestens sieben Dinge existieren' immer wahr. Doch der Satz ist kontingent: Die Welt hätte viel, viel kleiner sein können, als sie ist. Dann jedoch wäre der Satz falsch gewesen. 
+
+\section{Notwendige Äquivalenz}
+
+Wir können auch nach den logischen Beziehungen \emph{zwischen} zwei Sätzen fragen. Zum Beispiel:
+\begin{earg}
+\item[] Jonas ging einkaufen, nachdem er das Geschirr abwusch.
+\item[] Jonas wusch das Geschirr ab, bevor er einkaufen ging.
+\end{earg}
+Diese beiden Sätze sind kontingent, da es möglich ist, dass Jonas gar nicht einkaufen ging oder überhaupt kein Geschirr abgewaschen hat. Dennoch müssen sie den gleichen Wahrheitswert haben. Wenn einer der beiden Sätze wahr ist, dann sind es beide; wenn einer der beiden Sätze falsch ist, dann sind es beide. Wenn zwei Sätze in jedem Fall den gleichen Wahrheitswert haben (also entweder beide wahr oder beide falsch sind), dann sagen wir, dass diese zwei Sätze \define{notwendigerweise äquivalent} sind.
+
+\newglossaryentry{notwendige Äquivalenz}
+{
+name={notwendige Äquivalenz},
+text={notwendige Äquivalenz},
+description={Eine Eigenschaft zweier Sätze, laut der diese zwei Sätze in jedem Fall entweder beide wahr oder beide falsch sind.}
+}
+
+
+\section*{Zusammenfassung unserer logischen Begriffe}
+
+\begin{itemize}
+\item Ein Argument ist \define{gültig}, wenn es keinen Fall gibt, in dem die Prämissen wahr sind und die Schlussfolgerung nicht; ansonsten ist es \define{ungültig}.
+
+\item Eine \define{notwendige Wahrheit} ist ein Satz, der in jedem Fall wahr ist.
+
+\item Eine \define{notwendige Falschheit} ist ein Satz, der in jedem Fall falsch ist.
+
+\item Ein \define{kontingenter Satz} ist weder eine notwendige Wahrheit, noch eine notwendige Falschheit; er ist ein Satz, der in manchen Fällen wahr und in anderen falsch ist.
+
+\item Zwei Sätze sind \define{notwendigerweise äquivalent} dann und nur dann, wenn sie in jedem Fall entweder beide wahr oder beide falsch sind.
+
+\item Eine Ansammlung an Sätzen ist \define{gemeinsam möglich} wenn es zumindest einen Fall gibt, in dem all diese Sätze gemeinsam wahr sind; ansonsten ist sie \define{gemeinsam unmöglich}.
+\end{itemize}
+
+
+\practiceproblems
+\problempart
+\label{pr.EnglishTautology2}
+Für jeden der folgenden Sätze: ist er eine notwendige Wahrheit, eine notwendige Falschheit oder kontingent?
+\begin{earg}
+\item Cäsar überquerte den Rubikon.
+\item Jemand hat den Rubikon überquert.
+\item Niemand hat jemals den Rubikon überquert.
+\item Wenn Cäsar den Rubikon überquert hat, dann hat jemand das getan.
+\item Obwohl Cäsar den Rubikon überquert hat, hat niemand jemals den Rubikon überquert.
+\item Wenn jemand den Rubikon überquert hat, dann war es Cäsar.
+\end{earg}
+
+\problempart
+Für jeden der folgenden Sätze: ist er eine notwendige Wahrheit, eine notwendige Falschheit oder kontingent?
+\begin{earg}
+\item Elefanten lösen sich im Wasser auf.
+\item Holz ist eine leichte, langlebige Substanz, nützlich fürs Bauen.
+\item Wenn Holz ein gutes Baumaterial wäre, dann wäre es nützlich fürs Bauen.
+\item Ich lebe in einem dreistöckigen Gebäude, das zwei Stockwerke hat.
+\item Wenn Rennmäuse Säugetiere wären, dann würden sie ihre Jungen stillen.
+\end{earg}
+
+\problempart Welche der folgenden Satzpaare sind notwendigerweise äquivalent?
+
+\begin{earg}
+\item Elefanten lösen sich im Wasser auf.	\\
+	Wenn Sie einen Elefanten ins Wasser tun, dann löst er sich auf.
+\item Alle Säugetiere lösen sich im Wasser auf.\\		
+	Wenn Sie einen Elefanten ins Wasser tun, dann löst er sich auf.
+\item George Bush war der 43ste US Präsident. \\
+	 Barack Obama war der 44ste US Präsident. 
+\item Barack Obama war der 44ste US Präsident. \\
+	  Barack Obama war Präsident direkt nach dem 43sten US Präsident. 
+\item Elefanten lösen sich im Wasser auf. 	\\	
+	Alle Säugetiere lösen sich im Wasser auf.
+\end{earg}
+
+\problempart Welche der folgenden Satzpaare sind notwendigerweise äquivalent?
+
+\begin{earg}
+\item  Thelonious Monk spielte Klavier.	\\
+	John Coltrane spielte Tenorsaxophon. 
+\item  Thelonious Monk spielte Gigs mit John Coltrane.	\\
+	John Coltrane spielte Gigs mit Thelonious Monk.
+\item  Alle professionellen Klavierspieler*innen haben gro{\ss}e Hände.	\\
+	Klavierspieler Bud Powell hatte gro{\ss}e Hände.
+\item  Bud Powell litt an einer schweren psychischen Krankheit.	 \\
+	Alle Klavierspieler*innen leiden an einer schweren psychischen Krankheit.
+\item John Coltrane war zutiefst religiös. \\
+John Coltrane betrachtete Musik als eine Manifestation seiner Spiritualität. 
+\end{earg}
+
+\noindent 
+\problempart Betrachten Sie die folgenden Sätze: 
+\begin{enumerate}%[label=(\alph*)]
+\item[G1] \label{itm:at_least_four} Im Wildtierpark gibt es mindestens vier Giraffen.
+\item[G2] \label{itm:exactly_seven} Es gibt genau sieben Gorillas im Wildtierpark.
+\item[G3] \label{itm:not_more_than_two} Es gibt nicht mehr als zwei Marsmenschen im Wildtierpark.
+\item[G4] \label{itm:martians} Jede Giraffe im Wildtierpark ist ein Marsmensch.
+\end{enumerate}
+
+Betrachten Sie nun die folgenden Satzkombinationen. Welche sind gemeinsam möglich? Welche sind gemeinsam unmöglich?
+\begin{earg}
+\item Sätze G2, G3 und G4
+\item Sätze G1, G3 und G4
+\item Sätze G1, G2 und G4
+\item Sätze G1, G2 und G3
+\end{earg}
+
+\problempart Betrachten Sie die folgenden Sätze:
+\begin{enumerate}%[label=(\alph*)]
+\item[M1] \label{itm:allmortal} Alle Menschen sind sterblich.
+\item[M2] \label{itm:socperson} Sokrates ist ein Mensch.
+\item[M3] \label{itm:socnotdie} Sokrates wird niemals sterben.
+\item[M4] \label{itm:socmortal} Sokrates ist sterblich.
+\end{enumerate}
+Welche Satzkombinationen sind gemeinsam möglich? Benennen Sie jede Kombination als `möglich' oder `unmöglich'.
+\begin{earg}
+\item M1, M2 und M3
+\item M2, M3 und M4
+\item M2 und M3
+\item M1 und M4
+\item M1, M2, M3 und M4
+\end{earg}
+
+\problempart
+\label{pr.EnglishCombinations2}
+Welche der folgenden Sachverhalte sind möglich? Wenn er möglich ist, geben Sie ein Beispiel. Wenn nicht, begründen Sie wieso.
+\begin{earg}
+\item Ein gültiges Argument, dessen Schlussfolgerung eine notwendige Falschheit ist
+\item Ein ungültiges Argument, dessen Schlussfolgerung eine notwendige Wahrheit ist
+\item Eine notwendige Wahrheit, die kontingent ist
+\item Zwei notwendigerweise äquivalente Sätze, die beide notwendige Wahrheiten sind
+\item Zwei notwendigerweise äquivalente Sätze, von denen einer eine notwendige Wahrheit ist und der andere kontingent
+\item Zwei notwendigerweise äquivalente Sätze, die gemeinsam unmöglich sind
+\item Eine gemeinsam mögliche Satzkombination, die eine notwendige Falschheit enthält
+\item Eine gemeinsam unmögliche Satzkombination, die eine notwendige Wahrheit enthält
+\end{earg}
+
+\problempart
+Welche der folgenden Sachverhalte sind möglich? Wenn er möglich ist, geben Sie ein Beispiel. Wenn nicht, begründen Sie wieso.
+
+\begin{earg}
+\item Ein gültiges Argument, dessen Prämissen alle notwendige Wahrheiten sind, dessen Schlussfolgerung aber kontingent ist
+\item Ein gültiges Argument mit wahren Prämissen und einer falschen Schlussfolgerung
+\item Eine gemeinsam mögliche Satzkombination, die zwei Sätze enthält die notwendigerweise äquivalent sind
+\item Eine gemeinsam mögliche Satzkombination, wo alle Sätze kontingent sind
+\item Eine falsche notwendige Wahrheit
+\item Ein gültiges Argument mit falschen Prämissen
+\item Ein notwendigerweise äquivalentes Satzpaar, das nicht gemeinsam möglich ist
+\item Eine notwendige Wahrheit, die auch eine notwendige Falschheit ist
+\item Eine gemeinsam mögliche Satzkombination, wo alle Sätze notwendige Falschheiten sind
+\end{earg}

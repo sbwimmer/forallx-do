@@ -1,12 +1,12 @@
-%!TEX root = forallxyyc.tex
+%!TEX root = forallxdo.tex
 
-% forallxyyc-style provides layout and style setup for forall x: YYC books
+% forallxdo-style provides layout and style setup for forall x: do books
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{forallxyyc-style}
+\ProvidesPackage{forallxdo-style}
 
-\def\forallxversion{Fall 2020}
-\def\forallxshortversion{F20}
+\def\forallxversion{Winter 2020}
+\def\forallxshortversion{W20}
 
 \RequirePackage{hyperref,ifthen,graphicx,xcolor,amssymb}
 \usepackage[numbered]{bookmark} %TB: added for speedy navigation
@@ -48,7 +48,7 @@
   \renewcommand*{\afterchapternum}{\par\nobreak\vskip 0pt}
   \renewcommand*{\chapnamefont}{\fontsize{14pt}{0pt}\selectfont\sffamily\bfseries}
   \renewcommand*{\chapnumfont}{\fontsize{14pt}{0pt}\selectfont\sffamily\bfseries}
-  \renewcommand*{\chaptitlefont}{\normalfont\fontsize{48pt}{48pt}\selectfont\bfseries\itshape\color{leadbeater}}
+  \renewcommand*{\chaptitlefont}{\normalfont\fontsize{28pt}{28pt}\selectfont\bfseries\itshape\color{leadbeater}}
   \renewcommand*{\printchaptername}{%
     \chapnamefont\MakeUppercase{\@chapapp}}
   \renewcommand*{\printchaptertitle}[1]{%
@@ -57,11 +57,11 @@
     \smash{\color{leadbeater}\rule{7pt}{\barlength}}}
 }
 
-\renewcommand*{\partnamefont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
-\renewcommand*{\partnumfont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
-\renewcommand*{\parttitlefont}{\normalfont\fontsize{48pt}{48pt}\selectfont\bfseries\itshape\color{leadbeater}}
+\renewcommand*{\partnamefont}{\fontsize{16pt}{0pt}\selectfont\sffamily\bfseries}
+\renewcommand*{\partnumfont}{\fontsize{16pt}{0pt}\selectfont\sffamily\bfseries}
+\renewcommand*{\parttitlefont}{\normalfont\fontsize{32pt}{32pt}\selectfont\bfseries\itshape\color{leadbeater}}
 \renewcommand*{\printpartname}{%
-  \partnamefont PART}
+  \partnamefont TEIL}
 
 \chapterstyle{leadbeater}
 
@@ -131,9 +131,9 @@
 \renewcommand{\theHProbPart}{\thechapter.\theProbPart}
 % This inserts a heading and resets the counter:
 \newcommand*{\practiceproblems}{
-	\setcounter{ProbPart}{0}\section*{Practice exercises}%
-  \sectionmark{Practice exercises}%
-	\addcontentsline{toc}{section}{Practice exercises}
+	\setcounter{ProbPart}{0}\section*{Übungen}%
+  \sectionmark{Übungen}%
+	\addcontentsline{toc}{section}{Übungen}
 }
 % This starts a new section which is automatically numbered:
 \newcommand*{\problempart}{\par\noindent\refstepcounter{ProbPart}\textbf{\Alph{ProbPart}. }}
@@ -182,7 +182,7 @@
 \newcommand\myanswer[1]{\textcolor{leadbeater}{#1}} % TB: puts model answers in blue
 
 % TB: information originally in the main body; but it is style information, so I have included it here.
-\hypersetup{pdfinfo={Title={forall x: Calgary}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Rob Trueman, Aaron Thomas-Bolduc, Richard Zach}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, Fitch}}, %
+\hypersetup{pdfinfo={Title={forall x: Dortmund}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Rob Trueman, Aaron Thomas-Bolduc, Richard Zach, Simon Wimmer}, Subject={Eine open access Einführung in die formale Logik}, Keywords={wahrheitsfunktionale Logik, Aussagenlogik, Prädikatenlogik, Logik erster Ordnung, Natürliche Herleitung, Fitch}}, %
   bookmarks={true}, %
   bookmarksopen = true,
 	colorlinks={true}, %

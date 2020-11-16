@@ -1,0 +1,1474 @@
+%!TEX root = forallxdo.tex
+
+\part{Wahrheitstabellen}
+\label{ch.TruthTables}
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+
+\chapter{Charakteristische Wahrheitstabellen}
+\label{s:CharacteristicTruthTables}
+
+Jeder Satz der WFL setzt sich aus Satzbuchstaben zusammen. Manche Sätze sind einfach nur Satzbuchstaben. In anderen Sätzen wurden Satzbuchstaben mit Hilfe von Junktoren zu komplexen Sätzen kombiniert. Der Wahrheitswert dieser komplexen Sätze hängt nur von den Wahrheitswerten der Satzbuchstaben ab, aus denen sie sich zusammensetzen. Um z.B.\@ den Wahrheitswert von `$(D \eand E)$' zu berechnen, muss man nur den Wahrheitswert von `$D$' und den Wahrheitswert von `$E$' kennen. 
+
+In Kapitel \ref{s:TFLConnectives} haben wir fünf Junktoren vorgestellt. Wir müssen also nur erklären, wie diese Junktoren mit Wahrheitswerten umgehen. Der Einfachheit halber kürzen wir `Wahr' mit `T' (wie `true' im Englischen) und `Falsch' mit `F' ab. (Zur Klarstellung: die beiden Wahrheitswerte sind Wahr und Falsch; die Wahrheitswerte sind keine Buchstaben.)
+
+\newglossaryentry{Wahrheitswert}
+                 {
+                   name = Wahrheitswert,
+                   description = {Einer von zwei Werten, die Sätze haben können: Wahr und Falsch}
+                   }
+
+\paragraph{Negation.} Für jeden Satz \metav{A} gilt: Wenn \metav{A} wahr ist, dann ist \enot\metav{A} falsch; und wenn \enot\metav{A} wahr ist, dann ist \metav{A} falsch. Wir können dies in der \emph{charakteristischen Wahrheitstabelle} für die Negation zusammenfassen::
+\begin{center}
+\begin{tabular}{c|c}
+\metav{A} & \enot\metav{A}\\
+\hline
+T & F\\
+F & T 
+\end{tabular}
+\end{center}
+
+\paragraph{Konjunktion.} Für alle Sätze \metav{A} und \metav{B}, \metav{A}\eand\metav{B} ist wahr genau dann, wenn sowohl \metav{A} als auch \metav{B} wahr sind.  Wir können dies in der \emph{charakteristischen Wahrheitstabelle} für die Konjunktion zusammenfassen:
+\begin{center}
+\begin{tabular}{c c |c}
+\metav{A} & \metav{B} & $\metav{A}\eand\metav{B}$\\
+\hline
+T & T & T\\
+T & F & F\\
+F & T & F\\
+F & F & F
+\end{tabular}
+\end{center}
+Die Konjunktion ist \emph{symmetrisch}. Der Wahrheitswert von $\metav{A} \eand \metav{B}$ ist in jedem Fall der gleiche wie der Wahrheitswert von $\metav{B} \eand \metav{A}$.  
+
+\paragraph{Disjunktion.} Es ist wichtig, dass `$\eor$' immer das einschlie{\ss}ende `oder' repräsentiert. Daher gilt für alle Sätze \metav{A} und \metav{B}, dass $\metav{A}\eor \metav{B}$ wahr ist genau dann, wenn entweder \metav{A} oder \metav{B} wahr ist.  Wir können dies in der \emph{charakteristischen Wahrheitstabelle} für die Disjunktion zusammenfassen:
+\begin{center}
+\begin{tabular}{c c|c}
+\metav{A} & \metav{B} & $\metav{A}\eor\metav{B}$ \\
+\hline
+T & T & T\\
+T & F & T\\
+F & T & T\\
+F & F & F
+\end{tabular}
+\end{center}
+Wie die Konjunktion ist auch die Disjunktion symmetrisch. 
+
+\paragraph{Konditional.} Ehrlich gesagt: Das Konditional ist ein Murks in der WFL. Inwiefern genau, ist unter Philosoph*innen umstritten. Wir werden einige der schwierigen Fragestellungen in \S\S\ref{s:IndicativeSubjunctive} und \ref{s:ParadoxesOfMaterialConditional} diskutieren. Für den Augenblick werden wir Folgendes festlegen: $\metav{A}\eif\metav{B}$ ist falsch genau dann, wenn \metav{A} wahr und \metav{B} falsch ist. Wir können dies in dieser charakteristischen Wahrheitstabelle zusammenfassen:
+\begin{center}
+\begin{tabular}{c c|c}
+\metav{A} & \metav{B} & $\metav{A}\eif\metav{B}$\\
+\hline
+T & T & T\\
+T & F & F\\
+F & T & T\\
+F & F & T
+\end{tabular}
+\end{center}
+Das Konditional ist \emph{asymmetrisch}. Sie können das Antezedens und Konsequens nicht vertauschen, ohne die Bedeutung des Satzes zu verändern; $\metav{A}\eif\metav{B}$ und $\metav{B} \eif \metav{A}$ sind in unterschiedlichen Szenarien wahr und haben daher unterschiedliche Wahrheitstabellen.
+
+\paragraph{Bikonditional.}  Da ein Bikonditional identisch mit der Konjunktion der in beide Richtungen verlaufenden Konditionale sein soll, wollen wir, dass die Wahrheitstabelle für das Bikonditional so aussieht:
+\begin{center}
+\begin{tabular}{c c|c}
+\metav{A} & \metav{B} & $\metav{A}\eiff\metav{B}$\\
+\hline
+T & T & T\\
+T & F & F\\
+F & T & F\\
+F & F & T
+\end{tabular}
+\end{center}
+Das Bikonditional ist symmetrisch. 
+
+\chapter{Wahrheitsfunktionale Junktoren}
+\label{s:TruthFunctionality}
+
+\section{Der Begriff der Wahrheitsfunktionalität}
+Wir führen nun eine wichtige Idee ein: 
+	\factoidbox{
+		Ein Junktor ist \define{wahrheitsfunktional} genau dann, wenn der Wahrheitswert eines Satzes mit diesem Junktor als Hauptjunktor eindeutig durch den Wahrheitswert (die Wahrheitswerte) seines (seiner) Teilsatzes (Teilsätze) bestimmt wird.
+	}
+\newglossaryentry{Wahrheitsfunktionaler Junktor}
+{
+name=Wahrheitsfunktionaler Junktor,
+description={Ein Symbol, welches komplexere Sätze aus einfacheren Sätzen bildet und die \gls{Wahrheitswert}e der resultierenden Sätze nur mittels der Wahrheitswerte der einfächeren Sätze bestimmt.}
+}
+ 
+Jeder Junktor der WFL ist wahrheitsfunktional. Der Wahrheitswert einer Negation wird eindeutig durch den Wahrheitswert des nicht verneinten Satzes bestimmt. Der Wahrheitswert einer Konjunktion wird eindeutig durch den Wahrheitswert der beiden Konjunkte bestimmt. Der Wahrheitswert einer Disjunktion wird eindeutig durch den Wahrheitswert beider Disjunkte bestimmt, usw. Um den Wahrheitswert eines WFL-Satzes zu bestimmen, müssen wir nur den Wahrheitswert seiner Teilsätze kennen. 
+
+Diese Eigenschaft ist es, die der WFL ihren Namen gibt: die WFL ist die \emph{wahrheitsfunktionale} Logik.
+
+Viele Sprachen verwenden Junktoren, die nicht wahrheitsfunktional sind. Im Deutschen können wir zum Beispiel aus jedem Satz einen neuen Satz bilden, indem wir ihm das Präfix `Es ist notwendig, dass\dots' voranstellen. Der Wahrheitswert dieses neuen Satzes wird nicht allein durch den Wahrheitswert des ursprünglichen Satzes festgelegt. Um dies zu sehen, betrachten Sie zwei wahre Sätze: 
+	\begin{earg}
+		\item Ein Stein ist ein Stein.
+		\item Shostakovich hat 15 Streichquartette geschrieben.
+	\end{earg}
+Beide dieser Sätze sind wahr. Doch während es notwendig ist, dass ein Stein ein Stein ist, ist es nicht notwendig, dass Schostakowitsch fünfzehn Streichquartette geschrieben hat. Wäre Schostakowitsch früher gestorben, hätte er Quartett Nr. 15 nicht beendet; hätte er länger gelebt, hätte er vielleicht ein paar mehr geschrieben. `Es ist notwendig, dass\dots' ist also nicht wahrheitsfunktional. 
+
+\section{Symbolisieren und Übersetzen}
+Alle Junktoren der WFL sind wahrheitsfunktional, aber mehr als das: sie machen wirklich nichts, \emph{au{\ss}er} einen Wahrheitswert oder mehrere Wahrheitswerte auf einen Wahrheitswert abzubilden.
+
+Wenn wir in der WFL einen Satz oder ein Argument symbolisieren, ignorieren wir alles, was über den Beitrag hinausgeht, den die Wahrheitswerte einer Komponente zum Wahrheitswert des Ganzen leisten. Es gibt Feinheiten in unseren gewöhnlichen Behauptungen, die weit über ihre Wahrheitswerte hinausgehen. Sarkasmus, Poesie, Abfälligkeit, Betonung; das sind wichtige Teile unserer alltäglichen Sprache, aber nichts davon wird in der WFL beibehalten. Wie in \S\ref{s:TFLConnectives} angemerkt, kann die WFL die subtilen Unterschiede zwischen den folgenden deutschen Sätzen nicht erfassen:
+	\begin{earg}
+		\item Dana ist eine Logikerin und sie ist eine nette Person.
+		\item Obwohl Dana eine Logikerin ist, ist sie eine nette Person
+		\item Dana ist eine Logikerin, trotz ihrer Nettigkeit.
+		\item Dana ist eine nette Person, aber auch eine Logikerin.
+		\item Auch wenn Dana eine Logikerin ist, sie ist eine nette Person.
+	\end{earg}
+Alle dieser Sätze werden mit dem gleichen Satz der WFL symbolisiert, etwa `$L \eand N$'.
+
+Nun sagen wir immer wieder, dass wir WFL-Sätze verwenden, um deutsche Sätze zu \emph{symbolisieren}. Viele andere Lehrbücher sprechen stattdessen vom \emph{Übersetzen} deutscher Sätze in die WFL. Eine gute Übersetzung sollte jedoch bestimmte Facetten der Bedeutung bewahren, und die WFL kann das -- wie wir gerade gesehen haben -- nicht tun. Deshalb werden wir davon sprechen, dass wir deutsche Sätze \emph{symbolisieren}, anstatt sie zu \emph{übersetzen}.
+
+Dies wirkt sich darauf aus, wie wir unsere Symbolisierungsschlüssel verstehen sollten. Betrachten Sie einen Schlüssel wie:
+	\begin{ekey}
+		\item[L] Dana ist eine Logikerin.
+		\item[N] Dana ist eine nette Person.
+	\end{ekey}
+Andere Lehrbücher werden dies als eine Bestimmung verstehen, dass der WFL-Satz `$L$' bedeuten soll, dass Dana eine Logikerin ist, und dass der WFL-Satz `$N$' bedeuten soll, dass Dana eine nette Person ist. Aber die WFL ist einfach völlig ungeeignet, mit der \emph{Bedeutung}, in all ihren Feinheiten, umzugehen. Von unserer Perspektive aus tut der vorangehende Symbolisierungsschlüssel nicht mehr als festzulegen, dass der WFL-Satz `$L$' denselben Wahrheitswert hat wie der deutsche Satz `Dana ist eine Logikerin' (welcher das auch sein mag), und dass der WFL-Satz `$N$' denselben Wahrheitswert hat wie der deutsche Satz `Dana ist eine nette Person' (welcher auch immer das sein mag).
+
+\factoidbox{
+		Wenn wir einen WFL-Satz so behandeln, als würde er einen deutschen Satz \emph{symbolisieren}, legen wir fest, dass der WFL-Satz den gleichen Wahrheitswert hat wie dieser deutsche Satz.
+	}
+
+\section{Indikative und konjunktive Konditionale}\label{s:IndicativeSubjunctive}
+Wir wollen nun deutlich machen, dass die WFL nur mit Wahrheitsfunktionen umgehen kann, indem wir den Fall des Konditionals genauer betrachten. Als wir die charakteristische Wahrheitstabelle für den Konditional in \S\ref{s:CharacteristicTruthTables} eingeführt haben, haben wir nichts gesagt, um sie zu rechtfertigen. Lassen Sie uns nun eine Rechtfertigung anbieten, die Dorothy Edgington folgt.\footnote{Dorothy Edgington, `Conditionals', 2014, in der \emph{Stanford Encyclopedia of Philosophy} (\url{http://plato.stanford.edu/entries/conditionals/}).} 
+
+Lasst uns annehmen, dass Lara einige Formen auf ein Blatt Papier gezeichnet hat und einige davon eingefärbt hat. Wir haben sie nicht gesehen, behaupten aber dennoch:
+	\begin{quote}
+		Für jede Form gilt: wenn sie grau ist, dann ist sie ein Kreis.
+	\end{quote}
+Zufällig hat Lara Folgendes gezeichnet:
+\begin{center}
+\begin{tikzpicture}
+	\node[circle, grey_shape] (cat1) {A};
+	\node[right=10pt of cat1, diamond, phantom_shape] (cat2)  { } ;
+	\node[right=10pt of cat2, circle, white_shape] (cat3)  {C} ;
+	\node[right=10pt of cat3, diamond, white_shape] (cat4)  {D};
+\end{tikzpicture}
+\end{center}
+In diesem Fall scheint unsere Behauptung wahr zu sein. Die Formen C und D sind nicht grau und können daher kaum Gegenbeispiele zu unserer Behauptung sein. Form A ist grau, ist aber auch ein Kreis. Unsere Behauptung hat also keine Gegenbeispiele. Sie ist wahr. Das bedeutet, dass jede der folgenden Instanzen unserer Behauptung ebenfalls wahr sein muss:
+	\begin{ebullet}
+		\item Wenn Form A grau ist, dann ist sie ein Kreis. \\ (wahres Antezedens, wahres Konsequens)
+		\item Wenn Form C grau ist, dann ist sie ein Kreis. \\ (falsches Antezedens, wahres Konsequens)
+		\item Wenn Form D grau ist, dann ist sie ein Kreis. \\ (falsches Antezedens, falsches Konsequens)
+	\end{ebullet}
+Aber hätte Lara eine vierte Form gezeichnet, so wie hier:
+\begin{center}
+\begin{tikzpicture}
+	\node[circle, grey_shape] (cat1) {A};
+	\node[right=10pt of cat1, diamond, grey_shape] (cat2)  {B};
+	\node[right=10pt of cat2, circle, white_shape] (cat3)  {C};
+	\node[right=10pt of cat3, diamond, white_shape] (cat4)  {D};
+\end{tikzpicture}
+\end{center}
+dann wäre unsere Behauptung (`wenn eine Form grau ist, dann ist sie ein Kreis') falsch. Dementsprechend ist nun eine der Instanzen unserer Behauptung falsch:
+	\begin{ebullet}
+		\item Wenn Form B grau ist, dann ist sie ein Kreis. \\ (wahres Antezedens, falscher Konsequens)
+	\end{ebullet}
+Erinnern Sie sich jetzt daran, dass jeder Junktor der WFL wahrheitsfunktional ist. Auf das Konditional angewandt, bedeutet das, dass die Wahrheitswerte des Antezedens und des Konsequens den Wahrheitswert des Konditionals als Ganzes eindeutig bestimmen müssen. Daher können wir aus den Wahrheitswerten unserer vier Behauptungen -- die uns alle möglichen Kombinationen von Wahrheit und Falschheit in Antezedens und Konsequens liefern -- die Wahrheitstabelle für den Konditional ablesen.
+
+Was dieses Argument zeigt, ist, dass `$\eif$' der \emph{beste} Kandidat für ein wahrheitsfunktionales Konditional ist. Anders ausgedrückt, es ist das beste Konditional, das die WFL hergibt. Aber taugt es auch als Symbolisierung der verschiedenen Konditionale, die wir in der deutschen Sprache verwenden? Betrachten Sie zwei Sätze:
+	\begin{earg}
+		\item[\ex{brownwins1}] Wenn Hillary Clinton die Wahl 2016 gewonnen hätte, dann wäre sie die erste Präsidentin der USA gewesen.
+		\item[\ex{brownwins2}] Wenn Hlllary Clinton die Wahl 2016 gewonnen hätte, dann hätte sie sich in einen Helium-gefüllten Ballon verwandelt und wäre in den Abendhimmel entflogen.
+	\end{earg}
+Satz \ref{brownwins1} ist wahr; Satz \ref{brownwins2} dagegen falsch. Aber beide haben ein falsches Antezedens und ein wahres Konsequens. (Hillary hat nicht gewonnen; sie wurde nicht die erste Präsidentin der USA; und sie hat sich nicht mit Helium gefüllt, nur um danach in den Abendhimmel aufzusteigen.) Der Wahrheitswert der beiden Konditionale wird also nicht eindeutig von den Wahrheitswerten ihrer Teilsätze bestimmt. 
+
+Wichtig ist hier, dass die Sätze \ref{brownwins1} und \ref{brownwins2} \emph{konjunktive} Konditionale sind und nicht \emph{indikative} Konditionale. Sie laden uns dazu ein, uns etwas vorzustellen, das im Widerspruch zu den Tatsachen steht -- schlie{\ss}lich verlor Hillary Clinton die Wahl 2016. Wir bestimmen den Wahrheitsweit dieser Konditionale dann aufgrund unserer Urteile dazu, was unter diesen Umständen passiert wäre. `$\eif$' dagegen lädt uns nicht zu derartigen Vorstellungen ein.
+
+Wir werden noch weitere Feinheiten der Konditionale in \S\ref{s:ParadoxesOfMaterialConditional} behandeln. Vorerst werden wir uns damit begnügen, dass `$\eif$' der einzige Kandidat für einen wahrheitsfunktionalen Konditional der WFL ist, dass aber viele deutsche Konditionale mit `$\eif$' nicht angemessen symbolisiert werden können. Dies illustriert, dass WFL eine an sich begrenzte Sprache ist. 
+
+\chapter{Komplette Wahrheitstabellen}
+\label{s:CompleteTruthTables}
+
+Bisher haben wir Symbolisierungsschlüssel verwendet, um den Sätzen der WFL Wahrheitswerte \emph{indirekt} zuzuordnen. Wir könnten beispielsweise sagen, dass der WFL-Satz `$B$' den Satz `Big Ben ist in London' symbolisiert. Da Big Ben in London ist, würde diese Symbolisierung `$B$' wahr machen. Wir können aber auch \emph{direkt} Wahrheitswerte zuweisen. Wir können einfach festlegen, dass "$B$" wahr ist, oder festlegen, dass es falsch ist. Solche Bestimmungen werden \emph{Bewertungen} genannt: 
+
+\factoidbox{
+		Eine \define{Bewertung} ist eine Zuordnung von Wahrheitswerten zu bestimmten Satzbuchstaben der WFL.
+	}
+
+\newglossaryentry{Bewertung}
+{
+name=Bewertung,
+description={Eine Zuordnung von \gls{Wahrheitswert}en to zu bestimmten \gls{Satzbuchstabe}n}
+}
+
+Das Potential der Wahrheitstabellen liegt im Folgenden. Jede Zeile einer Wahrheitstabelle stellt eine mögliche Bewertung der Satzbuchstaben dar. Die komplette Wahrheitstabelle stellt alle möglichen Bewertungen der Satzbuchstaben dar. Eine solche Wahrheitstabelle gibt uns ein Mittel an die Hand, mit dem wir den Wahrheitswert von komplexen Sätzen für jede mögliche Bewertung berechnen können. All dies lässt sich am einfachsten an einem Beispiel erklären.
+
+\section{Ein Beispiel}
+Betrachten Sie den Satz `$(H\eand I)\eif H$'. Es gibt vier Möglichkeiten, den Satzbuchstaben `$H$' und `$I$' Wahr und Falsch zuzuordnen -- vier Bewertungen. Die können wir wie folgt darstellen:
+\begin{center}
+\begin{tabular}{c c|d e e e f}
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\hline
+ T & T\\
+ T & F\\
+ F & T\\
+ F & F
+\end{tabular}
+\end{center}
+Um den Wahrheitswert des gesamten Satzes `$(H \eand I) \eif H$' zu berechnen, kopieren wir zunächst die Wahrheitswerte für die Satzbuchstaben und schreiben sie unter die Buchstaben in der Wahrheitstabelle:
+\begin{center}
+\begin{tabular}{c c|d e e e f}
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\hline
+ T & T & {T} & & {T} & & {T}\\
+ T & F & {T} & & {F} & & {T}\\
+ F & T & {F} & & {T} & & {F}\\
+ F & F & {F} & & {F} & & {F}
+\end{tabular}
+\end{center}
+Betrachten Sie nun den Teilsatz `$(H\eand I)$'. Dieser ist eine Konjunktion, $(\metav{A}\eand \metav{B})$, mit `$H$' als \metav{A} und `$I$' als \metav{B}. Die charakteristische Wahrheitstabelle für die Konjunktion gibt die Wahrheitsbedingungen für \emph{jeden} Satz der Form $(\metav{A}\eand\metav{B})$ an, was auch immer an $\metav{A}$ und $\metav{B}$s Stelle vorkommen mag. Er stellt den Punkt dar, dass eine Konjunktion wahr ist wenn und nur wenn beide Konjunkte wahr sind. In diesem Fall sind unsere Konjunkte `$H$' und `$I$'. Sie sind beide wahr in (und nur in) der ersten Zeile der Wahrheitstabelle. Dementsprechend können wir den Wahrheitswert der Konjunktion auf allen vier Zeilen berechnen.
+\begin{center}
+\begin{tabular}{c c|d e e e f}
+ & & \metav{A} & \eand & \metav{B} & & \\
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\hline
+ T & T & T & {T} & T & & T\\
+ T & F & T & {F} & F & & T\\
+ F & T & F & {F} & T & & F\\
+ F & F & F & {F} & F & & F
+\end{tabular}
+\end{center}
+Nun ist der ganze Satz, mit dem wir es zu tun haben, ein Konditional, $\metav{A}\eif\metav{B}$, mit `$(H \eand I)$' als \metav{A} und `$H$' als \metav{B}. In der zweiten Reihe zum Beispiel ist `$(H\eand I)$' falsch und `$H$' wahr. Da ein Konditional wahr ist, wenn das Antezedens falsch ist, schreiben wir ein `T' in die zweite Zeile unter das Symbol des Konditionals. Mit den anderen drei Zeilen fortfahrend erhalten wir:
+\begin{center}
+\begin{tabular}{c c| d e e e f}
+ & &  & \metav{A} &  &\eif &\metav{B} \\
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\hline
+ T & T &  & {T} &  &{T} & T\\
+ T & F &  & {F} &  &{T} & T\\
+ F & T &  & {F} &  &{T} & F\\
+ F & F &  & {F} &  &{T} & F
+\end{tabular}
+\end{center}
+Der Konditional ist der Hauptjunktor des Satzes. Daher sagt uns die Spalte der `T's unter dem Konditional, dass der Satz `$(H \eand I)\eif H$' unabhängig von den Wahrheitswerten von `$H$' und `$I$' wahr ist. Sie können in jeder Kombination wahr oder falsch sein--der komplexe Satz ist immer wahr. Da wir alle vier möglichen Zuordnungen von Wahrheit und Falschheit zu `$H$' und `$I$' in Betracht gezogen haben -- alle möglichen Bewertungen --, können wir sagen, dass `$(H \eand I)\eif H$' jeder Bewertung nach wahr ist.
+
+In diesem Beispiel haben wir nicht alle Einträge in jeder Spalte in jeder aufeinander folgenden Tabelle wiederholt. Beim manuellen Schreiben von Wahrheitstabellen auf Papier ist es jedoch unpraktisch, ganze Spalten zu löschen oder die ganze Tabelle bei jedem Schritt neu zu schreiben. Auch wenn die Wahrheitstabelle so voller ist, kann sie auch auf diese Weise geschrieben werden:
+\begin{center}
+\begin{tabular}{c c| d e e e f}
+$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+\hline
+ T & T & T & {T} & T & \TTbf{T} & T\\
+ T & F & T & {F} & F & \TTbf{T} & T\\
+ F & T & F & {F} & T & \TTbf{T} & F\\
+ F & F & F & {F} & F & \TTbf{T} & F
+\end{tabular}
+\end{center}
+Die meisten Spalten unterhalb des Satzes dienen unserem Komfort. Die Spalte, auf die es ankommt, ist die Spalte unter dem \emph{Haupjunktor} für den Satz, da diese den Wahrheitswert des gesamten Satzes angibt. Wir haben dies betont, indem wir diese Spalte fett gedruckt haben. Wenn Sie selbst Wahrheitstabellen schreiben, sollten Sie diese Spalte in ähnlicher Weise hervorheben.
+
+\section{Komplette Wahrheitstabellen bauen}
+Eine \define{komplette Wahrheitstabelle} hat eine Zeile für jede mögliche Zuordnung von Wahr und Falsch zu den relevanten Satzbuchstaben. Jede Zeile repräsentiert eine \emph{Bewertung} und eine komplette Wahrheitstabelle hat eine Zeile für jede mögliche Bewertung. 
+
+\newglossaryentry{komplette Wahrheitstabelle}
+{
+name=komplette Wahrheitstabelle,
+description={Eine Tabelle, die alle möglichen \gls{Wahrheitswert}e zu einem Satz oder mehreren Sätzen der WFL zuordnet, mit einer Zeile für jede mögliche \gls{Bewertung} aller Satzbuchstaben.}
+}
+
+Die Grö{\ss}e der kompletten Wahrheitstabelle hängt von der Anzahl der verschiedenen Satzbuchstaben in der Tabelle ab. Ein Satz, der nur einen Satzbuchstaben enthält, benötigt nur zwei Zeilen, wie in der charakteristischen Wahrheitstabelle für die Negation. Dies gilt auch dann, wenn derselbe Buchstabe viele Male wiederholt wird, wie im Satz `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$'. Die komplette Wahrheitstabelle umfasst hier nur zwei Zeilen, weil es nur zwei Möglichkeiten gibt: `$C$' kann wahr oder falsch sein. Die Wahrheitstabelle für diesen Satz sieht wie folgt aus:
+\begin{center}
+\begin{tabular}{c| d e e e e e e e e e e e e e e f}
+$C$&$[($&$C$&\eiff&$C$&$)$&\eif&$C$&$]$&\eand&\enot&$($&$C$&\eif&$C$&$)$\\
+\hline
+ T &    & T &  T  & T &   & T  & T & &\TTbf{F}&  F& &   T &  T  & T &   \\
+ F &    & F &  T  & F &   & F  & F & &\TTbf{F}&  F& &   F &  T  & F &   \\
+\end{tabular}
+\end{center}
+Wenn wir uns die Spalte unter dem Hauptjunktor ansehen, dann sehen wir, dass dieser Satz in beiden Zeilen der Tabelle falsch ist. D.h.\@, dass der Satz falsch ist, unabhängig davon, ob `$C$' wahr oder falsch ist. Er ist jeder Bewertung nach falsch.
+
+Eine komplette Wahrheitstabelle für einen Satz mit zwei unterschiedlichen Satzbuchstaben hat vier Zeilen, wie die charakteristischen Wahrheitstabellen für Konjunktion, Disjunktion, den Konditional und den Bikonditional oder auch die Wahrheitstabelle für `$(H \eand I)\eif H$'.
+
+Eine komplette Wahrheitstabelle für einen Satz mit drei unterschiedlichen Satzbuchstaben hat acht Zeilen, z.B.\@: 
+\begin{center}
+\begin{tabular}{c c c|d e e e f}
+$M$&$N$&$P$&$M$&\eand&$(N$&\eor&$P)$\\
+\hline
+%           M        &     N   v   P
+T & T & T & T & \TTbf{T} & T & T & T\\
+T & T & F & T & \TTbf{T} & T & T & F\\
+T & F & T & T & \TTbf{T} & F & T & T\\
+T & F & F & T & \TTbf{F} & F & F & F\\
+F & T & T & F & \TTbf{F} & T & T & T\\
+F & T & F & F & \TTbf{F} & T & T & F\\
+F & F & T & F & \TTbf{F} & F & T & T\\
+F & F & F & F & \TTbf{F} & F & F & F
+\end{tabular}
+\end{center}
+Aus dieser Tabelle wissen wir, dass der Satz `$M\eand(N\eor P)$' wahr oder falsch sein kann, abhängig von den Wahrheitswerten von `$M$', `$N$' und `$P$'.
+
+Eine komplette Wahrheitstabelle für einen Satz, der vier verschiedene Satzbuchstaben enthält, erfordert 16 Zeilen. Fünf Buchstaben, 32 Zeilen. Sechs Buchstaben, 64 Zeilen. Und so weiter. Um ganz allgemein zu sein: Wenn eine komplette Wahrheitstabelle $n$ verschiedene Satzbuchstaben enthält, dann muss sie $2^n$ Zeilen haben.
+
+Um die Spalten einer vollständigen Wahrheitstabelle auszufüllen, beginnen Sie mit dem am weitesten rechts stehenden Satzbuchstaben und wechseln zwischen `T' und `F'. In die nächste Spalte links schreiben Sie zwei `T', zwei `F' und wiederholen das Ganze so oft wie notwendig  um alle Zeilen auszufüllen. Für den dritten Satzbuchstaben schreiben Sie vier `T', gefolgt von vier `F' und wiederholen das Ganze so oft wie notwendig. Bei einer 16-zeiligen Wahrheitstabelle sollte die nächste Spalte der Satzbuchstaben acht `T' gefolgt von acht `F' enthalten (auch hier wiederholen Sie das Ganze so oft wie notwendig). Bei einer 32-zeiligen Tabelle hat dann die nächste Spalte 16 `T' gefolgt von 16 `F'. Und so weiter.
+
+\section{Mehr zu Klammern}\label{s:MoreBracketingConventions}
+Betrachten Sie die folgenden zwei Konjunktionen:
+	\begin{align*}
+		((A \eand B) \eand C)\\
+		(A \eand (B \eand C))
+	\end{align*}
+Diese sind wahrheitsfunktional äquivalent. D.h.\@, dass es aus der Perspektive des Wahrheitswerts -- und das ist alles, worum sich die WFL kümmert (siehe \S\ref{s:TruthFunctionality})-- niemals einen Unterschied machen wird, welchen der beiden Sätze wir behaupten (oder verneinen). Auch wenn die Reihenfolge der Klammern hinsichtlich des Wahrheitswerts der zwei Sätze keine Rolle spielt, sollten wir sie nicht einfach fallen lassen. Der Ausdruck 
+	\begin{align*}
+		A \eand B \eand C
+	\end{align*}
+ist mehrdeutig zwischen den zwei obengenannten Sätzen. Das Gleiche gilt auch für Disjunktionen. Die folgenden zwei Sätze sind wahrheitsfunktional äquivalent:
+	\begin{align*}
+		((A \eor B) \eor C)\\
+		(A \eor (B \eor C))
+	\end{align*}
+Aber d.h.\@ nicht, dass wir einfach das Schreiben können:
+	\begin{align*}
+		A \eor B \eor C
+	\end{align*}
+
+Es ist eine spezifische Tatsache über die charakteristischen Wahrheitstabellen von $\eor$ und $\eand$, die garantiert, dass zwei beliebige Konjunktionen (oder Disjunktionen) derselben Sätze wahrheitsfunktional äquivalent sind, wo auch immer man die Klammern platziert. \emph{Dies gilt jedoch nur für Konjunktionen und Disjunktionen}. Die folgenden zwei Sätze haben \emph{verschiedene} Wahrheitstabellen:
+	\begin{align*}
+		((A \eif B) \eif C)\\
+		(A \eif (B \eif C))
+	\end{align*}
+Falls wir also das hier schreiben würden
+	\begin{align*}
+		A \eif B \eif C
+	\end{align*}
+wäre unser Satz mehrdeutig zwischen Sätzen mit verschiedenen Wahrheitstabellen. Das Weglassen von Klammern wäre in diesem Fall also katastrophal. Ebenso haben diese Sätze unterschiedliche Wahrheitstabellen:
+	\begin{align*}
+		((A \eor B) \eand C)\\
+		(A \eor (B \eand C))
+	\end{align*}
+Falls wir also das hier schreiben würden
+	\begin{align*}
+		A \eor B \eand C
+	\end{align*}
+wäre unser Satz wiederum mehrdeutig zwischen Sätzen mit verschiedenen Wahrheitstabellen. \emph{Schreiben Sie darum nie solche Sätze nieder.} Das Prinzip dahinter lautet: lassen Sie nie Klammern aus (au{\ss}er die Äu{\ss}ersten).
+
+\practiceproblems\label{pr.TT.TTorC}
+\problempart
+Schreiben Sie komplette Wahrheitstabellen für jeden der folgenden Sätze:
+\begin{earg}
+\item $A \eif A$ %taut
+\item $C \eif\enot C$ %contingent
+\item $(A \eiff B) \eiff \enot(A\eiff \enot B)$ %tautology
+\item $(A \eif B) \eor (B \eif A)$ % taut
+\item $(A \eand B) \eif (B \eor A)$  %taut
+\item $\enot(A \eor B) \eiff (\enot A \eand \enot B)$ %taut
+\item $\bigl[(A\eand B) \eand\enot(A\eand B)\bigr] \eand C$ %contradiction
+\item $[(A \eand B) \eand C] \eif B$ %taut
+\item $\enot\bigl[(C\eor A) \eor B\bigr]$ %contingent
+\end{earg}
+\problempart
+Prüfen Sie alle Behauptungen, die bei der Einführung unserer erweiterten Klammernkonventionen (\S\ref{s:MoreBracketingConventions}) gemacht wurden. Zeigen Sie also, dass:
+\begin{earg}
+	\item `$((A \eand B) \eand C)$' und `$(A \eand (B \eand C))$' die gleiche Wahrheitstabelle haben
+	\item `$((A \eor B) \eor C)$' und `$(A \eor (B \eor C))$' die gleiche Wahrheitstabelle haben
+	\item `$((A \eor B) \eand C)$' und `$(A \eor (B \eand C))$' nicht die gleiche Wahrheitstabelle haben
+	\item `$((A \eif B) \eif C)$' und `$(A \eif (B \eif C))$' nicht die gleiche Wahrheitstabelle haben
+\end{earg}
+Prüfen Sie au{\ss}erdem, dass:
+\begin{earg}
+	\item[5.] `$((A \eiff B) \eiff C)$' und `$(A \eiff (B \eiff C))$' die gleiche Wahrheitstabelle haben
+\end{earg}
+
+\problempart
+Erstellen Sie komplette Wahrheitstabellen für die folgenden Sätze und markieren Sie die Spalte, die die möglichen Wahrheitswerte für den ganzen Satz darstellt.
+
+\begin{earg}
+
+\item $\enot (S \eiff (P \eif S))$
+
+%\begin{tabular}{c|c|ccccc}
+%\cline{2-2}
+%1.	&	\enot 	&	(S 	&	\eiff	&	(P 	&	\eif	&	S))	\\ 
+%\cline{2-7}
+%	& 	F 		&	T	&	T	&	T	&	T	&	T	\\
+%	& 	F 		&	T	&	T	&	F	&	T	&	T	\\
+%	& 	F 		&	F	&	T	&	T	&	F	&	F	\\
+%	& 	T 		&	F	&	F	&	F	&	T	&	F	\\
+%\cline{2-2}
+%\end{tabular}
+
+
+ \item $\enot [(X \eand Y) \eor (X \eor Y)]$
+
+%\begin{tabular}{c|c|ccccccc}
+%\cline{2-2}
+%2.	&	\enot	&	 [(X 	&	\eand& 	Y) 	&	\eor 	&	(X 	&	\eor 	&	Y)] \\
+%\cline{2-9}
+%	&	F	&	T	&	T	&	T	&	T	&	T	&	T	&	T	\\
+%	&	F	&	T	&	F	&	F	&	T	&	T	&	T	&	F	\\
+%	&	F	&	F	&	F	&	T	&	T	&	F	&	T	&	T	\\
+%	&	T	&	F	&	F	&	F	&	F	&	F	&	F	&	F	\\
+%\cline{2-2}
+%\end{tabular}
+
+
+\item $(A \eif B) \eiff (\enot B\eiff \enot A)$
+%\begin{tabular}{cccc|c|ccccc}
+%\cline{5-5}
+%3.	&	(A 	&	\eif	&	B)	&	 \eiff 	&	(\enot&	B 	&	\eiff 	&	 \enot 	& 	 A) \\
+%\cline{2-10}
+%	&	T	&	T	&	T	&	T		&	F	 &	T	&	T	&	F		&	T	\\	
+%	&	T	&	F	&	F	&	T		&	T	 &	F	&	F	&	F		&	T	\\
+%	&	F	&	T	&	T	&	F		&	F	 &	T	&	F	&	T		&	F	\\
+%	&	F	&	T	&	F	&	T		&	T	 &	F	&	T	&	T		&	F	\\
+%\cline{5-5}
+%\end{tabular}
+
+\item $[C \eiff (D \eor E)] \eand \enot C$
+
+%\begin{tabular}{cccccc|c|cc}
+%\cline{7-7}
+%4.	&	[C 	&	\eiff 	&	(D 	&	\eor 	&	E)] 	&	\eand 	&	 \enot 	&	 C \\
+%\cline{2-9}
+%	&	T	&	T	&	T	&	T	&	T	&	F		&	F		&	T	\\
+%	&	T	&	T	&	T	&	T	&	F	&	F		&	F		&	T	\\
+%	&	T	&	T	&	F	&	T	&	T	&	F		&	F		&	T	\\
+%	&	T	&	F	&	F	&	F	&	F	&	F		&	F		&	T	\\
+%	&	F	&	F	&	T	&	T	&	T	&	F		&	T		&	F	\\
+%	&	F	&	F	&	T	&	T	&	F	&	F		&	T		&	F	\\
+%	&	F	&	F	&	F	&	T	&	T	&	F		&	T		&	F	\\
+%	&	F	&	T	&	F	&	F	&	F	&	T		&	T		&	F	\\
+%\cline{7-7}
+%\end{tabular}
+
+\item $\enot(G \eand (B \eand H)) \eiff (G \eor (B \eor H))$
+%
+%\begin{tabular}{ccccccc|c|ccccc}
+%\cline{8-8}
+%5.	&\enot&	(G 	&\eand &	(B 	&	 \eand 	&	 H))	&	\eiff 	&	(G 	& \eor 	& (B 	& \eor	& H))	\\
+%\cline{2-13}
+%	&F	   &	T	&	  T &	T	&	T		&	T	&	F	&	T	&	T	&	T	&	T	&	T	\\
+%	&T	   &	T	&	  F &	T	&	F		&	F	&	T	&	T	&	T	&	T	&	T	&	F	\\	
+%	&T	   &	T	&	 F  &	F	&	F		&	T	&	T	&	T	&	T	&	F	&	T	&	T	\\
+%	&T	   &	T	&	 F  &	F	&	F		&	F	&	T	&	T	&	T	&	F	&	F	&	F	\\
+%	&T	   &	F	&	F   &	T	&	T		&	T	&	T	&	F	&	T	&	T	&	T	&	T	\\
+%	&T	   &	F	&	F   &	T	&	F		&	F	&	T	&	F	&	T	&	T	&	T	&	F	\\
+%	&T	   &	F	&	F   &	F	&	F		&	T	&	T	&	F	&	T	&	F	&	T	&	T	\\
+%	&T	   &	F	&	F   &	F	&	F		&	F	&	F	&	F	&	F	&	F	&	F	&	F	\\
+%\cline{8-8}
+%\end{tabular}
+
+%\vspace{1em}
+
+\end{earg}
+
+\problempart
+Erstellen Sie komplette Wahrheitstabellen für die folgenden Sätze und markieren Sie die Spalte, die die möglichen Wahrheitswerte für den ganzen Satz darstellt.
+
+\begin{earg}
+
+\item	$(D \eand \enot D) \eif G $
+
+%\vspace{1em}
+
+%\begin{tabular}{ccccc|c|c}
+%\cline{6-6}
+%1.	&	(D 	&	 \eand 	& 	 \enot	&	 D) 	&	 \eif 	&	 G \\
+%	&	T	&	F		&	F		&	T	&	T	&	T	\\
+%	&	T	&	F		&	F		&	T	&	T	&	F	\\
+%	&	F	&	F		&	T		&	F	&	T	&	T	\\
+%	&	F	&	F		&	T		&	F	&	T	&	F	\\
+%\cline{6-6}
+%\end{tabular}
+%\vspace{1em}
+
+
+\item	$(\enot P \eor \enot M) \eiff M $
+
+%\begin{tabular}{cccccc|c|c}
+%\cline{7-7}
+%2.	&	(\enot 	&	P 	&	\eor 	&	\enot 	& 	 M) 	& 	\eiff 	&	 M \\
+%	&	F		&	T	&	F	&	F		&	T	&	T	&	T	\\
+%	&	F		&	T	&	T	&	T		&	F	&	F	&	F	\\
+%	&	T		&	F	&	T	&	F		&	T	&	T	&	T	\\
+%	&	T		&	F	&	T	&	T		&	F	&	T	&	F	\\
+%\cline{7-7}
+%\end{tabular}
+%\vspace{1em}
+
+
+
+\item	$\enot \enot (\enot A \eand \enot B)  $
+
+%\begin{tabular}{c|c|cccccc}
+%\cline{2-2}
+%3.	&	\enot		&	 \enot 	&	(\enot 	& 	 A 	& \eand 	& 	\enot 	&	 B)  \\
+%	&	F		&	T		&	F		&	T	&	F	&	F		&	T	\\
+%	&	F		&	T		&	F		&	T	&	F	&	T		&	F	\\
+%	&	F		&	T		&	T		&	F	&	F	&	F		&	T	\\
+%	&	T		&	F		&	T		&	F	&	T	&	T		&	F	\\
+%\cline{2-2}
+%\end{tabular}
+%\vspace{1em}
+
+
+
+\item 	$[(D \eand R) \eif I] \eif \enot(D \eor R) $
+
+%\begin{tabular}{cccccc|c|cccc}
+%\cline{7-7}
+%4.	&	[(D 	& 	 \eand 	& 	 R)	& 	\eif 	&	I] 	&	\eif 	&	 \enot 	&	(D 	&	 \eor 	& R) \\
+%	&	T	&	T		&	T	&	T	&	T	&	F	&	F		&	T	&	T		&T	\\
+%	&	T	&	T		&	T	&	F	&	F	&	T	&	F		&	T	&	T		&T	\\
+%	&	T	&	F		&	F	&	T	&	T	&	F	&	F		&	T	&	T		&F	\\
+%	&	T	&	F		&	F	&	T	&	F	&	F	&	F		&	T	&	T		&F	\\
+%	&	F	&	F		&	T	&	T	&	T	&	F	&	F		&	F	&	T		&T	\\
+%	&	F	&	F		&	T	&	T	&	F	&	F	&	F		&	F	&	T		&T	\\
+%	&	F	&	F		&	F	&	T	&	T	&	T	&	T		&	F	&	F		&F	\\
+%	&	F	&	F		&	F	&	T	&	F	&	T	&	T		&	F	&	F		&F	\\
+%\cline{7-7}
+%\end{tabular}
+%	
+%\vspace{1em}
+
+
+\item	$\enot [(D \eiff O) \eiff A] \eif (\enot D \eand O) $
+
+%\begin{tabular}{ccccccc|c|cccc}
+%\cline{8-8}
+%5.	&	\enot 	&	[(D 	&	\eiff 	&	O) 	&	\eiff 	&	 A]	& 	\eif 	 &	(\enot 	& 	D 	 & 	 \eand &O) \\ 
+%	&	F		&	T	&	T	&	T	&	T	&	T	&	T	&	F		&	T	&	F	&T	\\
+%	&	T		&	T	&	T	&	T	&	F	&	F	&	F	&	F		&	T	&	F	&T	\\
+%	&	T		&	T	&	F	&	F	&	F	&	T	&	F	&	F		&	T	&	F	&F	\\
+%	&	F		&	T	&	F	&	F	&	T	&	F	&	T	&	F		&	T	&	F	&F	\\
+%	&	T		&	F	&	F	&	T	&	F	&	T	&	T	&	T		&	F	&	T	&T	\\
+%	&	F		&	F	&	F	&	T	&	T	&	F	&	T	&	T		&	F	&	T	&T	\\
+%	&	F		&	F	&	T	&	F	&	T	&	T	&	T	&	T		&	F	&	F	&F	\\
+%	&	T		&	F	&	T	&	F	&	F	&	F	&	T	&	T		&	F	&	F	&F	\\
+%\cline{8-8}
+%\end{tabular}
+%\vspace{1em}
+\end{earg}
+
+Wenn Sie noch mehr üben wollen, können Sie Wahrheitstabellen für jeden der Sätze und jedes der Argumente aus den Übungen des vorigen Kapitels erstellen.
+
+\chapter{Semantische Begriffe}
+\label{s:SemanticConcepts}
+
+Im vorigen Kapitel haben wir den Begriff einer Bewertung eingeführt und gezeigt, wie man den Wahrheitswert jedes WFL-Satzes jeder Bewertung nach mit Hilfe einer Wahrheitstabelle ermitteln kann. In diesem Abschnitt stellen wir einige verwandte Begriffe vor und zeigen, wie Wahrheitstabellen verwendet werden können, um zu testen, ob sie zutreffen oder nicht.
+
+\section{Tautologien und Widersprüche}
+In \S\ref{s:BasicNotions} haben wir die Begriffe der \emph{notwendigen Wahrheit} und \emph{notwendigen Falschheit} erklärt. Beide Begriffe haben nahe Verwandte in der WFL. Hier ist ein Begriff, der der notwendigen Wahrheit verwandt ist:
+	\factoidbox{
+		$\metav{A}$ ist eine \define{Tautologie} genau dann, wenn es jeder Bewertung nach wahr ist.
+	}
+
+\newglossaryentry{Tautologie}
+{
+name=Tautologie,
+description={Ein Satz, der nur Ts in der Spalte unter dem Hauptjunktor seiner kompletten Wahrheitstabelle hat; ein Satz, der jeder \gls{Bewertung} nach wahr ist}
+}
+
+Um zu entscheiden, ob ein Satz eine Tautologie ist, können wir Wahrheitstabellen verwenden. Wenn der Satz in jeder Zeile seiner kompletten Wahrheitstabelle wahr ist, dann ist er in jeder Bewertung wahr und es handelt sich um eine Tautologie. Um ein bekanntes Beispiel zu nutzen: `$(H \eand I) \eif H$' ist eine Tautologie. 
+
+Der Begriff der Tautologie ist mit dem der notwendigen Wahrheit nur verwandt; sie sind verschiedene Begriffe. Denn es gibt einige notwendige Wahrheiten, die wir in der WFL nicht angemessen symbolisieren können. Ein Beispiel ist `Ein Stein ist ein Stein'. Dieser Satz ist notwendigerweise wahr, aber wenn wir versuchen, ihn in WFL zu symbolisieren, dann können wir ihn nur als einen Satzbuchstaben symbolisieren. Aber kein Satzbuchstabe ist eine Tautologie. Es ist also nicht der Fall, dass jede notwendige Wahrheit eine Tautologie ist. Wenn wir jedoch einen deutschen Satz mit einem WFL-Satz, der eine Tautologie ist, angemessen symbolisieren können, dann drückt dieser deutsche Satz eine notwendige Wahrheit aus. Es ist also sehr wohl der Fall, dass jede Tautologie eine notwendige Wahrheit ist.
+
+Der Begriff der notwendigen Falschheit hat einen ähnlichen Verwandten:
+	\factoidbox{
+		$\metav{A}$ ist ein \define{Widerspruch} (in der WFL) genau dann, wenn es jeder Bewertung nach falsch ist.
+	}
+\newglossaryentry{Widerspruch (der WFL)}
+{
+  name=Widerspruch (der WFL),
+  text=Widerspruch,
+description={Ein Satz der nur Fen in der Spalte unter dem Hauptjunktor seiner kompletten Wahrheitstabelle hat; ein Satz, der jeder \gls{Bewertung} nach falsch ist}
+}
+
+Wir können Wahrheitstabellen verwenden, um zu entscheiden, ob ein Satz ein Widerspruch ist. Wenn der Satz in jeder Zeile seiner kompletten Wahrheitstabelle falsch ist, dann ist er bei jeder Bewertung falsch und ist ein Widerspruch. Um ein bekanntes Beispiel zu nutzen: `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$' ist ein Widerspruch.
+
+Ähnlich wie zuvor gilt: der Begriff des Widerspruchs ist nur mit dem der notwendigen Falschheit verwandt. Es gibt einige notwendige Falschheiten, die keine Widersprüche sind, zum Beispiel `Ein Stein ist kein Stein.' Umgekehrt gilt jedoch (zumindest für viele Philosoph*innen), dass jeder Widerspruch eine notwendige Falschheit ist.
+
+\section{Äquivalenz}
+Ein weitere nützlicher Begriff ist der Begriff der \emph{Äquivalenz}:
+	\factoidbox{
+		$\metav{A}$ und $\metav{B}$ sind \define{äquivalent} (in der WFL) genau dann, wenn sie jeder Bewertung nach den gleichen Wahrheitswert haben, d.h.\@, wenn es keine Bewertung gibt, laut der sie unterschiedliche Wahrheitswerte haben.
+	}
+\newglossaryentry{Äquivalenz}
+{
+  name=Äquivalenz (in der WFL),
+  text = Äquivalenz,
+description={Eine Eigenschaft von Satzpaaren, laut der die \gls{komplette Wahrheitstabelle} für diese Sätze identische Spalten unter den Hauptjunktoren hat (sodass die Sätze jeder Bewertung nach den gleichen Wahrheitswert haben)}
+}
+
+Wir nutzten diesen Begriff bereits in \S\ref{s:MoreBracketingConventions}; dort stellten wir fest, dass `$(A \eand B) \eand C$' und `$A \eand (B \eand C)$' äquivalent sind. Auch die Äquivalenz zweier Sätze können wir mittels Wahrheitstabellen überprüfen. Betrachten Sie die Sätze `$\enot(P \eor Q)$' und `$\enot P \eand \enot Q$'. Sind sie äquivalent? Um das herauszufinden, konstruieren wir eine Wahrheitstabelle.
+\begin{center}
+\begin{tabular}{c c|d e e f |d e e e f}
+$P$&$Q$&\enot&$(P$&\eor&$Q)$&\enot&$P$&\eand&\enot&$Q$\\
+\hline
+ T & T & \TTbf{F} & T & T & T & F & T & \TTbf{F} & F & T\\
+ T & F & \TTbf{F} & T & T & F & F & T & \TTbf{F} & T & F\\
+ F & T & \TTbf{F} & F & T & T & T & F & \TTbf{F} & F & T\\
+ F & F & \TTbf{T} & F & F & F & T & F & \TTbf{T} & T & F
+\end{tabular}
+\end{center}
+Sehen Sie sich die Spalten für die Hauptjunktoren an; Negation für den ersten Satz, Konjunktion für den zweiten. In den ersten drei Zeilen sind beide falsch. In der letzten Zeile sind beide wahr. Da sie in jeder Zeile übereinstimmen, sind die beiden Sätze äquivalent.
+
+\section{Konsistenz}
+In \S\ref{s:BasicNotions} erklärten wir, dass Sätze \emph{gemeinsam möglich} sind genau dann, wenn es zumindest einen Fall gibt, in dem sie alle wahr sind. Auch hierzu gibt es wieder einen verwandten Begriff:
+	\factoidbox{
+		$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ sind \define{konsistent} (in der WFL) genau dann, wenn es zumindest eine Bewertung gibt, nach der sie alle wahr sind.
+	}
+
+        \newglossaryentry{Konsistenz in der WFL}
+{
+  name=Konsistenz (in der WFL),
+  text=konsistent,
+description={Eine Eigenschaft von Sätzen, laut der die \gls{komplette Wahrheitstabelle} dieser Sätze eine Zeile enthält, in der all diese Sätze wahr sind (sodass zumindest eine \gls{Bewertung} alle Sätze wahr macht)}
+}
+
+Folglich nennen wir Sätze \define{inkonsistent} genau dann, wenn es keine Bewertung gibt, die all diese Sätze wahr macht. Offensichtlich können wir mittels Wahrheitstabellen überprüfen, ob Sätze konsistent oder inkonsistent sind.
+
+\section{Folgebeziehung und Gültigkeit}
+Wir können auch die Folgebeziehung und Gültigkeit mittels Wahrheitstabellen definieren:
+	\factoidbox{
+		Die Sätze $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ \define{haben} den Satz $\metav{C}$ \define{zur Folge} genau dann, wenn es keine Bewertung gibt, laut der $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ alle wahr sind, aber $\metav{C}$ falsch.
+	}
+       \newglossaryentry{Gültig in der WFL}
+{
+  name= Gültigkeit (in der WFL),
+  text=gültig (in der WFL),
+description={Eine Eigenschaft von Argumenten, laut der die \gls{komplette Wahrheitstabelle} des Arguments keine Zeile enthält, in der die \glspl{Prämisse}n alle wahr sind und die \gls{Schlussfolgerung} falsch (sodass keine \gls{Bewertung} alle Prämissen wahr macht und die Schlussfolgerung falsch)}
+}
+
+Um zu überprüfen, ob `$\enot L \eif (J \eor L)$' und `$\enot L$', `$J$' zur Folge haben, schauen wir, ob es eine Bewertung gibt, die sowohl `$\enot L \eif (J \eor L)$' als auch `$\enot L$' wahr, aber `$J$' falsch, macht. Hierzu verwenden wir eine Wahrheitstabelle:  
+\begin{center}
+\begin{tabular}{c c|d e e e e f|d f| c}
+$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
+\hline
+%J   L   -   L      ->     (J   v   L)
+ T & T & F & T & \TTbf{T} & T & T & T & \TTbf{F} & T & \TTbf{T}\\
+ T & F & T & F & \TTbf{T} & T & T & F & \TTbf{T} & F & \TTbf{T}\\
+ F & T & F & T & \TTbf{T} & F & T & T & \TTbf{F} & T & \TTbf{F}\\
+ F & F & T & F & \TTbf{F} & F & F & F & \TTbf{T} & F & \TTbf{F}
+\end{tabular}
+\end{center}
+Die einzige Zeile, in der sowohl `$\enot L \eif (J \eor L)$' als auch `$\enot L$' wahr sind, ist die zweite Zeile. In dieser Zeile ist auch `$J$' wahr. Daher haben `$\enot L \eif (J \eor L)$' und `$\enot L$', `$J$' zur Folge.
+
+An dieser Stelle sollten wir etwas Wesentliches festhalten.
+	\factoidbox{
+		Wenn $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ in der WFL $\metav{C}$ zur Folge haben, dann ist $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \therefore \metav{C}$ ein gültiges Argument.
+	}
+Der Grund dafür lautet wie folgt: Wenn $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ in der WFL $\metav{C}$ zur Folge haben, dann gibt es keine Bewertung, die $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ alle wahr, aber $\metav{C}$ falsch, macht. Aber jedem Fall, in dem $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ alle wahr sind und $\metav{C}$ falsch, würde eine Bewertung entsprechen, die $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ alle wahr, aber $\metav{C}$ falsch macht. Weil es keine solche Bwertung gibt, wenn $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ in der WFL $\metav{C}$ zur Folge haben, folgt nun aber, dass wenn $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ in der WFL $\metav{C}$ zur Folge haben, auch das Argument mit Prämissen $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ und Schlussfolgerung $\metav{C}$ gültig ist.
+
+Kurz gesagt, die WFL gibt uns eine Möglichkeit, die Gültigkeit deutscher Argumente zu testen. Zuerst symbolisieren wir sie in der WFL; dann überprüfen wir mit Hilfe von Wahrheitstabellen, ob die Prämissen der Argumente, ihre Schlussfolgerungen zur Folge haben. 
+
+
+\section{Einschränkungen dieser Tests}\label{s:ParadoxesOfMaterialConditional}
+Dies ist ein wichtiger Meilenstein: wir haben einen Test für die Gültigkeit von Argumenten! Aber wir sollten uns davon nicht zu sehr beeindrucken lassen. Es ist wichtig, die Einschränkungen dieses Resultats zu verstehen. Wir werden diese Einschränkungen an drei Beispielen veranschaulichen.
+
+Erstens: 
+	\begin{earg}
+		\item Daisy hat vier Beine. Also hat Daisy mehr als zwei Beine.
+	\end{earg}
+Um dieses Argument in der WFL zu symbolisieren, müssten wir zwei verschiedene Satzbuchstaben -- etwa `$V$' und `$Z$' -- für die Prämisse und die Schlussfolgerung verwenden. Aber es ist offensichtlich, dass `$V$' `$Z$' nicht zur Folge hat. Es gibt eine Bewertung, nach der `$V$' wahr ist, während `$Z$' falsch ist. Und das ist so, obwohl das deutsche Argument klarerweise gültig ist.
+
+Zweitens:
+	\begin{earg}
+\setcounter{eargnum}{1}
+		\item\label{n:JanBald} Jan ist weder glatzig noch nicht-glatzig.
+	\end{earg}
+Um diesen Satz in der WFL zu symbolisieren, könnten wir `$\enot J \eand \enot \enot J$' nutzen. Dieser Satz ist ein Widerspruch (überprüfen Sie dies mit einer Wahrheitstabelle), aber der Satz \ref{n:JanBald} selbst scheint kein Widerspruch zu sein. Denn es könnte ja sein, dass Jan ein Grenzfall ist und es nicht klar ist, ob er glatzig ist oder nicht.
+
+Drittens:
+	\begin{earg}
+	\setcounter{eargnum}{2}	
+	\item\label{n:GodParadox} Es ist nicht der Fall, dass Gott auf bösartige Gebete antwortet, wenn Er/Sie existiert.
+	\end{earg}
+Um diesen Satz in der WFL zu symbolisieren, könnten wir `$\enot (G \eif M)$' nutzen. `$\enot (G \eif M)$' hat aber nun `$G$' zur Folge (überprüfen Sie dies mit einer Wahrheitstabelle). Wenn wir also den Satz \ref{n:GodParadox} in der WFL symbolisieren, scheint er zur Folge zu haben, dass Gott existiert. Aber das ist merkwürdig: Selbst eine Atheistin kann den Satz \ref{n:GodParadox} akzeptieren, ohne sich selbst zu widersprechen!
+
+Eine Lehre hier ist, dass die Symbolisierung von \ref{n:GodParadox} als `$\enot(G \eif M)$' zeigt, dass \ref{n:GodParadox} nicht das ausdrückt, was wir beabsichtigen. Vielleicht sollten wir den Satz wie folgt umformulieren:
+	\begin{earg}
+	\setcounter{eargnum}{2}	
+	\item\label{n:GodParadox2} Wenn Gott existiert, dann antwortet Er/Sie nicht auf bösartige Gebete.
+	\end{earg}
+Dann können wir \ref{n:GodParadox2} als `$G \eif \enot M$' symbolisieren. Wenn Atheist*innen nun Recht haben und es keinen Gott gibt, dann ist `$G$' falsch und `$G \eif \enot M$' wahr. Das Puzzle löst sich damit in Luft auf. Aber wenn `$G$' falsch ist, dann ist `$G \eif M$', `Wenn Gott existiert, dann antwortet Er/Sie auf bösartige Gebete' ebenso wahr!
+               
+Auf unterschiedliche Weise zeigen diese vier Beispiele einige der Einschränkungen einer Sprache (wie WFL) auf, die nur wahrheitsfunktionale Junktoren nutzt. Diese Einschränkungen werfen einige interessante Fragen in der philosophischen Logik auf. Der Fall von Jans Glatzigkeit wirft die allgemeine Frage auf, welche Logik wir anwenden sollten, wenn wir uns mit vagen Sätzen beschäftigen. Der Fall der Atheistin wirft die Frage auf, wie wir mit den (so genannten) \emph{Paradoxien des materiellen Konditionals} umgehen sollen. Dieser Kurs ist gedacht, Sie mit Werkzeugen auszustatten, um diese Fragen der philosophischen Logik zu erforschen. Aber wir müssen lernen zu gehen, bevor wir zu laufen lernen; wir müssen die WFL beherrschen, bevor wir ihre Grenzen angemessen diskutieren und Alternativen erwägen können.                
+                
+\section{Das doppelte Drehkreuz}
+Im Folgenden werden wir den Begriff der Folgebeziehung häufig verwenden. Daher lasst uns nun ein Symbol einführen, das ihn abkürzt. Anstatt zu sagen, dass die WFL-Sätze $\metav{A}_1$, $\metav{A}_2$, \dots und $\metav{A}_n$, $\metav{C}$ zur Folge haben, können wir die folgende Abkürzung verwenden:
+	$$\metav{A}_1, \metav{A}_2, \dots, \metav{A}_n \entails \metav{C}$$
+Das Symbol`$\entails$' nennen wir \emph{das doppelte Drehkreuz}, weil es so aussieht wie ein Drehkreuz mit zwei horizontalen Balken.
+
+`$\entails$' ist kein Symbol der WFL. Es ist ein Symbol unserer Metasprache, dem erweiterten Deutsch (erinnern Sie sich an den Unterschied zwischen Objektsprache und Metasprache in \S\ref{s:UseMention}). Also ist der folgende Satz in der Metasprache:
+	\begin{ebullet}
+		\item $P, P \eif Q \entails Q$
+	\end{ebullet}
+\emph{nur} eine Abkürzung für diesen Satz unserer Metasprache: 
+	\begin{ebullet}
+		\item Die WFL-Sätze `$P$' und `$P \eif Q$' haben `$Q$' zur Folge.
+	\end{ebullet}
+Beachten Sie, dass es keine Grenze der Anzahl der WFL-Sätze gibt, die vor dem Symbol `$\entails$' erwähnt werden können. Wir können sogar den Grenzfall in Betracht ziehen:
+	$$\entails \metav{C}$$
+Dies besagt, dass es keine Bewertung gibt, die alle Sätze, die auf der linken Seite von `$\entails$' erwähnt werden, wahr und $\metav{C}$ falsch macht. Da hier auf der linken Seite von `$\entails$' keine Sätze erwähnt werden, bedeutet dies, dass es keine Bewertung gibt, die $\metav{C}$ falsch macht. Anders ausgedrückt hei{\ss}t das, dass jede Bewertung $\metav{C}$ wahr macht. $\metav{C}$ ist also eine Tautologie. 
+
+Auf ähnliche Art können wir aussagen, dass $\metav{A}$ ein Widerspruch ist:
+	$$\metav{A} \entails\phantom{\metav{C}}$$
+Denn dies besagt, dass keine Bewertung $\metav{A}$ wahr macht. 
+	
+Manchmal wollen wir verneinen, dass eine Folgebeziehung besteht. Das können wir so tun: 
+\begin{center}
+	Es ist nicht der Fall, dass $\metav{A}_1, \ldots, \metav{A}_n \entails \metav{C}$
+\end{center}
+Um dies abzukürzen, können wir einfach das doppelte Drehkreuz durchstreichen: 
+	$$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \nentails\metav{C}$$
+Dies bedeutet, dass \emph{zumindest eine} Bewertung $\metav{A}_1, \ldots, \metav{A}_n$ wahr und $\metav{C}$ falsch macht. (Beachten Sie, dass hieraus nicht folgt, dass $\metav{A}_1, \ldots, \metav{A}_n \enot \metav{C}$. Denn das würde bedeuten, dass \emph{jede} Bewertung $\metav{A}_1, \ldots, \metav{A}_n$ wahr und $\metav{C}$ falsch macht). 
+
+\section{`$\entails$' und `$\eif$'}
+Lasst uns nun `$\entails$' und `$\eif$' gegenüberstellen. 
+
+Es gilt: $\metav{A} \entails \metav{C}$ genau dann, wenn keine Bewertung $\metav{A}$ wahr und $\metav{C}$ falsch macht. 
+
+Es gilt auch: $\metav{A} \eif \metav{C}$ ist eine Tautologie genau dann, wenn keine Bewertung $\metav{A} \eif \metav{C}$ falsch macht. Weil ein Konditional wahr ist, es sei denn sein Antezedens ist wahr und sein Konsequens ist falsch, gilt: $\metav{A} \eif \metav{C}$ ist eine Tautologie genau dann, wenn keine Bewertung $\metav{A}$ wahr und $\metav{C}$ falsch macht. 
+
+Wenn wir diese zwei Punkte zusammenfassen, sehen wir, dass $\metav{A} \eif \metav{C}$ eine Tautologie ist genau dann, wenn $\metav{A} \entails \metav{C}$. Aber es gibt einen sehr wichtigen Unterschied zwischen `$\entails$' und `$\eif$':
+	\factoidbox{
+		`$\eif$' ist ein Junktor der WFL.\\ `$\entails$' ist ein Symbol des erweiterten Deutschen.
+	}
+Wenn `$\eif$' von zwei WFL-Sätzen flankiert wird, dann ist das Ergebnis ein komplexerer WFL-Satz. Wenn wir dagegen `$\entails$' verwenden, bilden wir einen metasprachlichen Satz, der die umgebenden WFL-Sätze \emph{erwähnt}. 
+
+\practiceproblems
+\problempart
+Gehen Sie Ihre Antworten zu \S\ref{s:CompleteTruthTables}\textbf{A} noch einmal durch. Bestimmen Sie, welche Sätze Tautologien sind, welche Widersprüche und welche weder Tautologien noch Widersprüche.
+
+\solutions
+
+\problempart
+\label{pr.TT.satisfiable}
+Bestimmen Sie anhand von Wahrheitstabellen, ob die folgenden Satzmengen konsistent oder inkonsistent sind.
+\begin{earg}
+\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ %satisfiable
+\item $A\eor B$, $A\eif C$, $B\eif C$ %satisfiable
+\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$  %unsatisfiable
+\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$ %satisfiable
+\end{earg}
+
+
+\solutions
+
+\problempart
+\label{pr.TT.valid}
+Verwenden Sie Wahrheitstabellen, um festzustellen, ob die folgenden Argumente gültig oder ungültig sind.
+\begin{earg}
+\item $A\eif A \therefore A$ %invalid
+\item $A\eif(A\eand\enot A) \therefore \enot A$ %valid
+\item $A\eor(B\eif A) \therefore \enot A \eif \enot B$ %valid
+\item $A\eor B, B\eor C, \enot A \therefore B \eand C$ %invalid
+\item $(B\eand A)\eif C, (C\eand A)\eif B \therefore (C\eand B)\eif A$ %invalid
+\end{earg}
+
+\problempart Bestimmen Sie anhand einer kompletten Wahrheitstabelle, ob es sich bei den folgenden Sätzen um Tautologien, Widersprüche oder kontingente Sätze handelt.
+\begin{earg}
+\item $\enot B \eand B$ \vspace{.5ex}%contra
+
+
+\item $\enot D \eor D$ \vspace{.5ex}%taut
+
+
+\item $(A\eand B) \eor (B\eand A)$\vspace{.5ex} %contingent
+
+
+\item $\enot[A \eif (B \eif A)]$\vspace{.5ex} %contra
+
+
+\item $A \eiff [A \eif (B \eand \enot B)]$ \vspace{.5ex}%contra
+
+
+\item $[(A \eand B) \eiff B] \eif (A \eif B)$ \vspace{.5ex}% contingent. 
+
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.equiv}
+Bestimmen Sie anhand kompletter Wahrheitstabellen, ob die folgenden Satzpaare äquivalent sind. Wenn sie es sind, schreiben Sie ``äquivalent''; andernfalls ``nicht äquivalent''. 
+\begin{earg}
+\item $A$ und $\enot A$
+\item $A \eand \enot A$ und $\enot B \eiff B$
+\item $[(A \eor B) \eor C]$ und $[A \eor (B \eor C)]$
+\item $A \eor (B \eand C)$ und $(A \eor B) \eand (A \eor C)$
+\item $[A \eand (A \eor B)] \eif B$ und $A \eif B$\end{earg}
+
+
+\problempart
+\label{pr.TT.equiv2}
+Bestimmen Sie anhand kompletter Wahrheitstabellen, ob die folgenden Satzpaare äquivalent sind. Wenn sie es sind, schreiben Sie ``äquivalent''; andernfalls ``nicht äquivalent''. \begin{earg}
+\item $A\eif A$ und $A \eiff A$
+\item $\enot(A \eif B)$ und $\enot A \eif \enot B$
+\item $A \eor B$ und $\enot A \eif B$
+\item$(A \eif B) \eif C$ und $A \eif (B \eif C)$
+\item $A \eiff (B \eiff C)$ und $A \eand (B \eand C)$
+\end{earg}
+
+
+\problempart
+\label{pr.TT.satisfiable2}
+Bestimmen Sie anhand kompletter Wahrheitstabellen, ob die folgenden Satzmengen konsistent oder inkonsistent sind. 
+\begin{earg}
+\item $A \eand \enot B$, $\enot(A \eif B)$, $B \eif A$\vspace{.5ex} %Consistent
+
+%\begin{tabular}{ccccccccccccccc} 
+%1. 	&	A 					 & \eand 		&  \enot & B & & \enot  		& 	 (A	  & 	 \eif	 	 & 	 B)		 & 	 & 	 B	 	 & 	\eif 	 	 & 	A 	 	 & 	 Consistent \\ 
+%\cline{2-5} \cline{7-10}\cline{12-14} 
+%	& 	T 					 & 	 F	 		&  F	 & T & & F	 		& 	 T	  & 	 T	 	 & 	T 	 	 & 	 & 	 T	 	 & 	 T	 	 & T	 	 	&	  \\ 
+%\cline{2-14}
+%	& \multicolumn{1}{|r}{T}& 	\textbf{T}	 & T	 & F & & \textbf{T}	 & 	 T	 & 	 F	 	 & 	 F	 	 & 	 & 	 F	 	 & 	 \textbf{T}	 	 & 	 \multicolumn{1}{r|}{T}	 	 & 	  \\ 
+%\cline{2-14}
+%	& 	 F	 				 & 	 F	 & 	 F	 & T & 	& 	 F	 & 	 F	 & 	 T	 	 & 	 T	 	 & 	  & 	 T	 	 & 	 F	 	 & 	 F	 	 & 	  \\ 
+%	& 	 F	  				& 	 F	 & 	 T	 & 	F&  & 	 F	 & 	 F	 & 	 T	 	 & 	 F	 	 & 	  & 	 F	 	 & 	 T	 	 & 	 F	 	 & 	  \\ 
+%\end{tabular}
+
+\item $A \eor B$, $A \eif \enot A$, $B \eif \enot B$ \vspace{.5ex}%unsatisfiable. 
+
+%\begin{tabular}{ccccccccccccccc} 
+%2. &A	 & \eor 	 & B 	 & 	 	 & A 	 & \eif 	 & 	\enot & A 	 & 	 	 & B 	 & \eif 	 & \enot	 & 	B 	 & 	Insatisfiable \\ 
+%\cline{2-4}\cline{6- 9} \cline{11-14}
+%   &	T	 & 	 T	 &T  	 & 	 	 & T	 & 	 F	 & 	F 	 & T 	 & 	 	 & 	T 	 & 	F 	 & 	 F	 & 	T 	 & 	 \\ 
+%   &	 T	& 	 T	 & F 	 & 	 	 & 	T 	 & 	 F	 & 	 F	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	 F	 & 	 \\ 
+%   &	 F	& 	 T	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	F 	 & 	 	 & 	 T	 & 	 F	 & 	 F	 & 	 T	 & 	 \\ 
+%   &	 F	& 	 F	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 \\ 
+%\end{tabular}
+
+\item $\enot(\enot A \eor B) $, $A \eif \enot C$, $A \eif (B \eif C)$\vspace{.5ex} %Insatisfiable
+
+%3. &\enot & (\enot & A & \eor &B) &  &A  & \eif 	 &\enot 	 &C & 	 & A &\eif 	& (B 	 &\eif 	& C)	 &Consistent \\ 
+%\cline{2-6}\cline{8-11} \cline{13-17} 
+%   &	F 	& 	F	 & 	T & T	 & T & 	  & T & F	 & 	 F&T 	 & 	 &T & T	 & T	 &T 	 &T 	 & \\ 
+%   &	 F	& 	F	 & 	T & T	 & T & 	  & T & T	 & 	 T& F	 & 	 &T & F	 & T	 & F	 &F 	 & \\ 
+% 
+%  &	 T & 	F 	& 	T & F	 & F & 	  & T & F	 & 	 F& T	 & 	 &T & T	 & F	 & T	 &T 	 & \\ 
+%\cline{2-17}
+%   &	 \multicolumn{1}{|r}{{\color{red}T}}		&  F	 & 	T & F	 & 	F &  & 	T & {\color{red}T}	 & 	 T&F 	& 	 &T & {\color{red}T}	 & F	 & T	 &\multicolumn{1}{r|}{F} 	 & \\ 
+%\cline{2-17}
+%   &	 F	& 	T	 & 	F & T	 & 	T &  & 	F & T	 & 	 F& T	 & 	 &F	 & F	 & T	 & T	 &T 	 & \\ 
+%   &	 F	& 	 T	& 	F & T	 & 	T &  & 	F & T	 & 	T & F 	& 	 &F	 & T	 & T	 &F 	 &F 	 & \\ 
+%   &	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	F & T	 & 	 &F	 & T	 & F	 & T	 &T 	 & \\ 
+%   &	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	T & F	 & 	 &F	 & T	 & F	 & T	 &F 	 & \\ 
+%\end{tabular}
+%
+
+
+\item $A \eif B$, $A \eand \enot B$\vspace{.5ex} %Insatisfiable
+
+\item $A \eif (B \eif C)$, $(A \eif B) \eif C$, $A \eif C$\vspace{.5ex} % satisfiable. 
+
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.satisfiable3}
+Bestimmen Sie anhand kompletter Wahrheitstabellen, ob die folgenden Satzmengen konsistent oder inkonsistent sind.
+\begin{earg}
+\item $\enot B$, $A \eif B$, $A$ \vspace{.5ex}%unsatisfiable.
+\item $\enot(A \eor B)$, $A \eiff B$, $B \eif A$\vspace{.5ex} %Consistent
+\item $A \eor B$, $\enot B$, $\enot B \eif \enot A$\vspace{.5ex} %Insatisfiable
+\item $A \eiff B$, $\enot B \eor \enot A$, $A \eif B$\vspace{.5ex} %satisfiable. 
+\item $(A \eor B) \eor C$, $\enot A \eor \enot B$, $\enot C \eor \enot B$\vspace{.5ex} %satisfiable
+\end{earg}
+
+
+
+
+\noindent\problempart
+\label{pr.TT.valid2}
+Bestimmen Sie anhand kompletter Wahrheitstabellen, ob die folgenden Argumente gültig sind.
+\begin{earg}
+\item $A\eif B$, $B \therefore  A$ %invalid
+
+\item $A\eiff B$, $B\eiff C \therefore A\eiff C$ %valid
+
+\item $A \eif B$, $A \eif C\therefore B \eif C$ %invalid. 
+
+\item $A \eif B$, $B \eif A\therefore A \eiff B$ %valid. 
+
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.valid3}
+Bestimmen Sie anhand kompletter Wahrheitstabellen, ob die folgenden Argumente gültig sind.
+\begin{earg}
+\item $A\eor\bigl[A\eif(A\eiff A)\bigr] \therefore  A $\vspace{.5ex}%invalid
+\item $A\eor B$, $B\eor C$, $\enot B \therefore A \eand C$\vspace{.5ex} %valid
+\item $A \eif B$, $\enot A\therefore \enot B$ \vspace{.5ex}%invalid
+\item $A$, $B\therefore \enot(A\eif \enot B)$ \vspace{.5ex}%valid
+\item $\enot(A \eand B)$, $A \eor B$, $A \eiff B\therefore C$ \vspace{.5ex}%valid 
+\end{earg}
+
+\solutions
+\problempart
+\label{pr.TT.concepts}
+Beantworten Sie die folgenden Fragen und begründen Sie Ihre Antworten.
+\begin{earg}
+\item Nehmen Sie an, dass \metav{A} und \metav{B} äquivalent sind. Was können Sie über $\metav{A}\eiff\metav{B}$ sagen?
+%\metav{A} and \metav{B} have the same truth value on every line of a complete truth table, so $\metav{A}\eiff\metav{B}$ is true on every line. It is a tautology.
+\item Nehmen Sie an, dass $(\metav{A}\eand\metav{B})\eif\metav{C}$ weder eine Tautologie noch ein Widerspruch ist. Was können Sie zur Frage, ob $\metav{A}, \metav{B} \therefore\metav{C}$ gültig ist, sagen?
+%The sentence is false on some line of a complete truth table. On that line, \metav{A} and \metav{B} are true and \metav{C} is false. So the argument is invalid.
+\item Nehmen Sie an, dass \metav{A} ein Widerspruch ist. Was können Sie zur Frage, ob $\metav{A}, \metav{B} \entails \metav{C}$, sagen?
+%Since \metav{A} is false on every line of a complete truth table, there is no line on which \metav{A} and \metav{B} are true and \metav{C} is false. So the argument is valid.
+\item Nehmen Sie an, dass \metav{C} eine Tautologie ist. Was können Sie zur Frage, ob $\metav{A}, \metav{B}\entails \metav{C}$, sagen?
+%Since \metav{C} is true on every line of a complete truth table, there is no line on which \metav{A} and \metav{B} are true and \metav{C} is false. So the argument is valid.
+\item Nehmen Sie an, dass \metav{A} und \metav{B} äquivalent sind. Was können Sie über $(\metav{A}\eor\metav{B})$ sagen?
+%Not much. $(\metav{A}\eor\metav{B})$ is a tautology if \metav{A} and \metav{B} are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.
+\item Nehmen Sie an, dass \metav{A} und \metav{B} \emph{nicht} äquivalent sind. Was können Sie über $(\metav{A}\eor\metav{B})$ sagen?
+%\metav{A} and \metav{B} have different truth values on at least one line of a complete truth table, and $(\metav{A}\eor\metav{B})$ will be true on that line. On other lines, it might be true or false. So $(\metav{A}\eor\metav{B})$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
+\end{earg}
+\problempart 
+Betrachten Sie das folgende Prinzip:
+	\begin{ebullet}
+		\item Nehmen Sie an, dass $\metav{A}$ und $\metav{B}$ äquivalent sind. Nehmen Sie an, ein Argument enthält $\metav{A}$ (entweder als Prämisse oder als Schlussfolgerung). Die Gültigkeit dieses Argument wäre unverändert wenn wir $\metav{A}$ mit $\metav{B}$ ersetzen würden.
+	\end{ebullet}
+Ist dieses Prinzip korrekt? Erklären Sie Ihre Antwort.
+
+
+
+\chapter{Abkürzungen für Wahrheitstabellen}
+Mit etwas Übung werden Sie beim Ausfüllen von Wahrheitstabellen schnell zum Profi. In diesem Abschnitt betrachten (und begründen) wir einige Abkürzungen, die Ihnen dabei helfen können.
+
+Sie werden schnell feststellen, dass Sie nicht den Wahrheitswert jedes einzelnen Satzbuchstabens kopieren müssen, sondern einfach auf diese zurückverweisen können. So können Sie die Dinge beschleunigen, indem sie Dinge wie folgt aufschreiben:
+\begin{center}
+\begin{tabular}{c c|d e e e e f}
+$P$&$Q$&$(P$&\eor&$Q)$&\eiff&\enot&$P$\\
+\hline
+ T & T &  & T &  & \TTbf{F} & F\\
+ T & F &  & T &  & \TTbf{F} & F\\
+ F & T &  & T & & \TTbf{T} & T\\
+ F & F &  & F &  & \TTbf{F} & T
+\end{tabular}
+\end{center}
+Sie wissen auch, dass eine Disjunktion notwendigerweise wahr ist, wenn eines der Disjunkte wahr ist. Wenn Sie also ein wahres Disjunkt finden, müssen Sie den Wahrheitswert des anderen Disjunkts nicht erarbeiten. Zum Beispiel:
+\begin{center}
+\begin{tabular}{c c|d e e e e e e f}
+$P$&$Q$& $(\enot$ & $P$&\eor&\enot&$Q)$&\eor&\enot&$P$\\
+\hline
+ T & T & F & & F & F& & \TTbf{F} & F\\
+ T & F &  F & & T& T& &  \TTbf{T} & F\\
+ F & T & & &  & & & \TTbf{T} & T\\
+ F & F & & & & & &\TTbf{T} & T
+\end{tabular}
+\end{center}
+Ebenso wissen Sie, dass eine Konjunktion notwendigerweise falsch ist, wenn einer der Konjunkte falsch ist. Wenn Sie also einen falschen Konjunkt finden, müssen Sie den Wahrheitswert des anderen Konjunkts nicht erarbeiten. Zum Beispiel:
+\begin{center}
+\begin{tabular}{c c|d e e e e e e f}
+$P$&$Q$&\enot &$(P$&\eand&\enot&$Q)$&\eand&\enot&$P$\\
+\hline
+ T & T &  &  & &  & & \TTbf{F} & F\\
+ T & F &   &  &&  & & \TTbf{F} & F\\
+ F & T & T &  & F &  & & \TTbf{T} & T\\
+ F & F & T &  & F & & & \TTbf{T} & T
+\end{tabular}
+\end{center}
+Eine ähnliche Abkürzung gibt es auch für Konditionale. Wir wissen, dass ein Konditional wahr ist, wenn entweder sein Konsequens wahr oder sein Antezedens falsch ist. Also können Sie wie folgt verfahren:
+\begin{center}
+\begin{tabular}{c c|d e e e e e f}
+$P$&$Q$& $((P$&\eif&$Q$)&\eif&$P)$&\eif&$P$\\
+\hline
+ T & T & &  & & & & \TTbf{T} & \\
+ T & F &  &  & && & \TTbf{T} & \\
+ F & T & & T & & F & & \TTbf{T} & \\
+ F & F & & T & & F & &\TTbf{T} & 
+\end{tabular}
+\end{center}
+Es folgt hieraus, dass `$((P \eif Q) \eif P) \eif P$' eine Tautologie ist. Tatsächlich ist es ein Beispiel von \emph{Peirce's Law}, benannt nach Charles Sanders Peirce.
+
+\section{Auf Gültigkeit testen}
+In \S\ref{s:SemanticConcepts} haben wir gesehen, wie man Wahrheitstabellen verwendet, um für Gültigkeit zu testen. Wir testen auf \emph{schlechte} Zeilen: Zeilen, in denen die Prämissen alle wahr sind und die Schlussfolgerung falsch. Nun:
+\begin{earg}
+	\item[\textbullet] Wenn die Schlussfolgerung in einer Zeile wahr ist, dann ist diese Zeile nicht schlecht und wir müssen nichts anderes in dieser Zeile ausfüllen, um dies zu wissen.
+	\item[\textbullet] Wenn eine Prämisse in einer Zeile falsch ist, dann ist diese Zeile nicht schlecht und wir müssen nichts anderes in dieser Zeile ausfüllen, um dies zu wissen
+\end{earg}
+
+Vor diesem Hintergrund können wir unsere Tests erheblich beschleunigen. Lassen Sie uns überlegen, wie wir Folgendes testen könnten:
+	$$\enot L \eif (J \eor L), \enot L \therefore J$$
+Das \emph{erste}, was wir tun sollten, ist, die Schlussfolgerung zu bewerten. Wenn wir feststellen, dass die Schlussfolgerung auf einer Zeile \emph{wahr} ist, dann ist das keine schlechte Zeile. Wir können also den Rest der Zeile einfach ignorieren. Nach unserer ersten Phase bleibt uns also so etwas wie das hier:
+\begin{center}
+	\begin{tabular}{c c|d e e e e f |d f|c}
+		$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
+		\hline
+		%J   L   -   L      ->     (J   v   L)
+		T & T & &&&&&&&& {T}\\
+		T & F & &&&&&&&& {T}\\
+		F & T & &&?&&&&?&& {F}\\
+		F & F & &&?&&&&?&& {F}
+	\end{tabular}
+\end{center}
+wo die Leerzeichen darauf hinweisen, dass wir nicht weiter arbeiten müssen (da die Zeile nicht schlecht ist), und die Fragezeichen anzeigen, dass wir noch weiter prüfen müssen. 
+
+Die Prämisse, die am einfachsten zu bewerten ist, ist die Zweite. Also schauen wir uns diese als nächste an:
+\begin{center}
+	\begin{tabular}{c c|d e e e e f |d f|c}
+		$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
+		\hline
+		%J   L   -   L      ->     (J   v   L)
+		T & T & &&&&&&&& {T}\\
+		T & F & &&&&&&&& {T}\\
+		F & T & &&&&&&{F}&& {F}\\
+		F & F & &&?&&&&{T}&& {F}
+	\end{tabular}
+\end{center}
+Jetzt brauchen wir uns nicht länger um die dritte Zeile der Tabelle kümmern. Sie ist nicht schlecht, weil eine Prämisse in dieser Zeile falsch ist.
+
+Zuletzt können wir die Wahrheitstabelle vervollständigen:
+\begin{center}
+	\begin{tabular}{c c|d e e e e f |d f|c}
+		$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
+		\hline
+		%J   L   -   L      ->     (J   v   L)
+		T & T & &&&&&&&& {T}\\
+		T & F & &&&&&&&& {T}\\
+		F & T & &&&&&&{F}& & {F}\\
+		F & F & T &  & \TTbf{F} &  & F & & {T} & & {F}
+	\end{tabular}
+\end{center}
+Die Wahrheitstabelle hat keine schlechten Zeilen, also ist das Argument gültig. Jede Bewertung, die alle Prämissen wahr macht, macht auch die Schlussfolgerung wahr.
+
+Es lohnt sich, uns die Taktik noch einmal anzuschauen. Betrachten Sie folgendes Argument:
+$$A\eor B, \enot (B\eand C) \therefore (A \eor \enot C)$$
+Auch hier beginnen wir damit die Schlussfolgerung zu bewerten. Da es sich hier um eine Disjunktion handelt, ist sie notwendigerweise wahr, wenn eines der beiden Disjunkte wahr ist. Dies hilft uns unsere Arbeit zu beschleunigen.
+\begin{center}
+\begin{tabular}[t]{c c c| c|c|d e e f }
+$A$ & $B$ & $C$ & $A\eor B$ & $\enot (B \eand C)$ & $(A$ &$\eor $& $\enot $ & $C)$\\
+\hline
+T & T & T &  &  & & \TTbf{T} & & \\
+T & T & F &  &  & & \TTbf{T} & & \\
+T & F & T &  &  & & \TTbf{T} & & \\
+T & F & F &  &  & & \TTbf{T} & & \\
+F & T & T & ? & ? & & \TTbf{F} &F & \\
+F & T & F &  &  && \TTbf{T} & T& \\
+F & F & T & ? & ? && \TTbf{F} & F& \\
+F & F & F &  &  & & \TTbf{T} & T& \\
+\end{tabular}
+\end{center}
+Wir können nun alle Zeilen ignorieren, ausgenommen jene, in denen der Satz nach dem Drehkreuz falsch ist. Wenn wir die zwei Sätze auf der linken Seite des Drehkreuzes bewerten, dann kriegen wir:
+\begin{center}
+	\begin{tabular}[t]{c c c| c|d e e f |d e e f }
+		$A$ & $B$ & $C$ & $A\eor B$ & $\enot ($&$B$&$ \eand$&$ C)$ & $(A$ &$\eor $& $\enot $ & $C)$\\
+		\hline
+		T & T & T &  & &&& & & \TTbf{T} & & \\
+		T & T & F &  & &&& & & \TTbf{T} & & \\
+		T & F & T &  & &&& & & \TTbf{T} & & \\
+		T & F & F &  & &&& & & \TTbf{T} & & \\
+		F & T & T & \textbf{T} & \textbf{F}&&T& & & \TTbf{F} &F & \\
+		F & T & F & &&& & && \TTbf{T} & T& \\
+		F & F & T & \textbf{F} & &&& & & \TTbf{F} & F& \\
+		F & F & F & &&&& && \TTbf{T} & T& \\
+	\end{tabular}
+\end{center}
+Das Argument ist gültig. Und unsere Abkürzungen haben uns \emph{viel} Arbeit erspart. 
+ 
+Wir haben über Abkürzungen beim Testen auf Gültigkeit gesprochen. Aber genau dieselben Abkürzungen können auch beim Testen auf die Folgebeziehung verwendet werden. Wenn Sie einen analogen Begriff von schlechten Zeilen verwenden, können Sie sich so eine Menge Arbeit ersparen.
+
+\practiceproblems
+\problempart
+Mithilfe von Abkürzungen, prüfen Sie, ob die folgenden Sätze Tautologien, Widersprüche oder weder noch sind.
+\begin{earg}
+	\item $\enot B \eand B$ %contra
+	\item $\enot D \eor D$ %taut
+	\item $(A\eand B) \eor (B\eand A)$ %contingent
+	\item $\enot[A \eif (B \eif A)]$ %contra
+	\item $A \eiff [A \eif (B \eand \enot B)]$ %contra
+	\item $\enot(A\eand B) \eiff A$ %contingent
+	\item $A\eif(B\eor C)$ %contingent
+	\item $(A \eand\enot A) \eif (B \eor C)$ %tautology
+	\item $(B\eand D) \eiff [A \eiff(A \eor C)]$%contingent
+\end{earg}
+
+\chapter{Partielle Wahrheitstabellen}\label{s:PartialTruthTable}
+
+Manchmal müssen wir nicht wissen, was in jeder Zeile einer Wahrheitstabelle der Fall ist. Manchmal genügen auch schon ein oder zwei Zeilen. 
+
+\paragraph{Tautologie.} 
+Um zu zeigen, dass ein Satz eine Tautologie ist, müssen wir zeigen, dass er jeder Bewertung nach wahr ist. Das hei{\ss}t, wir müssen wissen, dass er in jeder Zeile der Wahrheitstabelle wahr ist. Daher brauchen wir eine komplette Wahrheitstabelle. 
+
+Um zu zeigen, dass ein Satz \emph{keine} Tautologie ist, brauchen wir jedoch nur eine Zeile: eine Zeile, in der der Satz falsch ist. Nehmen Sie an, wir wollen zeigen, dass der Satz `$(U \eand T) \eif (S \eand W)$' keine Tautologie ist. Hierzu nutzen wir eine \define{partielle Wahrheitstabelle}:
+\begin{center}
+\begin{tabular}{c c c c |d e e e e e f}
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\hline
+   &   &   &   &    &   &    &\TTbf{F}&    &   &   
+\end{tabular}
+\end{center}
+Wir haben hier nur für eine Zeile Platz gelassen und nicht 16. Denn wir halten nur nach einer Zeile Ausschau, in der der Satz falsch ist. 
+
+Der Hauptjunktor des Satzes ist das Konditional. Damit das Konditional falsch ist, muss das Antezedens wahr sein und das Konsequens falsch. Dementsprechend füllen wir unsere Tabelle ein:
+\begin{center}
+\begin{tabular}{c c c c |d e e e e e f}
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\hline
+   &   &   &   &    &  T  &    &\TTbf{F}&    &   F &   
+\end{tabular}
+\end{center}
+Damit `$(U\eand T)$' wahr ist, müssen sowohl `$U$' als auch `$T$' wahr sein.
+\begin{center}
+\begin{tabular}{c c c c|d e e e e e f}
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\hline
+   & T & T &   &  T &  T  & T  &\TTbf{F}&    &   F &   
+\end{tabular}
+\end{center}
+Nun brauchen wir nur noch `$(S\eand W)$' falsch zu machen. Um das zu tun, müssen wir zumindest einen der beiden Satzbuchstaben `$S$' und `$W$' falsch machen. Falls wir wollen, können wir auch beide falsch machen. Es ist nur wichtig, dass der ganze Satz in dieser Zeile falsch ist. Eine willkürliche Entscheidung treffend, können wir die Tabelle auf diese Weise ausfüllen:
+\begin{center}
+\begin{tabular}{c c c c|d e e e e e f}
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\hline
+ F & T & T & F &  T &  T  & T  &\TTbf{F}&  F &   F & F  
+\end{tabular}
+\end{center}
+Wir haben jetzt eine partielle Wahrheitstabelle, die zeigt, dass `$(U \eand T) \eif (S \eand W)$' keine Tautologie ist. Wir haben gezeigt, dass es eine Bewertung gibt, die `$(U \eand T) \eif (S \eand W)$' falsch macht, nämlich die Bewertung, die `$S$' falsch, `$T$' wahr, `$U$' wahr und `$W$' falsch macht. 
+
+\paragraph{Widersprüche.}
+Um zu zeigen, dass ein Satz ein Widerspruch (in der WFL) ist, bedarf es einer kompletten Wahrheitstabelle: Wir müssen zeigen, dass es keine Bewertung gibt, die den Satz wahr macht; d.h.\@, wir müssen zeigen, dass der Satz in jeder Zeile der Wahrheitstabelle falsch ist. 
+
+Um jedoch zu zeigen, dass etwas \emph{kein} Widerspruch ist, müssen wir nur eine Bewertung finden, die den Satz wahr macht. Dafür reicht schon eine Zeile einer Wahrheitstabelle aus. Wir können dies mit dem gleichen Beispiel wie vorher veranschaulichen.
+\begin{center}
+\begin{tabular}{c c c c|d e e e e e f}
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\hline
+  &  &  &  &   &   &   &\TTbf{T}&  &  &
+\end{tabular}
+\end{center}
+Damit der Satz wahr ist, reicht es aus, sicherzustellen, dass das Antezedens falsch ist. Da das Antezedens eine Konjunktion ist, müssen wir nur eines seiner Konjunkte falsch machen. Eine willkürliche Wahl treffend, machen wir `$U$' falsch; wir können dann den anderen Satzbuchstaben beliebige Wahrheitswerte zuweisen. 
+\begin{center}
+\begin{tabular}{c c c c|d e e e e e f}
+$S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
+\hline
+ F & T & F & F &  F &  F  & T  &\TTbf{T}&  F &   F & F
+\end{tabular}
+\end{center}
+
+\paragraph{Äquivalenz.}
+Um zu zeigen, dass zwei Sätze äquivalent sind, müssen wir zeigen, dass die Sätze jeder Bewertung nach den gleichen Wahrheitswert haben. Dies erfordert also eine komplette Wahrheitstabelle.
+
+Um aber zu zeigen, dass zwei Sätze \emph{nicht} äquivalent sind, müssen wir nur zeigen, dass es eine Bewertung gibt, laut der sie unterschiedliche Wahrheitswerte haben. Dazu bedarf es also nur einer einzeiligen partiellen Wahrheitstabelle. Füllen Sie die Tabelle so aus, dass ein Satz wahr und der andere falsch ist.
+
+\paragraph{Konsistenz.}
+Um zu zeigen, dass Sätze konsistent sind, müssen wir zeigen, dass es eine Bewertung gibt, die alle Sätze wahr macht. Dies erfordert nur eine partielle Wahrheitstabelle, mit einer Zeile. 
+
+Um aber zu zeigen, dass Sätze \emph{in}konsistent, müssen wir zeigen, dass es keine Bewertung gibt, die alle Sätze wahr macht. Dies erfordert also eine komplette Wahrheitstabelle. Sie müssen zeigen, dass in jeder Zeile der Tabelle mindestens einer der Sätze falsch ist.
+
+\paragraph{Folgebeziehung und Gültigkeit.}
+Um zu zeigen, dass ein Argument gültig ist, müssen wir zeigen, dass es keine Bewertung gibt, die alle Prämissen des Arguments wahr, die Schlussfolgerung aber falsch, macht. Dies erfordert also eine komplette Wahrheitstabelle. (Gleiches gilt für die Folgebeziehung).
+
+Um zu zeigen, dass ein Argument \emph{un}gültig ist, müssen wir allerdings nur zeigen, dass es eine Bewertung gibt, die alle Prämissen wahr und die Schlussfolgerung falsch macht. Dazu bedarf es nur einer einzeiligen partiellen Wahrheitstabelle, in der alle Prämissen wahr sind, die Schlussfolgerung jedoch falsch. (Gleiches gilt auch für das Nichtvorhandensein der Folgebeziehung).
+
+Wir können unsere Erkenntnisse in diesem Abschnitt wie folgt zusammenfassen:
+\begin{center}
+\begin{tabular}{l l l}
+%\cline{2-3}
+ & \textbf{Ja} & \textbf{Nein}\\
+ \hline
+%\cline{2-3}
+Tautologie? & komplett & einzeilig partiell \\
+Widerspruch? &  komplett & einzeilig partiell \\
+%kontingent? & zweizeilig partiell & komplett\\
+äquivalent? & komplett  & einzeilig partiell \\
+konsistent? & einzeilig partiell & komplett \\
+gültig? & komplett & einzeilig partiell \\
+Folge? & komplett & einzeilig partiell\\
+\end{tabular}
+\end{center}
+\label{table.CompleteVsPartial}
+
+
+\practiceproblems
+
+\problempart
+\label{pr.TT.equiv3}
+Nutzen Sie komplette oder partielle Wahrheitstabellen (je nach Bedarf), um zu bestimmen, ob die Satzpaare äquivalent sind.
+\begin{earg}
+\item $A$, $\enot A$ %No
+\item $A$, $A \eor A$ %Yes
+\item $A\eif A$, $A \eiff A$ %Yes
+\item $A \eor \enot B$, $A\eif B$ %No
+\item $A \eand \enot A$, $\enot B \eiff B$ %Yes
+\item $\enot(A \eand B)$, $\enot A \eor \enot B$ %Yes
+\item $\enot(A \eif B)$, $\enot A \eif \enot B$ %No
+\item $(A \eif B)$, $(\enot B \eif \enot A)$ %Yes
+\end{earg}
+
+\problempart
+\label{pr.TT.satisfiable4}
+Nutzen Sie komplette oder partielle Wahrheitstabellen (je nach Bedarf), um zu bestimmen, ob die folgenden Satzmengen konsistent oder inkonsistent sind.
+\begin{earg}
+\item $A \eand B$, $C\eif \enot B$, $C$ %unsatisfiable
+\item $A\eif B$, $B\eif C$, $A$, $\enot C$ %unsatisfiable
+\item $A \eor B$, $B\eor C$, $C\eif \enot A$ %satisfiable
+\item $A$, $B$, $C$, $\enot D$, $\enot E$, $F$ %satisfiable
+\item $A \eand (B \eor C)$, $\enot(A \eand C)$, $\enot(B \eand C)$ %satisfiable
+\item $A \eif B$, $B \eif C$, $\enot(A \eif C)$ %unsatisfiable
+\end{earg}
+
+\problempart
+\label{pr.TT.valid4}
+Nutzen Sie komplette oder partielle Wahrheitstabellen (je nach Bedarf), um zu bestimmen, ob die folgenden Argumente gültig oder ungültig sind:
+\begin{earg}
+\item $A\eor\bigl[A\eif(A\eiff A)\bigr] \therefore A$ %invalid
+\item $A\eiff\enot(B\eiff A) \therefore A$ %invalid
+\item $A\eif B, B \therefore A$ %invalid
+\item $A\eor B, B\eor C, \enot B \therefore A \eand C$ %valid
+\item $A\eiff B, B\eiff C \therefore A\eiff C$ %valid
+\end{earg}
+
+\problempart
+\label{pr.TT.TTorC3}
+Bestimmen Sie, ob die folgenden Sätze Tautologien, Widersprüche oder kontingente Sätze sind. Verteidigen Sie ihre Antwort anhand einer kompletten oder partiellen Wahrheitstabelle (je nach Bedarf).
+
+% truth tables in LaTeX generated by http://www.curtisbright.com/logic/. Be sure to give him a shout out.
+
+\begin{earg}
+\item  $A \eif \enot A$ \vspace{.5ex}							
+
+%{\color{red}
+%$
+%\begin{array}{c|cccc}
+%A&A&\eif&\enot&A\\\hline
+%T&T&\mathbf{F}&F&T\\
+%F&F&\mathbf{T}&T&F
+%\end{array}
+%$ 
+%
+%Contingent	 \vspace{6pt}
+%}
+%	T letter, 2 connectives
+\item $A \eif (A \eand (A \eor B))$ \vspace{.5ex}	
+
+%{\color{red}
+%$
+%\begin{array}{cc|ccc@{}ccc@{}ccc@{}c@{}c}
+%A&B&A&\eif&(&A&\eand&(&A&\eor&B&)&)\\\hline
+%T&T&T&\mathbf{T}&&T&T&&T&T&T&&\\
+%T&F&T&\mathbf{T}&&T&T&&T&T&F&&\\
+%F&T&F&\mathbf{T}&&F&F&&F&T&T&&\\
+%F&F&F&\mathbf{T}&&F&F&&F&F&F&&
+%\end{array}
+%$
+%
+%Tautology \vspace{6pt}
+%}
+%			2 letters, 3 connectives
+
+\item $(A \eif B) \eiff (B \eif A)$ 	\vspace{.5ex}				%
+%
+%{\color{red}
+%$
+%\begin{array}{cc|c@{}ccc@{}ccc@{}ccc@{}c}
+%a&b&(&a&\rightarrow&b&)&\leftrightarrow&(&b&\rightarrow&a&)\\\hline
+%T&T&&T&T&T&&\mathbf{T}&&T&T&T&\\
+%T&F&&T&F&F&&\mathbf{F}&&F&T&T&\\
+%F&T&&F&T&T&&\mathbf{F}&&T&F&F&\\
+%F&F&&F&T&F&&\mathbf{T}&&F&T&F&
+%\end{array}
+%$
+%
+%Contingent \vspace{6pt}
+%
+%}
+%		2 letters, 3 connectives
+
+\item $A \eif \enot(A \eand (A \eor B)) $	\vspace{.5ex}	
+
+%{\color{red}
+%$
+%\begin{array}{cc|cccc@{}ccc@{}ccc@{}c@{}c}
+%a&b&a&\rightarrow&\enot&(&a&\eand&(&a&\eor&b&)&)\\\hline
+%T&T&T&\mathbf{F}&F&&T&T&&T&T&T&&\\
+%T&F&T&\mathbf{F}&F&&T&T&&T&T&F&&\\
+%F&T&F&\mathbf{T}&T&&F&F&&F&T&T&&\\
+%F&F&F&\mathbf{T}&T&&F&F&&F&F&F&&
+%\end{array}
+%$
+%
+%Contingent	\vspace{6pt}
+%
+%}
+%
+% 2 letters, 4 connectives
+
+\item $\enot B \eif [(\enot A \eand A) \eor B]$\vspace{.5ex} 
+
+%{\color{red}
+%$
+%\begin{array}{cc|cccc@{}c@{}cccc@{}ccc@{}c}
+%a&b&\enot&b&\rightarrow&(&(&\enot&a&\eand&a&)&\eor&b&)\\\hline
+%T&T&F&T&\mathbf{T}&&&F&T&F&T&&T&T&\\
+%T&F&T&F&\mathbf{F}&&&F&T&F&T&&F&F&\\
+%F&T&F&T&\mathbf{T}&&&T&F&F&F&&T&T&\\
+%F&F&T&F&\mathbf{F}&&&T&F&F&F&&F&F&
+%\end{array}
+%$
+%Contingent	 \vspace{6pt}
+%
+%}
+%	2 letters, 5 connectives
+
+\item $\enot(A \eor B) \eiff (\enot A \eand \enot B)$ \vspace{.5ex}
+
+%{\color{red}
+%$
+%\begin{array}{cc|cc@{}ccc@{}ccc@{}ccccc@{}c}
+%a&b&\enot&(&a&\eor&b&)&\leftrightarrow&(&\enot&a&\eand&\enot&b&)\\\hline
+%T&T&F&&T&T&T&&\mathbf{T}&&F&T&F&F&T&\\
+%T&F&F&&T&T&F&&\mathbf{T}&&F&T&F&T&F&\\
+%F&T&F&&F&T&T&&\mathbf{T}&&T&F&F&F&T&\\
+%F&F&T&&F&F&F&&\mathbf{T}&&T&F&T&T&F&
+%\end{array}
+%$
+%
+%Tautology \vspace{6pt}
+%}
+%2 letters, 6 connectives
+
+\item $[(A \eand B) \eand C] \eif B$\vspace{.5ex}							
+%
+%{\color{red}
+%$
+%\begin{array}{ccc|c@{}c@{}ccc@{}ccc@{}ccc}
+%a&b&c&(&(&a&\eand&b&)&\eand&c&)&\rightarrow&b\\\hline
+%T&T&T&&&T&T&T&&T&T&&\mathbf{T}&T\\
+%T&T&F&&&T&T&T&&F&F&&\mathbf{T}&T\\
+%T&F&T&&&T&F&F&&F&T&&\mathbf{T}&F\\
+%T&F&F&&&T&F&F&&F&F&&\mathbf{T}&F\\
+%F&T&T&&&F&F&T&&F&T&&\mathbf{T}&T\\
+%F&T&F&&&F&F&T&&F&F&&\mathbf{T}&T\\
+%F&F&T&&&F&F&F&&F&T&&\mathbf{T}&F\\
+%F&F&F&&&F&F&F&&F&F&&\mathbf{T}&F
+%\end{array}
+%$
+%
+%Tautology \vspace{6pt}
+%}
+%
+%3 letters, 3 connectives
+
+\item $\enot\bigl[(C\eor A) \eor B\bigr]$\vspace{.5ex} 						
+%
+%{\color{red}
+%$
+%\begin{array}{ccc|cc@{}c@{}ccc@{}ccc@{}c}
+%a&b&c&\enot&(&(&c&\eor&a&)&\eor&b&)\\\hline
+%T&T&T&\mathbf{F}&&&T&T&T&&T&T&\\
+%T&T&F&\mathbf{F}&&&F&T&T&&T&T&\\
+%T&F&T&\mathbf{F}&&&T&T&T&&T&F&\\
+%T&F&F&\mathbf{F}&&&F&T&T&&T&F&\\
+%F&T&T&\mathbf{F}&&&T&T&F&&T&T&\\
+%F&T&F&\mathbf{F}&&&F&F&F&&T&T&\\
+%F&F&T&\mathbf{F}&&&T&T&F&&T&F&\\
+%F&F&F&\mathbf{T}&&&F&F&F&&F&F&
+%\end{array}
+%$
+%
+%Contingent \vspace{6pt}
+%
+%}
+%	 	3 letters, 3 connectives
+
+\item $\bigl[(A\eand B) \eand\enot(A\eand B)\bigr] \eand C$ \vspace{.5ex}	
+%
+%{\color{red}
+%$
+%\begin{array}{ccc|c@{}c@{}ccc@{}cccc@{}ccc@{}c@{}ccc}
+%a&b&c&(&(&a&\eand&b&)&\eand&\enot&(&a&\eand&b&)&)&\eand&c\\\hline
+%T&T&T&&&T&T&T&&F&F&&T&T&T&&&\mathbf{F}&T\\
+%T&T&F&&&T&T&T&&F&F&&T&T&T&&&\mathbf{F}&F\\
+%T&F&T&&&T&F&F&&F&T&&T&F&F&&&\mathbf{F}&T\\
+%T&F&F&&&T&F&F&&F&T&&T&F&F&&&\mathbf{F}&F\\
+%F&T&T&&&F&F&T&&F&T&&F&F&T&&&\mathbf{F}&T\\
+%F&T&F&&&F&F&T&&F&T&&F&F&T&&&\mathbf{F}&F\\
+%F&F&T&&&F&F&F&&F&T&&F&F&F&&&\mathbf{F}&T\\
+%F&F&F&&&F&F&F&&F&T&&F&F&F&&&\mathbf{F}&F
+%\end{array}
+%$
+%
+%Contradiction \vspace{6pt}
+%
+%}
+%
+%% 	3 letters, 5 connectives
+%
+\item $(A \eand B) ]\eif[(A \eand C) \eor (B \eand D)]$ \vspace{.5ex}		
+%
+%{\color{red}
+%$
+%\begin{array}{cccc|c@{}c@{}ccc@{}c@{}ccc@{}c@{}ccc@{}ccc@{}ccc@{}c@{}c}
+%a&b&c&d&(&(&a&\eand&b&)&)&\eif&(&(&a&\eand&c&)&\eor&(&b&\eand&d&)&)\\\hline
+%T&T&T&T&&&T&T&T&&&\mathbf{T}&&&T&T&T&&T&&T&T&T&&\\
+%T&T&F&F&&&T&T&T&&&\mathbf{F}&&&T&F&F&&F&&T&F&F&&\\
+%\end{array}
+%$
+%
+%Contingent \vspace{6pt}
+%}
+%
+%	4 letters, 5 connectives
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.TTorC4}
+Bestimmen Sie, ob die folgenden Sätze Tautologien, Widersprüche oder kontingente Sätze sind. Begründen Sie ihre Antwort mittels einer kompletten oder partiellen Wahrheitstabelle (je nach Bedarf).
+\begin{earg}
+\item  $\enot (A \eor A)$\vspace{.5ex}							%	Contradiction		1 letter, 2 connectives
+\item $(A \eif B) \eor (B \eif A)$\vspace{.5ex}					%	Tautology			2 letters, 2 connectives
+\item $[(A \eif B) \eif A] \eif A$\vspace{.5ex}					%	Tautology			2 letters, 3 connectives
+\item $\enot[( A \eif B) \eor (B \eif A)]$\vspace{.5ex}			%	Contradiction		2 letters, 4 connectives
+\item $(A \eand B) \eor (A \eor B)$\vspace{.5ex} 				%	Contingent		2 letters, 5 connectives
+\item $\enot(A\eand B) \eiff A$\vspace{.5ex} 					%contingent			2 letters, 3 connectives
+\item $A\eif(B\eor C)$\vspace{.5ex} 							%contingent			3 letters, 2 connectives
+\item $(A \eand\enot A) \eif (B \eor C)$\vspace{.5ex} 			%tautology			3 letters, 4 connectives 
+\item $(B\eand D) \eiff [A \eiff(A \eor C)]$\vspace{.5ex}			%contingent			4 letters, 4 connectives
+\item $\enot[(A \eif B) \eor (C \eif D)]$\vspace{.5ex} 			% Contingent. 		4 letters, 4 connectives
+\end{earg}
+
+
+
+\noindent\problempart
+Anhand von komplette Wahrheitstabellen, bestimmen Sie, ob die folgenden Satzpaare äquivalent sind.
+\begin{earg}
+\item $A$ und $A \eor A$
+\item $A$ und $A \eand A$
+\item $A \eor \enot B$ und $A\eif B$
+\item $(A \eif B)$ und $(\enot B \eif \enot A)$
+\item $\enot(A \eand B)$ und $\enot A \eor \enot B$
+\item $ ((U \eif (X \eor X)) \eor U)$ und $\enot (X \eand (X \eand U))$
+\item $ ((C \eand (N \eiff C)) \eiff C)$ und $(\enot \enot \enot N \eif C)$
+\item $[(A \eor B) \eand C]$ und $[A \eor (B \eand C)]$
+\item $((L \eand C) \eand I)$ und $L \eor C$
+\end{earg}
+
+
+\noindent\problempart
+\label{pr.TT.satisfiable5}
+Bestimmen Sie, ob die folgenden Satzmengen konsistent oder inkonsistent sind. Begründen Sie Ihre Antwort mittels einer kompletten oder partiellen Wahrheitstabelle (je nach Bedarf).
+\begin{earg}
+\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ %satisfiable
+\item $A \eif \enot A$, $\enot A \eif A$%unsatisfiable. 
+\item $A\eor B$, $A\eif C$, $B\eif C$ %satisfiable
+\item $A \eor B$, $A \eif C$, $B \eif C$, $\enot C$ %	Insatisfiable
+\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$  %unsatisfiable
+\item $(A \eiff B) \eif B$,  $B \eif \enot (A \eiff B)$, $A \eor B$  %	Consistent
+\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$ %satisfiable
+\item  $A \eiff B$,  $\enot B \eor \enot A$,  $A \eif  B$ % Consistent
+\item $A \eiff B$, $A \eif C$, $B \eif D$, $\enot(C \eor D)$ %consitent
+\item $\enot (A \eand \enot B)$,  $B \eif \enot A$, $\enot B$   %Consistent
+\end{earg}
+
+\noindent\problempart Bestimmen Sie, ob die folgenden Argumente gültig oder ungültig sind. Begründen Sie Ihre Antwort mittels einer kompletten oder partiellen Wahrheitstabelle (je nach Bedarf).
+\label{pr.TT.valid5} 
+\begin{earg}
+\item $A\eif(A\eand\enot A)\therefore \enot A$% valid
+\item $A \eor B$, $A \eif B$, $B \eif A \therefore  A \eiff B$  % Valid
+\item $A\eor(B\eif A)\therefore \enot A \eif \enot B$ %valid
+\item $A \eor B$, $A \eif B$, $ B \eif A \therefore  A \eand B$ %valid
+\item $(B\eand A)\eif C$, $(C\eand A)\eif B\therefore (C\eand B)\eif A$ % invalid
+\item $\enot (\enot A \eor \enot B)$, $A \eif \enot C \therefore  A \eif (B \eif C)$ % invalid.
+\item $A \eand (B \eif C)$, $\enot C \eand (\enot B \eif \enot A)\therefore C \eand \enot C$ % valid
+\item $A \eand B$, $\enot A \eif \enot C$, $B \eif \enot D \therefore  A \eor B$ % Invalid
+\item $A \eif B\therefore (A \eand B) \eor (\enot A \eand \enot B)$ % invalid
+\item $\enot A \eif B$,$ \enot B \eif C $,$ \enot C \eif A \therefore  \enot A \eif (\enot B \eor \enot C) $% Invalid
+
+\end{earg}
+
+\noindent\problempart Bestimmen Sie, ob die folgenden Argumente gültig oder ungültig sind. Begründen Sie Ihre Antwort mittels einer kompletten oder partiellen Wahrheitstabelle (je nach Bedarf).
+\label{pr.TT.valid6} 
+\begin{earg}
+\item $A\eiff\enot(B\eiff A)\therefore A$ % invalid
+\item $A\eor B$, $B\eor C$, $\enot A\therefore B \eand C$ % invalid
+\item $A \eif C$, $E \eif (D \eor B)$, $B \eif \enot D\therefore (A \eor C) \eor (B \eif (E \eand D))$ % invalid
+\item $A \eor B$, $C \eif A$, $C \eif B\therefore A \eif (B \eif C)$ % invalid
+\item $A \eif B$, $\enot B \eor A\therefore A \eiff B$ % valid
+\end{earg}

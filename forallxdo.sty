@@ -1,6 +1,7 @@
-%!TEX root = forallxyyc.tex
+%!TEX root = forallxdo.tex
+
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{forallxyyc}[2011/10/29 support for a logic textbook]
+\ProvidesPackage{forallxdo}[2011/10/29 support for a logic textbook]
 
 \RequirePackage{amssymb,amsmath,pifont,rotating,fitch}
 \usepackage[cal=boondoxo]{mathalfa}
@@ -15,10 +16,6 @@
 % There are, of course, many different symbols used for the truth-functional
 % connectives. In order to make the book adaptable, the symbols are defined
 % here in the style sheet and these commands are used throughout the book.
-% To change conjunction from the ampersand to the carat, for instance,
-% change the definition of \eand from ~\&~ to \wedge. To change negation from
-% the hoe to the swung dash, change \enot from \neg to {\sim}. Other examples
-% are given below.
 %
 \let\oldtherefore\therefore
 \def\therefore{\ensuremath{\oldtherefore}}
@@ -26,12 +23,13 @@
 \def\eor{\ensuremath{\vee}}
 % conjunction: 
 % {\,^{_{_{_{_{\mbox{\footnotesize\textbullet}}}}}}} gives the dot
+% \mathbin{\&} gives the ampersand
 \def\eand{\ensuremath{\wedge}}
-% conditional: \supset gives the horseshoe
+% conditional: \mathbin{\supset} gives the horseshoe
 \def\eif{\ensuremath{\rightarrow}}
-% biconditional: \equiv gives the triple bar
+% biconditional: \mathbin{\equiv} gives the triple bar
 \def\eiff{\ensuremath{\leftrightarrow}}
-% negation: {\sim} gives the swung dash 
+% negation: \mathord{\sim} gives the swung dash 
 \def\enot{\ensuremath{\neg}}
 \def\ered{\ensuremath{\bot}}% TB: added to give an absurdity sign
 \newcommand*{\ebox}{\ensuremath{\Box}}
@@ -60,6 +58,7 @@
 
 \newcommand{\argsep}{}
 
+% \renewcommand{\atom}[2]{\mathord{#1}\args{#2}} makes atomic formulas be Fxy instead of F(x,y)
 \newcommand{\atom}[2]{\mathord{#1}(#2)}
 
 %    ****************************************
@@ -204,8 +203,8 @@
   \def\re{\by{X}}% RZ: this is now X (explosion)
   \def\ii{\by{$=$I}}%
   \def\ie{\by{$=$E}}%
-  \def\tnd{\by{LEM}}% RZ: Law of excluded middle
-  \def\ip{\by{IP}}% RZ: indirect proof
+  \def\tnd{\by{GAD}}% RZ: Law of excluded middle
+  \def\ip{\by{IB}}% RZ: indirect proof
   \def\dne{\by{DNE}}% TB: double negation elimination (derived rule)
   \def\mt{\by{MT}}% TB: modus tollens (derived rule)
   \def\ds{\by{DS}}% TB: disjunctive syllogism (a derived rule in Cambridge version)
@@ -237,5 +236,3 @@
 		grey_shape/.style={thick, fill=black!20, draw, minimum width=30pt, minimum height=30pt}, % TB: renders a light grey shape with a black outline
 		white_shape/.style={thick, fill=black!0, draw, minimum width=30pt, minimum height=30pt} % TB: renders a white shape with a black outline
 		}
-
-\IfFileExists{forallxyyc-local.sty}{\usepackage{forallxyyc-local}}{}

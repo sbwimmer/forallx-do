@@ -1,0 +1,871 @@
+%!TEX root = forallxdo.tex
+
+\part{Wahrheitsfunktionale Logik}
+\label{ch.TFL}
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+
+\chapter{Einstieg ins Symbolisieren}
+
+\section{Gültigkeit aufgrund von Form}\label{s:ValidityInVirtueOfForm}
+Betrachten wir das folgende Argument:
+	\begin{earg}
+		\item[] Es regnet drau{\ss}en.
+		\item[] Wenn es drau{\ss}en regnet, dann ist Jenny unglücklich.
+		\item[\therefore] Jenny ist unglücklich.
+	\end{earg}
+und ein weiteres:
+	\begin{earg}
+		\item[] Jenny ist eine Anarcho-Syndikalistin.
+		\item[] Wenn Jenny eine Anarcho-Syndikalistin ist, dann ist Dipan ein eifriger Leser Tolstois. 
+		\item[\therefore] Dipan ist ein eifriger Leser Tolstois.
+	\end{earg}
+Beide Argumente sind gültig und wir können leicht erkennen, dass sie eine ähnliche Struktur aufweisen. Diese Struktur können wir so ausdrücken:
+	\begin{earg}
+		\item[] $A$
+		\item[] Wenn $A$, dann $C$
+		\item[\therefore] $C$
+	\end{earg}
+Diese Form sieht wie eine exzellente Argument\emph{struktur} aus. Gewiss ist jedes Argument mit dieser \emph{Struktur} gültig. Diese ist nicht die einzige gute Argumentstruktur. Betrachten wir ein Argument wie dieses: %"schaut" im dt. ugs., anders als im österr.
+	\begin{earg}
+		\item[] Jenny ist entweder glücklich oder traurig.
+		\item[] Jenny ist nicht glücklich.
+		\item[\therefore] Jenny ist traurig.
+	\end{earg}
+Auch hier gilt: dies ist ein gültiges Argument. Die Argumentstruktur sieht hier wie folgt aus:
+	\begin{earg}
+		\item[] $A$ oder $B$
+		\item[] nicht-$A$
+		\item[\therefore] $B$
+	\end{earg}
+Eine hervorragende Struktur! Hier ist noch ein Beispiel:
+	\begin{earg}
+		\item[] Es ist nicht der Fall, dass Umut sowohl viel gelernt hat, als auch in vielen Theaterstücken mitgespielt hat.
+		\item[] Umut hat viel gelernt.
+		\item[\therefore] Umut hat nicht in vielen Theaterstücken mitgespielt.
+	\end{earg}
+Dieses gültige Argument hat eine Struktur, die wir wie folgt repräsentieren können:
+	\begin{earg}
+		\item[] nicht-($A$ und $B$)
+		\item[] $A$
+		\item[\therefore] nicht-$B$
+	\end{earg}
+Diese Beispiele veranschaulichen einen wichtigen Begriff, den der \emph{Gültigkeit aufgrund von Form}. Die Gültigkeit der soeben betrachteten Argumente hat nicht viel mit den Bedeutungen deutscher Ausdrücke wie `Jenny ist unglücklich', `Dipan ist ein eifriger Leser Tolstois' oder `Umut spielte in vielen Theaterstücken mit' zu tun. Wenn sie überhaupt mit Bedeutungen zu tun hat, dann mit den Bedeutungen von Ausdrücken wie `und', `oder', `nicht,' und `wenn\ldots, dann\ldots'. 
+
+In den folgenden Abschnitten werden wir eine formale Sprache entwickeln, die es uns erlaubt, viele Argumente so zu symbolisieren, dass sie aufgrund ihrer Form gültig sind. Diese Sprache nennen wir \emph{wahrheitsfunktionale Logik} oder WFL.
+
+\section{Gültigkeit aus besonderen Gründen}
+Es gibt viele Argumente, die gültig sind, aber nicht aufgrund ihrer Form. Nehmen wir ein Beispiel:
+	\begin{earg}
+		\item[] Juan ist ein Kater.
+		\item[\therefore] Juan ist eine Katze.
+	\end{earg}
+Es ist unmöglich, dass die Prämisse wahr und die Schlussfolgerung falsch ist. Das Argument ist also gültig. Seine Gültigkeit verdankt dieses Argument allerdings nicht seiner Form. Hier ist ein ungültiges Argument mit der gleichen Form:
+	\begin{earg}
+		\item[] Juan ist ein Kater
+		\item[\therefore] Juan ist eine Kathedrale
+	\end{earg}
+Dies deutet daraufhin, dass die Gültigkeit des ersten Arguments auf die Bedeutung der Wörter `Kater' und `Katze' zurückzuführen ist. Aber unabhängig davon ist es nicht einfach die Form des Arguments, die es gültig macht. Gleichfalls, betrachten Sie das folgende Argument: %edited:"ob das so ist oder nicht"
+	\begin{earg}
+		\item[] Die Statue ist überall grün.
+		\item[\therefore] Die Statue ist nicht überall rot.
+	\end{earg}
+Auch hier scheint es unmöglich zu sein, dass die Prämisse wahr und die Schlussfolgerung falsch ist. Denn nichts kann sowohl überall grün als auch überall rot sein. Das Argument ist also gültig. Aber hier ist ein ungültiges Argument mit der gleichen Form:
+	\begin{earg}
+		\item[] Die Statue ist überall grün.
+		\item[\therefore] Die Statue  ist nicht überall glänzend.
+	\end{earg}
+Das Argument ist ungültig, da es möglich ist, überall grün zu sein und überall zu glänzen. (Ich könnte beispielsweise meine Nägel mit einem eleganten, glänzenden, grünen Lack lackieren.) Plausiblerweise hängt die Gültigkeit des ersten Arguments von der Art und Weise ab, wie Farben (oder Farbworte) miteinander interagieren. Aber unabhängig davon ist es nicht einfach nur die Form des Arguments, die es gültig macht.
+
+Der wesentliche Schluss daraus ist der folgende. \emph{Im besten Fall wird uns die wahrheitsfunktionale Logik helfen, die Gültigkeit von Argumenten zu verstehen, die aufgrund ihrer Form gültig sind.}
+
+\section{Einfache Sätze}
+
+Wir begannen, die Form eines Arguments in \S\ref{s:ValidityInVirtueOfForm} zu isolieren, indem wir \emph{Teilsätze} von Sätzen durch einzelne Buchstaben ersetzten. So ist im ersten Beispiel dieses Abschnitts `Es regnet drau{\ss}en' ein Teilsatz von `Wenn es drau{\ss}en regnet, dann ist Jenny unglücklich', und wir ersetzten diesen Teilsatz durch `$A$'. 
+
+Unsere künstliche Sprache, die WFL, verfolgt diese Idee auf rigorose Art und Weise. Wir beginnen mit ein paar \emph{Satzbuchstaben}. Diese werden die Grundbausteine oder Basiselemente unserer Sprache sein, aus denen komplexere Sätze dieser Sprache gebaut werden. Wir werden einzelne Gro{\ss}buchstaben als Satzbuchstaben der WFL verwenden. Es gibt nur 26 Buchstaben des Alphabets, aber es gibt keine Grenze für die Anzahl der Satzbuchstaben, die wir in Betracht ziehen können. Durch Hinzufügen von Subskripten zu Buchstaben erhalten wir neue Satzbuchstaben. Hier sind also fünf verschiedene Satzbuchstaben der WFL: 
+	$$A, P, P_1, P_2, A_{234}$$
+Wir werden Satzbuchstaben verwenden, um bestimmte deutsche Sätze zu repräsentieren oder zu symbolisieren. Dazu stellen wir einen \define{Symbolisierungsschlüssel} zur Verfügung, wie zum Beispiel den folgenden:
+	\begin{ekey}
+		\item[A] Es regnet drau{\ss}en.
+		\item[C] Jenny ist unglücklich.
+	\end{ekey}
+Damit fixieren wir diese Symbolisierung nicht \emph{ein für alle mal}. Wir sagen nur, dass wir uns vorerst den Satzbuchstaben der WFL, `$A$', als Symbol für den deutschen Satz `Es regnet drau{\ss}en', und den Satzbuchstaben der WFL, `$C$', als Symbol für den deutschen Satz `Jenny ist unglücklich', vorstellen. Später, wenn wir es mit verschiedenen Sätzen oder verschiedenen Argumenten zu tun haben, können wir einen neuen Symbolisierungsschlüssel zur Verfügung stellen; zum Beispiel:
+	\begin{ekey}
+		\item[A] Jenny ist eine Anarcho-Syndikalistin.
+		\item[C] Dipan ist ein eifriger Leser Tolstois.
+	\end{ekey}
+Es ist wichtig, dass jede Struktur, die ein deutscher Satz hat, verloren geht, wenn er durch einen Satzbuchstaben von WFL symbolisiert wird. Aus der Sicht von WFL ist ein Satzbuchstabe nur ein Buchstabe. Er kann verwendet werden, um komplexere Sätze zu bilden, aber er kann nicht weiter unterteilt werden.
+
+\newglossaryentry{Satzbuchstabe}
+{
+name=Satzbuchstabe,
+description={Ein Buchstabe, der genutzt wird, um einen einfachen Satz in WFL zu symbolisieren.}
+}
+\newglossaryentry{einfacher Satz}
+{
+name=einfacher Satz,
+description={Ein Ausdruck, der genutzt wird, um einen einfachen Satz zu repräsentieren; ein Satzbuchstabe in WFL oder ein $n$-stelliges Prädikat gefolgt von $n$ Namen in der LEO}
+}
+
+\newglossaryentry{Symbolisierungsschlüssel}
+{
+name=Symbolisierungsschlüssel,
+description={Eine Liste, die zeigt, welche deutschen Sätze von welchen \gls{Satzbuchstabe}n der WFL symbolisiert werden}
+}
+
+\chapter{Junktoren}
+\label{s:TFLConnectives}
+
+Im vorigen Kapitel haben wir uns damit beschäftigt, ziemlich einfache deutsche Sätze mit Satzbuchstaben der WFL zu symbolisieren. Das führt dazu, dass wir uns mit den deutschen Ausdrücken `und', `oder', `nicht' und so weiter beschäftigen wollen. Dies sind \emph{Junktoren}, auch Konnektive genannt---sie können verwendet werden, um aus alten Sätzen neue zu bilden. In der WFL werden wir Junktoren verwenden, um komplexe Sätze aus einfachen Sätzen zu bilden. Die WFL hat fünf Junktoren. Die folgende Tabelle gibt eine Übersicht über sie; dieses Kapitel erläutert sie.
+
+\newglossaryentry{Junktor}
+{
+name=Junktor,
+description={Ein logischer Operator in der WFL, der genutzt wird, um \gls{Satzbuchstabe}n zu komplexeren Sätzen zu kombinieren}
+}
+	\begin{table}[h]
+	\center
+	\begin{tabular}{l l l}
+	
+	\textbf{symbol}&\textbf{Name}&\textbf{ungefähre Bedeutung}\\
+	\hline
+	\enot&Negation&`Es ist nicht der Fall, dass $\ldots$'\\
+	\eand&Konjunktion&`$\ldots$\ und $\ldots$'\\
+	\eor&Disjunktion&`(Entweder) $\ldots$\ oder $\ldots$'\\ %Es ist evtl. zu unterscheiden zwischen Disjunktion und Kontravalenz. Das "Entweder" betont m.E. die (nicht gemeinte) Kontravalenz...
+	\eif&Konditional&`Wenn $\ldots$\ dann $\ldots$'\\
+	\eiff&Bikonditional&`$\ldots$ wenn und nur wenn $\ldots$'\\
+	
+	\end{tabular}
+	\end{table}
+
+Dies sind nicht die einzigen Junktoren des Deutschen. Andere sind z.B.\@ `es sei denn', `weder \dots{} noch \dots{}, und `weil'. Wir werden sehen, dass die ersten beiden durch die Junktoren, die wir diskutieren werden, ausgedrückt werden können. Dies ist nicht der Fall für den Letzteren. `Weil' ist, im Gegensatz zu den anderen, nicht \emph{wahrheitsfunktional}. 
+    
+\section{Negation}
+
+Wie können wir die folgenden Sätze symbolisieren?
+	\begin{earg}
+	\item[\ex{not1}] Mary ist in Barcelona.
+	\item[\ex{not2}] Es ist nicht der Fall, dass Mary in Barcelona ist.
+	\item[\ex{not3}] Mary ist nicht in Barcelona.
+	\end{earg}
+Um Satz \ref{not1} zu symbolisieren, brauchen wir einen Satzbuchstaben. Hier ist unser Symbolisierungsschlüssel:
+	\begin{ekey}
+		\item[B] Mary ist in Barcelona.
+	\end{ekey}
+Da Satz \ref{not2} offensichtlich mit Satz \ref{not1} verwandt ist, werden wir ihn nicht mit einem völlig anderen Satzbuchstaben symbolisieren. Grob gesagt bedeutet Satz \ref{not2} so etwas wie `Es ist nicht der Fall, dass $B$'. Um dies zu symbolisieren, brauchen wir ein Symbol, um die Negation `Es ist nicht der Fall, dass' zu repräsentieren. Hierzu verwenden wir `$\enot$'. Somit können wir Satz \ref{not2} mit `$\enot B$' symbolisieren.
+
+Satz \ref{not3} enthält auch das Wort `nicht', und er ist offensichtlich notwendigerweise äquivalent zu Satz \ref{not2}. Als solchen können wir auch ihn mit `$\enot B$' symbolisieren.
+
+\factoidbox{
+Ein Satz kann als $\enot\metav{A}$ symbolisiert werden, wenn er im Deutschen als `Es ist nicht der Fall, dass\ldots' paraphrasiert werden kann.
+}
+Es wird helfen, einige weitere Beispiele durchzugehen: 
+	\begin{earg}
+		\item\label{not4} Das Gerät kann ersetzt werden.
+		\item\label{not5} Das Gerät ist unersetzlich.
+		\item\label{not5b} Das Gerät ist nicht unersetzlich.
+	\end{earg}
+Hier nutzen wir den folgenden Symbolisierungsschlüssel:
+	\begin{ekey}
+		\item[R] Das Gerät kann ersetzt werden.
+	\end{ekey}
+Satz \ref{not4} können wir nun als `$R$' symbolisieren. Weiter zu Satz \ref{not5}: zu sagen, dass das Gerät unersetzlich ist, bedeutet, dass es nicht der Fall ist, dass das Gerät ersetzt werden kann. Auch wenn Satz \ref{not5} das Wort `nicht' nicht enthält, werden wir ihn daher als `$\enot R$' symbolisieren.
+
+Satz \ref{not5b} kann paraphrasiert werden als `Es ist nicht der Fall, dass das Gerät unersetzlich ist'. Dies kann wiederum umschrieben werden als `Es ist nicht der Fall, dass das Gerät nicht ersetzt werden kann'. Wir können also diesen deutschen Satz mit dem WFL-Satz `$\enot\enot R$' symbolisieren.
+
+Die Negation ist oft recht einfach anzuwenden. Aber in manchen Fällen ist Vorsicht geboten. Betrachten wir etwa:
+	\begin{earg}
+		\item[\ex{not6}] Umut ist glücklich.
+		\item[\ex{not7}] Umut ist unglücklich.
+	\end{earg}
+Wenn wir den WFL-Satz `$G$' den Satz `Umut ist glücklich' symbolisieren lassen, dann können wir den Satz \ref{not6} als `$G$' symbolisieren. Es wäre jedoch ein Fehler, den Satz \ref{not7} mit `$\enot{G}$' zu symbolisieren. Wenn Umut unglücklich ist, dann ist er nicht glücklich; aber Satz \ref{not7} bedeutet nicht dasselbe wie `Es ist nicht der Fall, dass Umut glücklich ist'. Laut dem Letzteren könnte Umut weder glücklich noch unglücklich sein; er könnte sich in einem Zustand schierer Gleichgültigkeit befinden. Um den Satz \ref{not7} zu symbolisieren, brauchen wir also einen neuen Satzbuchstaben der WFL.
+
+\newglossaryentry{Negation}
+{
+name=Negation,
+description={Das Symbol $\enot$, verwendet um Worte und Phrasen zu repräsentieren, die wie das deutsche Wort `nicht' funktionieren}
+}
+
+\section{Konjunktion}
+\label{s:ConnectiveConjunction}
+
+Betrachten wir ein paar weitere Sätze:
+	\begin{earg}
+		\item[\ex{and1}]Adam ist sportlich.
+		\item[\ex{and2}]Barbara ist sportlich.
+		\item[\ex{and3}]Adam ist sportlich und Barbara ist auch sportlich.
+	\end{earg}
+Zunächst brauchen wir unterschiedliche Satzbuchstaben der WFL um Sätze \ref{and1} and \ref{and2} zu symbolisieren; beispielsweise:
+	\begin{ekey}
+		\item[A] Adam ist sportlich.
+		\item[B] Barbara ist sportlich.
+	\end{ekey}
+Satz \ref{and1} kann nun als `$A$' symbolisiert werden und Satz \ref{and2} als `$B$'. Satz \ref{and3} besagt ungefähr: `$A$ und $B$'. Wir brauchen also ein weiteres Symbol um `und' zu symbolisieren. Hierzu nutzen wir `$\eand$'. Also werden wir \ref{and3} als `$(A\eand B)$' symbolisieren. Diesen Junktor nennen wir \define{Konjunktion}. Wir sagen auch, dass `$A$' und `$B$' die zwei \define{Konjunkte} der Konjunktion `$(A \eand B)$' sind.
+
+\newglossaryentry{Konjunktion}
+{
+name=Konjunktion,
+description={Das Symbol $\eand$, verwendet um Worte und Phrasen des Deutschen zu repräsentieren, die wie `und' funktionieren; oder ein Satz, der mittels dieses Symbols gebildet wird}
+}
+
+\newglossaryentry{Konjunkt}
+{
+name=Konjunkt,
+description={Ein Satz kombiniert mit einem anderen Satz, mittels einer \gls{Konjunktion}}
+}
+
+Beachten Sie, dass wir keinen Versuch unternommen haben, das Wort `auch' im Satz \ref{and3} zu symbolisieren. Wörter wie `auch' und `beide' dienen dazu, unsere Aufmerksamkeit auf die Tatsache zu lenken, dass zwei Dinge miteinander konjunktiert werden. Es könnte sein, dass sie die Betonung eines Satzes beeinflussen, aber wir werden (und können) solche Dinge in der WFL nicht symbolisieren.
+
+Einige weitere Beispiele helfen, diese Tatsache zu veranschaulichen:
+	\begin{earg}
+		\item[\ex{and4}] Barbara ist sportlich und energisch.
+		\item[\ex{and5}] Barbara und Adam sind beide sportlich.
+		\item[\ex{and6}] Obwohl Barbara energisch ist, ist sie nicht sportlich.
+		\item[\ex{and7}] Adam ist sportlich, aber Barbara is sportlicher als er.
+	\end{earg}
+Der Satz \ref{and4} ist offensichtlich eine Konjunktion. Der Satz sagt zwei Dinge (über Barbara) aus. Im Deutschen ist es zulässig, sich nur einmal auf Barbara zu beziehen. Man könnte daher annehmen, dass wir den Satz \ref{and4} mit so etwas wie `$B$ und energisch' symbolisieren müssen. Das wäre allerdings ein Fehler. Sobald wir einen Teil eines Satzes als `$B$' symbolisieren, geht jede weitere Struktur verloren, da `$B$' ein Satzbuchstabe der WFL ist. Umgekehrt ist `energisch' überhaupt kein deutscher Satz. Was wir anstreben, ist so etwas wie `$B$ und Barbara ist energisch'. Wir müssen also dem Symbolisierungsschlüssel einen weiteren Satzbuchstaben hinzufügen. Lassen wir `$E$' `Barbara ist energisch' symbolisieren. Nun kann der gesamte Satz als `$(B \eand E)$' symbolisiert werden.
+
+Satz \ref{and5} sagt eine Sache über zwei verschiedene Subjekte aus. Er sagt sowohl von Barbara als auch von Adam, dass sie sportlich sind, auch wenn wir im Deutschen das Wort `sportlich' nur einmal verwenden. Der Satz kann umschrieben werden als `Barbara ist sportlich und Adam ist sportlich'. Wir können dies in der WFL als `$(B \eand A)$' symbolisieren, indem wir den gleichen Symbolisierungsschlüssel verwenden, den wir bisher schon verwendet haben.
+
+Satz \ref{and6} ist etwas komplizierter. Das Wort `obwohl' stellt einen Kontrast zwischen dem ersten Teil des Satzes und dem zweiten her. Dennoch sagt uns der Satz sowohl, dass Barbara energisch ist, als auch, dass sie nicht sportlich ist. Um aus jedem der Konjunkten einen Satzbuchstaben zu machen, müssen wir `sie' durch `Barbara' ersetzen. So können wir Satz \ref{and6} umschreiben als `Barbara ist energisch und Barbara ist nicht sportlich'. Das zweite Konjunkt enthält eine Verneinung, sodass wir weiter paraphrasieren können: `Barbara ist energisch und \emph{es ist nicht der Fall, dass} Barbara sportlich ist'. Nun können wir dies mit dem WFL-Satz `$(E \eand \enot B)$' symbolisieren. Beachten Sie, dass wir bei dieser Symbolisierung einige Nuancen verloren haben. Es gibt einen deutlichen Unterschied im Tonfall zwischen Satz \ref{and6} und `Barbara ist energisch und es ist nicht der Fall, dass Barbara sportlich ist'. WFL bewahrt diese Nuancen nicht (und kann das auch nicht tun).
+
+Satz \ref{and7} wirft ähnliche Fragen auf. Er hat eine kontrastierende Struktur, aber mit dieser kann die WFL nicht umgehen. Wir können den Satz also mit `Adam ist sportlich und Barbara ist sportlicher als Adam' umschreiben. (Beachten Sie, dass wir hier das Pronomen `er' durch `Adam' ersetzen.) Wie sollen wir nun mit dem zweiten Konjunkt umgehen? Wir haben bereits den Satzbuchstaben `$A$', der verwendet wird, um `Adam ist sportlich' zu symbolisieren, und den Satz `$B$', der verwendet wird, um `Barbara ist sportlich' zu symbolisieren; aber keiner der beiden vergleicht Adams mit Barbaras Sportlichkeit. Um also den gesamten Satz zu symbolisieren, brauchen wir einen neuen Satzbuchstaben. Lassen Sie den WFL-Satz `$R$' den deutschen Satz `Barbara ist sportlicher als Adam' symbolisieren. Jetzt können wir den Satz \ref{and7} mit `$(A \eand R)$' symbolisieren.
+
+\factoidbox{
+		Ein Satz kann als $(\metav{A} \eand \metav{B})$ symbolisiert werden, wenn er im Deutschen als  `\ldots und \ldots' oder als `\ldots, aber \ldots' oder als `Obwohl \ldots, \ldots' paraphrasiert werden kann.
+	}
+
+An dieser Stelle fragen Sie sich vielleicht, warum wir Klammern um die Konjunktionen setzen. Den Grund dafür sehen wir, wenn wir darüber nachdenken, wie die Negation mit der Konjunktion interagiert. Betrachten Sie:
+	\begin{earg}
+		\item[\ex{negcon1}] Es ist nicht der Fall, dass du die Suppe und den Salat kriegen wirst.
+		\item[\ex{negcon2}] Du wirst die Suppe nicht kriegen, aber dafür den Salat.
+	\end{earg}
+Satz \ref{negcon1} können wir als `Es ist nicht der Fall, dass: du wirst die Suppe kriegen und du wirst den Salat kriegen' umschreiben. Mithilfe des folgenden Symbolisierungsschlüssels:
+	\begin{ekey}
+		\item[S_1] Du wirst die Suppe kriegen.
+		\item[S_2] Du wirst den Salat kriegen.
+	\end{ekey}
+würden wir `du wirst die Suppe kriegen und du wirst den Salat kriegen' als `$(S_1 \eand S_2)$' symbolisieren. Um Satz \ref{negcon1} zu symbolisieren, negieren wir dann einfach den ganzen komplexen Satz: `$\enot (S_1 \eand S_2)$'. 
+
+Satz \ref{negcon2} ist eine Konjunktion: du wirst die Suppe \emph{nicht} kriegen und du \emph{wirst} Salat kriegen. `Du wirst die Suppe nicht kriegen' ist als `$\enot S_1$' symbolisiert. Um den ganzen komplexen Satz \ref{negcon2} zu symbolisieren, nutzen wir also `$(\enot S_1 \eand S_2)$'. 
+
+Die deutschen Sätze \ref{negcon1} und \ref{negcon2} sind sehr unterschiedlich. Dementsprechend unterscheiden sich auch ihre Symbolisierungen. In einem von ihnen wird die gesamte Konjunktion verneint. In dem anderen wird nur einer der zwei Konjunkte verneint. Klammern helfen uns, den Überblick zu behalten, z.B.\@ über den \emph{Geltungsbereich} der Negation. 
+
+\section{Disjunktion}
+
+Wenden wir uns nun den folgenden Sätzen zu:
+	\begin{earg}
+		\item[\ex{or1}]Fatima spielt Videospiele oder sie schaut Filme.
+		\item[\ex{or2}]Entweder Fatima oder Omar spielt Videospiele. 
+	\end{earg}
+Für diese Sätze können wir folgenden Symbolisierungsschlüssel nutzen:
+	\begin{ekey}
+		\item[F] Fatima spielt Videospiele.
+		\item[O] Omar spielt Videospiele.
+		\item[M] Fatima schaut Filme.
+	\end{ekey}
+Um diese Sätze zu symbolisieren, müssen wir allerdings ein neues Symbol einführen. Satz \ref{or1} wird durch `$(F \eor M)$' symbolisiert. Der Junktor, den wir hier nutzen, nennen wir \define{Disjunktion}. Wir sagen auch, dass `$F$' und `$M$' die \define{Disjunkte} der Disjunktion `$(F \eor M)$' sind.
+
+\newglossaryentry{Disjunktion}
+{
+name=Disjunktion,
+description={Das Symbol $\eor$, verwendet um Worte und Phrasen zu repräsentieren, die wie das deutsche Wort `oder' funktionieren; oder ein Satz, der mittels dieses Symbols gebildet wird}
+}
+
+\newglossaryentry{Disjunkt}
+{
+name=Disjunkt,
+description={Ein Satz, der mittels \gls{Disjunktion} mit einem anderen kombiniert wird}
+}
+
+Satz \ref{or2} ist nur geringfügig komplizierter. Es gibt zwei Subjekte, aber das Verb kommt im deutschen Satz nur einmal vor. Wir können Satz \ref{or2} jedoch so umschreiben: `Entweder Fatima spielt Videospiele  oder Omar spielt Videospiele'. Jetzt können wir ihn natürlich durch `$(F \eor O)$' symbolisieren.
+
+\factoidbox{
+		Ein Satz kann als $(\metav{A}\eor\metav{B})$ symbolisiert werden, wenn er im Deutschen als `(Entweder)\ldots oder\ldots' paraphrasiert werden kann.
+	}
+Manchmal wird im Deutschen das Wort `oder' auf eine Weise verwendet, die ausschlie{\ss}t, dass beide Disjunkte wahr sind. Dies wird als ein \define{ausschlie{\ss}endes oder} bezeichnet. Ein \emph{ausschlie{\ss}endes oder} ist eindeutig gemeint, wenn auf der Speisekarte eines Restaurants steht: `Burger kommt mit Salat oder Pommes': Sie können Salat haben; Sie können Pommes haben; aber wenn Sie \emph{sowohl} Salat \emph{als auch} Pommes möchten, dann müssen Sie einen Aufpreis bezahlen.
+
+In andere Fällen lässt das Wort `oder' die Möglichkeit offen, dass beide Disjunkte wahr sind. Dies ist wahrscheinlich der Fall bei Satz \ref{or2} oben. Fatima könnte alleine Videospiele spielen, Omar könnte alleine Videospiele spielen, oder sie könnten beide spielen. Satz \ref{or2} besagt lediglich, dass \emph{mindestens} einer von ihnen Videospiele spielt. Dies ist ein \define{einschlie{\ss}endes oder}. Das WFL-Symbol `$\eor$' symbolisiert immer ein \emph{einschlie{\ss}endes oder}.
+
+Es ist auch lehrreich, zu betrachten, wie die Disjunktion mit der Negation interagiert.
+	\begin{earg}
+		\item[\ex{or3}] Entweder kriegst du keinen Salat oder du kriegst keine Suppe.
+		\item[\ex{or4}] Du wirst weder Suppe noch Salat kriegen.
+		\item[\ex{or.xor}] Du kriegst Suppe oder Salat, aber nicht beides.
+	\end{earg}
+Unter Verwendung desselben Symbolisierungsschlüssels wie zuvor kann der Satz \ref{or3} folgenderma{\ss}en umschrieben werden: `Entweder ist es nicht der Fall, dass du Suppe kriegst, oder es ist nicht der Fall, dass du Salat kriegst'. Um dies in der WFL zu symbolisieren, brauchen wir sowohl Disjunktion als auch Negation. `Es ist nicht der Fall, dass du Suppe kriegst' wird durch `$\enot S_1$ symbolisiert. `Es ist nicht der Fall, dass du Salat kriegst' wird durch `$\enot S_2$' symbolisiert. Der Satz \ref{or3} selbst wird also durch `$(\enot S_1 \eor \enot S_2)$' symbolisiert.
+
+Satz \ref{or4} erfordert ebenfalls eine Negation. Er kann wie folgt umschrieben werden: `Es ist nicht der Fall, dass: entweder bekommst du Suppe oder du bekommst Salat'. Da hier die gesamte Disjunktion negiert wird, symbolisieren wir Satz \ref{or4} mit `$\enot (S_1 \eor S_2)$'.
+
+Satz \ref{or.xor} ist ausdrücklich ein \emph{ausschlie{\ss}endes oder}. Wir können den Satz in zwei Teile aufteilen. Der erste Teil besagt, dass du das eine oder das andere kriegst. Wir symbolisieren dies als `$(S_1 \eor S_2)$'. Der zweite Teil besagt, dass du nicht beides kriegst. Wir können das umschreiben als: `Es ist nicht der Fall, dass du sowohl Pommes als auch Salat kriegst'. Indem wir sowohl die Negation als auch die Konjunktion verwenden, symbolisieren wir dies mit `$\enot (S_1 \eand S_2)$'. Jetzt müssen wir nur noch die zwei Teile kombinieren. Wie wir oben gesehen haben, kann `aber' normalerweise mit `$\eand$' symbolisiert werden. Der Satz \ref{or.xor} kann also mit `$((S_1 \eor S_2) \eand \enot(S_1 \eand S_2))$' symbolisiert werden.
+
+Dieses letzte Beispiel zeigt etwas Wichtiges. Obwohl das WFL-Symbol `$\eor$' immer ein \emph{einschlie{\ss}endes oder} symbolisiert, können wir ein \emph{ausschlie{\ss}endes oder} in der WFL symbolisieren. Wir müssen nur ein paar andere Symbole verwenden.
+
+\section{Konditional}
+Betrachten wir nun die folgenden Sätze:
+	\begin{earg}
+		\item[\ex{if1}] Wenn Jean in Paris ist, dann ist sie in Frankreich.
+		\item[\ex{if2}] Jean ist in Frankreich nur wenn Jean in Paris ist.
+	\end{earg}
+Wir nutzen den folgenden Symbolisierungsschlüssel:
+	\begin{ekey}
+		\item[P] Jean ist in Paris.
+		\item[F] Jean ist in Frankreich.
+	\end{ekey}
+Satz \ref{if1} hat ungefähr diese Form: `wenn $P$, dann $F$'. Wir werden das Symbol `\eif' verwenden, um die Struktur `wenn\ldots, dann\ldots' zu symbolisieren. Satz symbolisieren wir daher \ref{if1} als `$(P\eif F)$'. Der Junktor hier wird \define{Konditional} genannt. Wir sagen, dass `$P$' das \define{Antezedens} des Konditionals `$(P \eif F)$' ist und `$F$' das \define{Konsequens}. 
+
+\newglossaryentry{Konditional}
+{
+name=Konditional,
+description={Das Symbol $\eif$, verwendet um Worte und Phrasen zu repräsentieren, die funktionieren wie die deutsche Phrase `wenn\dots, dann\dots'; oder ein Satz, der mittels dieses Symbols gebildet wird}
+}
+
+\newglossaryentry{Antezedens}
+{
+name=Antezedens,
+description={Der Satz auf der linken Seite eines \gls{Konditional}s}
+}
+
+
+\newglossaryentry{Konsequens}
+{
+name=Konsequens,
+description={Der Satz auf der rechten Seite eines \gls{Konditional}s}
+}
+
+Satz \ref{if2} ist auch ein Konditional. Da das Wort `wenn' in der zweiten Hälfte des Satzes vorkommt, könnte es verlockend sein, diesen Satz genau so wie Satz \ref{if1} zu symbolisieren. Das aber wäre ein Fehler. Ihr geographisches Wissen sagt Ihnen, dass Satz \ref{if1} wahr ist: Es gibt keine Möglichkeit in der Jean in Paris ist, in der sie nicht auch in Frankreich ist. Aber das gilt nicht für Satz \ref{if2}: Wäre Jean in Dieppe, Lyon oder Toulouse, dann wäre sie in Frankreich, ohne jedoch in Paris zu sein. Und dann wäre Satz \ref{if2} falsch. Da allein die Geographie die Wahrheit des Satzes \ref{if1} diktiert, während Reisepläne (sagen wir) notwendig sind, um die Wahrheit des Satzes \ref{if2} zu erkennen, müssen sie verschiedene Bedeutungen haben.
+
+Tatsächlich kann der Satz \ref{if2} so paraphrasiert werden: `Wenn Jean in Frankreich ist, dann ist Jean in Paris'. Daher können wir ihn durch `$(F \eif P)$' symbolisieren.
+
+\factoidbox{
+		Ein Satz kann als $\metav{A} \eif \metav{B}$ symbolisiert werden, wenn er als `Wenn $A$, dann $B$' oder `$A$ nur wenn $B$' paraphrasiert werden kann.
+	}
+Zudem ist das Konditional nützlich, um auch noch einige weitere deutsche Ausdrücke zu symbolisieren: 
+\begin{earg}
+		\item[\ex{ifnec1}] Damit Jean in Paris ist, ist es notwendig, dass Jean in Frankreich ist.
+		\item[\ex{ifnec2}] Es ist eine notwendige Bedingung dafür, dass Jean in Paris ist, dass sie in Frankreich ist.
+		\item[\ex{ifsuf1}] Damit Jean in Frankreich ist, reicht es, dass Jean in Paris ist.
+		\item[\ex{ifsuf2}] Es ist eine hinreichende Bedingung dafür, dass Jean in Frankreich ist, dass sie in Paris ist.
+\end{earg}
+
+Wenn wir darüber nachdenken, bedeuten diese vier Sätze alle dasselbe: `Wenn Jean in Paris ist, dann ist Jean in Frankreich'. Sie können also alle durch `$(P \eif F)$' symbolisiert werden.
+
+Es ist wichtig, dass der Junktor `\eif' uns nur sagt, dass, wenn das Antezedens wahr ist, auch das Konsequens wahr ist. Er sagt nichts über eine kausale Verbindung zwischen zwei Ereignissen (zum Beispiel) aus. Tatsächlich gehen sehr viele Nuancen verloren, wenn wir `$\eif$' verwenden, um verschiedene deutsche Konditionale zu symbolisieren. Auf dieses Thema werden wir in \S\S\ref{s:IndicativeSubjunctive} und \ref{s:ParadoxesOfMaterialConditional} zurückkommen.
+
+\section{Bikonditional}
+Wenden wir uns nun den folgenden Sätzen zu:
+	\begin{earg}
+		\item[\ex{iff1}] Laika ist ein Hund nur wenn sie ein Säugetier ist.
+		\item[\ex{iff2}] Laika ist ein Hund, wenn sie ein Säugetier ist.
+		\item[\ex{iff3}] Laika ist ein Hund wenn und nur wenn sie ein Säugetier ist.
+	\end{earg}
+Wir nutzen den folgenden Symbolisierungschlüssel:
+	\begin{ekey}
+		\item[D] Laika ist ein Hund.
+		\item[M] Laika ist ein Säugetier.
+	\end{ekey}
+Wie wir oben gesehen haben, kann Satz \ref{iff1} als `$(D \eif M)$' symbolisiert werden. 
+
+Satz \ref{iff2} kann nicht auf diese Art symbolisiert werden. Dieser Satz kann als `Wenn Laika ein Säugetier ist, dann ist sie ein Hund' umgeschrieben werden. Also können wir ihn als `$M \eif D$' symbolisieren.
+
+Der Satz \ref{iff3} sagt etwas Stärkeres aus als \ref{iff1} und \ref{iff2}. Er kann wie folgt paraphrasiert werden: `Laika ist ein Hund, wenn Laika ein Säugetier ist, und Laika ist ein Hund nur wenn Laika ein Säugetier ist'. Dies ist einfach die Konjunktion der Sätze \ref{iff1} und \ref{iff2}. Wir können es also als `$(D \eif M) \eand (M \eif D)$' symbolisieren. Wir nennen dies einen \define{Bikonditional}, weil wir in Sätzen wie diesem \emph{beide Richtungen} des Konditionals finden.
+
+\newglossaryentry{Bikonditional}
+{
+name=Bikonditional,
+description={Das Symbol $\eiff$, verwendet um Worte und Phrasen des Deutschen zu symbolisieren, die wie die deutsche Phrase `\dots wenn und nur wenn\dots' funktionieren; oder ein Satz, der mittels dieses Symbols gebildet wird.}
+}
+
+Auf diese Weise könnten wir jeden Bikonditional behandeln. So wie wir also kein neues WFL-Symbol brauchen, um mit dem \emph{ausschlie{\ss}enden oder} umzugehen, so brauchen wir eigentlich auch kein neues WFL-Symbol, um mit dem Bikonditional umzugehen. Da das Bikonditional jedoch so häufig vorkommt, werden wir für es dennoch das Symbol `$\eiff$' verwenden. Wir können dann den Satz \ref{iff3} mit dem WFL-Satz `$(D \eiff M)$' symbolisieren. 
+
+Der Ausdruck `wenn und nur wenn' kommt vor allem in der Philosophie, Mathematik und Logik sehr häufig vor (dort meistens im Englischen `if and only if'). Er wird auch häufig mit `genau dann, wenn' (im Englischen: `just in case') oder als `dann und nur dann, wenn'. Der Kürze halber werden wir ihn manchmal auch mit dem schnittigen `gdw' abkürzen. 
+
+\factoidbox{
+	Ein Satz kann als $\metav{A} \eiff \metav{B}$ symbolisiert werden, wennn er als `\dots wenn und nur wenn\dots', `\dots dann und nur dann, wenn\dots' oder `\dots genau dann, wenn\dots' paraphrasiert werden kann.
+}
+
+Beim Umgang mit Konditionalen und Bikonditionalen, wie wir sie im Deutschen ausdrücken, ist Vorsicht geboten. Gewöhnliche Menschen, die Deutsch sprechen, benutzen oft `wenn\dots, dann\dots', wenn sie wirklich etwas wie `\dots dann und nur dann, wenn\dots' benutzen wollen. Vielleicht haben Ihnen Ihre Eltern das als Kind gesagt: `Wenn du dein Gemüse nicht isst, bekommst du keinen Nachtisch'. Aber nehmen Sie nun an, dass Ihr Gemüse essen, aber Ihre Eltern sich dennoch weigern, Ihnen einen Nachtisch zu geben; mit der Begründung, dass sie ja nur das Konditional genutzt hatten (in etwa: `Wenn du deinen Nachtisch bekommst, dann hast du dein Gemüse gegessen') und nicht das Bikonditional (in etwa: `Du bekommst deinen Nachtisch genau dann, wenn du dein Gemüse isst'). Nun könnten Sie zu Recht auf Ihre Eltern sauer sein. Denn was Ihre Eltern sagten, wird unter normalen Umständen als ein Bikonditional verstanden und nicht als ein Konditional. Seien Sie sich dessen bewusst, wenn Sie Menschen interpretieren; aber achten Sie darauf, dass Sie in Ihren eigenen Texten das Bikonditional verwenden, wenn Sie es beabsichtigen.
+
+\section{Es sei denn\dots}
+Wir haben nun alle Junktoren der WFL vorgestellt. Wir können sie zusammen verwenden, um viele Arten von Sätzen zu symbolisieren. Ein besonders schwieriger Fall ist das deutsche Konnektiv `\dots es sei denn\dots'. (Ähnlich verhält sich auch `\dots au{\ss}er\dots'.) Diesem wenden wir uns nun kurz zu. 
+
+\begin{earg}
+\item[\ex{unless1}] Du wirst dich erkälten, es sei denn, du trägst eine Jacke.
+\end{earg}
+Um diesen Satz zu symbolisieren, nutzen wir den folgenden Symbolisierungsschlüssel:
+	\begin{ekey}
+		\item[J] Du trägst eine Jacke.
+		\item[D] Du wirst dich erkälten.
+	\end{ekey}
+Dieser Satz besagt, dass du dich erkälten wirst, wenn du keine Jacke trägst. In diesem Sinne können wir den Satz als `$(\enot J \eif D)$' symbolisieren. 
+
+Gleichfalls besagt dieser Satz auch, dass du, wenn du dich nicht erkältest, eine Jacke getragen hast. In diesem Sinne können wir den Satz auch als `$(\enot D \eif J)$' symbolisieren.
+
+Wiederum gleichfalls besagt dieser Satz aber auch, dass du entweder eine Jacke trägst oder dich erkältest. In diesem Sinne können wir den Satz als `$(J \eor D)$' symbolisieren.
+
+Alle drei Optionen sind korrekte Symbolisierungen. In Kapitel \ref{s:SemanticConcepts} werden wir zudem sehen, dass diese drei Optionen in der WFL notwendigerweise äquivalent sind.
+\factoidbox{
+		Ein Satz kann als $(\metav{A}\eor\metav{B})$ symbolisiert werden, wenn er als `$B$, es sei denn, $A$' paraphrasiert werden kann.
+	}
+
+Aber auch hier gibt es eine kleine Schwierigkeit. `Es sei denn' kann als ein Konditional symbolisiert werden; doch wie wir schon gesagt haben, verwenden Menschen oft das Konditional (allein), wenn sie den Bikonditional verwenden wollen. Gleicherma{\ss}en kann `es sei denn' als eine Disjunktion symbolisiert werden; aber es gibt zwei Arten von Disjunktion (aus- und einschlie{\ss}end). Es wird Sie also nicht überraschen, wenn Sie feststellen, dass gewöhnliche Sprecher des Deutschen `es sei denn' oft verwenden, um etwas zu sagen, dass eher so etwas wie der Bikonditional oder die exklusive Disjunktion bedeutet. Nehmen Sie z.B. an, jemand sagt: `Ich werde laufen gehen, es sei denn es regnet'. Diese Person meint wahrscheinlich so etwas wie: `Ich werde dann und nur dann laufen gehen, wenn es nicht regnet' (d.h.\@ das Bikonditional) oder `Entweder werde ich laufen gehen oder es wird regnen, aber nicht beides' (d.h.\@ die ausschlie{\ss}ende Disjunktion). 
+
+\practiceproblems
+\problempart 
+Symbolisieren Sie die folgenden deutschen Sätze in der WFL mithilfe des angegebenen Symbolisierungsschlüssels.\label{pr.monkeysuits}
+	\begin{ekey}
+		\item[M] Diese Wesen sind Männer in Anzügen. 
+		\item[C] Diese Wesen sind Schimpansen. 
+		\item[G] Diese Wesen sind Gorillas.
+	\end{ekey}
+\begin{earg}
+\item Diese Wesen sind keine Männer in Anzügen.
+\item Diese Wesen sind Männer in Anzügen oder auch nicht.
+\item Diese Wesen sind entweder Gorillas oder Schimpansen.
+\item Diese Wesen sind weder Gorillas noch Schimpansen.
+\item Wenn diese Wesen Schimpansen sind, dann sind sie weder Gorillas noch Männer in Anzügen.
+\item Diese Wesen sind Männer in Anzügen, es sei denn, sie sind entweder Schimpansen oder Gorillas.
+\end{earg}
+
+\problempart 
+Symbolisieren Sie die folgenden deutschen Sätze in der WFL mithilfe des angegebenen Symbolisierungsschlüssels.
+\begin{ekey}
+\item[A] Mister Ace wurde ermordet.
+\item[B] Der Butler hat es getan.
+\item[C] Der Koch hat es getan.
+\item[D] Die Gräfin lügt.
+\item[E] Mister Edge wurde ermordet.
+\item[F] Die Mordwaffe war eine Bratpfanne.
+\end{ekey}
+\begin{earg}
+\item Entweder wurde Mister Ace oder Mister Edge ermordet.
+\item Wenn Mister Ace ermordet wurde, dann hat der Koch es getan.
+\item Wenn Mister Edge ermordet wurde, dann hat der Koch es nicht getan.
+\item Entweder hat es der Butler getan oder die Gräfin lügt.
+\item Der Koch hat es getan, nur, wenn die Gräfin lügt.
+\item Wenn die Mordwaffe eine Bratpfanne war, dann hat der Koch es getan.
+\item Wenn die Mordwaffe keine Bratpfanne war, dann war der Täter entweder der Koch oder der Butler.
+\item Mister Ace wurde ermordert genau dann, wenn Mister Edge nicht ermordet wurde.
+\item Die Gräfin lügt, es sei denn, es war Mister Edge, der ermordet wurde.
+\item Wenn Mister Ace umgebracht wurde, wurde er mit einer Bratpfanne ermordet.
+\item Weil der Koch es getan hat, hat der Butler es nicht getan.
+\item Natürlich lügt die Gräfin!
+\end{earg}
+\solutions
+
+\problempart 
+Symbolisieren Sie die folgenden deutschen Sätze in der WFL mithilfe des angegebenen Symbolisierungsschlüssels.\label{pr.avacareer}
+	\begin{ekey}
+		\item[E_1] Ava ist eine Elektrikerin.
+		\item[E_2] Harrison ist ein Elektriker.
+		\item[F_1] Ava ist eine Feuerwehrfrau.
+		\item[F_2] Harrison ist ein Feuerwehrmann.
+		\item[S_1] Ava ist zufrieden mit ihrer Karriere.
+		\item[S_2] Harrison ist zufrieden mit seiner Karriere.
+	\end{ekey}
+\begin{earg}
+\item Ava und Harrison sind beide Elektriker*innen.
+\item Wenn Ava eine Feuerwehrfrau ist, dann ist sie mit ihrer Karriere zufrieden.
+\item Ava ist eine Feuerwehrfrau, es sei denn sie ist eine Elektrikerin.
+\item Harrison ist ein unzufriedener Elektriker.
+\item Weder Ava noch Harrison sind Elektriker*innen.
+\item Ava und Harrison sind beide Elektriker*innen, aber keine*r der beiden ist zufrieden mit der eigenen Karriere.
+\item Harrison ist zufrieden nur wenn er Elektriker ist.
+\item Wenn Ava keine Elektrikerin ist, dann ist auch Harrison keiner, aber wenn sie eine ist, dann ist er auch einer.
+\item Ava ist zufrieden mit ihrer Karriere dann und nur dann, wenn Harrison mit seiner nicht zufrieden ist.
+\item Wenn Harrison Elektriker und Feuerwehrmann ist, dann ist er mit seiner Karriere zufrieden.
+\item Es kann nicht sein, dass Harrison Elektriker und Feuerwehrmann ist.
+\item Harrison und Ava sind beide bei der Feuerwehr genau dann, wenn weder Harrison noch Ava Elektriker*innen sind.
+\end{earg}
+
+\problempart
+Symbolisieren Sie die folgenden deutschen Sätze in der WFL mithilfe des angegebenen Symbolisierungsschlüssels.
+\label{pr.jazzinstruments}
+\begin{ekey}
+\item[J_1] John Coltrane spielte Tenorsaxophon.
+\item[J_2] John Coltrane spielte Sopransaxophon.
+\item[J_3] John Coltrane spielte Tuba.
+\item[M_1] Miles Davis spielte Trompete.
+\item[M_2] Miles Davis spielte Tuba.
+\end{ekey}
+
+\begin{earg}
+\item John Coltrane spielte Tenor- und Sopransaxophon. %{\color{red} $J_1 \eand J_2$} \vspace{1ex}
+\item Weder Miles Davis noch John Coltrane spielten Tuba. %{\color{red} $\enot(M_2 \eor J_3)$ or $\enot M_2 \eand \enot J_3$} \vspace{1ex}
+\item John Coltrane spielte nicht sowohl Tenorsaxophon als auch Tuba.  %{\color{red} $\enot(J_1 \eand J_3)$ or $\enot J_1 \eor \enotJ_3$} \vspace{1ex}
+\item John Coltrane spielte nicht Tenorsaxophon, es sei denn, er spielte auch Sopransaxophon %{\color{red} $\enot J_1 \eor J_2$} \vspace{1ex}
+\item John Coltrane spielte nicht Tuba, aber Miles Davis schon. %{\color{red} $\enotJ_3 \eand M_2$} \vspace{1ex}
+\item Miles Davis spielte Trompete nur, wenn er auch Tuba spielte. %{\color{red} $M_1 \eiff M_2$} \vspace{1ex}
+\item Wenn Miles Davis Trompete spielte, dann spielte John Coltrane zumindest dieser drei Instrumente: Tenorsaxophon, Sopransaxophon oder Tuba. %{\color{red} $M_1 \eif (J_1 \eor (J_2 \eor J_3))&} \vspace{1ex}
+\item Wenn John Coltrane Tuba spielte, dann spielte Miles Davis weder Trompete noch Tuba. %{\color{red} $J_3 \eif \enot(M_1 \eor M_2)$ or $J_3 \eif (\enot M_1 \eand \enot M_2)$  } \vspace{1ex}
+\item Miles Davis und John Coltrane spielten beide Tuba dann und nur dann, wenn Coltrane nicht Tenorsaxophon und Miles Davis nicht Trompete spielte. %{\color{red} $(J_3 \eand M_2) \eiff \enotJ_1 & \enot M_1)$ or $(J_3 \eand M_2) \eiff \enot (J_1 \eor M_1)$} \vspace{1ex}
+\end{earg}
+
+\solutions
+\problempart
+\label{pr.spies}
+Geben Sie einen Symbolisierungsschlüssel an und symbolisieren Sie die folgenden deutschen Sätze in der WFL.
+\begin{earg}
+\item Alice und Bob sind beide Spione.
+\item Wenn entweder Alice oder Bob ein*e Spion*in ist, dann wurde der Code geknackt.
+\item Wenn weder Alice noch Bob Spione sind, dann wurde der Code nicht geknackt.
+\item Die Deutsche Botschaft wird in einem Aufruhr sein, es sei denn jemand hat den Code geknackt.
+\item Entweder wurde der Code geknackt oder nicht; wie dem auch sei, die Deutsche Botschaft wird in einem Aufruhr sein.
+\item Alice oder Bob ist ein*e Spion*in, aber nicht beide.
+\end{earg}
+
+\solutions
+\problempart 
+Geben Sie einen Symbolisierungsschlüssel an und symbolisieren Sie die folgenden deutschen Sätze in der WFL.
+\begin{earg}
+\item Wenn Essen in den Pridelands zu finden ist, dann wird Rafiki über zerquetschte Bananen reden.
+\item Rafiki wird über zerquetschte Bananen reden, es sei denn Simba lebt.
+\item Rafiki wird über zerquetschte Bananen reden oder auch nicht; wie dem auch sei, es wird Essen in den Pridelands zu finden sein.
+\item Scar wird König bleiben dann und nur dann, wenn Essen in den Pridelands zu finden ist.
+\item Wenn Simba lebt, dann wird Scar nicht König bleiben.
+\end{earg}
+
+\problempart
+Für jedes Argument, geben Sie einen Symbolisierungsschlüssel an und symbolisieren Sie alle Sätze des Arguments in WFL.
+\begin{earg}
+\item Wenn Dorothy morgens Klavier spielt, dann wacht Roger unleidlich auf. Dorothy spielt morgens Klavier, es sei denn sie wird abgelenkt. Also, wenn Roger nicht unleidlich aufwacht, dann muss Dorothy abgelenkt werden.
+\item Dienstags wird es entweder regnen oder schneien. Wenn es regnet, wird Neville traurig sein. Wenn es schneit, dann wird Neville kalt sein. Folglich wird Neville Dienstags entweder traurig oder kalt sein.
+\item Wenn Zoog sich an seine häuslichen Pflichten erinnert, dann sind Dinge sauber, aber nicht ordentlich. Wenn er auf sie vergessen hat, dann sind Dinge ordentlich, aber nicht sauber. Demzufolge sind Dinge entweder ordentlich oder sauber, aber nicht beides.
+\end{earg}
+
+\problempart
+Für jedes Argument, geben Sie einen Symbolisierungsschlüssel an und symbolisieren Sie alle Sätze des Arguments, so gut es geht, in WFL. Die Passage in Kursiv erklärt die Umstände und muss nicht symbolisiert werden.
+\begin{earg}
+\item Es regnet bald. Ich wei{\ss} das, weil mein Bein schmerzt und mein Bein schmert wenn es bald regnet.
+
+\item  \emph{Spider-man versucht, den Plan des Bösewichts zu erkennnen.} Wenn Doctor Octopus das Uranium kriegt, dann wird er die Stadt erpressen. Ich bin mir dessen sicher, weil, wenn Doctor Octopus das Uranium kriegt, dann kann er eine schmutzige Bombe bauen und wenn er eine schmutzige Bombe bauen kann, dann wird er die Stadt erpressen.
+
+\item \emph{Wir versuchen die Politik der chinesichen Regierung zu verstehen.} Wenn die Chinesische Regierung den Wassermangel in Peking nicht lösen kann, dann wird sie die Hauptstadt verlegen müssen. Das will sie nicht. Also muss sie den Wassermangel lösen. Aber der einzige Weg das zu tun ist, fast das gesamte Wasser des Yangze-Flusses nach Norden umzuleiten. Deshalb wird die chinesische Regierung das Projekt zur Umleitung von Wasser aus dem Süden in den Norden unterstützen.       
+\end{earg}
+
+\problempart
+Wir symbolisierten das \emph{ausschlie{\ss}ende oder} mit `$\eor$', `$\eand$' und `$\enot$'. Wie könnten Sie ein \emph{ausschlie{\ss}endes oder} mit nur zwei Junktoren symbolisieren? Gibt es eine Möglichkeit, ein \emph{ausschlie{\ss}endes oder} mit nur einem Junktor zu symbolisieren?
+
+\chapter{Sätze der WFL}\label{s:TFLSentences}
+Der Satz `Entweder sind Äpfel rot oder Beeren sind blau' ist ein Satz der deutschen Sprache und der Satz `$(A \eor B)$' ist ein Satz der WFL. Obwohl wir Sätze der deutschen Sprache erkennen können, wenn wir ihnen begegnen, haben wir keine formale Definition von `Satz der deutschen Sprache'. Aber in diesem Kapitel werden wir genau definieren, was als ein Satz der WFL gilt. Dies ist ein Aspekt, in dem eine formale Sprache wie die WFL präziser als eine natürliche Sprache wie Deutsch ist.
+
+\section{Ausdrücke}
+
+Uns sind bereits drei verschiedene Arten von Symbolen der WFL bekannt:
+\begin{center}
+\begin{tabular}{l l}
+Einfache Sätze & $A,B,C,\ldots,Z$\\
+falls nötig, mit Subskripten & $A_1, B_1,Z_1,A_2,A_{25},J_{375},\ldots$\\
+\\
+Junktoren & $\enot,\eand,\eor,\eif,\eiff$\\
+\\
+Klammern &( , )\\
+\end{tabular}
+\end{center}
+Ein \define{Ausdruck der WFL} ist eine beliebige Zeichenfolge von Symbolen der WFL. Also: Wenn Sie eine beliebige Folge von Symbolen der WFL aufschreiben, in beliebiger Reihenfolge, dann haben Sie einen Ausdruck der WFL. 
+
+\section{Sätze}\label{s:Sentences}
+Angesichts dessen, was wir gerade gesagt haben, ist `$(A \eand B)$' ein Ausdruck der WFL. Das gleiche gilt aber auch für `$\lnot)(\eor()\eand(\enot\enot())((B$'. Ersteres ist jedoch ein \emph{Satz}, während letzteres \emph{Unsinn} ist. Wir brauchen also einige Regeln, die uns sagen, welche WFL-Ausdrücke Sätze sind und nicht nur Unsinn. 
+
+Klar ist, dass einzelne Satzbuchstaben wie `$A$' und `$G_{13}$' als Sätze zählen. (Wir nennen sie auch \emph{einfache Sätze}.) Aus ihnen können wir weitere Sätze bilden, indem wir die Junktoren verwenden. Mit Hilfe der Negation können wir `$\enot A$' und `$\enot G_{13}$' bilden. Mit Hilfe der Konjunktion können wir `$(A \eand G_{13})$', `$(G_{13} \eand A)$', `$(A \eand A)$' und `$(G_{13} \eand G_{13})$' bilden. Wir könnten auch wiederholt die Negation anwenden, um Sätze wie `$\enot \enot A$' zu erhalten. Oder die Negation zusammen mit der Konjunktion anwenden, um Sätze wie `$\enot (A \eand G_{13})$' und `$\enot (G_{13} \eand \enot G_{13})$' zu erhalten. Die Kombinationsmöglichkeiten sind endlos, selbst wenn man nur mit diesen beiden Satzbuchstaben beginnt. Hinzu kommt, dass es auch unendlich viele Satzbuchstaben gibt! Es macht also keinen Sinn, alle Sätze einzeln aufzulisten.
+
+Stattdessen werden wir den Prozess beschreiben, durch den Sätze \emph{konstruiert} werden können. Betrachten wir die Negation: Für jeden beliebigen Satzes \metav{A} der WFL ist $\enot \metav{A}$ ein Satz der WFL. (Warum die komische Schriftart? Darauf kommen wir in \S\ref{s:Metavariables} zurück). Wir können ähnliche Dinge für jeden der anderen Junktoren sagen. Wenn zum Beispiel \metav{A} und \metav{B} Sätze der WFL sind, dann ist $(\metav{A}\eand \metav{B})$ ein Satz der WFL. Wenn wir für alle Junktoren Klauseln wie diese geben, dann kommen wir zu der folgenden formalen Definition eines \define{Satzes der WFL}:
+\factoidbox{\label{TFLsentences}
+	\begin{enumerate}
+		\item Jeder Satzbuchstabe ist ein Satz.
+		\item Wenn \metav{A} ein Satz ist, dann ist $\enot\metav{A}$ ein Satz.
+		\item Wenn \metav{A} und \metav{B} Sätze sind, dann ist $(\metav{A}\eand\metav{B})$ ein Satz.
+		\item Wenn \metav{A} und \metav{B} Sätze sind, dann ist $(\metav{A}\eor\metav{B})$ ein Satz.
+		\item Wenn \metav{A} und \metav{B} Sätze sind, dann ist $(\metav{A}\eif\metav{B})$ ein Satz.
+		\item Wenn \metav{A} und \metav{B} Sätze sind, dann ist $(\metav{A}\eiff\metav{B})$ ein Satz.
+		\item Nichts anderes ist ein Satz.
+	\end{enumerate}
+	}
+\newglossaryentry{Satz der WFL}
+{
+name=Satz (der WFL),
+description={Eine Reihe von Symbolen der WFL, die nach den induktiven Regeln gebaut werden können, die auf  S.~\pageref{TFLsentences} angegeben sind.}
+}
+
+Definitionen wie diese werden \emph{induktiv} genannt. Solche Definitionen beginnen mit einigen spezifizierbaren Basiselementen und zeigen dann Wege auf, wie man durch das Zusammensetzen von schon spezifizierten Elementen weitere Elemente baut. Damit wir uns besser vorstellen können, was eine induktive Definition ist, können wir eine induktive Definition des Begriffs eines \emph{Vorfahren} geben. Wir spezifizieren einen Basissatz.
+	\begin{ebullet}
+		\item Meine Eltern sind meine Vorfahren.
+	\end{ebullet}
+und geben dann weitere Klauseln wie
+	\begin{ebullet}
+		\item Wenn $x$ einer meiner Vorfahren ist, dann sind die Eltern von $x$ meine Vorfahren.
+		\item Nichts anderes ist einer meiner Vorfahren.
+	\end{ebullet}
+an. Anhand dieser Definition können wir leicht überprüfen, ob jemand mein Vorfahre ist: Wir prüfen einfach, ob er der Elternteil eines Elternteils\dots einer meiner Eltern ist. Dasselbe gilt auch für unsere induktive Definition von Sätzen der WFL. Genau so wie die induktive Definition es erlaubt, komplexe Sätze aus einfacheren Teilen aufzubauen, erlaubt sie uns auch, komplexe Sätze in ihre einfacheren Teile zu zerlegen. Wenn wir erst einmal zu den Satzbuchstaben kommen, dann wissen wir, dass wir was richtig gemacht haben. 
+
+Lassen Sie uns einige Beispiele betrachten.
+
+Nehmen Sie an, wir wollen wissen, ob `$\enot \enot \enot D$' ein Satz der WFL ist. Mittels der zweiten Klausel der Definition wissen wir, dass `$\enot \enot \enot D$' ein Satz ist \emph{wenn} `$\enot \enot D$' ein Satz ist. Jetzt müssen wir also fragen, ob `$\enot \enot D$' ein Satz ist oder nicht. Betrachten wir noch einmal den zweiten Satz der Definition, dann ist `$\enot \enot D$' ein Satz \emph{wenn} `$\enot D$' ein Satz ist. Schlie{\ss}lich ist `$\enot D$' ein Satz \emph{wenn} `$D$' ein Satz ist. Da `$D$' aber ein Satzbuchstabe der WFL ist, wissen wir, dass `$D$' ein Satz ist; dies verdanken wir der ersten Klausel unserer induktiven Definition. Für einen zusammengesetzten Satz wie `$\enot \enot \enot D$' müssen wir nur die Definition wiederholt anwenden. Schlussendlich gelangen wir zu den Satzbuchstaben, aus denen der Satz aufgebaut ist.
+
+Als nächstes betrachten wir das Beispiel `$\enot \enot (P \eand \enot (\enot Q \eor R))$'. Betrachtet man den zweiten Satz der Definition, so ist dies ein Satz, wenn `$(P \eand \enot (\enot Q \eor R))$' ein Satz ist, und dies ist ein Satz, wenn `$P$' \emph{und} `$\enot (\enot Q \eor R)$' Sätze sind. Ersterer ist ein Satzbuchstabe und letzterer ist ein Satz, wenn `$(\enot Q \eor R)$' ein Satz ist. Das ist ein Satz. Denn wenn man sich die vierte Klausel unserer Definition ansieht, dann ist dies ein Satz, wenn sowohl `$\enot Q$' als auch `$R$' Sätze sind. Und das sind sie!
+
+Letztendlich ist jeder Satz aus Satzbuchstaben gebaut. Wenn wir es mit einem Satz zu tun haben, der selbst kein Satzbuchstabe ist, dann können wir sehen, dass es irgendeinen Junktor geben muss, der bei der Konstruktion dieses Satzes als \emph{Letzter} genutzt wurde. Wir nennen dieses Junktor den \define{Hauptjunktor} des Satzes. Im Fall von `$\enot\enot\enot\enot D$' ist der Hauptjunktor das allererste `$\enot$'-Symbol. Im Falle von `$(P \eand \enot (\enot Q \eor R))$' ist der Hauptjunktor `$\eand$'. Im Fall von `$((\enot E \eor F) \eif \enot \enot G)$' ist der Hauptjunktor`$\eif$'.
+
+In der Regel können Sie den Hauptjunktor eines Satzes mit Hilfe der folgenden Methode finden:
+\begin{ebullet}
+	\item Wenn das erste Symbol des Satzes `$\enot$' ist, dann ist dies der Hauptjunktor.
+	\item Andernfalls beginnen Sie die Klammern zu zählen. Für jede offene Klammer, `(', addiere $1$; für jede geschlossene Klammer, i.e., `$)$', subtrahiere $1$. Wenn der Zähler genau bei $1$ ist, dann ist der nächste Junktor (\emph{au{\ss}er} `$\enot$') der Hauptjunktor.
+\end{ebullet}
+
+(Anmerkung: Wenn Sie diese Methode verwenden, dann achten Sie darauf, dass Sie alle Klammern im relevanten Satz kenntlich machen, anstatt einige auszulassen, wie es die Konventionen von S\ref{TFLconventions} vorsehen)!
+
+\newglossaryentry{Hauptjunktor}
+{
+name=Hauptjunktor,
+description={Der letzte Junktor, den Sie beim Zusammenbauen eines Satzes mittels induktiver Definition nutzen.}
+}
+
+Die induktive Struktur von Sätzen der WFL ist wichtig, wenn wir die Umstände betrachten, unter denen ein bestimmter Satz wahr oder falsch ist. Der Satz `$\enot \enot \enot D$' ist wahr dann und nur dann, wenn der Satz `$\enot \enot D$' falsch ist, und so weiter der Struktur des Satzes folgend, bis wir zu den einfachen Sätzen, den Satzbuchstaben gelangen. Wir werden hierauf in Teil~\ref{ch.TruthTables} zurückkommen.
+
+Die induktive Struktur von Sätzen der WFL erlaubt es uns auch, eine formale Definition des \define{Geltungsbereichs} einer Negation zu geben (erwähnt in \S\ref{s:ConnectiveConjunction}). Der Geltungsbereich eines `$\enot$' ist der Teilsatz, für den `$\enot$' der Hauptjunktor ist. Betrachten Sie einen Satz wie:
+$$(P \eand (\enot (R \eand B) \eiff Q))$$
+der durch die Verbindung von `$P$' mit `$ (\enot (R \eand B) \eiff Q)$' gebaut wurde. Dieser Satz wiederum wurde konstruiert, indem ein Bikonditional zwischen `$\enot (R \eand B)$' und `$Q$' gesetzt wurde. Der erstere dieser zwei Sätze wiederum -- ein Teilsatz unseres ursprünglichen Satzes -- ist ein Satz, dessen Hauptjunktor `$\enot$' ist. Der Geltungsbereich der Negation ist also nur `$\enot(R \eand B)$'. Allgemeiner ausgedrückt:
+
+\factoidbox{Der \define{Geltungsbereich} eines Junktors (in einem Satz) ist der Teilsatz, für den dieser Junktor der Hauptjunktor ist.}
+
+\section{Klammerkonventionen}
+\label{TFLconventions}
+Streng genommen sind die Klammern in `$(Q \eand R)$' ein unverzichtbarer Bestandteil des Satzes. Das liegt zum Teil daran, dass wir `$(Q \eand R)$' als Teilsatz in einem komplizierteren Satz verwenden könnten. Zum Beispiel könnten wir `$(Q \eand R)$' negieren und so `$\enot(Q \eand R)$' erhalten. Wenn wir nur `$Q \eand R$' ohne die Klammern hätten und eine Negation davor setzen würden, bekämen wir `$\enot Q \eand R$'. Es ist natürlich, dies so zu lesen, dass es dasselbe bedeutet wie `$(\enot Q \eand R)$', aber wie wir in \S\ref{s:ConnectiveConjunction} gesehen haben, unterscheidet sich dies von `$\enot(Q\eand R)$'.
+
+Streng genommen ist `$Q \eand R$' also \emph{kein} Satz. Es ist ein blo{\ss}er \emph{Ausdruck}. Wenn wir jedoch mit der WFL arbeiten, wird es unser Leben erleichtern, wenn wir manchmal etwas weniger streng sind. Hier sind also einige praktische Konventionen.
+
+Erstens erlauben wir uns, die \emph{äu{\ss}ersten} Klammern eines Satzes wegzulassen. So erlauben wir uns, `$Q \eand R$' anstelle des Satzes `$(Q \eand R)$' zu schreiben. Wir müssen jedoch daran denken, die Klammern wieder einzufügen, wenn wir den Satz in einen komplizierteren Satz einbetten wollen.
+
+Zweitens können lange Sätze mit vielen verschachtelten Klammernpaaren schwer leserlich sein. Um uns das Lesen zu erleichtern, werden wir uns erlauben, eckige Klammern, `[' und `]', anstelle von runden Klammern zu verwenden. Es gibt also beispielsweise keinen logischen Unterschied zwischen `$(P\eor Q)$' und `$[P\eor Q]$'. 
+
+Wenn wir diese beiden Konventionen kombinieren, können wir den sperrigen Satz
+$$((((H \eif I) \eor (I \eif H)) \eand (J \eor K))$$
+etwas deutlicher umformulieren, nämlich wie folgt:
+$$\bigl[(H \eif I) \eor (I \eif H)\bigr] \eand (J \eor K)$$
+Der Geltungsbereich der einzelnen Junktore ist nun leichter ersichtlich.
+
+\practiceproblems
+
+\solutions
+\problempart
+\label{pr.wiffTFL}
+Für jedes der folgenden Dinge: (a) Handelt es sich, streng genommen, um einen Satz der WFL? (b) Handelt es sich um einen Satz der WFL, wenn wir unsere lockeren Klammerkonventionen berücksichtigen?
+
+\begin{earg}
+\item $(A)$
+\item $J_{374} \eor \enot J_{374}$
+\item $\enot \enot \enot \enot F$
+\item $\enot \eand S$
+\item $(G \eand \enot G)$
+\item $(A \eif (A \eand \enot F)) \eor (D \eiff E)$
+\item $[(Z \eiff S) \eif W] \eand [J \eor X]$
+\item $(F \eiff \enot D \eif J) \eor (C \eand D)$
+\end{earg}
+
+\problempart
+Gibt es Sätze der WFL, die keine Satzbuchstaben enthalten? Begründen Sie.\\
+
+\problempart
+Welchen Geltungsbereich haben die einzelnen Junktoren im folgenden Satz?
+$$\bigl[(H \eif I) \eor (I \eif H)\bigr] \eand (J \eor K)$$
+
+\chapter{Mehrdeutigkeit}\label{s:AbmbiguityTFL}
+
+Im Deutschen können Sätze \define{mehrdeutig} sein, d.h.\@ sie können mehr als eine Bedeutung haben. Es gibt viele Quellen der Mehrdeutigkeit. Eine davon ist die \emph{lexische Mehrdeutigkeit}: Ein Satz kann Wörter enthalten, die mehr als eine Bedeutung haben. Zum Beispiel kann `Bank' eine Parkbank oder eine Finanzinstitution bedeuten. Ich könnte also sagen: `Ich gehe zur Bank', wenn ich einen Spaziergang im Park mache und mich auf eine Parkbank setzen will, oder, wenn ich ein Konto eröffnen will.  Je nach Situation zielen wir auf unterschiedliche Bedeutungen von `Bank' ab. Also drückt der Satz, wenn er in diesen unterschiedlichen Situationen geäu{\ss}ert wird, unterschiedliche Bedeutungen aus.
+
+Eine andere Art von Zweideutigkeit ist die \emph{strukturelle Mehrdeutigkeit}. Sie entsteht, wenn ein Satz auf unterschiedliche Weise interpretiert werden kann und je nach Interpretation eine andere Bedeutung ausgewählt wird. Hier ist ein Beispiel:
+\begin{earg}
+	\item[] Alice sah ihren Nachbarn mit einem Fernglas.
+\end{earg}
+Dieser Satz kann auf zwei verschiedene Weisen interpretiert werden. Laut einer Interpretation ist das Fernglas das Werkzeug, mittels dessen Alice ihren Nachbarn sah. Der Satz besagt also, dass Alice ein Fernglas hat und, dass sie ihren Nachbarn gesehen hat, als sie ihr Fernglas benutzt hat. Laut der zweiten Interpretation is das Fernglas im Besitz des Nachbarn. Der Satz besagt also, dass Alice ihren Nachbarn sah und, dass dieser Nachbar gerade ein Fernglas dabei hatte.
+
+Wenn der Satz geäu{\ss}ert wird, ist in der Regel nur eine Bedeutung beabsichtigt. Welche der möglichen Bedeutungen mit der Äu{\ss}erung eines Satzes beabsichtigt ist, wird durch den Kontext oder manchmal auch durch die Art der Äu{\ss}erung bestimmt (z.B.\@ dadurch, welche Teile des Satzes betont werden). Oft ist es sogar schwer, die unbeabsichtigte Lesart zu sehen. Dies kann ein Grund sein, wieso ein Witz funktioniert, wie in diesem englischsprachigen Beispiel von Groucho Marx:
+\begin{earg}
+	\item[] One morning I shot an elephant in my pajamas.
+	\item[] How he got in my pajamas, I don't know.
+\end{earg}
+
+Mehrdeutigkeit hat oft mit Vagheit zu tun, ist aber nicht dasselbe wie sie. Ein Adjektiv, z.B.\@ `reich' oder `gro{\ss}', ist \define{vage}, wenn es nicht immer möglich ist, zu bestimmen, ob es zutrifft oder nicht. Eine Person, die zum Beispiel 1,9 m gro{\ss} ist, ist klarerweise gro{\ss}, aber ein Gebäude dieser Grö{\ss}e ist winzig.  Hier spielt der Kontext eine Rolle bei der Bestimmung der eindeutigen Fälle und der eindeutigen Nicht-Fälle (`gro{\ss} für eine Person', `gro{\ss} für einen Basketballspieler', `gro{\ss} für ein Gebäude'). Doch selbst wenn der Kontext klar ist, gibt es immer noch Fälle, die im vagen Bereich liegen (wie viele cm muss man gro{\ss} sein um als gro{\ss} zu gelten? 1,78m, 1,79m?), sogenannte \define{Grenzfälle}.
+
+In der WFL bemühen wir uns im Allgemeinen, Mehrdeutigkeiten zu vermeiden. Wir werden versuchen, unsere Symbolisierungsschlüssel so zu gestalten, dass sie keine mehrdeutigen Wörter verwenden oder sie zu vereindeutigen, wenn ein Wort mehrere Bedeutungen hat. So benötigt z.B.\@ Ihr Symbolisierungsschlüssel zwei verschiedene Satzbuchstaben für `Rebecca ging zur (Geld-)Bank' und `Rebecca ging zur (Park-)Bank'. Vagheit ist schwieriger zu vermeiden. Da wir festgelegt haben, dass in jedem Fall (und später bei jeder Bewertung) jeder einfache Satz (oder Satzbuchstabe) entweder wahr oder falsch ist, können wir Grenzfälle in der WFL nicht berücksichtigen.
+
+Ein wichtiges Merkmal von Sätzen der WFL ist, dass sie strukturell nicht mehrdeutig sein dürfen. Jeder Satz der WFL kann auf eine und nur auf eine Weise interpretiert werden. Dieses Merkmal der WFL ist eine Stärke. Wenn ein deutscher Satz strukturell mehrdeutig ist, kann uns die WFL dabei helfen, die verschiedenen Bedeutungen klar zu unterscheiden. Obwohl wir im Alltag ziemlich gut mit Mehrdeutigkeiten umgehen können, kann es manchmal sehr wichtig sein, sie zu vermeiden. Die Logik kann dann sinnvoll angewendet werden: Sie hilft Philosoph*innen, ihre Gedanken klar auszudrücken, Mathematiker*innen, ihre Theoreme rigoros zu formulieren, und Software-Ingenieur*innen, Datenbankabfragen oder Verifikationskriterien eindeutig zu spezifizieren. 
+
+Auch im Gesetz ist es von entscheidender Bedeutung, Dinge eindeutig zu formulieren. Hier kann Mehrdeutigkeit eine Frage von Leben und Tod sein. Hier ist ein berühmtes Beispiel dafür, dass ein Todesurteil von der Interpretation einer Mehrdeutigkeit im Gesetz abhängt. Roger Casement (1864-1916) war ein britischer Diplomat, der zu seiner Zeit berühmt war, weil er Menschenrechtsverletzungen im Kongo und in Peru publik machte (dafür wurde er 1911 zum Ritter geschlagen). Er war auch ein irischer Nationalist. In den Jahren 1914-16 reiste Casement heimlich nach Deutschland, mit dem sich Gro{\ss}britannien zu dieser Zeit im Krieg befand, und versuchte, irische Kriegsgefangene für den Kampf gegen Gro{\ss}britannien und für die irische Unabhängigkeit zu rekrutieren. Nach seiner Rückkehr nach Irland wurde er von den Briten gefangen genommen und wegen Hochverrats angeklagt.
+
+Das Gesetz, nach dem Casement vor Gericht gestellt wurde, ist der \emph{Treason Act of 1351}. Dieses Gesetz legt fest, was als Hochverrat gilt. Also musste die Staatsanwaltschaft bei der Verhandlung nachweisen, dass Casements Handlungen die im Gesetz festgelegten Kriterien erfüllten. In der entsprechenden Passage hie{\ss} es, dass sich jemand des Hochverrats schuldig macht
+
+\begin{quote}
+	if a man is adherent to the King's enemies in his realm, giving to them aid and comfort in the realm, or elsewhere. \\
+	(wenn ein Mann sich in seinem Reich an die Feinde des Königs bindet und ihnen im Reich Hilfe und Trost spendet oder anderswo.)
+\end{quote}
+Die Verteidigung Casements hing am letzten Komma dieses Satzes, welches im französischen Originaltext des Gesetzes von 1351 nicht vorhanden ist. Es war unstrittig, dass Casement `an die Feinde des Königs' gebunden war, aber die Frage war, ob die Bindung an die Feinde des Königs nur dann Hochverrat darstellte, wenn sie im Reich stattfand, oder auch, wenn sie im Ausland erfolgte. Die Verteidigung argumentierte, dass das Gesetz zweideutig sei. Die behauptete Zweideutigkeit hing davon ab, ob `oder anderswo' nur `den Feinden des Königs Hilfe und Trost spenden' zukam (die natürliche Lesart ohne Komma) oder sowohl `an die Feinde des Königs bindet' als auch `den Feinden des Königs Hilfe und Trost spenden' (die natürliche Lesart mit Komma). Auch wenn die erstere Interpretation weit hergeholt erscheinen mag, war das Argument zu ihren Gunsten nicht schlecht. Dennoch entschied das Gericht, dass die Passage mit dem Komma gelesen werden sollte, so dass Casements Eskapaden in Deutschland als Hochverrat galten und er zum Tode verurteilt wurde. Casement selbst schrieb, dass er `wegen eines Komma gehängt wurde'.
+
+Wir können WFL verwenden, um beide Lesarten des Textes zu symbolisieren und damit die Eindeutigkeit zu erreichen. Zunächst brauchen wir einen Symbolisierungsschlüssel:
+\begin{ekey}
+	\item[A] Casement war in seinem Reich an die Feinde des Königs gebunden.
+	\item[G] Casement spendete den Feinden des Königs Hilfe und Trost in seinem Reich.
+	\item[B] Casement war anderswo an die Feinde des Königs gebunden.
+	\item[H] Casement spendete anderswo den Feinden des Königs Hilfe und Trost.
+\end{ekey}
+Die Interpretation, nach der das Verhalten von Casement nicht als Hochverrat gilt, lautet wie folgt:
+\begin{earg}
+	\item[] $A \eor (G \eor H)$
+\end{earg} 
+Die Interpretation, die in seinem Todesurteil resultierte, kann hingegen folgenderma{\ss}en symbolisiert werden:
+\begin{earg}
+	\item[] $(A \eor B) \eor (G \eor H)$
+\end{earg}
+Dieser Satz ist wahr. Zwar gab Casement den Feinden des Königs weder innerhalb noch au{\ss}erhalb des Reichs Hilfe und Trost ($G$ und $H$ sind falsch). Zudem band sich Casement im Reich des Königs nicht an seine Feinde ($A$ ist falsch). Doch er band sich im Ausland an die Feinde des Königs ($B$ ist wahr). Und das reicht aus, um die Disjunktion $(A \eor B) \eor (G \eor H)$ wahr zu machen.
+
+Eine häufige Quelle der strukturellen Mehrdeutigkeit im Deutschen ist das Fehlen von Klammern. Wenn ich zum Beispiel sage: `Ich mag Filme, die nicht lang und langweilig sind', werden Sie wahrscheinlich denken, dass ich Filme, die lang und langweilig sind, nicht mag. Eine weniger wahrscheinliche, aber mögliche Interpretation ist, dass ich Filme mag, die sowohl (a) nicht lang als auch (b) langweilig sind. Die erste Interpretation ist wahrscheinlicher, denn wer mag schon langweilige Filme? Aber was ist mit: `Ich mag Gerichte, die nicht sü{\ss} und schmackhaft sind'? Hier ist die wahrscheinlichere Interpretation, dass ich pikante, schmackhafte Gerichte mag. (Natürlich hätte ich das auch besser sagen können, z.B.: `Ich mag Gerichte, die nicht sü{\ss} sind, aber schmackhaft'). Ähnliche Mehrdeutigkeiten ergeben sich aus dem Zusammenspiel von `und' mit `oder'. Nehmen wir zum Beispiel an, ich bitte Sie, mir ein Bild von einem kleinen und gefährlichen oder schleichendem Tier zu schicken.  Würde ein Leopard zählen? Er schleicht, ist aber nicht klein. Ob ein Bild eines Leopards meiner Bitte nachkommen würde hängt also davon ab, ob ich kleine, entweder gefährliche oder schleichende Tiere suche (Leoparden zählen nicht), oder ob ich entweder ein kleines, gefährliches Tier oder ein schleichendes Tier (jeder Grö{\ss}e) suche.
+
+Diese Arten von Mehrdeutigkeiten werden \emph{Mehrdeutigkeiten im Geltungsbereich} genannt, da sie davon abhängen, ob ein Junktor im Geltungsbereich eines anderen liegt oder nicht. Der Satz `\emph{Avengers: Endgame} ist nicht lang und langweilig' lässt die folgenden zwei Interpretationen zu:
+\begin{earg}
+	\item[\ex{scamb1}] \emph{Avengers: Endgame} ist nicht: sowohl lang als auch langweilig.
+	\item[\ex{scamb2}] \emph{Avengers: Endgame} ist sowohl nicht lang als auch langweilig.
+\end{earg}
+Satz~\ref{scamb2} ist sicherlich falsch, da \emph{Avengers: Endgame} mehr als drei Stunden lang ist. Ob Sie denken, dass \ref{scamb1} wahr ist, hängt davon ab, ob sie denken, dass der Film langweilig ist oder nicht. 
+
+Lasst uns den folgenden Symbolisierungsschlüssel nutzen:
+\begin{ekey}
+	\item[B] \emph{Avengers: Endgame} ist langweilig.
+	\item[L] \emph{Avengers: Endgame} ist lang.
+\end{ekey}
+Satz~\ref{scamb1} kann nun als `$\enot(L \eand B)$' symbolisiert werden, während Satz~\ref{scamb2} als `$\enot L \eand B$' symbolisiert wird. Im ersten Fall liegt das `\eand' im Geltungsbereich von `\enot', im zweiten Fall liegt `\enot' im Geltungsbereich von `\eand'.
+
+Der Satz `Jonas ist klein und gefährlich oder verstohlen' ist auch mehrdeutig:
+\begin{earg}
+	\item[\ex{scamb3}] Jonas ist entweder sowohl klein und gefährlich oder verstohlen.
+	\item[\ex{scamb4}] Jonas ist sowohl klein als auch entweder gefährlich oder verstohlen.
+\end{earg}
+Hier nutzen wir den folgenden Symbolisierungsschlüssel:
+\begin{ekey}
+	\item[D] Jonas ist gefährlich.
+	\item[S] Jonas ist klein.
+	\item[T] Jonas ist verstohlen. 
+\end{ekey}
+Die Symbolisierung von Satz~\ref{scamb3} ist `$(S \eand D) \eor T$', die von Satz~\ref{scamb4} ist `$S \eand (D \eor T)$'. Im ersten Satz ist `\eand' im Geltungsbereich von `\eor', im zweiten Satz ist `\eor' im Geltungsbereich von `\eand'.
+
+\practiceproblems
+\solutions
+\problempart 
+Die folgenden Sätze sind mehrdeutig. Geben Sie für jeden Satz einen Symbolisierungsschlüssel an und symbolisieren Sie die verschiedenen Interpretationen.
+\begin{earg}
+	\item Haskell beobachtet gerne Eisvögel mit Ferngläsern.
+	\item Der Zoo hat Löwen oder Tiger und Bären.
+	\item Die Blume ist nicht rot oder duftend.
+\end{earg}
+
+\chapter{Verwendung und Erwähnung}\label{s:UseMention}
+In diesem Teil haben wir viel \emph{über} Sätze gesprochen. Wir sollten an dieser Stelle eine Pause einlegen, um einen wichtigen und sehr allgemeinen Punkt zu erläutern.
+
+\section{Zitierkonventionen}
+Betrachten Sie die folgenden zwei Sätze:
+	\begin{ebullet}
+		\item Angela Merkel ist Bundeskanzlerin.
+		\item Der Ausdruck `Angela Merkel' besteht aus zwei Gro{\ss}buchstaben und zehn Kleinbuchstaben.
+	\end{ebullet}
+Wollen wir über die Bundeskanzlerin sprechen, dann \emph{verwenden} wir ihren Namen. Wenn wir hingegen über den Namen der Bundeskanzlerin sprechen wollen, dann \emph{erwähnen} wir diesen Namen; dies tun wir, indem wir ihn in Anführungszeichen setzen.
+
+Generell gilt: Wollen wir über Dinge in der Welt sprechen, \emph{verwenden} wir Worte. Wenn wir hingegen über Worte sprechen wollen, müssen wir normalerweise diese Worte \emph{erwähnen}. Wir müssen darauf hinweisen, dass wir sie erwähnen, anstatt sie zu verwenden. Dazu ist eine gewisse Konvention erforderlich. Wir setze sie in Anführungszeichen. Also sagt dieser Satz:
+	\begin{ebullet}
+		\item `Angela Merkel' ist Bundeskanzlerin.
+	\end{ebullet}
+dass ein \emph{Ausdruck} der deutschen Sprache Bundeskanzlerin ist. Das ist nicht wahr. Die \emph{Frau} ist Bundeskanlerin; ihr \emph{Name} nicht. Umgekehrt drückt der folgende Satz:
+	\begin{ebullet}
+		\item Angela Merkel besteht aus zwei Gro{\ss}buchstaben und zehn Kleinbuchstaben.
+	\end{ebullet}
+etwas Falsches aus. Angela Merkel ist eine Frau aus Fleisch und Blut, und nicht aus Buchstaben. 
+
+Die hier erwähnten Regeln für das Zitieren sind nicht nur in der Logik wichtig, sondern kommen Ihnen bei all Ihren Arbeiten zu Gute! Mit Hilfe der Anführungszeichen zeigen Sie, dass Sie sich nicht auf einen Gegenstand beziehen, sondern auf einen Namen dieses Gegenstands.
+
+\section{Objektsprache und Metasprache}
+Diese allgemeinen Zitierkonventionen sind wichtig für uns, weil wir hier eine formale Sprache, die WFL, beschreiben und deshalb oft Ausdrücke aus der WFL \emph{erwähnen} müssen. 
+
+Wenn wir über eine Sprache sprechen, dann wird die Sprache, über die wir sprechen, als \define{Objektsprache} bezeichnet. Gewisserma{\ss}en machen wir diese Sprache zum Objekt unserer Untersuchung. Die Sprache, die wir verwenden, um über die Objektsprache zu sprechen, wird hingegen als \define{Metasprache} bezeichnet.\label{def.metalanguage}
+
+\newglossaryentry{Objektsprache}
+{
+name=Objektsprache,
+description={Eine Sprache, die wir zum Objekt unserer Untersuchung machen. In diesem Lehrbuch sind die Objektsprachen WFL, LEO und ML.}
+}
+
+\newglossaryentry{Metasprache}
+{
+name=Metasprache,
+description={Eine Sprache, die wir nutzen, um über eine Objektsprache zu reden. In diesem Lehrbuch ist die Metasprache Deutsch, ergänzt durch bestimmte Symbole wie Metavariablen und Fachbegriffe wie `ist gültig'.}
+}
+
+Die Objektsprache in diesem Kapitel war zu meist die von uns entwickelte formale Sprache, WFL. Die Metasprache dagegen war Deutsch. Nicht alltägliches Deutsch, sondern Deutsch, ergänzt durch zusätzliches Vokabular, das uns helfen soll, unsere Objektsprache zu verstehen.
+
+Wir haben Gro{\ss}buchstaben als Satzbuchstaben der WFL verwendet:
+	$$A, B, C, Z, A_1, B_4, A_{25}, J_{375},\ldots$$
+Diese sind Sätze der Objektsprache, WFL. Sie sind nicht Sätze des Deutschen. Also können wir nicht sagen, dass:
+	\begin{ebullet}
+		\item $D$ ist ein Satzbuchstabe der WFL.
+	\end{ebullet}
+Offensichtlich versuchen wir hier, einen deutschen Satz zu finden, der etwas über die Objektsprache (WFL) aussagt, aber `$D$' ist ein Satz der WFL und nicht Teil des Deutschen. Das Vorhergehende ist also Unsinn, genau wie:
+	\begin{ebullet}
+		\item Snow is white ist ein englischer Satz.
+	\end{ebullet}
+Was wir hier auszudrücken versuchen ist eigentlich:
+	\begin{ebullet}
+		\item `Snow is white' ist ein englischer Satz.
+	\end{ebullet}
+Ebenso, was wir vorher ausdrücken wollten, war einfach:
+	\begin{ebullet}
+		\item `$D$' ist ein Satzbuchstabe der WFL.
+	\end{ebullet}
+Der allgemeine Punkt ist, dass wir immer dann, wenn wir im Deutschen über einen bestimmten Ausdruck der WFL sprechen wollen, darauf hinweisen müssen, dass wir den Ausdruck \emph{erwähnen} und nicht verwenden. Hierzu verwenden wir Anführungszeichen.
+
+\section{Metavariablen}\label{s:Metavariables}
+Wir wollen jedoch nicht nur über \emph{einzelne} Ausdrücke der WFL sprechen. Wir wollen auch in der Lage sein, über \emph{beliebige} Ausdrücke der WFL zu sprechen. Dies mussten wir sogar tun, als wir die induktive Definition eines Satzes der WFL vorstellten. Dazu verwendeten wir Gro{\ss}buchstaben, nämlich
+	$$\metav{A}, \metav{B}, \metav{C}, \metav{D}, \ldots$$
+Diese Symbole sind nicht Teil der WFL. Vielmehr sind sie Teil unserer (erweiterten) Metasprache, mit der wir über alle Ausdrücke der WFL sprechen. Um zu erklären, warum wir sie brauchen, erinnern Sie sich an die zweite Klausel der induktiven Definition eines Satzes der WFL:
+	\begin{earg}
+		\item[2.] Wenn $\metav{A}$ ein Satz ist, dann ist $\enot \metav{A}$ ein Satz.
+	\end{earg}
+Hier geht es um beliebige Sätze. Wenn wir stattdessen das Folgende geschrieben hätten:
+	\begin{ebullet}
+		\item Wenn `$A$' ein Satz ist, dann ist `$\enot A$' ein Satz.
+	\end{ebullet}
+dann wären wir nicht in der Lage gewesen zu bestimmen, ob `$\enot B$' ein Satz ist. Die Definition hätte sich nur auf `$A$' bezogen. Zusammengefasst:
+	\factoidbox{
+	  `$\metav{A}$' ist ein Symbol (\define{Metavariable} genannt) des erweiterten Deutschen, das wir nutzen um über beliebige Sätze der WFL zu sprechen. `$A$' hingegen ist ein einzelner Satzbuchstabe der WFL.}
+
+        \newglossaryentry{Metavariable}
+{
+name=Metavariable,
+description={Eine Variable in der Metasprache, die jeden beliebigen Satz der Objektsprache repräsentieren kann.}
+}
+Das letzte Beispiel wirft allerdings eine weitere Komplikation auf, die unsere Zitierkonventionen betrifft. Wir haben keine Anführungszeichen in die zweite Klausel unserer induktiven Definition aufgenommen. Hätten wir das tun sollen?
+
+Das Problem ist, dass der Ausdruck auf der rechten Seite dieser Klausel, d.h.\@ `$\enot\metav{A}$', kein deutscher Satz ist, da er `$\enot$' enthält. Wir könnten also versuchen zu schreiben:
+	\begin{enumerate}
+		\item[2$'$.] Wenn \metav{A} ein Satz ist, dann ist `$\enot \metav{A}$' ein Satz.
+	\end{enumerate}
+Aber das hilft uns nicht weiter: `$\enot \metav{A}$' ist kein Satz der WFL, da `$\metav{A}$' ein Symbol des (erweiterten) Deutschen und kein Symbold der WFL ist.
+
+Was wir wirklich sagen wollen, ist sowas wie:
+	\begin{enumerate}
+		\item[2$''$.] Wenn \metav{A} ein Satz ist, dann ist das Ergebnis des Verknüpfens des Symbols `$\enot$' mit dem Satz \metav{A} ein Satz.
+	\end{enumerate}
+Diese Klausel ist korrekt, aber ziemlich langwierig. Diese Langwierigkeit können wir jedoch vermeiden, indem wir unsere eigenen Konventionen schaffen. Wir können festlegen, dass ein Ausdruck wie `$\enot \metav{A}$' in unserer Metasprache einfach eine Abkürzung ist für:
+\begin{quote}
+	das Ergebnis des Verknüpfens des Symbols `$\enot$' mit dem Satz \metav{A}
+\end{quote}
+Ähnliches sagen wir dann auch für Ausdrücke wie `$(\metav{A} \eand \metav{B})$', `$(\metav{A} \eor \metav{B})$', usw.
+
+\section{Zitierkonventionen für Argumente}
+Wir verwenden die WFL gro{\ss}teils, weil wir Argumente untersuchen wollen. Dies wird unser Anliegen in Kapitel \ref{ch.TruthTables} sein. Im Deutschen werden die Prämissen eines Arguments oft durch einzelne Sätze und die Schlussfolgerung durch einen weiteren Satz ausgedrückt. Da wir deutsche Sätze in der WFL symbolisieren können, können wir auch deutsche Argumente in der WFL symbolisieren. 
+
+Genauer gesagt können wir WFL verwenden, um jeden der in einem deutschen Argument verwendeten Sätze zu symbolisieren. WFL selbst hat keine Möglichkeit, einige von ihnen als Prämissen und andere als Schlussfolgerung eines Arguments kenn zu zeichnen. (Im Gegensatz zu Deutsch, das Wörter wie `Also', `Folglich' usw. verwendet, um anzuzeigen, dass ein Satz die \emph{Schlussfolgerung} eines Arguments ist.)
+
+Wir brauchen also etwas mehr Notation. Angenommen, wir wollen die Prämissen eines Arguments mit $\metav{A}_1$, \dots, $\metav{A}_n$ und die Schlussfolgerung mit $\metav{C}$ symbolisieren. Dann schreiben wir:
+$$\metav{A}_1, \dots, \metav{A}_n \therefore \metav{C}$$
+Die Rolle des Symbols `$\therefore$' besteht hier darin, anzugeben, welche Sätze des Arguments die Prämissen und welche die Schlussfolgerung sind. 
+
+Streng genommen ist das Symbol `$\therefore$' daher nicht Teil der Objektsprache, sondern der \emph{Metasprache}. Daher könnte man meinen, dass wir die WFL-Sätze, die das Symbol flankieren, mit Anführungszeichen versehen müssten. Das ist ein vernünftiger Gedanke, aber das Hinzufügen dieser Anführungszeichen würde die Lesbarkeit erschweren. Au{\ss}erdem - und wie oben erwähnt - können wir selbst einige neue Konventionen festlegen. Wir können also festlegen, dass diese Anführungszeichen unnötig sind. Das hei{\ss}t, wir können 
+$$A, A \eif B \therefore B$$
+einfach \emph{ohne Anführungszeichen} aufschreiben, um auf ein Argument hinzuweisen, dessen Prämissen `$A$' und `$A \eif B$' sind (oder von diesen Ausdrücken symbolisiert werden) und dessen Schlussfolgerung `$B$' ist (oder von diesem Ausdruck symbolisiert wird). 

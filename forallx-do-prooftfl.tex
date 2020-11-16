@@ -1,0 +1,1748 @@
+%!TEX root = forallxyyc.tex
+\part{Natürliche Herleitung für die WFL}
+\label{ch.NDTFL}
+\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+
+\chapter{Natürliche Herleitungssysteme}\label{s:NDVeryIdea}
+
+In \S\ref{s:Valid} hatten wir gesagt, dass ein Argument gültig ist dann und nur dann, wenn es keinen Fall gibt, in dem alle Prämissen wahr sind und die Schlussfolgerung falsch ist. 
+
+Diese Definition gab uns einen Grund, Wahrheitstabellen einzuführen. Jede Zeile einer kompletten Wahrheitstabelle entspricht einer Bewertung. Wenn wir also mit einem WFL-Argument konfrontiert werden, dann haben wir eine einfache Strategie, um herauszufinden, ob es eine Bewertung gibt, bei der die Prämissen des Arguments wahr sind und seine Schlussfolgerung falsch: wir gehen einfach die Wahrheitstabelle des Arguments durch.
+
+Allerdings helfen uns die Wahrheitstabellen nur bedingt dabei, ein Verständnis dafür zu entwickeln, wieso bestimmte Argumente gültig sind. Betrachten Sie die folgenden zwei Argumente:
+\begin{align*}
+P \eor Q, \enot P & \therefore Q\\
+P \eif Q, P & \therefore Q
+\end{align*}
+Diese sind klarerweise gültig. Sie können dies herausfinden, indem Sie eine vierzeilige Wahrheitstabelle konstruieren. Aber die beiden Argumente unterscheiden sich in ihrer \emph{Form}. Und es wäre schon, diese verschiedenen Formen des Schlie{\ss}ens nicht aus den Augen zu verlieren.
+
+Ein Ziel eines \emph{natürlichen Herleitungssystems} ist es, die Gültigkeit bestimmter Argument so zu überprüfen, dass wir nachvollziehen können, welche \emph{Argumentation} ihrer Gültigkeit zu Grunde liegt. Wir fangen dazu mit sehr einfachen Herleitungsregeln an. Diese können wir dann zu komplexeren Argumenten kombinieren. Wir erhoffen uns, mit einem möglichst kleinem Startpaket möglichst viele gültige Argumente zu erfassen. 
+
+\emph{Dies ist eine ganz andere Art, Argumente zu begreifen.} 
+
+Bei Wahrheitstabellen betrachten wir verschiedene Möglichkeiten, Bewertungen, Sätze wahr oder falsch zu machen. Bei natürlichen Herleitungssystemen hingegen manipulieren wir Sätze nach Herleitungsregeln, die wir im Vorhinein als gute Regeln festgelegt haben. Letzteres verspricht uns einen besseren Blick -- oder zumindest einen anderen -- auf die Gründe wieso bestimmte Argumente gültig sind.
+
+Der Übergang zur natürlichen Herleitung ist nicht nur von der Suche nach besserem Verständnis motiviert. Er ist einfach notwendig. Betrachten Sie:
+$$A_1 \eif C_1 \therefore (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5) \eif (C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5)$$
+Um herauszufinden, ob dieses Argument gültig ist, könnten Sie eine Wahrheitstabelle mit 1024 Zeilen konstruieren. Wenn Sie das erfolgreich täten, dann könnten Sie sehen, dass es keine Zeile gibt, in der alle Prämissen wahr sind und die Schlussfolgerung falsch. Sie könnten also wissen, dass das Argument gültig ist.
+
+Eine solche Wahrheitstabelle ist schon lang. Aber betrachten Sie:
+\begin{align*}
+A_1 \eif C_1 \therefore\ & (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10}) \eif \phantom{(}\\
+&(C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5 \eor C_6 \eor C_7 \eor C_8 \eor C_9 \eor C_{10})
+\end{align*}
+Dieses Argument ist ebenfalls gültig. Aber um dies mittels einer Wahrheitstabelle herauszufinden bräuchten Sie eine Tabelle mit $2^{20} = 1048576$ Zeilen. Im Prinzip könnten wir hierzu einen Computer verwenden, der sich an Wahrheitstabellen abschindet und zurückmeldet, wenn er fertig ist. In der Praxis aber sind komplizierte Argumente der WFL \emph{unlösbar}, wenn wir Wahrheitstabellen verwenden.
+
+Wenn wir zur Logik erster Ordnung (LEO) kommen (in Kapitel \ref{s:FOLBuildingBlocks}), verschlimmert sich die Situation noch weiter. Es gibt keinen Wahrheitstabellen-Test in der LEO. Um herauszufinden, ob ein Argument der LEO gültig ist oder nicht, müssen wir über \emph{alle} Interpretationen nachdenken. Aber wie wir sehen werden, gibt es unendlich viele mögliche Interpretationen. Nicht einmal einen Computer könnten wir so einstellen, dass er sich an unendlich vielen möglichen Interpretationen abschindet und am Ende Bericht erstattet: Der Rechenprozess des Computers würde nie fertig werden. Wir müssen also entweder eine effizientere Art und Weise finden, wie wir über alle Interpretationen nachdenken können, oder wir müssen nach einem anderen Test für die Gültigkeit suchen. 
+
+Es gibt in der Tat Systeme, die über alle möglichen Interpretationen Schlussfolgerungen liefern können. Sie wurden in den 1950er Jahren von Evert Beth und Jaakko Hintikka entwickelt. Aber wir werden uns nicht mit diesen Systemen auseinandersetzen. Stattdessen werden wir natürliche Herleitungssysteme einführen. 
+
+Anstatt uns (im Falle der WFL) direkt einen Überblick über alle möglichen Bewertungen zu verschaffen, werden wir einige einfache Herleitungsregeln auswählen. Einige dieser Regeln werden das Verhalten der Junktoren betreffen. Andere das Verhalten der Quantoren und der Identität, die das Markenzeichen der LEO sind. Das resultierende Herleitungssystem wird uns eine neue Art und Weise geben, die Gültigkeit von Argumenten zu überprüfen. 
+
+Die moderne Entwicklung der natürlichen Herleitung geht auf gleichzeitig erschienene, aber nicht zusammenhängende Arbeiten von Gerhard Gentzen und Stanis\l{}aw Ja\'{s}kowski (1934) zurück. Das System der natürlichen Herleitung, das wir betrachten werden, basiert jedoch weitgehend auf Arbeiten von Frederic Fitch (erstmals 1952 veröffentlicht). 
+
+\chapter{Einfache Regeln für die WFL}\label{s:BasicTFL}
+Wir werden ein System der \define{natürlichen Herleitung} entwickeln. Für jeden Junktor wird es \define{Einführungsregeln} geben, die es uns erlauben, einen Satz herzuleiten, der diesen Junktor als Hauptjunktor hat. Zudem wird es \define{Eliminationsregeln} geben, die es uns erlauben, aus einem Satz mit diesem Junktor als Hauptjunktor einen anderen Satz herzuleiten.
+
+\section{Die Idee eines formalen Beweises}
+Ein \emph{formaler Beweis} ist eine Reihe von Sätzen, von denen einige als anfängliche Annahmen (oder Prämissen) gekennzeichnet sind. Die letzte Zeile eines formalen Beweises ist die Schlussfolgerung. (Im Folgenden werden wir formale Beweise einfach `Beweise' nennen, aber seien Sie sich bewusst, dass es auch \emph{informelle} Beweise gibt).
+
+Zur Veranschaulichung, betrachten Sie:
+	$$\enot (A \eor B) \therefore \enot A \eand \enot B$$
+Wir beginnen einen Beweis, indem wir die Prämisse aufschreiben:
+\begin{fitchproof}
+	\hypo{a1}{\enot (A \eor B)}
+\end{fitchproof}
+Beachten Sie, dass wir die Prämisse nummeriert haben, damit wir uns später auf sie beziehen können. \emph{Jede} Beweiszeile ist nummeriert, damit wir uns später auf sie beziehen können. 
+
+Beachten Sie auch, dass wir einen Strich unter der Prämisse gezogen haben. Alles, was oberhalb des Strichs geschrieben ist, ist eine \emph{Annahme} (oder Prämisse). Alles, was unter dem Strich aufgeschrieben wird, ist entweder etwas, das aus den Annahmen folgt, oder es ist eine neue Annahme. Wir hoffen, dass wir `$\enot A \eand \enot B$' als Schlussfolgerung erreichen können; daher hoffen wir, unseren Beweis letztlich mit
+\begin{fitchproof}
+	\have[n]{con}{\enot A \eand \enot B}
+\end{fitchproof}
+für irgendeine Zahl $n$ abschlie{\ss}en zu können. Es spielt keine Rolle, auf welcher Zeilennummer wir enden. Aber wir würden natürlich einen kurzen Beweis einem langen vorziehen.
+
+Nehmen wir an, wir betrachten:
+$$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \therefore \enot C\eor D$$
+Dieses Argument hat drei Prämissen. Also fangen wir an, indem wir sie alle aufschreiben, nummerieren und dann unter ihnen eine Linie ziehen:
+\begin{fitchproof}
+	\hypo{a1}{A \eor B}
+	\hypo{a2}{\enot (A\eand C)}
+	\hypo{a3}{\enot (B \eand \enot D)}
+\end{fitchproof}
+Hier wollen wir mit folgender Zeile abschlie{\ss}en:
+\begin{fitchproof}
+	\have[n]{con}{\enot C \eor D}
+\end{fitchproof}
+Alles, was noch zu tun bleibt, ist, die Herleitungsregeln zu erklären, die wir auf dem Weg von den Prämissen hin zur Schlussfolgerung anwenden können. Die Regeln sind nach unseren Junktoren geordnet.
+
+\section{Wiederholung}
+Die allererste Regel ist so offensichtlich, dass es überraschend ist, dass wir uns überhaupt mit ihr beschäftigen. 
+
+Wenn Sie im Laufe eines Beweises bereits etwas hergeleitet haben, dann erlaubt Ihnen die \emph{Wiederholungsregel} (auch Reiterationsregel genannt), es in einer neuen Zeile zu wiederholen. Zum Beispiel:
+\begin{fitchproof}
+	\have[4]{a1}{A \eand B}
+	\have[$\vdots$]{}{\vdots}
+	\have[10]{a2}{A \eand B} \by{R}{a1}
+\end{fitchproof}
+Hier haben wir `$A \eand B$' erstmals in Zeile~$4$ aufgeschrieben. Nun, in einer späteren Zeile -- Zeile~$10$, zum Beispiel -- haben wir beschlossen, dass wir diesen Satz wiederholen wollen. Also schreiben wir ihn noch einmal auf. Wir fügen auch ein \emph{Zitat} hinzu, welches den Satz, den wir aufgeschrieben haben, \emph{rechtfertigt}. In diesem Fall schreiben wir `R' (wie `Reiteration'), um kenntlich zu machen, dass wir die Wiederholungsregel verwenden, und wir schreiben `$4$', um zu zeigen, dass wir sie auf Zeile $4$ angewendet haben.
+
+Hier ist eine allgemeine Formulierung der Wiederholungsregel:
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[\ ]{c}{\metav{A}} \by{R}{a}
+\end{fitchproof}
+Diese Regel besagt, dass, wenn irgendein Satz $\metav{A}$ in irgendeiner Zeile vorkommt, wir $\metav{A}$ in späteren Zeilen wiederholen können. Jede Zeile unseres Beweises muss durch irgendeine Regel gerechtfertigt sein: hier haben wir `R $m$'. Das bedeutet: Wiederholung, angewandt auf Zeile~$m$. 
+
+Lassen Sie uns zwei Dinge betonen. Erstens: `$metav{A}$' ist kein Satz der WFL. Es ist ein Symbol der Metasprache, das wir verwenden, wenn wir über einen beliebigen Satz der WFL sprechen wollen (siehe \S\ref{s:UseMention}). Zweitens: das Symbol `$m$' wird niemals in einem Beweis aufscheinen. Denn es ist ein Symbol der Metasprache, das wir verwenden, wenn wir über eine beliebige Zeilennummer eines Beweises sprechen wollen. In einem tatsächlichen Beweis sind die Zeilen mit `$1$', `$2$', `$3$' und so weiter nummeriert. Aber wenn wir die Regel definieren, verwenden wir Variablen wie `$m$', um klarzustellen, dass die Regel an jedem beliebigen Punkt angewendet werden kann.
+
+\section{Konjunktion}
+Nehmen Sie an, wir wollen zeigen, dass Ludwig sowohl reaktionär als auch libertär ist. Ein offensichtlicher Weg, dies zu tun, wäre folgender: Zuerst zeigen wir, dass Ludwig reaktionär ist; dann zeigen wir, dass Ludwig libertär ist; dann fügen wir diese beiden Schlussfolgerungen zusammen, um die Konjunktion, dass Ludwig sowohl reaktionär als auch libertär ist, zu erhalten.
+
+Unser natürliches Herleitungssystem erfasst diese Vorgehensweise auf eine einfache Art. Lassen Sie uns für das angegebene Beispiel den folgenden Symbolisierungsschlüssel verwenden:
+	\begin{ekey}
+		\item[R] Ludwig ist reaktionär.
+		\item[L] Ludwig ist libertär.
+	\end{ekey}
+Vielleicht arbeiten wir gerade an einem Beweis und haben `$R$' auf Zeile 8 und `$L$' auf Zeile 15 erhalten. Dann können wir auf folgende Art auf jeder folgenden Zeile `$R \eand L$' erhalten:
+\begin{fitchproof}
+	\have[8]{a}{R}
+	\have[15]{b}{L}
+	\have[\ ]{c}{R \eand L} \ai{a, b}
+\end{fitchproof}
+Beachten Sie, dass jede Zeile unseres Beweises entweder eine Annahme sein muss oder durch eine Herleitungsregel gerechtfertigt sein muss. Wir zitieren hier `$\eand$I 8, 15', um anzuzeigen, dass wir die Zeile erhalten, indem wir die Regel der Konjunktionseinführung ($\eand$I; `I' wie `Introduction') auf Zeilen 8 und 15 anwenden. 
+
+Ebenso könnten wir mittels dieser Regel das folgende erhalten:
+\begin{fitchproof}
+	\have[8]{a}{R}
+	\have[15]{b}{L}
+	\have[\ ]{c}{L \eand R} \ai{b, a}
+\end{fitchproof}
+Wobei wir hier das Zitat umkehren, um die Reihenfolge der Konjunkte widerzuspiegeln. 
+
+Hier ist eine allgemeine Formulierung unserer \define{Konjunktionseinführungsregel}:
+\factoidbox{
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[n]{b}{\metav{B}}
+	\have[\ ]{c}{\metav{A}\eand\metav{B}} \ai{a, b}
+\end{fitchproof}}
+Der Klarheit wegen: die Formulierung der Regel ist \emph{schematisch}. Sie ist selbst kein Beweis. `$\metav{A}$' und `$\metav{B}$' sind keine Sätze der WFL. Vielmehr sind sie Symbole der Metasprache, die wir verwenden, wenn wir über einen beliebigen Satz der WFL sprechen wollen (siehe \S\ref{s:UseMention}). In ähnlicher Weise sind `$m$' und `$n$' keine Symbole, die in irgendeinem tatsächlichen Beweis aufscheinen würden. Sie sind Symbole der Metasprache, die wir verwenden, wenn wir über eine beliebige Zeilennummer eines beliebigen Beweises sprechen wollen. In einem tatsächlichen Beweis sind die Zeilen mit `$1$', `$2$', `$3$' und so weiter nummeriert. Aber wenn wir die Regel definieren, verwenden wir Variablen, um zu betonen, dass die Regel an jedem beliebigen Punkt angewendet werden kann. Die Regel verlangt nur, dass wir beide Konjunkte schon irgendwo im Beweis zur Verfügung haben. Sie können voneinander getrennt, in verschiedenen Zeilen, und in beliebiger Reihenfolge auftreten. 
+
+Die Regel wird `Konjunktions\emph{einführung}' genannt, weil sie das Symbol `$\eand$' in unseren Beweis einführt. Umgekehrt haben wir auch eine Regel, die dieses Symbol \emph{eliminiert}.  Nehmen Sie an, dass Sie gezeigt haben, dass Ludwig sowohl reaktionär als auch libertär ist. Sie haben nun das Recht zu sagen, dass Ludwig reaktionär ist. Ebenso haben Sie das Recht, daraus zu schlie{\ss}en, dass Ludwig libertär ist. Diesen Tatsachen entsprechend, formulieren wir unsere \define{Konjunktionseliminierungsregel}(n):
+\factoidbox{
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eand\metav{B}}
+	\have[\ ]{a}{\metav{A}} \ae{ab}
+\end{fitchproof}}
+und gleicherma{\ss}en:
+\factoidbox{
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eand\metav{B}}
+	\have[\ ]{b}{\metav{B}} \ae{ab}
+\end{fitchproof}}
+Diese Regel besagt, dass man, wenn man eine Konjunktion in einer Zeile eines Beweises hat, eines der beiden Konjunkte erhalten kann, indem man {\eand}E anwendet. Wichtig ist hier: Sie können diese Regel nur anwenden, wenn die Konjunktion der Hauptjunktor eines Satzes ist. Man kann also nicht `$D$' von `$C \eor (D \eand E)$' herleiten!
+
+Schon mit den beiden Regeln, die wir bis jetzt eingeführt haben, ist unser Herleitungssystem sehr leistungsstark:
+\begin{earg}
+\item[] $[(A\eor B)\eif(C\eor D)] \eand [(E \eor F) \eif (G\eor H)]$
+\item[\therefore] $[(E \eor F) \eif (G\eor H)] \eand [(A\eor B)\eif(C\eor D)]$
+\end{earg}
+Der Hauptjunktor in der Prämisse und der Schlussfolgerung dieses Arguments ist `$\eand$'. Um einen Beweis zu erbringen, beginnen wir damit, die Prämisse als unsere Annahme aufzuschreiben. Unter ihr ziehen wir eine Linie: Alles nach dieser Linie muss aus unseren Annahmen durch (wiederholte Anwendung) unserer Herleitungsregeln folgen. Der Anfang des Beweises sieht also so aus:
+\begin{fitchproof}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+\end{fitchproof}
+Ausgehend von der Prämisse können wir jedes ihrer Konjunkte durch {\eand}E erhalten. Der Beweis sieht nun wie folgt aus:
+\begin{fitchproof}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
+	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
+\end{fitchproof}
+Indem wir die {\eand}I-Regel auf die Zeilen 3 und 2 (in dieser Reihenfolge) anwenden, kommen wir nun zu unserer gewünschten Schlussfolgerung. Der fertige Beweis sieht wie folgt aus:
+\begin{fitchproof}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+
+	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
+	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
+	\have{ba}{{[}(E \eor F) \eif (G\eor H){]} \eand {[}(A\eor B)\eif(C\eor D){]}} \ai{b,a}
+\end{fitchproof}
+Dies ist ein sehr einfacher Beweis, aber er veranschaulicht sehr schön, wie wir Herleitungsregeln zu längeren Beweisen verketten können. Am Rande sei angemerkt, dass die komplette Wahrheitstabelle dieses Arguments 256 Zeilen erfordert hätte; unser formaler Beweis hingegen benötigte nur vier Zeilen. 
+
+Es lohnt sich, ein weiteres Beispiel durchzuarbeiten. Bereits in \S\ref{s:MoreBracketingConventions} haben wir festgestellt, dass dieses Argument gültig ist:
+	$$A \eand (B \eand C) \therefore (A \eand B) \eand C$$
+Um nun einen Beweis dieser Tatsache zu erbringen, beginnen wir mit:
+\begin{fitchproof}
+	\hypo{ab}{A \eand (B \eand C)}
+\end{fitchproof}
+Von der Prämisse ausgehend können wir jedes ihrer Konjunkte erhalten, indem wir zweimal $\eand $E anwenden. Dann wenden wir $\eand $E noch zwei weitere Male an. Wir erhalten hiermit den folgenden Beweis:
+\begin{fitchproof}
+	\hypo{ab}{A \eand (B \eand C)}
+	\have{a}{A} \ae{ab}
+	\have{bc}{B \eand C} \ae{ab}
+	\have{b}{B} \ae{bc}
+	\have{c}{C} \ae{bc}
+\end{fitchproof}
+Jetzt aber können wir Konjunktionen wieder in der Reihenfolge einführen, in der wir sie brauchen. Unser fertiger Beweis sieht so aus:
+\begin{fitchproof}
+	\hypo{abc}{A \eand (B \eand C)}
+	\have{a}{A} \ae{abc}
+	\have{bc}{B \eand C} \ae{abc}
+	\have{b}{B} \ae{bc}
+	\have{c}{C} \ae{bc}
+	\have{ab}{A \eand B}\ai{a, b}
+	\have{con}{(A \eand B) \eand C}\ai{ab, c}
+\end{fitchproof}
+Erinnern Sie sich daran, dass unsere offizielle Definition von Sätzen der WFL nur Konjunktionen mit zwei Konjunkten erlaubte. Der soeben vorgelegte Beweis legt nahe, dass wir in allen unseren Beweisen innere Klammern weglassen könnten. Dies ist jedoch nicht üblich. Dementsprechend werden wir das auch nicht tun. Stattdessen werden wir an unseren strengeren Klammerkonventionen festhalten. (Obwohl wir uns immer noch erlauben werden, die äu{\ss}ersten Klammern der Lesbarkeit halber wegzulassen).
+
+Lassen Sie uns nun eine letzte Illustration geben. Bei der Anwendung der $\eand$I-Regel gibt es keine Verpflichtung, sie auf verschiedene Sätze anzuwenden. Wenn wir wollen, können wir `$A \eand A$' also von `$A$' ausgehend wie folgt herleiten:
+\begin{fitchproof}
+	\hypo{a}{A}
+	\have{aa}{A \eand A}\ai{a, a}
+\end{fitchproof}
+Einfach, aber effektiv.
+
+\section{Konditional}
+Wenden Sie sich nun dem folgenden Argument zu:
+\begin{earg}
+		\item[] Wenn Jane klug ist, dann ist sie schnell.
+		\item[] Jane ist klug.
+		\item[\therefore] Jane ist schnell.
+\end{earg}
+Dieses Argument ist klarerweise gültig. Seine Gültigkeit legt eine einfache Eliminierungsregel für das Konditional ($\eif$E) nahe:
+\factoidbox{
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eif\metav{B}}
+	\have[n]{a}{\metav{A}}
+	\have[\ ]{b}{\metav{B}} \ce{ab,a}
+\end{fitchproof}}
+Diese Regel wird manchmal auch \emph{Modus Ponens} genannt. Bei ihr handelt es sich um eine Eliminierungsregel. Denn sie erlaubt uns, einen Satz zu erhalten, in dem `$\eif$' einmal weniger vorkommt, als in dem Satz, mit dem wir beginnen (dieser muss `$\eif$' als Hauptjunktor enthalten). Es ist zu beachten, dass das Konditional $\metav{A}\eif\metav{B}$ und das vorangehende~$\metav{A}$ im Beweis voneinander getrennt und in beliebiger Reihenfolge auftreten können. Im Zitat für $\eif$E zitieren wir jedoch immer zuerst das Konditional, gefolgt vom Antezedens des Konditionals.
+
+Die Regel für die Einführung eines Konditionals ist auch recht einfach zu motivieren. Das folgende Argument ist gültig:
+	\begin{quote}
+		Ludwig ist reaktionär. Wenn Ludwig also libertär ist, dann ist Ludwig sowohl reaktionär als auch libertär. 	\end{quote}
+Wenn jemand bezweifeln würde, dass dem so ist, könnten wir versuchen, ihn vom Gegenteil zu überzeugen, indem wir uns wie folgt erklären:	
+	\begin{quote}
+		Gehen Sie davon aus, dass Ludwig reaktionär ist. Nehmen Sie zusätzlich an, dass Ludwig libertär ist. Dann können wir mittels der Konjunktionseinführung, die wir gerade diskutiert haben, schlie{\ss}en, dass Ludwig sowohl reaktionär als auch libertär ist. Das setzt natürlich die Annahme voraus, dass Ludwig libertär ist. Aber das bedeutet nur, dass, wenn Ludwig ein Libertärer ist, er sowohl reaktionär als auch libertär ist.
+	\end{quote}
+Übertragen in das Format einer natürlichen Herleitung ist hier die Argumentationsform, die wir gerade verwendet haben. Wir haben mit einer Prämisse begonnen: `Ludwig ist reaktionär', also:
+	\begin{fitchproof}
+		\hypo{r}{R}
+	\end{fitchproof}
+Als Nächstes haben wir, um der Argumentation willen, eine zusätzliche Annahme aufgestellt: `Ludwig ist libertär'. Um darauf hinzuweisen, dass wir es nicht mehr mit unserer ursprünglichen Annahme (`$R$'), sondern mit einer zusätzlichen Annahme zu tun haben, setzen wir unseren Beweis wie folgt fort:
+	\begin{fitchproof}
+		\hypo{r}{R}
+		\open
+			\hypo{l}{L}
+	\end{fitchproof}
+Beachten Sie, dass wir in Zeile 2 \emph{nicht} behaupten, dass wir `$L$' aus Zeile 1 hergeleitet haben. Also schreiben wir keine Begründung für die zusätzliche Annahme in Zeile 2. Wir müssen jedoch darauf hinweisen, dass es sich um eine zusätzliche \emph{Annahme} handelt. Wir tun dies, indem wir einen Strich darunter ziehen (um anzuzeigen, dass es sich um eine Annahme handelt) und sie mit einer weiteren vertikalen Linie einrücken (um anzuzeigen, dass es sich um eine \emph{zusätzliche} Annahme handelt). 
+
+Mit dieser zusätzlichen Annahme im Köcher sind wir in der Lage, $\eand$I zu verwenden. Wir können also unseren Beweis fortsetzen:
+	\begin{fitchproof}
+		\hypo{r}{R}
+		\open
+			\hypo{l}{L}
+			\have{rl}{R \eand L}\ai{r, l}
+	\end{fitchproof}
+Hiermit haben wir gezeigt, dass wir unter der zusätzlichen Annahme von `$L$' auch `$R \eand L$' erhalten können. Wir können also schlussfolgern, dass, wenn wir `$L$' haben, auch `$R \eand L$' kriegen. Oder, um es anders auszudrücken, wir können `$L \eif (R \eand L)$' herleiten:
+	\begin{fitchproof}
+		\hypo{r}{R}
+		\open
+			\hypo{l}{L}
+			\have{rl}{R \eand L}\ai{r, l}
+			\close
+		\have{con}{L \eif (R \eand L)}\ci{l-rl}
+	\end{fitchproof}
+Beachten Sie, dass wir hier nur mehr auf \emph{eine} vertikale Linie auf der linken Seite zurückgreifen.  Wir haben die zusätzliche Annahme `$L$' \emph{getilgt}, da der Konditional aus unserer ursprünglichen Annahme `$R$' alleine folgt.
+
+Das allgemeine Schema, welches wir hier nutzen, ist das Folgende. Zuerst stellen wir eine zusätzliche Annahme auf, $\metav{A}$; von dieser zusätzlichen Annahme ausgehend, leiten wir~$\metav{B}$ her. Daher wissen wir folgendes: Wenn~$\metav{A}$ wahr ist, dann ist auch ~$\metav{B}$ wahr. Dies ist in der Regel für die Einführung des Konditionals zusammengefasst:
+\factoidbox{
+	\begin{fitchproof}
+		\open
+			\hypo[i]{a}{\metav{A}} 
+			\have[j]{b}{\metav{B}}
+		\close
+		\have[\ ]{ab}{\metav{A}\eif\metav{B}}\ci{a-b}
+	\end{fitchproof}}
+Es können beliebig viele oder wenige Zeilen zwischen den Zeilen $i$ und $j$ sein. 
+
+Um $\eif$I besser zu verstehen, wenden wir uns noch einer zweiten Illustration zu. Nehmen wir an, wir wollen Folgendes beweisen:
+	$$P \eif Q, Q \eif R \therefore P \eif R$$
+Wir beginnen damit, \emph{beide} unserer Prämissen aufzuschreiben. Da wir dann zu einen Konditional (nämlich `$P \eif R$') kommen wollen, nehmen wir zusätzlich das Antezedens dieses Konditionals an. Damit beginnt unser Beweis:
+\begin{fitchproof}
+	\hypo{pq}{P \eif Q}
+	\hypo{qr}{Q \eif R}
+	\open
+		\hypo{p}{P}
+	\close
+\end{fitchproof}
+Beachten Sie, dass wir `$P$' als eine zusätzliche Annahme behandeln. Dadurch können wir jetzt {\eif}E auf die erste Prämisse anwenden. Dies wird `$Q$' ergeben. Dann können wir {\eif}E auf die zweite Prämisse anwenden. Durch die Annahme von `$P$' sind wir in der Lage, `$R$' zu beweisen. Zuletzt wenden wir nun die {\eif}I-Regel an -- tilgen `$P$' -- und beenden den Beweis. Zusammengefasst:
+\label{HSproof}
+\begin{fitchproof}
+	\hypo{pq}{P \eif Q}
+	\hypo{qr}{Q \eif R}
+	\open
+		\hypo{p}{P}
+		\have{q}{Q}\ce{pq,p}
+		\have{r}{R}\ce{qr,q}
+	\close
+	\have{pr}{P \eif R}\ci{p-r}
+\end{fitchproof}
+
+
+\section{Zusätzliche Annahmen und Unterbeweise}
+Die Regel $\eif$I nutzte die Idee, zusätzliche Annahmen zu treffen. Diese müssen mit einer gewissen Vorsicht behandelt werden. Betrachten Sie diesen Beweis:
+\begin{fitchproof}
+	\hypo{a}{A}
+	\open
+		\hypo{b1}{B}
+		\have{b2}{B} \by{R}{b1}
+	\close
+	\have{con}{B \eif B}\ci{b1-b2}
+\end{fitchproof}
+Dieser entspricht den Regeln, die wir bereits festgelegt haben; und das braucht uns nicht besonders merkwürdig vorzukommen. Da es sich bei `$B \eif B$' um eine Tautologie handelt, sollten keine besonderen Annahmen erforderlich sein, um diesen Satz zu beweisen. 
+
+Aber nehmen wir mal, wir versuchen nun, den Beweis wie folgt fortzusetzen:
+\begin{fitchproof}
+	\hypo{a}{A}
+	\open
+		\hypo{b1}{B}
+		\have{b2}{B} \by{R}{b1}
+	\close
+	\have{con}{B \eif B}\ci{b1-b2}
+	\have{b}{B} \by{unerlaubte Anwendung}{}
+	\have [\ ]{x}{} \by{von $\eif$E}{con, b2}
+\end{fitchproof}
+Wenn uns unser Herleitungssystem dies erlauben würde, wäre das eine Katastrophe. Denn wir könnten dann jeden beliebigen Satz von jedem anderen Satz herleiten. Wenn Sie mir jedoch sagen, dass Anne schnell ist (symbolisiert durch `$A$'), sollten wir nicht schlussfolgern können, dass Königin Boudica zwanzig Fu{\ss} gro{\ss} war (symbolisiert durch `$B$')! Es muss uns verboten werden, dies zu tun. Aber wie sollen wir dieses Verbot umsetzen?
+
+Wir können den Prozess, eine zusätzliche Annahme zu treffen, als das Durchführen eines \emph{Unterbeweises} beschreiben: ein Nebenbeweis innerhalb eines Hauptbeweises. Wenn wir einen Unterbeweis beginnen, ziehen wir eine weitere vertikale Linie, um anzuzeigen, dass wir uns nicht mehr im Hauptbeweis befinden. Dann schreiben wir die Annahme auf, auf welcher der Unterbeweis basieren wird. Man kann sich einen Unterbeweis so vorstellen, dass wir uns fragen: \emph{was könnten wir zeigen, wenn wir auch diese zusätzliche Annahme treffen würden?}
+
+Wenn wir innerhalb eines Unterbeweises arbeiten, können wir uns auf die zusätzliche Annahme beziehen, die wir zu Beginn des Unterbeweises gemacht haben, und auf alles, was wir aus unseren ursprünglichen Annahmen herleiten konnten. (Schlie{\ss}lich sind diese ursprünglichen Annahmen immer noch vorhanden.) Irgendwann wollen wir jedoch aufhören, mit der zusätzlichen Annahme zu arbeiten: Wir wollen vom Unterbeweis zum Hauptbeweis zurückkehren. Um anzuzeigen, dass wir zum Hauptbeweis zurückkehren, geht die vertikale Linie für den Unterbeweis zu Ende. An diesem Punkt sagen wir, dass der Unterbeweis \define{geschlossen} ist. Nachdem wir einen Unterbeweis geschlossen haben, haben wir die zusätzliche Annahme beiseite gelegt. Dann ist es unzulässig, sich auf all jene Dinge zu berufen, die von dieser zusätzlichen Annahme abhängen. Daher legen wir fest:
+\factoidbox{Um bei der Anwendung einer Regel eine einzelne Zeile zu zitieren:
+\begin{enumerate}
+\item muss diese Zeile vor jener Zeile stehen, in der die Regel angewandt wird
+\item nicht innerhalb eines Unterbeweises auftreten, der vor jener Zeile, in der die Regel angewendet wird, geschlossen wurde.
+\end{enumerate}}
+Diese Bestimmung verbietet den katastrophalen Beweisversuch von oben. Die Regel $\eif$E verlangt, dass wir zwei einzelne Zeilen der vorangegangenen Zeilen zitieren. Im obigen Beweisversuch tritt aber eine dieser Zeilen, nämlich Zeile~$4$, innerhalb eines Unterbeweises auf, der in Zeile~$5$ geschlossen wurde. Somit können wir die Regel $\eif$E nicht anwenden. 
+
+Das Schlie{\ss}en eines Unterbeweises nennen wir auch das \define{Tilgen} der Annahmen dieses Unterbeweises. Wir können den Punkt also so formulieren: \emph{Sie können sich nicht auf Dinge beziehen, die unter Verwendung bereits getilgter Annahmen hergeleitet wurden}. 
+
+Unterbeweise erlauben uns also, darüber nachzudenken, was wir zeigen können, wenn wir zusätzliche Annahmen treffen. Dies veranschaulicht, dass wir im Verlauf eines Beweises sehr sorgfältig darauf achten müssen, welche Annahmen wir zu einem bestimmten Zeitpunkt treffen. Unser Beweissystem stellt dies grafisch dar. (Das ist genau der Grund, warum wir uns entschieden haben, gerade dieses Herleitungssystem zu verwenden).
+
+Wenn wir einmal angefangen haben, darüber nachzudenken, was wir durch zusätzliche Annahmen zeigen können, hält uns nichts mehr davon ab, die Frage zu stellen, was wir zeigen können, wenn wir noch mehr Annahmen treffen. Das kann uns dazu motivieren, einen Unterbeweis innerhalb eines Unterbeweises zu nutzen. Hier ist ein Beispiel, in dem wir nur die Regeln verwenden, die wir schon zur Verfügung haben: 
+\begin{fitchproof}
+\hypo{a}{A}
+\open
+	\hypo{b}{B}
+	\open
+		\hypo{c}{C}
+		\have{ab}{A \eand B}\ai{a,b}
+	\close
+	\have{cab}{C \eif (A \eand B)}\ci{c-ab}
+\close
+\have{bcab}{B \eif (C \eif (A \eand B))}\ci{b-cab}
+\end{fitchproof}
+Beachten Sie, dass sich das Zitat in Zeile~$4$ auf die ursprüngliche Annahme (in Zeile $1$) und eine Annahme eines Unterbeweises (in Zeile~$2$) bezieht. Dies ist vollkommen in Ordnung, da keine der beiden Annahmen zu diesem Zeitpunkt (in Zeile ~$4$) getilgt wurden.
+
+Aber auch hier müssen wir sorgfältig darauf achten, was wir zu einem bestimmten Zeitpunkt annehmen. Nehmen Sie an, wir versuchen, den Beweis wie folgt fortzusetzen:
+\begin{fitchproof}
+\hypo{a}{A}
+\open
+	\hypo{b}{B}
+	\open
+		\hypo{c}{C}
+		\have{ab}{A \eand B}\ai{a,b}
+	\close
+	\have{cab}{C \eif (A \eand B)}\ci{c-ab}
+\close
+\have{bcab}{B \eif(C \eif (A \eand B))}\ci{b-cab}
+\have{bcab}{C \eif (A \eand B)}\by{unerlaubte Anwendung}{}
+\have [\ ]{x}{} \by{von $\eif$I}{c-ab}
+\end{fitchproof}
+Das wäre katastrophal. Wenn wir Ihnen sagen, dass Anne klug ist, sind Sie nicht in der Lage, daraus herzuleiten, dass, wenn Cath klug ist (symbolisiert durch `$C$'), Anne klug und Königin Boudica 20 Fu{\ss} gro{\ss} ist. Aber das ist genau das, was ein solcher Beweisversuch zum Ziel hat.
+
+Das wesentliche Problem ist, dass der Unterbeweis, der mit der Annahme `$C$' begann, davon abhing, dass wir `$B$' in Zeile $2$ angenommen hatten. In Zeile~$6$ aber haben wir die Annahme~`$B$' \emph{getilgt}: Wir haben aufgehört, uns zu fragen, was wir zeigen können, wenn wir auch `$B$' annehmen. Es ist also schlichtweg Betrug, wenn wir versuchen, uns (in Zeile~$7$) auf den Unterbeweis zu beziehen, der mit der Annahme~`$C$' begann. 
+
+Wir legen also wie bisher fest, dass ein Unterbeweis nur dann auf einer Zeile zitiert werden kann, wenn er nicht innerhalb eines anderen Unterbeweises auftritt, der an dieser Zeile bereits abgeschlossen ist. Der katastrophale Beweisversuch verstö{\ss}t gegen diese Bestimmung. Der Unterbeweis in Zeilen $3$--$4$ tritt innerhalb eines Unterbeweises auf, der in Zeile~$5$ geschlossen wird. Er kann also nicht auf Zeile~$7$ geltend gemacht werden.
+
+Hier ist ein weiterer Beweisversuch, den wir nicht zulassen:
+\begin{fitchproof}
+\hypo{a}{A}
+\open
+	\hypo{b}{B}
+	\open
+	\hypo{c}{C}
+	\have{bc}{B \eand C}\ai{b,c}
+	\have{c2}{C}\ae{bc}
+	\close
+\close
+\have{bcab}{B \eif C}\by{unerlaubte Anwendung}{}
+\have [\ ]{x}{} \by{von $\eif$I}{b-c2}
+\end{fitchproof}
+Hier versuchen wir, einen Unterbeweis zu zitieren, der auf Zeile~$2$ beginnt und auf Zeile~$5$ endet. Aber der Satz auf Zeile~$5$ hängt nicht nur von der Annahme auf Zeile~$2$ ab, sondern auch von einer weiteren Annahme (Zeile~$3$), die wir am Ende des Unterbeweises nicht getilgt haben. Der in Zeile~$3$ begonnene Unterbeweis ist bei Zeile~$5$ noch offen. Aber $\eif$I verlangt, dass die letzte Zeile \emph{nur} auf der Annahme des zitierten Unterbeweises beruht, (der her in Zeile~$2$ mit der Annahme von `$B$' beginnt), aber nicht auf der Annahme irgendwelcher Unterbeweise, die innerhalb des Unterbeweises vorkommen. Insbesondere darf die letzte Zeile des zitierten Unterbeweises selbst nicht innerhalb eines verschachtelten Unterbeweises liegen.
+
+\factoidbox{Um einen Unterbeweis bei der Anwendung einer Regel zu zitieren:
+\begin{enumerate} 
+\item muss der zitierte Unterbeweis vollständig vor der Anwendung der Regel, von welcher er zitiert wird, liegen
+\item darft der zitierte Unterbeweis nicht innerhalb eines anderen Unterbeweises liegen, der zum Zeitpunkt des Zitats schon geschlossen ist 
+\item darf die letzte Zeile des zitierten Unterbeweises nicht innerhalb eines weiteren Unterbeweises vorkommen.
+\end{enumerate}}
+
+Ein letzter Punkt, um hervorzuheben, wie Regeln angewendet werden können: Wenn eine Regel verlangt, dass Sie eine einzelne Zeile zitieren, können Sie nicht stattdessen einen Unterbeweis zitieren; und wenn sie verlangt, dass Sie einen Unterbeweis zitieren, können Sie stattdessen nicht einfach eine einzelne Zeile zitieren. Folgendes ist also zum Beispiel nicht erlaubt:
+\begin{fitchproof}
+\hypo{a}{A}
+\open
+	\hypo{b}{B}
+	\open
+	\hypo{c}{C}
+	\have{bc}{B \eand C}\ai{b,c}
+	\have{c2}{C}\ae{bc}
+	\close
+	\have{c3}{C}\by{versuchte Anwenudung}{}
+\have [\ ]{x}{} \by{von R}{c-c2}
+\close
+\have[7]{bcab}{B \eif C}\ci{b-c3}
+\end{fitchproof}
+Hier haben wir versucht, `$C$' in Zeile~$6$ durch die Wiederholungsregel zu rechtfertigen, aber wir haben den Unterbeweis in den Zeilen $3$--$5$ zitiert. Dieser Unterbeweis ist geschlossen und kann im Prinzip in Zeile ~$6$ zitiert werden. (Zum Beispiel könnten wir ihn verwenden, um `$C \eif C$' durch $\eif$I zu rechtfertigen.) Aber die Wiederholungsregel~R verlangt, dass Sie eine einzelne Zeile zitieren. Das Zitieren eines gesamten Unterbeweises ist daher unzulässig (selbst wenn dieser Unterbeweis den Satz enthält, den wir wiederholen wollen).
+
+Es ist immer zulässig, einen Unterbeweis mit einer beliebigen Annahme zu eröffnen. Jedoch ist strategisches Kalkül erforderlich, um eine nützliche Annahme auszuwählen. Einen Unterbeweis mit einer willkürlichen, verrückten Annahme zu beginnen, würde nur Zeilen des Beweises verschwenden. Um zum Beispiel einen Konditional durch {\eif}I zu erhalten, dürfen Sie in einem Unterbeweis nur das Antezendens des Konditionals annehmen. 
+
+Gleicherma{\ss}en ist es immer zulässig, einen Unterbeweis zu schlie{\ss}en (und seine Annahmen zu tilgen). Es wird jedoch nicht hilfreich sein, dies zu tun, bis Sie etwas Nützliches erreicht haben. Sobald der Unterbeweis geschlossen ist, können Sie in einer Zitation nur noch den gesamten Unterbeweis zitieren. Jene Regeln, die einen Unterbeweis oder mehrere Unterbeweise voraussetzen, verlangen wiederum, dass die letzte Zeile des Unterbeweises ein Satz mit einer bestimmten Form ist. Beispielsweise dürfen Sie einen Unterbeweis für $\eif$I nur zitieren, wenn die Zeile, die Sie rechtfertigen wollen, die Form $\metav{A} \eif \metav{B}$ hat, $\metav{A}$ die Annahme Ihres Unterbeweises und $\metav{B}$ die letzte Zeile Ihres Unterbeweises ist.
+
+\section{Bikonditional}
+Die Regeln für das Bikonditional können wir als ``verdoppelte'' Versionen der Regeln für den Konditional auffassen.
+
+Um z.B.\@ `$F \eiff G$' zu beweisen, muss man in der Lage sein, `$G$' unter der Annahme von `$F$' herzuleiten \emph{und} `$F$' unter der Annahme von `$G$' herzuleiten. Die Bikonditionaleinführungsregel ({\eiff}I) erfordert daher zwei Unterbeweise. Schematisch funktioniert die Regel wie folgt: 
+\factoidbox{
+\begin{fitchproof}
+	\open
+		\hypo[i]{a1}{\metav{A}}
+		\have[j]{b1}{\metav{B}}
+	\close
+	\open
+		\hypo[k]{b2}{\metav{B}}
+		\have[l]{a2}{\metav{A}}
+	\close
+	\have[\ ]{ab}{\metav{A}\eiff\metav{B}}\bi{a1-b1,b2-a2}
+\end{fitchproof}}
+Beliebig viele Zeilen können zwischen $i$ und $j$ liegen und beliebig viele Zeilen zwischen $k$ und $l$. Au{\ss}erdem können die Unterbeweise in beliebiger Reihenfolge erfolgen und der zweite Unterbeweis muss nicht unmittelbar auf den ersten folgen.
+
+Mit der Bikonditionaleliminationsregel ({\eiff}E) können Sie etwas mehr tun als mit der Eliminationsregel für das Konditional. Wenn Sie den linken Teilsatz eines Bikonditionals haben, können Sie den rechten Teilsatz herleiten. Und umgekehrt: wenn Sie den rechten Teilsatz haben, können Sie den linken herleiten. Also erlauben wir:
+\factoidbox{
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eiff\metav{B}}
+	\have[n]{a}{\metav{A}}
+	\have[\ ]{b}{\metav{B}} \be{ab,a}
+\end{fitchproof}}
+und ebenso:
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eiff\metav{B}}
+	\have[n]{a}{\metav{B}}
+	\have[\ ]{b}{\metav{A}} \be{ab,a}
+\end{fitchproof}}
+Beachten Sie, dass das Bikonditional und der rechte oder linke Teilsatz voneinander getrennt und in beliebiger Reihenfolge auftreten können. Im Zitat für $\eiff$E zitieren wir jedoch immer zuerst den Bikonditional.
+
+\section{Disjunktion}
+Nehmen Sie an, Ludwig ist reaktionär. Dann ist Ludwig entweder reaktionär oder libertär. Denn zu sagen, dass Ludwig entweder reaktionär oder libertär ist, hei{\ss}t ja, etwas schwächeres zu sagen, als, dass Ludwig reaktionär ist. 
+
+Lassen Sie uns diesen Punkt noch einmal hervorheben. Nehmen Sie an, Ludwig ist reaktionär. Daraus folgt, dass Ludwig \emph{entweder} reaktionär \emph{oder} eine Kumquat ist. Ebenso folgt daraus, dass Ludwig \emph{entweder} reaktionär ist \emph{oder}, die Kumquat die einzige Zitrusfrucht ist.  Gleicherma{\ss}en folgt daraus, dass Ludwig \emph{entweder} reaktionär ist \emph{oder} Gott tot ist. Viele dieser Herleitungen sind merkwürdig, aber sie sind \emph{logisch} nicht zu beanstanden (auch wenn sie vielleicht alle möglichen impliziten Gesprächsnormen verletzen).
+
+Bewaffnet mit all dem, hier sind die Einführungsregeln der Disjunktion:
+\factoidbox{\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[\ ]{ab}{\metav{A}\eor\metav{B}}\oi{a}
+\end{fitchproof}}
+und
+\factoidbox{\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[\ ]{ba}{\metav{B}\eor\metav{A}}\oi{a}
+\end{fitchproof}}
+Beachten Sie, dass \metav{B} ein \emph{beliebiger} Satz ist, so dass der folgende Beweis vollkommen akzeptabel ist:
+\begin{fitchproof}
+	\hypo{m}{M}
+	\have{mmm}{M \eor ([(A\eiff B) \eif (C \eand D)] \eiff [E \eand F])}\oi{m}
+\end{fitchproof}
+Die Gültigkeit dieses Arguments mittels einer kompletten Wahrheitstabelle zu zeigen, hätte 128 Zeilen erfordert.
+
+Die Eliminationsregel für die Disjunktion ist leider etwas komplizierter. Nehmen wir an, dass Ludwig entweder reaktionär oder libertär ist. Was können Sie daraus schlie{\ss}en? Nicht, dass Ludwig reaktionär ist; es könnte ja sein, dass er stattdessen libertär ist. Ebenso wenig, dass Ludwig libertär ist; denn er könnte ja auch nur reaktionär sein. Disjunktionen, für sich genommen, geben nicht viel her. 
+
+Aber nehmen wir an, wir könnten irgendwie beides zeigen: erstens, dass aus Ludwigs reaktionärer Einstellung folgt, dass er ein österreichischer Ökonom ist; zweitens, dass aus Ludwigs libertärer Einstellung folgt, dass er ein österreichischer Ökonom ist. Wenn wir dann erfahren, dass Ludwig entweder reaktionär oder libertär ist, dann können wir daraus schlie{\ss}en, dass Ludwig, was auch immer er ist, ein österreichischer Ökonom ist. Diese Tatsache kann in der folgenden Regel kodifiziert werden, die unsere Regel zur Elimination von Disjunktionen ($\eor$E) ist:
+\factoidbox{
+	\begin{fitchproof}
+		\have[m]{ab}{\metav{A}\eor\metav{B}}
+		\open
+			\hypo[i]{a}{\metav{A}} {}
+			\have[j]{c1}{\metav{C}}
+		\close
+		\open
+			\hypo[k]{b}{\metav{B}}{}
+			\have[l]{c2}{\metav{C}}
+		\close
+		\have[ ]{c}{\metav{C}}\oe{ab, a-c1,b-c2}
+	\end{fitchproof}}
+Diese Regel ist etwas klobiger als unsere bisherigen Regeln, aber die Idee, die hinter ihr steckt, ist einfach. Nehmen wir an, wir haben eine Disjunktion, $\metav{A} \eor \metav{B}$. Nehmen wir auch an, wir haben zwei Unterbeweise, die uns zeigen, dass $\metav{C}$ aus der Annahme folgt, dass $\metav{A}$, und dass $\metav{C}$ aus der Annahme folgt, dass $\metav{B}$. Dann können wir daraus $\metav{C}$ herleiten. Wie üblich kann es beliebig viele Zeilen zwischen $i$ und $j$ und beliebig viele Zeilen zwischen $k$ und $l$ geben. Au{\ss}erdem können die Unterbeweise und die Disjunktion in beliebiger Reihenfolge vorkommen und müssen keine Nachbarn sein.
+
+Einige Beispiele werden uns helfen, die Regel zu veranschaulichen. Fangen wir hiermit an:
+$$(P \eand Q) \eor (P \eand R) \therefore P$$
+So könnte ein Beweis für dieses Argument aussehen:
+	\begin{fitchproof}
+		\hypo{prem}{(P \eand Q) \eor (P \eand R) }
+			\open
+				\hypo{pq}{P \eand Q}
+				\have{p1}{P}\ae{pq}
+			\close
+			\open
+				\hypo{pr}{P \eand R}
+				\have{p2}{P}\ae{pr}
+			\close
+		\have{con}{P}\oe{prem, pq-p1, pr-p2}
+	\end{fitchproof}
+Hier ist ein etwas herausfordernderes Beispiel:
+	$$ A \eand (B \eor C) \therefore (A \eand B) \eor (A \eand C)$$
+Und hier ein dazu passender Beweis:
+	\begin{fitchproof}
+		\hypo{aboc}{A \eand (B \eor C)}
+		\have{a}{A}\ae{aboc}
+		\have{boc}{B \eor C}\ae{aboc}
+		\open
+			\hypo{b}{B}
+			\have{ab}{A \eand B}\ai{a,b}
+			\have{abo}{(A \eand B) \eor (A \eand C)}\oi{ab}
+		\close
+		\open
+			\hypo{c}{C}
+			\have{ac}{A \eand C}\ai{a,c}
+			\have{aco}{(A \eand B) \eor (A \eand C)}\oi{ac}
+		\close
+	\have{con}{(A \eand B) \eor (A \eand C)}\oe{boc, b-abo, c-aco}
+	\end{fitchproof}
+Seien Sie nicht beunruhigt, wenn Sie glauben, dass Sie nicht in der Lage gewesen wären, diesen Beweis selbst zu erarbeiten. Die Fähigkeit, Beweise zu finden, erlernen Sie mit ausreichender Übung. Und wir werden in \S\ref{s:stratTFL} einige Strategien zum Erarbeiten von Beweisen einführen. Zurzeit ist nur essenziell, dass Sie beim Betrachten des Beweises sehen können, dass er den von uns festgelegten Regeln entspricht. Dazu gehört, jede Zeile zu überprüfen und sicherzustellen, dass sie nach den von uns festgelegten Regeln gerechtfertigt ist.
+
+\section{Widerspruch und Negation}
+
+Wir haben nur noch einen Junktor, mit dem wir uns befassen müssen: die Negation. Aber um das zu tun, müssen wir die Negation in eine Beziehung mit dem \emph{Widerspruch} setzen. 
+
+Eine sehr wirksame Form der Argumentation ist es, Ihr Widerpart dazu zu bringen, sich selbst zu widersprechen. An diesem Punkt haben Sie die Oberhand. Ihr Widerpart muss mindestens eine seiner/ihrer Annahmen aufgeben. Wir werden diese Idee in unserem Beweissystem nutzen, indem wir ein neues Symbol, `$\ered$', zu unseren Beweisen hinzufügen. Dies sollte als so etwas wie `Widerspruch!' oder `Reductio!' oder `Das ist absurd!' verstanden werden. Die Einführungsregel für dieses Symbol ist, dass wir es immer dann einführen können, wenn wir uns explizit widersprechen, d.h.\@ wenn wir sowohl einen Satz als auch seine Negation in unserem Beweis haben: 
+\factoidbox{
+\begin{fitchproof}
+  \have[m]{na}{\enot\metav{A}}
+  \have[n]{a}{\metav{A}}
+  \have[ ]{bot}{\ered}\ne{na, a}
+\end{fitchproof}}
+Es spielt keine Rolle, in welcher Reihenfolge der Satz und seine Negation vorkommen; sie müssen auch nicht auf benachbarten Zeilen erscheinen. Wir geben jedoch immer zuerst die Zeilennummer der Negation an, gefolgt von der Zeilennummer des Satzes, der verneint wird.
+
+Es besteht offensichtlich ein enger Zusammenhang zwischen dem Widerspruch und der Negation. 
+
+Die Regel $\enot$E lässt uns einen expliziten Widerspruch~$\ered$ von zwei widersprüchlichen Sätzen herleiten -- $\metav{A}$ und seiner Verneinung $\enot \metav{A}$. Wir wählen das Etikett $\enot$E aus dem folgenden Grund: Diese Regel erlaubt uns, von einer Prämisse, die eine Negation als Hauptjunktor enthält ($\enot\metav{A}$), zu einem Satz zu gelangen, der diese Negation nicht enthält: $\ered$. Es ist also eine Regel, die $\enot$ \emph{eliminiert}.
+
+Wir haben gesagt, dass `$\ered$' als so etwas wie `Widerspruch!' gelesen werden sollte, aber das sagt uns noch nicht viel über das Symbol. Es gibt zumindest drei Möglichkeiten, das Symbol besser zu verstehen. 
+ 	\begin{ebullet}
+		\item Wir könnten `$\ered$' als einen neuen einfachen Satz der WFL verstehen, welcher jeder Bewertung nach falsch ist. 
+		\item Wir könnten `$\ered$' als eine Abkürzung für ein Musterbeispiel eines Widerspruchs verstehen, z.B.\@  `$A \eand \enot A$'. Dies hat den gleichen Effekt wie die erste Option -- offensichtlich hat `$A \eand \enot A$' immer den Wahrheitswert Falsch. Aber es bedeutet, dass wir offiziell kein neues Symbol zur WFL hinzufügen müssen.
+		\item Wir könnten `$\ered$' als ein Satzzeichen verstehen, welches in unseren Beweisen vorkommen kann, aber kein Symbol der WFL ist. (Damit ist es so zu verstehen, wie Zeilennummern und horizontale und vertikale Linien.)
+	\end{ebullet}
+Die dritte Option ist besonders faszinierend, aber hier werden wir uns \emph{offiziell} für die erste Option entscheiden. `$\ered$' ist als ein Satzbuchstabe zu lesen, der immer falsch ist. Das bedeutet, dass wir ihn in unseren Beweisen genau so wie jeden anderen Satz manipulieren können.
+
+Zuletzt müssen wir noch eine Regel für die Einführung der Verneinung ($\enot$I) festlegen. Diese Regel ist sehr einfach. Wenn eine Annahme zu einem Widerspruch führt, dann muss die Annahme falsch sein. Dieser Gedanke motiviert die folgende Regel:
+\factoidbox{\begin{fitchproof}
+\open
+	\hypo[i]{a}{\metav{A}}
+	\have[j]{nb}{\ered}
+\close
+\have[\ ]{na}{\enot\metav{A}}\ni{a-nb}
+\end{fitchproof}}
+Es können beliebig viele Zeilen zwischen $i$ und $j$ liegen. 
+
+Um diese Regel in der Praxis und im Zusammenspiel mit der Negation zu sehen, betrachten Sie diesen Beweis:
+	\begin{fitchproof}
+		\hypo{d}{D}
+		\open
+			\hypo{nd}{\enot D}
+			\have{ndr}{\ered}\ne{nd, d}
+		\close
+		\have{con}{\enot\enot D}\ni{nd-ndr}
+	\end{fitchproof}
+
+Wenn die Annahme, dass $\metav{A}$ wahr ist, zu einem Widerspruch führt, dann kann $\metav{A}$ nicht wahr sein, d.h.\@ es muss falsch sein, d.h.\@ $\enot\metav{A}$ muss wahr sein. 
+
+Wenn aber die Annahme, dass $\metav{A}$ falsch ist (d.h.\@ die Annahme, dass $\enot\metav{A}$ wahr ist), zu einem Widerspruch führt, dann kann $\metav{A}$ nicht falsch sein, d.h.\@ $\metav{A}$ muss wahr sein. Wir können also die folgende Regel formulieren:
+\factoidbox{\begin{fitchproof}
+\open
+	\hypo[i]{a}{\enot\metav{A}}
+	\have[j]{nb}{\ered}
+\close
+\have[\ ]{na}{\metav{A}}\ip{a-nb}
+\end{fitchproof}}
+Diese Regel wird manchmal \emph{indirekter Beweis} (`IP' wie in `indirect proof') genannt, da sie uns erlaubt, $\metav{A}$ indirekt zu beweisen, indem wir seine Negation annehmen. Formal ist die Regel sehr ähnlich zu $\enot$I, aber $\metav{A}$ und $\enot\metav{A}$ haben die Plätze gewechselt. Da $\enot\metav{A}$ nicht die Schlussfolgerung der Regel ist, führen wir~$\enot$ nicht ein, sodass IP keine Regel ist, die einen Junktor einführt. Sie eliminiert allerdings auch keinen Junktor, da sie keine freistehenden Prämissen hat, die~$\enot$ enthalten, sondern nur einen Unterbeweis mit einer Annahme der Form~$\enot\metav{A}$. Im Gegensatz dazu hat $\enot$E eine Prämisse der Form $\enot\metav{A}$: deshalb eliminiert $\enot$E~$\enot$, im Gegensatz zu IP.\footnote{Es gibt Logiker, die Bedenken gegen IP haben, aber nicht gegen $\enot$E. Man nennt sie `Intuitionisten'. Intuitionisten kaufen uns unsere Grundannahme nicht ab, dass jeder Satz einen von zwei Wahrheitswerten hat, wahr oder falsch. Sie denken auch, dass $\enot$ anders funktioniert -- für sie garantiert das Herleiten von $\ered$ von $\metav{A}$, dass $\enot \metav{A}$ wahr ist; das Herleiten von $\ered$ von $\enot\metav{A}$ allerdings garantiert nicht, dass~$\metav{A}$ wahr ist, sondern nur, dass $\enot\enot\metav{A}$ wahr ist. Für Intuitionisten sind also $\metav{A}$ und $\enot\enot\metav{A}$ nicht äquivalent.} 
+
+Unter Verwendung von $\enot$I waren wir in der Lage, $\enot\enot\metav{D}$ von $\metav{D}$ ausgehend zu beweisen. Mittels IP können wir die Rückrichtung bilden (wobei der Beweis im Wesentlichen gleich verläuft).
+	\begin{fitchproof}
+		\hypo{d}{\enot\enot D}
+		\open
+			\hypo{nd}{\enot D}
+			\have{ndr}{\ered}\ne{d, nd}
+		\close
+		\have{con}{D}\ip{nd-ndr}
+	\end{fitchproof}
+
+Wir brauchen noch eine letzte Regel: eine Art Eliminationsregel für `$\ered$', manchmal \emph{Explosion} genannt. \footnote{Der lateinische Name für dieses Prinzip ist \emph{ex contradictione quod libet}, `aus Widerspruch folgt alles.'} Wenn wir einen Widerspruch erhalten, symbolisiert durch `$\ered$', so besagt diese Regel, dass wir daraus herleiten können, was immer wir auch wollen. 
+
+Wie kann diese Regel als Herleitungsregel motiviert werden? Hierzu können wir uns den idiomatischen Ausdruck `wenn das wahr ist, dann fresse ich einen Besen' vor Augen führen. Da Widersprüche einfach nicht wahr sein können, werde ich meinen Besen nicht nur fressen, sondern ihn auch haben, wenn einer dieser Widersprüche wahr ist. Hier ist die formale Regel:
+\factoidbox{\begin{fitchproof}
+\have[m]{bot}{\ered}
+\have[ ]{}{\metav{A}}\re{bot}
+\end{fitchproof}}
+Beachten Sie, dass \metav{A}jeder beliebige Satz sein kann.
+
+Die Explosionsregel ist natürlich etwas merkwürdig. Es sieht so aus, als käme $\metav{A}$ in unserem Beweis wie ein Hase aus dem Hut gezaubert. Wenn man versucht, Beweise zu finden, ist es sehr verlockend, zu versuchen, diese Regel überall einzusetzen, da sie so mächtig zu sein scheint. Leider müssen Sie dieser Versuchung widerstehen: Sie können die Explosionsregel nur anwenden, wenn Sie bereits ~$\ered$ haben! Und Sie erhalten nur dann $\ered$, wenn Ihre Annahmen widersprüchlich sind.
+
+Trotzdem, ist es nicht merkwürdig, dass aus einem Widerspruch irgendetwas folgen sollte? Nicht, wenn es nach unseren Definitionen der Folgebeziehung und der Gültigkeit geht. Denn \metav{A} hat \metav{B} als eine Folge, wenn es keine Bewertung der Satzbuchstaben gibt, die \metav{A} wahr und \metav{B} falsch macht. Nun ist aber $\ered$ ein Widerspruch---es ist niemals wahr, unabhängig von der Bewertung der Satzbuchstaben. Da es keine Bewertung gibt, die $\ered$ wahr macht, gibt es natürlich auch keine Bewertung, die $\ered$ wahr und \metav{B} falsch macht! Nach unserer Definition der Folgebeziehung gilt also: $\ered \entails \metav{B}$, was auch immer $\metav{B}$ ist. Ein Widerspruch zieht alles nach sich. \footnote{Es gibt einige Logiker*innen, die das nicht glauben. Sie sind der Meinung, dass, wenn \metav{A} \metav{B} zur Folge hat, es eine relevante Verbindung zwischen \metav{A} und \metav{B} gibt -- und es gibt keine zwischen $\ered$ und einem beliebigen Satz~\metav{B}. Also entwickeln diese Logiker*innen andere, `relevante' Logiken, die die Explosionsregel nicht beinhalten.}
+
+\emph{Dies sind alle Grundregeln für unser Herleitungssystem der WFL.}
+
+\practiceproblems
+
+\problempart
+Die folgenden zwei `Beweise' sind \emph{inkorrekt}. Erklären Sie, welche Fehler gemacht wurden.
+\begin{fitchproof}
+\hypo{abc}{(\enot L \eand A) \eor L}
+\open
+\hypo{nla}{\enot L \eand A}
+\have{nl}{\enot L}\ae{nl}
+	\have{a}{A}\ae{abc}
+\close
+\open
+	\hypo{l}{L}
+	\have{red}{\ered}\ne{nl, l}
+	\have{a2}{A}\re{red}
+\close
+\have{con}{A}\oe{abc, nla-a, l-a2}
+\end{fitchproof}
+
+\begin{fitchproof}
+\hypo{abc}{A \eand (B \eand C)}
+\hypo{bcd}{(B \eor C) \eif D}
+\have{b}{B}\ae{abc}
+\have{bc}{B \eor C}\oi{b}
+\have{d}{D}\ce{bc, bcd}
+\end{fitchproof}
+
+\problempart
+Bei den folgenden drei Beweisen fehlen die Zitate (Regeln und Zeilennummern). Fügen Sie diese hinzu, um sie zu \emph{korrekten} Beweisen zu machen. Schreiben Sie zusätzlich das Argument auf, das dem jeweiligen Beweis entspricht.
+
+\begin{multicols}{2}
+\begin{fitchproof}
+\hypo{ps}{P \eand S}
+\hypo{nsor}{S \eif R}
+\have{p}{P}%\ae{ps}
+\have{s}{S}%\ae{ps}
+\have{r}{R}%\ce{nsor, s}
+\have{re}{R \eor E}%\oi{r}
+\end{fitchproof}
+
+\begin{fitchproof}
+\hypo{ad}{A \eif D}
+\open
+	\hypo{ab}{A \eand B}
+	\have{a}{A}%\ae{ab}
+	\have{d}{D}%\ce{ad, a}
+	\have{de}{D \eor E}%\oi{d}
+\close
+\have{conc}{(A \eand B) \eif (D \eor E)}%\ci{ab-de}
+\end{fitchproof}
+
+\begin{fitchproof}
+\hypo{nlcjol}{\enot L \eif (J \eor L)}
+\hypo{nl}{\enot L}
+\have{jol}{J \eor L}%\ce{nlcjol, nl}
+\open
+	\hypo{j}{J}
+	\have{jj}{J \eand J}%\ai{j}
+	\have{j2}{J}%\ae{jj}
+\close
+\open
+	\hypo{l}{L}
+	\have{red}{\ered}%\ne{nl, l}
+	\have{j3}{J}%\re{red}
+\close
+\have{conc}{J}%\oe{jol, j-j2, l-j3}
+\end{fitchproof}
+\end{multicols}
+
+\solutions
+\problempart
+\label{pr.solvedTFLproofs}
+Geben Sie für jedes der folgenden Argumente einen Beweis an:
+
+\begin{earg}
+\item $J\eif\enot J \therefore \enot J$
+\item $Q\eif(Q\eand\enot Q) \therefore \enot Q$
+\item $A\eif (B\eif C) \therefore (A\eand B)\eif C$
+\item $K\eand L \therefore K\eiff L$
+\item $(C\eand D)\eor E \therefore E\eor D$
+\item $A\eiff B, B\eiff C \therefore A\eiff C$
+\item $\enot F\eif G, F\eif H \therefore G\eor H$
+\item $(Z\eand K) \eor (K\eand M), K \eif D \therefore D$
+\item $P \eand (Q\eor R), P\eif \enot R \therefore Q\eor E$
+\item $S\eiff T \therefore S\eiff (T\eor S)$
+\item $\enot (P \eif Q) \therefore \enot Q$
+\item $\enot (P \eif Q) \therefore P$
+\end{earg}
+
+
+\chapter{Beweise konstruieren}\label{s:stratTFL}
+
+Es gibt kein einfaches Rezept, um Beweise zu finden, und es gibt keinen Ersatz für das Üben. Einige Faustregeln und Strategien gibt es aber doch.
+
+\section{Rückwärts arbeiten}
+
+Sie versuchen also, einen Beweis für irgendeine Schlussfolgerung zu finden~$\metav{C}$, die die letzte Zeile Ihres Beweises sein wird. Als erstes schauen Sie sich~$\metav{C}$ an und fragen, was die Einführungsregel für ihren wichtigsten logischen Operator ist. Dadurch erhalten Sie eine Vorstellung davon, was vor der letzten Zeile des Beweises geschehen muss. Die Begründungen für die Einführungsregel erfordern ein oder zwei weitere Sätze über der letzten Zeile, oder ein oder zwei Unterbeweise. Indem Sie sich ~$\metav{C}$ anschauen, können Sie erkennen, welche Sätze das sind oder was die Annahmen und Schlussfolgerungen des/der Unterbeweises/Unterbeweise sind. Dann können Sie diese Sätze, oder den/die Unterbeweis/e, über der letzten Zeile aufschreiben und diese als Ihre neuen Ziele behandeln.
+
+Zum Beispiel: Wenn Ihre Schlussfolgerung ein Konditional $\metav{A}\eif\metav{B}$ ist, dann planen Sie, die {\eif}I-Regel anzuwenden. Dazu ist es erforderlich, einen Unterbeweis mit der Annahme $\metav{A}$ zu beginnen. Dieser Unterbeweis muss mit~\metav{B} enden. Denken Sie dann weiter darüber nach, was Sie tun müssen, um $\metav{B}$ in diesem Unterbeweis herzuleiten und wie Sie die Annahme~$\metav{A}$ zu diesem Zweck verwenden können.
+
+Wenn Ihr Ziel ein Konditional, eine Konjunktion, oder eine Negation ist, dann sollten Sie damit beginnen, auf diese Weise rückwärts zu arbeiten. Wir werden detailliert beschreiben, was Sie in jedem dieser Fälle zu tun haben.
+
+\subsection*{Rückwärts arbeiten von einer Konjunktion}
+
+Wenn wir beweisen wollen, dass $\metav{A} \eand \metav{B}$, dann bedeutet rückwärts zu arbeiten, dass wir $\metav{A} \eand \metav{B}$ am Ende unseres Beweises schreiben, und versuchen diese Konjunktion mit $\eand$I herzuleiten. Oben schreiben wir die Prämissen des Beweises auf, falls es welche gibt. Dann schreiben wir unten den Satz auf, den wir beweisen wollen. Wenn es eine Konjunktion ist, leiten wir sie mit $\eand$I her.
+  \begin{fitchproof}
+	\have{1}{\metav{P}_1}
+	\ellipsesline 
+	\hypo[k]{k}{\metav{P}_k}
+\ellipsesline
+    \have[n]{n}{\metav{A}}{} 
+    \ellipsesline 
+	\have[m]{m}{\metav{B}}
+    \have{4}{\metav{A} \eand \metav{B}}\ai{n,m}
+  \end{fitchproof}
+Für $\eand$I müssen wir zuerst $\metav{A}$ und dann $\metav{B}$ herleiten. Um die letzte Zeile zu erhalten, müssen wir die Zeilen zitieren, in denen wir $\metav{A}$ und $\metav{B}$ hergeleitet haben und~$\eand$I verwenden. Die Teile des Beweises, die mit $\vdots$ gefüllt sind, müssen noch ausgefüllt werden. Wir werden die Zeilennummern $m$, $n$ vorerst markieren. Wenn der Beweis vollständig ist, dann können diese Platzhalter durch tatsächliche Zahlen ersetzt werden.
+
+\subsection*{Rückwärts arbeiten von einem Konditional}
+
+Wenn es unser Ziel ist, einen Konditional $\metav{A} \eif \metav{B}$ zu beweisen, müssen wir $\eif$I verwenden. Dies erfordert einen Unterbeweis, der mit $\metav{A}$ beginnt und mit~$\metav{B}$ endet. Wir richten unseren Beweis wie folgt ein:
+\begin{fitchproof}
+\open
+\hypo[n]{2}{\metav{A}}
+\ellipsesline 
+\have[m]{3}{\metav{B}}
+\close
+\have{4}{\metav{A} \eif \metav{B}}\ci{2-3}
+\end{fitchproof} 
+Auch hier werden wir wieder Platzhalter in den Zeilennummern-Slots verwenden. Wir notieren die letzte Regel, die wir verwenden, als $\eif$I und zitieren den Unterbeweis.
+
+\subsection*{Rückwärts arbeiten von einer Negation}
+
+Wenn wir $\enot \metav{A}$ beweisen wollen, dann müssen wir $\enot$I verwenden.
+\begin{fitchproof}
+\open
+\hypo[n]{2}{\metav{A}}
+\ellipsesline 
+\have[m]{3}{\ered}
+\close
+\have{4}{\enot \metav{A}}\ni{2-3}
+\end{fitchproof} 
+Um das zu tun, brauchen wir einen Unterbeweis, der mit der Annahme $\metav{A}$ beginnt; die letzte Zeile des Unterbeweises muss $\ered$ sein. Wir zitieren den Unterbeweis und verwenden als Regel~$\enot$I.
+
+Wenn Sie rückwärts arbeiten, machen Sie so lange so weiter, wie Sie können. Wenn Sie also rückwärts arbeiten, um $\metav{A} \eif \metav{B}$ zu beweisen, und einen Unterbeweis verwenden, in dem Sie $\metav{B}$ beweisen wollen, dann schauen Sie sich~$\metav{B}$ an. Wenn es etwa eine Konjunktion ist, dann arbeiten Sie rückwärts von ihr und schreiben Sie die beiden Konjunkte innerhalb Ihres Unterbeweises auf, und so fort.
+
+\subsection*{Rückwärts arbeiten von einer Disjunktion}
+
+Natürlich können Sie von einer Disjunktion $\metav{A} \eor \metav{B}$ aus auch rückwärts arbeiten. Die $\eor$I-Regel erfordert, dass Sie einen der Disjunkte haben, um auf $\metav{A} \eor \metav{B}$ schlie{\ss}en zu können. Um also rückwärts zu arbeiten, wählen Sie einen Disjunkt und leiten daraus $\metav{A} \eor \metav{B}$ her. Dann suchen Sie weiter nach einem Beweis für das von Ihnen gewählte Disjunkt:
+\begin{fitchproof}
+	\ellipsesline
+	\have[n]{2}{\metav{A}} 
+	\have{3}{\metav{A} \eor \metav{B}}\oi{2}
+\end{fitchproof}
+Es kann jedoch sein, dass Sie den von Ihnen gewählten Disjunkt nicht beweisen können. In diesem Fall müssen Sie eine andere Strategie wählen. Wenn Sie die $\vdots$ nicht ausfüllen können, löschen Sie alles, und versuchen Sie es mit dem anderen Disjunkt:
+\begin{fitchproof}
+	\ellipsesline 
+	\have[n]{2}{\metav{B}} 
+	\have{3}{\metav{A} \eor \metav{B}}\oi{2}
+\end{fitchproof}
+Es ist natürlich frustrierend, alles zu löschen und von vorne anzufangen. Also sollten Sie das vermeiden. Wenn Ihr Ziel eine Disjunktion ist, sollten Sie daher generell nicht rückwärts arbeiten. Versuchen Sie zuerst, \emph{vorwärts} zu arbeiten, und wenden Sie die $\eor$I-Strategie nur an, wenn das Vorwärtsarbeiten (und das Rückwärtsarbeiten mit $\eand$I, $\eif$I und $\enot$I) nicht mehr funktioniert.
+
+\section{Vorwärts arbeiten}
+
+Ihre Beweise haben oft Prämissen. Und wenn Sie rückwärts gearbeitet haben, um einen Konditional oder eine Negation zu beweisen, dann werden Sie Unterbeweise verwenden und versuchen, einen bestimmten Satz im Unterbeweis herzuleiten. Diese Prämissen und Annahmen sind Sätze, von denen aus Sie vorwärts arbeiten können, um die fehlenden Schritte in Ihrem Beweis zu vervollständigen. Das bedeutet, dass Eliminationsregeln für die Hauptjunktoren dieser Sätze angewendet werden müssen. Die Form der Regeln wird Ihnen sagen, was Sie zu tun haben. 
+
+\subsection*{Vorwärts arbeiten von einer Konjunktion}
+
+Um von einem Satz der Form $\metav{A} \eand \metav{B}$ vorwärts zu arbeiten, nutzen wir $\eand$E. Diese Regel erlaubt uns zwei Dinge: $\metav{A}$ herzuleiten und $\metav{B}$ herzuleiten. Also gilt: In einem Beweis, in dem wir $\metav{A} \eand \metav{B}$ haben, können wir vorwärts arbeiten, indem wir $\metav{A}$ und/oder $\metav{B}$ unmittelbar unter der Konjunktion aufschreiben:
+\begin{fitchproof}
+  \have[n]{1}{\metav{A} \eand \metav{B}}
+  \have{2}{\metav{A}}\ae{1}
+  \have{3}{\metav{B}}\ae{1}
+\end{fitchproof}
+In der Regel wird in der jeweiligen Situation klar sein, welchen von \metav{A} und \metav{B} Sie benötigen. Es schadet jedoch nicht, sie beide aufzuschreiben.
+
+\subsection*{Vorwärts arbeiten von einer Disjunktion}
+
+Das Vorwärtsarbeiten von einer Disjunktion aus funktioniert etwas anders. Um eine Disjunktion zu verwenden, verwenden wir die $\eor$E-Regel. Um diese Regel anzuwenden, reicht es nicht aus zu wissen, was die Disjunkte der Disjunktion sind, die wir verwenden wollen. Wir müssen auch im Auge behalten, was wir beweisen wollen. Nehmen wir an, wir wollen~$\metav{C}$ beweisen und wir haben $\metav{A} \eor \metav{B}$. (Dieser Satz kann eine Prämisse des Beweises, die Annahme eines Unterbeweises, oder etwas bereits Hergeleitetes sein). Um die $\eor$E-Regel anwenden zu können, müssen wir zwei Unterbeweise nutzen:
+\begin{fitchproof}
+	\have[n]{1}{\metav{A} \eor \metav{B}}
+	\open
+	\hypo{2}{\metav{A}} 
+	\ellipsesline 
+	\have[m]{3}{\metav{C}}
+	\close 
+	\open
+	\hypo{4}{\metav{B}}
+	\ellipsesline
+	\have[k]{5}{\metav{C}}
+	\close
+	\have{6}{\metav{C}}\oe{1,(2)-3,(4)-5} 
+\end{fitchproof} 
+Der erste Unterbeweis beginnt mit dem ersten Disjunkt, $\metav{A}$, und endet mit dem gesuchten Satz, $\metav{C}$. Der zweite Unterbeweis beginnt mit dem anderen Disjunkt, $\metav{B}$, und endet ebenfalls mit dem Zielsatz~$\metav{C}$. Jeder dieser Unterbeweise muss weiter ausgefüllt werden. Wenn wir dies erfolgreich tun, dann können wir den Zielsatz $\metav{C}$ mit $\eor$E begründen, indem wir die Zeile mit $\metav{A} \eor \metav{B}$ und die beiden Unterbeweise zitieren.
+
+\subsection*{Vorwärts arbeiten von einem Konditional}
+
+Um ein Konditional $\metav{A} \eif \metav{B}$ zu verwenden, brauchen Sie auch das Antezedens $\metav{A}$. Andernfalls können Sie die Regel $\eif$E nicht anwenden. Um also vom Konditional vorwärts zu arbeiten, werden Sie $\metav{B}$ herleiten und es mit $\eif$E begründen, indem Sie $\metav{A}$ zum vorläufigen Ziel machen.
+\begin{fitchproof}
+	\have[n]{1}{\metav{A} \eif \metav{B}}
+	\ellipsesline 
+	\have[m]{2}{\metav{A}}
+	\have{3}{\metav{B}}\ce{1,2} 
+\end{fitchproof}
+
+\subsection*{Vorwärts arbeiten von einem verneinten Satz}
+
+Um schlie{\ss}lich einen verneinten Satz $\enot \metav{A}$ zu verwenden, wenden Sie $\enot$E an. Dies erfordert zusätzlich zu $\enot \metav{A}$ auch den entsprechenden Satz~$\metav{A}$ ohne Negation. Der Satz, den Sie am Ende erhalten, ist immer derselbe: $\ered$. Das Weiterarbeiten von einer Negation funktioniert also besonders gut innerhalb eines Unterbeweises, den Sie für $\enot$I (oder IP) verwenden. Sie arbeiten von $\enot \metav{A}$ vorwärts, wenn Sie bereits $\enot \metav{A}$ haben und~$\ered$ herleiten wollen. Dazu deklarieren Sie $\metav{A}$ als Ihr neues Ziel.
+\begin{fitchproof}
+	\have[n]{1}{\enot \metav{A}}
+	\ellipsesline 
+	\have[m]{2}{\metav{A}}
+	\have{3}{\ered}\ne{1,2} 
+\end{fitchproof}
+
+\section{Anwendungen}
+
+Nehmen wir an, wir wollen zeigen, dass das Argument $(A \eand B) \eor (A \eand C) \therefore A \eand (B \eor C)$ gültig ist. Wir beginnen den Beweis, indem wir die Prämisse und die Schlussfolgerung aufschreiben. (Auf einem Blatt Papier möchten Sie so viel Platz wie letztendlich nötig dazwischen haben. Also schreiben Sie die Prämissen oben und die Schlussfolgerung unten auf das Blatt).
+\begin{fitchproof}
+   \hypo{1}{(A \eand B) \eor (A \eand C)}
+\ellipsesline
+  \have[n]{2}{A \eand (B \eor C)}
+\end{fitchproof}
+Wir haben jetzt zwei Möglichkeiten: Entweder wir arbeiten rückwärts von der Schlussfolgerung aus oder wir arbeiten vorwärts von der Prämisse aus. 
+
+Wir entscheiden uns für die zweite Strategie: Wir verwenden die Disjunktion in Zeile~$1$, und richten die Unterbeweise ein, die wir für $\eor$E benötigen. Die Disjunktion in Zeile~$1$ hat zwei Disjunkte, $A \eand B$ und $A \eand C$. Der Zielsatz, den wir herleiten wollen, ist $A \eand (B \eor C)$. In diesem Fall müssen wir also zwei Unterbeweise verwenden, einen mit der Annahme $A \eand B$ und der letzten Zeile $A \eand (B \eor C)$, den anderen mit der Annahme $A \eand C$ und der letzten Zeile $A \eand (B \eor C)$. Die Begründung für die Schlussfolgerung auf Zeile~$n$ wird $\eor$E sein, wobei die Disjunktion auf Zeile~$1$ und die beiden Unterbeweise zitiert werden. Ihr Beweis sieht nun also wie folgt aus:
+\begin{fitchproof}
+	\hypo{1}{(A \eand B) \eor (A \eand C)}
+	\open
+	\hypo{2}{A \eand B}
+	\ellipsesline 
+	\have[n]{6}{A \eand (B \eor C)}
+	\close
+	\open
+	\hypo{7}{A \eand C}
+	\ellipsesline
+	\have[m]{11}{A \eand (B \eor C)}
+	\close
+	\have{12}{A \eand (B \eor C)}\oe{1,2-6,7-11}
+\end{fitchproof}
+Sie haben nun zwei Aufgaben, nämlich jeden der beiden Unterbeweise auszufüllen. Im ersten Unterbeweis arbeiten wir nun rückwärts von der Schlussfolgerung $A \eand (B \eor C)$ aus. Diese ist eine Konjunktion, d.h.\@ innerhalb des ersten Unterbeweises haben Sie zwei separate \emph{Unterziele}: $A$ und $B \eor C$. Diese Unterziele erlauben Ihnen, Zeile $n$ mit $\eand$I zu begründen. Ihr Beweis sieht nun wie folgt aus:
+\begin{fitchproof}
+	\hypo{1}{(A \eand B) \eor (A \eand C)}
+	\open
+	\hypo{2}{A \eand B}
+	\ellipsesline
+	\have[i]{4}{A}
+	\ellipsesline
+	\have[n][-1]{5}{B \eor C}
+	\have[n]{6}{A \eand (B \eor C)}\ai{4,5}
+	\close
+	\open
+	\hypo{7}{A \eand C}
+	\ellipsesline
+	\have[m]{11}{A \eand (B \eor C)}
+	\close
+	\have{12}{A \eand (B \eor C)}\oe{1,2-6,(7)-11}
+\end{fitchproof}
+Wir sehen sofort, dass wir Zeile $i$ von Zeile~$2$ durch das Anwenden von $\eand$E erhalten können. Also ist Zeile~$i$ eigentlich Zeile~$3$, und kann mit $\eand$E auf Zeile~$2$ angewandt gerechtfertigt werden. 
+
+Das andere Unterziel $B \eor C$ ist eine Disjunktion. Wir arbeiten hier rückwärts von unserer Disjunktion bis zur Linie $n-1$. Wir haben die Wahl, welchen Disjunkt wir als Unterziel wählen, $B$ oder~$C$. $C$ zu wählen, würde nicht funktionieren und wir müssten am Ende alles noch einmal aufrollen. Und man kann bereits sehen, dass man, wenn man $B$ als Unterziel wählt, dieses einfach erreichen kann, indem man von der Konjunktion $A \eand B$ in Zeile~$2$ vorwärts arbeitet. Wir können also den ersten Unterbeweis wie folgt vervollständigen:
+\begin{fitchproof}
+	\hypo{1}{(A \eand B) \eor (A \eand C)}
+	\open
+	\hypo{2}{A \eand B}
+	\have{3}{A}\ae{2}
+	\have{4}{B}\ae{2}
+	\have{5}{B \eor C}\oi{4}
+	\have{6}{A \eand (B \eor C)}\ai{3,5}
+	\close
+	\open
+	\hypo{7}{A \eand C}
+	\ellipsesline
+	\have[m]{11}{A \eand (B \eor C)}
+	\close
+	\have{12}{A \eand (B \eor C)}\oe{1,2-6,7-11}
+\end{fitchproof}
+Wie Zeile~$3$ erhalten wir Zeile $4$ durch Anwendung von $\eand$E auf Zeile $2$. Zeile~$5$ rechtfertigen wir durch Anwendung von $\eor$I auf Zeile~$4$, da wir rückwärts von der dortigen Disjunktion gearbeitet haben.
+
+Das war der erste Unterbeweis. Den zweiten können wir auf eine ganz ähnliche Art erarbeiten. Den lassen wir Ihnen als Übung.
+
+Als wir mit unserem Beweis begannen, hatten wir die Möglichkeit, von der Prämisse ausgehend vorwärts oder von der Schlussfolgerung ausgehend rückwärts zu arbeiten, und wir wählten die erste Option. Auch die zweite Option führt zu einem Beweis, aber dieser wird anders aussehen. Die ersten Schritte würden darin bestehen, von der Schlussfolgerung aus rückwärts zu arbeiten und zwei Unterziele aufzustellen, $A$ und $B \eor C$. Dann würden wir von der Prämisse aus vorwärts arbeiten, um unsere beiden Unterziele zu beweisen, z.B.\@:
+\begin{fitchproof}
+	\hypo{1}{(A \eand B) \eor (A \eand C)}
+	\open
+	\hypo{2}{A \eand B}
+	\ellipsesline
+	\have[k]{3}{A}
+	\close
+	\open
+	\hypo{4}{A \eand C}
+	\ellipsesline
+	\have[n][-1]{5}{A}
+	\close
+	\have{6}{A}\oe{1,2-3,(4)-(5)}
+	\open
+	\hypo{7}{A \eand B}
+	\ellipsesline
+	\have[l]{8}{B \eor C}
+	\close
+	\open
+	\hypo{9}{A \eand C}
+	\ellipsesline
+	\have[m][-1]{10}{B \eor C}
+	\close
+	\have{11}{B \eor C}\oe{1,(7)-8,(9)-(10)}	
+	\have{12}{A \eand (B \eor C)}\ai{6,11}
+\end{fitchproof}
+Wir überlassen es Ihnen, die mit~$\vdots$ gekennzeichneten fehlenden Abschnitte des Beweises zu ergänzen.
+
+Lassen Sie uns ein weiteres Beispiel geben, um zu veranschaulichen, wie die Strategien zum Umgang mit Konditionalen und Negationen anzuwenden sind. Der Satz $(A \eif B) \eif (\enot B \eif \enot A)$ ist eine Tautologie. Mal sehen, ob wir mit den uns zur Verfügung stehenden Strategien einen Beweis dafür finden können, ganz ohne Prämissen. Zuerst schreiben wir den Satz auf das untere Ende eines Blatt Papiers. Da es keine Möglichkeit gibt, vorwärts zu arbeiten (es gibt nichts, von dem aus man vorwärts arbeiten kann), arbeiten wir rückwärts und erstellen einen Unterbeweis, um den Satz, den wir wollen $(A \eif B) \eif (\enot B \eif \enot A)$, unter Verwendung von $\eif$I herzuleiten. Die Annahme dieses Unterbeweises muss das Antezedens des Konditionals sein, das wir beweisen wollen, d.h.\@ $A \eif B$, und seine letzte Zeile muss das Konsequens $\enot B \eif \enot A$ sein.
+\begin{fitchproof}
+\open
+\hypo{1}{A \eif B}
+\ellipsesline
+\have[n]{7}{\enot B \eif \enot A}
+\close
+\have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
+\end{fitchproof}
+Unser neues Ziel, $\enot B \eif \enot A$ ist selbst ein Konditional. Also erstellen wir, rückwärts arbeitend, einen weiteren Unterbeweis:
+\begin{fitchproof}
+	\open
+	\hypo{1}{A \eif B}
+	\open
+	\hypo{2}{\enot B}
+	\ellipsesline
+	\have[n][-1]{6}{\enot A}
+	\close
+	\have{7}{\enot B \eif \enot A}\ci{2-(6)}
+	\close
+	\have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
+\end{fitchproof}
+Von $\enot A$ arbeiten wir wieder rückwärts. Sehen Sie sich dazu die $\enot$I-Regel an. Sie erfordert einen Unterbeweis mit~$A$ als Annahme und $\ered$ in der letzten Zeile. Der Beweis lautet also jetzt:
+\begin{fitchproof}
+	\open
+	\hypo{1}{A \eif B}
+	\open
+	\hypo{2}{\enot B}
+	\open\hypo{3}{A}
+	\ellipsesline
+	\have[n][-2]{5}{\ered}
+	\close
+	\have{6}{\enot A}\ni{3-(5)}
+	\close
+	\have{7}{\enot B \eif \enot A}\ci{2-(6)}
+	\close
+	\have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
+\end{fitchproof}
+Jetzt ist unser Ziel, ~$\ered$ herzuleiten. Wir sagten oben, als wir darüber diskutierten, wie man von einer Negation aus arbeitet, dass die $\enot$E-Regel es erlaubt,~$\ered$ herzuleiten. Wir suchen also nach einer Negation, von der aus wir vorwärts arbeiten können: $\enot B$ in Zeile~$2$. Das bedeutet, dass wir $B$ innerhalb des Unterbeweises herleiten müssen, denn $\enot$E erfordert nicht nur $\enot B$ (was wir bereits haben), sondern auch~$B$. $B$ wiederum erhalten wir, indem wir von $A \eif B$ vorwärts arbeiten, da $\eif$E es uns erlauben wird, das Konsequens dieses Konditionals, ~$B$ herzuleiten. Die Regel $\eif$E erfordert auch das Antezedens~$A$ des Konditionals. Aber das ist bereits verfügbar (in Zeile~$3$). Und so können wir nun unseren Beweis abschlie{\ss}en:
+\begin{fitchproof}
+	\open
+	\hypo{1}{A \eif B}
+	\open
+	\hypo{2}{\enot B}
+	\open\hypo{3}{A}
+	\have{4}{B}\ce{1,3}
+	\have{5}{\ered}\ne{2,4}
+	\close
+	\have{6}{\enot A}\ni{3-5}
+	\close
+	\have{7}{\enot B \eif \enot A}\ci{2-6}
+	\close
+	\have{8}{(A \eif B) \eif (\enot B \eif \enot A)}\ci{1-7}
+\end{fitchproof}
+
+\section{Vorwärts arbeiten von $\ered$}\label{sec:backred}
+
+Wenn Sie die oben genannten Strategien anwenden, werden Sie sich manchmal in einer Situation wiederfinden, in der Sie ~$\ered$ herleiten können. Wenn Sie die Explosionsregel anwenden, können Sie dann alles rechtfertigen, was Sie wollen. $\ered$ funktioniert also wie ein Platzhalter bei Beweisen. Nehmen wir zum Beispiel an, Sie wollen einen Beweis für das Argument $A \eor B, \enot A \therefore B$. Sie erstellen Ihren Beweis, schreiben die Prämissen $A \eor B$ und $\enot A$ oben auf die Zeilen $1$ und $2$, und geben die Schlussfolgerung~$B$ in der letzten Zeile an. $B$ hat keinen Hauptjunktor. Also können Sie nicht von $B$ aus rückwärts arbeiten. Stattdessen müssen Sie von $A \eor B$ vorwärts arbeiten. Das erfordert zwei Unterbeweise, etwa so:
+\begin{fitchproof}
+	\hypo{1}{A \eor B}
+	\hypo{7}{\enot A}
+	\open
+	\hypo{2}{A} 
+	\ellipsesline 
+	\have[m]{3}{B}
+	\close 
+	\open
+	\hypo{4}{B}
+	\ellipsesline
+	\have[k]{5}{B}
+	\close
+	\have{6}{B}\oe{1,2-3,(4)-5} 
+\end{fitchproof} 
+Beachten Sie, dass Sie $\enot A$ in Zeile ~$2$ haben und $A$ als Annahme in Ihrem ersten Unterbeweis. Das gibt Ihnen $\ered$ unter Verwendung von $\enot$E, und von $\ered$ können Sie ~$B$ mittels der Explosionsregel herleiten. Erinnern Sie sich, dass Sie einen Satz wiederholen können, den Sie bereits haben, indem Sie die Wiederholungsregel~R verwenden. Unser Beweis sieht nun so aus:
+\begin{fitchproof}
+	\hypo{1}{A \eor B}
+	\hypo{7}{\enot A}
+	\open
+	\hypo{2}{A} 
+	\have{8}{\ered}\ne{7,2} 
+	\have{3}{B}\re{8}
+	\close 
+	\open
+	\hypo{4}{B}
+	\have{5}{B}\by{R}{4}
+	\close
+	\have{6}{B}\oe{1,2-3,4-5} 
+\end{fitchproof} 
+
+\section{Indirekt voranschreiten}
+
+In sehr vielen Fällen zahlen sich die Strategien, vorwärts und rückwärts zu arbeiten, aus. Aber es gibt Fälle, in denen sie nicht funktionieren. Wenn Sie keine Möglichkeit finden, $\metav{A}$ direkt mithilfe dieser Strategien zu zeigen, verwenden Sie stattdessen IP. Richten Sie dazu einen Unterbeweis ein, in dem Sie $\enot\metav{A}$ annehmen. In diesem Unterbeweis versuchen Sie nun $\ered$ herzuleiten.
+
+\begin{fitchproof}
+\open
+\hypo[n]{2}{\enot A}
+\ellipsesline 
+\have[m]{3}{\ered}
+\close
+\have{4}{\metav{A}}\ip{2-3}
+\end{fitchproof}
+Hier müssen wir einen Unterbeweis mit der Annahme $\enot \metav{A}$ beginnen; die letzte Zeile des Unterbeweises muss ~$\ered$ sein. Wir zitieren den Unterbeweis und verwenden~IP als Regel. Im Unterbeweis haben wir nun eine zusätzliche Annahme (in Zeile $n$), mit der wir arbeiten müssen.
+
+Nehmen wir an, wir haben die Strategie des indirekten Beweises verwendet, oder wir befinden uns in einer anderen Situation, in der wir $\ered$ herleiten wollen. Was ist ein guter Kandidat für eine solche Herleitung? Natürlich wäre es naheliegend, eine Negation zu verwenden, da (wie wir oben gesehen haben) $\enot$E immer~$\ered$ ergibt. Wenn Sie einen Beweis wie oben aufgestellt haben und versuchen, $\metav{A}$ mittels~IP zu beweisen, verwenden Sie $\enot \metav{A}$ als Annahme Ihres Unterbeweises. Wenn Sie also von $\enot \metav{A}$ ausgehend vorwärts arbeitend $\ered$ herleiten wollen, ist Ihr nächstes Ziel $\metav{A}$ in Ihrem Unterbeweis zu erhalten. Wenn Sie diese IP-Strategie anwenden, werden Sie sich in der folgenden Situation wiederfinden: 
+\begin{fitchproof}
+\open
+\hypo[n]{2}{\enot \metav{A}}
+\ellipsesline
+\have[m][-1]{3}{\metav{A}}
+\have{4}{\ered}\ne{2,3}
+\close
+\have{5}{\metav{A}}\ip{2-4}
+\end{fitchproof} 
+Das sieht komisch aus: Wir wollten $\metav{A}$ beweisen, und unsere Strategien haben versagt; also haben wir IP eingesetzt. Aber jetzt befinden wir uns, scheinbar, wieder in der gleichen Situation: Wir suchen wieder nach einem Beweis für~$\metav{A}$. Aber beachten Sie, dass wir uns jetzt in einem Unterbeweis befinden. In diesem Unterbeweis haben wir zudem eine zusätzliche Annahme ($\enot \metav{A}$) zur Verfügung, die wir vorher nicht zur Verfügung hatten. Sehen wir uns ein Beispiel an.
+
+\section{Indirekter Beweis des ausgeschlossenen Dritten}\label{s:proofLEM}
+
+Der Satz $A \eor \enot A$ ist eine Tautologie und sollte daher auch ohne Prämissen zu beweisen sein. Aber rückwärts zu arbeiten scheitert: um $A \eor \enot A$ mit $\eor$I zu erhalten, müssten wir entweder $A$ oder $\enot A$ ohne Prämissen beweisen. Doch keiner der beiden Sätze ist eine Tautologie. Also werden wir auch nicht in der Lage sein, einen der beiden zu beweisen. Vorwärts zu arbeiten funktioniert auch nicht, da es nichts gibt, von dem aus wir vorwärts arbeiten könnten. Die einzige Möglichkeit ist also ein indirekter Beweis.
+
+\begin{fitchproof}
+	\open
+	\hypo{2}{\enot (A \eor \enot A)}
+	\ellipsesline
+	\have[m]{8}{\ered}
+	\close
+	\have{9}{A \eor \enot A}\ip{2-8}
+\end{fitchproof}
+Jetzt haben wir etwas, von dem aus wir vorwärts arbeiten können: die Annahme $\enot(A \eor \enot A)$. Um sie zu verwenden, rechtfertigen wir $\ered$ durch $\enot$E, indem wir die Annahme auf Zeile~$1$ und auch den entsprechenden nicht negierten Satz $A \eor \enot A$ zitieren, der noch zu beweisen ist.
+\begin{fitchproof}
+	\open
+	\hypo{2}{\enot (A \eor \enot A)}
+	\ellipsesline
+	\have[m][-1]{7}{A \eor \enot A}
+	\have{8}{\ered}\ne{2,7}
+	\close
+	\have{9}{A \eor \enot A}\ip{2-8}
+\end{fitchproof}
+Am Anfang konnten wir nicht rückwärts arbeiten, um $A \eor\enot A$ durch Anwendung von $\eor$I herzuleiten. Aber jetzt sind wir in einer anderen Situation: Wir wollen $A \eor\enot A$ innerhalb eines Unterbeweises herleiten. 
+
+Im Allgemeinen sollten wir, wenn wir uns neue Ziele fassen, mit den grundlegenden Strategien beginnen. In diesem Fall sollten wir zuerst versuchen, von der Disjunktion $A \eor \enot A$ aus rückwärts zu arbeiten, d.h.\@ wir wählen einen Disjunkt aus und versuchen, ihn herzuleiten. Wählen wir~$\enot A$. Dies lässt uns $A \eor \enot A$ auf Zeile~$m - 1$ mittels $\eor$I rechtfertigen. Dann arbeiten wir von $\enot A$ rückwärts und beginnen einen weiteren Unterbeweis, um $\enot A$ mit $\enot$I zu rechtfertigen. Dieser Unterbeweis muss $A$ als Annahme und~$\ered$ in der letzten Zeile haben.
+\begin{fitchproof}
+	\open
+	\hypo{2}{\enot (A \eor \enot A)}
+	\open
+	\hypo{3}{A}
+	\ellipsesline
+	\have[m][-3]{5}{\ered}
+	\close
+	\have{6}{\enot A}\ni{3-(5)}
+	\have{7}{A \eor \enot A}\oi{6}
+	\have{8}{\ered}\ne{2,7}
+	\close
+	\have{9}{A \eor \enot A}\ip{2-8}
+\end{fitchproof}
+In diesem neuen Unterbeweis müssen wir $\ered$ erneut herleiten. Der beste Weg, dies zu tun, ist, von einer Negation auszugehen; $\enot(A \eor \enot A)$ in Zeile~$1$ ist die einzige Negation, die wir verwenden können. Der entsprechende nicht negierte Satz, $A \eor \enot A$, folgt jedoch direkt aus $A$ (den wir in Zeile~$2$ haben) mittels $\eor$I. Unser vollständiger Beweis ist:
+\begin{fitchproof}
+	\open
+	\hypo{2}{\enot (A \eor \enot A)}
+	\open
+	\hypo{3}{A}
+	\have{4}{A \eor \enot A}\oi{3}
+	\have{5}{\ered}\ne{2,4}
+	\close
+	\have{6}{\enot A}\ni{3-5}
+	\have{7}{A \eor \enot A}\oi{6}
+	\have{8}{\ered}\ne{2,7}
+	\close
+	\have{9}{A \eor \enot A}\ip{2-8}
+\end{fitchproof}
+
+\practiceproblems
+
+\problempart
+Verwenden Sie die oben genannten Strategien, um Beweise für jedes der folgenden Argumente zu finden:
+\begin{earg}
+\item $A \eif B, A \eif C \therefore A \eif (B \eand C)$
+\item $(A \eand B) \eif C \therefore A \eif (B \eif C)$
+\item $A \eif (B \eif C) \therefore (A \eif B) \eif (A \eif C)$
+\item $A \eor (B \eand C) \therefore (A \eor B) \eand (A \eor C)$
+\item $(A \eand B) \eor (A \eand C) \therefore A \eand (B \eor C)$
+\item $A \eor B, A \eif C, B \eif D \therefore C \eor D$
+\item $\enot A \lor \enot B \therefore \enot(A \eand B)$
+\item $A \eand \enot B \therefore \enot(A \eif B)$
+\end{earg}
+
+\problempart
+Formulieren Sie Strategien für das Rückwärts- und Vorwärtsarbeiten von $\metav{A} \eiff \metav{B}$ aus.
+
+
+\problempart
+Verwenden Sie die oben genannten Strategien, um Beweise für jedes der folgenden Argumente zu finden:
+\begin{earg}
+\item $\enot A \eif (A \eif \ered)$
+\item $\enot(A \eand \enot A)$
+\item $[(A \eif C) \eand (B \eif C)] \eif [(A \lor B) \eif C]$
+\item $\enot(A \eif B) \eif (A \eand \enot B)$
+\item $(\enot A \eor B) \eif (A \eif B)$
+\end{earg}
+Da es sich dabei um Beweise von Sätzen ohne die Nutzung von Prämissen handeln soll, beginnen Sie mit dem jeweiligen Satz am \emph{Ende} des Beweises (dieser Beweis wird keine Prämissen haben).
+
+\problempart
+Verwenden Sie die oben genannten Strategien, um Beweise für jedes der folgenden Argumente zu finden:
+\begin{earg}
+\item $\enot\enot A \eif A$
+\item $\enot A \eif \enot B \therefore B \eif A$
+\item $A \eif B \therefore \enot A \eor B$
+\item $\enot(A \eand B) \eif (\enot A \eor \enot B)$
+\item $A \eif (B \eor C) \therefore (A \eif B) \eor (A \eif C)$
+\item $(A \eif B) \lor (B \eif A)$
+\item $((A \eif B) \eif A) \eif A$
+\end{earg}
+Diese Aufgaben erfordern die IP-Strategie. Besonders die letzten drei sind sehr schwierig!
+
+\chapter{Zusätzliche Regeln für die WFL}\label{s:Further}
+In \S\ref{s:BasicTFL} haben wir die Grundregeln unseres Herleitungssystems für die WFL vorgestellt. In diesem Abschnitt werden wir einige zusätzliche Regeln hinzufügen. Unser erweitertes Herleitungssystem ist etwas einfacher zu handhaben. (In \S\ref{s:Derived} werden wir jedoch sehen, dass die zusätzlichen Regeln streng genommen nicht notwendig sind).
+
+\section{Disjunktiver Syllogismus}
+Hier ist eine sehr natürliche Argumentationsform.
+	\begin{quote}
+		Eli ist entweder in Dortmund oder in Bochum. Sie ist nicht in Bochum. Also ist sie in Dortmund.
+	\end{quote}
+Diese Form wird \emph{disjunktiver Syllogismus} genannt. Wir fügen ihn wie folgt zu unserem Beweissystem hinzu:
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\metav{A} \eor \metav{B}}
+	\have[n]{nb}{\enot \metav{A}}
+	\have[\ ]{con}{\metav{B}}\by{DS}{ab, nb}
+\end{fitchproof}}
+und
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\metav{A} \eor \metav{B}}
+	\have[n]{nb}{\enot \metav{B}}
+	\have[\ ]{con}{\metav{A}}\by{DS}{ab, nb}
+\end{fitchproof}}
+Wie üblich können die Disjunktion und die Negation eines Disjunkts in beliebiger Reihenfolge und voneinander entfert auftreten. Wir zitieren jedoch immer zuerst die Disjunktion. 
+
+\section{Modus Tollens}
+Ein weiteres nützliches Argumentationsschema wird vom folgenden Argument veranschaulicht:
+	\begin{quote}
+		Wenn Olaf die Wahl gewonnen hat, dann residiert er im Bundeskanzleramt. Er residiert nicht im Bundeskanzleramt. Also hat er die Wahl nicht gewonnen.
+	\end{quote}
+Diese Argumentationsform nennt sich \emph{Modus Tollens}. Die dementsprechende Regel lautet:
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eif\metav{B}}
+	\have[n]{a}{\enot\metav{B}}
+	\have[\ ]{b}{\enot\metav{A}}\mt{ab,a}
+\end{fitchproof}}
+Wie üblich können die Prämissen in beliebiger Reihenfolge auftreten, aber wir zitieren immer zuerst das Konditional.
+
+\section{Doppelnegationelimination}
+Eine weitere nützliche Regel ist die Doppelnegationseliminierungsregel. Sie tut genau das, was auf der Verpackung angegeben ist:
+\factoidbox{\begin{fitchproof}
+		\have[m]{dna}{\enot \enot \metav{A}}
+		\have[ ]{a}{\metav{A}}\dne{dna}
+	\end{fitchproof}}
+
+Die Rechtfertigung für diese Regel ist, dass sich in der natürlichen Sprache Doppelverneinungen tendenziell aufheben. Sie sollten sich jedoch bewusst sein, dass Kontext und Betonung Sie daran hindern können. Betrachten Sie: `Jane ist nicht \emph{nicht} glücklich'. Man kann wohl nicht auf `Jane ist glücklich' schlie{\ss}en, da der Satz so verstanden werden sollte, dass er dasselbe bedeutet wie `Jane ist nicht \emph{un}glücklich'. Das aber ist zumindest vereinbar mit `Jane befindet sich in einem Zustand tiefer Gleichgültigkeit'. Wie üblich zwingt uns der Wechsel zur WFL dazu, gewisse Nuancen der deutschen Sprache auf dem Altar der formalen Präzision zu opfern.
+
+\section{Ausgeschlossenes Drittes}
+
+Nehmen wir an, wir können zeigen, dass, wenn es drau{\ss}en sonnig ist, Bill einen Schirm mitgebracht hat (aus Angst, sich einen Sonnenbrand einzufangen). Nehmen wir an, wir können auch zeigen, dass Bill einen Schirm mitgebracht hat, wenn es drau{\ss}en nicht sonnig ist (aus Angst vor Regen). Es gibt keine dritte Möglichkeit, wie das Wetter sein könnte. Also gilt: \emph{welches Wetter auch immer wir kriegen}, Bill wird einen Regenschirm mitgebracht haben. 
+
+Diese Denkweise motiviert die folgende Regel
+\factoidbox{\begin{fitchproof}
+		\open
+			\hypo[i]{a}{\metav{A}}
+			\have[j]{c1}{\metav{B}}
+		\close
+		\open
+			\hypo[k]{b}{\enot\metav{A}}
+			\have[l]{c2}{\metav{B}}
+		\close
+		\have[\ ]{ab}{\metav{B}}\tnd{a-c1,b-c2}
+	\end{fitchproof}}
+Die Regel wird manchmal als das Gesetz des \emph{ausgeschlossenen Dritten} bezeichnet, da sie die Idee verkörpert, dass $\metav{A}$ wahr ist oder $\enot \metav{A}$ wahr ist, aber es keinen dritten Weg gibt, nach dem beides nicht wahr ist.\footnote{Man kann manchmal Logiker*innen oder Philosoph*innen finden, die vom ``tertium non datur'' sprechen. Das ist dasselbe Prinzip wie das des ausgeschlossenen Dritten; es bedeutet ``kein Drittes ist gegeben''. Logiker*innen, die Bedenken gegen indirekte Beweise haben, haben auch Bedenken gegen diese Prinzip.} Wie üblich können beliebig viele Zeilen zwischen $i$ und $j$ liegen, und beliebig viele Zeilen zwischen $k$ und $l$ liegen. Au{\ss}erdem können die Unterbeweise in beliebiger Reihenfolge auftreten, und der zweite Unterbeweis muss nicht unmittelbar auf den ersten folgen.
+Um die Regel in Aktion zu sehen, betrachten Sie:
+	$$P \therefore (P \eand D) \eor (P \eand \enot D)$$
+Hier ist ein Beweis, der dem Argument entspricht:
+	\begin{fitchproof}
+		\hypo{a}{P}
+		\open
+			\hypo{b}{D}
+			\have{ab}{P \eand D}\ai{a, b}
+			\have{abo}{(P \eand D) \eor (P \eand \enot D)}\oi{ab}
+		\close
+		\open
+			\hypo{nb}{\enot D}
+			\have{anb}{P \eand \enot D}\ai{a, nb}
+			\have{anbo}{(P \eand D) \eor (P \eand \enot D)}\oi{anb}
+		\close
+		\have{con}{(P \eand D) \eor (P \eand \enot D)}\tnd{b-abo, nb-anbo}
+	\end{fitchproof}
+Ein weiteres Beispiel:
+\begin{fitchproof}
+	\hypo{ana}{A \eif \enot A}
+	\open
+		\hypo{a}{A}
+		\have{na}{\enot A}\ce{ana, a}
+	\close
+	\open
+		\hypo{na1}{\enot A}
+		\have{na2}{\enot A}\by{R}{na1}
+	\close
+	\have{na3}{\enot A}\tnd{a-na, na1-na2}
+\end{fitchproof}
+
+
+\section{De Morgansche Regeln}
+Unsere letzten zusätzlichen Regeln hei{\ss}en De~Morgansche Regeln (benannt nach Augustus De~Morgan). Die Form der Regeln sollte aus Wahrheitstabellen bekannt sein.
+
+Die erste De~Morgansche Regel lautet:
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\enot (\metav{A} \eand \metav{B})}
+	\have[\ ]{dm}{\enot \metav{A} \eor \enot \metav{B}}\dem{ab}
+\end{fitchproof}}
+Die zweite De~Morgansche Regel vertauscht Prämisse und Schlussfolgerung der ersten:
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\enot \metav{A} \eor \enot \metav{B}}
+	\have[\ ]{dm}{\enot (\metav{A} \eand \metav{B})}\dem{ab}
+\end{fitchproof}}
+Die dritte De~Morgansche Regel ist der \emph{Dual} der ersten:
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\enot (\metav{A} \eor \metav{B})}
+	\have[\ ]{dm}{\enot \metav{A} \eand \enot \metav{B}}\dem{ab}
+\end{fitchproof}}
+Und die vierte Regel vertauscht Prämisse und Schlussfolgerung der dritten:
+\factoidbox{\begin{fitchproof}
+	\have[m]{ab}{\enot \metav{A} \eand \enot \metav{B}}
+	\have[\ ]{dm}{\enot (\metav{A} \eor \metav{B})}\dem{ab}
+\end{fitchproof}}
+\emph{Dies sind alle zusätzlichen Regeln unseres Herleitungssystem für die WFL.}
+
+\practiceproblems
+\solutions
+\problempart
+\label{pr.justifyTFLproof}
+Bei den folgenden Beweisen fehlen die Zitate (Regeln und Zeilennummern). Fügen Sie sie dort hinzu, wo sie benötigt werden:
+\begin{earg}
+\item 
+	\begin{fitchproof}
+\hypo{1}{W \eif \enot B}
+\hypo{2}{A \eand W}
+\hypo{2b}{B \eor (J \eand K)}
+\have{3}{W}{}
+\have{4}{\enot B} {}
+\have{5}{J \eand K} {}
+\have{6}{K}{}
+\end{fitchproof}
+\item\begin{fitchproof}
+\hypo{1}{L \eiff \enot O}
+\hypo{2}{L \eor \enot O}
+\open
+	\hypo{a1}{\enot L}
+	\have{a2}{\enot O}{}
+	\have{a3}{L}{}
+	\have{a4}{\ered}{}
+\close
+\have{3b}{\enot\enot L}{}
+\have{3}{L}{}
+\end{fitchproof}
+\item\begin{fitchproof}
+\hypo{1}{Z \eif (C \eand \enot N)}
+\hypo{2}{\enot Z \eif (N \eand \enot C)}
+\open
+	\hypo{a1}{\enot(N \eor  C)}
+	\have{a2}{\enot N \eand \enot C} {}
+	\have{a6}{\enot N}{}
+	\have{b4}{\enot C}{}
+		\open
+		\hypo{b1}{Z}
+		\have{b2}{C \eand \enot N}{}
+		\have{b3}{C}{}
+		\have{red}{\ered}{}
+	\close
+	\have{a3}{\enot Z}{}
+	\have{a4}{N \eand \enot C}{}
+	\have{a5}{N}{}
+	\have{a7}{\ered}{}
+\close
+\have{3b}{\enot\enot(N \eor C)}{}
+\have{3}{N \eor C}{}
+\end{fitchproof}
+\end{earg}
+
+\problempart 
+Geben Sie für jedes dieser Argumente einen Beweis an:
+\begin{earg}
+\item $E\eor F$, $F\eor G$, $\enot F \therefore E \eand G$
+\item $M\eor(N\eif M) \therefore \enot M \eif \enot N$
+\item $(M \eor N) \eand (O \eor P)$, $N \eif P$, $\enot P \therefore M\eand O$
+\item $(X\eand Y)\eor(X\eand Z)$, $\enot(X\eand D)$, $D\eor M \therefore M$
+\end{earg}
+
+
+
+\chapter{Beweistheoretische Begriffe}\label{s:ProofTheoreticConcepts}
+
+In diesem Kapitel führen wir einige neue Begriffe ein.
+
+Der folgende Ausdruck:
+$$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \proves \metav{C}$$
+bedeutet, dass es einen Beweis gibt, der mit $\metav{C}$ endet und dessen Prämissen $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ umfassen. Wenn wir sagen wollen, dass es \emph{nicht} der Fall ist, dass es einen Beweis gibt, der mit $\metav{C}$ endet und $\metav{A}_1$, $\metav{A}_2$, \dots,~$\metav{A}_n$ beginnt, dann schreiben wir: 
+$$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \nproves \metav{C}$$ 
+
+Das Symbol `$\proves$' nennen wir das \emph{einfache Drehkreuz}. Dieses Symbol darf nicht mit dem doppelten Drehkreuz-Symbol (`$\entails$') verwechselt werden. Das letztere Symbol führten wir in Kapitel~\ref{s:SemanticConcepts} ein, um die Folgebeziehung zu symbolisieren. Das einfache Drehkreuz, `$\proves$', betrifft die Existenz eines Beweises; das doppelte Drehkreuz, `$\entails$', die Existenz von Bewertungen (oder, wenn wir es in der LEO verwenden, die Existenz von Interpretationen). \emph{Das einfache und doppelte Drehkreuz sind unterschiedliche Begriffe.}
+
+Bewaffnet mit unserem `$\proves$'-Symbol können wir noch weitere Begriffe einführen. Um zu sagen, dass es einen Beweis für $\metav{A}$ gibt, ohne Prämissen, schreiben wir: ${} \proves \metav{A}$. In diesem Fall sagen wir, dass $\metav{A}$ ein \define{Theorem} ist.
+	\factoidbox{\label{def:syntactic_tautology_in_sl}
+		$\metav{A}$ ist ein \define{Theorem} genau dann, wenn $\proves \metav{A}$
+	}
+\newglossaryentry{theorem}
+{
+name=theorem,
+description={Ein Satz, der ohne Prämissen hergeleitet werden kann}
+}
+
+Um dies zu veranschaulichen, nehmen wir an, wir wollen zeigen, dass `$\enot (A \eand \enot A)$' ein Theorem ist. Wir brauchen also einen Beweis für `$\enot (A \eand \enot A)$', der \emph{keine} Prämissen hat. Da wir einen Satz beweisen wollen, dessen Hauptjunktor eine Negation ist, beginnen wir mit einem \emph{Unterbeweis}, innerhalb dessen wir `$A \eand \enot A$' annehmen und zeigen, dass diese Annahme zu einem Widerspruch führt. Alles in allem sieht der Beweis also wie folgt aus:
+	\begin{fitchproof}
+		\open
+			\hypo{con}{A \eand \enot A}
+			\have{a}{A}\ae{con}
+			\have{na}{\enot A}\ae{con}
+			\have{red}{\ered}\ne{na, a}
+		\close
+		\have{lnc}{\enot (A \eand \enot A)}\ni{con-red}
+	\end{fitchproof}
+Hiermit haben wir `$\enot (A \eand \enot A)$' ohne Prämissen hergeleitet (obwohl wir natürlich eine getilgte Anname genutzt haben). Dieses Theorem ist ein Beispiel für das, was manchmal \emph{das Gesetz des Nicht-Widersprechens} genannt wird.
+
+Um zu zeigen, dass ein Satz ein Theorem ist, muss man nur einen geeigneten Beweis finden. Es ist normalerweise viel schwieriger zu zeigen, dass etwas \emph{kein} Theorem ist. Dazu müsste man nicht nur zeigen, dass bestimmte Beweisstrategien versagen, sondern auch, dass kein Beweis möglich ist. Selbst wenn Sie beim Versuch, einen Satz auf tausend verschiedene Arten zu beweisen, scheitern, ist der Beweis vielleicht einfach zu lang und zu komplex, als dass Sie ihn verstehen könnten. Oder vielleicht haben Sie sich einfach nicht genug angestrengt.
+
+Hier ist ein weiterer nützlicher Begriff:
+	\factoidbox{
+		Zwei Sätze \metav{A} und \metav{B} sind \define{beweisbar äquivalent} genau dann, wenn jeder vom jeweils anderen hergeleitet werden kann; d.h.\@ es gilt sowohl $\metav{A}\proves\metav{B}$ als auch $\metav{B}\proves\metav{A}$.
+	}
+        
+\newglossaryentry{beweisbar äquivalent}
+{
+  name=beweisbare Äquivalenz,
+  text = beweisbare Äquivalenz,
+description={Eine Eigenschaft von Satzpaaren, laut der jeder der beiden Sätze von dem jeweils anderen hergeleitet werden kann}
+}
+
+Wie im Falle von Theoremen, ist es relativ einfach zu zeigen, dass zwei Sätze beweisbar äquivalent sind: es bedarf lediglich zweier Beweise. Aber zu zeigen, dass Sätze \emph{nicht} beweisbar äquivalent sind, ist viel schwieriger: es ist genauso schwierig wie zu zeigen, dass ein Satz kein Theorem ist. 
+
+Hier ist ein dritter, verwandter Begriff:
+	\factoidbox{
+		Die Sätze $\metav{A}_1,\metav{A}_2,\ldots, \metav{A}_n$ sind \define{beweisbar inkonsistent} genau dann, wenn man von ihnen einen Widerspruch herleiten kann, d.h.\@, $\metav{A}_1,\metav{A}_2,\ldots, \metav{A}_n \proves \ered$. Wenn diese Sätze nicht \define{beweisbar inkonsistent} sind, dann nennen wir sie \define{beweisbar konsistent}.
+	}
+        
+\newglossaryentry{beweisbar inkonsistent}
+{    name={beweisbare Inkonsistenz}, 
+  description={Sätze sind beweisbar inkonsistent genau dann, wenn man von ihnen einen Widerspruch herleiten kann},
+    text={beweisbare Inkonsistenz}
+}
+
+Es ist leicht zu zeigen, dass einige Sätze beweisbar inkonsistent sind: Man muss nur einen Widerspruch als Resultat der Annahme dieser Sätze beweisen können. Zu zeigen, dass einige Sätze nicht beweisbar inkonsistent sind, ist viel schwieriger. Es erfordert mehr, als nur den einen oder anderen Beweis zu erbringen; es erfordert, dass kein Beweis einer bestimmten Art gegeben werden kann.
+\
+\\
+Die folgende Tabelle fasst zusammen, ob ein oder zwei Beweise ausreichen, oder ob wir über alle möglichen Beweise nachdenken müssen.
+\begin{center}
+\begin{tabular}{l l l}
+%\cline{2-3}
+ & \textbf{Yes} & \textbf{No}\\
+ \hline
+%\cline{2-3}
+Theorem? & ein Beweis & alle möglichen Beweise\\
+Inkonsistent? &  ein Beweis  & alle möglichen Beweise\\
+Äquivalent? & zwei Beweise & alle möglichen Beweise\\
+Konsistent? & alle möglichen Beweise & ein Beweis\\
+\end{tabular}
+\end{center}
+
+
+\practiceproblems
+\problempart
+Zeigen Sie, dass jeder der folgenden Sätze ein Theorem ist:
+\begin{earg}
+\item $O \eif O$
+\item $N \eor \enot N$
+\item $J \eiff [J\eor (L\eand\enot L)]$
+\item $((A \eif B) \eif A) \eif A$ 
+\end{earg}
+
+\problempart
+Geben Sie Beweise an, um die folgenden Dinge zu zeigen:
+\begin{earg}
+\item $C\eif(E\eand G), \enot C \eif G \proves G$
+\item $M \eand (\enot N \eif \enot M) \proves (N \eand M) \eor \enot M$
+\item $(Z\eand K)\eiff(Y\eand M), D\eand(D\eif M) \proves Y\eif Z$
+\item $(W \eor X) \eor (Y \eor Z), X\eif Y, \enot Z \proves W\eor Y$
+\end{earg}
+
+\problempart
+Zeigen Sie, dass jedes der folgenden Satzpaare beweisbar äquivalent ist:
+\begin{earg}
+\item $R \eiff E$, $E \eiff R$
+\item $G$, $\enot\enot\enot\enot G$
+\item $T\eif S$, $\enot S \eif \enot T$
+\item $U \eif I$, $\enot(U \eand \enot I)$
+\item $\enot (C \eif D), C \eand \enot D$
+\item $\enot G \eiff H$, $\enot(G \eiff H)$ 
+\end{earg}
+
+\problempart
+Wenn Sie wissen, dass $\metav{A}\proves\metav{B}$, was können Sie zu $(\metav{A}\eand\metav{C})\proves\metav{B}$ sagen? Und was zu $(\metav{A}\eor\metav{C})\proves\metav{B}$? Begründen Sie Ihre Antworten.
+
+\
+
+\problempart 
+In diesem Kapitel haben wir behauptet, dass es ebenso schwer ist, zu zeigen, dass zwei Sätze nicht beweisbar äquivalent sind, wie zu zeigen, dass ein Satz kein Theorem ist. Warum haben wir dies behauptet? (\emph{Hinweis}: Stellen Sie sich einen Satz vor, der ein Theorem wäre, genau dann, wenn \metav{A} und \metav{B} beweisbar äquivalent wären).
+
+\chapter{Abgeleitete Regeln}\label{s:Derived}
+In diesem Kapitel werden wir sehen, warum wir die Regeln unseres Herleitungssystems in zwei Abschnitten eingeführt haben. Insbesondere wollen wir zeigen, dass die zusätzlichen Regeln von \S\ref{s:Further} streng genommen nicht notwendig sind, sondern aus den Grundregeln von \S\ref{s:BasicTFL} abgeleitet werden können. 
+
+\section{Herleitung der Wiederholungsregel}
+Um zu veranschaulichen, was es bedeutet, eine \emph{Regel} aus anderen Regeln abzuleiten, betrachten Sie zunächst die Wiederholungsregel. Diese ist eine Grundregel unseres Systems, aber sie ist eigentlich nicht notwendig. Um dies zu sehen, nehmen Sie an, dass Sie einen Satz auf einer Zeile Ihres Beweises haben:
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+\end{fitchproof}
+Sie wollen sich jetzt wiederholen, in irgendeiner Zeile $k$. Sie könnten sich einfach auf die Regel~R berufen. Aber genauso gut könnten Sie sich auch auf andere Grundregeln in \S\ref{s:BasicTFL} berufen:
+\begin{fitchproof}
+	\have[m]{a}{\metav{A}}
+	\have[k]{aa}{\metav{A} \eand \metav{A}}\ai{a, a}
+	\have{a2}{\metav{A}}\ae{aa}
+\end{fitchproof}
+Um es klar zu sagen: Dies ist kein Beweis. Vielmehr ist es ein Beweis\emph{schema}. Schlie{\ss}lich verwendet es eine Variable, `$\metav{A}$', anstatt eines Satzes der WFL. Aber der Punkt ist einfach: Egal welche Sätze der WFL wir für `$\metav{A}$' ersetzen, und egal in welchen Zeilen wir arbeiten, wir können einen Beweis erbringen, der der obigen Form entspricht. Man kann sich unser Beweisschema also als ein Rezept für das Herstellen von Beweisen vorstellen. 
+
+In der Tat ist es ein Rezept, das uns folgendes zeigt: Alles, was wir mit der Regel ~R beweisen können, können wir (mit einer weiteren Zeile) allein mit den Grundregeln in \S\ref{s:BasicTFL}, ohne~R, beweisen. Das bedeutet, dass die Regel~R aus den anderen Grundregeln abgeleitet werden kann: Alles, was wir mit~R rechtfertigen können, können wir auch nur mit den anderen Grundregeln rechtfertigen.
+
+\section{Ableitung des disjunktiven Syllogismus}
+Nehmen Sie an, Sie befinden sich in einem Beweis und sie sto{\ss}en auf das folgende:
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eor\metav{B}}
+	\have[n]{na}{\enot \metav{A}}
+\end{fitchproof}
+Sie wollen jetzt, in der Zeile $k$, $\metav{B}$ beweisen. Sie können dies mit der Regel DS tun, die wir in \S\ref{s:Further} eingeführt haben. Aber ebenso gut können Sie dies mit den Grundregeln in \S\ref{s:BasicTFL} tun:
+	\begin{fitchproof}
+		\have[m]{ab}{\metav{A}\eor\metav{B}}
+		\have[n]{na}{\enot \metav{A}}
+		\open
+			\hypo[k]{a}{\metav{A}}
+			\have{red}{\ered}\ne{na, a}
+			\have{b1}{\metav{B}}\re{red}
+		\close
+		\open
+			\hypo{b}{\metav{B}}
+			\have{b2}{\metav{B}}\by{R}{b}
+		\close
+	\have{con}{\metav{B}}\oe{ab, a-b1, b-b2}
+\end{fitchproof}
+Die DS-Regel kann also wiederum aus unseren Grundregeln abgeleitet werden. Ihre Aufnahme in unser System ermöglicht uns keine neuen Beweise. Jedes Mal, wenn Sie die DS-Regel verwenden, könnten Sie auch ein paar Zeilen mehr nutzen und dasselbe nur mittels unserer Grundregeln beweisen. Daher ist die DS-Regel eine \emph{abgeleitete} Regel.
+
+\section{Ableitung des Modus Tollens}
+Nehmen Sie an, Sie finden das folgende in Ihrem Beweis:
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eif\metav{B}}
+	\have[n]{a}{\enot\metav{B}}
+\end{fitchproof}
+Sie wollen jetzt, in Zeile $k$, $\enot \metav{A}$ beweisen. Sie können dies mit der MT-Regel tun, die wir in \S\ref{s:Further} eingeführt haben. Genauso gut können Sie dies allerdings auch mit den Grundregeln in \S\ref{s:BasicTFL} tun:
+\begin{fitchproof}
+	\have[m]{ab}{\metav{A}\eif\metav{B}}
+	\have[n]{nb}{\enot\metav{B}}
+		\open
+		\hypo[k]{a}{\metav{A}}
+		\have{b}{\metav{B}}\ce{ab, a}
+		\have{nb1}{\ered}\ne{nb, b}
+		\close
+	\have{no}{\enot\metav{A}}\ni{a-nb1}
+\end{fitchproof}
+Die MT-Regel kann also von den Grundregeln unseres Herleitungssystems abgeleitet werden.
+
+\section{Ableitung der Doppelnegationseliminationsregel}
+Betrachten Sie das folgende Beweisschema:
+	\begin{fitchproof}
+	\have[m]{m}{\enot \enot \metav{A}}
+	\open
+		\hypo[k]{a}{\enot\metav{A}}
+		\have{a1}{\ered}\ne{m, a}
+	\close
+	\have{con}{\metav{A}}\ip{a-a1}
+\end{fitchproof}
+Dies zeigt, dass wir die Doppelnegationseliminationsregel von den Grundregeln unseres Herleitungssystems ableiten können.
+
+\section{Ableitung des ausgeschlossenen Dritten}
+Angenommen, Sie wollen etwas mit der GAD-Regel beweisen, d.h. Sie haben in Ihrem Beweis:
+\begin{fitchproof}
+  \open
+  \hypo[m]{a}{\metav{A}}
+  \have[n]{aaa}{\metav{B}}
+  \close
+  \open
+  \hypo[k]{b}{\enot\metav{A}}
+  \have[l]{bbb}{\metav{B}}
+  \close
+\end{fitchproof}
+Sie wollen jetzt, in Zeile $l+1$, $\metav{B}$ herleiten. Die Regel GAD in \S\ref{s:Further} würde es Ihnen erlauben, dies zu tun. Aber können Sie dies auch mit den Grundregeln unseres Herleitungssystems tun?
+
+Eine Möglichkeit ist, zuerst zu beweisen, dass $\metav{A} \eor \enot\metav{A}$, und dann $\eor$E anzuwenden:
+\begin{fitchproof}
+  \open
+  \hypo[m]{a}{\metav{A}}
+  \have[n]{aaa}{\metav{B}}
+  \close
+  \open
+  \hypo[k]{b}{\enot\metav{A}}
+  \have[l]{bbb}{\metav{B}}
+  \close
+  \ellipsesline
+  \have[i]{tnd}{\metav{A} \eor \enot \metav{A}}
+  \have[i+1]{fin}{\metav{B}}\oe{tnd, a-aaa,b-bbb}
+\end{fitchproof}
+(Wir gaben einen Beweis für $\metav{A} \eor \enot\metav{A}$ nur mit unseren Grundregeln in \S\ref{s:proofLEM}).
+
+Hier ist ein anderer Weg, der etwas komplizierter als die vorherigen ist. Was Sie tun müssen, ist, Ihre beiden Unterbeweise in einen anderen Unterbeweis einzubetten. Die Annahme des Unterbeweises ist $\enot \metav{B}$, und die letzte Zeile $\ered$. Der vollständige Unterbeweis erlaubt Ihnen, $\metav{B}$ unter Verwendung von IB herzuleiten. Innerhalb des Beweises müssten Sie allerdings etwas mehr Arbeit leisten, um $\ered$ zu erhalten:
+\begin{fitchproof}
+  \open
+  \hypo[m]{nb}{\enot\metav{B}}
+  \open
+  \hypo{a}{\metav{A}}
+  \ellipsesline
+  \have[n]{aaa}{\metav{B}}
+  \have{aaaa}{\ered}\ne{nb, aaa}
+  \close
+  \open
+  \hypo{b}{\enot\metav{A}}
+  \ellipsesline
+  \have[l]{bbb}{\metav{B}}
+  \have{bbbb}{\ered}\ne{nb, bbb}
+  \close
+  \have{na}{\enot\metav{A}}\ni{(a)-(aaaa)}
+  \have{nna}{\enot\enot\metav{A}}\ni{(b)-(bbbb)}
+  \have{bot}{\ered}\ne{nna, na}
+  \close
+  \have{B}{\metav{B}}\ip{nb-(bot)}
+\end{fitchproof}
+Beachten Sie, dass sich die Zeilennummern ändern, da wir oben eine Annahme, sowie zusätzliche Schlussfolgerungen innerhalb der Unterbeweise, hinzufügen. Es könnte sein, dass Sie eine Weile auf diesen Beweis starren müssen, bevor Sie verstehen, was hier vonstatten geht.
+
+\section{Ableitung der De Morganschen Regeln}
+Hier ist eine Demonstration, wie wir die erste De Morgansche Regel ableiten können:
+ 	\begin{fitchproof}
+		\have[m]{nab}{\enot (\metav{A} \eand \metav{B})}
+		\open
+			\hypo[k]{a}{\metav{A}}
+			\open
+				\hypo{b}{\metav{B}}
+				\have{ab}{\metav{A} \eand \metav{B}}\ai{a,b}
+				\have{nab1}{\ered}\ne{nab, ab}
+			\close
+			\have{nb}{\enot \metav{B}}\ni{b-nab1}
+			\have{dis}{\enot\metav{A} \eor \enot \metav{B}}\oi{nb}
+		\close
+		\open
+			\hypo{na1}{\enot \metav{A}}
+			\have{dis1}{\enot\metav{A} \eor \enot \metav{B}}\oi{na1}
+		\close
+		\have{con}{\enot \metav{A} \eor \enot \metav{B}}\tnd{a-dis, na1-dis1}
+	\end{fitchproof}
+Hier ist eine Demonstration, wie wir die zweite De Morgansche Regel ableiten können:
+ 	\begin{fitchproof}
+		\have[m]{nab}{\enot \metav{A} \eor \enot \metav{B}}
+		\open
+			\hypo[k]{ab}{\metav{A} \eand \metav{B}}
+			\have{a}{\metav{A}}\ae{ab}
+			\have{b}{\metav{B}}\ae{ab}
+			\open
+				\hypo{na}{\enot \metav{A}}
+				\have{c1}{\ered}\ne{na, a}
+			\close
+			\open
+				\hypo{nb}{\enot \metav{B}}
+				\have{c2}{\ered}\ne{nb, b}
+			\close
+			\have{con2}{\ered}\oe{nab, na-c1, nb-c2}
+		\close
+		\have{nab}{\enot (\metav{A} \eand \metav{B})}\ni{ab-con2}
+	\end{fitchproof}
+Ähnliche Demonstrationen erklären, wie wir die dritte und vierte De Morgansche Regel von unseren Grundregeln ableiten können. Diese werden Ihnen aber als Übung überlassen.
+
+\practiceproblems
+
+\problempart
+Geben Sie Beweisschemata an, die die Hinzufügung der dritten und vierten De Morganschen Regeln als abgeleitete Regeln rechtfertigen. 
+
+\
+
+\problempart
+Die Beweise, die Sie zu den Übungen in \S\S\ref{s:Further}--\ref{s:ProofTheoreticConcepts} erstellt haben, nutzten abgeleitete Regeln. Ersetzen Sie die abgeleiteten Regeln in diesen Beweisen mit Grundregeln. Sie werden in den resultierenden Beweisen einige Wiederholungen finden; in solchen Fällen, bieten Sie einen eleganteren Beweis an, der nur Grundregeln verwendet. (Dadurch erhalten Sie ein Gefühl sowohl für die Kraft der abgeleiteten Regeln als auch für das Zusammenspiel aller Regeln).
+
+\
+
+\problempart
+Beweisen Sie $\metav{A} \eor \enot\metav{A}$. Dann geben Sie einen Beweis für diesen Satz, der \emph{nur die Grundregeln verwendet}.
+
+\
+
+\problempart
+Zeigen Sie, dass Sie, wenn Sie GAD als Grundregel hätten, IB als abgeleitete Regel rechtfertigen können. Das hei{\ss}t, nehmen wir an, Sie hätten den Beweis:
+\begin{fitchproof}
+  \open
+  \hypo[m]{a}{\enot\metav{A}}
+  \have[\ ]{aa}{\dots}
+  \have[n]{aaa}{\ered}
+  \close
+\end{fitchproof}
+Wie könnten Sie GAD verwenden, um $\metav{A}$ ohne die Verwendung von IB, aber mit GAD und allen anderen Grundregeln, herzuleiten?
+
+\
+
+\problempart
+Geben Sie einen Beweis für die erste De Morgansche Regel, der nur die Grundregeln verwendet, und insbesondere \emph{ohne GAD} auskommt. (Natürlich können Sie den Beweis mit GAD mit dem Beweis \emph{von}~GAD kombinieren. Versuchen Sie jedoch auch, auf andere Art einen Beweis zu finden).
+
+\chapter{Korrektheit und Vollständigkeit}
+\label{sec:soundness_and_completeness}
+
+In \S\ref{s:ProofTheoreticConcepts} haben wir gesehen, dass wir Beweise zu ähnlichen Zwecken wie Wahrheitstabellen verwenden können. Wir konnten Beweise nicht nur verwenden, um zu beweisen, dass ein Argument gültig ist, sondern auch, um zu testen, ob ein Satz eine Tautologie ist, oder, ob ein Satzpaar äquivalent ist. Wir begannen auch, das einfache Drehkreuz auf die gleiche Weise wie das doppelte Drehkreuz zu verwenden. Wenn wir mit einer Wahrheitstabelle beweisen konnten, dass \metav{A} eine Tautologie ist, schrieben wir $\entails \metav{A}$, und wenn wir es mit einer Ableitung beweisen konnten, schrieben wir $\proves \metav{A}.$ 
+
+Vielleicht haben Sie sich an diesem Punkt gefragt, ob die beiden Drehkreuze immer auf die gleiche Weise funktionieren. Wenn Sie mit Hilfe von Wahrheitstabellen zeigen können, dass \metav{A} eine Tautologie ist, können Sie dann auch immer mittels eines Beweises zeigen, dass es sich bei diesem Satz um ein Theorem handelt? Ist die Rückrichtung auch der Fall? Trifft dies auch auf gültige Argumente und Paare von äquivalenten Sätzen zu? Wie sich herausstellt, lautet die Antwort auf all diese Fragen und noch viele andere ähnliche Fragen: Ja. Wir können dies zeigen, indem wir all diese Begriffe einzeln definieren und sie dann als äquivalent beweisen. Das hei{\ss}t, wir stellen uns vor, dass wir tatsächlich zwei Gültigkeitsbegriffe haben, nämlich gültig$_{\entails}$ und gültig$_{\proves}$, und zeigen dann, dass die beiden Begriffe immer gleich funktionieren. 
+
+Zu Beginn müssen wir alle unsere logischen Begriffe getrennt für Wahrheitstabellen und Beweise definieren. Vieles von dieser Arbeit haben wir bereits getan. Wir haben alle Wahrheitstabellen-Definitionen in \S\ref{s:SemanticConcepts} behandelt. Wir haben auch bereits syntaktische, beweistheoretische Definitionen von Tautologien (Theoreme) und Paaren äquivalenter Sätze gegeben. Die anderen Definitionen folgen natürlich. Für die meisten logischen Begriffe können wir einen Test mittels Beweisen entwickeln, und diejenigen, auf die wir nicht direkt testen können, können durch Begriffe definiert werden, auf die wir testen können.
+
+Beispielsweise haben wir ein Theorem als einen Satz definiert, der ohne Prämissen abgeleitet werden kann (~\pageref{def:syntactic_tautology_in_sl}). Da die Negation eines Widerspruchs eine Tautologie ist, können wir einen \define{beweisbaren Widerspruch der WFL}\label{def:syntactic_contradiction_in_sl} als einen Satz definieren, dessen Negation ohne Prämissen abgeleitet werden kann. Die syntaktische, beweistheoretische Definition eines kontingenten Satzes ist ein wenig anders. Wir haben keine praktische, endliche Methode, um mit Herleitungen zu beweisen, dass ein Satz kontingent ist, so wie wir es mit Wahrheitstabellen getan haben. Wir müssen uns also damit begnügen, den Begriff eines kontingenten Satzes negativ zu definieren. Ein Satz ist \define{beweisbar kontingent in der WFL}\label{def:syntactically_contingent_in_sl} genau dann, wenn es sich bei ihm weder um ein Theorem noch einen Widerspruch handelt. 
+
+Eine Menge an Sätzen ist \define{beweisbar inkonsistent in der WFL} \label{def:syntactically_inconsistent_ in_sl} genau dann, wenn man von ihnen einen Widerspruch herleiten kann. Konsistenz dagegen ist wie die Kontingenz. Wir haben keine praktische, endliche Methode, um mit Herleitungen zu beweisen, dass eine Menge an Sätzen konsistent ist. Auch hier müssen wir unseren Begriff also negativ definieren. Eine Menge an Sätzen ist \define{beweisbar konsistent in der WFL}\label{def:syntactically consistent in SL} genau dann, wenn sie nicht beweisbar inkonsistent ist.
+
+Schlie{\ss}lich ist ein Argument in der WFL \define{beweisbar gültig}\label{def:syntactically_valid_in_SL} genau dann, wenn es eine Ableitung dessen Schlussfolgerung von dessen Prämissen gibt. Alle diese Definitionen sind in Tabelle \ref{table:truth_tables_or_derivations}. aufgeführt.
+
+\begin{sidewaystable}\small
+\tabulinesep=1ex
+\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+\textbf{Concept} 		&	\textbf{Wahrheitstabellendefinition (Semantisch)} 	&	\textbf{Beweistheoretische Definition (Syntaktisch) } \\ \hline \hline
+
+Tautologie   &	Ein Satz, dessen Wahrheitstabelle nur Ts in der Spalte unter seinem Hauptjunktor hat & Ein Satz, der ohne Prämissen hergeleitet werden kann \\ \hline
+ 
+Widerspruch		&	Ein Satz, dessen Wahrheitstabelle nur Fs in der Spalte unter seinem Hauptjunktor hat  &	Ein Satz, dessen Negation ohne Prämissen hergeleitet werden kann \\ \hline
+
+kontingenter Satz	&	Ein Satz, dessen Wahrheitstabelle sowohl Ts als auch Fs in der Spalte unter seinem Hauptjunktor hat & Ein Satz, der weder ein Theorem noch ein Widerspruch ist \\ \hline
+
+Äquivalente Sätze &	Die Spalten unter den Hauptjunktoren sind identisch & Die Sätze können voneinander hergeleitet werden \\ \hline
+
+gemeinsam unmögliche/ inkonsistente Sätze	&	Sätze, die keine einzige Zeile in ihrer Wahrheitstabelle haben, in der sie alle wahr sind & Sätze, aus denen man einen Widerspruch herleiten kann \\ \hline
+
+gemeinsam mögliche/ konsistente Sätze	&	Sätze, die zumindest eine Zeile in ihrer Wahrheitstabelle haben, in der sie alle wahr sind & Sätze, aus denen man keinen Widerspruch herleiten kann \\ \hline
+
+gültiges Argument	&	Ein Argument, dessen Wahrheitstabelle keine Zeile hat, in der nur Ts unter den Hauptjunktoren der Prämissen und mindestens ein F unter dem Hauptjunktor der Schlussfolgerung stehen & Ein Argument, dessen Schlussfolgerung man von dessen Prämissen herleiten kann \\ 
+\end{tabu}
+\caption{Zwei Wege logische Begriffe zu definieren}
+\label{table:truth_tables_or_derivations}
+\end{sidewaystable}
+
+Alle unsere Konzepte sind jetzt sowohl semantisch als auch syntaktisch definiert. Wie können wir beweisen, dass diese Definitionen immer gleich funktionieren? Ein vollständiger Beweis geht weit über den Rahmen dieses Lehrbuchs hinaus. Wir können jedoch skizzieren, wie er aussehen würde. Wir werden uns darauf konzentrieren, zu zeigen, dass die beiden Gültigkeitsbegriffe äquivalent sind.  Daraus folgt die Äquivalenz der anderen Begriffe recht schnell. Der Beweis wird in zwei Richtungen laufen. Zunächst werden wir zeigen, dass Dinge, die syntaktisch gültig sind, auch semantisch gültig sind. Mit anderen Worten: Alles, was wir mit Herleitungen beweisen können, könnten wir auch mit Wahrheitstabellen beweisen. In Symbolen: wir wollen zeigen, dass gültig$_{\proves}$ gültig$_{\entails}$ zur Folge hat. Danach müssen wir in die anderen Richtung laufen und zeigen, dass gültig$_{\entails}$ gültig$_{\proves}$ zur Folge hat.
+
+\newglossaryentry{Korrektheit}
+{
+name=Korrektheit,
+description={Eine Eigenschaft von logischen Systemen, laut der $\proves $ $\entails $ zur Folge hat}
+}
+
+Dieses Argument von $\proves $ nach $\entails$ ist das Problem der \define{Korrektheit}. Ein Herleitungssystem ist \define{korrekt} wenn es keine Herleitungen zulässt, die in Wahrheitstabellen ungültig sind. Um zu zeigen, dass unser Herleitungssystem korrekt ist, müssten wir zeigen, dass \emph{jeder} mögliche Beweis der Beweis eines gültigen Arguments ist. Es würde nicht ausreichen, viele gültige Argumente erfolgreich zu beweisen und viele ungültige Argumente nicht zu beweisen.
+
+Der Beweis, den wir skizzieren werden, hängt von der Tatsache ab, dass wir einen Satz der WFL unter Verwendung einer induktiven Definition definiert haben (siehe ~\pageref{TFLsentences}). Wir hätten auch induktive Definitionen verwenden können, um einen korrekten Beweis der WFL und eine korrekte Wahrheitstabelle zu definieren. Wenn wir diese Definitionen hätten, könnten wir einen induktiven Beweis verwenden, um die Korrektheit der WFL zu zeigen. 
+
+Ein induktiver Beweis funktioniert auf dieselbe Weise wie eine induktive Definition. Mit der induktiven Definition identifizierten wir eine Gruppe von Basiselementen, die als Beispiele für das, was wir zu definieren versuchten, festgelegt wurden. Im Falle eines WFL-Satzes waren die Satzbuchstaben $A$, $B$, $C$, $\dots$ die Basiselemente. Wir gaben bekannt, dass dies Sätze sind. Der zweite Schritt einer induktiven Definition besteht darin, zu sagen, dass alles, was aus diesen Basiselemente nach bestimmten Regeln aufgebaut wird, auch als Beispiel für das, was wir definieren, gilt. Im Falle einer Definition eines Satzes entsprachen die Regeln den fünf Junktoren (siehe S.~\pageref{TFLsentences}). Sobald Sie eine induktive Definition haben, können Sie diese Definition verwenden, um zu zeigen, dass alle Mitglieder der von Ihnen definierten Kategorie eine bestimmte Eigenschaft haben. Sie beweisen einfach, dass die Basiselemente in diese Kategorie fallen. Dann beweisen Sie, dass die Regeln für die Erweiterung der Basisklasse nicht ändern, ob Dinge in die relevante Kategorie fallen. Das genügt, um einen induktiven Beweis zu erbringen.
+
+Auch wenn wir in der WFL keine induktive Definition eines Beweises haben, können wir skizzieren, wie ein induktiver Beweis für die Korrektheit der WFL aussehen würde. Stellen Sie sich eine Basisklasse von einzeiligen Beweisen vor, einen für jede unserer elf Regeln. Die Mitglieder dieser Klasse würden wie folgt aussehen: $\metav{A}, \metav{B} \proves  \metav{A} \eand \metav{B}$; $\metav{A} \eand \metav{B} \proves \metav{A}$; $\metav{A} \eor \metav{B}, \enot\metav{A} \proves  \metav{B}$ \ldots{}. Da einige Regeln ein paar verschiedene Formen haben, müssten wir dieser Basisklasse einige Elemente hinzufügen, z.B.\@ $\metav{A} \eand \metav{B} \proves  \metav{B}$. Beachten Sie, dass dies alles Aussagen in der Metasprache sind. Der Beweis, dass die WFL korrekt ist, ist nicht Teil der WFL, weil die WFL keine Aussagen über sich selbst treffen kann. 
+
+Sie können Wahrheitstabellen verwenden, um zu beweisen, dass jeder dieser einzeiligen Beweise in dieser Basisklasse gültig$_{\entails}$ ist. Der Beweis $\metav{A}, \metav{B} \proves \metav{A} \eand \metav{B}$ entspricht z.B.\@ einer Wahrheitstabelle, welche zeigt, dass $\metav{A}, \metav{B} \entails  \metav{A} \eand \metav{B}$. Dies ist der ersten Schritt unseres induktiven Beweises. 
+
+Der nächste Schritt besteht darin zu zeigen, dass das Hinzufügen von Zeilen zu einem Beweis niemals einen gültigen$_{\entails}$ Beweis in einen ungültigen$_{\entails}$ Beweis verwandelt. Wir müssten dies für jede unserer elf Regeln zeigen. So müssen wir zum Beispiel für \eand{I} zeigen, dass ein gültiger Beweis $\metav{A}_{1}$, \dots, $\metav{A}_{n} \proves  \metav {B}$ durch das Hinzufügen einer Zeile, in der wir \eand{I} verwenden, um $\metav{C} \eand \metav{D}$ herzuleiten (wobei $\metav{C} \eand \metav{D}$ aus $\metav{A}_{1}$, \dots, $\metav{A}_{n}$,~$\metav{B}$ hergeleitet werden können), nicht in einen \emph{un}gültigen Beweis verwandeln.
+
+Aber warten Sie! Wenn wir $\metav{C} \eand \metav{D}$ aus diesen Prämissen herleiten können, dann müssen $\metav{C}$ und $\metav{D}$ bereits im Beweis vorhanden sein. Sie befinden sich entweder bereits unter $\metav{A}_{1}$, \dots, $\metav{A}_{n}$, ~$\metav {B}$ oder können aus ihnen hergeleitet werden. Als solche muss jede Zeile der Wahrheitstabelle, in der die Prämissen wahr sind, eine Zeile der Wahrheitstabelle sein, in der \metav{C} und \metav{D} wahr sind. Gemäss der charakteristischen Wahrheitstabelle für \eand bedeutet dies, dass $\metav{C} \eand \metav{D}$ in dieser Zeile auch wahr sind. Daher gilt, dass $\metav{C} \eand \metav{D}$ aus den Prämissen folgt. Das bedeutet, dass die Anwendung der {\eand}E-Regel zur Erweiterung eines gültigen Beweises einen weiteren gültigen Beweis ergibt.
+
+Um zu zeigen, dass das Herleitungssystem korrekt ist, müssten wir ähnliche Dinge auch für die anderen Regeln zeigen. Da die abgeleiteten Regeln von den Grundregeln stammen, reicht es aus, ähnliche Argumente für die elf anderen Grundregeln zu liefern. Diese mühsame Übung sprengt allerdings den Rahmen dieses Buches.
+
+Wir haben also gezeigt (bzw.\@ angedeutet), dass $\metav{A} \proves \metav{B}$ tatsächlich  $\metav{A} \entails \metav{B}$ zur Folge hat. Wie steht es um die andere Richtung? Wieso sollten wir annehmen, dass jedes Argument, das sich mit Wahrheitstabellen als korrekt erweisen lässt, auch mit einer Herleitung beweisen lässt? 
+
+\newglossaryentry{Vollständigkeit}
+{
+name=Vollständigkeit,
+description={Ein Eigenschaft eines logischen Systems, laut dem $\entails$ $\proves $ zur Folge hat}
+}
+
+Dies ist das Problem der Vollständigkeit. Ein Herleitungssystem hat die Eigenschaft der  \define{Vollständigkeit} genau dann, wenn es einen Beweis für jedes semantisch gültige Argument gibt. Nachzuweisen, dass ein logisches System vollständig ist, ist generell schwieriger als nachzuweisen, dass es korrekt ist. Der Beweis, dass ein logisches System vollständig ist, erfordert, dass wir zeigen, dass die Regeln des Herleitungssystems genau so funktionieren, wie sie sollen. Zu zeigen, dass ein logisches System vollständig ist, hei{\ss}t zu zeigen, dass wir alle Regeln haben, die wir brauchen, bzw.\@ dass wir keine Regeln au{\ss}er Acht gelassen haben.
+
+Der wichtige Punkt ist, dass unser Herleitungssystem für die WFL sowohl korrekt als auch vollständig ist. Dies ist nicht bei allen Herleitungssystemen oder allen formalen Sprachen der Fall. Weil es auf die WFL zutrifft, können wir wählen, ob wir Beweise oder Wahrheitstabellen angeben, um beispielsweise die Gültigkeit eines Arguments zu überprüfen -- je nachdem, was für die vorliegende Aufgabe einfacher ist.
+
+
+Jetzt, da wir wissen, dass die Wahrheitstabellenmethode mit der Herleitungsmethode ausgetauscht werden kann, können Sie wählen, welche Methode Sie für ein bestimmtes Problem verwenden wollen. Student*innen ziehen es oft vor, Wahrheitstabellen zu verwenden, weil sie rein mechanisch hergestellt werden können; dies scheint `einfacher' zu sein. Wir haben jedoch bereits gesehen, dass Wahrheitstabellen schon nach wenigen Satzbuchstaben unvorstellbar gro{\ss} werden. Andererseits gibt es ein paar Situationen, in denen die Verwendung von Beweisen einfach nicht möglich ist. Wir haben einen Kontingenzsatz syntaktisch als einen Satz definiert, von dem wir nicht beweisen können, dass er eine Tautologie oder ein Widerspruch ist. Es gibt keine praktische Möglichkeit, eine solche negative Aussage zu beweisen. Wir werden nie wissen, ob es nicht doch einen Beweis dafür gibt, dass ein Satz ein Widerspruch ist; einen Beweis, den wir einfach noch nicht gefunden haben. Wir können in dieser Situation nichts anderes tun, als auf Wahrheitstabellen zurückzugreifen. Ähnlich gilt: wir können Herleitungen verwenden, um die Äquivalenz zweier Sätze zu beweisen, aber was ist, wenn wir beweisen wollen, dass sie nicht äquivalent sind? Wir haben keine Möglichkeit, zu beweisen, dass es keine entsprechenden Beweise gibt. Wir müssen also wieder auf Wahrheitstabellen zurückgreifen.
+
+Die Tabelle \ref{table.ProofOrModel} fasst zusammen, wann es am Besten ist, Beweise zu nutzen und wann es am Besten ist, Wahrheitstabellen zu nutzen. 
+
+\begin{table}\small
+\tabulinesep=1ex
+\begin{tabu}{X[.7,c,m] ||X[1,l,m] |X[1,l,m]}
+\textbf{Logischer Begriff} 	&	\textbf{beweisen, dass er zutrifft:} 	&	\textbf{beweisen, dass er nicht zutrifft} \\ \hline \hline
+Theorem & Herleiten des Satzes & Finden Sie eine Zeile mit F unter dem Hauptjunktor \\ \hline
+Widerspruch &  Herleiten der Negation des Satzes	 & Finden Sie eine Zeile mit T unter dem Hauptjunktor \\ \hline
+Kontingent 	& Finden Sie eine Zeile mit T und eine mit F unter dem Hauptjunktor & Beweisen Sie den Satz oder seine Negation\\ \hline
+Äquivalenz	& Beweisen Sie beide Sätze vom jeweils anderen & Finden Sie eine Zeile, in der die Sätze unterschiedliche Wahrheitswerte unter dem Hauptjunktor haben \\ \hline
+Konsistenz & Finden Sie eine Zeile, in der alle Sätze ein T unter dem Hauptjunktor haben & Leiten Sie einen Widerspruch von den Sätzen her \\ \hline
+Gültigkeit & Leiten Sie die Schlussfolgerung von den Prämissen her & Finden Sie eine Zeile, in der die Prämissen wahr und die Schlussfolgerung falsch ist \\ 
+\end{tabu}
+\caption{Wahrheitstabelle oder Beweis?}
+\label{table.ProofOrModel}
+\end{table}
+
+
+
+\practiceproblems
+\noindent\problempart Verwenden Sie entweder einen Beweis oder eine Wahrheitstabelle für jedes der folgenden Probleme.  
+\begin{enumerate}%[label=(\arabic*)]
+\item Zeigen Sie, dass $A \eif [((B \eand C) \eor D) \eif A]$ ein Theorem ist.
+\item Zeigen Sie, dass $A \eif (A \eif B)$ kein Theorem ist.
+\item Zeigen Sie, dass $A \eif \enot{A}$ kein Widerspruch ist.
+\item Zeigen Sie, dass $A \eiff \enot A$ ein Widerspruch ist. 
+\item Zeigen Sie, dass $ \enot (W \eif (J \eor J)) $ kontingent ist.
+\item Zeigen Sie, dass $ \enot(X \eor (Y \eor Z)) \eor (X \eor (Y \eor Z))$ nicht kontingent ist.
+ \item Zeigen Sie, dass $B \eif \enot S$ und $\enot \enot B \eif \enot S$ äquivalent sind.
+\item Zeigen Sie, dass $ \enot (X \eor O) $ und $X \eand O$ nicht äquivalent sind.
+\item Zeigen Sie, dass $\enot(A \eor B)$, $C$ und $C \eif A$  gemeinsam unmöglich sind.
+\item Zeigen Sie, dass $\enot(A \eor B)$, $\enot{B}$ und $B \eif A$ gemeinsam möglich sind.
+\item Zeigen Sie, dass $\enot(A \eor (B \eor C)) $ \therefore $ \enot{C}$ gültig ist.
+\item Zeigen Sie, dass $\enot(A \eand (B \eor C))$ \therefore $ \enot{C}$ ungültig ist. 
+\end{enumerate}
+
+
+\noindent\problempart Verwenden Sie entweder eine Herleitung oder eine Wahrheitstabelle für jedes der folgenden Probleme.  
+\begin{enumerate}%[label=(\arabic*)]
+\item Zeigen Sie, dass $A \eif (B \eif A)$ ein Theorem ist.
+\item Zeigen Sie, dass $\enot (((N \eiff Q) \eor Q) \eor N)$ kein Theorem ist.
+\item Zeigen Sie, dass $Z \eor (\enot Z \eiff Z) $ kontingent ist.
+\item Zeigen Sie, dass $ (L \eiff ((N \eif N) \eif L)) \eor H $ nicht kontingent ist.
+\item Zeigen Sie, dass $ (A \eiff A) \eand (B \eand \enot B)$ ein Widerspruch ist.
+\item Zeigen Sie, dass $ (B \eiff (C \eor B)) $ kein Widerspruch ist.
+\item Zeigen Sie, dass $((\enot X \eiff X) \eor X)$ und $X$ äquivalent sind.
+\item Zeigen Sie, dass $F \eand (K \eand R)$ nicht äquivalent zu $ (F \eiff (K \eiff R))$ ist.
+\item Zeigen Sie, dass $ \enot (W \eif W)$, $(W \eiff W) \eand W$ und $E \eor (W \eif \enot (E \eand W))$ inkonsistent sind.
+\item Zeigen Sie, dass $\enot R \eor C $, $(C \eand R) \eif \enot R$ und $(\enot (R \eor R) \eif R)$ inkonsistent sind.
+\item Zeigen Sie, dass $\enot \enot (C \eiff \enot C), ((G \eor C) \eor G) \therefore ((G \eif C) \eand G) $ gültig ist.
+\item Zeigen Sie, dass $ \enot \enot L,  (C \eif \enot L) \eif C) \therefore \enot C$ ungültig ist. 
+\end{enumerate}

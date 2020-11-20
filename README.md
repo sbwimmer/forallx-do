@@ -10,8 +10,8 @@ semantics, the syntax of first-order (predicate) logic FOL with
 identity (first-order interpretations), translating (formalizing)
 English in TFL and FOL, and Fitch-style natural deduction proof
 systems for both TFL and FOL. It also deals with some advanced topics
-such as modal logic, soundness, and functional completeness. Exercises with solutions are
-available. It is provided in PDF and in LaTeX source code. 
+such as modal logic, soundness, and functional completeness. Worksheets with solutions are
+available. The book is provided in PDF and in LaTeX source code. 
 
 [Download](#download) links below.
 
@@ -53,22 +53,13 @@ The LaTeX source code for this work is available on GitHub at [https://github.co
 You can download a PDF of the book here (link not yet live):
 
   - [`forallxdo.pdf`]() (in color, for screen reading)
-  - [`forallxdosol.pdf`]() (solutions booklet)
-
-Note that these files change whenevery the source files are changed.
-So if you use the text in a course, better to download the
-PDFs and make them available to students directly, than to link here.
+  - [`forallxdosol.pdf`]() (worksheet booklet)
 
 ## Make PDFs Yourself
 
-Clone the [GitHub repository](https://github.com/sbwimmer/forallx-do) locally or download the ZIP file and run [LaTeX](http://www.latex-project.org/) on
+Clone the [GitHub repository](https://github.com/sbwimmer/forallx-do) 
+locally or download the ZIP file and run [LaTeX](http://www.latex-project.org/) on
 
   - `forallxdo.tex` (in color, for screen reading)
 
 You'll have to run `makeglossaries` to produce the glossary as well.
-
-To make changes to the definitions in the preamble and `foralldo.sty`
-file, put them in a file named `forallxdo-local.sty`. For instance,
-to get the connectives to be ∼, &, ⊃, ≡ instead of ¬, ∧, →, ↔, and 
-atomic formulas _Lab_ instead of _L(a,b)_, copy 
-`forallxdo-local-sample.sty` to that file.

@@ -2,16 +2,14 @@
 
 ## Description
 
-_forall x: Dortmund_ is an in-progress adaptation and German translation of _forall x: Calgary_. 
+_forall x: Dortmund_ is an adaptation and German translation of _forall x: Calgary_. 
 As such, it is a full-featured textbook on formal logic. It covers key
-notions of logic such as consequence and validity of arguments, the
-syntax of truth-functional propositional logic TFL and truth-table
-semantics, the syntax of first-order (predicate) logic FOL with
-identity (first-order interpretations), translating (formalizing)
-English in TFL and FOL, and Fitch-style natural deduction proof
-systems for both TFL and FOL. It also deals with some advanced topics
-such as modal logic, soundness, and functional completeness. Worksheets with solutions are
-available. The book is provided in PDF and in LaTeX source code. 
+notions of logic such as consequence and validity, the syntax of truth-functional 
+(propositional) logic and truth-table semantics, the syntax of first-order (predicate) 
+logic with identity and first-order interpretations, formalizing German in TFL and FOL, 
+and Fitch-style natural deduction proof systems for both TFL and FOL. It also deals 
+with some advanced topics such as the syntax and (Kripke-)semantics of modal logic. 
+The book is provided in PDF and in LaTeX source code. 
 
 [Download](#download) links below.
 

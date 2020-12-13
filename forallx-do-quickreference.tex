@@ -1,7 +1,8 @@
-%!TEX root = forallxyyc.tex
-\chapter[Quick reference]{Quick reference}
+%!TEX root = forallxdo.tex
+
+\chapter{Schnellüberblick}
 %\pagestyle{plain}
-\section{Characteristic truth tables}
+\section{Charakteristische Wahrheitstabellen}
 \label{app.CharacteristicTTs}
 
 \begin{tabular}{c|c}
@@ -25,36 +26,36 @@ F & F & F & F & T & T
 
 \vfill
 
-\section{Symbolization}
+\section{Symbolisierungen}
 \begin{center}
 \label{app.symbolization}
 \begin{tabular*}{\textwidth}{rl}
-\multicolumn{2}{c}{\textsc{Sentential Connectives}}\\ \\
-It is not the case that $P$ & $\enot P$\\
-Either $P$ or $Q$ & $(P \eor Q)$\\
-Neither $P$ nor $Q$ & $\enot(P \eor Q)$\ or \ $(\enot P \eand \enot Q)$\\
-Both $P$ and $Q$ & $(P \eand Q)$\\
-If $P$ then $Q$ & $(P \eif Q)$\\
-$P$ only if $Q$ & $(P \eif Q)$\\
-$P$ if and only if $Q$ & $(P \eiff Q)$\\
-$P$ unless $Q$ & $(P \eor Q)$\\
+\multicolumn{2}{c}{\textsc{Junktoren}}\\ \\
+Es ist nicht der Fall, dass $P$ & $\enot P$\\
+(Entweder) $P$ oder $Q$ & $(P \eor Q)$\\
+Weder $P$ noch $Q$ & $\enot(P \eor Q)$\ or \ $(\enot P \eand \enot Q)$\\
+$P$ und $Q$ & $(P \eand Q)$\\
+Wenn $P$, dann $Q$ & $(P \eif Q)$\\
+$P$ nur wenn $Q$ & $(P \eif Q)$\\
+$P$ genau dann, wenn $Q$ & $(P \eiff Q)$\\
+$P$, es sei denn, $Q$ & $(P \eor Q)$\\
 \\
-\multicolumn{2}{c}{\label{SymbolizingPredicates}\textsc{Predicates}}\\ \\
-All $F$s are $G$s & $\forall x(\atom{F}{x} \eif \atom{G}{x})$\\
-Some $F$s are $G$s & $\exists x(\atom{F}{x} \eand \atom{G}{x})$\\
-Not all $F$s are $G$s & $\enot\forall x(\atom{F}{x} \eif \atom{G}{x})$\ or\\
+\multicolumn{2}{c}{\label{SymbolizingPredicates}\textsc{Prädikate}}\\ \\
+Alle $F$s sind $G$s & $\forall x(\atom{F}{x} \eif \atom{G}{x})$\\
+Manche $F$s sind $G$s & $\exists x(\atom{F}{x} \eand \atom{G}{x})$\\
+Nicht alle $F$s sind $G$s & $\enot\forall x(\atom{F}{x} \eif \atom{G}{x})$\ or\\
 & $\exists x(\atom{F}{x} \eand \enot \atom{G}{x})$\\
-No $F$s are $G$s & $\forall x(\atom{F}{x} \eif\enot \atom{G}{x})$\ or\\
+Keine $F$s sind $G$s & $\forall x(\atom{F}{x} \eif\enot \atom{G}{x})$\ or\\
 & $\enot\exists x(\atom{F}{x} \eand \atom{G}{x})$\\
 \\
-\multicolumn{2}{c}{\textsc{Identity}}\\ \\
-Only $c$ is $G$ & $\forall x(\atom{G}{x} \eiff x=c)$\\
-Everything besides $c$ is $G$ & $\forall x(\enot x = c \eif \atom{G}{x} )$\\
+\multicolumn{2}{c}{\textsc{Identität}}\\ \\
+Nur $c$ ist $G$ & $\forall x(\atom{G}{x} \eiff x=c)$\\
+Alles au{\ss}er $c$ ist $G$ & $\forall x(\enot x = c \eif \atom{G}{x} )$\\
 %$j$ is more $R$ than anyone else. & $\forall x(x\neq j \eif Rjx)$\\
-The $F$ is $G$ & $\exists x(\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x=y) \eand \atom{G}{x} )$\\
-It is not the case that\\
- the $F$ is $G$ & $\enot\exists x(\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x=y) \eand \atom{G}{x} )$\\
-The $F$ is non-$G$ & $\exists x(\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x=y) \eand \enot \atom{G}{x} )$
+Der/das/die $F$ ist $G$ & $\exists x(\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x=y) \eand \atom{G}{x} )$\\
+Es ist nicht der Fall, dass\\
+ der/das/die $F$ $G$ ist & $\enot\exists x(\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x=y) \eand \atom{G}{x} )$\\
+Der/das/die $F$ ist kein $G$ & $\exists x(\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x=y) \eand \enot \atom{G}{x} )$
 \end{tabular*}
 \end{center}
 
@@ -66,31 +67,31 @@ The $F$ is non-$G$ & $\exists x(\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x=y
 % BEGIN: symbolizing cardinality
 
 \newpage
-\section{Using identity to symbolize quantities}
+\section{Identität nutzen um Quantitäten zu symbolisieren}
 
-\subsection*{There are at least \blank\ $F$s.}
+\subsection*{Es gibt zumindest \blank\ $F$s.}
 \label{summary.atleast}
 
 \begin{tabular*}{\textwidth}{rl}
-one & $\exists x\,\atom{F}{x}$\\
-two & $\exists x_1\exists x_2(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \enot x_1  = x_2)$\\
-three & $\exists x_1\exists x_2\exists x_3(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand {}$\\
+ein & $\exists x\,\atom{F}{x}$\\
+zwei & $\exists x_1\exists x_2(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \enot x_1  = x_2)$\\
+drei & $\exists x_1\exists x_2\exists x_3(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand {}$\\
 & $\enot x_1 = x_2 \eand\enot x_1 = x_3 \eand \enot x_2 = x_3)$\\
-four & $\exists x_1\exists x_2\exists x_3\exists x_4 (\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand \atom{F}{x_4} \eand {}$\\
+vier & $\exists x_1\exists x_2\exists x_3\exists x_4 (\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand \atom{F}{x_4} \eand {}$\\
 & $\enot x_1 = x_2 \eand \enot x_1 = x_3 \eand \enot x_1 = x_4 \eand {}$\\
 & $ \enot x_2 = x_3 \eand \enot x_2 = x_4 \eand \enot x_3 = x_4)$\\
 $n$ & $\exists x_1\ldots\exists x_n(\atom{F}{x_1} \eand \ldots \eand \atom{F}{x_n} \eand {}$\\
 & $\enot x_1 = x_2 \eand\ldots\eand \enot x_{n-1} = x_n)$ 
 \end{tabular*}
 
-\subsection*{There are at most \blank\ $F$s.}
+\subsection*{Es gibt zumeist \blank\ $F$s.}
 \label{summary.atmost}
 
-One way to say `there are at most $n$ $F$s' is to put a negation sign in front of the symbolization for `there are at least $n+1$ $F$s'. Equivalently, we can offer:
+Einen Weg `es gibt zumeist $n$ $F$s' zu symbolisieren ist eine Negation vor die Symbolisierung von `es gibt zumindest $n+1$ $F$s' zu stellen. Äquivalenterweise können wir auch anbieten:
 \begin{tabular*}{\textwidth}{rl}
-one & $\forall x_1\forall x_2\bigl[(\atom{F}{x_1} \eand \atom{F}{x_2}) \eif x_1=x_2\bigr]$\\
-two & $\forall x_1\forall x_2\forall x_3\bigl[(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3}) \eif {}$\\ & $(x_1=x_2 \eor x_1=x_3 \eor x_2=x_3)\bigr]$\\
-three & $\forall x_1\forall x_2\forall x_3\forall x_4\bigl[(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand \atom{F}{x_4}) \eif {}$\\
+ein & $\forall x_1\forall x_2\bigl[(\atom{F}{x_1} \eand \atom{F}{x_2}) \eif x_1=x_2\bigr]$\\
+zwei & $\forall x_1\forall x_2\forall x_3\bigl[(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3}) \eif {}$\\ & $(x_1=x_2 \eor x_1=x_3 \eor x_2=x_3)\bigr]$\\
+drei & $\forall x_1\forall x_2\forall x_3\forall x_4\bigl[(\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand \atom{F}{x_4}) \eif {}$\\
 & $(x_1=x_2 \eor x_1=x_3 \eor x_1=x_4 \eor {}$\\
 & $x_2=x_3 \eor x_2=x_4 \eor x_3=x_4)\bigr]$\\
 $n$ & $\forall x_1\ldots\forall x_{n+1}
@@ -99,16 +100,16 @@ $n$ & $\forall x_1\ldots\forall x_{n+1}
 \end{tabular*}
 
 
-\subsection*{There are exactly \blank\ $F$s.}
+\subsection*{Es gibt genau \blank\ $F$s.}
 \label{summary.exactly}
 
-One way to say `there are exactly $n$ $F$s' is to conjoin two of the symbolizations above and say `there are at least $n$ $F$s and there are at most $n$ $F$s.' The following equivalent formulas are shorter:
+Einen Weg `es gibt genau $n$ $F$s' auszudrücken ist die zwei Symbolisierungen zu konjunktieren und zu sagen `es gibt zumindest $n$ $F$s und zumeist $n$ $F$s.' Die folgenden Sätze sind äquivalent dazu:
 \begin{tabular*}{\textwidth}{rl}
-zero & $\forall x\,\enot \atom{F}{x}$\\
-one & $\exists x\bigl[\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x = y)\bigr]$\\
-two & $\exists x_1\exists x_2\bigl[\atom{F}{x_1} \eand \atom{F}{x_2} \eand {}$\\
+null & $\forall x\,\enot \atom{F}{x}$\\
+ein & $\exists x\bigl[\atom{F}{x} \eand \forall y(\atom{F}{y} \eif x = y)\bigr]$\\
+zwei & $\exists x_1\exists x_2\bigl[\atom{F}{x_1} \eand \atom{F}{x_2} \eand {}$\\
 & $\enot x_1 = x_2 \eand \forall y\bigl(\atom{F}{y} \eif (y= x_1 \eor y = x_2)\bigr) \bigr]$\\
-three & $\exists x_1\exists x_2\exists x_3\bigl[\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand {}$\\
+drei & $\exists x_1\exists x_2\exists x_3\bigl[\atom{F}{x_1} \eand \atom{F}{x_2} \eand \atom{F}{x_3} \eand {}$\\
 & $\enot x_1 =  x_2 \eand \enot  x_1 = x_3 \eand \enot x_2 = x_3 \eand {}$\\
 & $\forall y\bigl(\atom{F}{y} \eif (y = x_1 \eor y = x_2 \eor y =  x_3)\bigr) \bigr]$\\
 $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}{x_n}  \eand {}$\\
@@ -122,21 +123,21 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 
 
 \label{ProofRules}
-\newpage\section{Basic deduction rules for TFL}
+\newpage\section{Grundregeln für Beweise in der WFL}
 \renewenvironment{fitchproof}
 	{\noindent\par\noindent\small$\begin{nd}}
 	{\end{nd}$\noindent\normalsize\ignorespacesafterend}
 
 %{\LARGE \textbf{Basic Rules of Proof}}
 \begin{multicols}{2}
-\subsection*{Reiteration}
+\subsection*{Wiederholung}
 
 \begin{fitchproof}
 	\have[m]{a}{\metav{A}}
 	\have[\ ]{c}{\metav{A}} \by{R}{a}
 \end{fitchproof}
 
-\subsection*{Conjunction}
+\subsection*{Konjunktion}
 
 \begin{fitchproof}
 	\have[m]{a}{\metav{A}}
@@ -150,7 +151,7 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 \\	\have[\ ]{b}{\metav{B}} \ae{ab}
 \end{fitchproof}
 
-\subsection*{Conditional}
+\subsection*{Konditional}
 
 \begin{fitchproof}
 	\open
@@ -178,7 +179,7 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 \have[ ]{bot}{\ered}\ri{na, a}
 \end{fitchproof}
 
-\subsection*{Indirect proof}
+\subsection*{Indirekter Beweis}
 
 \begin{fitchproof}
 \open
@@ -196,7 +197,7 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 \\\have[ ]{}{\metav{A}}\re{bot}
 \end{fitchproof}
 
-\subsection*{Disjunction}
+\subsection*{Disjunktion}
 
 \begin{fitchproof}
 	\have[m]{a}{\metav{A}}
@@ -217,7 +218,7 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 	\have[\ ]{c}{\metav{C}} \oe{ab,a-c1, b-c2}
 \end{fitchproof}
 
-\subsection*{Biconditional}
+\subsection*{Bikonditional}
 
 \begin{fitchproof}
 	\open
@@ -242,9 +243,9 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 \end{multicols}
 
 \newpage
-\section{Derived rules for TFL}
+\section{Abgeleitete Regeln der WFL}
 \begin{multicols}{2}
-\subsection*{Disjunctive syllogism}
+\subsection*{Disjunktiver Syllogismus}
 \begin{fitchproof}
 	\have[m]{ab}{\metav{A} \eor \metav{B}}
 	\have[n]{nb}{\enot \metav{A}}
@@ -263,14 +264,14 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 	\have[\ ]{b}{\enot\metav{A}} \by{MT}{ab,a}
 \end{fitchproof}
 
-\subsection*{Double-negation elimination}
+\subsection*{Doppelnegationseliminierung}
 	\begin{fitchproof}
 		\have[m]{dna}{\enot \enot \metav{A}}
 		\have[ ]{a}{\metav{A}}\dne{dna}
 	\end{fitchproof}
 
 
-\subsection*{Excluded middle}
+\subsection*{Ausgeschlossenes Drittes}
 	\begin{fitchproof}
 		\open
 			\hypo[i]{a}{\metav{A}}
@@ -292,7 +293,7 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 %	\have[\ ]{ac}{\metav{A}\eif\metav{C}}\by{HS}{ab,bc}
 %\end{fitchproof}
 
-\subsection*{De Morgan Rules}
+\subsection*{De Morgan Regeln}
 \begin{fitchproof}
 	\have[m]{ab}{\enot (\metav{A} \eor \metav{B})}
 	\have[\ ]{dm}{\enot \metav{A} \eand \enot \metav{B}}\dem{ab}
@@ -310,42 +311,42 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 
 \newpage
 
-\section{Basic deduction rules for FOL}
+\section{Grundregeln der LEO}
 
 \begin{multicols}{2}
-\subsection*{Universal elimination}
+\subsection*{Universaleliminierung}
 
 \begin{fitchproof}
 	\have[m]{a}{\forall \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)}
 	\have[\ ]{c}{\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)} \Ae{a}
 \end{fitchproof}
 
-\subsection*{Universal introduction}
+\subsection*{Universaleinführung}
 
 \begin{fitchproof}
 	\have[m]{a}{\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)}
 	\have[\ ]{c}{\forall \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)} \Ai{a}
 \end{fitchproof}
 
-\medskip\begin{raggedright}
-\metav{c} must not occur in any undischarged assumption
+\medskip%\begin{raggedright}
+\noindent \metav{c} darf nicht in einer ungetilgten Annahme vorkommen
 
-\metav{x} must not occur in\\ $\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$
-\end{raggedright}
+\noindent \metav{x} darf nicht in $\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$ vorkommen
+%\end{raggedright}
 
-\subsection*{Existential introduction}
+\subsection*{Existenzeinführung}
 
 \begin{fitchproof}
 	\have[m]{a}{\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)}
 	\have[\ ]{c}{\exists \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{c}\ldots)}\Ei{a}
 \end{fitchproof}
 
-\medskip\begin{raggedright}
-\noindent \metav{x} must not occur in\\ $\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$
-\end{raggedright}
+\medskip%\begin{raggedright}
+\noindent \metav{x} darf nicht in $\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$ vorkommen
+%\end{raggedright}
 %\noindent You can replace one or more instance of \metav{c} with \metav{x}.
 
-\subsection*{Existential elimination}
+\subsection*{Existenzeliminierung}
 
 \begin{fitchproof}
 	\have[m]{a}{\exists \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)}
@@ -356,19 +357,21 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 	\have[\ ]{d}{\metav{B}}\Ee{a,b-c}
 \end{fitchproof}
 
-\medskip\begin{raggedright}
-\noindent \metav{c} must not occur in any undischarged assumption, in $\exists \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)$, or in \metav{B}\end{raggedright}\vfill\columnbreak
+\medskip%\begin{raggedright}
+\noindent \metav{c} darf weder in $\exists \metav{x}\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)$, in \metav{B}, noch in einer ungetilgten Annahme vorkommen
+%\end{raggedright}
+\vfill\columnbreak
 
 \end{multicols}
 
-\subsection*{Identity introduction}
+\subsection*{Identitätseinführung}
 
 \begin{fitchproof}
 	\have[\ \,\,\,]{x}{\metav{c}=\metav{c}} \by{=I}{}
 \end{fitchproof}
 
 
-\subsection*{Identity elimination}
+\subsection*{Identitätseliminierung}
 
 \begin{multicols}{2}
 \begin{fitchproof}
@@ -384,7 +387,7 @@ $n$ & $\exists x_1\ldots\exists x_n\bigl[\atom{F}{x_1} \eand\ldots\eand \atom{F}
 \end{multicols}
 
 \begin{minipage}{\textwidth} % hack to keep section header with table
-\section{Derived rules for FOL}
+\section{Abgeleitete Regeln der LEO}
 
 \begin{multicols}{2}
 \begin{fitchproof}

@@ -96,19 +96,18 @@ Damit fixieren wir diese Symbolisierung nicht \emph{ein für alle mal}. Wir sage
 	\end{ekey}
 Es ist wichtig, dass jede Struktur, die ein deutscher Satz hat, verloren geht, wenn er durch einen Satzbuchstaben von WFL symbolisiert wird. Aus der Sicht von WFL ist ein Satzbuchstabe nur ein Buchstabe. Er kann verwendet werden, um komplexere Sätze zu bilden, aber er kann nicht weiter unterteilt werden.
 
-\newglossaryentry{Satzbuchstabe}
-{
+\newglossaryentry{Satzbuchstabe}{
 name=Satzbuchstabe,
-description={Ein Buchstabe, der genutzt wird, um einen einfachen Satz in WFL zu symbolisieren.}
+description={Ein Buchstabe, der genutzt wird, um einen einfachen Satz in WFL zu symbolisieren}
 }
+
 \newglossaryentry{einfacher Satz}
 {
 name=einfacher Satz,
 description={Ein Ausdruck, der genutzt wird, um einen einfachen Satz zu repräsentieren; ein Satzbuchstabe in WFL oder ein $n$-stelliges Prädikat gefolgt von $n$ Namen in der LEO}
 }
 
-\newglossaryentry{Symbolisierungsschlüssel}
-{
+\newglossaryentry{Symbolisierungsschlüssel}{
 name=Symbolisierungsschlüssel,
 description={Eine Liste, die zeigt, welche deutschen Sätze von welchen \gls{Satzbuchstabe}n der WFL symbolisiert werden}
 }
@@ -118,8 +117,7 @@ description={Eine Liste, die zeigt, welche deutschen Sätze von welchen \gls{Sat
 
 Im vorigen Kapitel haben wir uns damit beschäftigt, ziemlich einfache deutsche Sätze mit Satzbuchstaben der WFL zu symbolisieren. Das führt dazu, dass wir uns mit den deutschen Ausdrücken `und', `oder', `nicht' und so weiter beschäftigen wollen. Dies sind \emph{Junktoren}, auch Konnektive genannt---sie können verwendet werden, um aus alten Sätzen neue zu bilden. In der WFL werden wir Junktoren verwenden, um komplexe Sätze aus einfachen Sätzen zu bilden. Die WFL hat fünf Junktoren. Die folgende Tabelle gibt eine Übersicht über sie; dieses Kapitel erläutert sie.
 
-\newglossaryentry{Junktor}
-{
+\newglossaryentry{Junktor}{
 name=Junktor,
 description={Ein logischer Operator in der WFL, der genutzt wird, um \gls{Satzbuchstabe}n zu komplexeren Sätzen zu kombinieren}
 }
@@ -180,8 +178,7 @@ Die Negation ist oft recht einfach anzuwenden. Aber in manchen Fällen ist Vorsi
 	\end{earg}
 Wenn wir den WFL-Satz `$G$' den Satz `Umut ist glücklich' symbolisieren lassen, dann können wir den Satz \ref{not6} als `$G$' symbolisieren. Es wäre jedoch ein Fehler, den Satz \ref{not7} mit `$\enot{G}$' zu symbolisieren. Wenn Umut unglücklich ist, dann ist er nicht glücklich; aber Satz \ref{not7} bedeutet nicht dasselbe wie `Es ist nicht der Fall, dass Umut glücklich ist'. Laut dem Letzteren könnte Umut weder glücklich noch unglücklich sein; er könnte sich in einem Zustand schierer Gleichgültigkeit befinden. Um den Satz \ref{not7} zu symbolisieren, brauchen wir also einen neuen Satzbuchstaben der WFL.
 
-\newglossaryentry{Negation}
-{
+\newglossaryentry{Negation}{
 name=Negation,
 description={Das Symbol $\enot$, verwendet um Worte und Phrasen zu repräsentieren, die wie das deutsche Wort `nicht' funktionieren}
 }
@@ -202,14 +199,12 @@ Zunächst brauchen wir unterschiedliche Satzbuchstaben der WFL um Sätze \ref{an
 	\end{ekey}
 Satz \ref{and1} kann nun als `$A$' symbolisiert werden und Satz \ref{and2} als `$B$'. Satz \ref{and3} besagt ungefähr: `$A$ und $B$'. Wir brauchen also ein weiteres Symbol um `und' zu symbolisieren. Hierzu nutzen wir `$\eand$'. Also werden wir \ref{and3} als `$(A\eand B)$' symbolisieren. Diesen Junktor nennen wir \define{Konjunktion}. Wir sagen auch, dass `$A$' und `$B$' die zwei \define{Konjunkte} der Konjunktion `$(A \eand B)$' sind.
 
-\newglossaryentry{Konjunktion}
-{
+\newglossaryentry{Konjunktion}{
 name=Konjunktion,
 description={Das Symbol $\eand$, verwendet um Worte und Phrasen des Deutschen zu repräsentieren, die wie `und' funktionieren; oder ein Satz, der mittels dieses Symbols gebildet wird}
 }
 
-\newglossaryentry{Konjunkt}
-{
+\newglossaryentry{Konjunkt}{
 name=Konjunkt,
 description={Ein Satz kombiniert mit einem anderen Satz, mittels einer \gls{Konjunktion}}
 }
@@ -266,14 +261,12 @@ Für diese Sätze können wir folgenden Symbolisierungsschlüssel nutzen:
 	\end{ekey}
 Um diese Sätze zu symbolisieren, müssen wir allerdings ein neues Symbol einführen. Satz \ref{or1} wird durch `$(F \eor M)$' symbolisiert. Der Junktor, den wir hier nutzen, nennen wir \define{Disjunktion}. Wir sagen auch, dass `$F$' und `$M$' die \define{Disjunkte} der Disjunktion `$(F \eor M)$' sind.
 
-\newglossaryentry{Disjunktion}
-{
+\newglossaryentry{Disjunktion}{
 name=Disjunktion,
 description={Das Symbol $\eor$, verwendet um Worte und Phrasen zu repräsentieren, die wie das deutsche Wort `oder' funktionieren; oder ein Satz, der mittels dieses Symbols gebildet wird}
 }
 
-\newglossaryentry{Disjunkt}
-{
+\newglossaryentry{Disjunkt}{
 name=Disjunkt,
 description={Ein Satz, der mittels \gls{Disjunktion} mit einem anderen kombiniert wird}
 }
@@ -314,21 +307,18 @@ Wir nutzen den folgenden Symbolisierungsschlüssel:
 	\end{ekey}
 Satz \ref{if1} hat ungefähr diese Form: `wenn $P$, dann $F$'. Wir werden das Symbol `\eif' verwenden, um die Struktur `wenn\ldots, dann\ldots' zu symbolisieren. Satz symbolisieren wir daher \ref{if1} als `$(P\eif F)$'. Der Junktor hier wird \define{Konditional} genannt. Wir sagen, dass `$P$' das \define{Antezedens} des Konditionals `$(P \eif F)$' ist und `$F$' das \define{Konsequens}. 
 
-\newglossaryentry{Konditional}
-{
+\newglossaryentry{Konditional}{
 name=Konditional,
 description={Das Symbol $\eif$, verwendet um Worte und Phrasen zu repräsentieren, die funktionieren wie die deutsche Phrase `wenn\dots, dann\dots'; oder ein Satz, der mittels dieses Symbols gebildet wird}
 }
 
-\newglossaryentry{Antezedens}
-{
+\newglossaryentry{Antezedens}{
 name=Antezedens,
 description={Der Satz auf der linken Seite eines \gls{Konditional}s}
 }
 
 
-\newglossaryentry{Konsequens}
-{
+\newglossaryentry{Konsequens}{
 name=Konsequens,
 description={Der Satz auf der rechten Seite eines \gls{Konditional}s}
 }
@@ -370,10 +360,9 @@ Satz \ref{iff2} kann nicht auf diese Art symbolisiert werden. Dieser Satz kann a
 
 Der Satz \ref{iff3} sagt etwas Stärkeres aus als \ref{iff1} und \ref{iff2}. Er kann wie folgt paraphrasiert werden: `Laika ist ein Hund, wenn Laika ein Säugetier ist, und Laika ist ein Hund nur wenn Laika ein Säugetier ist'. Dies ist einfach die Konjunktion der Sätze \ref{iff1} und \ref{iff2}. Wir können es also als `$(D \eif M) \eand (M \eif D)$' symbolisieren. Wir nennen dies einen \define{Bikonditional}, weil wir in Sätzen wie diesem \emph{beide Richtungen} des Konditionals finden.
 
-\newglossaryentry{Bikonditional}
-{
+\newglossaryentry{Bikonditional}{
 name=Bikonditional,
-description={Das Symbol $\eiff$, verwendet um Worte und Phrasen des Deutschen zu symbolisieren, die wie die deutsche Phrase `\dots wenn und nur wenn\dots' funktionieren; oder ein Satz, der mittels dieses Symbols gebildet wird.}
+description={Das Symbol $\eiff$, verwendet um Worte und Phrasen des Deutschen zu symbolisieren, die wie die deutsche Phrase `\dots wenn und nur wenn\dots' funktionieren; oder ein Satz, der mittels dieses Symbols gebildet wird}
 }
 
 Auf diese Weise könnten wir jeden Bikonditional behandeln. So wie wir also kein neues WFL-Symbol brauchen, um mit dem \emph{ausschlie{\ss}enden oder} umzugehen, so brauchen wir eigentlich auch kein neues WFL-Symbol, um mit dem Bikonditional umzugehen. Da das Bikonditional jedoch so häufig vorkommt, werden wir für es dennoch das Symbol `$\eiff$' verwenden. Wir können dann den Satz \ref{iff3} mit dem WFL-Satz `$(D \eiff M)$' symbolisieren. 
@@ -581,10 +570,9 @@ Stattdessen werden wir den Prozess beschreiben, durch den Sätze \emph{konstruie
 		\item Nichts anderes ist ein Satz.
 	\end{enumerate}
 	}
-\newglossaryentry{Satz der WFL}
-{
-name=Satz (der WFL),
-description={Eine Reihe von Symbolen der WFL, die nach den induktiven Regeln gebaut werden können, die auf  S.~\pageref{TFLsentences} angegeben sind.}
+\newglossaryentry{Satz der WFL}{
+name=Satz der WFL,
+description={Eine Reihe von Symbolen der WFL, die nach den induktiven Regeln gebaut werden kann, die auf S.\@\pageref{TFLsentences} angegeben sind}
 }
 
 Definitionen wie diese werden \emph{induktiv} genannt. Solche Definitionen beginnen mit einigen spezifizierbaren Basiselementen und zeigen dann Wege auf, wie man durch das Zusammensetzen von schon spezifizierten Elementen weitere Elemente baut. Damit wir uns besser vorstellen können, was eine induktive Definition ist, können wir eine induktive Definition des Begriffs eines \emph{Vorfahren} geben. Wir spezifizieren einen Basissatz.
@@ -614,10 +602,9 @@ In der Regel können Sie den Hauptjunktor eines Satzes mit Hilfe der folgenden M
 
 (Anmerkung: Wenn Sie diese Methode verwenden, dann achten Sie darauf, dass Sie alle Klammern im relevanten Satz kenntlich machen, anstatt einige auszulassen, wie es die Konventionen von S\ref{TFLconventions} vorsehen)!
 
-\newglossaryentry{Hauptjunktor}
-{
+\newglossaryentry{Hauptjunktor}{
 name=Hauptjunktor,
-description={Der letzte Junktor, den Sie beim Zusammenbauen eines Satzes mittels induktiver Definition nutzen.}
+description={Der letzte Junktor, den Sie beim Zusammenbauen eines Satzes mittels induktiver Definition nutzen}
 }
 
 Die induktive Struktur von Sätzen der WFL ist wichtig, wenn wir die Umstände betrachten, unter denen ein bestimmter Satz wahr oder falsch ist. Der Satz `$\enot \enot \enot D$' ist wahr dann und nur dann, wenn der Satz `$\enot \enot D$' falsch ist, und so weiter der Struktur des Satzes folgend, bis wir zu den einfachen Sätzen, den Satzbuchstaben gelangen. Wir werden hierauf in Teil~\ref{ch.TruthTables} zurückkommen.
@@ -785,16 +772,14 @@ Diese allgemeinen Zitierkonventionen sind wichtig für uns, weil wir hier eine f
 
 Wenn wir über eine Sprache sprechen, dann wird die Sprache, über die wir sprechen, als \define{Objektsprache} bezeichnet. Gewisserma{\ss}en machen wir diese Sprache zum Objekt unserer Untersuchung. Die Sprache, die wir verwenden, um über die Objektsprache zu sprechen, wird hingegen als \define{Metasprache} bezeichnet.\label{def.metalanguage}
 
-\newglossaryentry{Objektsprache}
-{
+\newglossaryentry{Objektsprache}{
 name=Objektsprache,
-description={Eine Sprache, die wir zum Objekt unserer Untersuchung machen. In diesem Lehrbuch sind die Objektsprachen WFL, LEO und ML.}
+description={Eine Sprache, die wir zum Objekt unserer Untersuchung machen. In diesem Lehrbuch sind die Objektsprachen WFL, LEO und ML}
 }
 
-\newglossaryentry{Metasprache}
-{
+\newglossaryentry{Metasprache}{
 name=Metasprache,
-description={Eine Sprache, die wir nutzen, um über eine Objektsprache zu reden. In diesem Lehrbuch ist die Metasprache Deutsch, ergänzt durch bestimmte Symbole wie Metavariablen und Fachbegriffe wie `ist gültig'.}
+description={Eine Sprache, die wir nutzen, um über eine Objektsprache zu reden. In diesem Lehrbuch ist die Metasprache Deutsch, ergänzt durch bestimmte Symbole wie Metavariablen und Fachbegriffe wie `ist gültig'}
 }
 
 Die Objektsprache in diesem Kapitel war zu meist die von uns entwickelte formale Sprache, WFL. Die Metasprache dagegen war Deutsch. Nicht alltägliches Deutsch, sondern Deutsch, ergänzt durch zusätzliches Vokabular, das uns helfen soll, unsere Objektsprache zu verstehen.
@@ -834,10 +819,9 @@ dann wären wir nicht in der Lage gewesen zu bestimmen, ob `$\enot B$' ein Satz 
 	\factoidbox{
 	  `$\metav{A}$' ist ein Symbol (\define{Metavariable} genannt) des erweiterten Deutschen, das wir nutzen um über beliebige Sätze der WFL zu sprechen. `$A$' hingegen ist ein einzelner Satzbuchstabe der WFL.}
 
-        \newglossaryentry{Metavariable}
-{
+\newglossaryentry{Metavariable}{
 name=Metavariable,
-description={Eine Variable in der Metasprache, die jeden beliebigen Satz der Objektsprache repräsentieren kann.}
+description={Eine Variable in der Metasprache, die jeden beliebigen Satz der Objektsprache repräsentieren kann}
 }
 Das letzte Beispiel wirft allerdings eine weitere Komplikation auf, die unsere Zitierkonventionen betrifft. Wir haben keine Anführungszeichen in die zweite Klausel unserer induktiven Definition aufgenommen. Hätten wir das tun sollen?
 

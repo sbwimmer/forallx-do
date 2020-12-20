@@ -122,8 +122,8 @@ Wir definierten eine \define{Bewertung} in der WFL als eine beliebige Zuordnung 
 	\end{ebullet}
 Die Symbolisierungsschlüssel, die wir bisher verwendet haben, geben uns folglich ein sehr bequemes Mittel, eine Interpretation zu präsentieren. Wir werden dieses Mittel auch in diesem Kapitel verwenden.
 
-\newglossaryentry{interpretation}{
-  name = {Interpretation},
+\newglossaryentry{Interpretation}{
+  name = Interpretation,
   description = {Eine Spezifikation einer \gls{Domäne}, zusammen mit den Objekten, die die \glspl{Name}n benennen und den Objekten auf die die \glspl{Prädikat}e zutreffen}
 }
 
@@ -271,7 +271,7 @@ ist eine Substitutionsinstanz von
 	$$\forall y \exists x (\atom{R}{y,x} \eiff \atom{F}{x})$$
 dessen substituierender Name `$e$', und substituierte Variable `$y$', ist.
 
-\newglossaryentry{substitution instance}{
+\newglossaryentry{Substitutionsinstanz}{
   name = Substitutionsinstanz,
   description = {Das Resultat des Ersetzens jedes ungebundenen Vorkommnisses einer \gls{Variable} in einer \gls{Formel} mit einem \gls{Name}n}
 }
@@ -423,42 +423,33 @@ Die anderen logischen Begriffe haben entsprechende Definitionen:
 
 \begin{itemize}
 \item Ein LEO-Satz $\metav{A}$ ist eine \define{Tautologie} genau dann, wenn $\metav{A}$ in jeder Interpretation wahr ist, d.h.\@ $\entails\metav{A}$.
-\newglossaryentry{validity}
-{
-name=Tautologie (der LEO),
+\newglossaryentry{Tautologie der LEO}{
+name=Tautologie (in der LEO),
 description={Ein \gls{Satz der LEO}, der in jeder \gls{Interpretation} wahr ist}
 }
 
 \item $\metav{A}$ ist ein \define{Widerspruch} genau dann, wenn $\metav{A}$ in jeder Interpretation falsch ist; d.h.\@ $\entails\enot\metav{A}$.
-\newglossaryentry{contradiction of FOL}
-{
-  name=Widerspruch (der LEO),
-  text=Widerspruch,
+\newglossaryentry{Widerspruch der LEO}{
+  name=Widerspruch (in der LEO),
 description={Ein \gls{Satz der LEO}, der in jeder \gls{Interpretation} falsch ist}
 }
   
 \item $\metav{A}_1, \metav{A}_2, \ldots \metav{A}_n \therefore \metav{C}$ ist \define{gültig in der LEO} genau dann, wenn es keine Interpretation gibt, in der die Prämissen wahr sind und die Schlussfolgerung falsch; d.h.\@, $\metav{A}_1,\metav{A}_2,\ldots \metav{A}_n \entails\metav{C}$. Andernfalls ist es \define{ungültig in der LEO}.
-\newglossaryentry{valid in FOL}
-{
-  name=Gültigkeit von Argumenten (in der LEO),
-  text = gültig,
-description={Eine Eigenschaft von Argumenten, laut der keine \gls{interpretation} die Prämissen wahr und die Schlussfolgerung falsch macht}
+\newglossaryentry{Gültig in der LEO}{
+  name=Gültigkeit (in der LEO),
+description={Eine Eigenschaft von Argumenten, laut der keine \gls{Interpretation} die Prämissen wahr und die Schlussfolgerung falsch macht}
 }
 
 \item Zwei LEO-Sätze \metav{A} und \metav{B} sind \define{äquivalent} genau dann, wenn sie in genau den gleichen Interpretation wahr sind; d.h.\@ $\metav{A}\entails\metav{B}$ und $\metav{B}\entails\metav{A}$.
 
-\newglossaryentry{equivalent in FOL}
-{
+\newglossaryentry{Äquivalenz der LEO}{
   name=Äquivalenz (in der LEO),
-  text = äquivalent,
 description={Eine Eigenschaft von zwei Sätzen der LEO, laut der die Sätze in jeder \gls{Interpretation} den gleichen Wahrheitswert haben}
 }
 
 \item Die LEO-Sätze $\metav{A}_1$, $\metav{A}_2$, \dots, $\metav{A}_n$ sind \define{konsistent} genau dann, wenn zumindest eine Interpretation beide wahr macht. Sie sind \define{inkonsistent} genau dann, wenn es keine solche Interpretation gibt.
-\newglossaryentry{satisfiable in FOL}
-{
+\newglossaryentry{Konsistenz der LEO}{
   name=Konsistenz (in der LEO),
-  text=konsistent,
 description={Eine Eigenschaft von Sätzen der LEO, laut der diese Sätze in zumindest einer \gls{Interpretation} gemeinsam wahr sind}
 }
 \end{itemize}
@@ -603,7 +594,6 @@ Zeigen Sie, dass die folgenden Sätze weder Tautologien noch Widersprüche sind:
 \item $\exists x (x = h \eand x = i)$
 \end{earg}
 
-\solutions
 \problempart
 \label{pr.NotEquiv}
 Zeigen Sie, dass die folgenden Satzpaare nicht äquivalent sind:
@@ -618,8 +608,6 @@ Zeigen Sie, dass die folgenden Satzpaare nicht äquivalent sind:
 \item $\forall x\exists y\, \atom{R}{x,y}$, $\exists x\forall y\, \atom{R}{x,y}$
 \item $\forall x\exists y\, \atom{R}{x,y}$, $\forall x\exists y\, \atom{R}{y,x}$
 \end{earg}
-
-
 
 \problempart
 Zeigen Sie, dass die folgenden Sätze konsistent sind:

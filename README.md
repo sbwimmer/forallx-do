@@ -9,7 +9,8 @@ notions of logic such as consequence and validity, the syntax of truth-functiona
 logic with identity and first-order interpretations, formalizing German in TFL and FOL, 
 and Fitch-style natural deduction proof systems for both TFL and FOL. It also deals 
 with some advanced topics such as the syntax and (Kripke-)semantics of modal logic. 
-The book is provided in PDF and in LaTeX source code. 
+The book is provided in PDF and in LaTeX source code. A booklet with solutions for
+the exercises in the book will be provided in due course.
 
 [Download](#download) links below.
 
@@ -48,10 +49,9 @@ The LaTeX source code for this work is available on GitHub at [https://github.co
 
 ## Download
 
-You can download a PDF of the book here (link not yet live):
+You can download a PDF of the book here:
 
-  - [`forallxdo.pdf`]() (in color, for screen reading)
-  - [`forallxdosol.pdf`]() (worksheet booklet)
+  - [`forallxdo.pdf`](https://simonwimmer.weebly.com/uploads/9/3/8/2/93821764/forallxdo.pdf) (in color, for screen reading)
 
 ## Make PDFs Yourself
 

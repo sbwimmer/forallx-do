@@ -11,10 +11,9 @@ Jeder Satz der WFL setzt sich aus Satzbuchstaben zusammen. Manche Sätze sind ei
 
 In Kapitel \ref{s:TFLConnectives} haben wir fünf Junktoren vorgestellt. Wir müssen also nur erklären, wie diese Junktoren mit Wahrheitswerten umgehen. Der Einfachheit halber kürzen wir `Wahr' mit `T' (wie `true' im Englischen) und `Falsch' mit `F' ab. (Zur Klarstellung: die beiden Wahrheitswerte sind Wahr und Falsch; die Wahrheitswerte sind keine Buchstaben.)
 
-\newglossaryentry{Wahrheitswert}
-                 {
-                   name = Wahrheitswert,
-                   description = {Einer von zwei Werten, die Sätze haben können: Wahr und Falsch}
+\newglossaryentry{Wahrheitswert}{
+                   name=Wahrheitswert,
+                   description={Einer von zwei Werten, die Sätze haben können: Wahr und Falsch}
                    }
 
 \paragraph{Negation.} Für jeden Satz \metav{A} gilt: Wenn \metav{A} wahr ist, dann ist \enot\metav{A} falsch; und wenn \enot\metav{A} wahr ist, dann ist \metav{A} falsch. Wir können dies in der \emph{charakteristischen Wahrheitstabelle} für die Negation zusammenfassen::
@@ -87,8 +86,7 @@ Wir führen nun eine wichtige Idee ein:
 	\factoidbox{
 		Ein Junktor ist \define{wahrheitsfunktional} genau dann, wenn der Wahrheitswert eines Satzes mit diesem Junktor als Hauptjunktor eindeutig durch den Wahrheitswert (die Wahrheitswerte) seines (seiner) Teilsatzes (Teilsätze) bestimmt wird.
 	}
-\newglossaryentry{Wahrheitsfunktionaler Junktor}
-{
+\newglossaryentry{Wahrheitsfunktionaler Junktor}{
 name=Wahrheitsfunktionaler Junktor,
 description={Ein Symbol, welches komplexere Sätze aus einfacheren Sätzen bildet und die \gls{Wahrheitswert}e der resultierenden Sätze nur mittels der Wahrheitswerte der einfächeren Sätze bestimmt.}
 }
@@ -263,7 +261,7 @@ Eine \define{komplette Wahrheitstabelle} hat eine Zeile für jede mögliche Zuor
 \newglossaryentry{komplette Wahrheitstabelle}
 {
 name=komplette Wahrheitstabelle,
-description={Eine Tabelle, die alle möglichen \gls{Wahrheitswert}e zu einem Satz oder mehreren Sätzen der WFL zuordnet, mit einer Zeile für jede mögliche \gls{Bewertung} aller Satzbuchstaben.}
+description={Eine Tabelle, die alle möglichen \gls{Wahrheitswert}e zu einem Satz oder mehreren Sätzen der WFL zuordnet, mit einer Zeile für jede mögliche \gls{Bewertung} aller Satzbuchstaben}
 }
 
 Die Grö{\ss}e der kompletten Wahrheitstabelle hängt von der Anzahl der verschiedenen Satzbuchstaben in der Tabelle ab. Ein Satz, der nur einen Satzbuchstaben enthält, benötigt nur zwei Zeilen, wie in der charakteristischen Wahrheitstabelle für die Negation. Dies gilt auch dann, wenn derselbe Buchstabe viele Male wiederholt wird, wie im Satz `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$'. Die komplette Wahrheitstabelle umfasst hier nur zwei Zeilen, weil es nur zwei Möglichkeiten gibt: `$C$' kann wahr oder falsch sein. Die Wahrheitstabelle für diesen Satz sieht wie folgt aus:
@@ -552,10 +550,10 @@ In \S\ref{s:BasicNotions} haben wir die Begriffe der \emph{notwendigen Wahrheit}
 		$\metav{A}$ ist eine \define{Tautologie} genau dann, wenn es jeder Bewertung nach wahr ist.
 	}
 
-\newglossaryentry{Tautologie}
+\newglossaryentry{Tautologie der WFL}
 {
-name=Tautologie,
-description={Ein Satz, der nur Ts in der Spalte unter dem Hauptjunktor seiner kompletten Wahrheitstabelle hat; ein Satz, der jeder \gls{Bewertung} nach wahr ist}
+name=Tautologie (in der WFL),
+description={Ein Satz der WFL, der nur Ts in der Spalte unter dem Hauptjunktor seiner kompletten Wahrheitstabelle hat; ein Satz, der jeder \gls{Bewertung} nach wahr ist}
 }
 
 Um zu entscheiden, ob ein Satz eine Tautologie ist, können wir Wahrheitstabellen verwenden. Wenn der Satz in jeder Zeile seiner kompletten Wahrheitstabelle wahr ist, dann ist er in jeder Bewertung wahr und es handelt sich um eine Tautologie. Um ein bekanntes Beispiel zu nutzen: `$(H \eand I) \eif H$' ist eine Tautologie. 
@@ -566,11 +564,10 @@ Der Begriff der notwendigen Falschheit hat einen ähnlichen Verwandten:
 	\factoidbox{
 		$\metav{A}$ ist ein \define{Widerspruch} (in der WFL) genau dann, wenn es jeder Bewertung nach falsch ist.
 	}
-\newglossaryentry{Widerspruch (der WFL)}
+\newglossaryentry{Widerspruch der WFL}
 {
-  name=Widerspruch (der WFL),
-  text=Widerspruch,
-description={Ein Satz der nur Fen in der Spalte unter dem Hauptjunktor seiner kompletten Wahrheitstabelle hat; ein Satz, der jeder \gls{Bewertung} nach falsch ist}
+  name=Widerspruch (in der WFL),
+description={Ein Satz der WFL, der nur Fen in der Spalte unter dem Hauptjunktor seiner kompletten Wahrheitstabelle hat; ein Satz der WFL, der jeder \gls{Bewertung} nach falsch ist}
 }
 
 Wir können Wahrheitstabellen verwenden, um zu entscheiden, ob ein Satz ein Widerspruch ist. Wenn der Satz in jeder Zeile seiner kompletten Wahrheitstabelle falsch ist, dann ist er bei jeder Bewertung falsch und ist ein Widerspruch. Um ein bekanntes Beispiel zu nutzen: `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$' ist ein Widerspruch.
@@ -582,11 +579,10 @@ Ein weitere nützlicher Begriff ist der Begriff der \emph{Äquivalenz}:
 	\factoidbox{
 		$\metav{A}$ und $\metav{B}$ sind \define{äquivalent} (in der WFL) genau dann, wenn sie jeder Bewertung nach den gleichen Wahrheitswert haben, d.h.\@, wenn es keine Bewertung gibt, laut der sie unterschiedliche Wahrheitswerte haben.
 	}
-\newglossaryentry{Äquivalenz}
+\newglossaryentry{Äquivalenz der WFL}
 {
   name=Äquivalenz (in der WFL),
-  text = Äquivalenz,
-description={Eine Eigenschaft von Satzpaaren, laut der die \gls{komplette Wahrheitstabelle} für diese Sätze identische Spalten unter den Hauptjunktoren hat (sodass die Sätze jeder Bewertung nach den gleichen Wahrheitswert haben)}
+description={Eine Eigenschaft von zwei Sätzen der WFL, laut der die \gls{komplette Wahrheitstabelle} für diese Sätze identische Spalten unter den Hauptjunktoren hat (sodass die Sätze jeder Bewertung nach den gleichen Wahrheitswert haben)}
 }
 
 Wir nutzten diesen Begriff bereits in \S\ref{s:MoreBracketingConventions}; dort stellten wir fest, dass `$(A \eand B) \eand C$' und `$A \eand (B \eand C)$' äquivalent sind. Auch die Äquivalenz zweier Sätze können wir mittels Wahrheitstabellen überprüfen. Betrachten Sie die Sätze `$\enot(P \eor Q)$' und `$\enot P \eand \enot Q$'. Sind sie äquivalent? Um das herauszufinden, konstruieren wir eine Wahrheitstabelle.
@@ -611,8 +607,7 @@ In \S\ref{s:BasicNotions} erklärten wir, dass Sätze \emph{gemeinsam möglich} 
         \newglossaryentry{Konsistenz in der WFL}
 {
   name=Konsistenz (in der WFL),
-  text=konsistent,
-description={Eine Eigenschaft von Sätzen, laut der die \gls{komplette Wahrheitstabelle} dieser Sätze eine Zeile enthält, in der all diese Sätze wahr sind (sodass zumindest eine \gls{Bewertung} alle Sätze wahr macht)}
+description={Eine Eigenschaft von Sätzen der WFL, laut der die \gls{komplette Wahrheitstabelle} dieser Sätze eine Zeile enthält, in der all diese Sätze wahr sind (sodass zumindest eine \gls{Bewertung} alle Sätze wahr macht)}
 }
 
 Folglich nennen wir Sätze \define{inkonsistent} genau dann, wenn es keine Bewertung gibt, die all diese Sätze wahr macht. Offensichtlich können wir mittels Wahrheitstabellen überprüfen, ob Sätze konsistent oder inkonsistent sind.
@@ -625,7 +620,6 @@ Wir können auch die Folgebeziehung und Gültigkeit mittels Wahrheitstabellen de
        \newglossaryentry{Gültig in der WFL}
 {
   name= Gültigkeit (in der WFL),
-  text=gültig (in der WFL),
 description={Eine Eigenschaft von Argumenten, laut der die \gls{komplette Wahrheitstabelle} des Arguments keine Zeile enthält, in der die \glspl{Prämisse}n alle wahr sind und die \gls{Schlussfolgerung} falsch (sodass keine \gls{Bewertung} alle Prämissen wahr macht und die Schlussfolgerung falsch)}
 }
 

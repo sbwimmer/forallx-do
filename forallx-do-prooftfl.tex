@@ -1,4 +1,4 @@
-%!TEX root = forallxyyc.tex
+%!TEX root = forallxdo.tex
 \part{Natürliche Herleitung für die WFL}
 \label{ch.NDTFL}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
@@ -41,7 +41,7 @@ Anstatt uns (im Falle der WFL) direkt einen Überblick über alle möglichen Bew
 
 Die moderne Entwicklung der natürlichen Herleitung geht auf gleichzeitig erschienene, aber nicht zusammenhängende Arbeiten von Gerhard Gentzen und Stanis\l{}aw Ja\'{s}kowski (1934) zurück. Das System der natürlichen Herleitung, das wir betrachten werden, basiert jedoch weitgehend auf Arbeiten von Frederic Fitch (erstmals 1952 veröffentlicht). 
 
-\chapter{Einfache Regeln für die WFL}\label{s:BasicTFL}
+\chapter{Grundregeln für die WFL}\label{s:BasicTFL}
 Wir werden ein System der \define{natürlichen Herleitung} entwickeln. Für jeden Junktor wird es \define{Einführungsregeln} geben, die es uns erlauben, einen Satz herzuleiten, der diesen Junktor als Hauptjunktor hat. Zudem wird es \define{Eliminationsregeln} geben, die es uns erlauben, aus einem Satz mit diesem Junktor als Hauptjunktor einen anderen Satz herzuleiten.
 
 \section{Die Idee eines formalen Beweises}
@@ -571,9 +571,9 @@ Wenn aber die Annahme, dass $\metav{A}$ falsch ist (d.h.\@ die Annahme, dass $\e
 \close
 \have[\ ]{na}{\metav{A}}\ip{a-nb}
 \end{fitchproof}}
-Diese Regel wird manchmal \emph{indirekter Beweis} (`IP' wie in `indirect proof') genannt, da sie uns erlaubt, $\metav{A}$ indirekt zu beweisen, indem wir seine Negation annehmen. Formal ist die Regel sehr ähnlich zu $\enot$I, aber $\metav{A}$ und $\enot\metav{A}$ haben die Plätze gewechselt. Da $\enot\metav{A}$ nicht die Schlussfolgerung der Regel ist, führen wir~$\enot$ nicht ein, sodass IP keine Regel ist, die einen Junktor einführt. Sie eliminiert allerdings auch keinen Junktor, da sie keine freistehenden Prämissen hat, die~$\enot$ enthalten, sondern nur einen Unterbeweis mit einer Annahme der Form~$\enot\metav{A}$. Im Gegensatz dazu hat $\enot$E eine Prämisse der Form $\enot\metav{A}$: deshalb eliminiert $\enot$E~$\enot$, im Gegensatz zu IP.\footnote{Es gibt Logiker, die Bedenken gegen IP haben, aber nicht gegen $\enot$E. Man nennt sie `Intuitionisten'. Intuitionisten kaufen uns unsere Grundannahme nicht ab, dass jeder Satz einen von zwei Wahrheitswerten hat, wahr oder falsch. Sie denken auch, dass $\enot$ anders funktioniert -- für sie garantiert das Herleiten von $\ered$ von $\metav{A}$, dass $\enot \metav{A}$ wahr ist; das Herleiten von $\ered$ von $\enot\metav{A}$ allerdings garantiert nicht, dass~$\metav{A}$ wahr ist, sondern nur, dass $\enot\enot\metav{A}$ wahr ist. Für Intuitionisten sind also $\metav{A}$ und $\enot\enot\metav{A}$ nicht äquivalent.} 
+Diese Regel wird manchmal \emph{indirekter Beweis} (`IB') genannt, da sie uns erlaubt, $\metav{A}$ indirekt zu beweisen, indem wir seine Negation annehmen. Formal ist die Regel sehr ähnlich zu $\enot$I, aber $\metav{A}$ und $\enot\metav{A}$ haben die Plätze gewechselt. Da $\enot\metav{A}$ nicht die Schlussfolgerung der Regel ist, führen wir~$\enot$ nicht ein, sodass IB keine Regel ist, die einen Junktor einführt. Sie eliminiert allerdings auch keinen Junktor, da sie keine freistehenden Prämissen hat, die~$\enot$ enthalten, sondern nur einen Unterbeweis mit einer Annahme der Form~$\enot\metav{A}$. Im Gegensatz dazu hat $\enot$E eine Prämisse der Form $\enot\metav{A}$: deshalb eliminiert $\enot$E~$\enot$, im Gegensatz zu IB.\footnote{Es gibt Logiker, die Bedenken gegen IB haben, aber nicht gegen $\enot$E. Man nennt sie `Intuitionisten'. Intuitionisten kaufen uns unsere Grundannahme nicht ab, dass jeder Satz einen von zwei Wahrheitswerten hat, wahr oder falsch. Sie denken auch, dass $\enot$ anders funktioniert -- für sie garantiert das Herleiten von $\ered$ von $\metav{A}$, dass $\enot \metav{A}$ wahr ist; das Herleiten von $\ered$ von $\enot\metav{A}$ allerdings garantiert nicht, dass~$\metav{A}$ wahr ist, sondern nur, dass $\enot\enot\metav{A}$ wahr ist. Für Intuitionisten sind also $\metav{A}$ und $\enot\enot\metav{A}$ nicht äquivalent.} 
 
-Unter Verwendung von $\enot$I waren wir in der Lage, $\enot\enot\metav{D}$ von $\metav{D}$ ausgehend zu beweisen. Mittels IP können wir die Rückrichtung bilden (wobei der Beweis im Wesentlichen gleich verläuft).
+Unter Verwendung von $\enot$I waren wir in der Lage, $\enot\enot\metav{D}$ von $\metav{D}$ ausgehend zu beweisen. Mittels IB können wir die Rückrichtung bilden (wobei der Beweis im Wesentlichen gleich verläuft).
 	\begin{fitchproof}
 		\hypo{d}{\enot\enot D}
 		\open
@@ -804,7 +804,7 @@ Um ein Konditional $\metav{A} \eif \metav{B}$ zu verwenden, brauchen Sie auch da
 
 \subsection*{Vorwärts arbeiten von einem verneinten Satz}
 
-Um schlie{\ss}lich einen verneinten Satz $\enot \metav{A}$ zu verwenden, wenden Sie $\enot$E an. Dies erfordert zusätzlich zu $\enot \metav{A}$ auch den entsprechenden Satz~$\metav{A}$ ohne Negation. Der Satz, den Sie am Ende erhalten, ist immer derselbe: $\ered$. Das Weiterarbeiten von einer Negation funktioniert also besonders gut innerhalb eines Unterbeweises, den Sie für $\enot$I (oder IP) verwenden. Sie arbeiten von $\enot \metav{A}$ vorwärts, wenn Sie bereits $\enot \metav{A}$ haben und~$\ered$ herleiten wollen. Dazu deklarieren Sie $\metav{A}$ als Ihr neues Ziel.
+Um schlie{\ss}lich einen verneinten Satz $\enot \metav{A}$ zu verwenden, wenden Sie $\enot$E an. Dies erfordert zusätzlich zu $\enot \metav{A}$ auch den entsprechenden Satz~$\metav{A}$ ohne Negation. Der Satz, den Sie am Ende erhalten, ist immer derselbe: $\ered$. Das Weiterarbeiten von einer Negation funktioniert also besonders gut innerhalb eines Unterbeweises, den Sie für $\enot$I (oder IB) verwenden. Sie arbeiten von $\enot \metav{A}$ vorwärts, wenn Sie bereits $\enot \metav{A}$ haben und~$\ered$ herleiten wollen. Dazu deklarieren Sie $\metav{A}$ als Ihr neues Ziel.
 \begin{fitchproof}
 	\have[n]{1}{\enot \metav{A}}
 	\ellipsesline 
@@ -998,7 +998,7 @@ Beachten Sie, dass Sie $\enot A$ in Zeile ~$2$ haben und $A$ als Annahme in Ihre
 
 \section{Indirekt voranschreiten}
 
-In sehr vielen Fällen zahlen sich die Strategien, vorwärts und rückwärts zu arbeiten, aus. Aber es gibt Fälle, in denen sie nicht funktionieren. Wenn Sie keine Möglichkeit finden, $\metav{A}$ direkt mithilfe dieser Strategien zu zeigen, verwenden Sie stattdessen IP. Richten Sie dazu einen Unterbeweis ein, in dem Sie $\enot\metav{A}$ annehmen. In diesem Unterbeweis versuchen Sie nun $\ered$ herzuleiten.
+In sehr vielen Fällen zahlen sich die Strategien, vorwärts und rückwärts zu arbeiten, aus. Aber es gibt Fälle, in denen sie nicht funktionieren. Wenn Sie keine Möglichkeit finden, $\metav{A}$ direkt mithilfe dieser Strategien zu zeigen, verwenden Sie stattdessen IB. Richten Sie dazu einen Unterbeweis ein, in dem Sie $\enot\metav{A}$ annehmen. In diesem Unterbeweis versuchen Sie nun $\ered$ herzuleiten.
 
 \begin{fitchproof}
 \open
@@ -1008,9 +1008,9 @@ In sehr vielen Fällen zahlen sich die Strategien, vorwärts und rückwärts zu 
 \close
 \have{4}{\metav{A}}\ip{2-3}
 \end{fitchproof}
-Hier müssen wir einen Unterbeweis mit der Annahme $\enot \metav{A}$ beginnen; die letzte Zeile des Unterbeweises muss ~$\ered$ sein. Wir zitieren den Unterbeweis und verwenden~IP als Regel. Im Unterbeweis haben wir nun eine zusätzliche Annahme (in Zeile $n$), mit der wir arbeiten müssen.
+Hier müssen wir einen Unterbeweis mit der Annahme $\enot \metav{A}$ beginnen; die letzte Zeile des Unterbeweises muss ~$\ered$ sein. Wir zitieren den Unterbeweis und verwenden~IB als Regel. Im Unterbeweis haben wir nun eine zusätzliche Annahme (in Zeile $n$), mit der wir arbeiten müssen.
 
-Nehmen wir an, wir haben die Strategie des indirekten Beweises verwendet, oder wir befinden uns in einer anderen Situation, in der wir $\ered$ herleiten wollen. Was ist ein guter Kandidat für eine solche Herleitung? Natürlich wäre es naheliegend, eine Negation zu verwenden, da (wie wir oben gesehen haben) $\enot$E immer~$\ered$ ergibt. Wenn Sie einen Beweis wie oben aufgestellt haben und versuchen, $\metav{A}$ mittels~IP zu beweisen, verwenden Sie $\enot \metav{A}$ als Annahme Ihres Unterbeweises. Wenn Sie also von $\enot \metav{A}$ ausgehend vorwärts arbeitend $\ered$ herleiten wollen, ist Ihr nächstes Ziel $\metav{A}$ in Ihrem Unterbeweis zu erhalten. Wenn Sie diese IP-Strategie anwenden, werden Sie sich in der folgenden Situation wiederfinden: 
+Nehmen wir an, wir haben die Strategie des indirekten Beweises verwendet, oder wir befinden uns in einer anderen Situation, in der wir $\ered$ herleiten wollen. Was ist ein guter Kandidat für eine solche Herleitung? Natürlich wäre es naheliegend, eine Negation zu verwenden, da (wie wir oben gesehen haben) $\enot$E immer~$\ered$ ergibt. Wenn Sie einen Beweis wie oben aufgestellt haben und versuchen, $\metav{A}$ mittels~IB zu beweisen, verwenden Sie $\enot \metav{A}$ als Annahme Ihres Unterbeweises. Wenn Sie also von $\enot \metav{A}$ ausgehend vorwärts arbeitend $\ered$ herleiten wollen, ist Ihr nächstes Ziel $\metav{A}$ in Ihrem Unterbeweis zu erhalten. Wenn Sie diese IB-Strategie anwenden, werden Sie sich in der folgenden Situation wiederfinden: 
 \begin{fitchproof}
 \open
 \hypo[n]{2}{\enot \metav{A}}
@@ -1020,7 +1020,7 @@ Nehmen wir an, wir haben die Strategie des indirekten Beweises verwendet, oder w
 \close
 \have{5}{\metav{A}}\ip{2-4}
 \end{fitchproof} 
-Das sieht komisch aus: Wir wollten $\metav{A}$ beweisen, und unsere Strategien haben versagt; also haben wir IP eingesetzt. Aber jetzt befinden wir uns, scheinbar, wieder in der gleichen Situation: Wir suchen wieder nach einem Beweis für~$\metav{A}$. Aber beachten Sie, dass wir uns jetzt in einem Unterbeweis befinden. In diesem Unterbeweis haben wir zudem eine zusätzliche Annahme ($\enot \metav{A}$) zur Verfügung, die wir vorher nicht zur Verfügung hatten. Sehen wir uns ein Beispiel an.
+Das sieht komisch aus: Wir wollten $\metav{A}$ beweisen, und unsere Strategien haben versagt; also haben wir IB eingesetzt. Aber jetzt befinden wir uns, scheinbar, wieder in der gleichen Situation: Wir suchen wieder nach einem Beweis für~$\metav{A}$. Aber beachten Sie, dass wir uns jetzt in einem Unterbeweis befinden. In diesem Unterbeweis haben wir zudem eine zusätzliche Annahme ($\enot \metav{A}$) zur Verfügung, die wir vorher nicht zur Verfügung hatten. Sehen wir uns ein Beispiel an.
 
 \section{Indirekter Beweis des ausgeschlossenen Dritten}\label{s:proofLEM}
 
@@ -1118,7 +1118,7 @@ Verwenden Sie die oben genannten Strategien, um Beweise für jedes der folgenden
 \item $(A \eif B) \lor (B \eif A)$
 \item $((A \eif B) \eif A) \eif A$
 \end{earg}
-Diese Aufgaben erfordern die IP-Strategie. Besonders die letzten drei sind sehr schwierig!
+Diese Aufgaben erfordern die IB-Strategie. Besonders die letzten drei sind sehr schwierig!
 
 \chapter{Zusätzliche Regeln für die WFL}\label{s:Further}
 In \S\ref{s:BasicTFL} haben wir die Grundregeln unseres Herleitungssystems für die WFL vorgestellt. In diesem Abschnitt werden wir einige zusätzliche Regeln hinzufügen. Unser erweitertes Herleitungssystem ist etwas einfacher zu handhaben. (In \S\ref{s:Derived} werden wir jedoch sehen, dass die zusätzlichen Regeln streng genommen nicht notwendig sind).
@@ -1316,9 +1316,9 @@ Bewaffnet mit unserem `$\proves$'-Symbol können wir noch weitere Begriffe einf�
 	\factoidbox{\label{def:syntactic_tautology_in_sl}
 		$\metav{A}$ ist ein \define{Theorem} genau dann, wenn $\proves \metav{A}$
 	}
-\newglossaryentry{theorem}
+\newglossaryentry{Theorem}
 {
-name=theorem,
+name=Theorem,
 description={Ein Satz, der ohne Prämissen hergeleitet werden kann}
 }
 
@@ -1344,7 +1344,6 @@ Hier ist ein weiterer nützlicher Begriff:
 \newglossaryentry{beweisbar äquivalent}
 {
   name=beweisbare Äquivalenz,
-  text = beweisbare Äquivalenz,
 description={Eine Eigenschaft von Satzpaaren, laut der jeder der beiden Sätze von dem jeweils anderen hergeleitet werden kann}
 }
 
@@ -1356,9 +1355,8 @@ Hier ist ein dritter, verwandter Begriff:
 	}
         
 \newglossaryentry{beweisbar inkonsistent}
-{    name={beweisbare Inkonsistenz}, 
-  description={Sätze sind beweisbar inkonsistent genau dann, wenn man von ihnen einen Widerspruch herleiten kann},
-    text={beweisbare Inkonsistenz}
+{    name=beweisbare Inkonsistenz, 
+  description={Sätze sind beweisbar inkonsistent genau dann, wenn man von ihnen einen Widerspruch herleiten kann}
 }
 
 Es ist leicht zu zeigen, dass einige Sätze beweisbar inkonsistent sind: Man muss nur einen Widerspruch als Resultat der Annahme dieser Sätze beweisen können. Zu zeigen, dass einige Sätze nicht beweisbar inkonsistent sind, ist viel schwieriger. Es erfordert mehr, als nur den einen oder anderen Beweis zu erbringen; es erfordert, dass kein Beweis einer bestimmten Art gegeben werden kann.
@@ -1660,7 +1658,7 @@ Alle unsere Konzepte sind jetzt sowohl semantisch als auch syntaktisch definiert
 \newglossaryentry{Korrektheit}
 {
 name=Korrektheit,
-description={Eine Eigenschaft von logischen Systemen, laut der $\proves $ $\entails $ zur Folge hat}
+description={Eine Eigenschaft von logischen Systemen, laut der $\proves$ $\entails$ zur Folge hat}
 }
 
 Dieses Argument von $\proves $ nach $\entails$ ist das Problem der \define{Korrektheit}. Ein Herleitungssystem ist \define{korrekt} wenn es keine Herleitungen zulässt, die in Wahrheitstabellen ungültig sind. Um zu zeigen, dass unser Herleitungssystem korrekt ist, müssten wir zeigen, dass \emph{jeder} mögliche Beweis der Beweis eines gültigen Arguments ist. Es würde nicht ausreichen, viele gültige Argumente erfolgreich zu beweisen und viele ungültige Argumente nicht zu beweisen.
@@ -1684,7 +1682,7 @@ Wir haben also gezeigt (bzw.\@ angedeutet), dass $\metav{A} \proves \metav{B}$ t
 \newglossaryentry{Vollständigkeit}
 {
 name=Vollständigkeit,
-description={Ein Eigenschaft eines logischen Systems, laut dem $\entails$ $\proves $ zur Folge hat}
+description={Ein Eigenschaft eines logischen Systems, laut dem $\entails$ $\proves$ zur Folge hat}
 }
 
 Dies ist das Problem der Vollständigkeit. Ein Herleitungssystem hat die Eigenschaft der  \define{Vollständigkeit} genau dann, wenn es einen Beweis für jedes semantisch gültige Argument gibt. Nachzuweisen, dass ein logisches System vollständig ist, ist generell schwieriger als nachzuweisen, dass es korrekt ist. Der Beweis, dass ein logisches System vollständig ist, erfordert, dass wir zeigen, dass die Regeln des Herleitungssystems genau so funktionieren, wie sie sollen. Zu zeigen, dass ein logisches System vollständig ist, hei{\ss}t zu zeigen, dass wir alle Regeln haben, die wir brauchen, bzw.\@ dass wir keine Regeln au{\ss}er Acht gelassen haben.
@@ -1746,3 +1744,4 @@ Gültigkeit & Leiten Sie die Schlussfolgerung von den Prämissen her & Finden Si
 \item Zeigen Sie, dass $\enot \enot (C \eiff \enot C), ((G \eor C) \eor G) \therefore ((G \eif C) \eand G) $ gültig ist.
 \item Zeigen Sie, dass $ \enot \enot L,  (C \eif \enot L) \eif C) \therefore \enot C$ ungültig ist. 
 \end{enumerate}
+

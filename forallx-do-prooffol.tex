@@ -1,148 +1,145 @@
-%!TEX root = forallxyyc.tex
-\part{Natural deduction for FOL}
+%!TEX root = forallxdo.tex
+\part{Natürliche Herleitung für die LEO}
 \label{ch.NDFOL}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
-\chapter{Basic rules for FOL}\label{s:BasicFOL}
+\chapter{Grundregeln für die LEO}\label{s:BasicFOL}
 
-The language of FOL makes use of all of the connectives of TFL. So proofs in FOL will use all of the basic and derived rules from Part~\ref{ch.NDTFL}. We will also use the proof-theoretic notions (particularly, the symbol `$\proves$') introduced there. However, we will also need some new basic rules to govern the quantifiers, and to govern the identity sign.
+Die LEO nutzt alle Junktoren der WFL. Daher werden Beweise in der LEO alle Grund- und abgeleiteten Regeln der WFL nutzen (siehe Teil \ref{ch.NDTFL}). Ebenso werden wir die beweistheoretischen Begriffe, die wir dort eingeführt hatten auch weiterhin nutzen (insbesondere `$\proves$'). Allerdings brauchen wir auch neue Grundregeln für die Quantoren und das Identitätssymbol.
 
+\section{Universaleliminierung}
 
-\section{Universal elimination}
-
-From the claim that everything is~$F$, you can infer that any particular thing is~$F$. You name it; it's~$F$. So the following should be fine:
+Aus der Behauptung, dass alles $F$ ist, können Sie herleiten, dass ein bestimmtes Objekt~$F$ ist. Was auch immer sonst es ist, es ist $F$. Das Folgende ist also in Ordnung:
 \begin{fitchproof}
 	\hypo{a}{\forall x\,\atom{R}{x,x,d}}
 	\have{c}{\atom{R}{a,a,d}} \Ae{a}
 \end{fitchproof}
-We obtained line 2 by dropping the universal quantifier and replacing every instance of `$x$' with `$a$'. Equally, the following should be allowed:
+Wir erhielten hier Zeile 2, indem wir den Universalquantor weglie{\ss}en und jede Vorkommnis von `$x$' durch `$a$' ersetzten. Gleicherma{\ss}en ist folgendes erlaubt:
 \begin{fitchproof}
 	\hypo{a}{\forall x\,\atom{R}{x,x,d}}
 	\have{c}{\atom{R}{d,d,d}} \Ae{a}
 \end{fitchproof}
-We obtained line 2 here by dropping the universal quantifier and replacing every instance of `$x$' with `$d$'. We could have done the same with any other name we wanted. 
+Hier erhielten wir Zeile 2, indem wir den Universalquantor weglie{\ss}en und jede Vorkommnis von `$x$' mit `$d$' ersetzten. Wir hätten das gleiche auch mit jedem anderen Namen tun können. 
 
-This motivates the universal elimination rule ($\forall$E):
+Diesen Herleitungen entspricht die Universaleliminationsregel ($\forall$E):
 \factoidbox{
 \begin{fitchproof}
 	\have[m]{a}{\forall \metav{x}\,\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)}
 	\have[\ ]{c}{\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)} \Ae{a}
 \end{fitchproof}}
-The notation here was introduced in \S\ref{s:TruthFOL}. The point is that you can obtain any \emph{substitution instance} of a universally quantified formula: replace every instance of the quantified variable with any name you like. 
+Die Notation hier haben wir schon in \S\ref{s:TruthFOL} eingeführt. Der Punkt ist, dass Sie jede \emph{Substitutionsinstanz} einer universalquantifizierten Formel erhalten können: ersetzen Sie einfach jede Vorkommnis der gebundenen Variable mit einem Namen. 
 
-We should emphasize that (as with every elimination rule) you can only apply the $\forall$E rule when the universal quantifier is the main logical operator. So the following is \emph{banned}:
+Zu betonen ist, dass Sie (wie bei jeder Eliminationsregel) die $\forall$E-Regel nur dann anwenden können, wenn der Universalquantor der Hauptoperator eines Satzes ist. Daher ist das Folgende \emph{verboten}:
 \begin{fitchproof}
 	\hypo{a}{\forall x\,\atom{B}{x} \eif \atom{B}{k}}
-	\have{c}{\atom{B}{b} \eif \atom{B}{k}}\by{naughy attempt to invoke $\forall$E}{a}
+	\have{c}{\atom{B}{b} \eif \atom{B}{k}}\by{inkorrekte Anwendung von $\forall$E}{a}
 \end{fitchproof}
-This is illegitimate, since `$\forall x$' is not the main logical operator in line~1. (If you need a reminder as to why this sort of inference should be banned, reread \S\ref{s:MoreMonadic}.)
+Dies ist unzulässig, da `$\forall x$' nicht der Hauptoperator in Zeile~1 ist (wenn Sie nachvollziehen wollen, warum diese Art von Schlussfolgerung verboten ist, blättern Sie zurück zu \S\ref{s:MoreMonadic}).
 
-\section{Existential introduction}
-From the claim that some particular thing is~$F$, you can infer that something is~$F$. So we ought to allow:
+\section{Existenzeinführung}
+Aus der Behauptung, dass ein bestimmtes Objekt~$F$ ist, können Sie herleiten, dass etwas~$F$ ist. Also ist das folgende zulässig:
 \begin{fitchproof}
 	\hypo{a}{\atom{R}{a,a,d}}
 	\have{b}{\exists x\, \atom{R}{a,a,x}} \Ei{a}
 \end{fitchproof}
-Here, we have replaced the name `$d$' with a variable `$x$', and then existentially quantified over it. Equally, we would have allowed:
+Hier haben wir den Namen `$d$' durch eine Variable `$x$' ersetzt und diese dann mit einem Existenzquantor gebunden. Gleicherma{\ss}en ist erlaubt:
 \begin{fitchproof}
 	\hypo{a}{\atom{R}{a,a,d}}
 	\have{c}{\exists x\, \atom{R}{x,x,d}} \Ei{a}
 \end{fitchproof}
-Here we have replaced both instances of the name `$a$' with a variable, and then existentially generalised. But we do not need to replace \emph{both} instances of a name with a variable: if Narcissus loves himself, then there is someone who loves Narcissus. So we also allow:
+Hier haben wir beide Vorkommnisse des Namens `$a$' durch eine Variable ersetzt und diese Variable dann mit einem Existenzquantor gebunden. Aber wir brauchen nicht beide Vorkommnisse eines Namens durch eine Variable zu ersetzen: Wenn Narziss sich selbst liebt, dann gibt es jemanden, der Narziss liebt. Also lassen wir auch das Folgende zu:
 \begin{fitchproof}
 	\hypo{a}{\atom{R}{a,a,d}}
 	\have{d}{\exists x\, \atom{R}{x,a,d}} \Ei{a}
 \end{fitchproof}
-Here we have replaced \emph{one} instance of the name `$a$' with a variable, and then existentially generalised. These observations motivate our introduction rule, although to explain it, we will need to introduce some new notation.
+Hier haben wir \emph{ein und nur ein} Vorkommnis des Namens `$a$' durch eine Variable ersetzt und diese Variable dann mit einem Existenzquantor gebunden. 
 
-Where $\metav{A}$ is a sentence containing the name $\metav{c}$, we can emphasize this by writing `$\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$'. We will write `$\metav{A}(\ldots \metav{x} \ldots \metav{c}\ldots)$' to indicate any formula obtained by replacing \emph{some or all} of the instances of the name \metav{c} with the variable \metav{x}. Armed with this, our introduction rule is:
+Diese Beobachtungen motivieren unsere Einführungsregel, obwohl wir zu ihrer Erläuterung eine neue Notation einführen müssen. Wo $\metav{A}$ ein Satz ist, der einen Namen $\metav{c}$ beinhaltet, können wir dies betonen, indem wir `$\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$' schreiben. Wir schreiben dann `$\metav{A}(\ldots \metav{x} \ldots \metav{c}\ldots)$', um eine beliebige Formel anzuzeigen, die wir erhalten haben, indem wir \emph{ein oder mehr} Vorkommnisse des Namens \metav{c} mit der Variable \metav{x} ersetzt haben. Diese Notation erlaubt uns, die Existenzeinführungsregel zu formulieren:
 \factoidbox{
 \begin{fitchproof}
 	\have[m]{a}{\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)}
 	\have[\ ]{c}{\exists \metav{x}\,\metav{A}(\ldots \metav{x} \ldots \metav{c}\ldots)} \Ei{a}
 \end{fitchproof}
-\metav{x} must not occur in $\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$}
-The constraint is included to guarantee that any application of the rule yields a  sentence of FOL. Thus the following is allowed:
+\metav{x} darf nicht in $\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$ vorkommen.}
+
+Die angeführte Einschränkung garantiert, dass jede Anwendung der Regel einen Satz der LEO ausspuckt. Daher ist das Folgende erlaubt:
 \begin{fitchproof}
 	\hypo{a}{\atom{R}{a,a,d}}
 	\have{d}{\exists x\, \atom{R}{x,a,d}} \Ei{a}
 	\have{e}{\exists y \exists x\, \atom{R}{x,y,d}} \Ei{d}
 \end{fitchproof}
-But this is banned:
+Aber das hier verboten:
 \begin{fitchproof}
 	\hypo{a}{\atom{R}{a,a,d}}
 	\have{d}{\exists x\, \atom{R}{x,a,d}} \Ei{a}
-	\have{e}{\exists x\, \exists x\, \atom{R}{x,x,d}}\by{naughty attempt to invoke $\exists$I}{d}
+	\have{e}{\exists x\, \exists x\, \atom{R}{x,x,d}}\by{inkorrekte Anwendung von $\exists$I}{d}
 \end{fitchproof}
-since the expression on line~3 contains clashing variables, and so is not a sentence of FOL.
+da der Ausdruck in Zeile~3 widerstreitende Variablen enthält (welcher Existenzquantor bindet welches Vorkommnis von `$x$'?) und somit kein Satz der LEO ist.
 
-\section{Empty domains}
-The following proof combines our two new rules for quantifiers:
+\section{Leere Domänen}
+Der folgende Beweis kombiniert unsere zwei neuen Regeln:
 	\begin{fitchproof}
 		\hypo{a}{\forall x\, \atom{F}{x}}
 		\have{in}{\atom{F}{a}}\Ae{a}
 		\have{e}{\exists x\, \atom{F}{x}}\Ei{in}
 	\end{fitchproof}
-Could this be a bad proof? If anything exists at all, then certainly we can infer that something is~$F$, from the fact that everything is~$F$. But what if \emph{nothing} exists at all? Then it is surely vacuously true that everything is~$F$; however, it does not following that something is~$F$, for there is nothing to \emph{be}~$F$. So if we claim that, as a matter of logic alone, `$\exists x\,\atom{F}{x}$' follows from `$\forall x\,\atom{F}{x}$', then we are claiming that, as a matter of \emph{logic alone}, there is something rather than nothing. This might strike us as a bit odd.
+Könnte dies ein schlechter Beweis sein? Wenn überhaupt etwas existiert, dann können wir sicherlich aus der Tatsache, dass alles~$F$ ist, herleiten, dass etwas~$F$ ist. Aber was ist, wenn überhaupt \emph{nichts} existiert? Dann ist wahr, dass alles~$F$ ist; daraus folgt jedoch nicht, dass etwas~$F$ ist, denn es gibt nichts das $F$ sein könnte. Wenn wir also behaupten, dass `$\exists x\, \atom{F}{x}$' aus `$\forall x\, \atom{F}{x}$' folgt, dann behaupten wir, dass die Logik garantiert, dass es etwas gibt. Ist das akzeptabel?
 
-Actually, we are already committed to this oddity. In \S\ref{s:FOLBuildingBlocks}, we stipulated that domains in FOL must have at least one member. We then defined a validity (of FOL) as a sentence which is true in every interpretation. Since `$\exists x\, x=x$' will be true in every interpretation, this \emph{also} had the effect of stipulating that it is a matter of logic that there is something rather than nothing.
+Tatsächlich haben wir uns bereits darauf festgelegt. In \S\ref{s:FOLBuildingBlocks} haben wir gesagt, dass Domänen der LEO mindestens ein Element haben müssen. Dann definierten wir eine Tautologie als einen Satz, der in jeder Interpretation wahr ist. Da nun `$\exists x\, x=x$' in jeder Interpretation wahr ist, hat unsere Bestimmung zur Folge, dass die Logik garantiert, dass es etwas gibt.
 
-Since it is far from clear that logic should tell us that there must be something rather than nothing, we might well be cheating a bit here. 
-
-If we refuse to cheat, though, then we pay a high cost. Here are three things that we want to hold on to:
+Da es nicht ohne weiteres klar ist, dass die Logik dies garantieren \emph{soll}, könnten wir versuchen, unsere Festlegung zu umgehen. Dieses Manöver ist allerdings kostspielig. Hier sind drei Dinge, die wir sagen wollen:
 	\begin{ebullet}
-		\item $\forall x\,\atom{F}{x} \proves \atom{F}{a}$: after all, that was $\forall$E.
-		\item $\atom{F}{a} \proves \exists x\,\atom{F}{x}$: after all, that was $\exists$I.
-		\item the ability to copy-and-paste proofs together: after all, reasoning works by putting lots of little steps together into rather big chains.
+		\item $\forall x\,\atom{F}{x} \proves \atom{F}{a}$: $\forall$E.
+		\item $\atom{F}{a} \proves \exists x\,\atom{F}{x}$: $\exists$I.
+		\item die Fähigkeit, Beweise durch Copy-and-Paste zu erhalten: Schlie{\ss}lich argumentieren wir, indem wir viele kleine Schritte zu gro{\ss}en Beweisen zusammenfügen.
 	\end{ebullet}
-If we get what we want on all three counts, then we have to countenance that $\forall xFx \proves \exists x\,\atom{F}{x}$. So, if we get what we want on all three counts, the proof system alone tells us that there is something rather than nothing. And if we refuse to accept that, then we have to surrender one of the three things that we want to hold on to!
+Um all diese Dinge zu sagen, müssen wir auch $\forall x\,\atom{F}{x} \proves \exists x\,\atom{F}{x}$ sagen. Wenn die Logik nicht die Existenz einiger Dinge garantieren soll, dann müssen wir also eine der drei obigen Aussagen aufgeben.
 
-Before we start thinking about which to surrender, we might want to ask how \emph{much} of a cheat this is. Granted, it may make it harder to engage in theological debates about why there is something rather than nothing. But the rest of the time, we will get along just fine. So maybe we should just regard our proof system (and FOL, more generally) as having a very slightly limited purview. If we ever want to allow for the possibility of \emph{nothing}, then we will have to cast around for a more complicated proof system. But for as long as we are content to ignore that possibility, our proof system is perfectly in order. (As, similarly, is the stipulation that every domain must contain at least one object.)
+Bevor wir anfangen, darüber nachzudenken, welche wir aufgeben wollen, sollten wir uns fragen, ob wir nicht doch sagen sollen, dass die Logik garantiert, dass etwas existiert. Zugegeben, ontologische Debatten darüber, warum es etwas statt nichts gibt, werden dadurch nicht gerade interessanter. Aber normalerweise hat unsere Annahme keine negativen Konsequenzen. Vielleicht sollten wir also einfach unser Herleitungssystem (und die LEO, allgemeiner gesagt) als ein System betrachten, dessen Anwendungsbereich etwas eingeschränkt ist. Wenn wir jemals die Möglichkeit des Nichtsseins zulassen wollen, dann brauchen wir ein komplizierteres Herleitungssystem. Aber solange wir uns damit zufrieden geben, diese Möglichkeit zu ignorieren, ist unser Herleitungssystem in Ordnung. (Genauso wie die Vorschrift, dass jede Domäne mindestens ein Objekt enthalten muss).
 
+\section{Universaleinführung}
+Nehmen Sie an, Sie haben zu jedem einzelnen Objekt gezeigt, dass es $F$ ist (und dass es keine anderen Dinge zu berücksichtigen gibt). Dann könnten Sie zu Recht behaupten, dass alles $F$ ist. Das motiviert die folgende Beweisregel. Wenn Sie jede einzelne Substitutionsinstanz von `$\forall x\, \atom{F}{x}$' nachgewiesen haben, dann können Sie `$\forall x\, \atom{F}{x}$' herleiten. 
 
-\section{Universal introduction}
-Suppose you had shown of each particular thing that it is F (and that there are no other things to consider). Then you would be justified in claiming that everything is F. This would motivate the following proof rule. If you had established each and every single substitution instance of `$\forall x\,\atom{F}{x}$', then you can infer `$\forall x\,\atom{F}{x}$'. 
+Leider wäre diese Regel völlig unbrauchbar. Um jede einzelne Substitutionsinstanz zu beweisen, müssten Sie `$\atom{F}{a}$', `$\atom{F}{b}$', \dots, `$\atom{F}{j_2}$', \dots, `$\atom{F}{r_{79002}}$', \dots herleiten. Da es in der LEO prinzipiell unendlich viele Namen gibt, würde dieser Prozess kein Ende finden. Wir können die eben motivierte Regel also niemals anwenden. Wir müssen bei der Aufstellung unserer Regel zur Einführung eines Universalquantors etwas geschickter vorgehen. 
 
-Unfortunately, that rule would be utterly unusable. To establish each and every single substitution instance would require proving `$\atom{F}{a}$', `$\atom{F}{b}$', \dots, `$\atom{F}{j_2}$', \dots, `$\atom{F}{r_{79002}}$', \ldots, and so on. Indeed, since there are infinitely many names in FOL, this process would never come to an end. So we could never apply that rule. We need to be a bit more cunning in coming up with our rule for introducing universal quantification. 
-
-A solution will be inspired by considering:
+Eine Lösung wird durch Fälle wie:
 $$\forall x\,\atom{F}{x} \therefore \forall y\,\atom{F}{y}$$
-This argument should \emph{obviously} be valid. After all, alphabetical variation ought to be a matter of taste, and of no logical consequence. But how might our proof system reflect this? Suppose we begin a proof thus:
+inspiriert. Dieses Argument ist \emph{klarerweise} gültig. Schlie{\ss}lich ist die alphabetische Variation eine Frage des Geschmacks und hat keine logischen Konsequenzen. Aber wie könnte unser Beweissystem dies widerspiegeln? Nehmen wir an, wir beginnen einen Beweis so:
 \begin{fitchproof}
 	\hypo{x}{\forall x\, \atom{F}{x}} 
 	\have{a}{\atom{F}{a}} \Ae{x}
 \end{fitchproof}
-We have proved `$\atom{F}{a}$'. And, of course, nothing stops us from using the same justification to prove `$\atom{F}{b}$', `$\atom{F}{c}$', \ldots, `$\atom{F}{j_2}$', \ldots, `$\atom{F}{r_{79002}}$, \dots, and so on until we run out of space, time, or patience. But reflecting on this, we see that there is a way to prove $F\metav{c}$, for any name \metav{c}. And if we can do it for \emph{any} thing, we should surely be able to say that `$F$' is true of \emph{everything}. This therefore justifies us in inferring `$\forall y\,\atom{F}{y}$', thus:
+Wir haben `$\atom{F}{a}$' bewiesen. Und nichts hindert uns daran, dieselbe Rechtfertigung auch für `$\atom{F}{b}$', `$\atom{F}{c}$', \ldots, `$\atom{F}{j_2}$', \ldots, `$\atom{F}{r_{79002}}$, \dots zu geben (bis unser Leben endet). Und so sehen wir ein, dass wir $F\metav{c}$, für jeden Namen \metav{c} beweisen können. Aber wenn wir das für \emph{jedes} Ding tun können, können wir doch sicherlich sagen, dass `$F$' auf \emph{alles} zutrifft. Dies rechtfertigt den Schluss auf `$\forall y\,\atom{F}{y}$' wie folgt:
 \begin{fitchproof}
 	\hypo{x}{\forall x\, \atom{F}{x}}
 	\have{a}{\atom{F}{a}} \Ae{x}
 	\have{y}{\forall y\, \atom{F}{y}} \Ai{a}
 \end{fitchproof}
-The crucial thought here is that `$a$' was just some \emph{arbitrary} name. There was nothing special about it---we might have chosen any other name---and still the proof would be fine. And this crucial thought motivates the universal introduction rule ($\forall$I):
+Der wichtige Punkt hier ist, dass `$a$' nur ein \emph{beliebiger} Name war. Es war nichts Besonderes an diesem Namen--wir hätten jeden anderen Namen wählen können--und trotzdem wäre der Beweis korrekt gewesen. Dieser Punkt motiviert die Universaleinführungsregel ($\forall$I):
 \factoidbox{
 \begin{fitchproof}
 	\have[m]{a}{\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)}
 	\have[\ ]{c}{\forall \metav{x}\,\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)} \Ai{a}
 \end{fitchproof}
-	\metav{c} must not occur in any undischarged assumption\\ 
-	\metav{x} must not occur in $\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$}
-A crucial aspect of this rule, though, is bound up in the first constraint. This constraint ensures that we are always reasoning at a sufficiently general level.
-%\footnote{Recall from \S\ref{s:BasicTFL} that we are treating `$\ered$' as a canonical contradiction. But if it were the canonical contradiction as involving some \emph{constant}, it might interfere with the constraint mentioned here. To avoid such problems, we will treat `$\ered$' as a canonical contradiction \emph{that involves no particular names}.} 
-To see the constraint in action, consider this terrible argument:
+	\metav{c} darf in keiner ungetilgten Annahme vorkommen\\ 
+	\metav{x} darf nicht in $\metav{A}(\ldots \metav{c} \ldots \metav{c}\ldots)$ vorkommen}
+Ein entscheidender Aspekt dieser Regel ist in der ersten Einschränkung niedergeschrieben. Diese Einschränkung stellt sicher, dass wir immer auf einer ausreichend allgemeinen Ebene argumentieren.
+
+Um zu sehen, wie diese Einschränkung dies garantiert, betrachten Sie:
 	\begin{quote}
-		Everyone loves Kylie Minogue; therefore everyone loves themselves.
+		Jeder liebt Kylie Minogue; deshalb liebt jeder sich selbst.
 	\end{quote}
-We might symbolize this obviously invalid inference pattern as:
+Wir könnten dieses klar ungültige Argument so symbolisieren:
 $$\forall x\,\atom{L}{x,k} \therefore \forall x\,\atom{L}{x,x}$$
-Now, suppose we tried to offer a proof that vindicates this argument:
+Versuchen wir nun, einen Beweis für dieses Argument zu geben:
 \begin{fitchproof}
 	\hypo{x}{\forall x\, \atom{L}{x,k}}
 	\have{a}{\atom{L}{k,k}} \Ae{x}
-	\have{y}{\forall x\, \atom{L}{x,x}} \by{naughty attempt to invoke $\forall$I}{a}
+	\have{y}{\forall x\, \atom{L}{x,x}} \by{inkorrekte Anwendung von $\forall$I}{a}
 \end{fitchproof}\noindent
-This is not allowed, because `$k$' occurred already in an undischarged assumption, namely, on line 1. The crucial point is that, if we have made any assumptions about the object we are working with, then we are not reasoning generally enough to license $\forall$I.
+Dies ist nicht erlaubt, weil `$k$' bereits in einer ungetilgten Annahme, nämlich in Zeile 1, vorkommt. Der entscheidende Punkt ist, dass wir, wenn wir irgendwelche Annahmen über das Objekt, mit dem wir arbeiten, gemacht haben, nicht allgemein genug argumentieren, um $\forall$I zu verwenden.
 
-Although the name may not occur in any \emph{undischarged} assumption, it may occur in a \emph{discharged} assumption. That is, it may occur in a subproof that we have already closed. For example, this is just fine:
+Obwohl der Name in keiner \emph{ungetilgten} Annahme vorkommen darf, darf er in einer \emph{getilgten} Annahme vorkommen. D.h.\@ er darf in einem bereits geschlossenen Unterbeweis vorkommen. Das folgende Beispiel ist zulässig:
 \begin{fitchproof}
 	\open
 		\hypo{f1}{\atom{G}{d}}
@@ -151,30 +148,30 @@ Although the name may not occur in any \emph{undischarged} assumption, it may oc
 	\have{ff}{\atom{G}{d} \eif \atom{G}{d}}\ci{f1-f2}
 	\have{zz}{\forall z(\atom{G}{z} \eif \atom{G}{z})}\Ai{ff}
 \end{fitchproof}
-This tells us that `$\forall z (\atom{G}{z} \eif \atom{G}{z})$' is a \emph{theorem}. And that is as it should be.
+Dieser Beweis zeigt, dass `$\forall z (\atom{G}{z} \eif \atom{G}{z})$' ein \emph{Theorem} ist.
 
-We should emphasise one last point. As per the conventions of \S\ref{s:MainLogicalOperatorQuantifier}, the use of $\forall$I requires that we are replacing \emph{every} instance of the name \metav{c} in $\metav{A}(\ldots \metav{x}\ldots\metav{x}\ldots)$ with the variable \metav{x}. If we only replace \emph{some} names and not others, we end up `proving' silly things. For example, consider the argument:
+Lasst uns den letzten Punkt noch weiter betonen. Den Konventionen \S\ref{s:MainLogicalOperatorQuantifier}s nach bedingt die Verwendung von $\forall$I, dass wir \emph{jede} Vorkommnis des Namens \metav{c} in $\metav{A}(\ldots \metav{x}\ldots\metav{x}\ldots)$ mit der Variable \metav{x} ersetzen. Wenn wir nur \emph{einige} Namen ersetzen und andere nicht, dann ``beweisen'' wir einige blöde Aussagen. Zum Beispiel:
 	\begin{quote}
-	Everyone is as old as themselves; so everyone is as old as Judi Dench.
+		Jeder ist so alt wie er selbst; also ist jeder so alt wie Judi Dench.
 	\end{quote}
-We might symbolise this as follows:
-$$\forall x\,\atom{O}{x,x} \therefore \forall x\,\atom{O}{x,d}$$
-But now suppose we tried to \emph{vindicate} this terrible argument with the following:
+Wir können dieses Argument so symbolisieren:
+$$\forall x\,\atom{A}{x,x} \therefore \forall x\,\atom{A}{x,d}$$
+Versuchen wir nun einen Beweis zu konstruieren, der diesem blöden Argument entspricht:
 \begin{fitchproof}
-	\hypo{x}{\forall x\, \atom{O}{x,x}}
-	\have{a}{\atom{O}{d,d}}\Ae{x}
-	\have{y}{\forall x\, \atom{O}{x,d}}\by{naughty attempt to invoke $\forall$I}{a}	
+	\hypo{x}{\forall x\, \atom{A}{x,x}}
+	\have{a}{\atom{A}{d,d}}\Ae{x}
+	\have{y}{\forall x\, \atom{A}{x,d}}\by{inkorrekte Anwendung von $\forall$I}{a}	
 \end{fitchproof}
-Fortunately, our rules do not allow for us to do this: the attempted proof is banned, since it doesn't replace \emph{every} occurrence of `$d$' in line $2$ with an `$x$'.
+Glücklicherweise lassen unsere Regeln solche Beweise nicht zu: der versuchte Beweis ist unzulässig, da er nicht \emph{jede} Vorkommnis von `$d$' in Zeile $2$ mit `$x$' ersetzt.
 
-\section{Existential elimination}
-Suppose we know that \emph{something} is~$F$. The problem is that simply knowing this does not tell us which thing is~$F$. So it would seem that from `$\exists x\,\atom{F}{x}$' we cannot immediately conclude `$\atom{F}{a}$', `$\atom{F}{e_{23}}$', or any other substitution instance of the sentence. What can we do?
+\section{Existenzeliminierung}
+Nehmen Sie an, Sie wissen, dass \emph{etwas} $F$ ist. Nur so viel zu wissen, erlaubt uns nicht zu wissen, welches Ding $F$ ist. Daher können wir von `$\exists x\,\atom{F}{x}$' nicht direkt auf `$\atom{F}{a}$', `$\atom{F}{e_{23}}$' oder irgendeine andere Substitutionsinstanz schlie{\ss}en. Können wir sonst was machen?
 
-Suppose we know that something is~$F$, and that everything which is~$F$ is also~$G$. In (almost) natural English, we might reason thus:
+Nehmen Sie an, Sie wissen, dass etwas $F$ ist und, dass alle $F$s $G$ sind. Nun könnten wir wie folgt argumentieren:
 	\begin{quote}
-		Since something is $F$, there is some particular thing which is an~$F$. We do not know anything about it, other than that it's an~$F$, but for convenience, let's call it `Becky'. So: Becky is $F$. Since everything which is $F$ is~$G$, it follows that Becky is~$G$. But since Becky is~$G$, it follows that something is~$G$. And nothing depended on which object, exactly, Becky was. So, something is~$G$.
+		Da etwas $F$ ist, gibt es ein bestimmtes Ding, das ein $F$ ist. Wir wissen nichts über dieses Ding, au{\ss}er dass es ein $F$ ist, aber der Einfachheit halber nennen wir es `Becky'. Also: Becky ist~$F$. Da alles, was $F$ ist,~$G$ ist, folgt daraus, dass Becky~$G$ ist. Da aber Becky~$G$ ist, folgt daraus, dass etwas~$G$ ist. Und nichts hing davon ab, welches Objekt genau Becky war. Etwas ist also~$G$.
 	\end{quote}
-We might try to capture this reasoning pattern in a proof as follows:
+Diese Argumentation können wir so in unserem Herleitungssystem einfangen:
 \begin{fitchproof}
 	\hypo{es}{\exists x\, \atom{F}{x}}
 	\hypo{ast}{\forall x(\atom{F}{x} \eif \atom{G}{x})}
@@ -186,9 +183,9 @@ We might try to capture this reasoning pattern in a proof as follows:
 	\close
 	\have{et2}{\exists x\, \atom{G}{x}}\Ee{es,s-et1}
 \end{fitchproof}\noindent
-Breaking this down: we started by writing down our assumptions. At line~$3$, we made an additional assumption: `$\atom{F}{b}$'. This was just a substitution instance of `$\exists x\,\atom{F}{x}$'. On this assumption, we established `$\exists x\,\atom{G}{x}$'. Note that we had made no \emph{special} assumptions about the object named by `$b$'; we had \emph{only} assumed that it satisfies `$\atom{F}{x}$'. So nothing depends upon which object it is. And line~$1$ told us that \emph{something} satisfies `$\atom{F}{x}$', so our reasoning pattern was perfectly general. We can discharge the specific assumption `$\atom{F}{b}$', and simply infer `$\exists x\,\atom{G}{x}$' on its own.
+Brechen wir dies herunter: Wir begannen mit unseren Annahmen. In Zeile $3$ führten wir dann eine weitere Annahme ein: `$\atom{F}{b}$'. Das war einfach eine Substitutionsinstanz von `$\exists x\,\atom{F}{x}$'. Mittels dieser Annahme zeigten wir, dass `$\exists x\,\atom{G}{x}$'. Zu beachten ist, dass wir keine  \emph{besonderen} Annahmen über das Objekt, das wir `$b$' nennen, gemacht haben. Wir nahmen \emph{nur} an, dass es `$\atom{F}{x}$' erfüllt. Daher hängt nichts davon ab, welches Objekt es genau ist. Und Zeile $1$ sagt uns, dass \emph{etwas} `$\atom{F}{x}$' erfüllt, also war unsere Argumentation verallgemeinerbar. Wir können die spezifische Annahme `$\atom{F}{b}$' tilgen und auf `$\exists x\,\atom{G}{x}$' schlie{\ss}en.
 
-Putting this together, we obtain the existential elimination rule ($\exists$E):
+Hier ist nun die Existenzeliminierungsregel ($\exists$E):
 \factoidbox{
 \begin{fitchproof}
 	\have[m]{a}{\exists \metav{x}\,\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)}
@@ -198,45 +195,45 @@ Putting this together, we obtain the existential elimination rule ($\exists$E):
 	\close
 	\have[\ ]{d}{\metav{B}} \Ee{a,b-c}
 \end{fitchproof}
-\metav{c} must not occur in any assumption undischarged before line $i$\\
-\metav{c} must not occur in $\exists \metav{x}\,\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)$\\
-\metav{c} must not occur in \metav{B}}
-As with universal introduction, the constraints are extremely important. To see why, consider the following terrible argument:
+\metav{c} darf in keiner Annahme vorkommen, die vor Zeile $i$ ungetilgt ist\\
+\metav{c} darf nicht in $\exists \metav{x}\,\metav{A}(\ldots \metav{x} \ldots \metav{x}\ldots)$ vorkommen\\
+\metav{c} darf nicht in \metav{B} vorkommen}
+Wie bei der Universaleinführung sind die Einschränkungen äu{\ss}erst wichtig. Um zu sehen, warum, betrachten Sie das folgende schreckliche Argument:
 	\begin{quote}
-		Tim Button is a lecturer. Someone is not a lecturer. So Tim Button is both a lecturer and not a lecturer.
+		Tim Button ist ein Dozent. Jemand ist kein Dozent. Also ist Tim Button sowohl Dozent als auch nicht.
 	\end{quote}
-We might symbolize this obviously invalid inference pattern as follows:
-$$\atom{L}{b}, \exists x\, \enot\atom{L}{x} \therefore \atom{L}{b} \eand \enot \atom{L}{b}$$
-Now, suppose we tried to offer a proof that vindicates this argument:
+Dieses ungültige Argument können wir wie folgt symbolisieren:
+$$\atom{D}{b}, \exists x\, \enot\atom{D}{x} \therefore \atom{D}{b} \eand \enot \atom{D}{b}$$
+Versuchen wir nun einen Beweis für dieses Argument zu konstruieren:
 \begin{fitchproof}
-	\hypo{f}{\atom{L}{b}}
-	\hypo{nf}{\exists x\, \enot \atom{L}{x}}	
+	\hypo{f}{\atom{D}{b}}
+	\hypo{nf}{\exists x\, \enot \atom{D}{x}}	
 	\open	
-		\hypo{na}{\enot \atom{L}{b}}
-		\have{con}{\atom{L}{b} \eand \enot \atom{L}{b}}\ai{f, na}
+		\hypo{na}{\enot \atom{D}{b}}
+		\have{con}{\atom{D}{b} \eand \enot \atom{D}{b}}\ai{f, na}
 	\close
-	\have{econ1}{\atom{L}{b} \eand \enot \atom{L}{b}}\by{naughty attempt}{}
-	\have[\ ]{x}{}\by{to invoke $\exists$E }{nf, na-con}
+	\have{econ1}{\atom{D}{b} \eand \enot \atom{D}{b}}\by{inkorrekte}{}
+	\have[\ ]{x}{}\by{Anwendung von $\exists$E }{nf, na-con}
 \end{fitchproof}
-The last line of the proof is not allowed. The name that we used in our substitution instance for `$\exists x\, \enot \atom{L}{x}$' on line~$3$, namely `$b$', occurs in line~$4$. The this would be no better:
+Die letzte Zeile dieses Beweises ist unzulässig. Der Name, den wir in unserer Substitutionsinstanz für `$\exists x\, \enot \atom{D}{x}$' in Zeile~$3$ nutzten, `$b$', kommt in Zeile $4$ vor. Auch das hier ist schlecht:
 \begin{fitchproof}
-	\hypo{f}{\atom{L}{b}}
-	\hypo{nf}{\exists x\, \enot \atom{L}{x}}	
+	\hypo{f}{\atom{D}{b}}
+	\hypo{nf}{\exists x\, \enot \atom{D}{x}}	
 	\open	
-		\hypo{na}{\enot \atom{L}{b}}
-		\have{con}{\atom{L}{b} \eand \enot \atom{L}{b}}\ai{f, na}
-		\have{con1}{\exists x (\atom{L}{x} \eand \enot \atom{L}{x})}\Ei{con}		
+		\hypo{na}{\enot \atom{D}{b}}
+		\have{con}{\atom{D}{b} \eand \enot \atom{D}{b}}\ai{f, na}
+		\have{con1}{\exists x (\atom{D}{x} \eand \enot \atom{D}{x})}\Ei{con}		
 	\close
-	\have{econ1}{\exists x (\atom{L}{x} \eand \enot \atom{L}{x})}\by{naughty attempt}{}
-	\have[\ ]{x}{}\by{to invoke $\exists$E }{nf, na-con1}
+	\have{econ1}{\exists x (\atom{D}{x} \eand \enot \atom{D}{x})}\by{inkorrekte}{}
+	\have[\ ]{x}{}\by{Anwendung von $\exists$E }{nf, na-con1}
 \end{fitchproof}
-The last line is still not allowed. For the name that we used in our substitution instance for `$\exists x\, \enot \atom{L}{x}$', namely `$b$', occurs in an undischarged assumption, namely line~$1$. 
+Die letzte Zeile ist immer noch unzulässig. Denn der Name, den wir in unserer Substitutionsinstanz für `$\exists x\, \enot \atom{L}{x}$' nutzten, `$b$', kommt in einer ungetilgten Annahme vor: Zeile~$1$. 
 
-The moral of the story is this. \emph{If you want to squeeze information out of an existential quantifier, choose a new name for your substitution instance.} That way, you can guarantee that you meet all the constraints on the rule for $\exists$E.
+Die Moral ist: \emph{Wenn Sie Informationen aus einem Existenzquantor herausquetschen wollen, wählen Sie einen neuen Namen für Ihre Substitutionsinstanz.} Auf diese Weise garantieren Sie, dass Sie alle Einschränkungen der Regel $\exists$E erfüllen.
 
 \practiceproblems
 \problempart
-Explain why these two `proofs' are \emph{incorrect}. Also, provide interpretations which would invalidate the fallacious argument forms the `proofs' enshrine:
+Erklären Sie, wieso die folgenden Beweise \emph{inkorrekt} sind. Geben Sie auch Interpretationen an, die zeigen, dass die den Beweisen zugrundeliegenden Argumente ungültig sind:
 \begin{multicols}{2}
 	\begin{fitchproof}
 		\hypo{Rxx}{\forall x\, \atom{R}{x,x}}
@@ -257,7 +254,7 @@ Explain why these two `proofs' are \emph{incorrect}. Also, provide interpretatio
 
 \problempart 
 \label{pr.justifyFOLproof}
-The following three proofs are missing their citations (rule and line numbers). Add them, to turn them into bona fide proofs. 
+Den folgenden drei Beweisen fehlen Zitationen (Regeln und Zeilennummern). Fügen Sie diese hinzu.
 \begin{earg}
 \item \begin{fitchproof}
 \hypo{p1}{\forall x\exists y(\atom{R}{x,y} \eor \atom{R}{y,x})}
@@ -305,28 +302,28 @@ The following three proofs are missing their citations (rule and line numbers). 
 
 \problempart
 \label{pr.BarbaraEtc.proof1}
-In \S\ref{s:MoreMonadic} problem A, we considered fifteen syllogistic figures of Aristotelian logic. Provide proofs for each of the argument forms. NB: You will find it \emph{much} easier if you symbolize (for example) `No F is G' as `$\forall x (\atom{F}{x} \eif \enot \atom{G}{x})$'.
+In \S\ref{s:MoreMonadic} Übung A, betrachteten wir 15 syllogistische Figuren. Geben Sie Beweise, die diesen Argumentformen entsprechen. Beachten Sie: Die Übung ist \emph{viel} leichter, wenn Sie `Kein F ist G' (beispielsweise) als `$\forall x (\atom{F}{x} \eif \enot \atom{G}{x})$' symbolisieren.
 
 \
 
 \problempart
 \label{pr.BarbaraEtc.proof2}
-Aristotle and his successors identified other syllogistic forms which depended upon `existential import'. Symbolize each of these argument forms in FOL and offer proofs.
+Aristoteles und seine Nachfolger*innen identifizierten weitere syllogistische Formen. Symbolisieren Sie diese in der LEO und geben Sie dementsprechende Beweise.
 \begin{earg}
-	\item \textbf{Barbari.} Something is H. All G are F. All H are G. So: Some H is F
-	\item \textbf{Celaront.} Something is H. No G are F. All H are G. So: Some H is not F
-	\item \textbf{Cesaro.} Something is H. No F are G. All H are G. So: Some H is not F.
-	\item \textbf{Camestros.} Something is H. All F are G. No H are G. So: Some H is not F.
-	\item \textbf{Felapton.} Something is G. No G are F. All G are H. So: Some H is not F.
-	\item \textbf{Darapti.} Something is G. All G are F. All G are H. So: Some H is F.
-	\item \textbf{Calemos.} Something is H. All F are G. No G are H. So: Some H is not F.
-	\item \textbf{Fesapo.} Something is G. No F is G. All G are H. So: Some H is not F.
-	\item \textbf{Bamalip.} Something is F. All F are G. All G are H. So: Some H are F.
+	\item \textbf{Barbari.} Etwas ist H. Alle Gs sind F. Alle Hs sind G. Also: Ein H ist F
+	\item \textbf{Celaront.} Etwas ist H. Kein G ist F. Alle Hs sind G. Also: Ein H ist nicht F
+	\item \textbf{Cesaro.} Etwas ist H. Kein F ist G. Alle Hs sind G. Also: Ein H ist nicht F.
+	\item \textbf{Camestros.} Etwas ist H. Alle Fs sind G. Kein H ist G. Also: Ein H ist nicht F.
+	\item \textbf{Felapton.} Etwas ist G. Kein G ist F. Alle Gs sind H. Also: Ein H ist nicht F.
+	\item \textbf{Darapti.} Etwas ist G. Alle Gs sind F. Alle Gs sind H. Also: Ein H ist F.
+	\item \textbf{Calemos.} Etwas ist H. Alle Fs sind G. Kein G ist H. Also: Ein H ist nicht F.
+	\item \textbf{Fesapo.} Etwas ist G. Kein F ist G. All Gs sind H. Also: Ein H ist nicht F.
+	\item \textbf{Bamalip.} Etwas ist F. Alle Fs sind G. Alle Gs sind H. Also: Ein H ist F.
 \end{earg}
 
 \problempart
 \label{pr.someFOLproofs}
-Provide a proof of each claim.
+Beweisen Sie jede der folgenden Aussagen.
 \begin{earg}
 \item $\proves \forall x\,\atom{F}{x} \eif \forall y(\atom{F}{y} \eand \atom{F}{y})$
 \item $\forall x(\atom{A}{x}\eif \atom{B}{x}), \exists x\,\atom{A}{x} \proves \exists x\,\atom{B}{x}$
@@ -342,14 +339,14 @@ Provide a proof of each claim.
 \solutions
 \problempart
 \label{pr.likes}
-Write a symbolization key for the following argument, symbolize it, and prove it:
+Geben Sie einen Symbolisierungsschlüssel für das folgende Argument, symbolisieren Sie es und geben Sie einen dementsprechenden Beweis:
 \begin{quote}
-There is someone who likes everyone who likes everyone that she likes. Therefore, there is someone who likes herself.
+Es gibt jemanden, der jeden mag, der jeden mag, den er mag. Es gibt also jemanden, der sich selbst mag.
 \end{quote}
 
 
 \problempart
-Show that each pair of sentences is provably equivalent.
+Zeigen Sie, dass die folgenden Satzpaare beweisbar äquivalent sind.
 \begin{earg}
 \item $\forall x (\atom{A}{x}\eif \enot \atom{B}{x})$, $\enot\exists x(\atom{A}{x} \eand \atom{B}{x})$
 \item $\forall x (\enot\atom{A}{x}\eif \atom{B}{d})$, $\forall x\,\atom{A}{x} \eor \atom{B}{d}$
@@ -359,7 +356,7 @@ Show that each pair of sentences is provably equivalent.
 \solutions
 \problempart
 \label{pr.FOLequivornot}
-For each of the following pairs of sentences: If they are provably equivalent, give proofs to show this. If they are not, construct an interpretation to show that they are not logically equivalent.
+Für jedes der folgenden Satzpaare: Wenn sie beweisbar äquivalent sind, legen Sie Beweise vor, um dies zu belegen. Wenn sie nicht äquivalent sind, konstruieren Sie eine Interpretation, um zu zeigen, dass sie es nicht sind.
 \begin{earg}
 \item $\forall x\,\atom{P}{x} \eif \atom{Q}{c}, \forall x (\atom{P}{x} \eif \atom{Q}{c})$
 \item $\forall x\,\forall y\, \forall z\,\atom{B}{x,y,z}, \forall x\,\atom{B}{x,x}x$
@@ -371,7 +368,7 @@ For each of the following pairs of sentences: If they are provably equivalent, g
 \solutions
 \problempart
 \label{pr.FOLvalidornot}
-For each of the following arguments: If it is valid in FOL, give a proof. If it is invalid, construct an interpretation to show that it is invalid.
+Für jedes der folgenden Argumente: Wenn es in der LEO gültig ist, geben Sie einen Beweis. Wenn es ungültig ist, konstruieren Sie eine Interpretation, um zu zeigen, dass es ungültig ist.
 \begin{earg}
 \item $\exists y\,\forall x\,\atom{R}{x,y} \therefore \forall x\,\exists y\,\atom{R}{x,y}$
 \item $\forall x\,\exists y\,\atom{R}{x,y} \therefore  \exists y\,\forall x\,\atom{R}{x,y}$
@@ -385,27 +382,29 @@ For each of the following arguments: If it is valid in FOL, give a proof. If it 
 \item $\exists x\,\atom{M}{x} \eif \exists x\,\atom{N}{x}$, $\enot \exists x\,\atom{N}{x}\therefore  \forall x\, \enot \atom{M}{x}$
 \end{earg}
 
-\chapter{Proofs with quantifiers}
+\chapter{Beweise mit Quantoren}
 
-In \S\ref{s:stratTFL} we discussed strategies for constructing proofs using the basic rules of natural deduction for TFL. The same principles apply to the rules for the quantifiers. If we want to prove a quantifier sentence $\forall \metav{x}\, \atom{\metav{A}}{\metav{x}}$ or $\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}$. We can work backward by justifying the sentence we want by $\forall$I or $\exists$I and trying to find a proof of the corresponding premise of that rule. And to work forward from a quantified sentence, we apply $\forall$E or $\exists$E, as the case may be. 
+In \S\ref{s:stratTFL} diskutierten wir Strategien für Beweise, die die Grundregeln der WFL nutzen. Die gleichen Prinzipien gelten auch für die Regeln der Quantoren. 
 
-Specifically, suppose you want to prove $\forall \metav{x}\, \atom{\metav{A}}{\metav{x}}$. To do so using $\forall$I, we would need a proof of $\atom{\metav{A}}{\metav{c}}$ for some name~$\metav{c}$ which does not occur in any undischarged assumption. To apply the corresponding strategy, i.e., to construct a proof of $\forall \metav{x}\, \atom{\metav{A}}{\metav{x}}$ by working backward, is thus to write $\atom{\metav{A}}{\metav{c}}$ above it and then to continue to try to find a proof of that sentence.
+Wenn wir $\forall \metav{x}\, \atom{\metav{A}}{\metav{x}}$ oder $\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}$ herleiten wollen, können wir rückwärts arbeiten, indem wir den relevanten Satz mit $\forall$I oder $\exists$I rechtfertigen und dann versuchen, die Prämisse der Regel herzuleiten. Wenn wir hingegen von Sätzen mit Quantoren vorwärts arbeiten wollen, dann wenden wir $\forall$E oder $\exists$E an. 
+
+Nehmen Sie an, wir wollen $\forall \metav{x}\, \atom{\metav{A}}{\metav{x}}$ herleiten. Um das mittels $\forall$I zu tun, müssten wir $\atom{\metav{A}}{\metav{c}}$ für einen Namen $\metav{c}$, der in keiner ungetilgten Annahme vorkommt, herleiten. Von $\forall \metav{x}\, \atom{\metav{A}}{\metav{x}}$ rückwärts arbeitend schreiben wir also $\atom{\metav{A}}{\metav{c}}$ darüber auf und versuchen dann, diesen Satz herzuleiten.
 \begin{fitchproof}
 	\ellipsesline
 	\have[n]{n}{\atom{\metav{A}}{\metav{c}}}
 	\have{m}{\forall \metav{x}\, \atom{\metav{A}}{\metav{x}}}\Ai{n}
 \end{fitchproof}
-$\atom{\metav{A}}{\metav{c}}$ is obtained from $\atom{\metav{A}}{\metav{x}}$ by replacing every free occurrence of $\metav{x}$ in $\atom{\metav{A}}{\metav{x}}$ by~$\metav{c}$. For this to work, $\metav{c}$ must satisfy the special condition. We can ensure that it does by always picking a name that does not already occur in the proof constructed so far. (Of course, it will occur in the proof we end up constructing---just not in an assumption that is undischarged at line~$n+1$.)
+$\atom{\metav{A}}{\metav{c}}$ erhalten wir von $\atom{\metav{A}}{\metav{x}}$, indem wir jedes ungebundene Vorkommnis von $\metav{x}$ in $\atom{\metav{A}}{\metav{x}}$ mit $\metav{c}$ ersetzen. Damit das funktioniert, muss $\metav{c}$ eine Einschränkung erfüllen. Wir garantieren, dass es das tut, indem wir immer einen Namen auswählen, der noch nicht im bis dato konstruierten Beweis vorkommt.
 
-To work backward from a sentence $\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}$ we similarly write a sentence above it that can serve as a justification for an application of the $\exists$I rule, i.e., a sentence of the form $\atom{\metav{A}}{\metav{c}}$. 
+Um von $\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}$ aus rückwärts zu arbeiten, schreiben wir ähnlicherweise einen Satz darüber auf, der uns als Rechtfertigung für eine Anwendung der $\exists$I-Regel dienen kann: einen Satz der Form $\atom{\metav{A}}{\metav{c}}$. 
 \begin{fitchproof}
 	\ellipsesline
 	\have[n]{n}{\atom{\metav{A}}{\metav{c}}}
 	\have{m}{\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}}\Ei{n}
 \end{fitchproof}
-This looks just like what we would do if we were working backward from a universally quantified sentence. The difference is that whereas for $\forall$I we have to pick a name~$\metav{c}$ which does not occur in the proof (so far), for $\exists$I we may and in general must pick a name~$\metav{c}$ which already occurs in the proof.  Just like in the case of $\eor$I, it is often not clear which $\metav{c}$ will work out, and so to avoid having to backtrack you should work backward from existentially quantified sentences only when all other strategies have been applied.
+Das sieht genauso aus, als ob wir von einem Satz mit Universalquantor rückwärts arbeiten. Der Unterschied ist aber, dass wir für $\forall$I einen Namen $\metav{c}$ auswählen müssen, der bis dato noch nicht im Beweis vorkam, während wir für $\exists$I einen Namen $\metav{c}$ auswählen müssen, der bereits im Beweis vorkommt. Genau wie im Fall von $\eor$I ist oft nicht sofort klar, welcher Name $\metav{c}$ letztendlich funktioniert. Daher sollten Sie nur von einem Existenzquantor rückwärts arbeiten, wenn Sie alle anderen Strategien bereits versucht haben.
 
-By contrast, working \emph{forward} from sentences $\exists \metav{x}\, \atom{\metav{A}(\metav{x}})$ generally always works and you won't have to backtrack. Working forward from an existentially quantified sentence takes into account not just $\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}$ but also whatever sentence $\metav{B}$ you would like to prove. It requires that you set up a subproof above $\metav{B}$, wherein $\metav{B}$ is the last line, and a substitution instance $\atom{\metav{A}}{\metav{c}}$ of $\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}$ as the assumption.  In order to ensure that the condition on $\metav{c}$ that governs $\exists$E is satisfied, chose a name $\metav{c}$ which does not already occur in the proof. 
+\emph{Vorwärts} vom Satz $\exists \metav{x}\, \atom{\metav{A}(\metav{x}})$ zu arbeiten funktioniert hingegen so gut wie immer. Um das zu tun, betrachten wir nicht nur $\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}$, sondern auch den Satz $\metav{B}$, den Sie beweisen wollen. Vorwärts arbeitend müssen Sie einen Unterbeweis über $\metav{B}$ aufschreiben, wo $\metav{B}$ die letzte Zeile ist, und eine Substitutionsinstanz $\atom{\metav{A}}{\metav{c}}$ von $\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}$ als Annahme fungiert. Um sicherzustellen, dass die Einschränkung von $\metav{c}$, die im Falle von $\exists$E gilt, erfüllt ist, wählen Sie einen Namen $\metav{c}$, der bis dato noch nicht in Ihrem Beweis vorkam. 
 \begin{fitchproof}
 	\ellipsesline
 	\have[m]{m}{\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}}
@@ -417,17 +416,17 @@ By contrast, working \emph{forward} from sentences $\exists \metav{x}\, \atom{\m
 	\close
 	\have{e}{\metav{B}}\Ee{m,n-k}
 \end{fitchproof}
-You'll then continue with the goal of proving $\metav{B}$, but now inside a subproof in which you have an additional sentence to work with, namely~$\atom{\metav{A}}{\metav{c}}$.
+Sie fahren dann mit dem Ziel fort, $\metav{B}$ herzuleiten, aber nun innerhalb eines Unterbeweises, in welchem Sie einen weiteren Satz nutzen können ($\atom{\metav{A}}{\metav{c}}$).
 
-Lastly, working forward from $\forall \metav{x}\, \atom{\metav{A}}{\metav{x}}$ means that you can always write down $\atom{\metav{A}}{\metav{c}}$ and justify it using $\forall$E, for any name~$\metav{c}$. Of course, you wouldn't want to do that willy-nilly. Only certain names $\metav{c}$ will help in your task of proving whatever goal sentence you are working on. So, like working backward from $\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}$, you should work forward from $\forall \metav{x}\, \atom{\metav{A}}{\metav{x}}$ only after all other strategies have been applied.
+Zuletzt: Vorwärts von $\forall \metav{x}\, \atom{\metav{A}}{\metav{x}}$ arbeiten hei{\ss}t, dass sie $\atom{\metav{A}}{\metav{c}}$ (für irgendeinen Namen $\metav{c}$) aufschreiben und es mit $\forall$E rechtfertigen. Sie wollen das natürlich nicht einfach so tun. Nur bestimmte Namen $\metav{c}$ werden Ihnen dabei helfen, Ihren Zielsatz zu beweisen. So wie Sie also nur unter bestimmten Umständen von $\exists \metav{x}\, \atom{\metav{A}}{\metav{x}}$ rückwärts arbeiten sollten, sollten Sie auch nur von $\forall \metav{x}\, \atom{\metav{A}}{\metav{x}}$ vorwärts arbeiten, wenn Sie schon alle anderen Strategien angewandt haben.
 
-Let's consider as an example the argument $\forall x(\atom{A}{x} \eif B) \therefore \exists x\,\atom{A}{x} \eif B$. To start constructing a proof, we write the premise at the top and the conclusion at the bottom.
+Lasst uns $\forall x(\atom{A}{x} \eif B) \therefore \exists x\,\atom{A}{x} \eif B$ als Beispiel nehmen. Um unseren Beweis zu beginnen, schreiben wir die Prämisse oben und die Schlussfolgerung unten auf.
 \begin{fitchproof}
 \hypo{1}{\forall x(\atom{A}{x} \eif B)}
 \ellipsesline
 \have[n]{7}{\exists x\,\atom{A}{x} \eif B}
 \end{fitchproof}
-The strategies for connectives of TFL still apply, and you should apply them in the same order: first work backward from conditionals, negated sentences, conjunctions, and now also universal quantifiers, then forward from disjunctions and now existential quantifiers, and only then try to apply $\eif$E, $\enot$E, $\lor$I, $\forall$E, or $\exists$I. In our case, that means, working backward from the conclusion:
+Die Strategien für die Junktoren der WFL gelten nach wie vor und Sie sollten sie in der gleichen Reihenfolge anwenden: zuerst rückwärts arbeiten von Konditionalen, Negationen, Konjunktionen und jetzt auch Universalquantoren; dann vorwärts arbeiten von Disjunktionen und jetzt Existenzquantoren; erst dann versuchen Sie, $\eif$E, $\enot$E, $\lor$I, $\forall$E oder $\exists$I anzuwenden. In unserem Fall bedeutet das, dass wir von der Schlussfolgerung aus rückwärts arbeiten:
 \begin{fitchproof}
 	\hypo{1}{\forall x(\atom{A}{x} \eif B)}
 	\open
@@ -437,7 +436,7 @@ The strategies for connectives of TFL still apply, and you should apply them in 
 	\close
 	\have[n]{7}{\exists x\,\atom{A}{x} \eif B}\ci{2-(6)}
 \end{fitchproof}
-Our next step should be to work forward from $\exists x\,\atom{A}{x}$ on line~$2$. For that, we have to pick a name not already in our proof. Since no names appear, we can pick any name, say~`$d$'
+Unser nächster Schritt ist, dass wir von $\exists x\,\atom{A}{x}$ in Zeile $2$ vorwärts arbeiten. Dazu wählen wir einen Namen, der noch nicht in unserem Beweis vorkommt. Weil kein Name vorkommt, können wir irgendeinen wählen, z.B.\@ `$d$':
 \begin{fitchproof}
 	\hypo{1}{\forall x(\atom{A}{x} \eif B)}
 	\open
@@ -451,7 +450,7 @@ Our next step should be to work forward from $\exists x\,\atom{A}{x}$ on line~$2
 	\close
 	\have[n]{7}{\exists x\,\atom{A}{x} \eif B}\ci{2-(6)}
 \end{fitchproof}
-Now we've exhausted our primary strategies, and it is time to work forward from the premise $\forall x(\atom{A}{x} \eif B)$. Applying $\forall$E means we can justify any instance of $A(\metav{c}) \eif B$, regardless of what $\metav{c}$ we choose. Of course, we'll do well to choose $d$, since that will give us $\atom{A}{d} \eif B$. Then we can apply $\eif$E to justify~$B$, finishing the proof.
+Nun haben wir unsere ersten Strategien erschöpft und wir arbeiten von $\forall x(\atom{A}{x} \eif B)$ aus vorwärts. $\forall$E zu nutzen hei{\ss}t, dass wir jede Instanz von $A(\metav{c}) \eif B$ rechtfertigen können, egal welches $\metav{c}$ wir auswählen. Wir wählen hier natürlich $d$, denn das gibt uns $\atom{A}{d} \eif B$. Und dann können wir $\eif$E anwenden um $B$ rechtzufertigen, womit wir den Beweis beenden.
 \begin{fitchproof}
 	\hypo{1}{\forall x(\atom{A}{x} \eif B)}
 	\open
@@ -466,20 +465,20 @@ Now we've exhausted our primary strategies, and it is time to work forward from 
 	\have{7}{\exists x\,\atom{A}{x} \eif B}\ci{2-6}
 \end{fitchproof}
 
-Now let's construct a proof of the converse. We begin with
+Lasst uns nun einen Beweis des Umkehrschlusses angeben. Wir beginnen mit
 \begin{fitchproof}
 	\hypo{1}{\exists x\,\atom{A}{x} \eif B}
 	\ellipsesline
 	\have[n]{7}{\forall x(\atom{A}{x} \eif B)}
 \end{fitchproof}
-Note that the premise is a conditional, not an existentially quantified sentence, so we should not (yet) work forward from it. Working backward from the conclusion, $\forall x(\atom{A}{x} \eif B)$, leads us to look for a proof of $\atom{A}{d} \eif B$:
+Die Prämisse ist hier ein Konditional und kein Satz mit einem Existenzquantor. Also sollten wir nicht von ihr ausgehend vorwärts arbeiten. Von der Schlussfolgerung aus rückwärts arbeitend, versuchen wir $\atom{A}{d} \eif B$ herzuleiten:
 \begin{fitchproof}
 	\hypo{1}{\exists x\,\atom{A}{x} \eif B}
 	\ellipsesline
 	\have[n][-1]{6}{\atom{A}{d} \eif B}
 	\have[n]{7}{\forall x(\atom{A}{x} \eif B)}\Ai{6}
 \end{fitchproof}
-And working backward from $\atom{A}{d} \eif B$ means we should set up a subproof with $\atom{A}{d}$ as an assumption and $B$ as the last line:
+Und von $\atom{A}{d} \eif B$ aus rückwärts zu arbeiten, hei{\ss}t, dass wir einen Unterbeweis mit $\atom{A}{d}$ als Annahme und $B$ als Schlusszeile brauchen:
 \begin{fitchproof}
 	\hypo{1}{\exists x\,\atom{A}{x} \eif B}
 	\open
@@ -490,7 +489,7 @@ And working backward from $\atom{A}{d} \eif B$ means we should set up a subproof
 	\have[n][-1]{6}{\atom{A}{d} \eif B}\ci{2-(5)}
 	\have[n]{7}{\forall x(\atom{A}{x} \eif B)}\Ai{6}
 \end{fitchproof}
-Now we can work forward from the premise on line~$1$. That's a conditional, and its consequent happens to be the sentence~$B$ we are trying to justify. So we should look for a proof of its antecedent, $\exists x\,\atom{A}{x}$. Of course, that is now readily available, by $\exists$I from line~$2$, and we're done:
+Nun können wir von der Prämisse in Zeile $1$ aus vorwärts arbeiten. Die ist ein Konditional und sein Konsequens ist gerade der Satz $B$, den wir rechtfertigen wollen. Also brauchen wir eine Herleitung des Antezedens, $\exists x\,\atom{A}{x}$. Diese Herleitung ist netterweise einfach erhältlich, indem wir $\exists$I auf Zeile $2$ anwenden. Damit sind wir auch schon fertig:
 \begin{fitchproof}
 	\hypo{1}{\exists x\,\atom{A}{x} \eif B}
 	\open
@@ -505,73 +504,75 @@ Now we can work forward from the premise on line~$1$. That's a conditional, and 
 \practiceproblems
 
 \problempart
-Use the strategies to find proofs for each of the following arguments and theorems:
+Verwenden Sie die obigen Strategien, um Beweise für jedes der folgenden Argumente und Theoreme zu finden:
 \begin{earg}
 \item $A \eif \forall x\,\atom{B}{x} \therefore \forall x(A \eif \atom{B}{x})$
 \item $\exists x(A \eif \atom{B}{x}) \therefore A \eif \exists x\, \atom{B}{x}$
-\item $\forall x(\atom{A}{x} \eand \atom{B}{x}) \eiff (\forall x\,\atom{A}{x} \eand \forall x\,\atom{B}{x})$
-\item $\exists x(\atom{A}{x} \eor \atom{B}{x}) \eiff (\exists x\,\atom{A}{x} \eor \exists x\,\atom{B}{x})$
+\item $\therefore \forall x(\atom{A}{x} \eand \atom{B}{x}) \eiff (\forall x\,\atom{A}{x} \eand \forall x\,\atom{B}{x})$
+\item $\therefore \exists x(\atom{A}{x} \eor \atom{B}{x}) \eiff (\exists x\,\atom{A}{x} \eor \exists x\,\atom{B}{x})$
 \item $A \eor \forall x\,\atom{B}{x}) \therefore \forall x(A \eor \atom{B}{x})$
 \item $\forall x(\atom{A}{x} \eif B) \therefore \exists x\,\atom{A}{x} \eif B$
 \item $\exists x(\atom{A}{x} \eif B) \therefore \forall x\,\atom{A}{x} \eif B$
-\item $\forall x(\atom{A}{x} \eif \exists y\,\atom{A}{y})$
+\item $\therefore \forall x(\atom{A}{x} \eif \exists y\,\atom{A}{y})$
 \end{earg}
-Use only the basic rules of TFL in addition to the basic quantifier rules.
+Verwenden Sie zusätzlich zu den grundlegenden Quantorenregeln nur die Grundregeln der WFL.
 
 \problempart
-Use the strategies to find proofs for each of the following arguments and theorems:
+Verwenden Sie die obigen Strategien, um Beweise für jedes der folgenden Argumente und Theoreme zu finden:
 \begin{earg}
 \item $\forall x\,\atom{R}{x,x} \therefore \forall x\,\exists y\,\atom{R}{x,y}$
 \item $\forall x\,\forall y\,\forall z[(\atom{R}{x,y} \eand \atom{R}{y,z}) \eif \atom{R}{x,z}]$ \\
 $\therefore \forall x\,\forall y[\atom{R}{x,y} \eif \forall z(\atom{R}{y,z} \eif \atom{R}{x,z})]$
 \item $\forall x\,\forall y\,\forall z[(\atom{R}{x,y} \eand \atom{R}{y,z}) \eif \atom{R}{x,z}],$\\ $\forall x\,\forall y(\atom{R}{x,y} \eif \atom{R}{y, x})$ \\ $\therefore \forall x\,\forall y\,\forall z[(\atom{R}{x,y} \eand \atom{R}{x,z}) \eif \atom{R}{y,z}]$
 \item $\forall x\,\forall y(\atom{R}{x,y} \eif \atom{R}{y, x})$ \\$\therefore \forall x\,\forall y\,\forall z[(\atom{R}{x,y} \eand \atom{R}{x,z}) \eif \exists u(\atom{R}{y,u} \eand \atom{R}{z,u})]$
-\item $\enot \exists x\,\forall y (\atom{A}{x, y} \eiff \lnot\atom{A}{y, y})$
+\item $\therefore \enot \exists x\,\forall y (\atom{A}{x, y} \eiff \lnot\atom{A}{y, y})$
 \end{earg}
 
 \problempart
-Use the strategies to find proofs for each of the following arguments and theorems:
+Verwenden Sie die obigen Strategien, um Beweise für jedes der folgenden Argumente und Theoreme zu finden:
 \begin{earg}
 \item $\forall x\,\atom{A}{x} \eif B \therefore \exists x(\atom{A}{x} \eif B)$
 \item $A \eif \exists x\, \atom{B}{x} \therefore \exists x(A \eif \atom{B}{x})$
 \item $\forall x(A \eor \atom{B}{x}) \therefore A \eor \forall x\,\atom{B}{x})$
-\item $\exists x(\atom{A}{x} \eif \forall y\,\atom{A}{y})$
-\item $\exists x(\exists y\,\atom{A}{y} \eif \atom{A}{x})$
+\item $\therefore \exists x(\atom{A}{x} \eif \forall y\,\atom{A}{y})$
+\item $\therefore \exists x(\exists y\,\atom{A}{y} \eif \atom{A}{x})$
 \end{earg}
-These require the use of IP. Use only the basic rules of TFL in addition to the basic quantifier rules.
+Diese erfordern den Einsatz von IB. Verwenden Sie zusätzlich zu den grundlegenden Quantorenregeln nur die Grundregeln der WFL.
+%IB oder IP? War in prooftfl auch inkonsistent übersetzt...
 
-\chapter{Conversion of quantifiers}\label{s:CQ}
+\chapter{Umwandlung der Quantoren}\label{s:CQ}
 
-In this section, we will add some additional rules to the basic rules of the previous section. These govern the interaction of quantifiers and negation.
+In diesem Kapitel werden wir ein paar zusätzliche Regeln zu unserem Herleitungssystem hinzufügen. Diese befassen sich mit dem Zusammenspiel von Quantoren und der Negation.
  
-In \S\ref{s:FOLBuildingBlocks}, we noted that $\enot\exists x\metav{A}$ is logically equivalent to $\forall x\, \enot\metav{A}$. We will add some rules to our proof system that govern this. In particular, we add:
+In \S\ref{s:FOLBuildingBlocks} stellten wir fest, dass $\enot\exists x\metav{A}$ zu $\forall x\, \enot\metav{A}$ äquivalent ist. Wir werden dementsprechende Regeln zu unserem Herleitungssystem hinzufügen:
 	\factoidbox{
 	\begin{fitchproof}
 		\have[m]{a}{\forall \metav{x}\, \enot\metav{A}}
 		\have[\ ]{con}{\enot \exists \metav{x}\, \metav{A}}\cq{a}
 	\end{fitchproof}}
-and
+und
 \factoidbox{
 	\begin{fitchproof}
 		\have[m]{a}{ \enot \exists \metav{x}\, \metav{A}}
 		\have[\ ]{con}{\forall \metav{x}\, \enot \metav{A}}\cq{a}
 	\end{fitchproof}}
-Equally, we add:
+Ebenfalls fügen wir
 \factoidbox{
 	\begin{fitchproof}
 		\have[m]{a}{\exists \metav{x}\, \enot \metav{A}}
 		\have[\ ]{con}{\enot \forall \metav{x}\, \metav{A}}\cq{a}
 	\end{fitchproof}}
-and
+und
 \factoidbox{
 	\begin{fitchproof}
 		\have[m]{a}{\enot \forall \metav{x}\, \metav{A}}
 		\have[\ ]{con}{\exists \metav{x}\, \enot \metav{A}}\cq{a}
 	\end{fitchproof}}
+hinzu.
 
 \practiceproblems
 \problempart
-Show in each case that the sentences are provably inconsistent:
+Zeigen Sie in jedem Fall, dass die Sätze beweisbar inkonsistent sind:
 \begin{earg}
 \item $\atom{S}{a}\eif \atom{T}{m}, \atom{T}{m} \eif \atom{S}{a}, \atom{T}{m} \eand \enot \atom{S}{a}$
 \item $\enot\exists x\,\atom{R}{x,a}, \forall x\, \forall y\,\atom{R}{y,x}$
@@ -580,14 +581,14 @@ Show in each case that the sentences are provably inconsistent:
 \end{earg}
 
 \problempart
-Show that each pair of sentences is provably equivalent:
+Zeigen Sie, dass jedes Satzpaar beweisbar äquivalent ist:
 \begin{earg}
 \item $\forall x (\atom{A}{x}\eif \enot \atom{B}{x}), \enot\exists x(\atom{A}{x} \eand \atom{B}{x})$
 \item $\forall x (\enot\atom{A}{x}\eif \atom{B}{d}), \forall x\,\atom{A}{x} \eor \atom{B}{d}$
 \end{earg}
 
 \problempart
-In \S\ref{s:MoreMonadic}, we considered what happens when we move quantifiers `across' various logical operators. Show that each pair of sentences is provably equivalent:
+In \S\ref{s:MoreMonadic} haben wir darüber nachgedacht, was passiert, wenn wir Quantoren über verschiedene Operatoren ``hinweg'' bewegen. Zeigen Sie, dass jedes der folgenden Satzpaare beweisbar äquivalent ist:
 \begin{earg}
 \item $\forall x(\atom{F}{x} \eand \atom{G}{a}), \forall x\,\atom{F}{x} \eand \atom{G}{a}$
 \item $\exists x(\atom{F}{x} \eor \atom{G}{a}), \exists x\,\atom{F}{x} \eor \atom{G}{a}$
@@ -596,36 +597,35 @@ In \S\ref{s:MoreMonadic}, we considered what happens when we move quantifiers `a
 \item $\exists x(\atom{G}{a} \eif \atom{F}{x}), \atom{G}{a} \eif \exists x\,\atom{F}{x}$
 \item $\exists x(\atom{F}{x} \eif \atom{G}{a}), \forall x\,\atom{F}{x} \eif \atom{G}{a}$
 \end{earg}
-NB: the variable `$x$' does not occur in `$\atom{G}{a}$'. When all the quantifiers occur at the beginning of a sentence, that sentence is said to be in \emph{prenex normal form}. These equivalences are sometimes called \emph{prenexing rules}, since they give us a means for putting any sentence into prenex normal form.
+Beachten Sie: Die Variable `$x$' kommt nicht in `$\atom{G}{a}$' vor. Wenn alle Quantoren am Anfang eines Satzes stehen, ist dieser Satz in \emph{Pränexform}. Die obigen Äquivalenzen werden manchmal als \emph{Pränexionsregeln} bezeichnet, da sie uns erlauben, jeden Satz in eine Pränexform zu gie{\ss}en.
 
+\chapter{Identitätsregeln}
+In \S\ref{s:Interpretations} erwähnten wir die kontrovers diskutierte These der Identität des Ununterscheidbaren. Laut dieser These sind Objekte, die jeder Hinsicht nach ununterscheidbar sind, identisch. Wir erwähnten auch, dass wir diese These hier nicht akzeptieren werden. Daraus folgt, dass wir, egal wie viel wir über zwei Objekte erfahren, nicht beweisen können, dass sie identisch sind; es sei denn natürlich, man erfährt, dass die beiden Objekte identisch sind, aber dann ist der Beweis nicht allzu interessant.
 
-\chapter{Rules for identity}
-In \S\ref{s:Interpretations}, we mentioned the philosophically contentious thesis of the \emph{identity of indiscernibles}. This is the claim that objects which are indiscernible in every way are, in fact, identical to each other. It was also mentioned that we will not subscribe to this thesis. It follows that, no matter how much you learn about two objects, we cannot prove that they are identical. That is unless, of course, you learn that the two objects are, in fact, identical, but then the proof will hardly be very illuminating.
+Allgemein gilt für uns also, dass \emph{keine Sätze}, die nicht schon das Identitätsprädikat enthalten, eine Herleitung von `$a=b$' rechtfertigen. Unsere Identitätseinführungsregel erlaubt uns als nicht, einen Identitätssatz herzuleiten, der zwei \emph{verschiedene} Namen verwendet.
 
-The general point, though, is that \emph{no sentences} which do not already contain the identity predicate could justify an inference to `$a=b$'. So our identity introduction rule cannot allow us to infer to an identity claim containing two \emph{different} names.
-
-However, every object is identical to itself. No premises, then, are required in order to conclude that something is identical to itself. So this will be the identity introduction rule:
+Jedes Objekt ist jedoch mit sich selbst identisch. Daher sind keine Prämissen notwendig, um herzuleiten, dass etwas mit sich selbst identisch ist. Das ist also unsere Identitätseinführungsregel:
 \factoidbox{
 \begin{fitchproof}
 	\have[\ \,\,\,]{x}{\metav{c}=\metav{c}} \by{=I}{}
 \end{fitchproof}}
-Notice that this rule does not require referring to any prior lines of the proof. For any name \metav{c}, you can write $\metav{c}=\metav{c}$ on any point, with only the {=}I rule as justification. 
+Diese Regel benötigt kein Zitat einer vorhergehenden Zeile. Für jeden Namen \metav{c} können wir direkt auf $\metav{c}=\metav{c}$ schlie{\ss}en; wir brauchen nur die {=}I Regel as Rechtfertigung anzugeben. 
 
-Our elimination rule is more fun. If you have established `$a=b$', then anything that is true of the object named by `$a$' must also be true of the object named by `$b$'. For any sentence with `$a$' in it, you can replace some or all of the occurrences of `$a$' with `$b$' and produce an equivalent sentence. For example, from `$\atom{R}{a,a}$' and `$a = b$', you are justified in inferring `$\atom{R}{a,b}$', `$\atom{R}{b,a}$' or `$\atom{R}{b,b}$'. More generally:
+Unsere Eliminationsregel bietet uns mehr Möglichkeiten. Wenn Sie `$a=b$' haben, dann muss alles, was auf `$a$' zutrifft, auch auf `$b$' zutreffen. Wir können also in jedem Satz, in dem `$a$' vorkommt, einige oder alle Vorkommnisse von `$a$' mit `$b$' ersetzen. Von `$\atom{R}{a,a}$' und `$a = b$', können wir z.B.\@ `$\atom{R}{a,b}$', `$\atom{R}{b,a}$' und `$\atom{R}{b,b}$' herleiten. Allgemein gesprochen:
 \factoidbox{\begin{fitchproof}
 	\have[m]{e}{\metav{a}=\metav{b}}
 	\have[n]{a}{\metav{A}(\ldots \metav{a} \ldots \metav{a}\ldots)}
 	\have[\ ]{ea1}{\metav{A}(\ldots \metav{b} \ldots \metav{a}\ldots)} \by{=E}{e,a}
 \end{fitchproof}}
-The notation here is as for $\exists$I. So $\metav{A}(\ldots \metav{a} \ldots \metav{a}\ldots)$ is a formula containing the name $\metav{a}$, and $\metav{A}(\ldots \metav{b} \ldots \metav{a}\ldots)$ is a formula obtained by replacing one or more instances of the name $\metav{a}$ with the name $\metav{b}$. Lines $m$ and $n$ can occur in either order, and do not need to be adjacent, but we always cite the statement of identity first. Symmetrically, we allow:
+Die Notation hier ist die gleiche wie im Fall von $\exists$I. $\metav{A}(\ldots \metav{a} \ldots \metav{a}\ldots)$ ist eine Formel, die den Namen $\metav{a}$ enthält, und $\metav{A}(\ldots \metav{b} \ldots \metav{a}\ldots)$ eine Formel, die wir erhalten, indem wir ein Vorkommnis oder mehrere Vorkommnisse von $\metav{a}$ mit $\metav{b}$ ersetzen. Zeilen $m$ und $n$ können in beliebiger Reihenfolge auftreten, und müssen nicht nebeneinander vorkommen. Aber wir zitieren immer zuerst den Identitätssatz. Symmetrisch erlauben wir auch:
 \factoidbox{\begin{fitchproof}
 	\have[m]{e}{\metav{a}=\metav{b}}
 	\have[n]{a}{\metav{A}(\ldots \metav{b} \ldots \metav{b}\ldots)}
 	\have[\ ]{ea2}{\metav{A}(\ldots \metav{a} \ldots \metav{b}\ldots)} \by{=E}{e,a}
 \end{fitchproof}}
-This rule is sometimes called \emph{Leibniz's Law}, after Gottfried Leibniz. 
+Die Regel wird manchmal das \emph{Leibniz-Gesetz} genannt, nach Gottfried Wilhelm Leibniz. 
 
-To see the rules in action, we will prove some quick results. First, we will prove that identity is \emph{symmetric}:
+Lasst uns ein paar schnelle Beweise geben, um die Regeln anzuwenden. Zuerst beweisen wir, dass die Identität \emph{symmetrisch} ist:
 \begin{fitchproof}
 	\open
 		\hypo{ab}{a = b}
@@ -636,9 +636,9 @@ To see the rules in action, we will prove some quick results. First, we will pro
 	\have{ayya}{\forall y (a = y \eif y = a)}\Ai{abba}
 	\have{xyyx}{\forall x\, \forall y (x = y \eif y = x)}\Ai{ayya}
 \end{fitchproof}
-We obtain line 3 by replacing one instance of `$a$' in line 2 with an instance of `$b$'; this is justified given `$a= b$'. 
+Wir erhalten Zeile 3, indem wir ein Vorkommnis von `$a$' in Zeile 2 mit einem Vorkommnis von `$b$' ersetzen; dies dürfen wir, weil `$a= b$'. 
 
-Second, we will prove that identity is \emph{transitive}:
+Zweitens beweisen wir, dass die Identität \emph{transitiv} ist:
 \begin{fitchproof}
 	\open
 		\hypo{abc}{a = b \eand b = c}
@@ -651,12 +651,12 @@ Second, we will prove that identity is \emph{transitive}:
 	\have{cony}{\forall y\,\forall z((a = y \eand y = z) \eif a = z)}\Ai{conz}
 	\have{conx}{\forall x\,\forall y \forall z((x = y \eand y = z) \eif x = z)}\Ai{cony}
 \end{fitchproof}
-We obtain line 4 by replacing `$b$' in line 3 with `$a$'; this is justified given `$a= b$'. 
+Wir erhalten Zeile 4, indem wir `$b$' in Zeile 3 mit `$a$' ersetzen; dies dürfen wir, weil `$a= b$'. 
 
 \practiceproblems
 \problempart
 \label{pr.identity}
-Provide a proof of each claim.
+Beweisen Sie die folgenden Aussagen.
 \begin{earg}
 \item $\atom{P}{a} \eor \atom{Q}{b}, \atom{Q}{b} \eif b=c, \enot\atom{P}{a} \proves \atom{Q}{c}$
 \item $m=n \eor n=o, \atom{A}{n} \proves \atom{A}{m} \eor \atom{A}{o}$
@@ -666,50 +666,46 @@ Provide a proof of each claim.
 \item $\exists x\,\atom{J}{x}, \exists x\, \enot\atom{J}{x}\proves \exists x\, \exists y\, \enot x = y$
 \item $\forall x(x=n \eiff \atom{M}{x}), \forall x(\atom{O}{x} \eor \enot \atom{M}{x})\proves \atom{O}{n}$
 \item $\exists x\,\atom{D}{x}, \forall x(x=p \eiff \atom{D}{x})\proves \atom{D}{p}$
-\item $\exists x\bigl[(\atom{K}{x} \eand \forall y(\atom{K}{y} \eif x=y)) \eand \atom{B}{x}\bigr], Kd\proves \atom{B}{d}$
+\item $\exists x\bigl[(\atom{K}{x} \eand \forall y(\atom{K}{y} \eif x=y)) \eand \atom{B}{x}\bigr], \atom{K}{d}\proves \atom{B}{d}$
 \item $\proves \atom{P}{a} \eif \forall x(\atom{P}{x} \eor \enot x = a)$
 \end{earg}
 
 \problempart
-Show that the following are provably equivalent:
+Zeigen Sie, dass die folgenden Sätze beweisbar äquivalent sind.
 \begin{ebullet}
 \item $\exists x \bigl([\atom{F}{x} \eand \forall y (\atom{F}{y} \eif x = y)] \eand x = n\bigr)$
 \item $\atom{F}{n} \eand \forall y (\atom{F}{y} \eif n= y)$
 \end{ebullet}
-And hence that both have a decent claim to symbolize the English sentence `Nick is the~$F$'.\\
 
 \problempart
-In \S\ref{sec.identity}, we claimed that the following are logically equivalent symbolizations of the English sentence `there is exactly one $F$':
+In \S\ref{sec.identity} behaupteten wir, dass die folgenden Symbolisierungen von `Es gibt genau ein $F$' beweisbar äquivalent sind:
 \begin{ebullet}
 \item $\exists x\,\atom{F}{x} \eand \forall x\, \forall y \bigl[(\atom{F}{x} \eand \atom{F}{y}) \eif x = y\bigr]$
 \item $\exists x \bigl[\atom{F}{x} \eand \forall y (\atom{F}{y} \eif x = y)\bigr]$
 \item $\exists x\, \forall y (\atom{F}{y} \eiff x = y)$
 \end{ebullet}
-Show that they are all provably equivalent. (\emph{Hint}: to show that three claims are provably equivalent, it suffices to show that the first proves the second, the second proves the third and the third proves the first; think about why.)
+Zeigen Sie, dass dem so ist. (\emph{Hinweis}: um zu zeigen, dass die drei Sätze äquivalent sind, reicht es zu zeigen, dass der erste den zweiten zur Folge hat, der zweite den dritten, und der dritte den ersten; überlegen Sie, wieso das so ist.)
 
 
 \
 \problempart
-Symbolize the following argument
+Symbolisieren Sie das folgende Argument
 	\begin{quote}
-		There is exactly one $F$. There is exactly one $G$. Nothing is both $F$ and~$G$. So: there are exactly two things that are either~$F$ or~$G$.
+		Es gibt genau ein $F$. Es gibt genau ein $G$. Nichts ist sowohl $F$ als auch~$G$. Also: Es gibt genau zwei Dinge, die entweder~$F$ oder~$G$ sind.
 	\end{quote}
-And offer a proof of it.
+und geben Sie einen entsprechenden Beweis.
 %\begin{ebullet}
 %\item  $\exists x \bigl[\atom{F}{x} \eand \forall y (\atom{F}{y} \eif x = y)\bigr], \exists x \bigl[\atom{G}{x} \eand \forall y (\atom{G}{y} \eif x = y)\bigr], \forall x (\enot\atom{F}{x} \eor \enot \atom{G}{x}) \proves \exists x\, \exists y \bigl[\enot x = y \eand \forall z ((\atom{F}{z} \eor \atom{G}{z}) \eif (x = y \eor x = z))\bigr]$
 %\end{ebullet}
 
-
-
-
-\chapter{Derived rules}\label{s:DerivedFOL}
-As in the case of TFL, we first introduced some rules for FOL as basic (in \S\ref{s:BasicFOL}), and then added some further rules for conversion of quantifiers (in \S\ref{s:CQ}). In fact, the CQ rules should be regarded as \emph{derived} rules, for they can be derived from the  \emph{basic} rules of \S\ref{s:BasicFOL}. (The point here is as in \S\ref{s:Derived}.) Here is a justification for the first CQ rule:
+\chapter{Abgeleitete Regeln}\label{s:DerivedFOL}
+Wie im Falle der WFL führten wir zuerst einige Grundregeln ein (in \S\ref{s:BasicFOL}) und fügten dann einige weitere Regeln hinzu (in \S\ref{s:CQ}). Tatsächlich sind die Regeln zur Umwandlung der Quantoren \emph{abgeleitete} Regeln, weil sie von den \emph{Grundregeln} in \S\ref{s:BasicFOL} hergeleitet werden können. Hier ist eine Rechtfertigung für die erste Umwandlungsregel:
 \begin{fitchproof}
 	\hypo{An}{\forall x\, \enot \atom{A}{x}}
 	\open
 		\hypo{E}{\exists x\, \atom{A}{x}}
 		\open
-			\hypo{c}{\atom{A}{c}}%\by{for $\exists$E}{}
+			\hypo{c}{\atom{A}{c}}
 			\have{nc}{\enot \atom{A}{c}}\Ae{An}
 			\have{red}{\ered}\ne{nc,c}
 		\close
@@ -717,14 +713,13 @@ As in the case of TFL, we first introduced some rules for FOL as basic (in \S\re
 	\close
 	\have{dada}{\enot \exists x\, \atom{A}{x}}\ni{E-red2}
 \end{fitchproof}
-%You will note that on line 3 I have written `for $\exists$E'. This is not technically a part of the proof. It is just a reminder---to me and to you---of why I have bothered to introduce `$\enot \atom{A}{c}$' out of the blue. You might find it helpful to add similar annotations to assumptions when performing proofs. But do not add annotations on lines other than assumptions: the proof requires its own citation, and your annotations will clutter it.
-Here is a justification of the third CQ rule:
+Und hier ist eine Rechtfertigung für die dritte Umwandlungsregel:
 \begin{fitchproof}
 	\hypo{nEna}{\exists x\, \enot \atom{A}{x}} 
 	\open
 		\hypo{Aa}{\forall x\, \atom{A}{x}}
 		\open
-			\hypo{nac}{\enot \atom{A}{c}}%\by{for $\exists$E}{}
+			\hypo{nac}{\enot \atom{A}{c}}
 			\have{a}{\atom{A}{c}}\Ae{Aa}
 			\have{con}{\ered}\ne{nac,a}
 		\close
@@ -732,75 +727,71 @@ Here is a justification of the third CQ rule:
 	\close
 	\have{dada}{\enot \forall x\, \atom{A}{x}}\ni{Aa-con1}
 \end{fitchproof}
-This explains why the CQ rules can be treated as derived. Similar justifications can be offered for the other two CQ rules. 
+Ähnliche Rechtfertigungen können auch für die zwei verbleibenden Umwandlungsregeln gegeben werden.
 
 \practiceproblems
 
 \problempart
-Offer proofs which justify the addition of the second and fourth CQ rules as derived rules.
+Geben Sie Beweise, die das Hinzufügen der zweiten und vierten Umwandlungsregeln rechtfertigen.
 
 
 
-\chapter{Proofs and semantics}
-We have used two different turnstiles in this book.  This:
+\chapter{Beweise und Semantik}
+Wir haben in diesem Lehrbuch zwei unterschiedliche Drehkreuze verwendet. Dieses hier:
 $$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \proves \metav{C}$$
-means that there is some proof which ends with $\metav{C}$ and whose only undischarged assumptions are among $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$. This is a \emph{proof-theoretic notion}. By contrast, this: 
+bedeutet, dass es einen Beweis gibt, der mit $\metav{C}$ beginnt und dessen ungetilgten Annahmen $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ sind. Dieses Drehkreuz ist ein \emph{beweistheoretischer Begriff}. Das zweite Drehkreuz hingegen: 
 $$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \entails \metav{C}$$
-means that no valuation (or interpretation) makes all of $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ true and~$\metav{C}$ false. This concerns assignments of truth and falsity to sentences. It is a \emph{semantic notion}.
+bedeutet, dass es keine Bewertung oder Interpretation gibt, die $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ alle wahr, und~$\metav{C}$ falsch, macht. Dieses Drehkreuz befasst sich mit Zuordnungen von Wahrheitswerten zu Sätzen. Es ist ein \emph{semantischer Begriff}.
 
-It cannot be emphasized enough that these are different notions. But we can emphasize it a bit more: \emph{They are different notions.}
+Es ist sehr wichtig, dass es sich hier um zwei unterschiedliche Begriffe handelt. Erst wenn Sie diesen Punkt verinnerlicht haben, lesen Sie weiter. 
 
-Once you have internalised this point, continue reading. 
+Obwohl unsere semantischen und beweistheoretischen Begriffe unterschiedlich sind, sind sie eng verwandt. Um das zu erklären, werden wir zunächst die Beziehung zwischen Tautologien und Theoremen betrachten.
 
-Although our semantic and proof-theoretic notions are different, there is a deep connection between them. To explain this connection,we will start by considering the relationship between validities and theorems.
+Um zu zeigen, dass ein Satz ein Theorem ist, brauchen Sie nur einen Beweis zu erbringen. Zugegeben, es mag schwierig sein, einen zwanzigzeiligen Beweis zu erbringen, aber es ist nicht so schwierig, jede Zeile des Beweises zu überprüfen und zu bestätigen, dass sie zulässig ist. Und wenn jede Zeile des Beweises für sich betrachtet zulässig ist, dann ist der gesamte Beweis zulässig. Um zu zeigen, dass ein Satz eine Tautologie ist, müssen wir jedoch alle möglichen Interpretationen überblicken. Müssten wir wählen, ob wir nachweisen, dass ein Satz ein Theorem ist, oder nachweisen, dass er eine Tautologie ist, wäre es einfacher zu zeigen, dass es sich um ein Theorem handelt.
 
-To show that a sentence is a theorem, you need only produce a proof. Granted, it may be hard to produce a twenty line proof, but it is not so hard to check each line of the proof and confirm that it is legitimate; and if each line of the proof individually is legitimate, then the whole proof is legitimate. Showing that a sentence is a validity, though, requires reasoning about all possible interpretations. Given a choice between showing that a sentence is a theorem and showing that it is a validity, it would be easier to show that it is a theorem.
+Umgekehrt gilt: zu zeigen, dass ein Satz \emph{kein} Theorem ist, ist schwer. Wir müssen alle (möglichen) Beweise überblicken. Um jedoch zu zeigen, dass ein Satz \emph{keine} Tautologie ist, brauchen Sie nur eine Interpretation zu konstruieren, in der dieser Satz falsch ist. Zugegeben, es mag schwierig sein, eine solche Interpretation zu finden; aber wenn Sie das einmal getan haben, ist es relativ einfach zu überprüfen, welchen Wahrheitswert sie einem Satz zuweist. Müssten wir wählen ob wir nachweisen, dass ein Satz kein Theorem ist, oder nachweisen, dass er keine Tautologie ist, wäre es einfacher zu zeigen, dass es sich nicht um eine Tautologie handelt.
 
-Contrawise, to show that a sentence is \emph{not} a theorem is hard. We would need to reason about all (possible) proofs. That is very difficult. However, to show that a sentence is not a validity, you need only construct an interpretation in which the sentence is false. Granted, it may be hard to come up with the interpretation; but once you have done so, it is relatively straightforward to check what truth value it assigns to a sentence. Given a choice between showing that a sentence is not a theorem and showing that it is not a validity, it would be easier to show that it is not a validity.
+Glücklicherweise ist \emph{ein Satz genau dann ein Theorem, wenn er eine Tautologie ist}. Wenn wir also einen Beweis $\metav{A}$s ohne ungetilgte Annahmen erbringen und zeigen, dass $\metav{A}$ ein Theorem ist (${}\proves \metav{A}$), dann zeigen wir auch, dass $\metav{A}$ eine Tautologie ist ($\entails\metav{A}$). Ähnlicherweise gilt: wenn wir eine Interpretation konstruieren in der \metav{A} falsch ist und zeigen, dass es keine Tautologie ist ($\nentails \metav{A}$), dann zeigen wir auch, dass \metav{A} kein Theorem ist ($\nproves \metav{A}$).
 
-Fortunately, \emph{a sentence is a theorem if and only if it is a validity}. As a result, if we provide a proof of $\metav{A}$ on no assumptions, and thus show that $\metav{A}$ is a theorem, i.e., ${}\proves \metav{A}$, we can legitimately infer that $\metav{A}$ is a validity, i.e., $\entails\metav{A}$. Similarly, if we construct an interpretation in which \metav{A} is false and thus show that it is not a validity, i.e., $\nentails \metav{A}$, it follows that \metav{A} is not a theorem, i.e.,  $\nproves \metav{A}$.
-
-More generally, we have the following powerful result:
-$$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \proves\metav{B} \textbf{ iff }\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \entails\metav{B}$$
-This shows that, whilst provability and entailment are \emph{different} notions, they are extensionally equivalent. As such:
+Allgemein gesprochen haben wir das folgende wirkmächtige Resultat:
+$$\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \proves\metav{B} \textbf{genau dann, wenn}\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \entails\metav{B}$$
+Das zeigt, dass Beweisbarkeit und Folge zwar \emph{verschiedene} Begriffe sind, aber die \emph{gleiche} Extension haben:
 	\begin{ebullet}
-		\item An argument is \emph{valid} iff \emph{the conclusion can be proved from the premises}.
-		\item Two sentences are \emph{logically equivalent} iff they are \emph{provably equivalent}.
-		\item Sentences are \emph{satisfiable} iff they are \emph{not provably inconsistent}.
+		\item Ein Argument ist \emph{gültig} genau dann, wenn \emph{die Schlussfolgerung von den Prämissen hergeleitet werden kann}.
+		\item Zwei Sätze sind \emph{äquivalent} genau dann, wenn sie \emph{beweisbar äquivalent sind}.
+		\item Sätze sind \emph{konsistent} genau dann, wenn sie \emph{nicht beweisbar inkonsistent} sind.
 	\end{ebullet}
-For this reason, you can pick and choose when to think in terms of proofs and when to think in terms of valuations/interpretations, doing whichever is easier for a given task. The table on the next page summarises which is (usually) easier.
+Aus diesem Grund können Sie sich aussuchen, wann Sie auf Beweise und auf Bewertungen/Interpretationen zurückgreifen. Je nachdem, was für eine bestimmte Aufgabe einfacher ist, können Sie den Weg des geringeren Widerstands gehen. Die Tabelle auf der nächsten Seite fasst zusammen, was (in der Regel) einfacher ist.
 
-It is intuitive that provability and semantic entailment should agree. But---let us repeat this---do not be fooled by the similarity of the symbols `$\entails$' and `$\proves$'. These two symbols have very different meanings. The fact that provability and semantic entailment agree is not an easy result to come by. 
-
-In fact, demonstrating that provability and semantic entailment agree is, very decisively, the point at which introductory logic becomes intermediate logic.
+Es ist intuitiv, dass Beweisbarkeit und Folge übereinstimmen. Aber--lasst uns das wiederholen--wir dürfen uns nicht von der Ähnlichkeit der Symbole `$\entails$' und `$\proves$' täuschen lassen. Diese beiden Symbole haben sehr unterschiedliche Bedeutungen. Die Tatsache, dass Beweisbarkeit und Folge übereinstimmen, ist kein leicht zu erreichendes Ergebnis. Tatsächlich ist der Nachweis, dass Beweisbarkeit und Folge übereinstimmen, ein entscheidender Punkt, an dem wir die Logik für Fortgeschrittene erreichen.
 
 \begin{sidewaystable}\small
 \begin{center}
 \begin{tabular*}{\textwidth}{p{.25\textheight}p{.325\textheight}p{.325\textheight}}
- & \textbf{Yes}  & \textbf{No}\\
+ & \textbf{Ja}  & \textbf{Nein}\\
 \\
-Is \metav{A} a \textbf{validity}? 
-& give a proof which shows $\proves\metav{A}$ 
-& give an interpretation in which \metav{A} is false\\
+Ist \metav{A} eine \textbf{Tautologie}? 
+& Beweis der zeigt, dass $\proves\metav{A}$ 
+& Interpretation, in der \metav{A} falsch ist\\
 \\
-Is \metav{A} a \textbf{contradiction}? &
-give a proof which shows $\proves\enot\metav{A}$ & 
-give an interpretation in which \metav{A} is true\\
+Ist \metav{A} ein \textbf{Widerspruch}? &
+Beweis der zeigt, dass $\proves\enot\metav{A}$ & 
+Interpretation, in der \metav{A} wahr ist\\
 \\
-%Is \metav{A} contingent? & 
-%give two interpretations, one in which \metav{A} is true and another in which \metav{A} is false & give a proof which either shows $\proves\metav{A}$ or $\proves\enot\metav{A}$\\
+%Ist \metav{A} kontingent? & 
+%zwei Interpretationen, eine, in der \metav{A} wahr ist und eine in der \metav{A} falsch ist & give a proof which either shows $\proves\metav{A}$ or $\proves\enot\metav{A}$\\
 %\\
-Are \metav{A} and \metav{B} \textbf{equivalent}? &
-give two proofs, one for $\metav{A}\proves\metav{B}$ and one for $\metav{B}\proves\metav{A}$  
-& give an interpretation in which \metav{A} and \metav{B} have different truth values\\
+Sind \metav{A} und \metav{B} \textbf{äquivalent}? &
+zwei Beweise, einer für $\metav{A}\proves\metav{B}$, einer für $\metav{B}\proves\metav{A}$  
+& Interpretation. in der \metav{A} und \metav{B} verschiedene Wahrheitswerte haben \\
 \\
-Are $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ \textbf{jointly satisfiable}? 
-& give an interpretation in which all of $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ are true 
-& prove a contradiction from assumptions $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$\\
+Sind $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ \textbf{konsistent}? 
+& Interpretation in der $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ alle wahr sind 
+& Beweis eines Widerspruchs ausgehend von $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$\\
 \\
-Is $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \therefore \metav{C}$ \textbf{valid}? 
-& give a proof with assumptions $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ and concluding with \metav{C}
-& give an interpretation in which each of $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ is true and \metav{C} is false\\
+Ist $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n \therefore \metav{C}$ \textbf{gültig}? 
+& Beweis mit Annahmen $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ und Schlussfolgerung \metav{C}
+& Interpretation, in der $\metav{A}_1, \metav{A}_2, \ldots, \metav{A}_n$ wahr sind und \metav{C} falsch ist\\
 \end{tabular*}
 \end{center}
 \end{sidewaystable}

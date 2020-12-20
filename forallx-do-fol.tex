@@ -44,9 +44,9 @@ In der LEO sind unsere \define{Namen} kursive Kleinbuchstaben `$a$' bis `$r$'. W
 	$$a,b,c,\ldots, r, a_1, f_{32}, j_{390}, m_{12}$$
 Diese sollten wie die Eigennamen im Deutschen verstanden werden, aber mit einem Unterschied. `Tim Button' ist ein Eigenname, aber es gibt mehrere Personen mit diesem Namen. (Gleicherma{\ss}en gibt es mindestens zwei Personen mit dem Namen `P.D.\ Magnus'.) Wir leben mit dieser Art von Zweideutigkeit im Deutschen, da das Deutsche zulässt, dass der Kontext dafür zuständig ist, dass sich `Tim Button' auf einen Autor dieses Buches bezieht und nicht auf ein anderes Individuum, das ebenfalls `Tim Button' hei{\ss}t. In der LEO allerdings tolerieren wir eine solche Zweideutigkeit nicht. Jeder Name muss auf \emph{genau} ein Individuum verweisen. (Zwei verschiedene Namen können jedoch auf dasselbe Individuum verweisen).
 
-\newglossaryentry{name}{
-  name = Name,
-  description = {Ein Symbol der LEO, genutzt, um auf ein Individuum in der \gls{Domäne} zu verweisen}
+\newglossaryentry{Name}{
+  name=Name,
+  description={Ein Symbol der LEO, genutzt, um auf ein Individuum in der \gls{Domäne} zu verweisen}
   }
 
 Wie in der WFL stellen wir Symbolisierungsschlüssel zur Verfügung. Diese geben vorübergehend an, worauf ein Name verweist. Zum Beispiel:
@@ -81,9 +81,9 @@ In der LEO sind \define{Prädikate} kursive Gro{\ss}buchstaben $A$ bis $Z$, mit 
 
 %In diesen Beispielen, sehen Sie Prädikate verschiedener Art. Die ersten zwei sind \emph{einstellige} Prädikate, die zweiten zwei \emph{zweistellige} und das letzte ist ein \emph{dreigliedriges} Prädikat. Die Zahl der Glieder eines Prädikats bestimmt, wie viele singuläre Terme, Vorkommnisse eines singulären Terms, oder Quantoren notwendig sind um aus einem Prädikat einen Satz zu formen. Generell gilt: für jedes Glied brauchen wir ein Vorkommnis eines singulären Terms oder einen Quantor, der dieses Glied ausfüllt.
 
-\newglossaryentry{predicate}{
-  name = Prädikat,
-  description = {Ein Symbol der LEO, genutzt, um eine Eigenschaft oder Beziehung auszudrücken}
+\newglossaryentry{Prädikat}{
+  name=Prädikat,
+  description={Ein Symbol der LEO, genutzt, um eine Eigenschaft oder Beziehung auszudrücken}
 }
 
 Wenn wir unsere beiden Symbolisierungsschlüssel kombinieren, können wir nun damit beginnen, einige deutsche Sätze zu symbolisieren, die diese Namen und Prädikate verwenden. Nehmen wir zum Beispiel die deutschen Sätze:
@@ -107,25 +107,25 @@ Wir sind jetzt bereit, Quantoren einzuführen. Betrachten Sie diese Sätze:
 	\end{earg}
 Es könnte verlockend sein, den Satz \ref{q.a} als `$\atom{H}{e} \eand \atom{H}{g} \eand \atom{H}{m}$' zu symbolisieren. Doch dies würde nur sagen, dass Elsa, Gregor und Marybeth glücklich sind. Wir wollen aber sagen, dass alle glücklich sind, auch diejenigen, die keinen Namen haben. Um dies zu erreichen, führen wir das Symbol `$\forall$' ein. Dieses Symbol nennen wir den \define{Universalquantor}.
 
-\newglossaryentry{universal quantifier}{
-  name = Universalquantor,
-  description = {Das Symbol $\forall$ der LEO, genutzt, um die Allgemeinheit zu symbolisieren; $\forall x\, \atom{F}{x}$ ist wahr genau dann, wenn jedes Element der Domäne~$F$ ist}
+\newglossaryentry{Universalquantor}{
+  name=Universalquantor,
+  description={Das Symbol $\forall$ der LEO, genutzt, um die Allgemeinheit zu symbolisieren; $\forall x\, \atom{F}{x}$ ist wahr genau dann, wenn jedes Element der Domäne~$F$ ist}
 }
 
 Auf einen Quantor muss immer eine \define{Variable} folgen. In der LEO sind Variablen kursive Kleinbuchstaben `$s$' bis `$z$', mit oder ohne Subskripte. Wir könnten also den Satz \ref{q.a} als `$\forall x\, \atom{G}{x}$' symbolisieren. Die Variable `$x$' dient als eine Art Platzhalter. Der Ausdruck `$\forall x$' bedeutet intuitiv, dass Sie jedes Individuum auswählen und als `$x$' eintragen können. Das nachfolgende `$\atom{G}{x}$' zeigt an, dass das Ding, das Sie ausgewählt haben, glücklich ist. 
 
-\newglossaryentry{variable}{
-  name = Variable,
-  description = {Ein Symbol der LEO, welches nach Quantoren und als Platzhalter in einfachen Sätzen genutzt wird; kursive Kleinbuchstaben zwischen $s$ und~$z$}
+\newglossaryentry{Variable}{
+  name=Variable,
+  description={Ein Symbol der LEO, welches nach Quantoren und als Platzhalter in einfachen Sätzen genutzt wird; kursive Kleinbuchstaben zwischen $s$ und~$z$}
 }
 
 Es sei darauf hingewiesen, dass es keinen besonderen Grund gibt, `$x$' anstelle einer anderen Variable zu verwenden. Die Sätze `$\forall x\, \atom{G}{x}$', `$\forall y\, \atom{G}{y}$', `$\forall z\, \atom{G}{z}$' und `$\forall x_5 \atom{G}{x_5}$' verwenden verschiedene Variablen, aber sie sind alle äquivalent.
 
 Um den Satz \ref{q.e} zu symbolisieren, führen wir ein weiteres neues Symbol ein: den \define{Existenzquantor}, `$\exists$'. Wie der Universalquantor erfordert auch der Existenzquantor eine Variable. Der Satz \ref{q.e} kann durch `$\exists x\,\atom{A}{x}$' symbolisiert werden. Während `$\forall x\,\atom{A}{x}$' als `für alle $x$, $x$ ist verärgert', wird `$\exists x\,\atom{A}{x}$' als `es gibt zumindest ein Ding, $x$, und $x$ ist verärgert'. Auch hier gilt: die Variable ist eine Art Platzhalter. Wir hätten Satz~\ref{q.e}) auch als `$\exists z\, \atom{A}{z}$', `$\exists w_{256}\, \atom{A}{w_{256}}$', usw.\@ symbolisieren können.
 
-\newglossaryentry{existential quantifier}{
-  name = Existenzquantor,
-  description = {Das Symbol $\exists$ der LEO, genutzt, um die Existenz zu symbolisieren; $\exists x\, \atom{F}{x}$ ist wahr genau dann, wenn zumindest ein Element der Domäne~$F$ ist}
+\newglossaryentry{Existenzquantor}{
+  name=Existenzquantor,
+  description={Das Symbol $\exists$ der LEO, genutzt, um die Existenz zu symbolisieren; $\exists x\, \atom{F}{x}$ ist wahr genau dann, wenn zumindest ein Element der Domäne~$F$ ist}
 }
 
 Einige weitere Beispiele werden helfen. Betrachten Sie diese weiteren Sätze:
@@ -147,9 +147,9 @@ Um diese Mehrdeutigkeit zu beseitigen, müssen wir eine \define{Domäne} angeben
 	\end{ekey}
 Die Quantoren \emph{überspannen} diese Domäne. Angesichts dieser Domäne ist `$\forall x$' ungefähr so zu lesen wie `Jeder Mensch in Dortmund ist so, dass \ldots' und `$\exists x$' ist ungefähr so zu lesen wie `Zumindest ein Mensch in Dortmund ist so, dass \ldots'. 
 
-\newglossaryentry{domain}{
-  name = Domäne,
-  description = {Die Mengen an Dingen, die wir in einer Symbolisierung der LEO voraussetzen oder die in einer \gls{Interpretation} in die Spannweite der Quantoren fällt}
+\newglossaryentry{Domäne}{
+  name=Domäne,
+  description={Die Mengen an Dingen, die wir in einer Symbolisierung der LEO voraussetzen oder die in einer \gls{Interpretation} in die Spannweite der Quantoren fällt}
 }
 
 In der LEO muss die Domäne immer mindestens ein Ding enthalten. Darüber hinaus können wir im Deutschen legitimerweise aus `Gregor ist verärgert' `Jemand ist verärgert' herleiten. In der LEO wollen wir also ebenso in der Lage sein, `$\exists x\, \atom{A}{x}$' von `$\atom{A}{g}$' herzuleiten. Wir werden also darauf bestehen, dass jeder Name auf genau ein Ding in der Domäne verweist. Wenn wir Menschen von au{\ss}erhalb Dortmunds benennen wollen, dann müssen wir diese Menschen in die Domäne aufnehmen. 
@@ -245,9 +245,9 @@ Wie sollen wir dies symbolisieren? Eine gute Strategie ist, uns zu überlegen, u
 
 In \S\ref{s:FOLBuildingBlocks} betonten wir, dass ein Name auf genau ein Objekt in der Domäne verweisen muss. Im Gegensatz dazu muss ein Prädikat auf nichts in der Domäne zutreffen. Ein Prädikat, das auf nichts in der Domäne zutrifft, nenn wir ein \define{leeres Prädikat}.
 
-\newglossaryentry{empty predicate}{
-  name = {leeres Prädikat},
-  description = {Ein \gls{Prädikat}, das auf kein Objekt in der \gls{Domäne} zutrifft}
+\newglossaryentry{leeres Prädikat}{
+  name=leeres Prädikat,
+  description={Ein \gls{Prädikat}, das auf kein Objekt in der \gls{Domäne} zutrifft}
 }
 
 Nehmen Sie an, wir wollen diese beiden Sätze symbolisieren:
@@ -975,14 +975,14 @@ Nun definieren wir den Begriff einer atomaren Formel:
 	}
 Da wir Satzbuchstaben auch als atomare Formeln zählen, gilt jeder Satz der WFL als eine Formel der LEO (auch wenn manche natürlich keine atomaren Formeln sind).
 
-\newglossaryentry{term}{
-  name = Term,
-  description = {Entweder ein \gls{Name} oder eine \gls{Variable}}
+\newglossaryentry{Term}{
+  name=Term,
+  description={Entweder ein \gls{Name} oder eine \gls{Variable}}
 }
 
-\newglossaryentry{formula}{
-  name = Formel,
-  description = {Ein Ausdruck der LEO, den induktiven Regeln in \S\ref{s:TermsFormulas} entsprechend gebildet}
+\newglossaryentry{Formel}{
+  name=Formel,
+  description={Ein Ausdruck der LEO, den induktiven Regeln in \S\ref{s:TermsFormulas} entsprechend gebildet}
 }
 
 Das Verwenden der kalligraphischen Lettern folgt den Konventionen in \S\ref{s:UseMention}. `$\metav{R}$' ist also kein Prädikat der LEO. Stattdessen ist es ein Symbol unserer Metasprache (erweitertes Deutsch), das wir verwenden, um über beliebige Prädikate der LEO zu sprechen. Ähnlicherweise ist `$\metav{t}_1$' kein Term der LEO, sondern ein Symbol der Metasprache, das wir nutzen, um über beliebige Terme der LEO zu sprechen. 
@@ -1033,14 +1033,14 @@ Nun definieren wir den Geltungsbereich eines logischen Operators (Quantors oder 
 Damit wir können wir den Geltungsbereich der Quantoren im vorhergehenden Beispiel wie folgt darstellen:
 $$\overbrace{\forall x \overbrace{\exists y (\atom{F}{x} \eiff \overbrace{\forall z (\atom{G}{a,y,z} \eif \atom{S}{y,z,y,a,y,x})}^{\text{Geltungsbereich von `}\forall z\text{'}}}^{\text{Geltungsbereich von `}\exists y\text{'}})}^{\text{Geltungsbereich von `$\forall x$'}}$$
 
-\newglossaryentry{main logical operator}{
-  name = Hauptoperator,
-  description = {Der Operator, der bei der Konstruktion eines \gls{Satzes der LEO} oder einer \glx{Formel}  als Letzter genutzt wurde.}
+\newglossaryentry{Hauptoperator}{
+  name=Hauptoperator,
+  description={Der Operator, der bei der Konstruktion von einem \gls{Satz der LEO} oder einer \glx{Formel} der LEO als Letzter genutzt wurde}
 }
 
-\newglossaryentry{scope}{
-  name = Geltungsbereich,
-  description = {Die Teilformel eines \gls{Satzes der LEO} oder einer \gls{Formel} der LEO, für den der relevante Operator der \gls{Hauptoperator} ist}
+\newglossaryentry{Geltungsbereich}{
+  name=Geltungsbereich (der LEO),
+  description={Die Teilformel von einem \gls{Satz der LEO} oder einer \gls{Formel} der LEO, für den der relevante Operator der \gls{Hauptoperator} ist}
 }
 
 \section{Sätze und ungebundene Variablen}
@@ -1058,14 +1058,14 @@ Lasst uns diese Idee etwas präziser benennen.
 	\factoidbox{
 		Ein Vorkommnis einer Variable \metav{x} ist \define{gebunden} genau dann, wenn sie im Geltungsbereich von $\forall\metav{x}$ oder $\exists\metav{x}$ liegt. Ein Vorkommnis einer Variable, das nicht gebunden ist, nennen wir \define{ungebunden} oder \define{frei}.}
 
-\newglossaryentry{bound variable}{
-  name = gebundene Variable,
-  description = {Ein Vorkommnis einer Variable in einer \gls{Formel}, welches im Geltungsbereich eines Quantors gefolgt von der gleichen Variable liegt}
+\newglossaryentry{gebundene Variable}{
+  name=gebundene Variable,
+  description={Ein Vorkommnis einer Variable in einer \gls{Formel}, welches im Geltungsbereich eines Quantors gefolgt von der gleichen Variable liegt}
 }
 
-\newglossaryentry{free variable}{
-  name = ungebundene Variable,
-  description = {Ein Vorkommnis einer Variable in einer \gls{Formel}, welche keine \gls{gebundene Variable} ist}
+\newglossaryentry{ungebundene Variable}{
+  name=ungebundene Variable,
+  description={Ein Vorkommnis einer Variable in einer \gls{Formel}, welche keine \gls{gebundene Variable} ist}
 }
 
         
@@ -1075,13 +1075,11 @@ Der Geltungsbereich des Universalquantors `$\forall x$' ist `$\forall x (\atom{E
 
 Zuletzt können wir das Folgende zu Sätzen der LEO sagen:	
 	\factoidbox{	
-		Ein \define{Satz} der LEO ist eine Formel der LEO, welche keine ungebundenen Variablen beinhaltet.
-	}
+		Ein \define{Satz} der LEO ist eine Formel der LEO, welcher keine ungebundene Variable beinhaltet.}
 
-\newglossaryentry{sentence of FOL}{
-	name = Satz (der LEO),
-	text = Satz der LEO,
-	description = {Eine \gls{Formel} der LEO, welche keine \glspl{ungebundene Variable} beinhaltet.}
+\newglossaryentry{Satz der LEO}{
+	name=Satz der LEO,
+	description={Eine \gls{Formel} der LEO, welcher keine \glspl{ungebundene Variable} beinhaltet}
 }
 
 \section{Klammerkonventionen}
